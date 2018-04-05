@@ -15,7 +15,19 @@ module Decidim
       class ::Decidim::ActionForbidden < StandardError
       end
 
-      rescue_from Decidim::ActionForbidden, with: :user_not_authorized
+      rescue_from Decidim::ActionForbidden, with: :user_has_no_permission
+
+      # Handles the case when a user visits a path that is not allowed to them.
+      # Redirects the user to the root path and shows a flash message telling
+      # them they are not authorized.
+      def user_has_no_permission
+        flash[:alert] = t("actions.unauthorized", scope: "decidim.core")
+        redirect_to(request.referer || user_has_no_permission_path)
+      end
+
+      def user_has_no_permission_path
+        raise NotImplementedError
+      end
 
       def permissions_context
         {

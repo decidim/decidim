@@ -72,7 +72,7 @@ module Decidim
                     icon_name: "dashboard",
                     position: 10,
                     active: [%w(decidim/admin/logs), []],
-                    if: can?(:read, :admin_log)
+                    if: allowed_to?(:read, :admin_log)
 
           menu.item I18n.t("menu.oauth_applications", scope: "decidim.admin"),
                     decidim_admin.oauth_applications_path,
