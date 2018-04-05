@@ -10,12 +10,21 @@ module Decidim
     included do
       helper_method :allowed_to?
 
+      skip_authorization_check
+
       class ::Decidim::ActionForbidden < StandardError
       end
 
       rescue_from Decidim::ActionForbidden, with: :user_not_authorized
 
-      alias_method :permissions_context, :ability_context
+      def permissions_context
+        {
+          current_settings: try(:current_settings),
+          component_settings: try(:component_settings),
+          current_organization: try(:current_organization),
+          current_component: try(:current_component)
+        }
+      end
 
       def enforce_permission_to(action, subject, extra_context = {})
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
@@ -35,6 +44,16 @@ module Decidim
 
       def permission_scope
         raise "Please, make this method return a symbol"
+      end
+
+      def current_ability
+        @current_ability ||= FakeAbility.new(current_user, permissions_context)
+      end
+
+      class FakeAbility
+        include CanCan::Ability
+
+        def initialize(*); end
       end
     end
   end
