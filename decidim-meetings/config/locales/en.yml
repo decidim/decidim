@@ -106,6 +106,12 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_open_type: Select an open type
+            select_organizer: Select the organizer
+            select_public_type: Select a public type
+            select_transparent_type: Select a transparent type
         meetings:
           close:
             invalid: There's been a problem closing this meeting
@@ -169,13 +175,13 @@ en:
         open: open
         other: other
       meeting_public_types:
+        other: other
         private: private
         public: public
-        other: other
       meeting_transparent_types:
-        transparent: transparent
         opaque: opaque
         other: other
+        transparent: transparent
       meetings:
         filters:
           category: Category
@@ -194,6 +200,8 @@ en:
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+        organizer:
+          organizer: Organizer
         registration_confirm:
           cancel: Cancel
           confirm: Confirm

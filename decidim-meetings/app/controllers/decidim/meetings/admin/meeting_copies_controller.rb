@@ -28,6 +28,25 @@ module Decidim
           end
         end
 
+        def organizers
+          respond_to do |format|
+            format.html do
+              render partial: "organizers"
+            end
+            format.json do
+              query = current_organization.users&.order(name: :asc)
+              term = params[:term]
+              if term&.start_with?("@")
+                term.delete!("@")
+                query = query.where("nickname ILIKE ?", "#{term}%")
+              else
+                query = query.where("name ILIKE ?", "%#{params[:term]}%")
+              end
+              render json: query.all.collect { |p| [p.id, p.name, p.nickname] }
+            end
+          end
+        end
+
         private
 
         def meeting

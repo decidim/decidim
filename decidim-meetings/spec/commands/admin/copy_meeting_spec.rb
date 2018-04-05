@@ -14,6 +14,9 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
+    let(:open_type) { "open" }
+    let(:public_type) { "public" }
+    let(:transparent_type) { "transparent" }
 
     let(:form) do
       double(
@@ -30,6 +33,13 @@ module Decidim::Meetings
         scope: meeting.scope,
         category: meeting.category,
         current_user: current_user,
+        organizer: meeting.organizer,
+        open_type: open_type,
+        open_type_other: "",
+        public_type: public_type,
+        public_type_other: "",
+        transparent_type: transparent_type,
+        transparent_type_other: "",
         current_component: meeting.component
       )
     end

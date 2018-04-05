@@ -1,5 +1,5 @@
 $(() => {
-  const $form = $(".edit_meeting, .new_meeting");
+  const $form = $(".edit_meeting, .new_meeting, .copy_meetings");
 
   if ($form.length > 0) {
     const $meetingOpenType = $form.find("#meeting_open_type");

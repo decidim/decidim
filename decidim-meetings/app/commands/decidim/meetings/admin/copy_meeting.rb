@@ -53,6 +53,13 @@ module Decidim
             location: @form.location,
             location_hints: @form.location_hints,
             component: @meeting.component,
+            open_type: @form.open_type,
+            open_type_other: @form.open_type_other,
+            public_type: @form.public_type,
+            public_type_other: @form.public_type_other,
+            transparent_type: @form.transparent_type,
+            transparent_type_other: @form.transparent_type_other,
+            organizer: @form.organizer,
             registrations_enabled: @meeting.registrations_enabled,
             available_slots: @meeting.available_slots,
             registration_terms: @meeting.registration_terms

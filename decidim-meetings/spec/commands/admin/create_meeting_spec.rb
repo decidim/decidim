@@ -17,6 +17,10 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
+    let(:organizer) { create :user, organization: organization }
+    let(:open_type) { "open" }
+    let(:public_type) { "public" }
+    let(:transparent_type) { "transparent" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -31,6 +35,13 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
+        organizer: organizer,
+        open_type: open_type,
+        open_type_other: "",
+        public_type: public_type,
+        public_type_other: "",
+        transparent_type: transparent_type,
+        transparent_type_other: "",
         current_user: current_user,
         current_component: current_component
       )
@@ -59,6 +70,11 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the organizer" do
+        subject.call
+        expect(meeting.organizer).to eq organizer
       end
 
       it "sets the component" do

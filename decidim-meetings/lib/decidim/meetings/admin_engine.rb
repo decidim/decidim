@@ -21,7 +21,11 @@ module Decidim
           end
           resources :attachment_collections
           resources :attachments
-          resources :copies, controller: "meeting_copies", only: [:new, :create]
+          resources :copies, controller: "meeting_copies", only: [:new, :create] do
+            member do
+              get :organizers
+            end
+          end
           member do
             get :organizers
           end
