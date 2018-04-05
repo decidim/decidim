@@ -183,10 +183,16 @@ module Decidim
       }
       picker_options[:class] += " is-invalid-input" if error?(attribute)
 
-      items = object.send(attribute) || []
-      items = items.values if items.is_a?(Hash)
-      items = [items] unless items.is_a?(Array)
-      items = items.map { |item| [item, yield(item)] }
+      if object.send(attribute).is_a? (ActiveRecord::Relation)
+        items = object.send(attribute).collect { |item| [item, yield(item)] }
+      else
+        items = object.send(attribute) || []
+
+        items = items.values if items.is_a?(Hash)
+        items = [items] unless items.is_a?(Array)
+        items = items.map { |item| [item, yield(item)] }
+      end
+      
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
       template += @template.render("decidim/widgets/data_picker", picker_options: picker_options, prompt_params: prompt_params, items: items)
