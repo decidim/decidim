@@ -49,6 +49,7 @@ module Decidim
             transparent_type: @form.transparent_type,
             transparent_type_other: @form.transparent_type_other,
             organizer: @form.organizer,
+            registration_terms: @form.current_component.settings.default_registration_terms,
             component: @form.current_component
           )
         end

@@ -50,6 +50,8 @@ end
 
 Capybara.asset_host = "http://localhost:3000"
 
+Capybara.server_errors = [SyntaxError, StandardError]
+
 RSpec.configure do |config|
   config.before :each, type: :system do
     driven_by(:headless_chrome)
