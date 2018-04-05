@@ -6,7 +6,7 @@ module Decidim
   module Surveys
     describe SurveyAnswerForm do
       subject do
-        described_class.from_model(survey_answer)
+        described_class.from_model(survey_answer).with_context(current_component: survey.component)
       end
 
       let(:mandatory) { false }

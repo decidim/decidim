@@ -32,8 +32,7 @@ module Decidim
       #
       # Returns nothing.
       def map_model(model)
-        @question = model.question
-        self.question_id = @question.id
+        self.question_id = model.decidim_survey_question_id
 
         self.choices = model.choices.map do |choice|
           SurveyAnswerChoiceForm.from_model(choice)
