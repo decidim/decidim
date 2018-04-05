@@ -34,7 +34,7 @@
                                disabled: true %>
           <% end %>
 
-          <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][decidim_survey_answer_option_id]",
+          <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][answer_option_id]",
                                answer_option.id,
                                id: "#{choice_id}_answer_option",
                                disabled: true %>
@@ -44,7 +44,7 @@
   <% when "multiple_option" %>
     <div class="check-box-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-        <% choice = answer.selected_choices.find { |choice| choice.decidim_survey_answer_option_id == answer_option.id } %>
+        <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
         <%= label_tag "#{field_id}_choices_#{idx}" do %>
           <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
@@ -59,7 +59,7 @@
                                disabled: true %>
           <% end %>
 
-          <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][decidim_survey_answer_option_id]", answer_option.id %>
+          <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
         <% end %>
 
       <% end %>

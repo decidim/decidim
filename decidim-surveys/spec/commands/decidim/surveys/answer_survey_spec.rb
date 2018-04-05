@@ -23,11 +23,11 @@ module Decidim
             },
             {
               "choices" => [
-                { "decidim_survey_answer_option_id" => answer_option_ids[0], "body" => "This" },
-                { "decidim_survey_answer_option_id" => answer_option_ids[1], "body" => "is" },
-                { "decidim_survey_answer_option_id" => answer_option_ids[2], "body" => "my" },
-                { "decidim_survey_answer_option_id" => answer_option_ids[3], "body" => "second" },
-                { "decidim_survey_answer_option_id" => answer_option_ids[4], "body" => "answer" }
+                { "answer_option_id" => answer_option_ids[0], "body" => "This" },
+                { "answer_option_id" => answer_option_ids[1], "body" => "is" },
+                { "answer_option_id" => answer_option_ids[2], "body" => "my" },
+                { "answer_option_id" => answer_option_ids[3], "body" => "second" },
+                { "answer_option_id" => answer_option_ids[4], "body" => "answer" }
               ],
               "question_id" => survey_question_2.id
             }

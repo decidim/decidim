@@ -64,8 +64,8 @@ module Decidim
 
         it "is valid if few enough answers checked" do
           subject.choices = [
-            { "decidim_survey_answer_option_id" => "1", "body" => "foo" },
-            { "decidim_survey_answer_option_id" => "2", "body" => "bar" }
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" }
           ]
 
           expect(subject).to be_valid
@@ -73,9 +73,9 @@ module Decidim
 
         it "is not valid if too many answers checked" do
           subject.choices = [
-            { "decidim_survey_answer_option_id" => "1", "body" => "foo" },
-            { "decidim_survey_answer_option_id" => "2", "body" => "bar" },
-            { "decidim_survey_answer_option_id" => "3", "body" => "baz" }
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" },
+            { "answer_option_id" => "3", "body" => "baz" }
           ]
 
           expect(subject).not_to be_valid

@@ -40,7 +40,7 @@ module Decidim
               answer.choices.build(
                 body: choice.body,
                 custom_body: choice.custom_body,
-                decidim_survey_answer_option_id: choice.decidim_survey_answer_option_id
+                decidim_survey_answer_option_id: choice.answer_option_id
               )
             end
 
