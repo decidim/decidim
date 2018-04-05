@@ -10,7 +10,7 @@ fr:
         organization: Organisation
         plural: Pluriel
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Dossier
         description: Description
         file: Fichier
         title: Titre
@@ -42,7 +42,7 @@ fr:
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu en surbrillance
+        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
@@ -66,8 +66,8 @@ fr:
         name: Nom
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de zone de d'application
-        scope_type_id: Type de zone d'application
+        scope_type: Type de périmètre de d'application
+        scope_type_id: Type de périmètre d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -92,7 +92,7 @@ fr:
         participatory_scope: Objectif
         participatory_structure: Modalités
         promoted: Mis en avant
-        scope: Zone d’application
+        scope: Périmètre d’application
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -103,7 +103,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Processus participatifs
+        participatory_processes: Processus
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
@@ -126,53 +126,53 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
-          success: Le type de zone a été créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
+          success: Le type de zone d'application a été créé avec succès.
         destroy:
-          success: Type de zone détruit avec succès
+          success: Type de zone d'application détruit avec succès
         edit:
-          title: Modifier le type de zone
+          title: Modifier le type de zone d'application
           update: Mettre à jour
         new:
-          create: Créer un type de zone
-          title: Nouveau type de zone
+          create: Créer un type de zone d'application
+          title: Nouveau type de zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone.
-          success: Type de zone mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
+          success: Type de zone d'application mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone.
-          success: Zone créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
+          success: Zone d'application créée avec succès.
         destroy:
-          success: Zone détruite avec succès
+          success: Zone d'application détruite avec succès
         edit:
-          title: Modifier la zone
+          title: Modifier la zone d'application
           update: Mettre à jour
         new:
-          create: Créer une zone
-          title: Nouvelle zone
-        no_areas: Pas de zones
+          create: Créer une zone d'application
+          title: Nouvelle zone d'application
+        no_areas: Pas de zones d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone.
-          success: Zone mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Zone d'application mise à jour avec succès
       attachment_collections:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle collection.
-          success: Collection créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau dossier.
+          success: Dossier crée avec succès.
         destroy:
-          success: Collection détruite avec succès.
+          success: Dossier détruit avec succès.
         edit:
-          title: Modifier la collection
+          title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Cette collection ne peut pas être supprimée car elle est en cours d'utilisation.
-          attachment_collections_title: Collections de pièces jointes
+          attachment_collection_used: Ce dossier ne peut pas être supprimé car elle est en cours d'utilisation.
+          attachment_collections_title: Dossiers de pièces jointes
         new:
           create: Créer
-          title: Nouvelle collection
+          title: Nouveau dossier
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette collection.
-          success: Collection mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce dossier.
+          success: Dossier mis à jour avec succès.
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau document lié.
@@ -295,15 +295,15 @@ fr:
         admin_log: Journal d'activité de l'administrateur
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zones
-        areas: Zones
+        area_types: Types de zones d'application
+        areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         officializations: Validations
-        scope_types: Types de zone d'application
-        scopes: Zones d’application
+        scope_types: Types de périmètre d'application
+        scopes: Périmètres d’application
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -320,13 +320,13 @@ fr:
             plural: Pluriel
         attachment:
           fields:
-            collection: Collection
+            collection: Dossier
             content_type: Type de contenus
             file_size: Taille
             title: Titre
           name: Document lié
         attachment_collection:
-          name: Collection
+          name: Dossier
         category:
           name: Catégorie
         impersonation_log:
@@ -348,7 +348,7 @@ fr:
         scope:
           fields:
             name: Nom
-            scope_type: Type de zone d'application
+            scope_type: Type de périmètre d'application
         scope_type:
           fields:
             name: Nom
@@ -386,8 +386,8 @@ fr:
         index:
           title: Modérations
           title:
-            upstream: Modération à priori
-            downstream: Modération à postériori
+            upstream: Modération a priori
+            downstream: Modération a postériori
           unmoderated: Non modérés
           moderated: Modérés
         report:
@@ -474,40 +474,40 @@ fr:
           cta_button_text_help: Vous pouvez remplacer le texte du bouton d'Appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'Appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
-          homepage_highlighted_content_banner_title: Bannière de contenu Highligted
+          homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier omniprésent
+          omnipresent_banner_appearance_title: Modifier la bannière omniprésente
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Type de zone d'application créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
+          success: Type de périmètre d'application créé avec succès.
         destroy:
-          success: Le type de zone d'application a été détruit avec succès
+          success: Le type de périmètre d'application a été détruit avec succès
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'application
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouvelle zone d'application
+          create: Créer un type de périmètre d'application
+          title: Nouveau périmètre d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Type de zone d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour du périmètre d'application.
+          success: Type de périmètre d'application mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle périmètre d’application.
+          success: Périmètre d'application crée avec succès.
         destroy:
-          success: Zone d'application supprimée avec succès
+          success: Périmètre d'application supprimé avec succès
         edit:
-          title: Editer la zone d'application
+          title: Editer le périmètre d'application
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_scopes: Pas de zone d'application à ce niveau.
+          create: Créer un périmètre d'application
+          title: Nouveau périmètre d'application
+        no_scopes: Pas de périmètre d'application à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'applicaiton mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour du périmètre d'application.
+          success: Périmètre d'applicaiton mis à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
@@ -527,15 +527,15 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zones
-        areas: Zones
+        area_types: Types de zone d'application
+        areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
         officializations: Validations
-        scope_types: Types de zone d'application
-        scopes: Zones d'application
+        scope_types: Types de périmètre d'application
+        scopes: Périmètres d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -579,7 +579,7 @@ fr:
         form:
           title: Titre
           link: Lien
-          weight: Poids
+          weight: Rang d'affichage
           new_tab: Ouvrir sur un nouvel onglet
           same_tab: Ouvrir dans le même onglet
         new:

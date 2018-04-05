@@ -3,14 +3,20 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+      dummy_authorization_handler:
+        document_number: Numéro de document d'identité
+        postal_code: Code postal
+        birthday: Date de naissance
       report:
         details: Commentaires additionnels
       user:
+        about: À propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre identifiant court et unique pour Decidim
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
+        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -95,16 +101,17 @@ fr:
           one: Document
           other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document d'identité
         fields:
-          document_number: Numéro de document
+          document_number: Numéro de document d'identité
           postal_code: Code postal
-        name: Exemple d'autorisation
+          birthday: Date de naissance
+        name: Formulaire de vérification d'identité
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
@@ -149,7 +156,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plate-forme?
+          are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -214,11 +221,11 @@ fr:
         name: Fonctionnalité exemple
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Exemple d'attribut 1
             dummy_global_attribute_2: Exemple d'attribut 2
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Exemple d'attribut pour une étape 1
             dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
@@ -509,19 +516,19 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus participatifs
+        processes_count: Processus
         projects_count: Projets
         proposals_accepted: Propositions acceptées
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:

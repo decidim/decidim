@@ -59,7 +59,7 @@ fr:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
         new:
           authorize: Envoyer
-          authorize_with: Vérifier avec %{authorizer}
+          authorize_with: Vérifier avec le formulaire
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
       dummy_authorization:

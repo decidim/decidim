@@ -85,8 +85,8 @@ fr:
         assemblies: Agora
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
-          attachment_collections: Collections
-          attachment_files: Des dossiers
+          attachment_collections: Dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
           features: Fonctionnalités
@@ -150,7 +150,7 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes

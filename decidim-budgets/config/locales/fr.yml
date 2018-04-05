@@ -11,7 +11,7 @@ fr:
   decidim:
     budgets:
       actions:
-        attachment_collections: Collections
+        attachment_collections: Dossiers
         attachments: Pièces jointes
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
@@ -108,15 +108,15 @@ fr:
         settings:
           global:
             announcement: Message d'annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
-            comments_upstream_moderation_enabled: Modération à priori des commentaires activée
+            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
           step:
             announcement: Message d'annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
-            votes_enabled: Votes activés
+            votes_enabled: Autoriser les utilisateurs à voter pour le budget
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
