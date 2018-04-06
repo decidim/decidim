@@ -13,7 +13,7 @@ module Decidim
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
-      validate :max_answers, if: -> { question.max_choices }
+      validate :max_choices, if: -> { question.max_choices }
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
@@ -49,7 +49,7 @@ module Decidim
         @survey ||= Survey.find_by(component: current_component)
       end
 
-      def max_answers
+      def max_choices
         errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
       end
 

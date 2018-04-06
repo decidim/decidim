@@ -62,7 +62,7 @@ module Decidim
 
         let(:max_choices) { 2 }
 
-        it "is valid if few enough answers checked" do
+        it "is valid if few enough options checked" do
           subject.choices = [
             { "answer_option_id" => "1", "body" => "foo" },
             { "answer_option_id" => "2", "body" => "bar" }
@@ -71,7 +71,7 @@ module Decidim
           expect(subject).to be_valid
         end
 
-        it "is not valid if too many answers checked" do
+        it "is not valid if too many options checked" do
           subject.choices = [
             { "answer_option_id" => "1", "body" => "foo" },
             { "answer_option_id" => "2", "body" => "bar" },
