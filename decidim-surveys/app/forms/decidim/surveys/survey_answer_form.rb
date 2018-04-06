@@ -8,18 +8,21 @@ module Decidim
 
       attribute :question_id, String
       attribute :body, String
+      attribute :choices, Array[String]
 
-      validates :body, presence: true, if: -> { question.mandatory? }
+      validates :body, presence: true, if: :mandatory_body?
+      validates :choices, presence: true, if: :mandatory_choices?
 
-      validate :body_not_blank, if: -> { question.mandatory? }
       validate :max_answers, if: -> { question.max_choices }
+
+      delegate :mandatory_body?, :mandatory_choices?, to: :question
 
       def question
         @question ||= survey.questions.find(question_id)
       end
 
       def label
-        base = "#{question.position + 1}. #{translated_attribute(question.body)}"
+        base = "#{id}. #{translated_attribute(question.body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base
@@ -38,15 +41,8 @@ module Decidim
         @survey ||= Survey.find_by(component: current_component)
       end
 
-      def body_not_blank
-        return if body.nil?
-        errors.add("body", :blank) if body.all?(&:blank?)
-      end
-
       def max_answers
-        return if body.nil?
-
-        errors.add("body", :too_many_choices) if body.size > question.max_choices
+        errors.add(:choices, :too_many) if choices.size > question.max_choices
       end
 
       def mandatory_label

@@ -92,28 +92,68 @@ describe "Answer a survey", type: :system do
         expect(page).to have_no_i18n_content(survey_question_2.body)
       end
 
-      it "the questions are ordered by position starting with one" do
-        visit_component
+      shared_examples_for "a correctly ordered survey" do
+        it "displays the questions ordered by position starting with one" do
+          form_fields = all(".answer-survey .row")
 
-        form_fields = all(".answer-survey .row")
-
-        expect(form_fields[0]).to have_i18n_content(survey_question_2.body).and have_content("1. ")
-        expect(form_fields[1]).to have_i18n_content(survey_question_1.body).and have_content("2. ")
+          expect(form_fields[0]).to have_i18n_content(survey_question_2.body).and have_content("1. ")
+          expect(form_fields[1]).to have_i18n_content(survey_question_1.body).and have_content("2. ")
+        end
       end
 
-      context "when a question is mandatory" do
+      context "and submitting a fresh form" do
+        before do
+          visit_component
+        end
+
+        it_behaves_like "a correctly ordered survey"
+      end
+
+      context "and rendering a form after errors" do
+        before do
+          visit_component
+          accept_confirm { click_button "Submit" }
+        end
+
+        it_behaves_like "a correctly ordered survey"
+      end
+
+      shared_context "when a question is mandatory" do
         let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, mandatory: true) }
 
-        it "users cannot leave that question blank" do
+        before do
           visit_component
 
           check "survey_tos_agreement"
+        end
+      end
 
-          accept_confirm { click_button "Submit" }
+      describe "leaving a blank question (without js)", driver: :rack_test do
+        include_context "when a question is mandatory"
 
+        before do
+          click_button "Submit"
+        end
+
+        it "submits the form and shows errors" do
           within ".alert.flash" do
             expect(page).to have_content("error")
           end
+
+          expect(page).to have_content("can't be blank")
+        end
+      end
+
+      describe "leaving a blank question (with js)" do
+        include_context "when a question is mandatory"
+
+        before do
+          accept_confirm { click_button "Submit" }
+        end
+
+        it "shows errors without submitting the form" do
+          expect(page).to have_no_selector ".alert.flash"
+
           expect(page).to have_content("can't be blank")
         end
       end
@@ -160,8 +200,8 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='radio']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='radio']", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=radio]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=radio]", count: 2)
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
             choose answer_options[1]["body"][:en]
@@ -193,8 +233,8 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 3)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 3)
           expect(page).to have_no_content("Max choices:")
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
@@ -240,7 +280,7 @@ describe "Answer a survey", type: :system do
             expect(page).to have_content("There's been errors when answering the survey.")
           end
 
-          expect(page).to have_content("has too many options checked")
+          expect(page).to have_content("are too many")
 
           uncheck answer_options[4]["body"][:en]
 
@@ -260,8 +300,8 @@ describe "Answer a survey", type: :system do
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 2)
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
             check answer_options[0]["body"][:en]

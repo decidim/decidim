@@ -1,0 +1,40 @@
+<% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
+<%= label_tag field_id, answer.label, class: "survey-question" %>
+
+<% if translated_attribute(answer.question.description).present? %>
+  <div class="help-text">
+    <%= decidim_sanitize translated_attribute(answer.question.description) %>
+  </div>
+<% end %>
+
+<% case answer.question.question_type %>
+  <% when "short_answer" %>
+    <%= answer_form.text_field :body, label: false, id: field_id %>
+  <% when "long_answer" %>
+    <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
+  <% when "single_option" %>
+    <div id="<%= field_id %>_answer_options" class="radio-button-collection">
+      <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+        <%= label_tag "#{field_id}_option_#{idx}" do %>
+          <%= radio_button_tag "survey[answers][#{answer_idx}][choices][]", translated_attribute(answer_option["body"]), answer.choices.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+          <%= translated_attribute(answer_option["body"]) %>
+        <% end %>
+      <% end %>
+    </div>
+  <% when "multiple_option" %>
+    <div id="<%= field_id %>_answer_options" class="check-box-collection">
+      <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+        <%= label_tag "#{field_id}_option_#{idx}" do %>
+          <%= check_box_tag "survey[answers][#{answer_idx}][choices][]", translated_attribute(answer_option["body"]), answer.choices.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+          <%= translated_attribute(answer_option["body"]) %>
+        <% end %>
+      <% end %>
+    </div>
+<% end %>
+
+<%= answer_form.hidden_field :id %>
+<%= answer_form.hidden_field :question_id %>
+
+<% answer.errors.full_messages.each do |msg| %>
+  <%= content_tag :small, msg, class: "form-error is-visible" %>
+<% end %>
