@@ -25,7 +25,7 @@ FactoryBot.define do
     body { Decidim::Faker::Localized.sentence }
     mandatory false
     position 0
-    question_type Decidim::Surveys::SurveyQuestion::TYPES.first
+    question_type { Decidim::Surveys::SurveyQuestion::TYPES.first }
     answer_options []
     survey
   end

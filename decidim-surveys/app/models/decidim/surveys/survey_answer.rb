@@ -8,7 +8,9 @@ module Decidim
       belongs_to :survey, class_name: "Survey", foreign_key: "decidim_survey_id"
       belongs_to :question, class_name: "SurveyQuestion", foreign_key: "decidim_survey_question_id"
 
-      validates :body, presence: true, if: -> { question.mandatory? }
+      validates :body, presence: true, if: -> { question.mandatory_body? }
+      validates :options, presence: true, if: -> { question.mandatory_choices? }
+
       validate :user_survey_same_organization
       validate :question_belongs_to_survey
 

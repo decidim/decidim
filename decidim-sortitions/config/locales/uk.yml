@@ -1,0 +1,5 @@
+uk:
+  activemodel:
+    attributes:
+      sortition:
+        title: Заголовок

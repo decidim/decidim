@@ -8,7 +8,7 @@ module Decidim
       let(:resource) { create :proposal, title: "A nice proposal" }
       let(:event_name) { "decidim.events.proposals.proposal_published" }
 
-      include_context "simple event"
+      include_context "when a simple event"
       it_behaves_like "a simple event"
 
       describe "email_subject" do
@@ -45,7 +45,7 @@ module Decidim
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
         let(:extra) { { participatory_space: true } }
 
-        include_context "simple event"
+        include_context "when a simple event"
         it_behaves_like "a simple event"
 
         describe "email_subject" do

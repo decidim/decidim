@@ -33,7 +33,8 @@ module Decidim
               user: @current_user,
               survey: @survey,
               question: form_answer.question,
-              body: form_answer.body
+              body: form_answer.body,
+              choices: form_answer.choices
             )
           end
         end

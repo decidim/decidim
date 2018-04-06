@@ -32,16 +32,16 @@ ca:
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            maximum_votes_per_proposal: Suports màxims per proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
-            proposal_answering_enabled: Resposta oficial a propostes activades
+            proposal_answering_enabled: Activar resposta oficial a propostes
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per usuari
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
+            threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
             announcement: Anunci
@@ -49,7 +49,7 @@ ca:
             creation_enabled: Habilitar de creació de propostes
             endorsements_blocked: Bloquejar adhesions
             endorsements_enabled: Adhesions habilitades
-            proposal_answering_enabled: S'ha habilitat la resposta de la proposta
+            proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
@@ -70,16 +70,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: Una proposta que segueixes ha estat acceptada
           notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova proposta. Revisa-la i contribueix:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta de %{author_nickname}
-          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat creada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: S'ha afegit la proposta "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: Nova proposta afegida a %{participatory_space_title}
-          notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -90,6 +80,20 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: S'està avaluant una proposta que segueixes
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_mentioned:
+          email_intro: La vostra proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
+          email_subject: S'ha mencionat la vostra proposta "%{mentioned_proposal_title}"
+          notification_title: La vostra proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta, comprova i contribueix:"
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta per %{author_nickname}
+          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}" que seguiu.
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -206,6 +210,9 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
+      destroy_draft:
+        error: S'ha produït un error en suprimir l'esborrany de la proposta.
+        success: El projecte de proposta s'ha destruït amb èxit.
       models:
         proposal:
           fields:
@@ -229,7 +236,7 @@ ca:
           select_identity: Selecciona identitat
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Ja adherit
+          already_endorsed: Aprovat
           endorse: Adherir-se
       proposal_votes:
         create:
@@ -249,11 +256,10 @@ ca:
           send: Enviar
           title: Editar proposta
         edit_draft:
+          discard: Descarta aquest esborrany
+          discard_confirmation: Esteu segur que voleu descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
-        endorsement_button:
-          already_endorsed: Ja adherit
-          already_endorsed_hover: Desadherir-se
         endorsement_identities_cabin:
           endorse: Adherir-se
         endorsements_card_row:
@@ -340,11 +346,11 @@ ca:
           need_more_votes: Necessita més vots
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pot acumular més del màxim de vots
-          maximum_votes_per_proposal:
-            description: Cada proposta pot rebre un màxim de %{limit} suports.
+            description: Cada proposta pot acumular més de %{limit} suports
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          threshold_per_proposal:
+            description: Per ser acceptat, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.

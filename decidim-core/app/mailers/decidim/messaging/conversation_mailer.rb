@@ -25,7 +25,6 @@ module Decidim
 
       private
 
-      # rubocop:disable Naming/UncommunicativeMethodParamName
       def notification_mail(from:, to:, conversation:, action:)
         with_user(to) do
           @organization = to.organization
@@ -43,7 +42,6 @@ module Decidim
           mail(to: to.email, subject: subject)
         end
       end
-      # rubocop:enable Naming/UncommunicativeMethodParamName
     end
   end
 end

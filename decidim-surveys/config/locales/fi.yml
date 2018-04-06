@@ -51,6 +51,7 @@ fi:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselyyn, minkä takia et voi muokata sen kysymyksiä.
           question:
             add_answer_option: Lisää vastausvaihtoehto
+            description: Kuvaus
             down: Alas
             question: Kysymys
             remove: Poistaa

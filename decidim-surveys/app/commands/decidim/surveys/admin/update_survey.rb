@@ -39,11 +39,12 @@ module Decidim
               position: form_question.position,
               mandatory: form_question.mandatory,
               question_type: form_question.question_type,
-              answer_options: form_question.answer_options_to_persist.map { |answer| { "body" => answer.body } }
+              answer_options: form_question.answer_options_to_persist.map { |option| { "body" => option.body } },
+              max_choices: form_question.max_choices
             }
 
             if form_question.id.present?
-              question = @survey.questions.where(id: form_question.id).first
+              question = @survey.questions.find_by(id: form_question.id)
               if form_question.deleted?
                 question.destroy!
               else

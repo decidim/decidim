@@ -1,0 +1,145 @@
+fi:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Lajitustiedot
+        decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
+        decidim_proposals_component_id: Ehdotukset asetettu
+        dice: Muotin rullan tulos (kierrä 6-puolinen kuolema (tai etsi toinen satunnaisesti tapa luoda numero 1-6) ja tulkaa tänne, sen sijaan, että todistat tuloksena olevan numeron, tämä edistää laadun ja takuiden satunnaisuuden lopputulos
+        target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
+        title: otsikko
+        witnesses: todistajat
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Kommentit ovat käytössä
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Seuraavaksi on lisätty "%{resource_title}" kokoonpano "%{participatory_space_title}".
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: 'Uusi lajittelu lisättiin %{participatory_space_title}: ään'
+          notification_title: 'Versio <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Peruuta järjestely
+          edit: Muokata
+          new: Uusi
+          show: Järjestelytiedot
+        models:
+          sortition:
+            fields:
+              category: Kategoria
+              created_at: Luomispäivä
+              decidim_proposals_component: Ehdotusten osa
+              dice: noppa
+              reference: Viite
+              request_timestamp: Vedä aikaa
+              seed: siemen
+              target_items: Valitse kohteet
+              title: otsikko
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Haluatko varmasti peruuttaa tämän lajittelun?
+            destroy: Peruuta lajittelu
+            title: Peruutuksen peruuttaminen
+          create:
+            error: Virhe aiheutti uuden lajittelun.
+            success: Lajittelu onnistui
+          destroy:
+            error: Mitään ei voi peruuttaa.
+            success: Lajittelu onnistuneesti peruutettu
+          edit:
+            title: Päivitä järjestelyn tiedot
+            update: Päivittää
+          form:
+            all_categories: Kaikki kategoriat
+            select_proposal_component: Valitse asetetut ehdotukset
+            title: Uusi lajittelu ehdotuksiin
+          index:
+            title: Sortitions
+          new:
+            confirm: Painamalla seuraavalla painikkeella Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä noputusvalssin kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painike napsautetaan tuloksen tulosta julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti.
+            create: Luoda
+            title: Uusi lajittelu
+          show:
+            selected_proposals: Piirtämiseen valitut ehdotukset
+          update:
+            error: Virhe tapahtuman päivittämisessä.
+            success: Lajittelu onnistui päivittämään
+      admin_log:
+        sortition:
+          create: "%{user_name} loi %{resource_name} lajittelun %{space_name}"
+          delete: "%{user_name} peruutti %{resource_name} lajittelun %{space_name}: ssä"
+          update: "%{user_name} päivitti %{resource_name} lajittelun %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 ehdotus
+            other: "%{count} ehdotukset"
+        filters:
+          active: aktiivinen
+          all: Kaikki
+          cancelled: peruttu
+          category: Kategoria
+          category_prompt: Valitse kategoria
+          search: Hae
+          state: Osavaltio
+        filters_small_view:
+          close_modal: Sulje modeemi
+          filter: Suodattaa
+          filter_by: Suodata
+          unfold: avautua
+        linked_sortitions:
+          selected_proposals: Valitut ehdotukset
+        orders:
+          label: 'Tilaa järjestykset:'
+          random: satunnainen
+          recent: viimeaikainen
+        proposal:
+          view_proposal: Näytä ehdotus
+        results_count:
+          count:
+            one: valittu ehdotus
+            other: valitut ehdotukset
+        show:
+          algorithm: Sortitionin algoritmikoodi
+          any_category: kaikista luokista
+          cancelled: Peruttu lajittelu
+          candidate_proposal_ids: Lajitteluehdotus ja tunnukset
+          candidate_proposals_info: 'Selvitys tehtiin seuraavien ehdotusten (%{category_label}) alla, ja seuraavat tunnukset (lihavoituna valitut ehdotukset)  '
+          category: '%{category} -luokasta'
+          dice_result: "(1) Nopatulos"
+          introduction: 'Tämä sivu sisältää järjestelyn tulokset %{reference}. Tämän järjestelyn avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtä todennäköinen jakauma nähtynä esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten kopioimiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppa (todistajat todistavat) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-siemenet ovat niin tarkkoja (sekuntia), että ihmisten on mahdotonta hallita, jolloin saadaan kaksinkertainen "hallitsematon" panos taatakseen oikeudenmukaisen tuloksen.  '
+          mathematical_result: Tulos (1) x (2)
+          proposals_selected_by_sortition: Ehdotukset, jotka on valittu lajittelusta
+          sortition_reproducibility_details: Lajittelun uusittavuustiedot
+          time_seed: "(2) Aikasementti"
+          witnesses: todistajat
+        sortition:
+          selected_proposals:
+            one: 1 ehdotus valittu
+            other: "%{count} valitut ehdotukset"
+          view_sortition: Näytä lajittelu
+        sortition_author:
+          deleted: Poistettu käyttäjä
+        sortition_cancel_author:
+          deleted: Poistettu käyttäjä
+        sortitions_count:
+          count:
+            one: 1 lajittelu
+            other: "%{count} lajittelut"
+  pages:
+    home:
+      statistics:
+        sortitions_count: Sortitions

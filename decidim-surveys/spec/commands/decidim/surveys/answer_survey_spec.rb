@@ -20,7 +20,7 @@ module Decidim
               "question_id" => survey_question_1.id
             },
             {
-              "body" => "This is my first answer",
+              "choices" => %w(This is my second answer),
               "question_id" => survey_question_2.id
             }
           ],
@@ -62,8 +62,14 @@ module Decidim
           expect do
             command.call
           end.to change(SurveyAnswer, :count).by(2)
-          last_answer = SurveyAnswer.last
-          expect(last_answer.survey).to eq(survey)
+          expect(SurveyAnswer.all.map(&:survey)).to eq([survey, survey])
+        end
+
+        it "creates answers with the correct information" do
+          command.call
+
+          expect(SurveyAnswer.first.body).to eq("This is my first answer")
+          expect(SurveyAnswer.last.choices).to eq(%w(This is my second answer))
         end
       end
     end

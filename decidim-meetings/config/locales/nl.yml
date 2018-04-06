@@ -21,6 +21,15 @@ nl:
         start_time: Starttijd
         title: Titel
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
+          success: Gedupliceerde vergadering met succes.
+        new:
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dubbele vergadering
     components:
       meetings:
         actions:

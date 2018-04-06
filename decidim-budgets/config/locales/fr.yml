@@ -11,7 +11,7 @@ fr:
   decidim:
     budgets:
       actions:
-        attachment_collections: Collections
+        attachment_collections: Dossiers
         attachments: Pièces jointes
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
@@ -108,14 +108,14 @@ fr:
     components:
       budgets:
         actions:
-          vote: Vote
+          vote: Voter
         name: Budgets
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
             total_budget: Budget total
-            vote_threshold_percent: Vote seuil de pourcentage
+            vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués

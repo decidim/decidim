@@ -8,7 +8,7 @@ nl:
       user:
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Uw korte unieke ID in decidim
+        nickname: Uw korte unieke ID
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         remove_avatar: Verwijder avatar
@@ -71,6 +71,10 @@ nl:
         delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
         deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
         update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      oauth_application:
+        create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
+        delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
+        update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
       scope:
@@ -147,7 +151,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw korte unieke ID in decidim
+          nickname_help: Uw korte, unieke ID in %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -155,7 +159,7 @@ nl:
         new:
           already_have_an_account?: U heeft al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
-          nickname_help: Uw korte unieke ID in decidim
+          nickname_help: Uw korte, unieke ID in %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -173,6 +177,21 @@ nl:
       shared:
         omniauth_buttons:
           or: Of
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Aanvraag autoriseren
+          by_organization_link_html: <small class="heading-small">door %{link}</small>
+          cancel: Annuleer
+          connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
+          publish_content: Publiceer inhoud voor u
+          see_email: Zie uw e-mail
+          see_name: Zie je naam
+          see_username: Zie je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
+          this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
+          update_profile: update je profiel
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil je account gebruiken"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -313,6 +332,10 @@ nl:
     pages:
       index:
         title: Meer informatie
+    participatory_space_private_users:
+      not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+    profile:
+      deleted: Verwijderde gebruiker
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
       show:
@@ -400,7 +423,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
-        nickname_help: Uw unieke ID in decidim.
+        nickname_help: Uw unieke ID in %{organization}.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -410,18 +433,25 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Je kunt het accepteren via de onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-gebruiker van %{application}, je kunt het accepteren via de onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
+      invite_private_user:
+        subject: Je bent uitgenodigd voor een persoonlijk participatieproces op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
         greeting: Hallo %{recipient}!
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
+  doorkeeper:
+    scopes:
+      public: Uw openbare informatie.
   errors:
     messages:
       content_type_whitelist_error: Het bestandstype is niet geldig
@@ -501,6 +531,7 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        debates_count: debatten
         endorsements_count: Endorsements
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen

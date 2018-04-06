@@ -1,0 +1,28 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if can? :update, current_consultation %>
+        <li <% if is_active_link?(decidim_admin_consultations.edit_consultation_path(current_consultation)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.consultations_submenu"),
+                                    decidim_admin_consultations.edit_consultation_path(current_consultation) %>
+        </li>
+      <% end %>
+
+      <% if can?(:index, Decidim::Consultations::Question) %>
+        <li <% if is_active_link?(decidim_admin_consultations.consultation_questions_path(current_consultation)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("questions", scope: "decidim.admin.menu.consultations_submenu"),
+                                    decidim_admin_consultations.consultation_questions_path(current_consultation) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= translated_attribute(current_consultation.title) %>
+    </div>
+  </div>
+  <%= yield %>
+<% end %>

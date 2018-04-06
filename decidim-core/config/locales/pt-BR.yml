@@ -8,7 +8,7 @@ pt-BR:
       user:
         email: Seu e-mail
         name: O seu nome
-        nickname: Seu identificador curto e exclusivo em decidim
+        nickname: Seu identificador curto e exclusivo
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
@@ -71,6 +71,10 @@ pt-BR:
         delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
         deliver: "%{user_name} entregou o %{resource_name} Boletim de Notícias"
         update: "%{user_name} atualizou o %{resource_name} Boletim de Notícias"
+      oauth_application:
+        create: "%{user_name} criou o aplicativo OAuth %{resource_name}"
+        delete: "%{user_name} excluiu o aplicativo %{resource_name} OAuth"
+        update: "%{user_name} atualizou o aplicativo %{resource_name} OAuth"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
       scope:
@@ -147,7 +151,7 @@ pt-BR:
           email_already_exists: Este endereço de e-mail já está registrado em outra contra
         new:
           complete_profile: Perfil completo
-          nickname_help: Seu identificador curto e exclusivo em decidim
+          nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_up: Por favor, complete seu perfil
           subtitle: Por favor, preencha o formulário seguinte para completar a inscrição
           username_help: Nome público que aparece em suas publicações. Para garantir o anonimato, você pode escolher qualquer nome.
@@ -155,7 +159,7 @@ pt-BR:
         new:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
-          nickname_help: Seu identificador curto e exclusivo em decidim
+          nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_in: Entrar
           sign_up: Inscrever-se
           sign_up_as:
@@ -173,6 +177,21 @@ pt-BR:
       shared:
         omniauth_buttons:
           or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorizar aplicativo
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecte sua conta fazendo login em <strong>%{organization}</strong>
+          publish_content: Publicar conteúdo para você
+          see_email: Veja seu email
+          see_name: Veja seu nome
+          see_username: Veja seu nome de usuário
+          this_application_will_be_able_to: 'Esta aplicação será capaz de:'
+          this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
+          update_profile: atualize seu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     errors:
       internal_server_error:
         title: Problema de comunicação com o servidor
@@ -313,6 +332,10 @@ pt-BR:
     pages:
       index:
         title: Mais informação
+    participatory_space_private_users:
+      not_allowed: Você não tem permissão para visualizar este conteúdo
+    profile:
+      deleted: Usuário deletado
     profiles:
       default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
       show:
@@ -400,7 +423,7 @@ pt-BR:
     invitations:
       edit:
         header: Coloque sua senha
-        nickname_help: Seu login no decidim.
+        nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
     mailer:
       invitation_instructions:
@@ -410,18 +433,25 @@ pt-BR:
         ignore: |-
           Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
+        someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
+      invite_private_user:
+        subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
         subject: Você foi convidado a gerenciar %{organization}
       password_change:
         greeting: Olá %{recipient}!
         message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
+  doorkeeper:
+    scopes:
+      public: Sua informação pública.
   errors:
     messages:
       content_type_whitelist_error: O tipo de arquivo não é válido
@@ -501,6 +531,7 @@ pt-BR:
         answers_count: Formulário completo
         assemblies_count: Assembléias
         comments_count: Comentários
+        debates_count: Debates
         endorsements_count: Endossos
         headline: Estado atual de %{organization}
         meetings_count: Reuniões

@@ -53,11 +53,11 @@ module Decidim
         end
 
         def scope
-          @scope ||= current_organization.scopes.where(id: scope_id).first
+          @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
         def participatory_process_group
-          Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
+          Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
         end
 
         private
