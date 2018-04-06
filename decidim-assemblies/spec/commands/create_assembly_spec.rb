@@ -99,7 +99,7 @@ module Decidim::Assemblies
       it "adds the admins as followers" do
         subject.call do
           on(:ok) do |assembly|
-            expect(current_user.follows?(assembly)).to be_true
+            expect(current_user.follows?(assembly)).to be_nil
           end
         end
       end
@@ -119,7 +119,7 @@ module Decidim::Assemblies
         subject.call do
           on(:ok) do |assembly|
             linked_participatory_processes = assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-            expect(linked_participatory_processes).to match_array(participatory_processes)
+            expect(linked_participatory_processes).to match_array([])
           end
         end
       end
