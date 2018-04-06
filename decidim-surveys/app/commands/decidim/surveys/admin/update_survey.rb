@@ -44,7 +44,7 @@ module Decidim
             }
 
             if form_question.id.present?
-              question = @survey.questions.where(id: form_question.id).first
+              question = @survey.questions.find_by(id: form_question.id)
               if form_question.deleted?
                 question.destroy!
               else

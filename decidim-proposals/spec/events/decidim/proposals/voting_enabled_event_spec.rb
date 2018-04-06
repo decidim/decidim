@@ -7,7 +7,7 @@ module Decidim
     describe VotingEnabledEvent do
       include Decidim::ComponentPathHelper
 
-      include_context "simple event"
+      include_context "when a simple event"
 
       let(:event_name) { "decidim.events.proposals.voting_enabled" }
       let(:resource) { create(:proposal_component) }

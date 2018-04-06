@@ -3,7 +3,7 @@
 require "nokogiri"
 
 RSpec.configure do |config|
-  config.before(:each) { clear_emails }
+  config.before { clear_emails }
 end
 
 # A set of helpers meant to make your life easier when testing

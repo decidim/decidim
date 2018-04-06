@@ -35,7 +35,7 @@ module Decidim
       private
 
       def survey
-        @survey ||= Survey.where(component: current_component).first
+        @survey ||= Survey.find_by(component: current_component)
       end
 
       def body_not_blank
