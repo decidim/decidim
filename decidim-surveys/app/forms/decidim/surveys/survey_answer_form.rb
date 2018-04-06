@@ -21,8 +21,8 @@ module Decidim
         @question ||= survey.questions.find(question_id)
       end
 
-      def label
-        base = "#{id}. #{translated_attribute(question.body)}"
+      def label(idx)
+        base = "#{idx + 1}. #{translated_attribute(question.body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base

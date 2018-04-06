@@ -73,7 +73,7 @@ describe "Answer a survey", type: :system do
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        fill_in "survey_answers_1_body", with: "My first answer"
+        fill_in "survey_answers_0_body", with: "My first answer"
 
         check "survey_tos_agreement"
 
@@ -85,6 +85,36 @@ describe "Answer a survey", type: :system do
 
         expect(page).to have_content("You have already answered this survey.")
         expect(page).to have_no_i18n_content(survey_question.body)
+      end
+
+      context "when the survey has already been answered by someone else" do
+        let!(:survey_question) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: "single_option",
+            position: 0,
+            answer_options: [
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence }
+            ]
+          )
+        end
+
+        before do
+          answer = create(:survey_answer, id: 1, survey: survey, question: survey_question)
+
+          answer.choices.create!(
+            answer_option: Decidim::Surveys::SurveyAnswerOption.first,
+            body: "Lalalilo"
+          )
+        end
+
+        it "does not leak defaults from other answers" do
+          visit_component
+
+          expect(page).to have_no_selector("input[type=radio]:checked")
+        end
       end
 
       shared_examples_for "a correctly ordered survey" do
@@ -247,16 +277,16 @@ describe "Answer a survey", type: :system do
           it "renders them as radio buttons with attached text fields disabled by default" do
             expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 3)
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: true, count: 1)
 
             choose answer_option_bodies[2]["en"]
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: false, count: 1)
           end
 
           it "saves the free text in a separate field if submission correct" do
             choose answer_option_bodies[2]["en"]
-            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -269,12 +299,12 @@ describe "Answer a survey", type: :system do
           end
 
           it "preserves the previous custom body if submission not correct" do
-            check "survey_answers_2_choices_0_body"
-            check "survey_answers_2_choices_1_body"
-            check "survey_answers_2_choices_2_body"
+            check "survey_answers_1_choices_0_body"
+            check "survey_answers_1_choices_1_body"
+            check "survey_answers_1_choices_2_body"
 
             choose answer_option_bodies[2]["en"]
-            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -283,7 +313,7 @@ describe "Answer a survey", type: :system do
               expect(page).to have_content("There's been errors when answering the survey.")
             end
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", with: "Cacatua")
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", with: "Cacatua")
           end
         end
 
@@ -293,16 +323,16 @@ describe "Answer a survey", type: :system do
           it "renders them as check boxes with attached text fields disabled by default" do
             expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: true, count: 1)
 
             check answer_option_bodies[2]["en"]
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: false, count: 1)
           end
 
           it "saves the free text in a separate field if submission correct" do
             check answer_option_bodies[2]["en"]
-            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -315,12 +345,12 @@ describe "Answer a survey", type: :system do
           end
 
           it "preserves the previous custom body if submission not correct" do
-            check "survey_answers_2_choices_0_body"
-            check "survey_answers_2_choices_1_body"
-            check "survey_answers_2_choices_2_body"
+            check "survey_answers_1_choices_0_body"
+            check "survey_answers_1_choices_1_body"
+            check "survey_answers_1_choices_2_body"
 
             check answer_option_bodies[2]["en"]
-            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -329,7 +359,7 @@ describe "Answer a survey", type: :system do
               expect(page).to have_content("There's been errors when answering the survey.")
             end
 
-            expect(page).to have_field("survey_answers_1_choices_2_custom_body", with: "Cacatua")
+            expect(page).to have_field("survey_answers_0_choices_2_custom_body", with: "Cacatua")
           end
         end
       end
@@ -340,7 +370,7 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a textarea" do
           visit_component
 
-          expect(page).to have_selector("textarea#survey_answers_1_body")
+          expect(page).to have_selector("textarea#survey_answers_0_body")
         end
       end
 
@@ -350,7 +380,7 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a text field" do
           visit_component
 
-          expect(page).to have_selector("input[type=text]#survey_answers_1_body")
+          expect(page).to have_selector("input[type=text]#survey_answers_0_body")
         end
       end
 
