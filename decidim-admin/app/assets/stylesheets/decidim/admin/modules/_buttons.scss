@@ -21,6 +21,11 @@
       letter-spacing: 0;
     }
   }
+
+  &.reverse{
+    @include modifiers(color);
+    @include modifiers(background-color, (primary: $white, secondary: $white, success: $white, warning: $white, alert: $white));
+  }
 }
 
 .button.muted{
