@@ -14,6 +14,9 @@ module Decidim
 
         return false unless user
         return Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).allowed? if user_manager?
+
+        return true if user_can_enter_space_area?
+
         return false unless user.admin?
 
         return true if read_admin_dashboard_action?
@@ -39,8 +42,6 @@ module Decidim
         return true if permission_action.subject == :officialization
         return true if permission_action.subject == :authorization
         return true if permission_action.subject == :authorization_workflow
-
-        return true if space_allows_read_action?
 
         false
       end
@@ -113,8 +114,9 @@ module Decidim
         !@user.admin? && @user.role?("user_manager")
       end
 
-      def space_allows_read_action?
-        return unless permission_action.action == :read
+      def user_can_enter_space_area?
+        return unless permission_action.action == :enter &&
+          permission_action.subject == :space_area
 
         Decidim.participatory_space_manifests.any? do |manifest|
           manifest.permissions_class.new(user, permission_action, context).allowed?

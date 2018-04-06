@@ -15,6 +15,8 @@ module Decidim
         return false unless user
         return false unless permission_action.scope == :admin
 
+        return true if enter_space_area_action?
+
         # this line could probably be moved to the `admin` engine
         # and make it call all participatory spaces Permissions classes
         # to check if any of them allowed the user to visit the admin
@@ -40,7 +42,7 @@ module Decidim
       # It's an admin user if it's an organization admin or is a space admin
       # for the current `process`.
       def admin_user?
-        user.admin? || can_manage_process?(role: :admin)
+        user.admin? || (process ? can_manage_process?(role: :admin) : has_manageable_processes?)
       end
 
       # It's an admin user if it's an space collaborator for the current `process`.
@@ -62,6 +64,13 @@ module Decidim
       # specific role privilege.
       def participatory_processes_with_role_privileges(role)
         Decidim::ParticipatoryProcessesWithUserRole.for(user, role)
+      end
+
+      def enter_space_area_action?
+        return unless permission_action.action == :enter &&
+          permission_action.subject == :space_area
+
+        user.admin? || has_manageable_processes?
       end
 
       # Checks if the permission_action is to read in the admin or not.
