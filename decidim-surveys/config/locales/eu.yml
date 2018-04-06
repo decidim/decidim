@@ -11,8 +11,8 @@ eu:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: aukerak gehiegi ditu
+            choices:
+              too_many: gehiegi dira
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} inkesta berri bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
+    forms:
+      errors:
+        survey_answer:
+          body: Gorputza ezin da hutsik egon
     surveys:
       admin:
         exports:
