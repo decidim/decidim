@@ -11,8 +11,8 @@ pt-BR:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: tem muitas opções marcadas
+            choices:
+              too_many: são muitos
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Uma nova pesquisa em %{participatory_space_title}
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    forms:
+      errors:
+        survey_answer:
+          body: O corpo não pode ficar em branco
     surveys:
       admin:
         exports:
