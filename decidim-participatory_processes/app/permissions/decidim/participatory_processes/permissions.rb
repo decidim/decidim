@@ -13,25 +13,27 @@ module Decidim
         return true if permission_action.scope == :public
 
         return false unless user
+        return false if !has_manageable_processes? && !user.admin?
         return false unless permission_action.scope == :admin
 
-        return true if enter_space_area_action?
+        return true if user_can_enter_space_area?
 
-        # this line could probably be moved to the `admin` engine
-        # and make it call all participatory spaces Permissions classes
-        # to check if any of them allowed the user to visit the admin
-        return true if has_manageable_processes? && admin_read_dashboard_permission_action?
+        return true if valid_process_group_action?
 
-        return true if has_manageable_processes? && admin_read_process_permission_action?
-        return true if has_manageable_processes? && admin_read_process_group_permission_action?
+        return true if user_can_read_admin_dashboard?
 
-        # space collaborators can only read, nothing else
-        return true if collaborator_user? && admin_read_permission_action?
+        return true if user_can_read_process?
+        return true if user_can_create_process?
+        return true if user_can_destroy_process?
 
-        return true if permission_action.subject == :moderation && can_manage_process?
+        return false unless process
 
-        # org admins and space admins can do everything in the admin section
-        return true if admin_user?
+        return true if moderator_action?
+        return true if collaborator_action?
+        return true if process_admin_action?
+
+        # # org admins and space admins can do everything in the admin section
+        return true if user.admin?
 
         false
       end
@@ -44,11 +46,6 @@ module Decidim
       # for the current `process`.
       def admin_user?
         user.admin? || (process ? can_manage_process?(role: :admin) : has_manageable_processes?)
-      end
-
-      # It's an admin user if it's an space collaborator for the current `process`.
-      def collaborator_user?
-        can_manage_process?(role: :collaborator)
       end
 
       # Checks if it has any manageable process, with any possible role.
@@ -67,11 +64,19 @@ module Decidim
         Decidim::ParticipatoryProcessesWithUserRole.for(user, role)
       end
 
-      def enter_space_area_action?
+      # All users with a relation to a process and organization admins can enter
+      # the space area. The sapce area is considered to be the processes zone,
+      # not the process groups one.
+      def user_can_enter_space_area?
         return unless permission_action.action == :enter &&
           permission_action.subject == :space_area
 
         user.admin? || has_manageable_processes?
+      end
+
+      # Only organization admins can manage process groups.
+      def valid_process_group_action?
+        permission_action.subject == :process_group && user.admin?
       end
 
       # Checks if the permission_action is to read in the admin or not.
@@ -79,25 +84,78 @@ module Decidim
         permission_action.action == :read
       end
 
-      # Checks if the permission_action is to read the admin dashboard or not.
-      def admin_read_dashboard_permission_action?
+      # Any user that can enter the space area can read the admin dashboard.
+      def user_can_read_admin_dashboard?
+        return unless permission_action.action == :read &&
+          permission_action.subject == :admin_dashboard
+
+        user.admin? || has_manageable_processes?
+      end
+
+      # Only organization admins can create a process
+      def user_can_create_process?
+        permission_action.action == :create &&
+          permission_action.subject == :process
+
+        user.admin?
+      end
+
+      # Only organization admins can destroy a process
+      def user_can_destroy_process?
+        permission_action.action == :create &&
+          permission_action.subject == :destroy
+
+        user.admin?
+      end
+
+      # Everyone can read the process list
+      def user_can_read_process?
+        read_process_list_permission_action? && (user.admin? || has_manageable_processes?)
+      end
+
+      # A moderator needs to be able to read the process they are assigned to,
+      # and needs to perform all actions for the moderations of that process.
+      def moderator_action?
+        return unless can_manage_process?(role: :moderator)
+
+        permission_action.subject == :moderation
+      end
+
+      # Collaborators can read/preview everything inside their process.
+      def collaborator_action?
+        return unless can_manage_process?(role: :collaborator)
+
+        permission_action.action == :read ||
+          permission_action.action == :preview
+      end
+
+      # Process admins can eprform everything *inside* that process. They cannot
+      # create a process or perform actions on process groups or other
+      # processes. They cannot destroy their process either.
+      def process_admin_action?
+        return unless can_manage_process?(role: :admin)
+        return if permission_action.action == :create &&
+          permission_action.subject == :process
+        return if permission_action.action == :destroy &&
+          permission_action.subject == :process
+
+        [
+          :attachment,
+          :attachment_collection,
+          :category,
+          :component,
+          :moderation,
+          :process,
+          :process_step,
+          :process_user_role
+        ].include?(permission_action.subject)
+      end
+
+      # Checks if the permission_action is to read the admin processes list or
+      # not.
+      def read_process_list_permission_action?
         permission_action.action == :read &&
-          permission_action.subject == :dashboard
-      end
-
-      # Checks if the permission_action is to read the admin processes or not.
-      def admin_read_process_permission_action?
-        return unless permission_action.action == :read &&
-          [:process, :participatory_space].include?(permission_action.subject)
-
-        user.admin? || can_manage_process?
-      end
-
-      def admin_read_process_group_permission_action?
-        return unless permission_action.action == :read &&
-          permission_action.subject == :process_group
-
-        user.admin? || can_manage_process?
+          [:process, :participatory_space, :process_list].include?(permission_action.subject)
       end
 
       def process

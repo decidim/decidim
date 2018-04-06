@@ -16,7 +16,7 @@ module Decidim
         layout "decidim/admin/participatory_processes"
 
         def index
-          enforce_permission_to :read, :process
+          enforce_permission_to :read, :process_list
           @participatory_processes = collection
         end
 
