@@ -10,7 +10,7 @@ module Decidim
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String
-        attribute :answer_options, Array[SurveyQuestionAnswerOptionForm]
+        attribute :answer_options, Array[SurveyAnswerOptionForm]
         attribute :max_choices, Integer
         attribute :deleted, Boolean, default: false
 
