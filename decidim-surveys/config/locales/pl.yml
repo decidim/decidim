@@ -11,8 +11,8 @@ pl:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: ma zbyt wiele opcji sprawdzonych
+            choices:
+              too_many: jest zbyt wiele
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowa ankieta w %{participatory_space_title}
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
+    forms:
+      errors:
+        survey_answer:
+          body: Treść nie może być pusta
     surveys:
       admin:
         exports:
