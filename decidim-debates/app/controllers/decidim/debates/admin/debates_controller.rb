@@ -4,8 +4,12 @@ module Decidim
   module Debates
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
-      class DebatesController < Admin::ApplicationController
+      class DebatesController < Decidim::Debates::Admin::ApplicationController
         helper_method :debates
+
+        def index
+          enforce_permission_to :read, :debate
+        end
 
         def new
           enforce_permission_to :create, :debate

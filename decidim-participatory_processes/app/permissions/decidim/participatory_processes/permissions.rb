@@ -33,7 +33,7 @@ module Decidim
         return true if process_admin_action?
 
         # # org admins and space admins can do everything in the admin section
-        return true if user.admin?
+        return true if org_admin_action?
 
         false
       end
@@ -94,16 +94,16 @@ module Decidim
 
       # Only organization admins can create a process
       def user_can_create_process?
-        permission_action.action == :create &&
-          permission_action.subject == :process
+        return unless permission_action.action == :create &&
+                      permission_action.subject == :process
 
         user.admin?
       end
 
       # Only organization admins can destroy a process
       def user_can_destroy_process?
-        permission_action.action == :create &&
-          permission_action.subject == :destroy
+        return unless permission_action.action == :create &&
+                      permission_action.subject == :destroy
 
         user.admin?
       end
@@ -138,6 +138,21 @@ module Decidim
                   permission_action.subject == :process
         return if permission_action.action == :destroy &&
                   permission_action.subject == :process
+
+        [
+          :attachment,
+          :attachment_collection,
+          :category,
+          :component,
+          :moderation,
+          :process,
+          :process_step,
+          :process_user_role
+        ].include?(permission_action.subject)
+      end
+
+      def org_admin_action?
+        return unless user.admin?
 
         [
           :attachment,

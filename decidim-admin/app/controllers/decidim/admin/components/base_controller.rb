@@ -27,6 +27,10 @@ module Decidim
           enforce_permission_to :read, :component, component: current_component
         end
 
+        def permissions_context
+          super.merge(participatory_space: current_participatory_space)
+        end
+
         def current_component
           request.env["decidim.current_component"]
         end

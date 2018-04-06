@@ -11,10 +11,11 @@ module Decidim
 
           # The public part needs to be implemented yet
           return false if permission_action.scope != :admin
+          return true if allowed_by_other_components?
           return false if permission_action.subject != :debate
 
           return true if case permission_action.action
-                         when :create
+                         when :create, :read
                            true
                          when :update, :delete
                            debate && debate.official?

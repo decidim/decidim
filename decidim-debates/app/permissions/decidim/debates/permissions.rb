@@ -9,6 +9,8 @@ module Decidim
         return false unless spaces_allows_user?
         return false unless user
 
+        return spaces_allows_user? if read_participatory_space_action?
+
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Debates::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
         return false if permission_action.scope != :public
@@ -28,6 +30,11 @@ module Decidim
       end
 
       private
+
+      def read_participatory_space_action?
+        permission_action.action == :read &&
+          [:participatory_space, :component].include?(permission_action.subject)
+      end
 
       def can_create_debate?
         authorized?(:create) &&
