@@ -356,7 +356,7 @@ describe "Answer a survey", type: :system do
 
       context "when question type is single option" do
         let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: answer_options) }
 
         it "renders answers as a collection of radio buttons" do
           visit_component
@@ -380,7 +380,7 @@ describe "Answer a survey", type: :system do
 
       context "when question type is multiple option" do
         let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1], answer_options[2]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: answer_options) }
 
         it "renders answers as a collection of radio buttons" do
           visit_component
@@ -437,7 +437,7 @@ describe "Answer a survey", type: :system do
 
       context "when question type is multiple option" do
         let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: answer_options) }
 
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
