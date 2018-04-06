@@ -69,7 +69,7 @@ module Decidim
       # not the process groups one.
       def user_can_enter_space_area?
         return unless permission_action.action == :enter &&
-          permission_action.subject == :space_area
+                      permission_action.subject == :space_area
 
         user.admin? || has_manageable_processes?
       end
@@ -87,7 +87,7 @@ module Decidim
       # Any user that can enter the space area can read the admin dashboard.
       def user_can_read_admin_dashboard?
         return unless permission_action.action == :read &&
-          permission_action.subject == :admin_dashboard
+                      permission_action.subject == :admin_dashboard
 
         user.admin? || has_manageable_processes?
       end
@@ -135,9 +135,9 @@ module Decidim
       def process_admin_action?
         return unless can_manage_process?(role: :admin)
         return if permission_action.action == :create &&
-          permission_action.subject == :process
+                  permission_action.subject == :process
         return if permission_action.action == :destroy &&
-          permission_action.subject == :process
+                  permission_action.subject == :process
 
         [
           :attachment,
