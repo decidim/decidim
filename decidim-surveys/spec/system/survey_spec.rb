@@ -26,7 +26,7 @@ describe "Answer a survey", type: :system do
   include_context "with a component"
 
   context "when the survey doesn't allow answers" do
-    it "the survey cannot be answered" do
+    it "does not allow answering the survey" do
       visit_component
 
       expect(page).to have_i18n_content(survey.title, upcase: true)
@@ -50,7 +50,7 @@ describe "Answer a survey", type: :system do
     end
 
     context "when the user is not logged in" do
-      it "the survey cannot be answered" do
+      it "does not allow answering the survey" do
         visit_component
 
         expect(page).to have_i18n_content(survey.title, upcase: true)
@@ -67,7 +67,7 @@ describe "Answer a survey", type: :system do
         login_as user, scope: :user
       end
 
-      it "the survey can be answered" do
+      it "allows answering the survey" do
         visit_component
 
         expect(page).to have_i18n_content(survey.title, upcase: true)
@@ -439,7 +439,7 @@ describe "Answer a survey", type: :system do
         let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
         let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: answer_options) }
 
-        it "the question answers are rendered as a collection of radio buttons" do
+        it "renders the question answers as a collection of radio buttons" do
           visit_component
 
           expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 2)
