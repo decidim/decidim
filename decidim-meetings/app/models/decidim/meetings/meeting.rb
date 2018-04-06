@@ -38,11 +38,11 @@ module Decidim
 
       def has_available_slots?
         return true if available_slots.zero?
-        available_slots > registrations.count
+        (available_slots - reserved_slots) > registrations.count
       end
 
       def remaining_slots
-        available_slots - registrations.count
+        available_slots - reserved_slots - registrations.count
       end
 
       def has_registration_for?(user)

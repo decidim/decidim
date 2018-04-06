@@ -1,0 +1,22 @@
+.consultation-statistics{
+  margin-top: 3em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+
+  .definition-data__item{
+    flex-basis: 50%;
+    border-bottom: 0;
+    border-top: 1px solid rgb(232, 232, 232);
+  }
+
+  .definition-data__item:nth-child(-n+2){
+    border-top: 0;
+  }
+
+  .definition-data__item:nth-child(odd){
+    border-right: 1px solid rgb(232, 232, 232);
+  }
+}

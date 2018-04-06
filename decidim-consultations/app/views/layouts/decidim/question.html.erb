@@ -1,0 +1,19 @@
+<%= render "layouts/decidim/application" do %>
+  <div class="wrapper">
+    <%= render partial: "layouts/decidim/question_header", locals: { question: current_participatory_space } %>
+    <%= yield %>
+  </div>
+  <% if content_for? :expanded %>
+    <div class="expanded">
+      <div class="wrapper wrapper--inner">
+        <div class="row">
+          <%= yield :expanded %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= javascript_include_tag "decidim/consultations/social_share" %>
+  <%= stylesheet_link_tag "decidim/consultations/social_share" %>
+  <%= stylesheet_link_tag "decidim/consultations/consultations", media: :all %>
+<% end %>
