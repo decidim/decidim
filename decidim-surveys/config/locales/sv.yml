@@ -11,8 +11,8 @@ sv:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: har kontrollerat för många alternativ
+            choices:
+              too_many: är för många
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: En ny undersökning i %{participatory_space_title}
           notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+    forms:
+      errors:
+        survey_answer:
+          body: Kroppen kan inte vara tomt
     surveys:
       admin:
         exports:
