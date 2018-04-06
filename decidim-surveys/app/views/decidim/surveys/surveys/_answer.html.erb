@@ -61,7 +61,28 @@
 
         <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
       <% end %>
+    <% end %>
+  </div>
+<% when "sorting" %>
+  <div class="sortable-check-box-collection">
+    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
+      <%= label_tag do %>
+        <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
+                          translated_attribute(answer_option.body),
+                          choice.present? %>
+
+        <span class="position"><%= choice.try(:position) %></span>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][position]",
+                             choice.try(:position),
+                             disabled: true %>
+
+        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

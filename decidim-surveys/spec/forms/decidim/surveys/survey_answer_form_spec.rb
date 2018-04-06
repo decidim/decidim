@@ -22,7 +22,12 @@ module Decidim
           survey: survey,
           mandatory: mandatory,
           question_type: question_type,
-          max_choices: max_choices
+          max_choices: max_choices,
+          answer_options: [
+            { "body" => Decidim::Faker::Localized.sentence },
+            { "body" => Decidim::Faker::Localized.sentence },
+            { "body" => Decidim::Faker::Localized.sentence }
+          ]
         )
       end
 
@@ -76,6 +81,29 @@ module Decidim
             { "answer_option_id" => "1", "body" => "foo" },
             { "answer_option_id" => "2", "body" => "bar" },
             { "answer_option_id" => "3", "body" => "baz" }
+          ]
+
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "when the question is sorting" do
+        let(:question_type) { "sorting" }
+
+        it "is valid if all options checked" do
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" },
+            { "answer_option_id" => "3", "body" => "baz" }
+          ]
+
+          expect(subject).to be_valid
+        end
+
+        it "is not valid if not all options checked" do
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" }
           ]
 
           expect(subject).not_to be_valid

@@ -14,6 +14,7 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
+      validate :all_choices, if: -> { question.question_type == "sorting" }
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
@@ -51,6 +52,10 @@ module Decidim
 
       def max_choices
         errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+      end
+
+      def all_choices
+        errors.add(:choices, :missing) if selected_choices.size != question.number_of_options
       end
 
       def mandatory_label

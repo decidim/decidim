@@ -489,6 +489,75 @@ describe "Answer a survey", type: :system do
           expect(page).to have_no_i18n_content(survey_question.body)
         end
       end
+
+      context "when question type is sorting" do
+        let!(:survey_question) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: "sorting",
+            answer_options: [
+              { "body" => "idiotas" },
+              { "body" => "trates" },
+              { "body" => "No" },
+              { "body" => "por" },
+              { "body" => "nos" }
+            ]
+          )
+        end
+
+        it "renders the question answers as a collection of check boxes sortable on click" do
+          visit_component
+
+          expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
+
+          expect(page).to have_content("idiotas trates No por nos")
+
+          check "No"
+          check "nos"
+          check "trates"
+          check "por"
+          check "idiotas"
+
+          expect(page).to have_content("1. No 2. nos 3. trates 4. por 5. idiotas")
+        end
+
+        it "properly saves valid sortings" do
+          visit_component
+
+          check "No"
+          check "nos"
+          check "trates"
+          check "por"
+          check "idiotas"
+
+          check "survey_tos_agreement"
+
+          accept_confirm { click_button "Submit" }
+
+          within ".success.flash" do
+            expect(page).to have_content("successfully")
+          end
+
+          expect(Decidim::Surveys::SurveyAnswer.first.choices.pluck(:position, :body)).to eq(
+            [[0, "No"], [1, "nos"], [2, "trates"], [3, "por"], [4, "idiotas"]]
+          )
+        end
+
+        it "displays errors on incomplete sortings" do
+          visit_component
+
+          check "No"
+
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("error")
+          end
+
+          expect(page).to have_content("are not complete")
+        end
+      end
     end
   end
 end
