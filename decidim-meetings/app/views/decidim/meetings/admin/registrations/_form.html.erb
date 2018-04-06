@@ -26,6 +26,11 @@
     </div>
 
     <div class="row column">
+      <%= form.number_field :reserved_slots %>
+      <p class="help-text"><%= t(".reserved_slots_help") %></p>
+    </div>
+
+    <div class="row column">
       <%= form.translated :editor, :registration_terms %>
     </div>
   </div>

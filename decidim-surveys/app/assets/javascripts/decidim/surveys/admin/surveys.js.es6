@@ -1,10 +1,12 @@
 // = require ./auto_label_by_position.component
 // = require ./auto_buttons_by_position.component
 // = require ./auto_buttons_by_min_items.component
+// = require ./auto_select_options_by_total_items.component
 // = require ./dynamic_fields.component
+// = require ./field_dependent_inputs.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".survey-questions";
@@ -13,6 +15,7 @@
   const answerOptionFieldSelector = ".survey-question-answer-option";
   const answerOptionsWrapperSelector = ".survey-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
+  const maxChoicesWrapperSelector = ".survey-question-max-choices";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".survey-question:not(.hidden)",
@@ -28,8 +31,17 @@
     hideOnLastSelector: ".move-down-question"
   });
 
+  const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
+    return new AutoSelectOptionsByTotalItemsComponent({
+      wrapperSelector: fieldSelector,
+      selectSelector: `${maxChoicesWrapperSelector} select`,
+      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`
+    })
+  };
+
   const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
     return new AutoButtonsByMinItemsComponent({
+      wrapperSelector: fieldSelector,
       listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`,
       minItems: 2,
       hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
@@ -47,6 +59,7 @@
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
+    const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
 
     return createDynamicFields({
       placeholderId: "survey-question-answer-option-id",
@@ -57,32 +70,36 @@
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
+        autoSelectOptions.run();
       },
       onRemoveField: () => {
         autoButtons.run();
+        autoSelectOptions.run();
       }
     });
   };
 
   const dynamicFieldsForAnswerOptions = {};
 
-  const setAnswerOptionsWrapperVisibility = ($target) => {
-    const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
-    const value = $target.val();
-    const $answerOptionsInputs = $answerOptionsWrapper.find(`${answerOptionFieldSelector} input`);
-
-    if (value === "single_option" || value === "multiple_option") {
-      $answerOptionsInputs.prop("disabled", false);
-      $answerOptionsWrapper.show();
-    } else {
-      $answerOptionsInputs.prop("disabled", true);
-      $answerOptionsWrapper.hide();
-    }
-  };
-
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
+
+    createFieldDependentInputs({
+      controllerField: $fieldQuestionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: answerOptionsWrapperSelector,
+      dependentInputSelector: `${answerOptionFieldSelector} input`,
+      enablingValues: ["single_option", "multiple_option"]
+    });
+
+    createFieldDependentInputs({
+      controllerField: $fieldQuestionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: maxChoicesWrapperSelector,
+      dependentInputSelector: "select",
+      enablingValues: ["multiple_option"]
+    });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
 
@@ -99,8 +116,6 @@
           dynamicFields._addField();
         }
       }
-
-      setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
     };
 
     $fieldQuestionTypeSelect.on("change", onQuestionTypeChange);
