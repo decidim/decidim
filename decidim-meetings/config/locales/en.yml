@@ -203,8 +203,6 @@ en:
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
-        organizer:
-          organizer: Organizer
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
