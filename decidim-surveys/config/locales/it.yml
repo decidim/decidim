@@ -11,8 +11,8 @@ it:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: ha troppe opzioni controllate
+            choices:
+              too_many: sono troppi
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Una nuova indagine su %{participatory_space_title}
           notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
+    forms:
+      errors:
+        survey_answer:
+          body: Il corpo non può essere vuoto
     surveys:
       admin:
         exports:
