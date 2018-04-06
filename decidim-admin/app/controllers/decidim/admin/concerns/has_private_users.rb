@@ -16,19 +16,19 @@ module Decidim
           helper_method :privatable_to, :authorization_object, :collection
 
           def index
-            authorize! :read, authorization_object
+            enforce_permission_to :read, :space_private_user
 
             render template: "decidim/admin/participatory_space_private_users/index"
           end
 
           def new
-            authorize! :create, authorization_object
+            enforce_permission_to :create, :space_private_user
             @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to: privatable_to)
             render template: "decidim/admin/participatory_space_private_users/new"
           end
 
           def create
-            authorize! :create, authorization_object
+            enforce_permission_to :create, :space_private_user
             @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to: privatable_to)
 
             CreateParticipatorySpacePrivateUser.call(@form, current_user, current_participatory_space) do
@@ -46,7 +46,7 @@ module Decidim
 
           def destroy
             @private_user = collection.find(params[:id])
-            authorize! :destroy, authorization_object
+            enforce_permission_to :destroy, :space_private_user, private_user: @private_user
             @private_user.destroy!
 
             flash[:notice] = I18n.t("participatory_space_private_users.destroy.success", scope: "decidim.admin")
@@ -56,7 +56,7 @@ module Decidim
 
           def resend_invitation
             @private_user = collection.find(params[:id])
-            authorize! :invite, authorization_object
+            enforce_permission_to :invite, :space_private_user, private_user: @private_user
             InviteUserAgain.call(@private_user.user, "invite_private_user") do
               on(:ok) do
                 flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")

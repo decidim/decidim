@@ -13,22 +13,22 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
-          helper_method :collection_for, :authorization_object
+          helper_method :collection_for, :attachment_collection
 
           def index
-            authorize! :read, authorization_object
+            enforce_permission_to :read, :attachment_collection
 
             render template: "decidim/admin/attachment_collections/index"
           end
 
           def new
-            authorize! :create, authorization_object
+            enforce_permission_to :create, :attachment_collection
             @form = form(AttachmentCollectionForm).from_params({}, collection_for: collection_for)
             render template: "decidim/admin/attachment_collections/new"
           end
 
           def create
-            authorize! :create, authorization_object
+            enforce_permission_to :create, :attachment_collection
             @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
 
             CreateAttachmentCollection.call(@form, collection_for) do
@@ -46,14 +46,14 @@ module Decidim
 
           def edit
             @attachment_collection = collection.find(params[:id])
-            authorize! :update, authorization_object
+            enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
             @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for: collection_for)
             render template: "decidim/admin/attachment_collections/edit"
           end
 
           def update
             @attachment_collection = collection.find(params[:id])
-            authorize! :update, authorization_object
+            enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
             @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
 
             UpdateAttachmentCollection.call(@attachment_collection, @form) do
@@ -71,13 +71,13 @@ module Decidim
 
           def show
             @attachment_collection = collection.find(params[:id])
-            authorize! :read, authorization_object
+            enforce_permission_to :read, :attachment_collection, attachment_collection: @attachment_collection
             render template: "decidim/admin/attachment_collections/show"
           end
 
           def destroy
             @attachment_collection = collection.find(params[:id])
-            authorize! :destroy, authorization_object
+            enforce_permission_to :destroy, :attachment_collection, attachment_collection: @attachment_collection
             @attachment_collection.destroy!
 
             flash[:notice] = I18n.t("attachment_collections.destroy.success", scope: "decidim.admin")

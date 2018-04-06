@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing participatory process groups.
       #
-      class ParticipatoryProcessGroupsController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         helper ProcessesForSelectHelper
 
         helper_method :collection, :participatory_process_group

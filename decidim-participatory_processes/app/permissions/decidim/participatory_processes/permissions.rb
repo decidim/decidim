@@ -23,6 +23,7 @@ module Decidim
         return true if has_manageable_processes? && admin_read_dashboard_permission_action?
 
         return true if has_manageable_processes? && admin_read_process_permission_action?
+        return true if has_manageable_processes? && admin_read_process_group_permission_action?
 
         # org admins and space admins can do everything in the admin section
         return true if admin_user?
@@ -88,6 +89,13 @@ module Decidim
       def admin_read_process_permission_action?
         return unless permission_action.action == :read &&
           [:process, :participatory_space].include?(permission_action.subject)
+
+        admin_user?
+      end
+
+      def admin_read_process_group_permission_action?
+        return unless permission_action.action == :read &&
+          permission_action.subject == :process_group
 
         admin_user?
       end
