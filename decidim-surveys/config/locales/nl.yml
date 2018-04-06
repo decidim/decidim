@@ -11,8 +11,8 @@ nl:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: heeft te veel opties aangevinkt
+            choices:
+              too_many: zijn te veel
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
+    forms:
+      errors:
+        survey_answer:
+          body: Lichaam mag niet leeg zijn
     surveys:
       admin:
         exports:
