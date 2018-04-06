@@ -9,6 +9,14 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
     self.table_name = :decidim_surveys_survey_answer_choices
   end
 
+  class SurveyQuestion < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_questions
+  end
+
+  class SurveyAnswerOption < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_answer_options
+  end
+
   def up
     create_table :decidim_surveys_survey_answer_choices do |t|
       t.references :decidim_survey_answer, index: { name: "index_decidim_surveys_answer_choices_answer_id" }
@@ -17,10 +25,12 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
     end
 
     SurveyAnswer.find_each do |answer|
-      next if %(short_answer long_answer).include?(answer.question.question_type)
+      question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
 
-      answer.body.each do |answer_choice|
-        answer_option = answer.question.answer_options.find do |option|
+      answer.choices.each do |answer_choice|
+        answer_options = SurveyAnswerOption.where(decidim_survey_question_id: question.id)
+
+        answer_option = answer_options.find do |option|
           option.body.values.include?(answer_choice)
         end
 
@@ -31,13 +41,17 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
         )
       end
     end
+
+    remove_column :decidim_surveys_survey_answers, :choices
   end
 
   def down
-    SurveyAnswerChoice.find_each do |answer_choice|
-      answer = answer_choice.answer
+    add_column :decidim_surveys_survey_answers, :choices, :jsonb, default: []
 
-      answer.body << answer_choice.body
+    SurveyAnswerChoice.find_each do |answer_choice|
+      answer = SurveyAnswer.find_by(id: answer_choice.decidim_survey_answer_id)
+
+      answer.choices << answer_choice.body
 
       answer.save!
     end
