@@ -17,9 +17,9 @@ module Decidim
 
         return true if user_can_enter_space_area?
 
-        return false unless user.admin?
-
         return true if read_admin_dashboard_action?
+
+        return false unless user.admin?
 
         return true if read_admin_log_action?
         return true if static_page_action?
@@ -51,8 +51,10 @@ module Decidim
       attr_reader :user, :context, :permission_action
 
       def read_admin_dashboard_action?
-        permission_action.subject == :admin_dashboard &&
+        return unless permission_action.subject == :admin_dashboard &&
           permission_action.action == :read
+
+        user.admin? ? true : space_allows_admin_access_to_current_action?
       end
 
       def read_admin_log_action?
@@ -118,6 +120,10 @@ module Decidim
         return unless permission_action.action == :enter &&
           permission_action.subject == :space_area
 
+        space_allows_admin_access_to_current_action?
+      end
+
+      def space_allows_admin_access_to_current_action?
         Decidim.participatory_space_manifests.any? do |manifest|
           manifest.permissions_class.new(user, permission_action, context).allowed?
         end

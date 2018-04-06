@@ -7,11 +7,11 @@ module Decidim
       helper_method :moderations, :allowed_to?
 
       def index
-        ensure_access_to :read, Decidim::Moderation
+        enforce_permission_to :read, :moderation
       end
 
       def unreport
-        ensure_access_to :unreport
+        enforce_permission_to :unreport, :moderation
 
         Admin::UnreportResource.call(reportable, current_user) do
           on(:ok) do
@@ -27,7 +27,7 @@ module Decidim
       end
 
       def hide
-        ensure_access_to :hide
+        enforce_permission_to :hide, :moderation
 
         Admin::HideResource.call(reportable, current_user) do
           on(:ok) do
@@ -43,20 +43,6 @@ module Decidim
       end
 
       private
-
-      # Overwrites the method provided by the `Decidim::NeedsPermission` concern
-      # that checks whether the user can perform the action or not.
-      #
-      # Returns false to ensure there are no false positives.
-      def allowed_to?(*)
-        false
-      end
-
-      # A convenience method so that spaces can override how to deal with
-      # permissions/abilities to perform the action.
-      def ensure_access_to(action, subject = reportable)
-        authorize! action, subject
-      end
 
       def moderations
         @moderations ||= begin
