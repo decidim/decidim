@@ -11,8 +11,8 @@ gl:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: Ten moitas opcións marcadas
+            choices:
+              too_many: son demasiados
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    forms:
+      errors:
+        survey_answer:
+          body: O corpo non pode estar en branco
     surveys:
       admin:
         exports:
