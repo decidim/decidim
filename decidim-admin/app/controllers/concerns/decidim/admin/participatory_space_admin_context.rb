@@ -47,7 +47,7 @@ module Decidim
         enforce_permission_to :read, :participatory_space, current_participatory_space: current_participatory_space
       end
 
-      def ability_context
+      def permissions_context
         super.merge(
           current_participatory_space: current_participatory_space
         )

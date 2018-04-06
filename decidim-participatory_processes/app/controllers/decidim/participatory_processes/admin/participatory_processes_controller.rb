@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing participatory processes.
       #
-      class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
 
@@ -93,10 +93,6 @@ module Decidim
 
         def collection
           @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
-        end
-
-        def ability_context
-          super.merge(current_participatory_space: current_participatory_process)
         end
 
         def participatory_process_params

@@ -86,8 +86,10 @@ module Decidim
 
       # Checks if the permission_action is to read the admin processes or not.
       def admin_read_process_permission_action?
-        permission_action.action == :read &&
-          permission_action.subject == :process
+        return unless permission_action.action == :read &&
+          [:process, :participatory_space].include?(permission_action.subject)
+
+        admin_user?
       end
 
       def process
