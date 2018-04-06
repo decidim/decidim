@@ -73,7 +73,7 @@ describe "Answer a survey", type: :system do
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        fill_in "survey_answers_0_body", with: "My first answer"
+        fill_in survey_question.body["en"], with: "My first answer"
 
         check "survey_tos_agreement"
 
@@ -370,7 +370,7 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a textarea" do
           visit_component
 
-          expect(page).to have_selector("textarea#survey_answers_0_body")
+          expect(page).to have_selector("textarea#survey_answers_0")
         end
       end
 
@@ -380,7 +380,7 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a text field" do
           visit_component
 
-          expect(page).to have_selector("input[type=text]#survey_answers_0_body")
+          expect(page).to have_selector("input[type=text]#survey_answers_0")
         end
       end
 

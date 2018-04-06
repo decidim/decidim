@@ -9,9 +9,9 @@
 
 <% case answer.question.question_type %>
 <% when "short_answer" %>
-  <%= answer_form.text_field :body, label: false, id: "#{field_id}_body" %>
+  <%= answer_form.text_field :body, label: false, id: field_id %>
 <% when "long_answer" %>
-  <%= answer_form.text_area :body, label: false, id: "#{field_id}_body", rows: 10 %>
+  <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
 <% when "single_option" %>
   <div class="radio-button-collection">
     <% choice = answer.choices.first %>
