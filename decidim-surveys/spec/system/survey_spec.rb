@@ -299,9 +299,9 @@ describe "Answer a survey", type: :system do
           end
 
           it "preserves the previous custom body if submission not correct" do
-            check "survey_answers_1_choices_0_body"
-            check "survey_answers_1_choices_1_body"
-            check "survey_answers_1_choices_2_body"
+            check other_survey_question.answer_options.first.body["en"]
+            check other_survey_question.answer_options.second.body["en"]
+            check other_survey_question.answer_options.third.body["en"]
 
             choose answer_option_bodies[2]["en"]
             fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
