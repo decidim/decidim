@@ -11,8 +11,8 @@ fr:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: a trop d'options vérifiées
+            choices:
+              too_many: sont trop nombreux
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ fr:
           email_outro: Vous venez de recevoir cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une nouvelle enquête vient d'être créée depuis %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    forms:
+      errors:
+        survey_answer:
+          body: Le corps ne peut pas être vide
     surveys:
       admin:
         exports:
