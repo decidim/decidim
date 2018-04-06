@@ -8,6 +8,9 @@ module Decidim
     # the default size is the Medium Card (:m)
     class ProposalCell < Decidim::Proposals::ViewModel
       include Cell::ViewModel::Partial
+      include Devise::Controllers::Helpers
+      include Messaging::ConversationHelper
+
       delegate :user_signed_in?, :current_user, to: :parent_controller
 
       property :title
@@ -75,6 +78,10 @@ module Decidim
 
       def component_type_name
         model.class.model_name.human
+      end
+
+      def from_context
+        @options[:from]
       end
 
       def participatory_space_name

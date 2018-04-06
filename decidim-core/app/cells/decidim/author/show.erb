@@ -1,0 +1,14 @@
+<div class="<%= author_box_classes %>">
+  <div class="author-data__main">
+    <%= render :profile %>
+  </div>
+
+  <% if actionable? %>
+    <div class="author-data__extra">
+      <%= render :flag %>
+
+      <%= render :withdraw %>
+      <%#= options[:extra] %>
+    </div>
+  <% end %>
+</div>

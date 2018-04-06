@@ -12,6 +12,7 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::ResourceReferenceHelper
       include Decidim::TranslatableAttributes
+      include Decidim::CardHelper
     end
   end
 end
