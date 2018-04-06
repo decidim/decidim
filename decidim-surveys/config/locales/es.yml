@@ -11,8 +11,8 @@ es:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: tiene demasiadas opciones marcadas
+            choices:
+              too_many: son demasiados
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    forms:
+      errors:
+        survey_answer:
+          body: El cuerpo no puede estar en blanco
     surveys:
       admin:
         exports:
