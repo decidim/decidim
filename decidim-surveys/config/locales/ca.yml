@@ -11,8 +11,8 @@ ca:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: S'han verificat massa opcions
+            choices:
+              too_many: són massa
   decidim:
     components:
       surveys:
@@ -37,6 +37,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
+    forms:
+      errors:
+        survey_answer:
+          body: El cos no pot estar en blanc
     surveys:
       admin:
         exports:
