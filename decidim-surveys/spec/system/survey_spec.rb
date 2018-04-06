@@ -21,7 +21,7 @@ describe "Answer a survey", type: :system do
   end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:survey) { create(:survey, component: component, title: title, description: description) }
-  let!(:survey_question_1) { create(:survey_question, survey: survey, position: 0) }
+  let!(:survey_question) { create(:survey_question, survey: survey, position: 0) }
 
   include_context "with a component"
 
@@ -32,7 +32,7 @@ describe "Answer a survey", type: :system do
       expect(page).to have_i18n_content(survey.title, upcase: true)
       expect(page).to have_i18n_content(survey.description)
 
-      expect(page).to have_no_i18n_content(survey_question_1.body)
+      expect(page).to have_no_i18n_content(survey_question.body)
 
       expect(page).to have_content("The survey is closed and cannot be answered.")
     end
@@ -56,7 +56,7 @@ describe "Answer a survey", type: :system do
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        expect(page).to have_no_i18n_content(survey_question_1.body)
+        expect(page).to have_no_i18n_content(survey_question.body)
 
         expect(page).to have_content("Sign in with your account or sign up to answer the survey.")
       end
@@ -84,20 +84,20 @@ describe "Answer a survey", type: :system do
         end
 
         expect(page).to have_content("You have already answered this survey.")
-        expect(page).to have_no_i18n_content(survey_question_1.body)
+        expect(page).to have_no_i18n_content(survey_question.body)
       end
 
       shared_examples_for "a correctly ordered survey" do
         it "displays the questions ordered by position starting with one" do
           form_fields = all(".answer-survey .row")
 
-          expect(form_fields[0]).to have_i18n_content(survey_question_1.body).and have_content("1. ")
-          expect(form_fields[1]).to have_i18n_content(survey_question_2.body).and have_content("2. ")
+          expect(form_fields[0]).to have_i18n_content(survey_question.body).and have_content("1. ")
+          expect(form_fields[1]).to have_i18n_content(other_survey_question.body).and have_content("2. ")
         end
       end
 
       context "and submitting a fresh form" do
-        let!(:survey_question_2) { create(:survey_question, survey: survey, position: 1) }
+        let!(:other_survey_question) { create(:survey_question, survey: survey, position: 1) }
 
         before do
           visit_component
@@ -107,7 +107,7 @@ describe "Answer a survey", type: :system do
       end
 
       context "and rendering a form after errors" do
-        let!(:survey_question_2) { create(:survey_question, survey: survey, position: 1) }
+        let!(:other_survey_question) { create(:survey_question, survey: survey, position: 1) }
 
         before do
           visit_component
@@ -118,7 +118,7 @@ describe "Answer a survey", type: :system do
       end
 
       shared_context "when a non multiple choice question is mandatory" do
-        let!(:survey_question_1) do
+        let!(:survey_question) do
           create(
             :survey_question,
             survey: survey,
@@ -166,7 +166,7 @@ describe "Answer a survey", type: :system do
       end
 
       describe "leaving a blank multiple choice question" do
-        let!(:survey_question_1) do
+        let!(:survey_question) do
           create(
             :survey_question,
             survey: survey,
@@ -198,7 +198,7 @@ describe "Answer a survey", type: :system do
       end
 
       context "when a question has a rich text description" do
-        let!(:survey_question_1) { create(:survey_question, survey: survey, position: 0, description: "<b>This question is important</b>") }
+        let!(:survey_question) { create(:survey_question, survey: survey, position: 0, description: "<b>This question is important</b>") }
 
         it "properly interprets HTML descriptions" do
           visit_component
@@ -210,7 +210,7 @@ describe "Answer a survey", type: :system do
       describe "free text options" do
         let(:answer_option_bodies) { Array.new(3) { Decidim::Faker::Localized.sentence } }
 
-        let!(:survey_question_1) do
+        let!(:survey_question) do
           create(
             :survey_question,
             survey: survey,
@@ -223,7 +223,7 @@ describe "Answer a survey", type: :system do
           )
         end
 
-        let!(:survey_question_2) do
+        let!(:other_survey_question) do
           create(
             :survey_question,
             survey: survey,
@@ -335,7 +335,7 @@ describe "Answer a survey", type: :system do
       end
 
       context "when question type is long answer" do
-        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "long_answer") }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "long_answer") }
 
         it "renders the answer as a textarea" do
           visit_component
@@ -345,7 +345,7 @@ describe "Answer a survey", type: :system do
       end
 
       context "when question type is short answer" do
-        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "short_answer") }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "short_answer") }
 
         it "renders the answer as a text field" do
           visit_component
@@ -356,7 +356,7 @@ describe "Answer a survey", type: :system do
 
       context "when question type is single option" do
         let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
 
         it "renders answers as a collection of radio buttons" do
           visit_component
@@ -374,13 +374,13 @@ describe "Answer a survey", type: :system do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question.body)
         end
       end
 
       context "when question type is multiple option" do
         let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1], answer_options[2]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1], answer_options[2]]) }
 
         it "renders answers as a collection of radio buttons" do
           visit_component
@@ -401,11 +401,11 @@ describe "Answer a survey", type: :system do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question.body)
         end
 
         it "respects the max number of choices" do
-          survey_question_1.update!(max_choices: 2)
+          survey_question.update!(max_choices: 2)
 
           visit_component
 
@@ -437,7 +437,7 @@ describe "Answer a survey", type: :system do
 
       context "when question type is multiple option" do
         let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
+        let!(:survey_question) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
 
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
@@ -456,7 +456,7 @@ describe "Answer a survey", type: :system do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question.body)
         end
       end
     end
