@@ -1,0 +1,71 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Meetings
+    module Admin
+      # This controller allows an admin to manage minutes from a Meeting
+      class MinutesController < Admin::ApplicationController
+        helper_method :current_meeting, :minute
+
+        def new
+          @form = form(MinuteForm).instance
+        end
+
+        def create
+          @form = form(MinuteForm).from_params(params)
+
+          CreateMinute.call(@form, current_meeting) do
+            on(:ok) do
+              flash[:notice] = I18n.t("minutes.create.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("minutes.create.invalid", scope: "decidim.meetings.admin")
+              render action: "new"
+            end
+          end
+        end
+
+        def edit
+          @form = form(MinuteForm).from_model(minute)
+        end
+
+        def update
+          @form = form(MinuteForm).from_params(params)
+          UpdateMinute.call(@form, current_meeting, minute) do
+            on(:ok) do
+              flash[:notice] = I18n.t("minutes.update.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("minutes.update.invalid", scope: "decidim.meetings.admin")
+              render action: "edit"
+            end
+          end
+        end
+
+        def destroy
+          # DestroyMeeting.call(meeting, current_user) do
+          #   on(:ok) do
+          #     flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
+          #
+          #     redirect_to meetings_path
+          #   end
+          # end
+        end
+
+        private
+
+        def current_meeting
+          @current_meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+        end
+
+        def minute
+          @minute ||= Minute.where(meeting: current_meeting).find(params[:id])
+        end
+      end
+    end
+  end
+end
