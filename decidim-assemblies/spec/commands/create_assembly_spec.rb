@@ -100,7 +100,7 @@ module Decidim::Assemblies
 
       it "adds the admins as followers" do
         subject.call
-        expect(current_user.follows?(assembly)).to be_nil
+        expect(current_user.follows?(assembly)).to be true
       end
 
       it "traces the action", versioning: true do
@@ -117,7 +117,7 @@ module Decidim::Assemblies
       it "links participatory processes" do
         subject.call
         linked_participatory_processes = assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-        expect(linked_participatory_processes).to match_array([])
+        expect(linked_participatory_processes).to match_array(participatory_processes)
       end
     end
   end

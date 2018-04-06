@@ -105,13 +105,13 @@ module Decidim::ParticipatoryProcesses
 
       it "adds the default active step" do
         subject.call
-        expect(process.steps.count).to eq(0)
-        expect(process.steps.first).to be_nil
+        expect(process.steps.count).to eq(1)
+        expect(process.steps.first).to be_active
       end
 
       it "adds the admins as followers" do
         subject.call
-        expect(current_user.follows?(process)).to be_nil
+        expect(current_user.follows?(process)).to be true
       end
     end
   end
