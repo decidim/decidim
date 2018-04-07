@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
+        helper_method :blank_service
+
         def new
           @form = form(MeetingForm).instance
         end
@@ -53,6 +55,12 @@ module Decidim
               redirect_to meetings_path
             end
           end
+        end
+
+        private
+
+        def blank_service
+          @blank_service ||= Admin::MeetingServiceForm.new
         end
       end
     end
