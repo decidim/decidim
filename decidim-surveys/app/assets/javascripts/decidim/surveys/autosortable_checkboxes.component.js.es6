@@ -14,12 +14,14 @@
           const $lastSorted = this.wrapperField.find("label.sorted").last();
 
           if ($lastSorted.length > 0) {
+            $lastSorted.removeClass("last-sorted");
             $parentLabel.insertAfter($lastSorted);
           } else {
             $parentLabel.insertBefore(this.wrapperField.find("label:first-child"));
           }
 
           $parentLabel.addClass("sorted");
+          $parentLabel.addClass("last-sorted");
         } else {
           const $lastUnsorted = this.wrapperField.find("label:not(.sorted)").last();
 
