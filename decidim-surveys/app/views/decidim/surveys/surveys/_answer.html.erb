@@ -69,5 +69,5 @@
 <%= answer_form.hidden_field :question_id %>
 
 <% answer.errors.full_messages.each do |msg| %>
-  <%= content_tag :small, msg, class: "form-error is-visible" %>
+  <small class="form-error is-visible"><%= msg %></small>
 <% end %>
