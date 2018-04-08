@@ -413,6 +413,10 @@ $datetime-bg: $primary;
   display: none;
   fill: $anchor-color;
 
+  &.alert{
+    fill: $alert;
+  }
+
   @include breakpoint(medium){
     margin-right: 1rem;
     display: block;
@@ -438,6 +442,10 @@ $datetime-bg: $primary;
     margin-top: .3rem;
     margin-right: 1rem;
   }
+}
+
+.card--list__text--top{
+  align-items: start;
 }
 
 .card--list__heading{
