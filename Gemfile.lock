@@ -550,7 +550,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    rubocop-rspec (1.24.0)
+    rubocop-rspec (1.25.0)
       rubocop (>= 0.53.0)
     ruby-ole (1.2.12.1)
     ruby-progressbar (1.9.0)
