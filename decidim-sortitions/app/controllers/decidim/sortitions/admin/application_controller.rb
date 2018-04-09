@@ -19,7 +19,7 @@ module Decidim
           [
             Decidim::Sortitions::Permissions,
             current_participatory_space.manifest.permissions_class,
-            Decidim::Admin::Permissions,
+            Decidim::Admin::Permissions
           ]
         end
 

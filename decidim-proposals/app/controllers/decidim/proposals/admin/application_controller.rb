@@ -17,7 +17,7 @@ module Decidim
           [
             Decidim::Proposals::Permissions,
             current_participatory_space.manifest.permissions_class,
-            Decidim::Admin::Permissions,
+            Decidim::Admin::Permissions
           ]
         end
 

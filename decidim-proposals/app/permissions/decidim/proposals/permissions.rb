@@ -13,23 +13,23 @@ module Decidim
         return permission_action if permission_action.subject != :proposal
 
         permission_action.allow! if case permission_action.action
-                                 when :create
-                                   can_create_proposal?
-                                 when :edit
-                                   can_edit_proposal?
-                                 when :withdraw
-                                   can_withdraw_proposal?
-                                 when :endorse
-                                   can_endorse_proposal?
-                                 when :unendorse
-                                   can_unendorse_proposal?
-                                 when :vote
-                                   can_vote_proposal?
-                                 when :unvote
-                                   can_unvote_proposal?
-                                 when :report
-                                   true
-                                 end
+                                    when :create
+                                      can_create_proposal?
+                                    when :edit
+                                      can_edit_proposal?
+                                    when :withdraw
+                                      can_withdraw_proposal?
+                                    when :endorse
+                                      can_endorse_proposal?
+                                    when :unendorse
+                                      can_unendorse_proposal?
+                                    when :vote
+                                      can_vote_proposal?
+                                    when :unvote
+                                      can_unvote_proposal?
+                                    when :report
+                                      true
+                                    end
 
         permission_action
       end
