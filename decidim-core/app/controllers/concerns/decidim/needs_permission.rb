@@ -39,11 +39,14 @@ module Decidim
       end
 
       def enforce_permission_to(action, subject, extra_context = {})
+        p "============="
+        p permission_scope, action, subject, permission_class
+        p "============="
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
-      def allowed_to?(action, subject, extra_context = {})
-        permission_class.new(
+      def allowed_to?(action, subject, extra_context = {}, klass = permission_class)
+        klass.new(
           current_user,
           Decidim::PermissionAction.new(scope: permission_scope, action: action, subject: subject),
           permissions_context.merge(extra_context)
