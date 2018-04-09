@@ -378,17 +378,6 @@ FactoryBot.define do
     end
   end
 
-  factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
-    resource { build(:dummy_resource) }
-    resource_id { resource.id }
-    resource_type { resource.class.name }
-    organization { resource.component.organization }
-    decidim_participatory_space { resource.component.participatory_space }
-    locale { I18n.locale }
-    scope { resource.scope }
-    content_a { Faker::Lorem.sentence }
-  end
-
   factory :oauth_application, class: "Decidim::OAuthApplication" do
     organization
     sequence(:name) { |n| "OAuth application #{n}" }
@@ -406,5 +395,16 @@ FactoryBot.define do
     expires_in { 1.month.from_now }
     created_at { Time.zone.now }
     scopes { "public" }
+  end
+
+  factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
+    resource { build(:dummy_resource) }
+    resource_id { resource.id }
+    resource_type { resource.class.name }
+    organization { resource.component.organization }
+    decidim_participatory_space { resource.component.participatory_space }
+    locale { I18n.locale }
+    scope { resource.scope }
+    content_a { Faker::Lorem.sentence }
   end
 end
