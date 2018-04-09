@@ -201,12 +201,12 @@ it:
         settings:
           global:
             comments_enabled: Commenti abilitati
-            dummy_global_attribute_1: Attributo di prova 1
-            dummy_global_attribute_2: Attributo di prova 2
+            dummy_global_attribute_1: Attributo fittizio 1
+            dummy_global_attribute_2: Attributo fittizio 2
           step:
             comments_blocked: Commenti bloccati
-            dummy_step_attribute_1: Attributo 1 della fase di prova
-            dummy_step_attribute_2: Attributo 2 della fase di prova
+            dummy_step_attribute_1: Attributo Dummy Step 1
+            dummy_step_attribute_2: Attributo Dummy Step 2
     filters:
       linked_classes:
         all: Tutto

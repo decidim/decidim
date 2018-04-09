@@ -26,10 +26,10 @@ eu:
         name: Inkesta
         settings:
           global:
-            announcement: Oharra
+            announcement: Anuntzio
           step:
             allow_answers: Baimendu erantzunak
-            announcement: Oharra
+            announcement: Anuntzio
     surveys:
       admin:
         exports:

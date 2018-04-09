@@ -11,13 +11,6 @@ ru:
       surveys:
         actions:
           answer: Ответить
-        name: Опрос
-        settings:
-          global:
-            announcement: Объявление
-          step:
-            allow_answers: Разрешить ответы
-            announcement: Объявление
     surveys:
       admin:
         exports:

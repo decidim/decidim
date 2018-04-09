@@ -24,7 +24,7 @@ fi:
       feature:
         name: Nimi
         published_at: Julkaistu osoitteessa
-        weight: Painoarvo
+        weight: Paino
       id: ID
       newsletter:
         body: Runko
@@ -218,11 +218,11 @@ fi:
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       feature_permissions:
         edit:
-          everyone: Kaikki
-          submit: Tallenna oikeudet
-          title: Muokkaa oikeuksia
+          everyone: jokainen
+          submit: Tallenna käyttöoikeudet
+          title: Muokkaa käyttöoikeuksia
         update:
-          success: Oikeudet päivitetty onnistuneesti.
+          success: Käyttöoikeudet päivitettiin onnistuneesti.
       features:
         create:
           error: Tämän ominaisuuden luonnissa tapahtui virhe.
@@ -234,9 +234,9 @@ fi:
           title: Muokkaa ominaisuutta
           update: Päivitä
         form:
-          default_step_settings: Oletusvaiheen asetukset
-          global_settings: Globaalit asetukset
-          step_settings: Vaiheen asetukset
+          default_step_settings: Oletusasetusasetukset
+          global_settings: Yleiset asetukset
+          step_settings: Vaiheasetukset
         index:
           add: Lisää ominaisuus
           headers:

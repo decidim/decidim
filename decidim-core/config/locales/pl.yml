@@ -196,13 +196,13 @@ pl:
         name: Funkcja testowa
         settings:
           global:
-            comments_enabled: Włączone komentarze
-            dummy_global_attribute_1: Cecha testowa 1
-            dummy_global_attribute_2: Cecha testowa 2
+            comments_enabled: Komentarze włączone
+            dummy_global_attribute_1: Atrybut dummy 1
+            dummy_global_attribute_2: Atrybut Dummy 2
           step:
             comments_blocked: Komentarze zablokowane
-            dummy_step_attribute_1: Testowa cecha kroku 1
-            dummy_step_attribute_2: Testowa cecha kroku 2
+            dummy_step_attribute_1: Atrybut krokowy atrapy 1
+            dummy_step_attribute_2: Atrybut krokowy atrapy 2
     filters:
       linked_classes:
         all: Wszystkie

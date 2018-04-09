@@ -197,7 +197,7 @@ pt:
         actions:
           bar: Bar
           foo: Foo
-        name: Dummy Feature
+        name: Recurso fictício
         settings:
           global:
             comments_enabled: Comentários ativados

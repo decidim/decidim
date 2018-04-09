@@ -26,10 +26,10 @@ ca:
         name: Enquesta
         settings:
           global:
-            announcement: Avís
+            announcement: Anunci
           step:
-            allow_answers: Permetre respostes
-            announcement: Avís
+            allow_answers: Permet respostes
+            announcement: Anunci
     surveys:
       admin:
         exports:

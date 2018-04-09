@@ -8,7 +8,7 @@ fr:
         copy_features: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -62,8 +62,8 @@ fr:
         participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
-          attachment_collections: Collections
-          attachment_files: Des dossiers
+          attachment_collections: Dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
           features: Fonctionnalités
@@ -207,9 +207,9 @@ fr:
           success: Invitation renvoyée avec succès.
     admin_log:
       participatory_process:
-        create: "%{user_name} créé le %{resource_name} processus participatif"
-        publish: "%{user_name} publié le %{resource_name} processus participatif"
-        unpublish: "%{user_name} non publié le %{resource_name} processus participatif"
+        create: "%{user_name} a créé le processus participatif %{resource_name}"
+        publish: "%{user_name} a publié le processus participatif %{resource_name}"
+        unpublish: "%{user_name} n'a pas publié le processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour le processus participatif %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans le processus participatif %{space_name}"
@@ -217,21 +217,21 @@ fr:
         delete: "%{user_name} a supprimé l'étape %{resource_name} du processus participatif %{space_name}"
         update: "%{user_name} a mis à jour l'étape %{resource_name} du processus participatif %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} invité l'utilisateur %{resource_name} à la %{space_name} processus participatif"
-        delete: "%{user_name} supprimé l'utilisateur %{resource_name} à partir du %{space_name} processus participatif"
-        update: "%{user_name} changé le rôle de l'utilisateur %{resource_name} dans le %{space_name} processus participatif"
+        create: "%{user_name} a invité l'utilisateur %{resource_name} au processus participatif %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} du processus participatif %{space_name}"
+        update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans le processus participatif %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
+          notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Les dates pour l''étape %{resource_title} à %{participatory_space_title} ont été mises à jour. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> à <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
+          email_intro: 'Les dates de l''étape %{resource_title} de%{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
+          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
       processes: Processus participatifs
     participatory_process_groups:
@@ -270,21 +270,21 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Promoteur
+        developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités
-        scope: Zone d'application
+        scope: Périmètre d'application
         start_date: Date de début
         target: Participants
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -292,7 +292,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
   layouts:
     decidim:
       participatory_process_groups:

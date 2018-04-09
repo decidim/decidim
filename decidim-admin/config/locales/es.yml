@@ -222,7 +222,7 @@ es:
           submit: Guardar permisos
           title: Editar permisos
         update:
-          success: Permisos actualizados correctamente.
+          success: Permisos actualizados con éxito.
       features:
         create:
           error: Se ha producido un error al añadir esta funcionalidad.
@@ -234,9 +234,9 @@ es:
           title: Editar funcionalidad
           update: Actualizar
         form:
-          default_step_settings: Configuración por defecto
+          default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
-          step_settings: Configuración de fase
+          step_settings: Configuración de paso
         index:
           add: Añadir funcionalidad
           headers:

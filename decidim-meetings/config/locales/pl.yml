@@ -56,7 +56,7 @@ pl:
     features:
       meetings:
         actions:
-          join: Dołącz
+          join: Przystąpić
         name: Spotkania
         settings:
           global:

@@ -22,7 +22,7 @@ pt-BR:
     features:
       surveys:
         actions:
-          answer: Responda
+          answer: Resposta
         name: Pesquisa
         settings:
           global:

@@ -56,7 +56,7 @@ nl:
     features:
       meetings:
         actions:
-          join: Lid worden
+          join: toetreden
         name: Vergaderingen
         settings:
           global:

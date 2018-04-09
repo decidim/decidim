@@ -34,16 +34,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: Een voorstel dat u volgt, is geaccepteerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gemaakt, bekijk het en draag bij:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Nieuw voorstel van %{author_nickname}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
-          email_outro: U hebt deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, die u volgt, heeft zojuist een voorstel goedgekeurd dat misschien interessant voor u is, bekijk het en draag bij:"
           email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
@@ -54,6 +44,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: Een voorstel dat u volgt, wordt geëvalueerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gepubliceerd, bekijk het en draag een bijdrage:"
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Nieuw voorstel van %{author_nickname}
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat u volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Het voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
@@ -72,7 +72,7 @@ nl:
     features:
       proposals:
         actions:
-          create: Creër
+          create: Creëren
           endorse: Onderschrijven
           vote: Stem
           withdraw: terugtrekken
@@ -84,27 +84,27 @@ nl:
             can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
-            maximum_votes_per_proposal: Maximale stemmen per voorstel
-            new_proposal_help_text: Nieuw voorstel help-tekst
-            official_proposals_enabled: Officiële voorstellen ingeschakeld
-            proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn verlopen
+            new_proposal_help_text: Nieuwe helptekst van het voorstel
+            official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
+            proposal_answering_enabled: Voorstelantwoord ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
             proposal_length: Maximale lengte van het voorstel
             proposal_limit: Voorstellimiet per gebruiker
             proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
             proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
             proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
+            threshold_per_proposal: Drempel per voorstel
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Voorstellen creëren ingeschakeld
+            creation_enabled: Voorstelcreatie ingeschakeld
             endorsements_blocked: Goedkeuringen geblokkeerd
             endorsements_enabled: Goedgekeurde endorsements
-            proposal_answering_enabled: Antwoordbericht geactiveerd
+            proposal_answering_enabled: Voorstelantwoord ingeschakeld
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen ingeschakeld
-            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, zal door dit aanvinken het aantal stemmen verbergen)
+            votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -337,11 +337,11 @@ nl:
           need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Elk voorstel kan meer dan maximale stemmen verzamelen
-          maximum_votes_per_proposal:
-            description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
+            description: Elk voorstel kan meer dan %{limit} ondersteuningen verzamelen
           proposal_limit:
             description: U kunt maximaal %{limit} voorstellen maken.
+          threshold_per_proposal:
+            description: Om te worden geaccepteerd, moeten voorstellen %{limit} steunen bereiken
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.

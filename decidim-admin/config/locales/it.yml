@@ -219,10 +219,10 @@ it:
       feature_permissions:
         edit:
           everyone: Tutti
-          submit: Salva la configurazione dei permessi
-          title: Modifica i permessi
+          submit: Salva permessi
+          title: Modifica permessi
         update:
-          success: OK, i permessi sono stati aggiornati.
+          success: Autorizzazioni aggiornate correttamente.
       features:
         create:
           error: Si è verificato un errore durante l'aggiunta di questa funzionalità (feature).
@@ -236,7 +236,7 @@ it:
         form:
           default_step_settings: Impostazioni del passo predefinite
           global_settings: Impostazioni globali
-          step_settings: Imposta le fasi (Step)
+          step_settings: Impostazioni del passo
         index:
           add: Aggiungi una funzionalità (feature)
           headers:

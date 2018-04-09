@@ -107,14 +107,14 @@ ca:
         name: Pressupostos
         settings:
           global:
-            announcement: Avís
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
-            announcement: Avís
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
-            show_votes: Mostra vots
+            show_votes: Mostra els suports
             votes_enabled: Suports habilitats
     orders:
       checkout:

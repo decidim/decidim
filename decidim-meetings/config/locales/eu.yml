@@ -56,14 +56,14 @@ eu:
     features:
       meetings:
         actions:
-          join: Bat egin
+          join: Parte hartu
         name: Topaketa-zerrenda
         settings:
           global:
-            announcement: Oharra
+            announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
           step:
-            announcement: Oharra
+            announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
     meetings:
       actions:

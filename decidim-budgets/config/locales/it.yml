@@ -103,18 +103,18 @@ it:
     features:
       budgets:
         actions:
-          vote: Votazione
-        name: Investimenti
+          vote: Vota
+        name: i bilanci
         settings:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             total_budget: Budget totale
-            vote_threshold_percent: Soglia voti (percentuale)
+            vote_threshold_percent: Vota la percentuale di soglia
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
-            show_votes: Visualizza voti
+            show_votes: Mostra voti
             votes_enabled: Voti abilitati
     orders:
       checkout:

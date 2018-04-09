@@ -2,15 +2,15 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
         email: Votre email
         name: Votre nom
         nickname: Votre identifiant court et unique pour Decidim
-        password: Nouveau mot de passe
-        password_confirmation: Confirmez votre nouveau mot de passe
+        password: Votre mot de passe
+        password_confirmation: Confirmez votre mot de passe
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -61,33 +61,33 @@ fr:
         unpublish: "%{user_name} non publié la fonctionnalité %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
-        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
-        create: "%{user_name} créé le %{resource_name} bulletin"
-        delete: "%{user_name} supprimé le %{resource_name} bulletin"
-        deliver: "%{user_name} livré le %{resource_name} bulletin"
-        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+        create: "%{user_name} a créé la newsletter %{resource_name}"
+        delete: "%{user_name} a supprimé la newsletter %{resource_name}"
+        deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
+        update: "%{user_name} a mis à jour la newsletter %{resource_name}"
       organization:
-        update: "%{user_name} mis à jour les paramètres de l'organisation"
+        update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
-        create: "%{user_name} a créé la portée %{resource_name}"
-        create_with_parent: "%{user_name} a créé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
-        delete: "%{user_name} a supprimé la portée %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
-        update: "%{user_name} a mis à jour la portée %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        create: "%{user_name} a créé le périmètre %{resource_name}"
+        create_with_parent: "%{user_name} a créé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        delete: "%{user_name} a supprimé le périmètre %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        update: "%{user_name} a mis à jour le périmètre %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
       static_page:
-        create: "%{user_name} créé le %{resource_name} page statique"
-        delete: "%{user_name} supprimé le %{resource_name} page statique"
-        update: "%{user_name} mis à jour le %{resource_name} page statique"
+        create: "%{user_name} a créé la page statique %{resource_name}"
+        delete: "%{user_name} a supprimé la page statique %{resource_name}"
+        update: "%{user_name} a mis à jour la page statique %{resource_name}"
       user:
-        invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
-        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
-        remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
-        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
+        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle: %{role}"
+        officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} a retiré le rôle: %{role} de l'utilisateur %{resource_name}"
+        unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
-        reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
-        verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
+        reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
     anonymous_user: Anonyme
     application:
       collection:
@@ -95,7 +95,7 @@ fr:
           one: Document
           other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
@@ -149,7 +149,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plate-forme?
+          are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -179,7 +179,7 @@ fr:
           email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -200,13 +200,13 @@ fr:
         name: Fonctionnalité exemple
         settings:
           global:
-            comments_enabled: Commentaires activés
-            dummy_global_attribute_1: Exemple d'attribut 1
-            dummy_global_attribute_2: Exemple d'attribut 2
+            comments_enabled: Activer le module de commentaire
+            dummy_global_attribute_1: Attribut factice 1
+            dummy_global_attribute_2: Attribut fictif 2
           step:
-            comments_blocked: Commentaires bloqués
-            dummy_step_attribute_1: Exemple d'attribut pour une étape 1
-            dummy_step_attribute_2: Exemple d'attribut pour une étape 2
+            comments_blocked: Bloquer la création de nouveaux commentaires
+            dummy_step_attribute_1: Attribut d'étape factice 1
+            dummy_step_attribute_2: Attribut d'étape factice 2
     filters:
       linked_classes:
         all: Tout
@@ -231,21 +231,21 @@ fr:
       remove_this_file: Supprimer ce fichier
     log:
       base_presenter:
-        create: "%{user_name} créé %{resource_name}"
-        create_with_space: "%{user_name} créé %{resource_name} dans %{space_name}"
-        delete: "%{user_name} supprimé %{resource_name}"
-        delete_with_space: "%{user_name} supprimé %{resource_name} dans %{space_name}"
-        unknown_action: "%{user_name} effectué une action sur %{resource_name}"
-        unknown_action_with_space: "%{user_name} effectué une action sur %{resource_name} dans %{space_name}"
-        update: "%{user_name} mis à jour %{resource_name}"
-        update_with_space: "%{user_name} mis à jour %{resource_name} dans %{space_name}"
+        create: "%{user_name} a créé %{resource_name}"
+        create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
+        delete: "%{user_name} a supprimé %{resource_name}"
+        delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour %{resource_name}"
+        update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'La zone d''application n''a pas été trouvée sur la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'La portée n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type d''étendue n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -302,7 +302,7 @@ fr:
     own_user_groups:
       index:
         pending: En attente
-        rejected: Refusée
+        rejected: Non retenue
         verified: Vérifié
     pages:
       index:
@@ -334,7 +334,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
@@ -495,10 +495,10 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -507,7 +507,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:

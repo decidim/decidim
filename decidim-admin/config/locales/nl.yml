@@ -219,10 +219,10 @@ nl:
       feature_permissions:
         edit:
           everyone: Iedereen
-          submit: Bewaar permissies
-          title: Wijzig permissies
+          submit: Bewaar rechten
+          title: Bewerk rechten
         update:
-          success: Permissies succesvol bijgewerkt.
+          success: Machtigingen succesvol bijgewerkt.
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functie.
@@ -234,9 +234,9 @@ nl:
           title: Bewerk functie
           update: Bijwerken
         form:
-          default_step_settings: Standaard stapinstellingen
+          default_step_settings: Standaard step-instellingen
           global_settings: Algemene instellingen
-          step_settings: Stap instellingen
+          step_settings: Stapinstellingen
         index:
           add: Functionaliteit toevoegen
           headers:

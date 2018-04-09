@@ -56,15 +56,15 @@ fi:
     features:
       meetings:
         actions:
-          join: Liity
+          join: Liittyä seuraan
         name: Tapaamiset
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
+            comments_enabled: Kommentit ovat käytössä
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi kielletty
+            comments_blocked: Kommentit on estetty
     meetings:
       actions:
         attachment_collections: kokoelmat

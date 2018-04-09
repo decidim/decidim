@@ -167,11 +167,6 @@ uk:
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Оновлення до %{participatory_space_title}
       notification_event:
         notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
       users:
@@ -190,15 +185,6 @@ uk:
           bar: Приклад змінної 1
           foo: Приклад змінної 2
         name: Приклад складової
-        settings:
-          global:
-            comments_enabled: Коментарі дозволено
-            dummy_global_attribute_1: Приклад властивості 1
-            dummy_global_attribute_2: Приклад властивості 2
-          step:
-            comments_blocked: Коментарі вимкнено
-            dummy_step_attribute_1: Приклад 1 властивості кроку
-            dummy_step_attribute_2: Приклад 2 властивості кроку
     filters:
       linked_classes:
         all: Усі

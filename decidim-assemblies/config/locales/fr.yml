@@ -2,14 +2,14 @@ fr:
   activemodel:
     attributes:
       assembly:
-        area_id: Région
+        area_id: Zone d'application
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
-        decidim_area_id: Région
-        decidim_scope_id: Portée
+        decidim_area_id: Zone d'application
+        decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
@@ -19,10 +19,10 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
-        scope_id: Zone d'application
-        scopes_enabled: Zone d'application activées
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_statistics: Montrez les statistiques
+        show_statistics: Afficher les statistiques
         slug: Identifiant
         subtitle: Sous-titre
         target: Participants
@@ -85,8 +85,8 @@ fr:
         assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
-          attachment_collections: Collections
-          attachment_files: Des dossiers
+          attachment_collections: Dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
           features: Fonctionnalités
@@ -114,19 +114,19 @@ fr:
         assemblies: Assemblées
     admin_log:
       assembly:
-        create: "%{user_name} a créé l'assemblage %{resource_name}"
-        publish: "%{user_name} a publié l'assembly %{resource_name}"
-        unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
-        update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
+        create: "%{user_name} a créé l'agora %{resource_name}"
+        publish: "%{user_name} a publié l'agora %{resource_name}"
+        unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
+        update: "%{user_name} a mis à jour l'agora %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
-        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assembly %{space_name}"
-        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assembly %{space_name}"
+        create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'agora %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Sélectionnez une zone
+            select_an_area: Sélectionnez une région
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
@@ -140,27 +140,27 @@ fr:
             see_all_assemblies: Voir toutes les assemblées
       show:
         area: Région
-        developer_group: Promoteur
+        developer_group: Organisateur
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
-        scope: Zone d'application
+        scope: Périmètre d'application
         target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
     menu:
       assemblies: Assemblées
   layouts:

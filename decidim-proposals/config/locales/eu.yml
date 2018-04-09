@@ -34,16 +34,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Ondorengo proposamen bat onartu da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, proposamen berri bat sortu du, begiratu eta lagundu:"
-          email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: Proposamen berria %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
-        proposal_created_for_space:
-          email_intro: Proposamena "%{resource_title}" gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: Proposamen berria %{participatory_space_title}
-          notification_title: Proposamena <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jarraitzen ari zaren norbaiti, interesgarria izan daitekeen proposamen bat onartu du, begiratu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{endorser_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -54,6 +44,16 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, proposamen berri bat argitaratu du, egiaztatu eta lagundu:"
+          email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Proposamen berria %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> argitaratu zen.
+        proposal_published_for_space:
+          email_intro: '"%{resource_title}" proposamena ondorengo "%{participatory_space_title}" erantsi zaizu.'
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: Proposamen berria %{participatory_space_title}n gehitu da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-ra gehitu da
         proposal_rejected:
           email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
@@ -79,32 +79,32 @@ eu:
         name: Proposamenak
         settings:
           global:
-            announcement: Oharra
-            attachments_allowed: Baimendu eranskinak
+            announcement: Anuntzio
+            attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
             comments_enabled: Iruzkinak gaituta
-            geocoding_enabled: Geokodeketa gaituta
-            maximum_votes_per_proposal: Proposamen bakoitzeko gehienezko botoak
-            new_proposal_help_text: Laguntza-testua proposamen bat sortzean
+            geocoding_enabled: Geokodifikazioa gaituta dago
+            new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
-            proposal_answering_enabled: Erantzuna aktibatutako proposamenei
+            proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_length: Proposamen maximoa gorputzaren luzera
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
-            announcement: Oharra
+            announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Gaitu proposamenen sorrera
+            creation_enabled: Proposamenaren sorrera gaituta
             endorsements_blocked: Onarpen blokeatuak
             endorsements_enabled: Onarpen gaituak
-            proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
-            votes_blocked: Bozketa blokeatuta
-            votes_enabled: Botoak gaituta
-            votes_hidden: Boto ezkutuak (Botoak gaituta egon eta aukera hau markatuz gero, ezkutuan geldituko da botoen kopurua)
+            proposal_answering_enabled: Proposamena erantzutea gaituta dago
+            votes_blocked: Botoiak blokeatuta
+            votes_enabled: Botoiak gaituta
+            votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -337,11 +337,11 @@ eu:
           need_more_votes: Botoak gehiago behar dituzu
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitzak gehienezko boto gehienak pilatu ahal ditu
-          maximum_votes_per_proposal:
-            description: Proposamen bakoitzak gehienez %{limit} boto jaso ditzake.
+            description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
+          threshold_per_proposal:
+            description: Onartutako proposamenak %{limit} euskarri behar ditu
           title: 'Botoak honako arauak ditu:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'

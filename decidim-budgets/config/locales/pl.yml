@@ -98,14 +98,14 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-            comments_enabled: Włączone komentarze
+            comments_enabled: Komentarze włączone
             total_budget: Cały budżet
-            vote_threshold_percent: Procentowy procent głosu
+            vote_threshold_percent: Procent progu głosowania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             show_votes: Pokaż głosy
-            votes_enabled: Głosy włączone
+            votes_enabled: Głosowanie włączone
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd

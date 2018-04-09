@@ -23,7 +23,7 @@ it:
       surveys:
         actions:
           answer: Risposta
-        name: Questionario
+        name: Sondaggio
         settings:
           global:
             announcement: Annuncio

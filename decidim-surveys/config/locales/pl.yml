@@ -28,7 +28,7 @@ pl:
           global:
             announcement: Ogłoszenie
           step:
-            allow_answers: Pozwól na odpowiedzi
+            allow_answers: Pozwól odpowiedzi
             announcement: Ogłoszenie
     surveys:
       admin:

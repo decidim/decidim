@@ -222,7 +222,7 @@ pl:
           submit: Zapisz uprawnienia
           title: Edytuj uprawnienia
         update:
-          success: Uprawnienia zostały zaktualizowane.
+          success: Uprawnienia zostały pomyślnie zaktualizowane.
       features:
         create:
           error: Podczas tworzenia tej funkcji wystąpił błąd.
@@ -234,7 +234,7 @@ pl:
           title: Edytuj funkcję
           update: Aktualizacja
         form:
-          default_step_settings: Domyślne ustawienia kroku
+          default_step_settings: Domyślne ustawienia kroków
           global_settings: Ustawienia ogólne
           step_settings: Ustawienia kroku
         index:

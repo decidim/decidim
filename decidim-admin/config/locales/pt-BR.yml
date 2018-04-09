@@ -219,7 +219,7 @@ pt-BR:
       feature_permissions:
         edit:
           everyone: Todos
-          submit: Guardar permissões
+          submit: Salvar permissões
           title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
@@ -232,9 +232,9 @@ pt-BR:
           success: Recurso apagado com sucesso.
         edit:
           title: Editar funcionalidade
-          update: Atualizar
+          update: Actualizar
         form:
-          default_step_settings: Configurações por defeito
+          default_step_settings: Configurações de etapa padrão
           global_settings: Configurações globais
           step_settings: Configurações de etapa
         index:

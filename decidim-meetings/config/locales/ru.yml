@@ -20,16 +20,7 @@ ru:
   decidim:
     features:
       meetings:
-        actions:
-          join: Присоединиться
         name: Встречи
-        settings:
-          global:
-            announcement: Объявление
-            comments_enabled: Комментарии включены
-          step:
-            announcement: Объявление
-            comments_blocked: Комментарии выключены
     meetings:
       actions:
         attachments: Вложения
