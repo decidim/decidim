@@ -29,6 +29,12 @@ es:
       newsletter:
         body: Cuerpo
         subject: Asunto
+      oauth_application:
+        name: Nombre
+        organization_logo: Logotipo de la organización (cuadrado)
+        organization_name: Nombre de la Organización
+        organization_url: URL de organización
+        redirect_uri: Redirigir URI
       organization:
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
@@ -77,6 +83,12 @@ es:
         organization: Organización
         slug: Texto corto de URL
         title: Título
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: El URI de redirección debe ser un URI SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ es:
         content: Contenido
         slug: Texto corto de URL
         title: Título
+      doorkeeper/application:
+        authorize_url: Autorizar URL
+        client_id: Identificación del cliente
+        client_secret: Secreto del cliente
+        organization_name: Nombre de la Organización
+        organization_url: URL de organización
+        redirect_uri: Redirigir URI
+        site: Sitio
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -301,6 +321,7 @@ es:
         dashboard: Panel de control
         managed_users: Usuarios gestionados
         newsletters: Boletines
+        oauth_applications: Aplicaciones OAuth
         officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -344,6 +365,13 @@ es:
             sent_at: Enviado el
             subject: Asunto
           name: Boletín
+        oauth_application:
+          fields:
+            created_at: Creado en
+            name: Nombre
+          name: Aplicación OAuth
+        participatory_space_private_user:
+          name: Usuario privado de espacio participativo
         scope:
           fields:
             name: Nombre
@@ -413,6 +441,25 @@ es:
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
+      oauth_applications:
+        create:
+          error: Ha habido un error al crear esta aplicación.
+          success: Aplicación creada con éxito.
+        destroy:
+          error: Ha habido un error al destruir esta aplicación.
+          success: Aplicación destruida con éxito.
+        edit:
+          save: Salvar
+          title: Editar aplicación
+        index:
+          confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
+          title: Aplicaciones OAuth
+        new:
+          save: Salvar
+          title: Nueva aplicación
+        update:
+          error: Ha habido un error al actualizar esta aplicación.
+          success: Aplicación actualizada con éxito.
       officializations:
         create:
           success: Usuario oficializado con éxito
@@ -466,6 +513,17 @@ es:
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           layout_appearance_title: Editar apariencia de diseño global
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      participatory_space_private_users:
+        create:
+          error: Hubo un error al agregar un usuario privado para este espacio participativo.
+          success: Acceso a usuarios privados de espacio participativo creado con éxito.
+        destroy:
+          success: El acceso de usuarios privados del espacio participativo se destruyó con éxito.
+        index:
+          title: Usuario privado de espacio participativo
+        new:
+          create: Crear
+          title: Nuevo usuario privado de Participatory Space.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.

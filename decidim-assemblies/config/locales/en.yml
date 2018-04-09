@@ -150,6 +150,7 @@ en:
             see_all_assemblies: See all assemblies
       show:
         area: Area
+        children: Assemblies
         developer_group: Developer group
         local_area: Local area
         participatory_scope: Participatory scope
@@ -174,6 +175,10 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
   layouts:

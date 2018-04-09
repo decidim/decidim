@@ -71,6 +71,10 @@ es:
         delete: "%{user_name} eliminó el newsletter %{resource_name}"
         deliver: "%{user_name} envió el newsletter %{resource_name}"
         update: "%{user_name} actualizó el newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creó la aplicación %{resource_name} OAuth"
+        delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       scope:
@@ -147,7 +151,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador corto y único
+          nickname_help: Su identificador corto y único en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -155,7 +159,7 @@ es:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiro recibir un boletín ocasional con información relevante
-          nickname_help: Su identificador corto y único
+          nickname_help: Su identificador corto y único en %{organization}
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -173,6 +177,21 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorice la aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publique contenido para usted
+          see_email: Mira tu correo electrónico
+          see_name: Mira tu nombre
+          see_username: Ver tu nombre de usuario
+          this_application_will_be_able_to: 'Esta aplicación podrá:'
+          this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
+          update_profile: Actualiza tu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar su cuenta"
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -313,6 +332,10 @@ es:
     pages:
       index:
         title: Más información
+    participatory_space_private_users:
+      not_allowed: No puedes ver este contenido
+    profile:
+      deleted: Usuario eliminado
     profiles:
       default_officialization_text: Esta persona participante está verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
@@ -400,7 +423,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        nickname_help: Su identificador único.
+        nickname_help: Su identificador único en %{organization}.
         submit_button: Guardar
     mailer:
       invitation_instructions:
@@ -411,18 +434,25 @@ es:
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_private_user: "%{invited_by} lo ha invitado como usuario privado de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
+        someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
+      invite_private_user:
+        subject: Has sido invitado a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+  doorkeeper:
+    scopes:
+      public: Tu información pública
   errors:
     messages:
       content_type_whitelist_error: El tipo de archivo no es válido
@@ -502,6 +532,7 @@ es:
         answers_count: Encuestas completadas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Respaldos
         headline: Estado actual de %{organization}
         meetings_count: Encuentros

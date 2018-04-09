@@ -14,7 +14,7 @@ module Decidim
     end
 
     def follow
-      @follow ||= Decidim::Follow.where(user: current_user, followable: followable).first
+      @follow ||= Decidim::Follow.find_by(user: current_user, followable: followable)
     end
   end
 end

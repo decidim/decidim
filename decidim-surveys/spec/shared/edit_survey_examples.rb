@@ -97,8 +97,6 @@ shared_examples "edit surveys" do
       within "form.edit_survey" do
         click_button "Add question"
 
-        expect(page).to have_selector(".survey-question", count: 1)
-
         within ".survey-question" do
           fill_in find_nested_form_field_locator("body_en"), with: question_body
         end
@@ -172,7 +170,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists question form across submission failures" do
+    it "preserves question form across submission failures" do
       click_button "Add question"
       select "Long answer", from: "Type"
       click_button "Save"
@@ -180,7 +178,7 @@ shared_examples "edit surveys" do
       expect(page).to have_select("Type", selected: "Long answer")
     end
 
-    it "does not persist spurious answer options from previous type selections" do
+    it "does not preserve spurious answer options from previous type selections" do
       click_button "Add question"
       select "Single option", from: "Type"
 
@@ -199,19 +197,33 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists answer options form across submission failures" do
+    it "preserves answer options form across submission failures" do
       click_button "Add question"
-      select "Single option", from: "Type"
+      select "Multiple option", from: "Type"
 
       within ".survey-question-answer-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
+
+      click_button "Add answer option"
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
+      end
+
+      select "3", from: "Maximum number of choices"
 
       click_button "Save"
 
       within ".survey-question-answer-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
       end
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
+      end
+
+      expect(page).to have_select("Maximum number of choices", selected: "3")
     end
 
     it "allows switching translated field tabs after form failures" do
@@ -231,6 +243,65 @@ shared_examples "edit surveys" do
       end
     end
 
+    context "when adding a multiple option question" do
+      before do
+        visit_component_admin
+
+        within "form.edit_survey" do
+          click_button "Add question"
+
+          within ".survey-question" do
+            fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
+          end
+
+          expect(page).to have_no_content "Add answer option"
+          expect(page).to have_no_select("Maximum number of choices")
+        end
+      end
+
+      it "updates the free text option selector according to the selected question type" do
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Multiple option", from: "Type"
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Short answer", from: "Type"
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Single option", from: "Type"
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+      end
+
+      it "updates the max choices selector according to the configured options" do
+        expect(page).to have_no_select("Maximum number of choices")
+
+        select "Multiple option", from: "Type"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+        click_button "Add answer option"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+        click_button "Add answer option"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
+
+        within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+        within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+        click_button "Add question"
+
+        within(".survey-question:last-of-type") do
+          select "Multiple option", from: "Type"
+          expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+          select "Single option", from: "Type"
+          expect(page).to have_no_select("Maximum number of choices")
+        end
+      end
+    end
+
     context "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
@@ -240,8 +311,6 @@ shared_examples "edit surveys" do
 
       it "modifies the question when the information is valid" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             fill_in "survey_questions_#{survey_question.id}_body_en", with: "Modified question"
             check "Mandatory"
@@ -263,13 +332,12 @@ shared_examples "edit surveys" do
 
       it "re-renders the form when the information is invalid and displays errors" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             expect(page).to have_content("Statement*")
             fill_in "survey_questions_#{survey_question.id}_body_en", with: ""
             check "Mandatory"
             select "Multiple option", from: "Type"
+            select "2", from: "Maximum number of choices"
           end
 
           click_button "Save"
@@ -281,13 +349,31 @@ shared_examples "edit surveys" do
         expect(page).to have_selector("input[value='']")
         expect(page).to have_no_selector("input[value='This is the first question']")
         expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_select("Maximum number of choices", selected: "2")
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
+      end
+
+      it "preserves deleted status across submission failures" do
+        within "form.edit_survey" do
+          within ".survey-question" do
+            click_button "Remove"
+          end
+        end
+
+        click_button "Add question"
+
+        click_button "Save"
+
+        expect(page).to have_selector(".survey-question", count: 1)
+
+        within ".survey-question" do
+          expect(page).to have_selector(".card-title", text: "#1")
+          expect(page).to have_no_button("Up")
+        end
       end
 
       it "removes the question" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             click_button "Remove"
           end
@@ -415,7 +501,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question up" do
         before do
-          within "#survey_question_#{survey_question_2.id}-field" do
+          within ".survey-question:last-of-type" do
             click_button "Up"
           end
 
@@ -425,7 +511,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question down" do
         before do
-          within "#survey_question_#{survey_question_1.id}-field" do
+          within ".survey-question:first-of-type" do
             click_button "Down"
           end
         end
@@ -440,7 +526,7 @@ shared_examples "edit surveys" do
         expect(page.find(".survey-question:nth-child(2)")).to look_like_intermediate_question
         expect(page.find(".survey-question:nth-child(3)")).to look_like_last_question
 
-        within "#survey_question_#{survey_question_1.id}-field" do
+        within ".survey-question:first-of-type" do
           click_button "Remove"
         end
 
@@ -501,7 +587,7 @@ shared_examples "edit surveys" do
   end
 
   context "when the survey is already answered" do
-    let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
+    let!(:survey_question) { create(:survey_question, survey: survey, body: body, question_type: "multiple_option") }
     let!(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question) }
 
     it "cannot modify survey questions" do
@@ -510,6 +596,9 @@ shared_examples "edit surveys" do
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
+      expect(page).to have_selector("select[id$=question_type][disabled]")
+      expect(page).to have_selector("select[id$=max_choices][disabled]")
+      expect(page).to have_selector(".ql-editor[contenteditable=false]")
     end
   end
 

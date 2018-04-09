@@ -90,7 +90,7 @@ module Decidim
         end
 
         def parent_result
-          @parent_result ||= Result.where(component: current_component, id: params[:parent_id]).first
+          @parent_result ||= Result.find_by(component: current_component, id: params[:parent_id])
         end
 
         def parent_results

@@ -51,6 +51,7 @@ pt-BR:
             already_answered_warning: A pesquisa já foi respondida por alguns usuários para que você não possa modificar suas perguntas.
           question:
             add_answer_option: Adicionar opção de resposta
+            description: Descrição
             down: Baixa
             question: Questão
             remove: Remover

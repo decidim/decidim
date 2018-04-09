@@ -5,7 +5,6 @@ ru:
         announcement: Объявление
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
-        copy_features: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
         developer_group: Группа зачинателей
@@ -63,7 +62,6 @@ ru:
         participatory_processes_submenu:
           attachments: Вложения
           categories: Категории
-          features: Составляющие
           info: Информация
           moderations: Действия по модерации
           process_admins: Участники движения

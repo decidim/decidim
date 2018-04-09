@@ -51,6 +51,7 @@ eu:
             already_answered_warning: Inkesta dagoeneko erabiltzaile batzuek erantzun dute, beraz, ezin dituzu bere galderak aldatu.
           question:
             add_answer_option: Gehitu erantzun aukera
+            description: deskribapena
             down: Down
             question: Galdera
             remove: Kendu

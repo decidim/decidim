@@ -10,6 +10,7 @@ require "decidim/verifications"
 
 require "decidim/participatory_processes"
 require "decidim/assemblies"
+require "decidim/consultations"
 
 require "decidim/pages"
 require "decidim/comments"
@@ -19,6 +20,7 @@ require "decidim/budgets"
 require "decidim/surveys"
 require "decidim/accountability"
 require "decidim/debates"
+require "decidim/sortitions"
 
 # Module declaration.
 module Decidim

@@ -30,7 +30,7 @@ module Decidim
       end
     end
 
-    describe "#badge" do
+    describe "#profile_path" do
       subject { described_class.new(user).profile_path }
 
       it { is_expected.to eq("/profiles/#{user.nickname}") }
@@ -39,7 +39,7 @@ module Decidim
     context "when user is deleted" do
       let(:user) { build(:user, :deleted) }
 
-      describe "#badge" do
+      describe "#profile_path" do
         subject { described_class.new(user).profile_path }
 
         it { is_expected.to eq("") }

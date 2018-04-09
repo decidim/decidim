@@ -90,3 +90,9 @@ $palette: $foundation-palette;
   }
 }
 
+@mixin ellipsis(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: $global-lineheight;
+}

@@ -59,7 +59,7 @@
       </li>
       <li class="<% if @activepage == "proposals" %>is-active
                  <% end %>">
-        <%= link_to page_path("proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
+        <%= link_to page_path("proposals/proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
           <%= icon "proposals" %>
           <span>Propostes</span>
         <% end %>
