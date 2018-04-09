@@ -56,8 +56,8 @@ it:
     features:
       meetings:
         actions:
-          join: Unirsi
-        name: Incontri
+          join: Aderire
+        name: Riunioni
         settings:
           global:
             announcement: Annuncio
