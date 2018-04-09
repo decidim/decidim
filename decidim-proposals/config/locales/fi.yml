@@ -34,16 +34,6 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
           email_subject: Seuraava ehdotus on hyväksytty
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Uusi ehdotus %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}" että seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Uusi ehdotus lisätty %{participatory_space_title}
-          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
           email_outro: Olet saanut tämän ilmoituksen, koska olet seurannut %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
@@ -54,6 +44,16 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
           email_subject: Seuraava ehdotus arvioidaan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotusta arvioidaan.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, jonka olet seurannut, on julkaissut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Uusi ehdotus %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaisi <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: 'Uusi ehdotus lisätty %{participatory_space_title}: ään'
+          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
@@ -82,29 +82,29 @@ fi:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
-            comments_enabled: Kommentointi sallittu
-            geocoding_enabled: Geokoodaus päällä
-            maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
-            new_proposal_help_text: Uuden ehdotuksen ohjeteksti
-            official_proposals_enabled: Viralliset ehdotukset sallittu
-            proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
+            comments_enabled: Kommentit ovat käytössä
+            geocoding_enabled: Geokoodaus on käytössä
+            new_proposal_help_text: Uusi ehdotusohje teksti
+            official_proposals_enabled: Viralliset ehdotukset ovat mahdollisia
+            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
             proposal_length: Suurin ehdotuksen pituus
-            proposal_limit: Ehdotuksien raja käyttäjää kohden
+            proposal_limit: Ehdotuksen raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            threshold_per_proposal: Kynnys per ehdotus
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi estetty
-            creation_enabled: Ehdotusten luonti sallittu
+            comments_blocked: Kommentit on estetty
+            creation_enabled: Ehdotuksen luominen käyttöön
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
-            proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            votes_blocked: Äänestys estetty
-            votes_enabled: Äänestys sallittu
-            votes_hidden: Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)
+            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
+            votes_blocked: Äänet ovat tukossa
+            votes_enabled: Äänet käytössä
+            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tarkistamalla tämä piilottaa äänimäärän)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -337,11 +337,11 @@ fi:
           need_more_votes: Tarvitset enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Jokainen ehdotus voi kerätä enemmän kuin enimmäisäänestykset
-          maximum_votes_per_proposal:
-            description: Jokainen ehdotus voi saada enintään %{limit} ääntä.
+            description: Jokainen ehdotus voi kerätä yli %{limit} tukee
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
+          threshold_per_proposal:
+            description: Jotta ehdotukset hyväksytään, niiden on saavutettava %{limit} tukee
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
