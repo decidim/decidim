@@ -52,6 +52,7 @@ nl:
         surveys:
           answer_option:
             answer_option: Antwoord optie
+            free_text: Vrije tekst
             remove: Verwijderen
             statement: Stelling
           edit:
