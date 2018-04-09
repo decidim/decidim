@@ -20,6 +20,15 @@ module Decidim
         author == user || user.user_groups.include?(user_group)
       end
 
+      # Returns the normalized author, whether it's a user group or a user. Ideally this should be
+      # the *author* method, but it's pending a refactor. TODO: Refactor so the `normalized_author`
+      # can be promoted to the the actual `author` method.
+      #
+      # Returns an Author, a UserGroup or nil.
+      def normalized_author
+        user_group || author
+      end
+
       private
 
       def verified_user_group

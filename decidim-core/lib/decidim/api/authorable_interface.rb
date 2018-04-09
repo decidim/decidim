@@ -7,11 +7,7 @@ module Decidim
       name "AuthorableInterface"
       description "An interface that can be used in authorable objects."
 
-      field :author, !Decidim::Core::AuthorInterface, "The comment's author" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.user_group || obj.author
-        }
-      end
+      field :author, !Decidim::Core::AuthorInterface, "The comment's author", property: :normalized_author
     end
   end
 end

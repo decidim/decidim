@@ -28,9 +28,7 @@ module Decidim
 
       field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this proposal." do
         resolve ->(proposal, _, _) {
-          proposal.endorsements.map do |endorsement|
-            endorsement.user_group || endorsement.author
-          end
+          proposal.endorsements.map(&:normalized_author)
         }
       end
 
