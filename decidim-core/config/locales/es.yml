@@ -176,10 +176,10 @@ es:
         email_subject: Una actualización de %{resource_title}
       features:
         feature_published:
-          email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización de %{participatory_space_title}
-          notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -201,12 +201,12 @@ es:
         settings:
           global:
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
         all: Todas
