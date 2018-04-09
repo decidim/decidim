@@ -52,6 +52,7 @@ pl:
         surveys:
           answer_option:
             answer_option: Odpowiedź
+            free_text: Dowolny tekst
             remove: Usunąć
             statement: Komunikat
           edit:
