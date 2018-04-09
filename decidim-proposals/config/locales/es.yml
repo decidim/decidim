@@ -37,8 +37,8 @@ es:
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a quién sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:"
           email_outro: Recibió esta notificación porque está siguiendo %{endorser_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "%{endorser_nickname} ha reivindicado una nueva propuesta"
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido reivindicada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          email_subject: "%{endorser_nickname} se ha adherido a una nueva propuesta"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a a propuesta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
           email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -253,7 +253,7 @@ es:
           title: Editar borrador de propuesta
         endorsement_button:
           already_endorsed: Ya adherido/a
-          already_endorsed_hover: Des-adherirse
+          already_endorsed_hover: Desadherirse
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:
