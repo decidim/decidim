@@ -52,6 +52,7 @@ fr:
         surveys:
           answer_option:
             answer_option: Option de réponse
+            free_text: Texte libre
             remove: Retirer
             statement: Déclaration
           edit:
