@@ -60,10 +60,10 @@ es:
         name: Encuentros
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
             comments_enabled: Comentarios habilitados
           step:
-            announcement: Aviso
+            announcement: Anuncio
             comments_blocked: Comentarios bloqueados
     meetings:
       actions:
