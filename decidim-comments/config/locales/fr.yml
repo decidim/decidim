@@ -3,7 +3,7 @@ fr:
     comments:
       votes:
         create:
-          error: Une erreur s'est produite lors du vote sur le commentaire.
+          error: Une erreur s'est produite lors du soutien du commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
@@ -42,7 +42,7 @@ fr:
           best_rated: Les mieux notés
           most_discussed: Les plus débattus
           older: Les plus anciens
-          recent: Les plus récents
+          recent: Les plus récentes
         title: 'Classement par :'
       comment_thread:
         title: Conversation avec %{authorName}
@@ -57,12 +57,12 @@ fr:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
-            email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
-            notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner depuis le lien précédant.
+            email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
+            notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"%{resource_title}" a été commenté'
-            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner depuis le lien précédant.
             email_subject: Il y a une nouvelle réponse à votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
