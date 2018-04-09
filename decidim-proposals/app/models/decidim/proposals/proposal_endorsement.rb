@@ -4,9 +4,9 @@ module Decidim
   module Proposals
     # A proposal can include an endorsement per user or group.
     class ProposalEndorsement < ApplicationRecord
+      include Decidim::Authorable
+
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
       validates :proposal, uniqueness: { scope: [:author, :user_group] }
       validate :author_and_proposal_same_organization
