@@ -23,7 +23,6 @@ uk:
         parent_id: Батьківський об'єкт
       feature:
         name: Ім'я
-        weight: Вага
       id: Псевдонім
       newsletter:
         body: Основний текст
@@ -213,13 +212,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
-      feature_permissions:
-        edit:
-          everyone: Будь-хто
-          submit: Зберегти права доступу
-          title: Редагувати права доступу
-        update:
-          success: Права доступу успішно оновлено.
       features:
         create:
           error: При додаванні цієї складової сталася помилка.
@@ -230,10 +222,6 @@ uk:
         edit:
           title: Редагувати складову
           update: Оновити
-        form:
-          default_step_settings: Налаштування за замовчуванням для кроків
-          global_settings: Загальні налаштування
-          step_settings: Налаштування кроку
         index:
           add: Додати складову
           headers:
