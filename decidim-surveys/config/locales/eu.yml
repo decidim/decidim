@@ -52,6 +52,7 @@ eu:
         surveys:
           answer_option:
             answer_option: Erantzuna aukera
+            free_text: Testu librea
             remove: Kendu
             statement: Adierazpena
           edit:
