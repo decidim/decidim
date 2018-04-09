@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       survey_answer:
-        body: Répondre
+        body: Réponse
       survey_question:
         mandatory: Requis
         question_type: Type de question
@@ -22,7 +22,7 @@ fr:
     features:
       surveys:
         actions:
-          answer: Répondre
+          answer: Réponse
         name: Enquête
         settings:
           global:
