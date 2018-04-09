@@ -23,12 +23,12 @@ fi:
       surveys:
         actions:
           answer: Vastaa
-        name: Kysely
+        name: tutkimus
         settings:
           global:
             announcement: Ilmoitus
           step:
-            allow_answers: Salli vastaukset
+            allow_answers: Anna vastauksia
             announcement: Ilmoitus
     surveys:
       admin:
