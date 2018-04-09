@@ -10,6 +10,7 @@ module Decidim
           return false unless spaces_allows_user?
 
           return false if permission_action.scope != :admin
+          return true if allowed_by_other_components?
 
           return true if can_perform_actions_on?(:result, result)
           return true if can_perform_actions_on?(:status, status)

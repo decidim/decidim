@@ -11,6 +11,7 @@ module Decidim
           return false unless user
 
           return false if permission_action.scope != :admin
+          return true if allowed_by_other_components?
 
           return false if permission_action.subject != :sortition
 

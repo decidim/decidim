@@ -9,6 +9,7 @@ module Decidim
         return false unless spaces_allows_user?
 
         return false if permission_action.scope != :admin
+        return true if allowed_by_other_components?
 
         return true if permission_action.action == :update
 
