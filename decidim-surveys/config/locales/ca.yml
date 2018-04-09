@@ -52,6 +52,7 @@ ca:
         surveys:
           answer_option:
             answer_option: Opció de resposta
+            free_text: Text gratuït
             remove: Elimina
             statement: Enunciat
           edit:
