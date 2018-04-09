@@ -175,13 +175,13 @@ pl:
         name: Odpowiedzialność
         settings:
           global:
-            categories_label: Nazwa "Kategorie"
+            categories_label: Nazwa dla "kategorii"
             comments_enabled: Komentarze włączone
             display_progress_enabled: Wyświetl postęp
-            heading_leaf_level_results: Nazwa "Projekty"
-            heading_parent_level_results: Nazwa "Wyniki"
-            intro: Intro
-            subcategories_label: Nazwa "Podkategorie"
+            heading_leaf_level_results: Nazwa dla "projektów"
+            heading_parent_level_results: Nazwa dla "Wyniki"
+            intro: Wprowadzenie
+            subcategories_label: Nazwa dla "podkategorii"
           step:
             comments_blocked: Komentarze zablokowane
     participatory_processes:
