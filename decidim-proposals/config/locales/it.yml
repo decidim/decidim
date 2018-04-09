@@ -34,16 +34,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Una proposta che stai seguendo è stata accettata
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova proposta, verificala e contribuisci:"
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Nuova proposta di %{author_nickname}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: La proposta "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: Nuova proposta aggiunta a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena approvato una proposta che potrebbe essere interessante per te, controllala e contribuisci:"
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -54,6 +44,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Una proposta che stai seguendo è in corso di valutazione
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha pubblicato una nuova proposta, dai un'occhiata e dai:"
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Nuova proposta di %{author_nickname}
+          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta è stata pubblicata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: La proposta "%{resource_title}" è stata aggiunta a "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuova proposta aggiunta a %{participatory_space_title}
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -80,31 +80,31 @@ it:
         settings:
           global:
             announcement: Annuncio
-            attachments_allowed: Autorizzare allegati
+            attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
-            maximum_votes_per_proposal: Numero massimo di voti per proposta
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
-            proposal_answering_enabled: Risposta Proposte abilitata
+            proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_length: Lunghezza massima della proposta
-            proposal_limit: Limite di proposta per utente
+            proposal_limit: Limite della proposta per utente
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
+            threshold_per_proposal: Soglia per proposta
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
-            creation_enabled: Creazione delle Proposte abilitata
+            creation_enabled: Creazione della proposta abilitata
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
-            proposal_answering_enabled: Risposta Proposte abilitata
-            votes_blocked: Votazioni bloccate
-            votes_enabled: Votazioni abilitate
-            votes_hidden: Voti nascosti (se i voti sono abilitati, spuntando questa casella verrà nascosto il numero dei voti)
+            proposal_answering_enabled: Risposta alla proposta abilitata
+            votes_blocked: Voti bloccati
+            votes_enabled: Voti abilitati
+            votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -337,11 +337,11 @@ it:
           need_more_votes: Hai bisogno di più voti
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Ogni proposta può accumulare oltre il numero massimo di voti
-          maximum_votes_per_proposal:
-            description: Ogni proposta può ricevere un massimo di %{limit} voti.
+            description: Ogni proposta può accumulare più di %{limit} supporti
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
+          threshold_per_proposal:
+            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
