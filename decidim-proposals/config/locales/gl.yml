@@ -34,16 +34,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Aceptouse unha proposta que estás seguindo
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, quen estás seguindo, creou unha nova proposta, revisa e contribúe:"
-          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Nova proposta por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: A proposta "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
-          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
-          email_subject: Nova proposta engadida a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a quen estás seguindo, acaba de aprobar unha proposta que poida resultar interesante para ti, consultar e contribuír:"
           email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -54,6 +44,16 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Estase evaluando unha proposta que estás seguindo
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, a quen estás seguindo, publicou unha nova proposta, revisa e contribúe:"
+          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Nova proposta por %{author_nickname}
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: Nova proposta engadida ao %{participatory_space_title}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -84,7 +84,6 @@ gl:
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding habilitado
-            maximum_votes_per_proposal: Votos máximos por proposta
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
@@ -94,6 +93,7 @@ gl:
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
+            threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
@@ -337,11 +337,11 @@ gl:
           need_more_votes: Necesita máis votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular máis que o máximo de votos
-          maximum_votes_per_proposal:
-            description: Cada proposta pode recibir un máximo de %{limit} votos.
+            description: Cada proposta pode acumular máis de %{limit} apoios
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
+          threshold_per_proposal:
+            description: Para ser aceptado, as propostas deben chegar a %{limit} apoios
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
