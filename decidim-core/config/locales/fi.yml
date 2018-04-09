@@ -179,7 +179,7 @@ fi:
           email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
-          notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -200,13 +200,13 @@ fi:
         name: Esimerkkiominaisuus
         settings:
           global:
-            comments_enabled: Kommentointi sallittu
-            dummy_global_attribute_1: Esimerkkitietue 1
-            dummy_global_attribute_2: Esimerkkitietue 2
+            comments_enabled: Kommentit ovat käytössä
+            dummy_global_attribute_1: Dummy-ominaisuus 1
+            dummy_global_attribute_2: Dummy-ominaisuus 2
           step:
-            comments_blocked: Kommentointi estetty
-            dummy_step_attribute_1: Esimerkkivaihetietue 1
-            dummy_step_attribute_2: Esimerkkivaihetietue 2
+            comments_blocked: Kommentit on estetty
+            dummy_step_attribute_1: Dummy Step -ominaisuus 1
+            dummy_step_attribute_2: Dummy Step -ominaisuus 2
     filters:
       linked_classes:
         all: Kaikki
