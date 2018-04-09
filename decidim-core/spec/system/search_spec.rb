@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Search", type: :system do
   let(:organization) { create(:organization) }
   let(:term) { "dolorem" }
+
   before do
     switch_to_host(organization.host)
     visit decidim.root_path
