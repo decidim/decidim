@@ -104,18 +104,18 @@ fi:
       budgets:
         actions:
           vote: Äänestä
-        name: Budjetit
+        name: budjetit
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
+            comments_enabled: Kommentit ovat käytössä
             total_budget: Koko budjetti
-            vote_threshold_percent: Äänestyskynnyksen prosentti
+            vote_threshold_percent: Äänestä kynnysarvoa
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi kielletty
+            comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
-            votes_enabled: Äänestys sallittu
+            votes_enabled: Äänet käytössä
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe
