@@ -104,13 +104,13 @@ nl:
       budgets:
         actions:
           vote: Stem
-        name: Begrotingen
+        name: begrotingen
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             total_budget: Totale begroting
-            vote_threshold_percent: Stem drempel percentage
+            vote_threshold_percent: Stemdrempel procent
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
