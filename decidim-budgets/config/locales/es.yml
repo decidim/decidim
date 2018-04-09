@@ -107,14 +107,14 @@ es:
         name: Presupuestos
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
             comments_enabled: Comentarios habilitados
             total_budget: Presupuesto total
-            vote_threshold_percent: Porcentaje mínimo del presupuesto
+            vote_threshold_percent: Porcentaje de votos
           step:
-            announcement: Aviso
+            announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            show_votes: Mostrar votos
+            show_votes: Mostrar los votos
             votes_enabled: Votos habilitados
     orders:
       checkout:
