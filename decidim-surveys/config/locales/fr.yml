@@ -5,7 +5,7 @@ fr:
         body: Répondre
       survey_question:
         mandatory: Requis
-        max_choices: Nombre maximum de choix
+        max_choices: Nombre de choix maximum
         question_type: Type de question
     errors:
       models:
@@ -40,7 +40,7 @@ fr:
     forms:
       errors:
         survey_answer:
-          body: Le corps ne peut pas être vide
+          body: Cet espace ne peut pas être vide
     surveys:
       admin:
         exports:
