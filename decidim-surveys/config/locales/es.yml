@@ -26,10 +26,10 @@ es:
         name: Encuesta
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
-            announcement: Aviso
+            announcement: Anuncio
     surveys:
       admin:
         exports:
