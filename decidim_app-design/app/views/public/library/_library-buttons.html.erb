@@ -5,39 +5,16 @@
 <button class="button button--sc">.button--sc</button>
 <button class="button hollow">.hollow</button>
 <button class="button hollow secondary">.hollow .secondary</button>
-<hr>
-<h2 class="section-heading">Paginación</h2>
-<div class="section">
-  <div class="show-more">
-    <!--primary load more -->
-    <button class="button button--muted small">
-      Ver más propouestas
-    </button>
-  </div>
-  <div class="show-more">
-    <!--primary load more -->
-    <button class="button button--muted small">
-      Ver más comentarios
-    </button>
-  </div>
-  <div class="show-more">
-    <!--secondary load more -->
-    <button class="muted-link">
-      Ver más comentarios
-    </button>
-  </div>
-</div>
-<%= partial "pagination" %>
-<hr>
+
 <h2 class="section-heading">Botones y estados</h2>
 <button class="button small">Apoyar</button>
 <button class="button small success">Apoyando</button>
 <button class="button small" disabled>Apoyar</button>
-<br>
+<br />
 <button class="button button--sc">Apoyar</button>
 <button class="button button--sc success">Apoyando</button>
 <button class="button button--sc" disabled>Apoyar</button>
-<br>
+<br />
 <div style="display: flex;">
   <button class="button hollow secondary small button--icon">
     <%= icon("bell", class:"icon--before") %>
@@ -130,4 +107,22 @@
   <button class="button tiny button--muted opinion-toggle--ko is-active" title="Comentari en contra">
     <%= icon "thumb-down", aria_label: "En contra" %>
   </button>
+</div>
+
+<div class="row column">
+  <h2 class="section-heading">Botones con sombra</h2>
+  <pre>.button--shadow</pre>
+  <button class="button button--shadow primary">.primary</button>
+  <button class="button button--shadow success">.success</button>
+  <button class="button button--shadow secondary">.secondary</button>
+  <button class="button button--shadow warning">.warning</button>
+  <button class="button button--shadow alert">.alert</button>
+  <button class="button button--shadow muted button--muted">.button--muted.muted</button>
+</div>
+
+<div class="row column">
+  <h2 class="section-heading">Botones texto blanco</h2>
+  <pre>.button.light</pre>
+  <button class="button light success">.success</button>
+  <button class="button light secondary">.secondary</button>
 </div>

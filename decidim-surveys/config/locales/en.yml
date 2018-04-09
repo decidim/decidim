@@ -6,7 +6,14 @@ en:
         body: Answer
       survey_question:
         mandatory: Mandatory
+        max_choices: Maximum number of choices
         question_type: Type
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              too_many: are too many
   decidim:
     components:
       surveys:
@@ -31,6 +38,10 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
+    forms:
+      errors:
+        survey_answer:
+          body: Body can't be blank
     surveys:
       admin:
         exports:
@@ -42,6 +53,7 @@ en:
         surveys:
           answer_option:
             answer_option: Answer option
+            free_text: Free text
             remove: Remove
             statement: Statement
           edit:
@@ -52,6 +64,7 @@ en:
             already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
+            any: Any
             description: Description
             down: Down
             question: Question
@@ -70,6 +83,8 @@ en:
         answer:
           invalid: There's been errors when answering the survey.
           success: Survey answered successfully.
+        question:
+          max_choices: 'Max choices: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the survey.

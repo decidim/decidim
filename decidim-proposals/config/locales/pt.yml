@@ -32,7 +32,6 @@ pt:
             can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
             comments_enabled: Comentários ativados
             geocoding_enabled: Geocoding habilitado
-            maximum_votes_per_proposal: Máximo de votos por proposta
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
             proposal_answering_enabled: Resposta de proposta ativada
@@ -42,6 +41,7 @@ pt:
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
             proposal_wizard_step_3_help_text: Assistente de propostas "Publicar" passo ajuda texto
+            threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
             announcement: Anúncio
@@ -70,16 +70,6 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: Uma proposta que você está seguindo foi aceita
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, quem você está seguindo, criou uma nova proposta, confira e contribui:"
-          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Nova proposta por %{author_nickname}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: A proposta "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
-          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
-          email_subject: Nova proposta adicionada a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, quem você está seguindo, acabou de aprovar uma proposta que pode ser interessante para você, confira e contribua:"
           email_outro: Você recebeu esta notificação porque você está seguindo %{endorser_nickname}. Você pode parar de receber notificações após o link anterior.
@@ -90,6 +80,20 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: Uma proposta que você está seguindo está sendo avaliada
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
+        proposal_mentioned:
+          email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
+          email_subject: Sua proposta "%{mentioned_proposal_title}" foi mencionada
+          notification_title: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, que você está seguindo, publicou uma nova proposta, confira e contribua:"
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Nova proposta de %{author_nickname}
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você está seguindo.
+          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
+          email_subject: Nova proposta adicionada a %{participatory_space_title}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
@@ -206,6 +210,9 @@ pt:
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.
+      destroy_draft:
+        error: Houve erros ao excluir o rascunho da proposta.
+        success: O rascunho da proposta foi destruído com sucesso.
       models:
         proposal:
           fields:
@@ -229,7 +236,7 @@ pt:
           select_identity: Selecione a identidade
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Já endossado
+          already_endorsed: Endossado
           endorse: Endossar
       proposal_votes:
         create:
@@ -249,11 +256,10 @@ pt:
           send: Enviar
           title: Editar proposta
         edit_draft:
+          discard: Descarte este rascunho
+          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
           send: Visualização
           title: Editar proposta de rascunho
-        endorsement_button:
-          already_endorsed: Já endossado
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:
@@ -324,6 +330,7 @@ pt:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
+          filed_as: Arquivado como
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote
@@ -339,11 +346,11 @@ pt:
           need_more_votes: Precisa de mais votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular mais de votos máximos
-          maximum_votes_per_proposal:
-            description: Cada proposta pode receber um máximo de %{limit} votos.
+            description: Cada proposta pode acumular mais de %{limit} suporta
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
+          threshold_per_proposal:
+            description: Para serem aceitos, as propostas precisam chegar aos apoios %{limit}
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Você pode votar até %{limit} propostas.

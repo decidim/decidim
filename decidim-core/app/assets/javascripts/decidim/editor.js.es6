@@ -6,6 +6,7 @@
 
   const createQuillEditor = (container) => {
     const toolbar = $(container).data("toolbar");
+    const disabled = $(container).data("disabled");
 
     let quillToolbar = [
       ["bold", "italic", "underline"],
@@ -34,6 +35,10 @@
       formats: quillFormats,
       theme: "snow"
     });
+
+    if (disabled) {
+      quill.disable();
+    }
 
     quill.on("text-change", () => {
       const text = quill.getText();

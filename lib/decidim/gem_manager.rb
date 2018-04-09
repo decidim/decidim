@@ -19,6 +19,7 @@ module Decidim
     PARTICIPATORY_SPACES = %w(
       participatory_processes
       assemblies
+      consultations
     ).freeze
 
     COMPONENTS = %w(

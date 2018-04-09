@@ -29,6 +29,12 @@ eu:
       newsletter:
         body: Testua
         subject: Gaia
+      oauth_application:
+        name: izena
+        organization_logo: Erakundearen logotipoa (plaza)
+        organization_name: Erakundearen izena
+        organization_url: Erakundearen URLa
+        redirect_uri: Birbideratu URIa
       organization:
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
@@ -77,6 +83,12 @@ eu:
         organization: Erakundea
         slug: URL laburra
         title: Titulua
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Birbideratze URI SSL URI izan behar du
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ eu:
         content: Contenido
         slug: URL laburra
         title: Titulua
+      doorkeeper/application:
+        authorize_url: Baimendu URLa
+        client_id: Bezeroaren IDa
+        client_secret: Bezero sekretua
+        organization_name: Erakundearen izena
+        organization_url: Erakundearen URLa
+        redirect_uri: Birbideratu URIa
+        site: gunea
   date:
     formats:
       datepicker: "%Y/%m/%d"
@@ -301,6 +321,7 @@ eu:
         dashboard: Kontrol-panela
         managed_users: Kudeatutako erabiltzaileak
         newsletters: Buletinak
+        oauth_applications: OAuth aplikazioak
         officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
@@ -344,6 +365,13 @@ eu:
             sent_at: ' Bidalketa-data: '
             subject: Gaia
           name: Buletina
+        oauth_application:
+          fields:
+            created_at: Sortutako at
+            name: izena
+          name: OAuth aplikazioa
+        participatory_space_private_user:
+          name: Partaidetza espazioa erabiltzaile pribatua
         scope:
           fields:
             name: Izena
@@ -413,6 +441,25 @@ eu:
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
+      oauth_applications:
+        create:
+          error: Errore bat gertatu da aplikazio hau sortzean.
+          success: Aplikazioa zuzen sortu da.
+        destroy:
+          error: Errore bat gertatu da aplikazio hau suntsitzen.
+          success: Aplikazioa arrakastaz suntsitu da.
+        edit:
+          save: Save
+          title: Editatu aplikazioa
+        index:
+          confirm_delete: Ziur aplikazio hau ezabatu nahi duzula?
+          title: OAuth aplikazioak
+        new:
+          save: Save
+          title: Aplikazio berria
+        update:
+          error: Errore bat gertatu da aplikazio hau eguneratzean.
+          success: Aplikazioa behar bezala eguneratu da.
       officializations:
         create:
           success: Erabiltzailea arrakastatsua izan da
@@ -466,6 +513,17 @@ eu:
           homepage_highlighted_content_banner_title: Highligted edukien banner
           layout_appearance_title: Editatu itxura diseinua
           omnipresent_banner_appearance_title: Editatu omnipresent
+      participatory_space_private_users:
+        create:
+          error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
+          success: Partaidetza espazioa erabiltzaile pribatuaren sarbidea behar bezala sortu da.
+        destroy:
+          success: Partekatze espazioa erabiltzaileen sarbide pribatuan arrakastaz suntsitu da.
+        index:
+          title: Partaidetza espazioa erabiltzaile pribatua
+        new:
+          create: Sortu
+          title: Erabiltzaile pribatuaren parte hartzailea.
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.

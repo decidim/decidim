@@ -8,7 +8,7 @@ pl:
       user:
         email: Twój email
         name: Twoje imię
-        nickname: Twój krótki, niepowtarzalny identyfikator w decidimie
+        nickname: Twój krótki, niepowtarzalny identyfikator
         password: Nowe hasło
         password_confirmation: Potwierdź swoje nowe hasło
         remove_avatar: Usuń awatar
@@ -71,6 +71,10 @@ pl:
         delete: "%{user_name} usunięto %{resource_name} biuletyn"
         deliver: "%{user_name} dostarczone %{resource_name} biuletyn"
         update: "%{user_name} zaktualizowałem %{resource_name} biuletyn"
+      oauth_application:
+        create: "%{user_name} utworzył aplikację OYuth %{resource_name}"
+        delete: "%{user_name} usunął aplikację OYuth %{resource_name}"
+        update: "%{user_name} zaktualizował aplikację OYuth %{resource_name}"
       organization:
         update: "%{user_name} zaktualizował ustawienia organizacji"
       scope:
@@ -143,7 +147,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
+          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -151,7 +155,7 @@ pl:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
+          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
@@ -169,6 +173,21 @@ pl:
       shared:
         omniauth_buttons:
           or: Lub
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoryzuj aplikację
+          by_organization_link_html: '<small class="heading-small">autor: %{link}</small>'
+          cancel: Anuluj
+          connect_your_account_html: Połącz swoje konto logując się na <strong>%{organization}</strong>
+          publish_content: Opublikuj zawartość dla siebie
+          see_email: Zobacz swój e-mail
+          see_name: Zobacz swoje imię
+          see_username: Zobacz swoją nazwę użytkownika
+          this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
+          this_application_will_not_be_able_to: 'Ta aplikacja nie będzie w stanie:'
+          update_profile: Zaktualizuj swój profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     errors:
       internal_server_error:
         title: Wystąpił problem z naszym serwerem
@@ -309,6 +328,10 @@ pl:
     pages:
       index:
         title: Więcej informacji
+    participatory_space_private_users:
+      not_allowed: Nie możesz wyświetlać tych treści
+    profile:
+      deleted: Usunięty użytkownik
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
@@ -396,7 +419,7 @@ pl:
     invitations:
       edit:
         header: Ustaw swoje hasło
-        nickname_help: Twój unikalny identyfikator w decidim.
+        nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisać
     mailer:
       invitation_instructions:
@@ -406,18 +429,25 @@ pl:
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku.
+        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako private_user z adresu %{application}, możesz go zaakceptować, klikając poniższy link.
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy w %{organization}
+      invite_private_user:
+        subject: Zostałeś zaproszony do prywatnego udziału w procesie %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
         greeting: Witaj %{recipient}!
         message: Kontaktujemy się z Tobą, aby powiadomić Cię, że Twoje hasło zostało zmienione.
         subject: Hasło zostało zmienione
+  doorkeeper:
+    scopes:
+      public: Twoje informacje publiczne.
   errors:
     messages:
       content_type_whitelist_error: Typ pliku jest nieprawidłowy
@@ -497,6 +527,7 @@ pl:
         answers_count: Ankiety zakończone
         assemblies_count: Złożenia
         comments_count: Komentarze
+        debates_count: Debaty
         endorsements_count: Adnotacje
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania

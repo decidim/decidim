@@ -8,7 +8,7 @@ fi:
       user:
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Oma lyhyt ja yksilöllinen tunniste decidimissä
+        nickname: Lyhyt, ainutkertainen tunniste
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
         remove_avatar: Poista profiilikuva
@@ -71,6 +71,10 @@ fi:
         delete: "%{user_name} poistettu %{resource_name} tiedote"
         deliver: "%{user_name} toimitti %{resource_name} tiedote"
         update: "%{user_name} päivitti %{resource_name} tiedote"
+      oauth_application:
+        create: "%{user_name} loi %{resource_name} OAuth-sovelluksen"
+        delete: "%{user_name} poistanut %{resource_name} OAuth-sovelluksen"
+        update: "%{user_name} päivitti %{resource_name} OAuth-sovelluksen"
       organization:
         update: "%{user_name} päivitti organisaation asetukset"
       scope:
@@ -147,7 +151,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
+          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -155,7 +159,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
-          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
+          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -173,6 +177,21 @@ fi:
       shared:
         omniauth_buttons:
           or: Tai
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Hyväksy hakemus
+          by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
+          cancel: Peruuttaa
+          connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
+          publish_content: Julkaise sisältöä sinulle
+          see_email: Katso sähköpostiosoitteesi
+          see_name: Katso nimesi
+          see_username: Näe käyttäjätunnuksesi
+          this_application_will_be_able_to: 'Tämä sovellus pystyy:'
+          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
+          update_profile: Päivitä profiili
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -313,6 +332,10 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    participatory_space_private_users:
+      not_allowed: Et voi katsoa tätä sisältöä
+    profile:
+      deleted: Poistettu käyttäjä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
@@ -400,7 +423,7 @@ fi:
     invitations:
       edit:
         header: Aseta salasanasi
-        nickname_help: Yksilöllinen tunnisteesi decidimissä.
+        nickname_help: Ainutlaatuinen tunniste %{organization}.
         submit_button: Tallenna
     mailer:
       invitation_instructions:
@@ -411,18 +434,25 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
+        someone_invited_you_as_private_user: Joku on kutsunut sinut %{application}-palveluntarjoajaksi, voit hyväksyä sen alla olevan linkin kautta.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
+      invite_private_user:
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+  doorkeeper:
+    scopes:
+      public: Julkiset tiedot.
   errors:
     messages:
       content_type_whitelist_error: Tiedostotyyppi on virheellinen
@@ -502,6 +532,7 @@ fi:
         answers_count: Valmistuneet kyselyt
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
+        debates_count: keskustelut
         endorsements_count: merkintöjen
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset

@@ -5,6 +5,15 @@ require "spec_helper"
 module Decidim
   module Admin
     shared_examples_for "category form" do
+      subject do
+        described_class.from_params(
+          attributes
+        ).with_context(
+          current_participatory_space: participatory_space,
+          current_organization: organization
+        )
+      end
+
       let(:name) do
         {
           en: "Name",
@@ -35,15 +44,6 @@ module Decidim
       end
       let(:organization) { create :organization }
 
-      subject do
-        described_class.from_params(
-          attributes
-        ).with_context(
-          current_participatory_space: participatory_space,
-          current_organization: organization
-        )
-      end
-
       context "when everything is OK" do
         it { is_expected.to be_valid }
       end
@@ -72,13 +72,13 @@ module Decidim
       context "when the parent_id is set" do
         let!(:category) { create :category, participatory_space: participatory_space }
 
-        context "to the ID of a first-class category" do
+        context "and it is set to a first-class category" do
           let(:parent_id) { category.id }
 
           it { is_expected.to be_valid }
         end
 
-        context "to the ID of a subcategory" do
+        context "and it is set to a subcategory" do
           let!(:subcategory) { create :subcategory, parent: category }
           let(:parent_id) { subcategory.id }
 

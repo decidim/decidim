@@ -7,7 +7,7 @@ describe Decidim::Sortitions::CreateSortitionEvent do
   let(:resource) { create :sortition }
   let(:event_name) { "decidim.events.sortitions.sortition_created" }
 
-  include_context "simple event"
+  include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do

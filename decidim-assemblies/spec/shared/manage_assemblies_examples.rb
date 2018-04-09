@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage assemblies" do
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit decidim_admin_assemblies.assemblies_path
-  end
-
   describe "updating an assembly" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
@@ -40,11 +34,10 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      visit decidim_admin_assemblies.assemblies_path
+      click_link translated(assembly.title)
     end
 
     it "update an assembly without images does not delete them" do
-      click_link translated(assembly.title)
       click_submenu_link "Info"
       click_button "Update"
 
@@ -57,7 +50,7 @@ shared_examples "manage assemblies" do
 
   describe "previewing assemblies" do
     context "when the assembly is unpublished" do
-      let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
+      let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -70,7 +63,7 @@ shared_examples "manage assemblies" do
     end
 
     context "when the assembly is published" do
-      let!(:assembly) { create(:assembly, organization: organization) }
+      let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -90,7 +83,7 @@ shared_examples "manage assemblies" do
   end
 
   describe "publishing an assembly" do
-    let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
+    let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
 
     before do
       click_link translated(assembly.title)
@@ -108,7 +101,7 @@ shared_examples "manage assemblies" do
   end
 
   describe "unpublishing an assembly" do
-    let!(:assembly) { create(:assembly, organization: organization) }
+    let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
 
     before do
       click_link translated(assembly.title)
@@ -126,11 +119,7 @@ shared_examples "manage assemblies" do
   end
 
   context "when there are multiple organizations in the system" do
-    let!(:external_assembly) { create(:assembly) }
-
-    before do
-      visit decidim_admin_assemblies.assemblies_path
-    end
+    let!(:external_assembly) { create(:assembly, parent: parent_assembly) }
 
     it "doesn't let the admin manage assemblies form other organizations" do
       within "table" do

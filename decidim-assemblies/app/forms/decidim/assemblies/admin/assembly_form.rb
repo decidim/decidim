@@ -33,6 +33,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
         attribute :private_space, Boolean
 
@@ -40,6 +41,7 @@ module Decidim
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
+        validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
 
         validate :slug_uniqueness
 
@@ -51,11 +53,15 @@ module Decidim
         end
 
         def scope
-          @scope ||= current_organization.scopes.where(id: scope_id).first
+          @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
         def area
-          @area ||= current_organization.areas.where(id: area_id).first
+          @area ||= current_organization.areas.find_by(id: area_id)
+        end
+
+        def parent
+          @parent ||= OrganizationAssemblies.new(current_organization).query.find_by(id: parent_id)
         end
 
         def processes_for_select

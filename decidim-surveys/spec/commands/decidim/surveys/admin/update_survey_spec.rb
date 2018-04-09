@@ -65,7 +65,35 @@ module Decidim
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
+                    },
+                    "free_text" => "0"
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second answer",
+                      "ca" => "Segona resposta",
+                      "es" => "Segunda respuesta"
                     }
+                  }
+                }
+              },
+              "3" => {
+                "body" => {
+                  "en" => "Fourth question",
+                  "ca" => "Cuarta pregunta",
+                  "es" => "Cuarta pregunta"
+                },
+                "position" => "3",
+                "question_type" => "multiple_option",
+                "max_choices" => "2",
+                "answer_options" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First answer",
+                      "ca" => "Primera resposta",
+                      "es" => "Primera respuesta"
+                    },
+                    "free_text" => "1"
                   },
                   "1" => {
                     "body" => {
@@ -114,7 +142,7 @@ module Decidim
             survey.reload
 
             expect(survey.description["en"]).to eq("<p>Content</p>")
-            expect(survey.questions.length).to eq(3)
+            expect(survey.questions.length).to eq(4)
 
             survey.questions.each_with_index do |question, idx|
               expect(question.body["en"]).to eq(form_params["questions"][idx.to_s]["body"]["en"])
@@ -124,6 +152,17 @@ module Decidim
             expect(survey.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
             expect(survey.questions[1].question_type).to eq("long_answer")
             expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+
+            expect(survey.questions[2].question_type).to eq("single_option")
+            expect(survey.questions[2].max_choices).to be_nil
+
+            expect(survey.questions[3].question_type).to eq("multiple_option")
+            expect(survey.questions[2].answer_options[0].free_text).to eq(false)
+            expect(survey.questions[2].max_choices).to be_nil
+
+            expect(survey.questions[3].question_type).to eq("multiple_option")
+            expect(survey.questions[3].answer_options[0].free_text).to eq(true)
+            expect(survey.questions[3].max_choices).to eq(2)
           end
         end
 
