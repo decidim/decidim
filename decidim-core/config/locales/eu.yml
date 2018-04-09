@@ -71,8 +71,11 @@ eu:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
       scope:
         create: "%{user_name} %{resource_name} esparrua sortu zen"
+        create_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparru barruan sortu zen"
         delete: "%{user_name} %{resource_name} esparrua ezabatu da"
+        delete_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparruaren barruan ezabatu da"
         update: "%{user_name} %{resource_name} eremua eguneratu du"
+        update_with_parent: "%{user_name} %{resource_name} esparrua %{parent_scope} eremuan barneratu zen"
       static_page:
         create: "%{user_name} sortu %{resource_name} orri estatikoa"
         delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
@@ -173,10 +176,10 @@ eu:
         email_subject: '%{resource_title} eguneratzea'
       features:
         feature_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} eguneratze bat'
-          notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -198,12 +201,12 @@ eu:
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
-            dummy_global_attribute_1: Atributu-proba, 1
-            dummy_global_attribute_2: Atributu-proba, 2
+            dummy_global_attribute_1: Dummy Atributua 1
+            dummy_global_attribute_2: Dummy Attribute 2
           step:
             comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute_1: Atributu-faseko proba, 1
-            dummy_step_attribute_2: Atributu-faseko proba, 2
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
         all: Guztiak
