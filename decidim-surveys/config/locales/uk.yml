@@ -11,13 +11,6 @@ uk:
       surveys:
         actions:
           answer: Відповісти
-        name: Опитування
-        settings:
-          global:
-            announcement: Оголошення
-          step:
-            allow_answers: Дозволити відповіді
-            announcement: Оголошення
     surveys:
       admin:
         exports:
