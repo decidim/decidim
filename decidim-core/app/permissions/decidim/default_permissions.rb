@@ -34,6 +34,11 @@ module Decidim
       spaces_allows_user? || admin_component_allows_user?
     end
 
+    def read_participatory_space_action?
+      permission_action.action == :read &&
+        [:participatory_space, :component].include?(permission_action.subject)
+    end
+
     def authorized?(permission_action)
       return unless component
 

@@ -31,11 +31,6 @@ module Decidim
 
       private
 
-      def read_participatory_space_action?
-        permission_action.action == :read &&
-          [:participatory_space, :component].include?(permission_action.subject)
-      end
-
       def can_create_debate?
         authorized?(:create) &&
           current_settings&.creation_enabled?
