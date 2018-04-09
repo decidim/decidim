@@ -24,7 +24,7 @@ eu:
       feature:
         name: Izena
         published_at: Argitaratu at
-        weight: Pisua
+        weight: pisu
       id: NAN
       newsletter:
         body: Testua
@@ -218,11 +218,11 @@ eu:
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       feature_permissions:
         edit:
-          everyone: Edonor
+          everyone: Denek
           submit: Gorde baimenak
           title: Editatu baimenak
         update:
-          success: Baimenak zuzen eguneratu dira.
+          success: Baimenak behar bezala eguneratu dira.
       features:
         create:
           error: Errorea gertatu da funtzionalitate hau gehitzean.
@@ -234,9 +234,9 @@ eu:
           title: Editatu funtzionalitatea
           update: Eguneratu
         form:
-          default_step_settings: Urrats ezarpen lehenetsiak
-          global_settings: Ezarpen orokorrak
-          step_settings: Fase-konfigurazioa
+          default_step_settings: Urratsen ezarpen lehenetsiak
+          global_settings: Ezarpen globalak
+          step_settings: Ezarpenen urratsak
         index:
           add: Erantsi funtzionalitatea
           headers:
