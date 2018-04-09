@@ -99,8 +99,8 @@ es:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled: Creación de propuesta habilitada
-            endorsements_blocked: Endosos bloqueados
-            endorsements_enabled: Endosos habilitados
+            endorsements_blocked: Reivindicaciones bloqueadas
+            endorsements_enabled: Reivindicaciones habilitadas
             proposal_answering_enabled: Contestación de propuesta habilitada
             votes_blocked: Votos bloqueados
             votes_enabled: Votos habilitados
@@ -261,7 +261,7 @@ es:
         endorsements_listing:
           see_all: Ver todo
           see_less: Ver menos
-          title: Lista de Reivindicaciones
+          title: Lista de reivindicaciones
         filters:
           accepted: Aceptadas
           activity: Actividad
