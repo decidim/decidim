@@ -9,13 +9,13 @@ module Decidim
         @context = context
       end
 
-      def allowed?
-        return true if read_admin_dashboard_action?
+      def permissions
+        permission_action.allow! if read_admin_dashboard_action?
 
-        return true if managed_user_action?
-        return true if user_action?
+        permission_action.allow! if managed_user_action?
+        permission_action.allow! if user_action?
 
-        false
+        permission_action
       end
 
       private

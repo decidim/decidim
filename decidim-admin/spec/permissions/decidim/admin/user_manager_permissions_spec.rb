@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Admin::UserManagerPermissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { build :user, :user_manager }
   let(:context) { {} }
@@ -17,7 +17,9 @@ describe Decidim::Admin::UserManagerPermissions do
   let(:action_subject) { :bar }
 
   context "when action is not registered" do
-    it { is_expected.to eq false }
+    it "raises an error" do
+      expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+    end
   end
 
   context "when reading the admin dashboard" do
@@ -44,7 +46,9 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when organization available authorizations are empty" do
         let(:authorizations) { [] }
 
-        it { is_expected.to eq false }
+        it "raises an error" do
+          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+        end
       end
 
       context "when organization available authorizations are not empty" do
@@ -74,7 +78,9 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when destroying itself" do
         let(:subject_user) { user }
 
-        it { is_expected.to eq false }
+        it "raises an error" do
+          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+        end
       end
     end
 
@@ -90,7 +96,9 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when subject user is not managed" do
         let(:logs) { [] }
 
-        it { is_expected.to eq false }
+        it "raises an error" do
+          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+        end
       end
 
       context "when subject user is managed" do
@@ -99,7 +107,9 @@ describe Decidim::Admin::UserManagerPermissions do
         context "when there are active impersonation logs" do
           let(:logs) { [:foo] }
 
-          it { is_expected.to eq false }
+          it "raises an error" do
+            expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
+          end
         end
 
         context "when there are no active impersonation logs" do

@@ -33,8 +33,8 @@ module Decidim
         decidim_admin.root_path
       end
 
-      def permission_class
-        Decidim::Admin::Permissions
+      def permission_class_chain
+        [Decidim::Admin::Permissions]
       end
 
       def permission_scope

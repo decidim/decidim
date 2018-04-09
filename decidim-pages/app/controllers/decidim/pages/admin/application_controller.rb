@@ -11,8 +11,12 @@ module Decidim
 
         private
 
-        def permission_class
-          Decidim::Pages::Permissions
+        def permission_class_chain
+          [
+            Decidim::Pages::Permissions,
+            current_participatory_space.manifest.permissions_class,
+            Decidim::Admin::Permissions,
+          ]
         end
 
         def permission_scope

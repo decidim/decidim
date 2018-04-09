@@ -32,8 +32,12 @@ module Decidim
 
             alias_method :current_participatory_process, :current_participatory_space
 
-            def permission_class
-              Decidim::ParticipatoryProcesses::Permissions
+            def permission_class_chain
+              [
+                Decidim::ParticipatoryProcesses::Permissions,
+                current_participatory_space.manifest.permissions_class,
+                Decidim::Admin::Permissions,
+              ]
             end
           end
         end

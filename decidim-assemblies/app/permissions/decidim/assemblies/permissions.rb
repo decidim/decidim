@@ -9,26 +9,23 @@ module Decidim
         @context = context
       end
 
-      def allowed?
-        return true if permission_action.scope == :public
+      def permissions
+        permission_action.allow! if permission_action.scope == :public
 
-        return false unless user
-        return false unless permission_action.scope == :admin
+        return permission_action unless user
+        return permission_action unless permission_action.scope == :admin
 
-        # this line could probably be moved to the `admin` engine
-        # and make it call all participatory spaces Permissions classes
-        # to check if any of them allowed the user to visit the admin
-        return true if has_manageable_assemblies? && admin_read_dashboard_permission_action?
+        permission_action.allow! if has_manageable_assemblies? && admin_read_dashboard_permission_action?
 
         # org admins and space admins can do everything in the admin section
-        return true if admin_user?
+        permission_action.allow! if admin_user?
 
         # space collaborators can only read, nothing else
-        return true if collaborator_user? && admin_read_permission_action?
+        permission_action.allow! if collaborator_user? && admin_read_permission_action?
 
-        return true if permission_action.subject == :moderation && can_manage_assembly?
+        permission_action.allow! if permission_action.subject == :moderation && can_manage_assembly?
 
-        false
+        permission_action
       end
 
       private

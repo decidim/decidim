@@ -4,29 +4,22 @@ module Decidim
   module Meetings
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        def allowed?
-          # Stop checks if the user is not authorized to perform the
-          # permission_action for this space
-          return false unless spaces_allows_user?
-          return false unless user
+          return permission_action unless user
 
-          return false if permission_action.scope != :admin
-          return true if allowed_by_other_components?
+          return permission_action if permission_action.scope != :admin
 
-          return false if permission_action.subject != :meeting
+          return permission_action if permission_action.subject != :meeting
 
-          return true if case permission_action.action
-                         when :close, :copy, :destroy, :export_registrations, :update
-                           meeting.present?
-                         when :invite_user
-                           meeting.present? && meeting.registrations_enabled?
-                         when :create
-                           true
-                         else
-                           false
-                         end
+          case permission_action.action
+          when :close, :copy, :destroy, :export_registrations, :update
+            permission_action.allow! if meeting.present?
+          when :invite_user
+            permission_action.allow! if meeting.present? && meeting.registrations_enabled?
+          when :create
+            permission_action.allow!
+          end
 
-          false
+          permission_action
         end
 
         private

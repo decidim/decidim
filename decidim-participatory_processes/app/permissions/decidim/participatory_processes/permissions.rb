@@ -9,33 +9,36 @@ module Decidim
         @context = context
       end
 
-      def allowed?
-        return true if permission_action.scope == :public
+      def permissions
+        if permission_action.scope == :public
+          permission_action.allow!
+          return permission_action
+        end
 
-        return false unless user
-        return false if !has_manageable_processes? && !user.admin?
-        return false unless permission_action.scope == :admin
+        return permission_action unless user
+        return permission_action if !has_manageable_processes? && !user.admin?
+        return permission_action unless permission_action.scope == :admin
 
-        return true if user_can_enter_space_area?
+        permission_action.allow! if user_can_enter_space_area?
 
-        return true if valid_process_group_action?
+        permission_action.allow! if valid_process_group_action?
 
-        return true if user_can_read_admin_dashboard?
+        permission_action.allow! if user_can_read_admin_dashboard?
 
-        return true if user_can_read_process?
-        return true if user_can_create_process?
-        return true if user_can_destroy_process?
+        permission_action.allow! if user_can_read_process?
+        permission_action.allow! if user_can_create_process?
+        permission_action.allow! if user_can_destroy_process?
 
         # org admins and space admins can do everything in the admin section
-        return true if org_admin_action?
+        permission_action.allow! if org_admin_action?
 
-        return false unless process
+        return permission_action unless process
 
-        return true if moderator_action?
-        return true if collaborator_action?
-        return true if process_admin_action?
+        permission_action.allow! if moderator_action?
+        permission_action.allow! if collaborator_action?
+        permission_action.allow! if process_admin_action?
 
-        false
+        permission_action
       end
 
       private

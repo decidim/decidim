@@ -3,13 +3,12 @@
 module Decidim
   module Sortitions
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        return false unless spaces_allows_user?
-        return false unless user
+      def permissions
+        return permission_action unless user
 
-        return Decidim::Sortitions::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
+        return Decidim::Sortitions::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
-        false
+        permission_action
       end
     end
   end

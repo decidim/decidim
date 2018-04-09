@@ -13,8 +13,11 @@ module Decidim
           )
         end
 
-        def permission_class
-          Decidim::ParticipatoryProcesses::Permissions
+        def permission_class_chain
+          [
+            Decidim::ParticipatoryProcesses::Permissions,
+            Decidim::Admin::Permissions
+          ]
         end
       end
     end

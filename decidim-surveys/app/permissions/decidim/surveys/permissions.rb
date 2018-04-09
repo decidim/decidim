@@ -3,25 +3,17 @@
 module Decidim
   module Surveys
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        # Stop checks if the user is not authorized to perform the
-        # permission_action for this space
-        return false unless spaces_allows_user?
-        return false unless user
+      def permissions
+        return permission_action unless user
 
-        return Decidim::Surveys::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
-        return false if permission_action.scope != :public
+        return Decidim::Surveys::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+        return permission_action if permission_action.scope != :public
 
-        return false if permission_action.subject != :survey
+        return permission_action if permission_action.subject != :survey
 
-        return true if case permission_action.action
-                       when :answer
-                         authorized?(:answer)
-                       else
-                         false
-                       end
+        permission_action.allow! if permission_action.action == :answer
 
-        false
+        permission_action
       end
     end
   end

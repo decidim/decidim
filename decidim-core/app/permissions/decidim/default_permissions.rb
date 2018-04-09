@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Default permissions class for all components and spaces. It authorizes all
+  # Default permissions class for all components and spaces. It disauthorizes all
   # actions by any kind of user. Also works as a default implementation so other
   # components can inherit from it and get some cenvenience methods.
   class DefaultPermissions
@@ -11,13 +11,21 @@ module Decidim
       @context = context
     end
 
-    def allowed?
-      true
+    def permissions
+      permission_action
     end
 
     private
 
     attr_reader :user, :permission_action, :context
+
+    def disallow!
+      permission_action.disallow!
+    end
+
+    def allow!
+      permission_action.allow!
+    end
 
     def admin_component_allows_user?
       return unless permission_action.scope == :admin

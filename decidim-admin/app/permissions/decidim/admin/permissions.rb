@@ -9,41 +9,51 @@ module Decidim
         @context = context
       end
 
-      def allowed?
-        return false unless permission_action.scope == :admin
+      def permissions
+        unless permission_action.scope == :admin
+          permission_action.disallow!
+          return permission_action
+        end
 
-        return false unless user
-        return Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).allowed? if user_manager?
+        unless user
+          permission_action.disallow!
+          return permission_action
+        end
 
-        return true if user_can_enter_space_area?
+        return Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).permissions if user_manager?
 
-        return true if read_admin_dashboard_action?
+        permission_action.allow! if user_can_enter_space_area?
 
-        return false unless user.admin?
+        permission_action.allow! if read_admin_dashboard_action?
 
-        return true if read_admin_log_action?
-        return true if static_page_action?
-        return true if organization_action?
-        return true if managed_user_action?
-        return true if user_action?
+        unless user.admin?
+          permission_action.disallow!
+          return permission_action
+        end
 
-        return true if permission_action.subject == :category
-        return true if permission_action.subject == :component
-        return true if permission_action.subject == :admin_user
-        return true if permission_action.subject == :attachment
-        return true if permission_action.subject == :attachment_collection
-        return true if permission_action.subject == :scope
-        return true if permission_action.subject == :scope_type
-        return true if permission_action.subject == :area
-        return true if permission_action.subject == :area_type
-        return true if permission_action.subject == :newsletter
-        return true if permission_action.subject == :oauth_application
-        return true if permission_action.subject == :user_group
-        return true if permission_action.subject == :officialization
-        return true if permission_action.subject == :authorization
-        return true if permission_action.subject == :authorization_workflow
+        permission_action.allow! if read_admin_log_action?
+        permission_action.allow! if static_page_action?
+        permission_action.allow! if organization_action?
+        permission_action.allow! if managed_user_action?
+        permission_action.allow! if user_action?
 
-        false
+        permission_action.allow! if permission_action.subject == :category
+        permission_action.allow! if permission_action.subject == :component
+        permission_action.allow! if permission_action.subject == :admin_user
+        permission_action.allow! if permission_action.subject == :attachment
+        permission_action.allow! if permission_action.subject == :attachment_collection
+        permission_action.allow! if permission_action.subject == :scope
+        permission_action.allow! if permission_action.subject == :scope_type
+        permission_action.allow! if permission_action.subject == :area
+        permission_action.allow! if permission_action.subject == :area_type
+        permission_action.allow! if permission_action.subject == :newsletter
+        permission_action.allow! if permission_action.subject == :oauth_application
+        permission_action.allow! if permission_action.subject == :user_group
+        permission_action.allow! if permission_action.subject == :officialization
+        permission_action.allow! if permission_action.subject == :authorization
+        permission_action.allow! if permission_action.subject == :authorization_workflow
+
+        permission_action
       end
 
       private
@@ -126,7 +136,7 @@ module Decidim
       def space_allows_admin_access_to_current_action?
         Decidim.participatory_space_manifests.any? do |manifest|
           next if manifest.name == :consultations
-          manifest.permissions_class.new(user, permission_action, context).allowed?
+          manifest.permissions_class.new(user, permission_action, context).permissions.allowed? rescue nil
         end
       end
     end

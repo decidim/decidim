@@ -40,21 +40,25 @@ module Decidim
 
       def enforce_permission_to(action, subject, extra_context = {})
         p "============="
-        p permission_scope, action, subject, permission_class
+        p permission_scope, action, subject, permission_class_chain
         p "============="
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
-      def allowed_to?(action, subject, extra_context = {}, klass = permission_class)
-        klass.new(
-          current_user,
-          Decidim::PermissionAction.new(scope: permission_scope, action: action, subject: subject),
-          permissions_context.merge(extra_context)
-        ).allowed?
+      def allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain)
+        permission_action = Decidim::PermissionAction.new(scope: permission_scope, action: action, subject: subject)
+
+        chain.inject(permission_action) do |permission_action, permission_class|
+          permission_class.new(
+            current_user,
+            permission_action,
+            permissions_context.merge(extra_context)
+          ).permissions
+        end.allowed?
       end
 
-      def permission_class
-        raise "Please, make this method return a class"
+      def permission_class_chain
+        raise "Please, make this method return an array of permission classes"
       end
 
       def permission_scope

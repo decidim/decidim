@@ -37,7 +37,7 @@ module Decidim
         Decidim::Admin::Permissions.new(
           user,
           Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
-        ).allowed?
+        ).permissions.allowed?
       end
     end
   end
