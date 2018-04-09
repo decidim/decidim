@@ -52,6 +52,7 @@ gl:
         surveys:
           answer_option:
             answer_option: Opción de resposta
+            free_text: Texto libre
             remove: Quitar
             statement: Declaración
           edit:
