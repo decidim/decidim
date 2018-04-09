@@ -37,9 +37,10 @@ module Decidim
           "activemodel.attributes.minute"
         end
 
-        def has_diff?
-          action == "close" || super
+        def video_url
+          action_log.extra.dig("extra", "video_url")
         end
+
       end
     end
   end

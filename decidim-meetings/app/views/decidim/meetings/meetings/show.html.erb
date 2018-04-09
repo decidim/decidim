@@ -66,6 +66,58 @@
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
+
+    <% if meeting.minute.present? && meeting.minute.is_visible? %>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
+        <% if translated_attribute(meeting.minute.description).present? %>
+          <div class="card">
+            <div class="card-section">
+              <div class="row column">
+                <%= decidim_sanitize translated_attribute meeting.minute.description %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% if meeting.minute.video_url.presence || meeting.minute.audio_url.presence%>
+          <div class="section">
+            <h4 class="section-heading"><%= t(".related_information") %></h4>
+            <div class="card card--list">
+              <% if meeting.minute.video_url.presence %>
+                <div class="card--list__item">
+                  <div class="card--list__text">
+                    <div>
+                      <%= link_to meeting.minute.video_url, target: "_blank" %>
+                    </div>
+                  </div>
+                  <div class="card--list__data">
+                    <%= link_to meeting.minute.video_url, target: "_blank", class: "card--list__data__icon" do %>
+                      <%= icon "cloud-download" %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if meeting.minute.video_url.presence %>
+                <div class="card--list__item">
+                  <div class="card--list__text">
+                    <div>
+                      <%= link_to meeting.minute.audio_url, target: "_blank" %>
+                    </div>
+                  </div>
+                  <div class="card--list__data">
+                    <%= link_to meeting.minute.audio_url, target: "_blank", class: "card--list__data__icon" do %>
+                      <%= icon "cloud-download" %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>

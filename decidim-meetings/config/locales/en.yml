@@ -206,9 +206,11 @@ en:
           contributions: Contributions count
           going: Going
           join: Join meeting
+          meeting_minutes: Meeting Minutes
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
+          related_information: Related Information
           remaining_slots:
             one: 1 slot remaining
             other: "%{count} slots remaining"
