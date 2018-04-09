@@ -12,6 +12,8 @@ module Decidim
       let(:survey) { create(:survey, component: component) }
       let(:survey_question_1) { create(:survey_question, survey: survey) }
       let(:survey_question_2) { create(:survey_question, survey: survey) }
+      let(:answer_options) { create_list(:survey_answer_option, 5, question: survey_question_2) }
+      let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
           "answers" => [
@@ -20,7 +22,13 @@ module Decidim
               "question_id" => survey_question_1.id
             },
             {
-              "choices" => %w(This is my second answer),
+              "choices" => [
+                { "answer_option_id" => answer_option_ids[0], "body" => "This" },
+                { "answer_option_id" => answer_option_ids[1], "body" => "is" },
+                { "answer_option_id" => answer_option_ids[2], "body" => "my" },
+                { "answer_option_id" => answer_option_ids[3], "body" => "second" },
+                { "answer_option_id" => answer_option_ids[4], "body" => "answer" }
+              ],
               "question_id" => survey_question_2.id
             }
           ],
@@ -69,7 +77,7 @@ module Decidim
           command.call
 
           expect(SurveyAnswer.first.body).to eq("This is my first answer")
-          expect(SurveyAnswer.last.choices).to eq(%w(This is my second answer))
+          expect(SurveyAnswer.last.choices.pluck(:body)).to eq(%w(This is my second answer))
         end
       end
     end

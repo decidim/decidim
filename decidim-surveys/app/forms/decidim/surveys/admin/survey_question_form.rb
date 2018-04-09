@@ -22,16 +22,6 @@ module Decidim
         validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true
         validates :body, translatable_presence: true, unless: :deleted
 
-        def map_model(model)
-          self.answer_options = model.answer_options.each_with_index.map do |option, id|
-            SurveyQuestionAnswerOptionForm.new(option.merge(id: id + 1, deleted: false))
-          end
-        end
-
-        def answer_options_to_persist
-          answer_options.reject(&:deleted)
-        end
-
         def to_param
           id || "survey-question-id"
         end

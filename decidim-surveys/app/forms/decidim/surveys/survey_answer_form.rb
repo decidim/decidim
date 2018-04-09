@@ -8,10 +8,10 @@ module Decidim
 
       attribute :question_id, String
       attribute :body, String
-      attribute :choices, Array[String]
+      attribute :choices, Array[SurveyAnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
-      validates :choices, presence: true, if: :mandatory_choices?
+      validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_answers, if: -> { question.max_choices }
 
@@ -33,6 +33,14 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_survey_question_id
+
+        self.choices = model.choices.map do |choice|
+          SurveyAnswerChoiceForm.from_model(choice)
+        end
+      end
+
+      def selected_choices
+        choices.select(&:body)
       end
 
       private
@@ -42,7 +50,7 @@ module Decidim
       end
 
       def max_answers
-        errors.add(:choices, :too_many) if choices.size > question.max_choices
+        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
       end
 
       def mandatory_label

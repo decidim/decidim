@@ -63,12 +63,21 @@ module Decidim
         let(:max_choices) { 2 }
 
         it "is valid if few enough answers checked" do
-          subject.choices = %w(foo bar)
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" }
+          ]
+
           expect(subject).to be_valid
         end
 
         it "is not valid if too many answers checked" do
-          subject.choices = %w(foo bar baz)
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo" },
+            { "answer_option_id" => "2", "body" => "bar" },
+            { "answer_option_id" => "3", "body" => "baz" }
+          ]
+
           expect(subject).not_to be_valid
         end
       end

@@ -24,11 +24,21 @@
         )
       %>
     </div>
+
+    <div class="row column">
+      <%=
+        form.check_box(
+          :free_text,
+          label: t(".free_text"),
+          disabled: !survey.questions_editable?
+        )
+      %>
+    </div>
   </div>
 
   <% if answer_option.persisted? %>
     <%= form.hidden_field :id, disabled: !editable %>
   <% end %>
 
-  <%= form.hidden_field :deleted, value: false, disabled: !editable %>
+  <%= form.hidden_field :deleted, disabled: !editable %>
 </div>
