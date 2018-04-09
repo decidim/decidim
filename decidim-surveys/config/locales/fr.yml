@@ -10,15 +10,15 @@ fr:
     events:
       surveys:
         survey_closed:
-          email_intro: Le sondage %{resource_title} dans %{participatory_space_title} a été fermé.
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une enquête est terminée à %{participatory_space_title}
+          email_intro: Le sondage %{resource_title} proposé dans %{participatory_space_title} est maintenant terminé.
+          email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: L'enquête du processus participatif %{participatory_space_title} est terminée
           notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
         survey_opened:
-          email_intro: 'Le sondage %{resource_title} dans %{participatory_space_title} est maintenant ouvert. Vous pouvez y participer à partir de cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Un nouveau sondage en %{participatory_space_title}
-          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est maintenant ouvert.
+          email_intro: 'L''enquête %{resource_title} est désormais ouverte sur le processus participatif %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une nouvelle enquête vient d'être créée depuis %{participatory_space_title}
+          notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     features:
       surveys:
         actions:
@@ -26,10 +26,10 @@ fr:
         name: Enquête
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
-            announcement: Message d'annonce
+            announcement: Annonce
     surveys:
       admin:
         exports:
