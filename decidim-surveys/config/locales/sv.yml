@@ -28,7 +28,7 @@ sv:
           global:
             announcement: Meddelande
           step:
-            allow_answers: Tillåt svar
+            allow_answers: Tillåta svar
             announcement: Meddelande
     surveys:
       admin:
@@ -71,7 +71,7 @@ sv:
             anonymous_user_message: <a href="%{sign_in_link}"> Logga in med ditt konto</a> eller <a href="%{sign_up_link}">sign up</a> för att svara på enkäten.
             title: Besvara undersökningen
           are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
-          submit: Lämna
+          submit: Skicka in
           survey_answered:
             body: Du har redan besvarat denna enkät.
             title: Undersökningen svarade
