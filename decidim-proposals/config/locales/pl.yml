@@ -34,16 +34,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, została zaakceptowana
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Nowa propozycja %{author_nickname}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Wniosek "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
-          notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, którego obserwujesz, właśnie poparł propozycję, która może Cię zainteresować, sprawdź i pomóż:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -54,6 +44,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, jest oceniana
           notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, opublikuje nową propozycję, sprawdź i pomóż:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja przez %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Propozycja "%{resource_title}" została dodana do "%{participatory_space_title}", którą obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
+          notification_title: Oferta <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
@@ -82,29 +82,29 @@ pl:
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
-            comments_enabled: Włączone komentarze
-            geocoding_enabled: Włączone kodowanie geograficzne
-            maximum_votes_per_proposal: Maksymalna liczba głosów na jeden wniosek
-            new_proposal_help_text: Nowy tekst pomocy propozycji
-            official_proposals_enabled: Oficjalne propozycje
-            proposal_answering_enabled: Włączona odpowiedź na pytania
+            comments_enabled: Komentarze włączone
+            geocoding_enabled: Włączono geokodowanie
+            new_proposal_help_text: Nowy tekst pomocy dla wniosku
+            official_proposals_enabled: Oficjalne propozycje włączone
+            proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_length: Maksymalna długość treści wniosku
-            proposal_limit: Limit propozycji dla użytkownika
+            proposal_limit: Limit ofert na użytkownika
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
             proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
-            vote_limit: Limit głosu na użytkownika
+            threshold_per_proposal: Próg na wniosek
+            vote_limit: Limit głosowania na użytkownika
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Utworzono propozycję
+            creation_enabled: Włączono tworzenie ofert
             endorsements_blocked: Zatwierdzenia zostały zablokowane
             endorsements_enabled: Adnotacje włączone
-            proposal_answering_enabled: Włączona odpowiedź na pytania
+            proposal_answering_enabled: Włączono odpowiadanie na propozycję
             votes_blocked: Głosy zablokowane
-            votes_enabled: Głosy włączone
-            votes_hidden: Głosy ukryte (jeśli głosy są włączone, zaznaczenie spowoduje ukrycie liczby głosów)
+            votes_enabled: Głosowanie włączone
+            votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -323,11 +323,11 @@ pl:
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Każda propozycja może zgromadzić więcej niż maksymalną liczbę głosów
-          maximum_votes_per_proposal:
-            description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
+            description: Każda propozycja może zebrać więcej niż %{limit} podpory
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
+          threshold_per_proposal:
+            description: Aby zostać zaakceptowanym, wnioski muszą dotrzeć do %{limit} wsparcia
           title: 'Głosowanie podlega następującym zasadom:'
           vote_limit:
             description: Możesz zgłosić do %{limit} propozycje.
