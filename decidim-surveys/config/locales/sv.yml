@@ -52,6 +52,7 @@ sv:
         surveys:
           answer_option:
             answer_option: Svaralternativ
+            free_text: Fri text
             remove: Avlägsna
             statement: Påstående
           edit:
