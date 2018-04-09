@@ -176,8 +176,8 @@ nl:
         email_subject: Een update voor %{resource_title}
       features:
         feature_published:
-          email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
@@ -201,12 +201,12 @@ nl:
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy Kenmerk 1
-            dummy_global_attribute_2: Dummy kenmerk 2
+            dummy_global_attribute_1: Dummy-kenmerk 1
+            dummy_global_attribute_2: Dummy-kenmerk 2
           step:
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy Stap Kenmerk 1
-            dummy_step_attribute_2: Dummy Stap Kenmerk 2
+            dummy_step_attribute_1: Dummy stapkenmerk 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
         all: Alle
