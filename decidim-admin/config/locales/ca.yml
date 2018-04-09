@@ -220,7 +220,7 @@ ca:
         edit:
           everyone: Tothom
           submit: Desar permisos
-          title: Permisos d'edició
+          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
       features:
@@ -232,7 +232,7 @@ ca:
           success: Funcionalitat eliminada correctament.
         edit:
           title: Editar funcionalitat
-          update: Actualitza
+          update: Actualitzar
         form:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
