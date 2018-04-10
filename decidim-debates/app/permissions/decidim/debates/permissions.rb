@@ -12,9 +12,9 @@ module Decidim
 
         case permission_action.action
         when :create
-          permission_action.allow! if can_create_debate?
+         toggle_allow(can_create_debate?)
         when :report
-          permission_action.allow!
+          allow!
         end
 
         permission_action

@@ -155,7 +155,17 @@ module Decidim
       end
 
       def org_admin_action?
-        user.admin?
+        return unless user.admin?
+        [
+          :attachment,
+          :attachment_collection,
+          :category,
+          :component,
+          :moderation,
+          :process,
+          :process_step,
+          :process_user_role
+        ].include?(permission_action.subject)
       end
 
       # Checks if the permission_action is to read the admin processes list or

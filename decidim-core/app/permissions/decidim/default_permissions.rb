@@ -27,6 +27,10 @@ module Decidim
       permission_action.allow!
     end
 
+    def toggle_allow(condition)
+      condition ? allow! : disallow!
+    end
+
     def read_participatory_space_action?
       permission_action.action == :read &&
         [:participatory_space, :component].include?(permission_action.subject)

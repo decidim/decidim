@@ -60,7 +60,7 @@ describe Decidim::Debates::Admin::Permissions do
     context "when debate is not official" do
       let(:debate) { create :debate, author: user, component: debates_component }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
@@ -76,7 +76,7 @@ describe Decidim::Debates::Admin::Permissions do
     context "when debate is not official" do
       let(:debate) { create :debate, author: user, component: debates_component }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 end

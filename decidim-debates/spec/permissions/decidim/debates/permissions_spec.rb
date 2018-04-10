@@ -59,7 +59,7 @@ describe Decidim::Debates::Permissions do
     context "when creation is disabled" do
       let(:extra_settings) { { creation_enabled?: false } }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when user is authorized" do
