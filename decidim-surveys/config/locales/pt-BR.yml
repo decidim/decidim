@@ -12,6 +12,7 @@ pt-BR:
         survey_answer:
           attributes:
             choices:
+              missing: não estão completos
               too_many: são muitos
   decidim:
     components:
@@ -78,6 +79,7 @@ pt-BR:
         multiple_option: Opção múltipla
         short_answer: Resposta curta
         single_option: Opção única
+        sorting: Classificação
       surveys:
         answer:
           invalid: Houve erros ao responder a pesquisa.
