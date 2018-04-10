@@ -12,6 +12,7 @@ pl:
         survey_answer:
           attributes:
             choices:
+              missing: nie są kompletne
               too_many: jest zbyt wiele
   decidim:
     components:
@@ -78,6 +79,7 @@ pl:
         multiple_option: Wiele opcji
         short_answer: Krótka odpowiedź
         single_option: Pojedyncza opcja
+        sorting: Sortowanie
       surveys:
         answer:
           invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
