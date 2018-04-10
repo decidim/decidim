@@ -15,7 +15,7 @@ module Decidim
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
 
-    def index
+    def show
       enforce_permission_to :read, :public_page
     end
 
