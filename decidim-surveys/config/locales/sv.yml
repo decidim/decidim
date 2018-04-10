@@ -12,6 +12,7 @@ sv:
         survey_answer:
           attributes:
             choices:
+              missing: är inte fullständiga
               too_many: är för många
   decidim:
     components:
@@ -78,6 +79,7 @@ sv:
         multiple_option: Flera alternativ
         short_answer: Kort svar
         single_option: Enkelt alternativ
+        sorting: Sortering
       surveys:
         answer:
           invalid: Det har förekommit fel vid besvarandet av undersökningen.
