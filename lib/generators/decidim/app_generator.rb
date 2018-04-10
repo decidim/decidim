@@ -81,8 +81,8 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        template target_gemfile, "Gemfile", force: true
-        template "#{target_gemfile}.lock", "Gemfile.lock", force: true
+        copy_file target_gemfile, "Gemfile", force: true
+        copy_file "#{target_gemfile}.lock", "Gemfile.lock", force: true
 
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
@@ -111,9 +111,9 @@ module Decidim
       end
 
       def authorization_handler
-        template "initializer.rb", "config/initializers/decidim.rb"
+        copy_file "initializer.rb", "config/initializers/decidim.rb"
 
-        template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
+        copy_file "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
       end
 
       def install

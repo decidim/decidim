@@ -38,8 +38,8 @@ module Decidim
       end
 
       def copy_initializer
-        template "carrierwave.rb", "config/initializers/carrierwave.rb"
-        template "social_share_button.rb", "config/initializers/social_share_button.rb"
+        copy_file "carrierwave.rb", "config/initializers/carrierwave.rb"
+        copy_file "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
       def secrets
