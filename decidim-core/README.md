@@ -1,14 +1,14 @@
 # Decidim
 
-Short description and motivation.
+Core functionality in Decidim. Every single decidim functionality depends on this gem.
 
 ## Usage
 
-How to use my module.
+You'll be using indirectly on any decidim application.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add `decidim` to your `Gemfile` and you'll be using it:
 
 ```ruby
 gem 'decidim'
@@ -20,16 +20,10 @@ And then execute:
 bundle
 ```
 
-Or install it yourself as:
-
-```bash
-gem install decidim
-```
-
 ## Contributing
 
-Contribution directions go here.
+See [Decidim](https://github.com/decidim/decidim).
 
 ## License
 
-The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).
+See [Decidim](https://github.com/decidim/decidim).
