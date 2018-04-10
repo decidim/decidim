@@ -41,11 +41,11 @@ module Decidim
     end
 
     def has_permission_class?
-      permission_class.present?
+      permission_class_chain.any?
     end
 
-    def permission_class
-      reportable.participatory_space.manifest.permissions_class
+    def permission_class_chain
+      [reportable.participatory_space.manifest.permissions_class]
     end
 
     def permission_scope
