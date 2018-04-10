@@ -80,7 +80,7 @@ PATH
       paper_trail (~> 8.0)
       pg (>= 0.18, < 2)
       premailer-rails (~> 1.9)
-      rails (~> 5.1, < 5.2)
+      rails (~> 5.1, < 5.2.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.11.0)
       redis (~> 4.0)
