@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Sortitions.version
   s.authors = ["Juan Salvador Perez Garcia"]
   s.email = ["jsperezg@gmail.com"]
-  s.license = "AGPLv3"
+  s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
   s.required_ruby_version = ">= 2.3.1"
 
