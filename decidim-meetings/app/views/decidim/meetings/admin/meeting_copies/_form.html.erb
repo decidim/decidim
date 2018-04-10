@@ -40,7 +40,7 @@
                           data: { url: organizers_meeting_url(meeting) } %>
       <%= form.hidden_field :organizer_id %>
     </div>
-    
+
     <div class="row column">
       <%= form.select :open_type, meeting_open_types_for_select, { include_blank: t(".select_open_type") }, { multiple: false } %>
     </div>
@@ -66,5 +66,4 @@
     </div>
   </div>
 </div>
-
 <%= javascript_include_tag "decidim/meetings/admin/meetings_form" %>
