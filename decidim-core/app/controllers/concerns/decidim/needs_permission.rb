@@ -52,6 +52,8 @@ module Decidim
             permissions_context.merge(extra_context)
           ).permissions
         end.allowed?
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
       end
 
       def permission_class_chain
