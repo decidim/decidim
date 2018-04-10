@@ -12,6 +12,7 @@ gl:
         survey_answer:
           attributes:
             choices:
+              missing: non están completos
               too_many: son demasiados
   decidim:
     components:
@@ -78,6 +79,7 @@ gl:
         multiple_option: Múltipla opción
         short_answer: Resposta curta
         single_option: Opción única
+        sorting: Clasificación
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.
