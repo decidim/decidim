@@ -296,7 +296,7 @@ fr:
           impersonate: Représenter
           needs_authoriation_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
           promote: Promouvoir
-          view_logs: Consultez les logs
+          view_logs: Consultez les journaux d'activité
         new:
           create: Créer
           new_managed_user: Nouvel utilisateur à représenter
@@ -312,7 +312,7 @@ fr:
             new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
             promote: Transformer
       menu:
-        admin_log: Journal d'activité de l'administrateur
+        admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
         area_types: Types de zone d'application
@@ -364,7 +364,7 @@ fr:
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
-          name: Bulletin d'information (newsletter)
+          name: Newsletter
         oauth_application:
           fields:
             created_at: Créé le
@@ -414,7 +414,7 @@ fr:
             spam: Spam
       newsletters:
         create:
-          error: Il y a eu une erreur lors de la création de ce bulletin d'information.
+          error: Il y a eu une erreur lors de la création de cette newsletter.
           success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
         deliver:
           error: Erreur lors de l'envoi de ce bulletin d'information.
