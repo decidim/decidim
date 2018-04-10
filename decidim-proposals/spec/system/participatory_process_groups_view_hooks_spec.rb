@@ -59,7 +59,7 @@ describe "Proposals in process group home", type: :system do
       let!(:proposals) { create_list(:proposal, highlighted_proposals + 2, component: component) }
 
       it "shows the amount of proposals configured" do
-        visit resource_locator(participatory_process).path
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
         within ".highlighted_proposals" do
           expect(page).to have_css(".card--proposal", count: highlighted_proposals)
