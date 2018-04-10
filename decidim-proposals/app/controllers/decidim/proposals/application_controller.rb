@@ -15,8 +15,11 @@ module Decidim
 
       private
 
-      def permission_class
-        Decidim::Proposals::Permissions
+      def permission_class_chain
+        [
+          Decidim::Proposals::Permissions,
+          current_participatory_space.manifest.permissions_class
+        ]
       end
 
       def permission_scope

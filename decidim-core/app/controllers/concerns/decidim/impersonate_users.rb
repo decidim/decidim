@@ -51,6 +51,7 @@ module Decidim
       end
 
       def can_impersonate_users?
+        return true
         real_user && real_ability.can?(:impersonate, :managed_users)
       end
 

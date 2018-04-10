@@ -21,8 +21,8 @@ module Decidim
       def index
         redirect_to "/404" if published_processes.none?
 
-        authorize! :read, ParticipatoryProcess
-        authorize! :read, ParticipatoryProcessGroup
+        enforce_permission_to :read, :process
+        enforce_permission_to :read, :process_group
       end
 
       def show

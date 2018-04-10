@@ -27,11 +27,10 @@ module Decidim
                     :current_participatory_space,
                     :current_manifest
 
-      skip_authorize_resource
-
       before_action do
-        authorize! :read, current_component
+        enforce_permission_to :read, :component, component: current_component
       end
+
       before_action :redirect_unless_feature_private
 
       def current_participatory_space
