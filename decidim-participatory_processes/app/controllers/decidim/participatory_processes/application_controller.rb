@@ -12,7 +12,10 @@ module Decidim
       private
 
       def permission_class_chain
-        [Decidim::ParticipatoryProcesses::Permissions]
+        [
+          Decidim::ParticipatoryProcesses::Permissions,
+          Decidim::Permissions
+        ]
       end
 
       def permission_scope

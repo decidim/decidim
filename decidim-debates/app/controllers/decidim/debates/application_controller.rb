@@ -15,7 +15,8 @@ module Decidim
       def permission_class_chain
         [
           Decidim::Debates::Permissions,
-          current_participatory_space.manifest.permissions_class
+          current_participatory_space.manifest.permissions_class,
+          Decidim::Permissions
         ]
       end
 
