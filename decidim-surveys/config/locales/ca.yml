@@ -12,6 +12,7 @@ ca:
         survey_answer:
           attributes:
             choices:
+              missing: no estan complets
               too_many: són massa
   decidim:
     components:
@@ -78,6 +79,7 @@ ca:
         multiple_option: Opció múltiple
         short_answer: Resposta curta
         single_option: Única opció
+        sorting: Classificació
       surveys:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.
