@@ -23,7 +23,7 @@ module Decidim
         ]
       end
 
-      source_root File.expand_path("templates", __dir__)
+      source_root File.expand_path("app_templates", __dir__)
 
       class_option :path, type: :string,
                           default: nil,
