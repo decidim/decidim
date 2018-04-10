@@ -18,7 +18,7 @@ module Decidim
 
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }
-      scope :published, -> { where.not(published_at: nil) }
+      scope :published, -> { where(state: "published") }
     end
   end
 end
