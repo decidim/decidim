@@ -54,7 +54,7 @@ fr:
           title: Nouvelle assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
-          success: Assemblée mise à jour avec succès.
+          success: Agora mise à jour avec succès.
       assemblies_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cet assemblée.
@@ -86,8 +86,8 @@ fr:
           create: Créer
           title: Nouvel utilisateur d'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
-          success: Utilisateur mis à jour avec succès pour cette assemblée.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
+          success: Utilisateur mis à jour avec succès pour cette agora.
       menu:
         assemblies: Agora
         assemblies_submenu:
