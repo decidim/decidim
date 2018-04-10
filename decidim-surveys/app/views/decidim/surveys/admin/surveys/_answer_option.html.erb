@@ -4,7 +4,7 @@
   <div class="card-divider">
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
-    <% if survey.questions_editable? %>
+    <% if editable %>
       <button class="button small alert hollow remove-answer-option button--title">
         <%= t(".remove") %>
       </button>
@@ -20,6 +20,16 @@
           :body,
           tabs_id: tabs_id_for_question_answer_option(question, answer_option),
           label: t(".statement"),
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.check_box(
+          :free_text,
+          label: t(".free_text"),
           disabled: !survey.questions_editable?
         )
       %>
@@ -27,8 +37,8 @@
   </div>
 
   <% if answer_option.persisted? %>
-    <%= form.hidden_field :id, disabled: !survey.questions_editable? %>
+    <%= form.hidden_field :id, disabled: !editable %>
   <% end %>
 
-  <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
+  <%= form.hidden_field :deleted, disabled: !editable %>
 </div>

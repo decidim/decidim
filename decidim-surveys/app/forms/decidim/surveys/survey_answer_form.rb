@@ -8,18 +8,22 @@ module Decidim
 
       attribute :question_id, String
       attribute :body, String
+      attribute :choices, Array[SurveyAnswerChoiceForm]
 
-      validates :body, presence: true, if: -> { question.mandatory? }
+      validates :body, presence: true, if: :mandatory_body?
+      validates :selected_choices, presence: true, if: :mandatory_choices?
 
-      validate :body_not_blank, if: -> { question.mandatory? }
-      validate :max_answers, if: -> { question.max_choices }
+      validate :max_choices, if: -> { question.max_choices }
+      validate :all_choices, if: -> { question.question_type == "sorting" }
+
+      delegate :mandatory_body?, :mandatory_choices?, to: :question
 
       def question
         @question ||= survey.questions.find(question_id)
       end
 
-      def label
-        base = "#{question.position + 1}. #{translated_attribute(question.body)}"
+      def label(idx)
+        base = "#{idx + 1}. #{translated_attribute(question.body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base
@@ -30,23 +34,28 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_survey_question_id
+
+        self.choices = model.choices.map do |choice|
+          SurveyAnswerChoiceForm.from_model(choice)
+        end
+      end
+
+      def selected_choices
+        choices.select(&:body)
       end
 
       private
 
       def survey
-        @survey ||= Survey.where(component: current_component).first
+        @survey ||= Survey.find_by(component: current_component)
       end
 
-      def body_not_blank
-        return if body.nil?
-        errors.add("body", :blank) if body.all?(&:blank?)
+      def max_choices
+        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
       end
 
-      def max_answers
-        return if body.nil?
-
-        errors.add("body", :too_many_choices) if body.size > question.max_choices
+      def all_choices
+        errors.add(:choices, :missing) if selected_choices.size != question.number_of_options
       end
 
       def mandatory_label

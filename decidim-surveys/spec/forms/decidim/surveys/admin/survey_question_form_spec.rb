@@ -76,6 +76,17 @@ module Decidim
 
             expect(subject).not_to be_valid
           end
+
+          it "is valid when max choices under the number of options" do
+            attributes[:max_choices] = 2
+            attributes[:answer_options] = {
+              "0" => { "body" => { "en" => "A" } },
+              "1" => { "body" => { "en" => "B" } },
+              "2" => { "body" => { "en" => "C" } }
+            }
+
+            expect(subject).to be_valid
+          end
         end
 
         context "when the body is missing a locale translation" do

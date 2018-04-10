@@ -93,7 +93,7 @@ module Decidim::Admin
     describe "when invalid" do
       let(:valid) { false }
 
-      it "creates the component" do
+      it "broadcasts invalid and does not create the component" do
         expect do
           subject.call
         end.to broadcast(:invalid)

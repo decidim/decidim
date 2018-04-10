@@ -53,15 +53,15 @@ module Decidim
         end
 
         def scope
-          @scope ||= current_organization.scopes.where(id: scope_id).first
+          @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
         def area
-          @area ||= current_organization.areas.where(id: area_id).first
+          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         def parent
-          @parent ||= OrganizationAssemblies.new(current_organization).query.where(id: parent_id).first
+          @parent ||= OrganizationAssemblies.new(current_organization).query.find_by(id: parent_id)
         end
 
         def processes_for_select
