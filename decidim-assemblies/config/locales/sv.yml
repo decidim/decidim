@@ -149,6 +149,7 @@ sv:
             see_all_assemblies: Se alla församlingar
       show:
         area: Område
+        children: Assemblies
         developer_group: Utvecklargrupp
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
@@ -173,6 +174,10 @@ sv:
         surveys_count: Undersökningar
         users_count: Deltagare
         votes_count: Röster
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Samlingen hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Assemblies
   layouts:
