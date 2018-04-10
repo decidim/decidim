@@ -46,7 +46,7 @@ module Decidim
         alias component current_component
 
         def organizer
-          @organizer ||= current_organization.users.where(id: organizer_id).first
+          @organizer ||= current_organization.users.find_by(id: organizer_id)
         end
       end
     end

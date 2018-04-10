@@ -39,40 +39,36 @@ $(() => {
     toggleDependsOnSelect($meetingPublicType, $meetingPublicTypeOther);
     toggleDependsOnSelect($meetingTransparentType, $meetingTransparentTypeOther);
 
-    $(document).on("open.zf.reveal", "#data_picker-modal", function () {
       let xhr = null;
 
-      $("#data_picker-autocomplete").autoComplete({
+      $(".user-autocomplete").autoComplete({
         minChars: 2,
         source: function(term, response) {
           try {
             xhr.abort();
-          } catch (exception) { xhr = null}
+          } catch (exception) { xhr = null }
 
           xhr = $.getJSON(
-            "organizers.json",
-            { term: term },
-            function(data) { response(data); }
-          );
-        },
-        renderItem: function (item, search) {
-          let sanitizedSearch = search.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-          let re = new RegExp(`(${sanitizedSearch.split(" ").join("|")})`, "gi");
-          let modelId = item[0];
-          let name = item[1];
-          let nickname = item[2];
-          let val = `${name} (@${nickname})`;
-          return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${val}">${val.replace(re, "<b>$1</b>")}</div>`;
-        },
-        onSelect: function(event, term, item) {
-          let choose = $("#user-picker-choose");
-          let modelId = item.data("modelId");
-          let val = `${item.data("val")}`;
-          choose.data("picker-value", modelId);
-          choose.data("picker-text", val);
-          choose.data("picker-choose", "")
-        }
-      })
+          $(".user-autocomplete").data("url"),
+          { term: term },
+          function(data) { response(data); }
+        );
+      },
+      renderItem: function (item, search) {
+        let sanitizedSearch = search.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+        let re = new RegExp(`(${sanitizedSearch.split(" ").join("|")})`, "gi");
+        let modelId = item[0];
+        let name = item[1];
+        let nickname = item[2];
+        let val = `${name} (@${nickname})`;
+        return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${val}">${val.replace(re, "<b>$1</b>")}</div>`;
+      },
+      onSelect: function(event, term, item) {
+        let modelId = item.data("modelId");
+        let val = `${item.data("val")}`;
+        $("#meeting_organizer_id").val(modelId);
+        $(".user-autocomplete").val(val);
+      }
     });
   }
 });

@@ -54,7 +54,7 @@ module Decidim
         end
 
         def organizer
-          @organizer ||= current_organization.users.where(id: organizer_id).first
+          @organizer ||= current_organization.users.find_by(id: organizer_id)
         end
 
         alias component current_component
@@ -65,13 +65,6 @@ module Decidim
         def scope
           @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
         end
-
-        # # Organizer identifier
-        # #
-        # # Returns the organizer identifier related to the meeting
-        # def organizer_id
-        #   @organizer_id || organizer&.id
-        # end
 
         # Scope identifier
         #

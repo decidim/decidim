@@ -57,9 +57,6 @@ module Decidim
 
         def organizers
           respond_to do |format|
-            format.html do
-              render partial: "organizers"
-            end
             format.json do
               query = current_organization.users&.order(name: :asc)
               term = params[:term]
