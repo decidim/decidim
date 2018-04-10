@@ -12,6 +12,7 @@ eu:
         survey_answer:
           attributes:
             choices:
+              missing: ez dira osatu
               too_many: gehiegi dira
   decidim:
     components:
@@ -78,6 +79,7 @@ eu:
         multiple_option: Aukera anitz
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
+        sorting: Lazcoz
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
