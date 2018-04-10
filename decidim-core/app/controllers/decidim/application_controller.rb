@@ -48,6 +48,14 @@ module Decidim
       decidim.root_path
     end
 
+    def permission_class_chain
+      [Decidim::Permissions]
+    end
+
+    def permission_scope
+      :public
+    end
+
     # Make sure Chrome doesn't use the cache from a different format. This
     # prevents a bug where clicking the back button of the browser
     # displays the JS response instead of the HTML one.

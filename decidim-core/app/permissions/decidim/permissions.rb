@@ -86,6 +86,7 @@ module Decidim
     end
 
     def user_manager_permissions
+      Decidim::UserManagerPermissions.new(user, permission_action, context).permissions
     end
 
     def not_admin?

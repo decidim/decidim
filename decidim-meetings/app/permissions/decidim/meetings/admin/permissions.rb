@@ -15,7 +15,7 @@ module Decidim
           when :close, :copy, :destroy, :export_registrations, :update
             toggle_allow(meeting.present?)
           when :invite_user
-           toggle_allow(meeting.present? && meeting.registrations_enabled?)
+            toggle_allow(meeting.present? && meeting.registrations_enabled?)
           when :create
             allow!
           end
