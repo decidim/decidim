@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-sortitions"
-  s.summary = "This module makes possible to select amont a set of proposal by sortition"
-  s.description = s.summary
+  s.summary = "Decidim sortitions module"
+  s.description = "This module makes possible to select amont a set of proposal by sortition"
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md", "LICENSE-AGPLv3.txt"]
 
