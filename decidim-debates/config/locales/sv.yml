@@ -12,6 +12,19 @@ sv:
         title: Titel
         user_group_id: Skapa debatt som
   decidim:
+    components:
+      debates:
+        actions:
+          create: Skapa
+        name: debatter
+        settings:
+          global:
+            announcement: Meddelande
+            comments_enabled: Kommentarer aktiverade
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerade
+            creation_enabled: Debatt skapande av användare aktiverat
     debates:
       actions:
         confirm_destroy: Är du säker?
@@ -116,16 +129,3 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Debatter finns nu i %{participatory_space_title}
           notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Skapa
-        name: Debatter
-        settings:
-          global:
-            announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-          step:
-            announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            creation_enabled: Debatt skapande av användare aktiverat

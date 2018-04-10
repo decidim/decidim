@@ -12,6 +12,19 @@ nl:
         title: Titel
         user_group_id: Maak een debat als
   decidim:
+    components:
+      debates:
+        actions:
+          create: creëren
+        name: debatten
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Debatcreatie door gebruikers ingeschakeld
     debates:
       actions:
         confirm_destroy: Weet je het zeker?
@@ -116,16 +129,3 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Debatten nu beschikbaar in %{participatory_space_title}
           notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: creëren
-        name: debatten
-        settings:
-          global:
-            announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
-          step:
-            announcement: Aankondiging
-            comments_blocked: Reacties geblokkeerd
-            creation_enabled: Debatcreatie door gebruikers ingeschakeld

@@ -5,7 +5,15 @@ eu:
         body: Erantzuna
       survey_question:
         mandatory: Derrigorrezkoa
+        max_choices: Gehienezko aukera kopurua
         question_type: Mota
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: ez dira osatu
+              too_many: gehiegi dira
   decidim:
     components:
       surveys:
@@ -30,6 +38,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} inkesta berri bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
+    forms:
+      errors:
+        survey_answer:
+          body: Gorputza ezin da hutsik egon
     surveys:
       admin:
         exports:
@@ -41,6 +53,7 @@ eu:
         surveys:
           answer_option:
             answer_option: Erantzuna aukera
+            free_text: Testu librea
             remove: Kendu
             statement: Adierazpena
           edit:
@@ -51,6 +64,7 @@ eu:
             already_answered_warning: Inkesta dagoeneko erabiltzaile batzuek erantzun dute, beraz, ezin dituzu bere galderak aldatu.
           question:
             add_answer_option: Gehitu erantzun aukera
+            any: Edozein
             description: deskribapena
             down: Down
             question: Galdera
@@ -65,10 +79,13 @@ eu:
         multiple_option: Aukera anitz
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
+        sorting: Lazcoz
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
           success: Inkesta ondo bete da.
+        question:
+          max_choices: 'Gehienezko aukerak: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_link}">kontua sortu</a> inkesta erantzuteko.

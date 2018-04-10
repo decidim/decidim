@@ -15,7 +15,7 @@ module Decidim
                inverse_of: :answer
 
       validates :body, presence: true, if: -> { question.mandatory_body? }
-      validates :options, presence: true, if: -> { question.mandatory_choices? }
+      validates :choices, presence: true, if: -> { question.mandatory_choices? }
 
       validate :user_survey_same_organization
       validate :question_belongs_to_survey

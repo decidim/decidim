@@ -149,6 +149,7 @@ es:
             see_all_assemblies: Ver todas las asambleas
       show:
         area: Área
+        children: Asambleas
         developer_group: Grupo promotor
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
@@ -173,6 +174,10 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'El ensamblado no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
   layouts:

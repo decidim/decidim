@@ -6,6 +6,7 @@ module Decidim
     class SurveyAnswerChoiceForm < Decidim::Form
       attribute :body, String
       attribute :custom_body, String
+      attribute :position, Integer
       attribute :answer_option_id, Integer
 
       validates :answer_option_id, presence: true

@@ -17,6 +17,12 @@ module Decidim
 
       it { is_expected.to be_valid }
 
+      it "requires choices for mandatory multiple choice questions" do
+        survey_answer.question.update!(question_type: "single_option", mandatory: true)
+        survey_answer.choices = []
+        expect(subject).not_to be_valid
+      end
+
       it "has an association of survey" do
         expect(subject.survey).to eq(survey)
       end

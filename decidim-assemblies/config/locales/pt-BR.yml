@@ -149,6 +149,7 @@ pt-BR:
             see_all_assemblies: Veja todas as assembléias
       show:
         area: Área
+        children: Assemblies
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
         participatory_scope: Âmbito participativo
@@ -173,6 +174,10 @@ pt-BR:
         surveys_count: pesquisas
         users_count: Participantes
         votes_count: Votos
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembléias
   layouts:

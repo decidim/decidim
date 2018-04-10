@@ -6,11 +6,13 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
+        about: Handla om
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
         password: Nytt lösenord
         password_confirmation: Bekräfta ditt nya lösenord
+        personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
