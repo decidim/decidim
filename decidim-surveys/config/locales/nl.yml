@@ -12,6 +12,7 @@ nl:
         survey_answer:
           attributes:
             choices:
+              missing: zijn niet compleet
               too_many: zijn te veel
   decidim:
     components:
@@ -78,6 +79,7 @@ nl:
         multiple_option: Meerdere opties
         short_answer: Kort antwoord
         single_option: Enkelvoudige optie
+        sorting: sorteer-
       surveys:
         answer:
           invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
