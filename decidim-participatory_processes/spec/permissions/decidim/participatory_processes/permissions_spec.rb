@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, :admin, organization: organization }
   let(:organization) { create :organization }
@@ -14,27 +14,35 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_collaborator) { create :process_collaborator, participatory_process: process }
   let(:process_moderator) { create :process_moderator, participatory_process: process }
 
+  shared_examples "access for role" do |access|
+    if access
+      it { is_expected.to eq true }
+    else
+      it_behaves_like "permission is not set"
+    end
+  end
+
   shared_examples "access for roles" do |access|
     context "when user is org admin" do
-      it { is_expected.to eq access[:org_admin] }
+      it_behaves_like "access for role", access[:org_admin]
     end
 
     context "when user is a space admin" do
       let(:user) { process_admin }
 
-      it { is_expected.to eq access[:admin] }
+      it_behaves_like "access for role", access[:admin]
     end
 
     context "when user is a space collaborator" do
       let(:user) { process_collaborator }
 
-      it { is_expected.to eq access[:collaborator] }
+      it_behaves_like "access for role", access[:collaborator]
     end
 
     context "when user is a space moderator" do
       let(:user) { process_moderator }
 
-      it { is_expected.to eq access[:moderator] }
+      it_behaves_like "access for role", access[:moderator]
     end
   end
 
@@ -52,7 +60,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :read, subject: :dummy_resource }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when no user is given" do
@@ -61,7 +69,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :read, subject: :dummy_resource }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when the scope is not public" do
@@ -69,7 +77,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :foo, action: :read, subject: :dummy_resource }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when accessing the space area" do
@@ -171,7 +179,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :foo, subject: :dummy }
         end
 
-        it { is_expected.to eq false }
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -183,7 +191,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :create, subject: :process }
         end
 
-        it { is_expected.to eq false }
+        it_behaves_like "permission is not set"
       end
 
       context "when destroying a process" do
@@ -191,7 +199,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :destroy, subject: :process }
         end
 
-        it { is_expected.to eq false }
+        it_behaves_like "permission is not set"
       end
 
       shared_examples "allows any action on subject" do |action_subject|

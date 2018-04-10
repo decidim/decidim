@@ -33,20 +33,7 @@ describe Decidim::Admin::Permissions do
   context "when user is a user manager" do
     let(:user) { build :user, :user_manager }
 
-    it "delegates the check to the user manager permissions class" do
-      admin_permissions = instance_double(Decidim::Admin::UserManagerPermissions, permissions: :foo)
-      user_manager_permission_action = instance_double(Decidim::PermissionAction, allowed?: true)
-      allow(Decidim::Admin::UserManagerPermissions)
-        .to receive(:new)
-        .with(user, permission_action, context)
-        .and_return admin_permissions
-
-      expect(admin_permissions)
-        .to receive(:permissions)
-        .and_return(user_manager_permission_action)
-
-      subject
-    end
+    it_behaves_like "delegates permissions to", Decidim::Admin::UserManagerPermissions
   end
 
   context "when user is not admin" do
@@ -56,9 +43,7 @@ describe Decidim::Admin::Permissions do
   end
 
   context "when action is not registered" do
-    it "raises an error" do
-      expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-    end
+    it_behaves_like "permission is not set"
   end
 
   context "when reading the admin dashboard" do
@@ -71,9 +56,7 @@ describe Decidim::Admin::Permissions do
   describe "admin logs" do
     let(:action_subject) { :admin_log }
 
-    it "raises an error" do
-      expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-    end
+    it_behaves_like "permission is not set"
 
     context "when reading" do
       let(:action_name) { :read }
@@ -95,9 +78,7 @@ describe Decidim::Admin::Permissions do
       context "when page is not present" do
         let(:page) { nil }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -107,15 +88,11 @@ describe Decidim::Admin::Permissions do
       context "when page is not present" do
         let(:page) { nil }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when page is default" do
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when page is not default" do
@@ -145,16 +122,12 @@ describe Decidim::Admin::Permissions do
       context "when user does not belong to organization" do
         let(:organization) { build :organization }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
     end
 
     context "when any other action" do
-      it "raises an error" do
-        expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-      end
+      it_behaves_like "permission is not set"
     end
   end
 
@@ -175,9 +148,7 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are empty" do
         let(:authorizations) { [] }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when organization available authorizations are not empty" do
@@ -207,9 +178,7 @@ describe Decidim::Admin::Permissions do
       context "when destroying itself" do
         let(:subject_user) { user }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -225,9 +194,7 @@ describe Decidim::Admin::Permissions do
       context "when subject user is not managed" do
         let(:logs) { [] }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when subject user is managed" do
@@ -236,9 +203,7 @@ describe Decidim::Admin::Permissions do
         context "when there are active impersonation logs" do
           let(:logs) { [:foo] }
 
-          it "raises an error" do
-            expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-          end
+          it_behaves_like "permission is not set"
         end
 
         context "when there are no active impersonation logs" do

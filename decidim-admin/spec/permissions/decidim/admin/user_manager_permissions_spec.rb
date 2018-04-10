@@ -17,9 +17,7 @@ describe Decidim::Admin::UserManagerPermissions do
   let(:action_subject) { :bar }
 
   context "when action is not registered" do
-    it "raises an error" do
-      expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-    end
+    it_behaves_like "permission is not set"
   end
 
   context "when reading the admin dashboard" do
@@ -46,9 +44,7 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when organization available authorizations are empty" do
         let(:authorizations) { [] }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when organization available authorizations are not empty" do
@@ -78,9 +74,7 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when destroying itself" do
         let(:subject_user) { user }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -96,9 +90,7 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when subject user is not managed" do
         let(:logs) { [] }
 
-        it "raises an error" do
-          expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-        end
+        it_behaves_like "permission is not set"
       end
 
       context "when subject user is managed" do
@@ -107,9 +99,7 @@ describe Decidim::Admin::UserManagerPermissions do
         context "when there are active impersonation logs" do
           let(:logs) { [:foo] }
 
-          it "raises an error" do
-            expect { subject }.to raise_error(Decidim::PermissionAction::PermissionNotSetError)
-          end
+          it_behaves_like "permission is not set"
         end
 
         context "when there are no active impersonation logs" do

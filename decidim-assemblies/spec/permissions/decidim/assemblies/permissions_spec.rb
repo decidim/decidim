@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Assemblies::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: organization }
   let(:organization) { create :organization }
@@ -17,7 +17,7 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :read, subject: :dashboard }
       end
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
 
     context "when the action is for the public part" do
@@ -149,7 +149,7 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :foo, subject: :bar }
       end
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
 
     context "when the action is for the public part" do
@@ -185,7 +185,7 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :read, subject: :dummy_resource }
       end
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
 
     context "when the action is a random one for the admin" do
@@ -193,7 +193,7 @@ describe Decidim::Assemblies::Permissions do
         { scope: :admin, action: :foo, subject: :bar }
       end
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
 
     context "when the action is for the public part" do

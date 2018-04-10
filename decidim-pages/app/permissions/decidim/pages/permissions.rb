@@ -5,7 +5,6 @@ module Decidim
     class Permissions < Decidim::DefaultPermissions
       def permissions
         return permission_action if permission_action.scope != :admin
-        permission_action.allow! if allowed_by_other_components?
 
         permission_action.allow! if permission_action.action == :update
 
