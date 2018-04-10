@@ -55,7 +55,7 @@ describe Decidim::Meetings::Permissions do
     context "when meeting can't be joined" do
       let(:can_be_joined) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when meeting can be joined" do
@@ -79,7 +79,7 @@ describe Decidim::Meetings::Permissions do
     context "when registrations are disabled" do
       let(:registrations_enabled) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when user is authorized" do

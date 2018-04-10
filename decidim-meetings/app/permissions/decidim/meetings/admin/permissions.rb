@@ -13,11 +13,11 @@ module Decidim
 
           case permission_action.action
           when :close, :copy, :destroy, :export_registrations, :update
-            permission_action.allow! if meeting.present?
+            toggle_allow(meeting.present?)
           when :invite_user
-            permission_action.allow! if meeting.present? && meeting.registrations_enabled?
+           toggle_allow(meeting.present? && meeting.registrations_enabled?)
           when :create
-            permission_action.allow!
+            allow!
           end
 
           permission_action

@@ -16,19 +16,19 @@ module Decidim
           helper_method :attached_to, :attachment
 
           def index
-            enforce_permission_to :read, attachment
+            enforce_permission_to :read, :attachment, attached_to: attached_to
 
             render template: "decidim/admin/attachments/index"
           end
 
           def new
-            enforce_permission_to :create, attachment
+            enforce_permission_to :create, :attachment, attached_to: attached_to
             @form = form(AttachmentForm).from_params({}, attached_to: attached_to)
             render template: "decidim/admin/attachments/new"
           end
 
           def create
-            enforce_permission_to :create, attachment
+            enforce_permission_to :create, :attachment, attached_to: attached_to
             @form = form(AttachmentForm).from_params(params, attached_to: attached_to)
 
             CreateAttachment.call(@form, attached_to) do

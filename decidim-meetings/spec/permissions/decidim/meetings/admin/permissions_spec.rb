@@ -30,7 +30,7 @@ describe Decidim::Meetings::Admin::Permissions do
     context "when meeting is missing" do
       let(:meeting) { nil }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
@@ -95,7 +95,7 @@ describe Decidim::Meetings::Admin::Permissions do
     context "when the meeting registrations are closed" do
       let(:meeting) { create :meeting, registrations_enabled: false, component: meeting_component }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 

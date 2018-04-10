@@ -14,9 +14,9 @@ module Decidim
 
         case permission_action.action
         when :join
-          permission_action.allow! if can_join_meeting?
+          toggle_allow(can_join_meeting?)
         when :leave
-          permission_action.allow! if can_leave_meeting?
+          toggle_allow(can_leave_meeting?)
         end
 
         permission_action
