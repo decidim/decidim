@@ -150,6 +150,14 @@ PATH
     decidim-verifications (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
 
+PATH
+  remote: decidim-consultations
+  specs:
+    decidim-consultations (0.11.0.pre)
+      decidim-admin (= 0.11.0.pre)
+      decidim-comments (= 0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -643,6 +651,7 @@ PLATFORMS
 DEPENDENCIES
   byebug (~> 10.0)
   decidim!
+  decidim-consultations!
   decidim-dev!
   faker (~> 1.8)
   letter_opener_web (~> 1.3)
