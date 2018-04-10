@@ -4,7 +4,7 @@ fr:
       consultation:
         banner_image: Image de la bannière
         decidim_highlighted_scope_id: Portée en surbrillance
-        description: La description
+        description: Description
         end_voting_date: Date de fin
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
