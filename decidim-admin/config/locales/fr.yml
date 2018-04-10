@@ -624,7 +624,7 @@ fr:
       actions:
         hidden: Masqués
         hide: Masquer
-        not_hidden: Non masqués
+        not_hidden: Visibles
         title: Actions
         unreport: Annuler le signalement
       admin:
@@ -640,8 +640,8 @@ fr:
           fields:
             hidden_at: Masqué le
             report_count: Compter
-            reportable: Signalable
-            reported_content_url: Contenu d'une URL
+            reportable: Contenu
+            reported_content_url: URL
             reports: Signalements
             visit_url: Visitez l'URL
   errors:
