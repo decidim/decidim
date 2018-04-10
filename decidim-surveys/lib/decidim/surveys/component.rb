@@ -83,12 +83,24 @@ Decidim.register_component(:surveys) do |component|
       end
     )
 
-    2.times do
+    %w(short_answer long_answer).each do |text_question_type|
       Decidim::Surveys::SurveyQuestion.create!(
         survey: survey,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: "short_answer"
+        question_type: text_question_type
       )
+    end
+
+    %w(single_option multiple_option).each do |multiple_choice_question_type|
+      question = Decidim::Surveys::SurveyQuestion.create!(
+        survey: survey,
+        body: Decidim::Faker::Localized.paragraph,
+        question_type: multiple_choice_question_type
+      )
+
+      3.times do
+        question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+      end
     end
   end
 end

@@ -15,7 +15,7 @@ fr:
         name: Tirages au sort
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
     events:
       sortitions:
         sortition_created:

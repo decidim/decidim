@@ -13,7 +13,8 @@ module Decidim
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
-      validate :max_answers, if: -> { question.max_choices }
+      validate :max_choices, if: -> { question.max_choices }
+      validate :all_choices, if: -> { question.question_type == "sorting" }
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
@@ -21,8 +22,8 @@ module Decidim
         @question ||= survey.questions.find(question_id)
       end
 
-      def label
-        base = "#{id}. #{translated_attribute(question.body)}"
+      def label(idx)
+        base = "#{idx + 1}. #{translated_attribute(question.body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base
@@ -49,8 +50,12 @@ module Decidim
         @survey ||= Survey.find_by(component: current_component)
       end
 
-      def max_answers
+      def max_choices
         errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+      end
+
+      def all_choices
+        errors.add(:choices, :missing) if selected_choices.size != question.number_of_options
       end
 
       def mandatory_label

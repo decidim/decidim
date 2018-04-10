@@ -84,7 +84,7 @@
   const isMultipleChoiceOption = ($selectField) => {
     const value = $selectField.val();
 
-    return value === "single_option" || value === "multiple_option"
+    return value === "single_option" || value === "multiple_option" || value === "sorting"
   }
 
   const setupInitialQuestionAttributes = ($target) => {

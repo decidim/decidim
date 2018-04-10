@@ -619,15 +619,15 @@ workflows:
       - build_design_app:
           filters:
             branches:
-              ignore: /^l10n_master$/
+              ignore: /l10n_*/
       - build_test_app:
           filters:
             branches:
-              ignore: /^l10n_master$/
+              ignore: /l10n_*/
       - main:
           filters:
             branches:
-              ignore: /^l10n_master$/
+              ignore: /l10n_*/
       - core:
           requires:
             - build_test_app
