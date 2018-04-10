@@ -138,7 +138,7 @@ module Decidim
           next if manifest.name == :consultations
           begin
             manifest.permissions_class.new(user, permission_action, context).permissions.allowed?
-          rescue Decidim::PermissionnAction::PermissionNotSetError
+          rescue Decidim::PermissionAction::PermissionNotSetError
             nil
           end
         end
