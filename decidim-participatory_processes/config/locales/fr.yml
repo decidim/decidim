@@ -258,7 +258,7 @@ fr:
       index:
         title: Processus participatifs
       order_by_processes:
-        active: Actif
+        active: Actifs
         all: Tout
         past: Passés
         upcoming: À venir
