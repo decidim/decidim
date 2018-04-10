@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone d'application
-        name: Nom
+        name: Singulier
         organization: Organisation
       area_type:
-        name: Nom
+        name: Singulier
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -16,13 +16,13 @@ fr:
         title: Titre
       attachment_collection:
         description: La description
-        name: Prénom
+        name: Nom
       category:
         description: Description
         name: Nom
         parent_id: Parent
       component:
-        name: prénom
+        name: Nom
         published_at: Publié à
         weight: Rang d'affichage
       id: ID
@@ -40,7 +40,7 @@ fr:
         cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
-        enable_omnipresent_banner: Montrer une bannière omniprésente
+        enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         github_handler: Gestionnaire GitHub
@@ -63,19 +63,19 @@ fr:
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         twitter_handler: Gestionnaire Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
-        name: Nom
+        name: Singulier
         organization: Organisation
         parent_id: Parent
         scope_type: Type de périmètre d'application
         scope_type_id: Type de périmètre d'application
       scope_type:
-        name: Nom
+        name: Singulier
         organization: Organisation
         plural: Pluriel
       static_page:
@@ -333,10 +333,10 @@ fr:
         area:
           fields:
             area_type: Type de zone d'application
-            name: Nom
+            name: Singulier
         area_type:
           fields:
-            name: Nom
+            name: Singulier
             plural: Pluriel
         attachment:
           fields:
@@ -368,17 +368,17 @@ fr:
         oauth_application:
           fields:
             created_at: Créé le
-            name: Nom
+            name: Singulier
           name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
           fields:
-            name: Nom
+            name: Singulier
             scope_type: Type de périmètre d'application
         scope_type:
           fields:
-            name: Nom
+            name: Singulier
             plural: Pluriel
         static_page:
           fields:
@@ -512,7 +512,7 @@ fr:
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en avant
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier la bannière permanente
+          omnipresent_banner_appearance_title: Modifier la bannière d'actualités
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
