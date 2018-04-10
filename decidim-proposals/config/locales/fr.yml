@@ -56,7 +56,7 @@ fr:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page:'
+          email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -218,7 +218,7 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créé à
+            created_at: Créé le
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
