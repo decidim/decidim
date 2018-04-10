@@ -18,7 +18,7 @@ module Decidim
 
       def source_paths
         [
-          File.expand_path("templates", __dir__),
+          self.class.source_root,
           Rails::Generators::AppGenerator.source_root
         ]
       end
