@@ -5,10 +5,14 @@ require "spec_helper"
 describe "Proposals in process home", type: :system do
   include_context "with a feature"
   let(:manifest_name) { "proposals" }
-  # The proposals count has to be less than the number of proposals
-  # returned in the view hook. Otherwise the spec is not reliable
-  # to check that only the visible proposals are shown
   let(:proposals_count) { 2 }
+  let(:highlighted_proposals) { proposals_count * 2 }
+
+  before do
+    allow(Decidim::Proposals.config)
+      .to receive(:participatory_space_highlighted_proposals_limit)
+      .and_return(highlighted_proposals)
+  end
 
   context "when there are no proposals" do
     it "does not show the highlighted proposals section" do
@@ -27,7 +31,7 @@ describe "Proposals in process home", type: :system do
       visit resource_locator(participatory_process).path
 
       within ".highlighted_proposals" do
-        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_css(".card--proposal", count: proposals_count)
 
         proposals_titles = proposals.map(&:title)
         drafted_proposals_titles = drafted_proposals.map(&:title)
@@ -39,6 +43,22 @@ describe "Proposals in process home", type: :system do
         expect(drafted_proposals_titles).not_to include(*highlighted_proposals)
         expect(hidden_proposals_titles).not_to include(*highlighted_proposals)
         expect(withdrawn_proposals_titles).not_to include(*highlighted_proposals)
+      end
+    end
+
+    context "and there are more proposals than those that can be shown" do
+      let!(:proposals) { create_list(:proposal, highlighted_proposals + 2, feature: feature) }
+
+      it "shows the amount of proposals configured" do
+        visit resource_locator(participatory_process).path
+
+        within ".highlighted_proposals" do
+          expect(page).to have_css(".card--proposal", count: highlighted_proposals)
+
+          proposals_titles = proposals.map(&:title)
+          highlighted_proposals = page.all(".card--proposal .card__title").map(&:text)
+          expect(proposals_titles).to include(*highlighted_proposals)
+        end
       end
     end
   end
