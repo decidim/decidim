@@ -27,21 +27,6 @@ module Decidim
       permission_action.allow!
     end
 
-    def admin_component_allows_user?
-      return unless permission_action.scope == :admin
-
-      Decidim::Admin::Permissions.new(user, permission_action, context).allowed?
-    end
-
-    def spaces_allows_user?
-      return unless space.manifest.permissions_class
-      space.manifest.permissions_class.new(user, permission_action, context).allowed?
-    end
-
-    def allowed_by_other_components?
-      spaces_allows_user? || admin_component_allows_user?
-    end
-
     def read_participatory_space_action?
       permission_action.action == :read &&
         [:participatory_space, :component].include?(permission_action.subject)
