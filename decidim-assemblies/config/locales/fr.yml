@@ -37,7 +37,7 @@ fr:
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
-          success: Assemblée créée avec succès.
+          success: Agora créée avec succès.
         destroy:
           success: Assemblée supprimée avec succès.
         edit:
@@ -74,7 +74,7 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
-          success: Utilisateur créé avec succès pour cette assemblée.
+          success: Utilisateur créé avec succès pour cette agora.
         destroy:
           success: Utilisateur supprimé avec succès pour cette assemblée.
         edit:
@@ -103,7 +103,7 @@ fr:
       models:
         assembly:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             private: Privé
             promoted: Mis en évidence
             published: Publié
