@@ -12,6 +12,7 @@ it:
         survey_answer:
           attributes:
             choices:
+              missing: non sono completi
               too_many: sono troppi
   decidim:
     components:
@@ -78,6 +79,7 @@ it:
         multiple_option: Opzione multipla
         short_answer: Risposta breve
         single_option: Opzione unica
+        sorting: Ordinamento
       surveys:
         answer:
           invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
