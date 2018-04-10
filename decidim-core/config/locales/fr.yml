@@ -321,7 +321,7 @@ fr:
     notifications_settings:
       show:
         email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir les lettres d'informations
+        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
