@@ -101,7 +101,16 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :any_action_is_accepted, subject: :process_group }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
+    it_behaves_like "access for roles", org_admin: true,badmin: false, collaborator: false, moderator: false
+  end
+
+  context "when acting on component data" do
+    let(:action) do
+      { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
+    end
+    let(:context) { { current_participatory_space: process } }
+
+    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: false, moderator: false
   end
 
   context "when reading the processes list" do

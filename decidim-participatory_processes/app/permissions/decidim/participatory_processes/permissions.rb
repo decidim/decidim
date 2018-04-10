@@ -147,6 +147,7 @@ module Decidim
           :attachment_collection,
           :category,
           :component,
+          :component_data,
           :moderation,
           :process,
           :process_step,
@@ -156,11 +157,13 @@ module Decidim
 
       def org_admin_action?
         return unless user.admin?
+
         [
           :attachment,
           :attachment_collection,
           :category,
           :component,
+          :component_data,
           :moderation,
           :process,
           :process_step,

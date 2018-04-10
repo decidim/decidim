@@ -53,13 +53,13 @@ describe Decidim::Proposals::Admin::Permissions do
     context "when creation is disabled" do
       let(:creation_enabled?) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when official proposals are disabled" do
       let(:official_proposals_enabled?) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
@@ -75,13 +75,13 @@ describe Decidim::Proposals::Admin::Permissions do
     context "when answering is disabled in the step level" do
       let(:current_settings_proposal_answering_enabled?) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when answering is disabled in the component level" do
       let(:component_settings_proposal_answering_enabled?) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
