@@ -4,7 +4,7 @@ fr:
       project:
         budget: Budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Zone d'application
+        decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
         title: Titre
@@ -113,14 +113,14 @@ fr:
         settings:
           global:
             announcement: Message d'annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
-            votes_enabled: Votes activés
+            votes_enabled: Autoriser les utilisateurs à voter pour le budget
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote

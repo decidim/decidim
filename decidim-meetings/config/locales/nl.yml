@@ -39,6 +39,7 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            default_registration_terms: Standaardregistratiebepalingen
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -136,6 +137,8 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
+            reserved_slots_help: Laat het op 0 staan ​​als je geen gereserveerde slots hebt
+            reserved_slots_less_than: Moet kleiner zijn dan of gelijk aan %{count}
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.

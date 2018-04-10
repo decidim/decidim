@@ -6,11 +6,13 @@ pl:
       report:
         details: Dodatkowe uwagi
       user:
+        about: O
         email: Twój email
         name: Twoje imię
         nickname: Twój krótki, niepowtarzalny identyfikator
         password: Nowe hasło
         password_confirmation: Potwierdź swoje nowe hasło
+        personal_url: Osobisty URL
         remove_avatar: Usuń awatar
         user_group_document_number: Numer dokumentu organizacji
         user_group_name: Nazwa organizacji

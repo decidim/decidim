@@ -1,0 +1,248 @@
+sv:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Markerat omfattning
+        description: Beskrivning
+        end_voting_date: Slutdatum
+        introductory_image: Inledande bild
+        introductory_video_url: Inledande videoadress
+        slug: URL slug
+        start_voting_date: Start datum
+        subtitle: Texta
+        title: Titel
+      question:
+        banner_image: Banner image
+        decidim_scope_id: Kommunala området
+        hashtag: hashtag
+        hero_image: Hembild
+        i_frame_url: Webbplats för externt röstningssystem
+        origin_scope: Omfattning
+        origin_title: Ursprung
+        origin_url: Ursprungsadress
+        participatory_scope: Deltagande räckvidd
+        promoter_group: Promotorgrupp
+        question_context: Sammanhang
+        reference: Referens
+        scope: Kommunala området
+        slug: URL slug
+        subtitle: Texta
+        title: Titel
+        vote: Externt röstsystem
+        what_is_decided: Vad bestäms
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svar ej hittat.
+  decidim:
+    admin:
+      actions:
+        publish_results: Publicera resultat
+        unpublish_results: Uppdatera resultaten
+      consultation_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av detta samråd.
+          success: Samråd publicerades framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av detta samråd.
+          success: Konsultationen publicerades framgångsrikt.
+      consultation_results_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av resultaten för detta samråd.
+          success: Konsulteringsresultat publiceras framgångsrikt.
+        destroy:
+          error: Ett fel uppstod för att publicera resultaten för detta samråd.
+          success: Konsulteringsresultatet är opublicerat framgångsrikt.
+      consultations:
+        create:
+          error: Det uppstod ett fel vid att skapa ett nytt samråd.
+          success: Samråd med framgångsrikt skapat.
+        destroy:
+          success: Samråd har framgångsrikt förstörts.
+        edit:
+          update: Uppdatering
+        form:
+          slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på detta samråd. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+          title: Allmän information
+        index:
+          not_published: Ej publicerad
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Nytt samråd
+        update:
+          error: Det uppstod ett fel vid uppdateringen av detta samråd.
+          success: Samråd uppdaterades framgångsrikt.
+      menu:
+        consultations: samråd
+        consultations_submenu:
+          info: Information
+          questions: frågor
+        questions_submenu:
+          components: Komponenter
+          consultation: Samråd
+          info: Information
+          responses: Svar
+      models:
+        consultation:
+          fields:
+            created_at: Skapad vid
+            published: Publicerad
+            title: Titel
+          name:
+            one: Samråd
+            other: samråd
+        question:
+          fields:
+            created_at: Skapad vid
+            published: Publicerad
+            title: Titel
+          name:
+            one: Fråga
+            other: frågor
+        response:
+          fields:
+            created_at: Skapad vid
+            title: Titel
+          name:
+            one: Svar
+            other: Svar
+      question_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av denna fråga.
+          success: Fråga publicerad framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av denna fråga.
+          success: Fråga unpublished successfully.
+      questions:
+        create:
+          error: Ett fel uppstod med att skapa en ny fråga.
+          success: Fråga med framgång skapad.
+        destroy:
+          success: Frågan lyckades förstörs.
+        edit:
+          update: Uppdatering
+        form:
+          title: Allmän information
+        index:
+          not_published: Ej publicerad
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny fråga
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här frågan.
+          success: Fråga uppdaterad framgångsrikt.
+      responses:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt svar.
+          success: Svar skapat.
+        destroy:
+          error: Ett fel uppstod när svaret togs bort.
+          success: Svaret förstöras framgångsrikt.
+        edit:
+          update: Uppdatering
+        form:
+          title: Allmän information
+        new:
+          create: Skapa
+          title: Nytt svar
+        update:
+          error: Det uppstod ett fel vid uppdateringen av detta svar.
+          success: Svaret uppdaterades framgångsrikt.
+      titles:
+        consultations: samråd
+        questions: frågor
+        responses: Svar
+    consultations:
+      consultation:
+        start_voting_date: Röstning från
+        view_results: Se Resultat
+      consultation_card:
+        view_results: Se Resultat
+      consultations:
+        orders:
+          label: 'Sortera samråd med:'
+          random: Slumpmässig
+          recent: Senaste
+      count:
+        title:
+          one: "%{count} konsultation"
+          other: "%{count} konsultationer"
+      filters:
+        active: Aktiva
+        all: Allt
+        finished: Färdiga
+        search: Sök
+        state: stat
+        upcoming: kommande
+      filters_small_view:
+        close_modal: Stäng fönstret
+        filter: Filtrera
+        filter_by: Filtrera efter
+        unfold: Veckla ut
+      finished:
+        active_consultations: Aktiva samråd
+        past_consultations: Tidigare samråd
+      highlighted_questions:
+        title: Samråd från %{scope_name}
+      index:
+        title: samråd
+      question:
+        take_part: Ta del
+        view_results: Se Resultat
+        votes_out_of:
+          one: rösta ut ur
+          other: röster av
+      question_votes:
+        create:
+          error: Det har förekommit fel när man röstade frågan
+      regular_questions:
+        title: Övriga samråd
+      show:
+        see_finished_consultations: Se tidigare samråd
+    menu:
+      consultations: samråd
+    questions:
+      results:
+        title: Resultat
+      show:
+        read_more: Läs mer
+      statistics:
+        assistants_count_title: assistenter
+        comments_count_title: kommentarer
+        meetings_count_title: möten
+        supports_count_title: sammanväxningar
+      technical_info:
+        technical_data: Teknisk data
+      vote_button:
+        already_voted: Redan röstade
+        already_voted_hover: Återkalla support
+        starting_from: Börjar från %{date}
+        vote: Rösta
+      vote_modal:
+        contextual_help: Var god välj ett alternativ. Tänk på att när du har bekräftat Ditt stöd kan inte ändras.
+        title: 'Samråd: Frågestöd'
+      vote_modal_confirm:
+        change: Byta
+        confirm: Bekräfta
+        contextual_help: Vänligen bekräfta det valda alternativet.
+        title: 'Samråd: bekräfta support'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: bilagor
+          categories: kategorier
+      consultation_voting_data:
+        start_voting_date: Röstning från
+      question_components:
+        question_menu_item: Frågan
+        unfold: Veckla ut
+      question_header:
+        back_to_consultation: Se alla samråd
+  pages:
+    home:
+      statistics:
+        consultations_count: samråd

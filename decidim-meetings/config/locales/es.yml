@@ -39,6 +39,7 @@ es:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            default_registration_terms: Términos de registro predeterminados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -136,6 +137,8 @@ es:
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
+            reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
+            reserved_slots_less_than: Debe ser menor que o igual a %{count}
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.

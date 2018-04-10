@@ -39,6 +39,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            default_registration_terms: Domyślne warunki rejestracji
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -133,6 +134,8 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invite_user: Zaproś użytkownika
+            reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
+            reserved_slots_less_than: Musi być mniejszy lub równy %{count}
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
