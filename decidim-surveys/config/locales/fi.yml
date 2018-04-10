@@ -12,6 +12,7 @@ fi:
         survey_answer:
           attributes:
             choices:
+              missing: eivät ole täydellisiä
               too_many: ovat liian monta
   decidim:
     components:
@@ -78,6 +79,7 @@ fi:
         multiple_option: Useita vaihtoehtoja
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
+        sorting: lajittelu
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
