@@ -6,11 +6,13 @@ eu:
       report:
         details: Iruzkin gehigarriak
       user:
+        about: About
         email: Zure helbide elektronikoa
         name: Zure izena
         nickname: Zure identifikatzaile labur eta berezia
         password: Pasahitza
         password_confirmation: Baieztatu zure pasahitz berria
+        personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
@@ -79,8 +81,11 @@ eu:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
       scope:
         create: "%{user_name} %{resource_name} esparrua sortu zen"
+        create_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparru barruan sortu zen"
         delete: "%{user_name} %{resource_name} esparrua ezabatu da"
+        delete_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparruaren barruan ezabatu da"
         update: "%{user_name} %{resource_name} eremua eguneratu du"
+        update_with_parent: "%{user_name} %{resource_name} esparrua %{parent_scope} eremuan barneratu zen"
       static_page:
         create: "%{user_name} sortu %{resource_name} orri estatikoa"
         delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
