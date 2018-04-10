@@ -39,9 +39,11 @@ module Decidim
       end
 
       def enforce_permission_to(action, subject, extra_context = {})
-        p "==========="
-        p permission_scope, action, subject, permission_class_chain
-        p "==========="
+        if Rails.env.development?
+          p "==========="
+          p permission_scope, action, subject, permission_class_chain
+          p "==========="
+        end
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
