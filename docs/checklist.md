@@ -8,7 +8,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Choose which **languages** do you want for your application. In case that your language isn't supported you should translate it on [Crowdin](https://crowdin.com/project/decidim).
 
-1. Customize the **look and feel** (colors, pictures, fonts, etc).
+1. Customize the [**look and feel**](https://github.com/decidim/decidim/blob/master/docs/customization/styles.md) (colors, pictures, fonts, etc).
 
 1. Configure **SSL**. We recommend using at least [Let's Encrypt](https://letsencrypt.org/) for a minimum security.
 
@@ -23,6 +23,12 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 1. Decide and implement which kind of **[Authorization](docs/customization/authorization.md)** you're going to use.
 
 1. Comply with our License (Affero GPL 3) and **publish your code** to [GitHub](http://github.com) or wherever you want.
+
+1. Review your **decidim initializer** on your application (config/initializers/decidim.rb). 
+
+1. Configure your [**ActiveJob**](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md) background queue. 
+
+1. If you want, configure your [**social providers**](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md) to enable login using external applications. 
 
 ## Contents
 
