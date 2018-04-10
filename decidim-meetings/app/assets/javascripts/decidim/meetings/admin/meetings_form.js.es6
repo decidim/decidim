@@ -39,16 +39,16 @@ $(() => {
     toggleDependsOnSelect($meetingPublicType, $meetingPublicTypeOther);
     toggleDependsOnSelect($meetingTransparentType, $meetingTransparentTypeOther);
 
-      let xhr = null;
+    let xhr = null;
 
-      $(".user-autocomplete").autoComplete({
-        minChars: 2,
-        source: function(term, response) {
-          try {
-            xhr.abort();
-          } catch (exception) { xhr = null }
+    $(".user-autocomplete").autoComplete({
+      minChars: 2,
+      source: function(term, response) {
+        try {
+          xhr.abort();
+        } catch (exception) { xhr = null }
 
-          xhr = $.getJSON(
+        xhr = $.getJSON(
           $(".user-autocomplete").data("url"),
           { term: term },
           function(data) { response(data); }

@@ -134,10 +134,6 @@ en:
           new:
             create: Create
             title: Create meeting
-          organizers:
-            close: Close
-            current_selection: Current selection
-            select: Select
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated
