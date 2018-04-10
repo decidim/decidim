@@ -479,7 +479,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé par Open Source Politics grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -521,9 +521,9 @@ fr:
         meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus
         proposals: Propositions
-        proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
+        proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
-        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
+        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
         footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
         register: S'inscrire
       hero:
