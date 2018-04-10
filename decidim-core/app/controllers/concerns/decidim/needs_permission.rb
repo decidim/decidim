@@ -47,12 +47,12 @@ module Decidim
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
-      def allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain)
+      def allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain, user = current_user)
         permission_action = Decidim::PermissionAction.new(scope: permission_scope, action: action, subject: subject)
 
         chain.inject(permission_action) do |current_permission_action, permission_class|
           permission_class.new(
-            current_user,
+            user,
             current_permission_action,
             permissions_context.merge(extra_context)
           ).permissions
