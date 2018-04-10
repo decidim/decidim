@@ -272,7 +272,7 @@ fr:
           view_more_logs: Afficher plus
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
-        export_as: "%{name} comme %{export_format}"
+        export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       logs:
         logs_list:
@@ -642,7 +642,7 @@ fr:
             report_count: Compteur
             reportable: Contenu
             reported_content_url: URL
-            reports: Signalements
+            reports: Motif
             visit_url: Visitez l'URL
   errors:
     messages:
