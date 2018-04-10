@@ -149,6 +149,7 @@ eu:
             see_all_assemblies: Ikusi muntaia guztiak
       show:
         area: Area
+        children: Batzar
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
@@ -173,6 +174,10 @@ eu:
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
         votes_count: Euskarriak
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
     menu:
       assemblies: Biltzarrak
   layouts:

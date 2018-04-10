@@ -12,6 +12,19 @@ it:
         title: Titolo
         user_group_id: Crea dibattito come
   decidim:
+    components:
+      debates:
+        actions:
+          create: Creare
+        name: dibattiti
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            creation_enabled: Creazione di dibattiti da parte degli utenti abilitati
     debates:
       actions:
         confirm_destroy: Sei sicuro?
@@ -116,16 +129,3 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Discussioni ora disponibili in %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Creare
-        name: dibattiti
-        settings:
-          global:
-            announcement: Annuncio
-            comments_enabled: Commenti abilitati
-          step:
-            announcement: Annuncio
-            comments_blocked: Commenti bloccati
-            creation_enabled: Creazione di dibattiti da parte degli utenti abilitati
