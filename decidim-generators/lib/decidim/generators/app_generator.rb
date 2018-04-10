@@ -3,7 +3,7 @@
 require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require "decidim/version"
+require "decidim/generators/version"
 require_relative "install_generator"
 
 module Decidim
@@ -91,7 +91,7 @@ module Decidim
                        elsif options[:branch]
                          "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                        else
-                         "\"#{Decidim.version}\""
+                         "\"#{Decidim::Generators.version}\""
                        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"

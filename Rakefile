@@ -26,29 +26,6 @@ task :update_versions do
   Decidim::GemManager.replace_versions
 end
 
-desc "Installs all gems locally."
-task :install_all do
-  Decidim::GemManager.run_all(
-    "gem build %name && mv %name-%version.gem ..",
-    include_root: false
-  )
-
-  Decidim::GemManager.new(__dir__).run(
-    "gem build %name && gem install *.gem"
-  )
-end
-
-desc "Uninstalls all gems locally."
-task :uninstall_all do
-  Decidim::GemManager.run_all(
-    "gem uninstall %name -v %version --executables --force"
-  )
-
-  Decidim::GemManager.new(__dir__).run(
-    "rm decidim-*.gem"
-  )
-end
-
 Decidim::GemManager.all_dirs(include_root: false) do |dir|
   manager = Decidim::GemManager.new(dir)
   name = manager.short_name

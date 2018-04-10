@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "generators/decidim/app_generator"
+require "decidim/generators/app_generator"
 
 namespace :decidim do
   def generate_decidim_app(*options)
