@@ -3,3 +3,10 @@ uk:
     attributes:
       sortition:
         title: Заголовок
+  decidim:
+    sortitions:
+      admin:
+        models:
+          sortition:
+            fields:
+              title: Заголовок
