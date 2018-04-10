@@ -61,6 +61,7 @@ module Decidim
 
     def follow_action?
       return unless permission_action.subject == :follow
+      return true if permission_action.action == :create
       follow = context.fetch(:follow, nil)
 
       follow.user == user
@@ -76,7 +77,7 @@ module Decidim
     def conversation_action?
       return unless permission_action.subject == :conversation
       conversation = context.fetch(:conversation, nil)
-      return true unless conversation
+      return true if [:create, :read].include?(permission_action.action)
 
       conversation.participants.include?(user)
     end
