@@ -6,7 +6,7 @@ module Decidim
     skip_before_action :store_current_location
 
     def picker
-      authorize! :pick, Scope
+      enforce_permission_to :pick, :scope
 
       title = params[:title] || t("decidim.scopes.picker.title", field: params[:field]&.downcase)
       root = Scope.find(params[:root]) if params[:root]

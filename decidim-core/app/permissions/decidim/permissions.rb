@@ -7,11 +7,11 @@ module Decidim
       allow! if locales_action?
       allow! if component_public_action?
       allow! if search_scope_action?
-      allow! if manage_self_user_action?
 
       return permission_action unless user
       return user_manager_permissions if not_admin? && user_manager?
 
+      allow! if manage_self_user_action?
       allow! if authorization_action?
       allow! if follow_action?
       allow! if notification_action?
@@ -39,7 +39,7 @@ module Decidim
 
     def search_scope_action?
       permission_action.subject == :scope &&
-        permission_action.action == :search
+        [:search, :pick].include?(permission_action.action)
     end
 
     def manage_self_user_action?
@@ -76,6 +76,7 @@ module Decidim
     def conversation_action?
       return unless permission_action.subject == :conversation
       conversation = context.fetch(:conversation, nil)
+      return true unless conversation
 
       conversation.participants.include?(user)
     end

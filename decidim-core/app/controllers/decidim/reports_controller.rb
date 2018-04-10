@@ -8,10 +8,8 @@ module Decidim
 
     before_action :authenticate_user!
 
-    skip_authorization_check if: :has_permission_class?
-
     def create
-      ensure_access_to_action
+      enforce_permission_to :create, :moderation
 
       @form = form(Decidim::ReportForm).from_params(params)
 
@@ -32,16 +30,6 @@ module Decidim
 
     def reportable
       @reportable ||= GlobalID::Locator.locate_signed params[:sgid]
-    end
-
-    def ensure_access_to_action
-      authorize! :report, reportable unless has_permission_class?
-
-      enforce_permission_to :create, :moderation
-    end
-
-    def has_permission_class?
-      permission_class_chain.any?
     end
 
     def permission_class_chain

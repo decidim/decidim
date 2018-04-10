@@ -10,18 +10,18 @@ module Decidim
     helper_method :notifications
 
     def index
-      authorize! :read, Notification
+      enforce_permission_to :read, :notification
       @notifications = paginate(notifications)
     end
 
     def destroy
       notification = notifications.find(params[:id])
-      authorize! :destroy, notification
+      enforce_permission_to :destroy, :notification, notification: notification
       notification.destroy
     end
 
     def read_all
-      authorize! :destroy, notifications.first
+      enforce_permission_to :destroy, :notification, notification: notifications.first
       notifications.destroy_all
     end
 
