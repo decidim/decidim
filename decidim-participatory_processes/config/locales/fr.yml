@@ -323,7 +323,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
       process_header:
-        process_menu_item: Le processus
+        process_menu_item: Présentation
         unfold: Déplier
       process_header_steps:
         step: Étape %{current} sur %{total}
