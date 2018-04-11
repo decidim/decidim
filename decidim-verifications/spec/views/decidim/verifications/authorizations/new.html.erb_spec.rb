@@ -24,6 +24,10 @@ module Decidim
       expect(render).to include("partial-demo")
     end
 
+    it "renders the button separately" do
+      expect(render).to have_tag("input[type=submit]", count: 1)
+    end
+
     context "when there's not a partial to render the form" do
       before do
         allow(handler).to receive(:to_partial_path).and_return("inexisting_partial")
