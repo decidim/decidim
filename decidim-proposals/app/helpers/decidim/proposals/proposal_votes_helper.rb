@@ -50,6 +50,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def threshold_per_proposal
+        return 0 if component_settings.threshold_per_proposal.blank?
         return nil unless component_settings.threshold_per_proposal.positive?
         component_settings.threshold_per_proposal
       end

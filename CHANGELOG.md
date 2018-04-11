@@ -50,6 +50,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Fixed**:
 
+**decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass. [\#3185](https://github.com/decidim/decidim/pull/3185)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)
 - **decidim-proposals**: Fix Feedback needed after Endorsing when user has no user_groups [\#2968](https://github.com/decidim/decidim/pull/2998)
 - **decidim-proposals**: Fix threshold absolute view and rename the field maximum_votes_per_proposal to threshold_per_proposal. [\#2994](https://github.com/decidim/decidim/pull/2994)
