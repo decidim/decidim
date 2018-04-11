@@ -64,6 +64,14 @@ module Decidim::Admin
             expect(subject.query).to match_array(not_officialized_users)
           end
         end
+
+        context "when using an arbitrary filter" do
+          let(:filter) { "destroy_all" }
+
+          it "is ignored" do
+            expect(subject.query).to match_array(officialized_users + not_officialized_users)
+          end
+        end
       end
 
       context "and receives a search and a filter param" do

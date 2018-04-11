@@ -4,6 +4,11 @@ module Decidim
   module Admin
     # A class used to filter organization users
     class OrganizationUsers < Rectify::Query
+      WHITELISTED_STATE_SCOPES = %w(
+        officialized
+        not_officialized
+      ).freeze
+
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # organization - the Decidim::Organization where search will be scoped to
@@ -17,7 +22,7 @@ module Decidim
       #
       # organization - the Decidim::Organization where search will be scoped to
       # name_query - query to filter user group names
-      # state - officialization state to be used as a filter
+      # state - users state, must be defined as a scope in the user model
       def initialize(organization, name_query = nil, state = nil)
         @organization = organization
         @name_query = name_query
@@ -42,14 +47,9 @@ module Decidim
       end
 
       def filter_by_state(users)
-        case state
-        when "officialized"
-          users.where.not(officialized_at: nil)
-        when "not_officialized"
-          users.where(officialized_at: nil)
-        else
-          users
-        end
+        return users unless WHITELISTED_STATE_SCOPES.include?(state)
+
+        users.public_send(state)
       end
     end
   end
