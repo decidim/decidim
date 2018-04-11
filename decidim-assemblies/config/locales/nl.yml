@@ -3,9 +3,14 @@ nl:
     attributes:
       assembly:
         area_id: Gebied
+        assembly_type: Montage type
+        assembly_type_other: Montagetype anders
         banner_image: Bannerafbeelding
+        closing_date: Sluitingsdatum
+        closing_date_reason: Sluitingsdatum reden
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
+        copy_features: Functies kopiëren
         decidim_area_id: Gebied
         decidim_scope_id: strekking
         description: Beschrijving
