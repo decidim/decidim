@@ -40,6 +40,12 @@
   }
 }
 
+.dropdown-inverted.dropdown.menu{
+  .is-active > a{
+    color: $anchor-color;
+  }
+}
+
 .dropdown-menu-inverted_label{
   vertical-align: middle;
 }
