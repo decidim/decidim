@@ -4,6 +4,7 @@ uk:
       assembly:
         banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
+        copy_features: Скопіювати складові
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
