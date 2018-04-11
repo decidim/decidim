@@ -11,7 +11,6 @@ require "decidim/verifications"
 require "decidim/participatory_processes"
 require "decidim/assemblies"
 require "decidim/consultations"
-require "decidim/initiatives"
 
 require "decidim/pages"
 require "decidim/comments"

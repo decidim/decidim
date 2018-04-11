@@ -96,6 +96,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
+        gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
 
         Bundler.with_original_env { run "bundle install" }
       end
