@@ -11,7 +11,7 @@ module Decidim
 
       def permissions
         if permission_action.scope == :public
-          permission_action.allow!
+          permission_action.allow! if permission_action.action == :read
           return permission_action
         end
 

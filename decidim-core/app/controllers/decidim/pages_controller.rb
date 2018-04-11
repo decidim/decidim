@@ -15,10 +15,6 @@ module Decidim
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
 
-    def show
-      enforce_permission_to :read, :public_page
-    end
-
     def index
       enforce_permission_to :read, :public_page
       @pages = current_organization.static_pages.all.to_a.sort do |a, b|

@@ -62,7 +62,7 @@ describe Decidim::Proposals::Permissions do
     context "when creation is disabled" do
       let(:extra_settings) { { creation_enabled?: false } }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when user is authorized" do
@@ -90,7 +90,7 @@ describe Decidim::Proposals::Permissions do
     context "when proposal is not editable" do
       let(:editable) { false }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
@@ -106,7 +106,7 @@ describe Decidim::Proposals::Permissions do
     context "when trying by another user" do
       let(:user) { build :user }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
   end
 
@@ -123,7 +123,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when endorsements are blocked" do
@@ -134,7 +134,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when user is authorized" do
@@ -161,7 +161,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when user is authorized" do
@@ -188,7 +188,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when votes are blocked" do
@@ -199,7 +199,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when the user has no more remaining votes" do
@@ -216,7 +216,7 @@ describe Decidim::Proposals::Permissions do
         create :proposal_vote, author: user, proposal: proposals[1]
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when the user is authorized" do
@@ -244,7 +244,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when votes are blocked" do
@@ -255,7 +255,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
     context "when the user is authorized" do
