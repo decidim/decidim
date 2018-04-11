@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-consultations"
-  s.summary = "Extends Decidim adding a first level public consultation component"
-  s.description = s.summary
+  s.summary = "Decidim consultations module"
+  s.description = "Extends Decidim adding a first level public consultation component"
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 

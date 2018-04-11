@@ -23,7 +23,7 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <% if !meeting.closed? && meeting.registrations_enabled? %>
+        <% if !meeting.closed? && meeting.registrations_enabled? && meeting.can_participate?(current_user) %>
           <% if meeting.has_registration_for? current_user %>
             <%= action_authorized_button_to :leave, t(".going"), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success", data: { disable: true } %>
           <% else %>

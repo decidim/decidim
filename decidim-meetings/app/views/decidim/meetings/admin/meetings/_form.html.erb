@@ -52,28 +52,12 @@
       <%= form.hidden_field :organizer_id %>
     </div>
 
-    <div class="row column">
-      <%= form.select :open_type, meeting_open_types_for_select, { include_blank: t(".select_open_type") }, { multiple: false } %>
+    <div class="row column" id="is_private">
+      <%= form.check_box :is_private %>
     </div>
 
-    <div class="row column" id="meeting_open_type_other">
-      <%= form.translated :text_field, :open_type_other %>
-    </div>
-
-    <div class="row column">
-      <%= form.select :public_type, meeting_public_types_for_select, { include_blank: t(".select_public_type") }, { multiple: false } %>
-    </div>
-
-    <div class="row column" id="meeting_public_type_other">
-      <%= form.translated :text_field, :public_type_other %>
-    </div>
-
-    <div class="row column">
-      <%= form.select :transparent_type, meeting_transparent_types_for_select, { include_blank: t(".select_transparent_type") }, { multiple: false } %>
-    </div>
-
-    <div class="row column" id="meeting_transparent_type_other">
-      <%= form.translated :text_field, :transparent_type_other %>
+    <div class="row column" id="is_transparent">
+      <%= form.check_box :is_transparent %>
     </div>
   </div>
 </div>

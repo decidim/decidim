@@ -22,6 +22,39 @@ module Decidim
         sign_in user
       end
 
+      describe "GET new" do
+        let(:component) { create(:proposal_component, :with_creation_enabled) }
+
+        context "when NO draft proposals exist" do
+          it "renders the empty form" do
+            get :new, params: params
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:new)
+          end
+        end
+
+        context "when draft proposals exist from other users" do
+          let!(:others_draft) { create(:proposal, :draft, component: component) }
+
+          it "renders the empty form" do
+            get :new, params: params
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:new)
+          end
+        end
+
+        context "when draft proposals exist from current users" do
+          let!(:draft) { create(:proposal, :draft, component: component, author: user) }
+
+          it "redirects to edit draft" do
+            get :new, params: params
+            expect(response).to have_http_status(:found)
+            path = edit_draft_proposal_path(draft, component_id: component.id, question_slug: component.participatory_space.slug)
+            expect(response).to redirect_to(path)
+          end
+        end
+      end
+
       describe "POST create" do
         context "when creation is not enabled" do
           let(:component) { create(:proposal_component) }

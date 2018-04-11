@@ -11,10 +11,7 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        translatable_attribute :open_type_other, String
-        translatable_attribute :public_type_other, String
-        translatable_attribute :transparent_type_other, String
-
+        
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
@@ -22,9 +19,8 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
-        attribute :open_type, String
-        attribute :public_type, String
-        attribute :transparent_type, String
+        attribute :is_private, Boolean
+        attribute :is_transparent, Boolean
         attribute :organizer_id, Integer
 
         validates :title, translatable_presence: true
@@ -39,9 +35,6 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
-        validates :open_type_other, translatable_presence: true, if: ->(form) { form.open_type == "other" }
-        validates :public_type_other, translatable_presence: true, if: ->(form) { form.public_type == "other" }
-        validates :transparent_type_other, translatable_presence: true, if: ->(form) { form.transparent_type == "other" }
 
         validate :scope_belongs_to_participatory_space_scope
 

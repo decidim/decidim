@@ -15,6 +15,8 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
+        is_private: Is private
+        is_transparent: Is transparent
         location: Location
         location_hints: Location hints
         registration_terms: Registration terms
@@ -169,18 +171,6 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
-      meeting_open_types:
-        close: close
-        open: open
-        other: other
-      meeting_public_types:
-        other: other
-        private: private
-        public: public
-      meeting_transparent_types:
-        opaque: opaque
-        other: other
-        transparent: transparent
       meetings:
         filters:
           category: Category
