@@ -6,6 +6,7 @@ sv:
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
+        copy_features: Kopiera funktioner
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
