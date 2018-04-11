@@ -46,8 +46,12 @@ module Decidim::Admin
       end
 
       context "and receives a filter param" do
-        let!(:not_officialized_users) { create_list(:user, 2, organization: organization) }
+        let!(:regular_users) { create_list(:user, 2, organization: organization) }
+        let!(:not_officialized_users) { regular_users + managed_users }
         let!(:officialized_users) { create_list(:user, 2, :officialized, organization: organization) }
+        let!(:not_managed_users) { regular_users + officialized_users }
+        let!(:managed_users) { create_list(:user, 2, :managed, organization: organization) }
+        let(:all_users) { regular_users + officialized_users + managed_users }
 
         context 'when filtering by "Officialized"' do
           let(:filter) { "officialized" }
@@ -65,11 +69,27 @@ module Decidim::Admin
           end
         end
 
+        context 'when filtering by "Managed"' do
+          let(:filter) { "managed" }
+
+          it "returns all the officialized users" do
+            expect(subject.query).to match_array(managed_users)
+          end
+        end
+
+        context 'when filtering by "Non Managed"' do
+          let(:filter) { "not_managed" }
+
+          it "returns all the non managed users" do
+            expect(subject.query).to match_array(not_managed_users)
+          end
+        end
+
         context "when using an arbitrary filter" do
           let(:filter) { "destroy_all" }
 
           it "is ignored" do
-            expect(subject.query).to match_array(officialized_users + not_officialized_users)
+            expect(subject.query).to match_array(all_users)
           end
         end
       end

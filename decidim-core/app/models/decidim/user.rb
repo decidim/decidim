@@ -38,7 +38,9 @@ module Decidim
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :not_deleted, -> { where(deleted_at: nil) }
+
     scope :managed, -> { where(managed: true) }
+    scope :not_managed, -> { where(managed: false) }
 
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }

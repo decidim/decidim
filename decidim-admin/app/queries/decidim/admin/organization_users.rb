@@ -7,6 +7,8 @@ module Decidim
       WHITELISTED_STATE_SCOPES = %w(
         officialized
         not_officialized
+        managed
+        not_managed
       ).freeze
 
       # Syntactic sugar to initialize the class and return the queried objects.

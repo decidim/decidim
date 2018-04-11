@@ -298,6 +298,11 @@ en:
           needs_authorization_warning: You need at least one authorization enabled for this organization.
           promote: Promote
           view_logs: View logs
+          filter:
+            all: All
+            managed: Managed
+            not_managed: Not managed
+          filter_by: Filter by
         new:
           create: Create
           new_managed_user: New managed user
