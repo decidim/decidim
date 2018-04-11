@@ -47,9 +47,53 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   context "when the action is for the public part" do
-    context "when the action is to read" do
+    context "when reading a process" do
       let(:action) do
-        { scope: :public, action: :read, subject: :dummy_resource }
+        { scope: :public, action: :read, subject: :process }
+      end
+      let(:context) { { process: process } }
+
+      context "when the user is an admin" do
+        let(:user) { create :user, :admin }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when the process is published" do
+        let(:user) { create :user, organization: organization }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when the process is not published" do
+        let(:user) { create :user, organization: organization }
+        let(:process) { create :participatory_process, :unpublished, organization: organization }
+
+        context "when the user doesn't have access to it" do
+          it { is_expected.to eq false }
+        end
+
+        context "when the user has access to it" do
+          before do
+            create :participatory_process_user_role, user: user, participatory_process: process
+          end
+
+          it { is_expected.to eq true }
+        end
+      end
+    end
+
+    context "when listing processes" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :process }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when listing process groups" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :process_group }
       end
 
       it { is_expected.to eq true }
@@ -70,15 +114,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
       it_behaves_like "permission is not set"
     end
-  end
-
-  context "when the user is not an admin but has no manageable processes" do
-    let(:user) { create :user }
-    let(:action) do
-      { scope: :admin, action: :read, subject: :dummy_resource }
-    end
-
-    it_behaves_like "permission is not set"
   end
 
   context "when no user is given" do
