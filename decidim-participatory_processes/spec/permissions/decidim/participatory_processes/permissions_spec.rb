@@ -47,11 +47,29 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   context "when the action is for the public part" do
-    let(:action) do
-      { scope: :public, action: :read, subject: :dummy_resource }
+    context "when the action is to read" do
+      let(:action) do
+        { scope: :public, action: :read, subject: :dummy_resource }
+      end
+
+      it { is_expected.to eq true }
     end
 
-    it { is_expected.to eq true }
+    context "when reporting a resource" do
+      let(:action) do
+        { scope: :public, action: :create, subject: :moderation }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when any other action" do
+      let(:action) do
+        { scope: :public, action: :foo, subject: :bar }
+      end
+
+      it_behaves_like "permission is not set"
+    end
   end
 
   context "when the user is not an admin but has no manageable processes" do

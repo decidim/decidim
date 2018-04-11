@@ -12,6 +12,7 @@ module Decidim
       def permissions
         if permission_action.scope == :public
           permission_action.allow! if permission_action.action == :read
+          permission_action.allow! if public_report_content_action?
           return permission_action
         end
 
@@ -65,6 +66,11 @@ module Decidim
       # specific role privilege.
       def participatory_processes_with_role_privileges(role)
         Decidim::ParticipatoryProcessesWithUserRole.for(user, role)
+      end
+
+      def public_report_content_action?
+        permission_action.action == :create &&
+          permission_action.subject == :moderation
       end
 
       # All users with a relation to a process and organization admins can enter
