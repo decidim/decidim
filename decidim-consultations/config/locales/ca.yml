@@ -1,0 +1,248 @@
+ca:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Imatge del bàner
+        decidim_highlighted_scope_id: Abast destacat
+        description: Descripció
+        end_voting_date: Data de finalització
+        introductory_image: Imatge introductòria
+        introductory_video_url: URL de vídeo introductori
+        slug: URL slug
+        start_voting_date: Data d'inici
+        subtitle: Subtítol
+        title: Títol
+      question:
+        banner_image: Imatge del bàner
+        decidim_scope_id: Àrea municipal
+        hashtag: Etiqueta
+        hero_image: Imatge inicial
+        i_frame_url: URL del sistema de votació externa
+        origin_scope: Abast
+        origin_title: Origen
+        origin_url: URL d'origen
+        participatory_scope: Àmbit participatiu
+        promoter_group: Grup promotor
+        question_context: Context
+        reference: Referència
+        scope: Àrea municipal
+        slug: URL slug
+        subtitle: Subtítol
+        title: Títol
+        vote: Sistema de votació extern
+        what_is_decided: El que es decideix
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: La resposta no s'ha trobat.
+  decidim:
+    admin:
+      actions:
+        publish_results: Publica els resultats
+        unpublish_results: No publiques resultats
+      consultation_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta consulta.
+          success: S'ha publicat la consulta amb èxit.
+        destroy:
+          error: S'ha produït un error en publicar aquesta consulta.
+          success: La consulta no s'ha publicat correctament.
+      consultation_results_publications:
+        create:
+          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
+          success: Els resultats de la consulta s'han publicat correctament.
+        destroy:
+          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
+          success: Els resultats de la consulta no s'han publicat correctament.
+      consultations:
+        create:
+          error: S'ha produït un error en crear una nova consulta.
+          success: S'ha creat la consulta amb èxit.
+        destroy:
+          success: S'ha destruït la consulta amb èxit.
+        edit:
+          update: Actualització
+        form:
+          slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta consulta. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          title: Informació general
+        index:
+          not_published: No s'ha publicat
+          published: Publicat
+        new:
+          create: Crear
+          title: Nova consulta
+        update:
+          error: S'ha produït un error en actualitzar aquesta consulta.
+          success: La consulta s'ha actualitzat correctament.
+      menu:
+        consultations: Consultes
+        consultations_submenu:
+          info: Informació
+          questions: Preguntes
+        questions_submenu:
+          components: Components
+          consultation: Consulta
+          info: Informació
+          responses: Respostes
+      models:
+        consultation:
+          fields:
+            created_at: Creat a
+            published: Publicat
+            title: Títol
+          name:
+            one: Consulta
+            other: Consultes
+        question:
+          fields:
+            created_at: Creat a
+            published: Publicat
+            title: Títol
+          name:
+            one: Pregunta
+            other: Preguntes
+        response:
+          fields:
+            created_at: Creat a
+            title: Títol
+          name:
+            one: Resposta
+            other: Respostes
+      question_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta pregunta.
+          success: La pregunta s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en publicar aquesta pregunta.
+          success: Pregunta inèdita amb èxit.
+      questions:
+        create:
+          error: S'ha produït un error en crear una pregunta nova.
+          success: S'ha creat una pregunta correctament.
+        destroy:
+          success: S'ha destruït la pregunta amb èxit.
+        edit:
+          update: Actualització
+        form:
+          title: Informació general
+        index:
+          not_published: No s'ha publicat
+          published: Publicat
+        new:
+          create: Crear
+          title: Nova pregunta
+        update:
+          error: S'ha produït un error en actualitzar aquesta pregunta.
+          success: La pregunta s'ha actualitzat correctament.
+      responses:
+        create:
+          error: S'ha produït un error en crear una resposta nova.
+          success: La resposta s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar la resposta.
+          success: La resposta s'ha destruït amb èxit.
+        edit:
+          update: Actualització
+        form:
+          title: Informació general
+        new:
+          create: Crear
+          title: Nova resposta
+        update:
+          error: S'ha produït un error en actualitzar aquesta resposta.
+          success: La resposta s'ha actualitzat correctament.
+      titles:
+        consultations: Consultes
+        questions: Preguntes
+        responses: Respostes
+    consultations:
+      consultation:
+        start_voting_date: Votació des de
+        view_results: Veure resultats
+      consultation_card:
+        view_results: Veure resultats
+      consultations:
+        orders:
+          label: 'Ordeneu les consultes per:'
+          random: Aleatori
+          recent: Més recent
+      count:
+        title:
+          one: "Consulta %{count}"
+          other: "%{count} consultes"
+      filters:
+        active: Actiu
+        all: Tots
+        finished: Acabat
+        search: Cerca
+        state: Estat
+        upcoming: Proper
+      filters_small_view:
+        close_modal: Tanca la finestra
+        filter: Filtre
+        filter_by: Filtra per
+        unfold: Desplegar
+      finished:
+        active_consultations: Consultes actives
+        past_consultations: Consultes passades
+      highlighted_questions:
+        title: Consultes des de %{scope_name}
+      index:
+        title: Consultes
+      question:
+        take_part: Formar part
+        view_results: Veure resultats
+        votes_out_of:
+          one: vot de fora
+          other: vots fora de
+      question_votes:
+        create:
+          error: Hi ha hagut errors en votar la pregunta
+      regular_questions:
+        title: Altres consultes
+      show:
+        see_finished_consultations: Consultar consultes prèvies
+    menu:
+      consultations: Consultes
+    questions:
+      results:
+        title: Resultats
+      show:
+        read_more: Llegeix més
+      statistics:
+        assistants_count_title: Assistents
+        comments_count_title: Comentaris
+        meetings_count_title: Reunions
+        supports_count_title: Adhesions
+      technical_info:
+        technical_data: Dades tècniques
+      vote_button:
+        already_voted: Ja he votat
+        already_voted_hover: Revoca el suport
+        starting_from: A partir de %{date}
+        vote: Votació
+      vote_modal:
+        contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
+        title: 'Consulta: suport de preguntes'
+      vote_modal_confirm:
+        change: Canvia
+        confirm: Confirma
+        contextual_help: Confirmeu l'opció seleccionada.
+        title: 'Consulta: confirma el suport'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Fitxers adjunts
+          categories: Categories
+      consultation_voting_data:
+        start_voting_date: Votació des de
+      question_components:
+        question_menu_item: La pregunta
+        unfold: Desplegar
+      question_header:
+        back_to_consultation: Veure totes les consultes
+  pages:
+    home:
+      statistics:
+        consultations_count: Consultes

@@ -2,10 +2,18 @@ fr:
   activemodel:
     attributes:
       survey_answer:
-        body: Répondre
+        body: Réponse
       survey_question:
         mandatory: Requis
+        max_choices: Nombre de choix maximum
         question_type: Type de question
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: ne sont pas complets
+              too_many: sont trop nombreux
   decidim:
     components:
       surveys:
@@ -30,6 +38,10 @@ fr:
           email_outro: Vous venez de recevoir cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une nouvelle enquête vient d'être créée depuis %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    forms:
+      errors:
+        survey_answer:
+          body: Cet espace ne peut pas être vide
     surveys:
       admin:
         exports:
@@ -41,6 +53,7 @@ fr:
         surveys:
           answer_option:
             answer_option: Option de réponse
+            free_text: Texte libre
             remove: Retirer
             statement: Déclaration
           edit:
@@ -51,6 +64,7 @@ fr:
             already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
           question:
             add_answer_option: Ajouter une option de réponse
+            any: Tout
             description: Description
             down: Descendre
             question: Question
@@ -65,10 +79,13 @@ fr:
         multiple_option: Options multiples
         short_answer: Réponse courte
         single_option: Option unique
+        sorting: Tri
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
           success: Votre réponse à l'enquête a bien été enregistrée.
+        question:
+          max_choices: 'Nombre de choix maximum : %{n}'
         show:
           answer_survey:
             anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .

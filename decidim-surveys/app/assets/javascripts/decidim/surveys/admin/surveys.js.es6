@@ -1,9 +1,5 @@
-// = require ./auto_label_by_position.component
-// = require ./auto_buttons_by_position.component
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
-// = require ./dynamic_fields.component
-// = require ./field_dependent_inputs.component
 
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
@@ -81,6 +77,12 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
+  const isMultipleChoiceOption = ($selectField) => {
+    const value = $selectField.val();
+
+    return value === "single_option" || value === "multiple_option" || value === "sorting"
+  }
+
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
@@ -90,7 +92,9 @@
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
-      enablingValues: ["single_option", "multiple_option"]
+      enablingCondition: ($field) => {
+        return isMultipleChoiceOption($field);
+      }
     });
 
     createFieldDependentInputs({
@@ -98,7 +102,9 @@
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: maxChoicesWrapperSelector,
       dependentInputSelector: "select",
-      enablingValues: ["multiple_option"]
+      enablingCondition: ($field) => {
+        return $field.val() === "multiple_option"
+      }
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
@@ -106,9 +112,7 @@
     const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
 
     const onQuestionTypeChange = () => {
-      const value = $fieldQuestionTypeSelect.val();
-
-      if (value === "single_option" || value === "multiple_option") {
+      if (isMultipleChoiceOption($fieldQuestionTypeSelect)) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {

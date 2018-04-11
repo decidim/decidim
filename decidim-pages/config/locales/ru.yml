@@ -1,6 +1,6 @@
 ru:
   decidim:
-    features:
+    components:
       pages:
         name: Страница
         settings:

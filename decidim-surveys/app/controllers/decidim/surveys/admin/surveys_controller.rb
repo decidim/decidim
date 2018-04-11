@@ -41,7 +41,7 @@ module Decidim
         end
 
         def blank_answer_option
-          @blank_answer_option ||= Admin::SurveyQuestionAnswerOptionForm.new
+          @blank_answer_option ||= Admin::SurveyAnswerOptionForm.new
         end
 
         def question_types

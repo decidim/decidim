@@ -22,7 +22,7 @@ module Decidim
 
     shared_examples "fieldset_wrapper" do
       it "wraps fields in a fieldset inside a div with class 'filters__section'" do
-        expect(parsed.css(".filters__section fieldset").first).to be
+        expect(parsed.css(".filters__section fieldset")).not_to be_empty
       end
 
       it "adds a legend tag with a h6 tag inside with value provided by 'legend' option" do
@@ -39,7 +39,7 @@ module Decidim
       include_examples "fieldset_wrapper"
 
       it "renders the radio buttons inside its labels" do
-        expect(parsed.css("label input").first).to be
+        expect(parsed.css("label input")).not_to be_empty
       end
     end
 
@@ -52,7 +52,7 @@ module Decidim
       include_examples "fieldset_wrapper"
 
       it "renders the check boxes inside its labels" do
-        expect(parsed.css("label input").first).to be
+        expect(parsed.css("label input")).not_to be_empty
       end
     end
 

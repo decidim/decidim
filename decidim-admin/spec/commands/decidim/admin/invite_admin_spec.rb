@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe InviteAdmin do
-    let(:invited_user) { Decidim::User.where(email: "me@example.org").first }
+    let(:invited_user) { Decidim::User.find_by(email: "me@example.org") }
     let(:current_user) { create(:user, :admin) }
     let(:command) { described_class.new(form) }
     let(:invalid?) { false }

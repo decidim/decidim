@@ -12,6 +12,19 @@ pl:
         title: Tytuł
         user_group_id: Utwórz debatę jako
   decidim:
+    components:
+      debates:
+        actions:
+          create: Stwórz
+        name: Debaty
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Komentarze włączone
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+            creation_enabled: Utworzenie debaty przez użytkowników
     debates:
       actions:
         confirm_destroy: Jesteś pewny?
@@ -109,16 +122,3 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Stwórz
-        name: Debaty
-        settings:
-          global:
-            announcement: Ogłoszenie
-            comments_enabled: Komentarze włączone
-          step:
-            announcement: Ogłoszenie
-            comments_blocked: Komentarze zablokowane
-            creation_enabled: Utworzenie debaty przez użytkowników

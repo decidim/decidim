@@ -125,22 +125,25 @@ module Decidim
     #
     # name - The name of the field
     # options - The set of options to send to the field
-    #           :label   - The Boolean value to create or not the input label (optional) (default: true)
+    #           :label - The Boolean value to create or not the input label (optional) (default: true)
     #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
     #                      or 'full' (optional) (default: 'basic')
-    #           :lines   - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :disabled - Whether the editor should be disabled
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
       options[:toolbar] ||= "basic"
       options[:lines] ||= 10
+      options[:disabled] ||= false
 
       content_tag(:div, class: "editor") do
         template = ""
         template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
-                                  toolbar: options[:toolbar]
+                                  toolbar: options[:toolbar],
+                                  disabled: options[:disabled]
                                 }, style: "height: #{options[:lines]}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe

@@ -46,10 +46,10 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.where(
+    admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
-    ).first
+    )
 
     component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,

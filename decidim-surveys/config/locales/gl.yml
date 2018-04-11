@@ -5,7 +5,15 @@ gl:
         body: Resposta
       survey_question:
         mandatory: Obrigatorio
+        max_choices: Número máximo de opcións
         question_type: Tipo
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: non están completos
+              too_many: son demasiados
   decidim:
     components:
       surveys:
@@ -30,6 +38,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    forms:
+      errors:
+        survey_answer:
+          body: O corpo non pode estar en branco
     surveys:
       admin:
         exports:
@@ -41,6 +53,7 @@ gl:
         surveys:
           answer_option:
             answer_option: Opción de resposta
+            free_text: Texto libre
             remove: Quitar
             statement: Declaración
           edit:
@@ -51,6 +64,7 @@ gl:
             already_answered_warning: Algunha xente xa respondeu a enquisa para que non poida modificar as súas preguntas.
           question:
             add_answer_option: Engadir unha opción de resposta
+            any: Calquera
             description: Descrición
             down: Baixo
             question: Pregunta
@@ -65,10 +79,13 @@ gl:
         multiple_option: Múltipla opción
         short_answer: Resposta curta
         single_option: Opción única
+        sorting: Clasificación
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.
           success: A enquisa respondeu con éxito.
+        question:
+          max_choices: 'Opcións máximas: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión coa túa conta</a> ou <a href="%{sign_up_link}">insigne</a> para responder á enquisa.
