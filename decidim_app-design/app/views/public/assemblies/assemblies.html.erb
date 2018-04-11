@@ -17,12 +17,12 @@
     <div class="row column">
       <h2 class="section-heading">Asambleas destacadas</h2>
     </div>
-    <div class="row column">
-      <article class="card card--full card--process">
+    <div class="row column section">
+      <article class="card card--full">
         <div class="row collapse card--process__row">
           <div class="columns mediumlarge-8 large-6 card--process__column">
             <div class="card__content">
-              <%= link_to page_path("info"), class: "card__link" do %>
+              <%= link_to page_path("assemblies/assembly-view"), class: "card__link" do %>
                 <h2 class="card__title">Plan urbanístico de Gracia</h2>
               <% end %>
               <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
@@ -32,28 +32,21 @@
                 bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis,
                 facilisis accumsan turpis.
               </p>
-              <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod.
-                Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce
-                lorem leo, vehicula at nibh quis, facilisis accumsan turpis. Fusce
-                rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem
-                leo, vehicula at nibh quis...
-              </p>
-              <%= link_to page_path("info"), class: "button secondary small hollow card__button" do %>
-                Más información
-              <% end %>
+              <div class="flex--sbb">
+                <button class="button button--sc secondary light small" type="button">Participar</button>
+                <a class="button text-uppercase secondary clear small" href="">
+                  <%= icon "bell", class: "icon--small" %>&nbsp;Follow
+                </a>
+                <a class="button secondary clear small" href="">
+                  <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </div>
             </div>
           </div>
           <div class="columns mediumlarge-8 large-6 card--process__column">
             <div class="card--full__image"
               style="background-image:url(<%= image_path "demo-info-page.jpg" %>)">
-              <div class="card__content row collapse">
-                <div class="large-6 large-offset-6 columns">
-                  <%= link_to page_path("info"), class: "button expanded button--sc" do %>
-                    Participa
-                    <span class="button__info">Fase actual: Diagnóstico</span>
-                  <% end %>
-                </div>
-              </div>
             </div>
           </div>
         </div>
