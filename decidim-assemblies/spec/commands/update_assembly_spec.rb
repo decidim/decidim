@@ -45,7 +45,26 @@ module Decidim::Assemblies
             parent: nil,
             errors: my_assembly.errors,
             show_statistics: my_assembly.show_statistics,
-            participatory_processes_ids: participatory_processes.map(&:id)
+            participatory_processes_ids: participatory_processes.map(&:id),
+            purpose_of_action: my_assembly.purpose_of_action,
+            composition: my_assembly.composition,
+            assembly_type: my_assembly.assembly_type,
+            assembly_type_other: my_assembly.assembly_type_other,
+            creation_date: my_assembly.creation_date,
+            created_by: my_assembly.created_by,
+            created_by_other: my_assembly.created_by_other,
+            duration: my_assembly.duration,
+            included_at: my_assembly.included_at,
+            closing_date: my_assembly.closing_date,
+            closing_date_reason: my_assembly.closing_date_reason,
+            internal_organisation: my_assembly.internal_organisation,
+            is_transparent: my_assembly.is_transparent,
+            special_features: my_assembly.special_features,
+            twitter_handler: my_assembly.twitter_handler,
+            facebook_handler: my_assembly.facebook_handler,
+            instagram_handler: my_assembly.instagram_handler,
+            youtube_handler: my_assembly.youtube_handler,
+            github_handler: my_assembly.github_handler
           }
         }
       end
