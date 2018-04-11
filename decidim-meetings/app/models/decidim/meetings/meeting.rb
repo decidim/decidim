@@ -81,6 +81,12 @@ module Decidim
       def users_to_notify_on_comment_created
         followers
       end
+
+      def can_participate?(user)
+        return true unless participatory_space.try(:private_space?)
+        return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
+        return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
+      end
     end
   end
 end

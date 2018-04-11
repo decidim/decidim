@@ -12,6 +12,12 @@
   &:last-child{
     border-bottom: 0;
   }
+
+  &.social_networks{
+    a{
+      display: block;
+    }
+  }
 }
 
 .definition-data__item--double{
