@@ -295,7 +295,7 @@ en:
             new_managed_user_impersonation: New managed user impersonation
         index:
           impersonate: Impersonate
-          needs_authoriation_warning: You need at least one authorization enabled for this organization.
+          needs_authorization_warning: You need at least one authorization enabled for this organization.
           promote: Promote
           view_logs: View logs
         new:
