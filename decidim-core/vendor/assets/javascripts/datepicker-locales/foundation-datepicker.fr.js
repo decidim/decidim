@@ -4,6 +4,7 @@
  */
 ;(function($){
 	$.fn.fdatepicker.dates['fr'] = {
+    format: 'dd/mm/yyyy',
 		days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 		daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
 		daysMin: ["D", "L", "Ma", "Me", "J", "V", "S", "D"],
