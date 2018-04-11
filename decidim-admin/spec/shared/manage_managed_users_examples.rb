@@ -159,7 +159,7 @@ shared_examples "manage managed users examples" do
       it_behaves_like "impersonating a managed user"
     end
 
-    it "can promote the user inviting them to the application" do
+    it "can promote users inviting them to the application" do
       navigate_to_managed_users_page
 
       within find("tr", text: managed_user.name) do
