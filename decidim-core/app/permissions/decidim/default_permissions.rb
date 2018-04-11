@@ -5,7 +5,7 @@ module Decidim
   # actions by any kind of user. Also works as a default implementation so other
   # components can inherit from it and get some cenvenience methods.
   class DefaultPermissions
-    def initialize(user, permission_action, context)
+    def initialize(user, permission_action, context = {})
       @user = user
       @permission_action = permission_action
       @context = context

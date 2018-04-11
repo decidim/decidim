@@ -2,14 +2,10 @@
 
 module Decidim
   module Admin
-    class Permissions
-      def initialize(user, permission_action, context = {})
-        @user = user
-        @permission_action = permission_action
-        @context = context
-      end
-
+    class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if managed_user_action?
+
         unless permission_action.scope == :admin
           permission_action.disallow!
           return permission_action
@@ -20,7 +16,7 @@ module Decidim
           return permission_action
         end
 
-        return Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).permissions if user_manager?
+        return user_manager_permissions if user_manager?
 
         permission_action.allow! if user_can_enter_space_area?
 
@@ -34,7 +30,6 @@ module Decidim
         permission_action.allow! if read_admin_log_action?
         permission_action.allow! if static_page_action?
         permission_action.allow! if organization_action?
-        permission_action.allow! if managed_user_action?
         permission_action.allow! if user_action?
 
         permission_action.allow! if permission_action.subject == :category
@@ -58,13 +53,11 @@ module Decidim
 
       private
 
-      attr_reader :user, :context, :permission_action
-
       def read_admin_dashboard_action?
         return unless permission_action.subject == :admin_dashboard &&
                       permission_action.action == :read
 
-        user.admin? ? true : space_allows_admin_access_to_current_action?
+        user.admin? || space_allows_admin_access_to_current_action?
       end
 
       def read_admin_log_action?
@@ -95,13 +88,17 @@ module Decidim
 
       def managed_user_action?
         return unless permission_action.subject == :managed_user
+        return user_manager_permissions if user_manager?
+        return unless user&.admin?
 
         case permission_action.action
         when :create
-          !organization.available_authorizations.empty?
+          toggle_allow(!organization.available_authorizations.empty?)
         else
-          true
+          allow!
         end
+
+        true
       end
 
       def user_action?
@@ -123,7 +120,7 @@ module Decidim
       end
 
       def user_manager?
-        !@user.admin? && @user.role?("user_manager")
+        user && !user.admin? && user.role?("user_manager")
       end
 
       def user_can_enter_space_area?
@@ -142,6 +139,10 @@ module Decidim
             nil
           end
         end
+      end
+
+      def user_manager_permissions
+        Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).permissions
       end
     end
   end

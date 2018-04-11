@@ -13,11 +13,13 @@ module Decidim
         skip_authorization_check only: [:index, :close_session]
 
         def index
+          enforce_permission_to :read, :managed_user
+
           @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order(started_at: :desc).page(params[:page]).per(15)
         end
 
         def new
-          enforce_permission_to :impersonate, :user, user: user
+          enforce_permission_to :impersonate, :managed_user, user: user
 
           if handler_name.present?
             @form = form(ImpersonateManagedUserForm).from_params(
@@ -29,7 +31,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :impersonate, :user, user: user
+          enforce_permission_to :impersonate, :managed_user, user: user
 
           @form = form(ImpersonateManagedUserForm).from_params(params)
 

@@ -46,7 +46,7 @@ module Decidim
       end
 
       def can_impersonate_users?
-        real_user && allowed_to?(:impersonate, :managed_user, {}, permission_class_chain, real_user)
+        real_user && allowed_to?(:impersonate, :managed_user, {}, [Decidim::Admin::Permissions], real_user)
       end
 
       def expired_log

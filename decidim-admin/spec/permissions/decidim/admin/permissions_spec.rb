@@ -148,7 +148,7 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are empty" do
         let(:authorizations) { [] }
 
-        it_behaves_like "permission is not set"
+        it { is_expected.to eq false }
       end
 
       context "when organization available authorizations are not empty" do
