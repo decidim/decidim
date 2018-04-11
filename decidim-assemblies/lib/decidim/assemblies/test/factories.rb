@@ -30,12 +30,12 @@ FactoryBot.define do
     composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     assembly_type { "others" }
     assembly_type_other { Decidim::Faker::Localized.sentence(1) }
-    creation_date 1.month.ago
+    creation_date { 1.month.ago }
     created_by { "others" }
     created_by_other { Decidim::Faker::Localized.word }
-    duration 2.months.from_now.at_midnight
-    included_at 1.month.ago
-    closing_date 2.months.from_now.at_midnight
+    duration { 2.months.from_now.at_midnight }
+    included_at { 1.month.ago }
+    closing_date { 2.months.from_now.at_midnight }
     closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     is_transparent true
