@@ -3,19 +3,19 @@
 module Decidim
   class Permissions < DefaultPermissions
     def permissions
-      allow! if read_public_pages_action?
-      allow! if locales_action?
-      allow! if component_public_action?
-      allow! if search_scope_action?
+      read_public_pages_action?
+      locales_action?
+      component_public_action?
+      search_scope_action?
 
       return permission_action unless user
       return user_manager_permissions if not_admin? && user_manager?
 
-      allow! if manage_self_user_action?
-      allow! if authorization_action?
-      allow! if follow_action?
-      allow! if notification_action?
-      allow! if conversation_action?
+      manage_self_user_action?
+      # authorization_action?
+      follow_action?
+      notification_action?
+      conversation_action?
 
       permission_action
     end
@@ -23,28 +23,31 @@ module Decidim
     private
 
     def read_public_pages_action?
-      permission_action.subject == :public_page &&
+      return unless permission_action.subject == :public_page &&
         permission_action.action == :read
+      allow!
     end
 
     def locales_action?
-      permission_action.subject == :locales
+      return unless permission_action.subject == :locales
+      allow!
     end
 
     def component_public_action?
-      permission_action.subject == :component &&
-        permission_action.action == :read &&
-        component.published?
+      return unless permission_action.subject == :component &&
+                    permission_action.action == :read
+
+      toggle_allow(component.published?)
     end
 
     def search_scope_action?
-      permission_action.subject == :scope &&
-        [:search, :pick].include?(permission_action.action)
+      return unless permission_action.subject == :scope
+      toggle_allow([:search, :pick].include?(permission_action.action))
     end
 
     def manage_self_user_action?
-      permission_action.subject == :user &&
-        context.fetch(:current_user, nil) == user
+      return unless permission_action.subject == :user
+      toggle_allow(context.fetch(:current_user, nil) == user)
     end
 
     def authorization_action?
@@ -53,33 +56,34 @@ module Decidim
 
       case permission_action.action
       when :create
-        authorization.user == user && not_already_active?(authorization)
+        toggle_allow(authorization.user == user && not_already_active?(authorization))
       when :update
-        authorization.user == user && !authorization.granted?
+        toggle_allow(authorization.user == user && !authorization.granted?)
       end
     end
 
     def follow_action?
       return unless permission_action.subject == :follow
-      return true if permission_action.action == :create
-      follow = context.fetch(:follow, nil)
+      return allow! if permission_action.action == :create
 
-      follow.user == user
+      follow = context.fetch(:follow, nil)
+      toggle_allow(follow&.user == user)
     end
 
     def notification_action?
       return unless permission_action.subject == :notification
-      notification = context.fetch(:notification, nil)
+      return allow! if permission_action.action == :read
 
-      notification.user == user
+      notification = context.fetch(:notification, nil)
+      toggle_allow(notification&.user == user)
     end
 
     def conversation_action?
       return unless permission_action.subject == :conversation
-      conversation = context.fetch(:conversation, nil)
-      return true if [:create, :read].include?(permission_action.action)
+      return allow! if [:create, :list].include?(permission_action.action)
 
-      conversation.participants.include?(user)
+      conversation = context.fetch(:conversation, nil)
+      toggle_allow(conversation.participants.include?(user))
     end
 
     def not_already_active?(authorization)

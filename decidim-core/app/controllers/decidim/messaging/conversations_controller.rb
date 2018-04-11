@@ -43,7 +43,7 @@ module Decidim
       end
 
       def index
-        enforce_permission_to :read, :conversation
+        enforce_permission_to :list, :conversation
 
         @conversations = UserConversations.for(current_user)
       end
