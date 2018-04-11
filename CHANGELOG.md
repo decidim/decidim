@@ -10,7 +10,7 @@
 
 - **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3219](https://github.com/decidim/decidim/pull/3219)
 - **decidim-proposals**: Fix when I create a proposal I see the draft proposal from someone else! [\#3170](https://github.com/decidim/decidim/pull/3083)
-- **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3175](https://github.com/decidim/decidim/pull/3175)
+- **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3199](https://github.com/decidim/decidim/pull/3199)
 
 ## [0.10.0](https://github.com/decidim/decidim/tree/v0.9.2)
 
@@ -22,6 +22,7 @@ Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEv
 
 **Added**:
 
+- **decidim-proposals**: Add configuration for set the number of proposals to be highlighted [\#3199](https://github.com/decidim/decidim/pull/3199)
 - **decidim-accountability**: Proposal selection from accountability with autoComplete [\#2348](https://github.com/decidim/decidim/pull/2584)
 - **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
 - **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
