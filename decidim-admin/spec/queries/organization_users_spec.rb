@@ -49,7 +49,7 @@ module Decidim::Admin
         let!(:not_officialized_users) { create_list(:user, 2, organization: organization) }
         let!(:officialized_users) { create_list(:user, 2, :officialized, organization: organization) }
 
-        context 'when the user filters by "Officialized"' do
+        context 'when filtering by "Officialized"' do
           let(:filter) { "officialized" }
 
           it "returns all the officialized users" do
@@ -57,7 +57,7 @@ module Decidim::Admin
           end
         end
 
-        context 'when the user filters by "Non Officialized"' do
+        context 'when filtering by "Non Officialized"' do
           let(:filter) { "not_officialized" }
 
           it "returns all the verified users" do
