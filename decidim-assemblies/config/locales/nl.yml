@@ -8,16 +8,27 @@ nl:
         banner_image: Bannerafbeelding
         closing_date: Sluitingsdatum
         closing_date_reason: Sluitingsdatum reden
+        composition: Samenstelling
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
+        created_by: Gemaakt door
+        created_by_other: Gemaakt door een ander
+        creation_date: Datum gecreeërd
         decidim_area_id: Gebied
         decidim_scope_id: strekking
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
+        duration: Looptijd
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
+        included_at: Inbegrepen bij
+        instagram: Instagram
+        internal_organisation: Interne organisatie
+        is_transparent: Is transparant
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
         participatory_processes_ids: Verwante participatieve processen
@@ -25,6 +36,7 @@ nl:
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
         published_at: Gepubliceerd op
+        purpose_of_action: Doel van actie
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -33,6 +45,8 @@ nl:
         subtitle: Ondertiteling
         target: Doel
         title: Titel
+        twitter: tjilpen
+        youtube: YouTube
       assembly_user_role:
         email: E-mail
         name: Naam
@@ -140,11 +154,26 @@ nl:
       admin:
         assemblies:
           form:
+            select_a_created_by: Selecteer een gemaakt door
             select_an_area: Selecteer een gebied
+            select_an_assembly_type: Selecteer een montage type
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            social_handlers: sociaal
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      assembly_types:
+        commission: Comissie
+        consultative_advisory: Consultative / Advisory
+        executive: uitvoerend
+        government: Regering
+        others: anderen
+        participatory: deelnemend
+        working_group: Werkgroep
+      created_by:
+        city_council: Gemeenteraad
+        others: anderen
+        public: Openbaar
       index:
         title: Bijeenkomsten
       pages:
@@ -154,14 +183,30 @@ nl:
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
         area: Gebied
+        assembly_type: Montage type
         children: Assemblies
+        closing_date: Sluitingsdatum
+        composition: Samenstelling
+        created_by: Gemaakt door
+        creation_date: Datum gecreeërd
         developer_group: Ontwikkelaarsgroep
+        duration: Looptijd
+        included_at: Inbegrepen bij
+        indefinite_duration: onbepaald
+        internal_organisation: Interne organisatie
+        is_transparent:
+          'false': ondoorzichtig
+          'true': transparant
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         private_space: Dit is een privévergadering
+        purpose_of_action: Doel van actie
+        read_less: Lees minder
+        read_more: Lees verder
         related_participatory_processes: Verwante participatieve processen
         scope: Scope
+        social_networks: Sociale netwerken
         target: Doel
       statistics:
         answers_count: Antwoorden
@@ -185,6 +230,9 @@ nl:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Bijeenkomsten
+  errors:
+    messages:
+      cannot_be_blank: kan niet leeg zijn
   layouts:
     decidim:
       assemblies:
