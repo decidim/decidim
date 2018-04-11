@@ -31,15 +31,6 @@ module Decidim::Meetings
     let(:location_hints) do
       Decidim::Faker::Localized.sentence(3)
     end
-    let(:open_type_other) do
-      Decidim::Faker::Localized.sentence(3)
-    end
-    let(:public_type_other) do
-      Decidim::Faker::Localized.sentence(3)
-    end
-    let(:transparent_type_other) do
-      Decidim::Faker::Localized.sentence(3)
-    end
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -51,9 +42,8 @@ module Decidim::Meetings
     let(:category_id) { category.id }
     let(:organizer) { create :user, organization: organization }
     let(:organizer_id) { organizer.id }
-    let(:open_type) { "open" }
-    let(:public_type) { "public" }
-    let(:transparent_type) { "transparent" }
+    let(:is_private) { false }
+    let(:is_transparent) { true }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -66,12 +56,8 @@ module Decidim::Meetings
         address: address,
         start_time: start_time,
         end_time: end_time,
-        open_type: open_type,
-        open_type_other: open_type_other,
-        public_type: public_type,
-        public_type_other: public_type_other,
-        transparent_type: transparent_type,
-        transparent_type_other: transparent_type_other,
+        is_private: is_private,
+        is_transparent: is_transparent,
         organizer_id: organizer_id
       }
     end
@@ -149,45 +135,6 @@ module Decidim::Meetings
       let(:category_id) { category.id + 10 }
 
       it { is_expected.not_to be_valid }
-    end
-
-    describe "when open type is other" do
-      let(:open_type) { "other" }
-      let(:open_type_other) { { en: "", ca: "", es: "" } }
-
-      it { is_expected.not_to be_valid }
-
-      describe "and open type other has text" do
-        let(:open_type_other) { Decidim::Faker::Localized.sentence(3) }
-
-        it { is_expected.to be_valid }
-      end
-    end
-
-    describe "when public type is other" do
-      let(:public_type) { "other" }
-      let(:public_type_other) { { en: "", ca: "", es: "" } }
-
-      it { is_expected.not_to be_valid }
-
-      describe "and public type other has text" do
-        let(:public_type_other) { Decidim::Faker::Localized.sentence(3) }
-
-        it { is_expected.to be_valid }
-      end
-    end
-
-    describe "when transparent type is other" do
-      let(:transparent_type) { "other" }
-      let(:transparent_type_other) { { en: "", ca: "", es: "" } }
-
-      it { is_expected.not_to be_valid }
-
-      describe "and transparent type other has text" do
-        let(:transparent_type_other) { Decidim::Faker::Localized.sentence(3) }
-
-        it { is_expected.to be_valid }
-      end
     end
 
     it "validates address and store its coordinates" do

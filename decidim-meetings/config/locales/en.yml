@@ -111,10 +111,7 @@ en:
             title: Close meeting
         meeting_copies:
           form:
-            select_open_type: Select an open type
             select_organizer: Select the organizer
-            select_public_type: Select a public type
-            select_transparent_type: Select a transparent type
         meetings:
           close:
             invalid: There's been a problem closing this meeting
@@ -127,10 +124,7 @@ en:
           edit:
             update: Update
           form:
-            select_open_type: Select an open type
             select_organizer: Select the organizer
-            select_public_type: Select a public type
-            select_transparent_type: Select a transparent type
           index:
             title: Meetings
           new:

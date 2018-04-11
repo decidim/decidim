@@ -20,12 +20,8 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    open_type { "open" }
-    open_type_other { Decidim::Faker::Localized.sentence(3) }
-    public_type { "public" }
-    public_type_other { Decidim::Faker::Localized.sentence(3) }
-    transparent_type { "transparent" }
-    transparent_type_other { Decidim::Faker::Localized.sentence(3) }
+    is_private false
+    is_transparent true
     component { build(:component, manifest_name: "meetings") }
 
     organizer do

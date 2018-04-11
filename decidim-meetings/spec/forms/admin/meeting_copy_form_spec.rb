@@ -33,6 +33,10 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
+    let(:organizer) { create :user, organization: organization }
+    let(:organizer_id) { organizer.id }
+    let(:is_private) { false }
+    let(:is_transparent) { true }
     let(:attributes) do
       {
         title_en: title[:en],
@@ -41,7 +45,10 @@ module Decidim::Meetings
         location_hints_en: location_hints[:en],
         address: address,
         start_time: start_time,
-        end_time: end_time
+        end_time: end_time,
+        is_private: is_private,
+        is_transparent: is_transparent,
+        organizer_id: organizer_id
       }
     end
 

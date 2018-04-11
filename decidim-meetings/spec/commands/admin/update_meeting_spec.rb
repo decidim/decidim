@@ -16,9 +16,8 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:user) { create :user, :admin }
     let(:organizer) { create :user, organization: organization }
-    let(:open_type) { "open" }
-    let(:public_type) { "public" }
-    let(:transparent_type) { "transparent" }
+    let(:is_private) { false }
+    let(:is_transparent) { true }
     let(:form) do
       double(
         invalid?: invalid,
@@ -34,12 +33,8 @@ module Decidim::Meetings
         latitude: latitude,
         longitude: longitude,
         organizer: organizer,
-        open_type: open_type,
-        open_type_other: "",
-        public_type: public_type,
-        public_type_other: "",
-        transparent_type: transparent_type,
-        transparent_type_other: "",
+        is_private: is_private,
+        is_transparent: is_transparent,
         current_user: user
       )
     end
@@ -111,12 +106,8 @@ module Decidim::Meetings
             latitude: meeting.latitude,
             longitude: meeting.longitude,
             organizer: organizer,
-            open_type: open_type,
-            open_type_other: "",
-            public_type: public_type,
-            public_type_other: "",
-            transparent_type: transparent_type,
-            transparent_type_other: "",
+            is_private: is_private,
+            is_transparent: is_transparent,
             current_user: user
           )
         end
