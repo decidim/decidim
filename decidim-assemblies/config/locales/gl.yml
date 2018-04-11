@@ -3,9 +3,16 @@ gl:
     attributes:
       assembly:
         area_id: Área
+        assembly_type: Tipo de montaxe
+        assembly_type_other: Tipo de montaxe outro
         banner_image: Imaxe do banner
+        closing_date: Data de peche
+        closing_date_reason: Razón da data de peche
+        composition: Composición
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
+        copy_features: Copiar funcións
+        created_by: Creado por
         decidim_area_id: Área
         decidim_scope_id: Alcance
         description: Descrición
