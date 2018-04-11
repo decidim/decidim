@@ -36,7 +36,7 @@ fr:
       models:
         admin:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             email: Courriel
           name: Administrateur
           validations:
@@ -45,7 +45,7 @@ fr:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
           fields:
-            created_at: Crée le
+            created_at: Créé le
             name: Nom
           name: Organisation
       organizations:
