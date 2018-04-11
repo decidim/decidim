@@ -163,7 +163,7 @@ shared_examples "manage managed users examples" do
       navigate_to_managed_users_page
 
       within find("tr", text: managed_user.name) do
-        page.click_link "Promote"
+        click_link "Promote"
       end
 
       within "form.new_managed_user_promotion" do
