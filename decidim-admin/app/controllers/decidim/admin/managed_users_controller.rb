@@ -58,7 +58,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= current_organization.users.managed
+        @collection ||= current_organization.users
       end
 
       def handler_name

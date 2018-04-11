@@ -13,8 +13,8 @@ module Decidim
 
           cannot [:new, :create], :managed_users if empty_available_authorizations?
 
-          can :impersonate, Decidim::User do |user_to_impersonate|
-            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
+          can :impersonate, Decidim::User do
+            Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can :promote, Decidim::User do |user_to_promote|
