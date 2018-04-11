@@ -3,9 +3,14 @@ fi:
     attributes:
       assembly:
         area_id: alue
+        assembly_type: Asennustyyppi
+        assembly_type_other: Kokoonpanotyyppi muu
         banner_image: Bannerikuva
+        closing_date: Sulkemispäivä
+        closing_date_reason: Sulkemispäivämäärä
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
+        copy_features: Kopioi ominaisuudet
         decidim_area_id: alue
         decidim_scope_id: laajuus
         description: Kuvaus
