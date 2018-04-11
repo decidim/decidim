@@ -3,9 +3,13 @@ eu:
     attributes:
       assembly:
         area_id: Area
+        assembly_type: Muntatze-mota
+        assembly_type_other: Batzar mota beste
         banner_image: Bannerra
+        closing_date: Amaiera data
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
+        copy_features: Kopiatu funtzionalitateak
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
