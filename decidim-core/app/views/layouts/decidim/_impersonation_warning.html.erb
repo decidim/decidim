@@ -1,4 +1,4 @@
-<% if current_user&.managed? %>
+<% if current_user_impersonated? %>
   <div class="impersonation-warning" data-session-ends-at="<%= impersonation_session_ends_at.iso8601 %>">
     <%= t(".description_html", user_name: current_user.name) %>
     <%= t(".expire_time_html", minutes: impersonation_session_remaining_duration_in_minutes) %>

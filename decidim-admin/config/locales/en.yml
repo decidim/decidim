@@ -307,7 +307,6 @@ en:
           create: Create
           new_managed_user: New managed user
           no_authorization_handlers: There are no available authorization handlers to manage users. Please contact your system administrator.
-          select_authorization_method: Select an authorization method
           step: Step %{current} of %{total}
         promotion:
           error: There has been an error promoting the managed user.
@@ -317,6 +316,8 @@ en:
             explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
             new_managed_user_promotion: New managed user promotion
             promote: Promote
+        select_authorization_handler_step:
+          select_authorization_method: Select an authorization method
       menu:
         admin_log: Admin activity log
         admins: Admins

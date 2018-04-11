@@ -60,14 +60,6 @@ module Decidim::Admin
       end
     end
 
-    context "when the user is not managed" do
-      let(:user) { create :user }
-
-      it "is not valid" do
-        expect { subject.call }.to broadcast(:invalid)
-      end
-    end
-
     context "when the authorization is not valid" do
       let(:authorized_user) { create(:user, organization: organization) }
 

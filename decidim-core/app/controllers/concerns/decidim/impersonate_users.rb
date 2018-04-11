@@ -10,7 +10,7 @@ module Decidim
     included do
       before_action :check_impersonation_log_expired
 
-      helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes
+      helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes, :current_user_impersonated?
 
       alias_method :real_user, :current_user
 
@@ -28,6 +28,10 @@ module Decidim
       end
 
       private
+
+      def current_user_impersonated?
+        current_user && impersonation_log.present?
+      end
 
       # Returns the managed user impersonated by an admin if exists
       def managed_user

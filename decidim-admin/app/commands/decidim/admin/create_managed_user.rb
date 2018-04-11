@@ -24,7 +24,7 @@ module Decidim
         transaction do
           managed_user.update!(admin: false, tos_agreement: true) unless managed_user.persisted?
 
-          raise ActiveRecord::Rollback unless authorized_user? && impersonation_ok?
+          raise ActiveRecord::Rollback unless impersonation_ok?
 
           broadcast(:ok)
         end
@@ -44,18 +44,6 @@ module Decidim
 
       def impersonation_ok?
         ImpersonateUser.call(form, managed_user) do
-          on(:ok) do
-            return true
-          end
-          on(:invalid) do
-            return false
-          end
-        end
-      end
-
-      def authorized_user?
-        form.authorization.user = managed_user
-        Verifications::AuthorizeUser.call(form.authorization) do
           on(:ok) do
             return true
           end

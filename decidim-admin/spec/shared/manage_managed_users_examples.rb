@@ -141,6 +141,40 @@ shared_examples "manage managed users examples" do
     end
   end
 
+  describe "impersonation" do
+    let!(:impersonated_user) { create(:user, managed: managed, name: "Foo", organization: organization) }
+
+    context "when impersonating a previously authorized user" do
+      let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }
+
+      before do
+        impersonate(impersonated_user)
+      end
+
+      context "and it's a managed user" do
+        let(:managed) { true }
+
+        it_behaves_like "impersonating a user"
+      end
+
+      context "and its a regular user" do
+        let(:managed) { false }
+
+        it_behaves_like "impersonating a user"
+      end
+    end
+
+    context "when impersonating a never authorized user" do
+      before do
+        impersonate(impersonated_user)
+      end
+
+      let(:managed) { false }
+
+      it_behaves_like "impersonating a user"
+    end
+  end
+
   context "when a managed user already exists" do
     let!(:managed_user) { create(:user, :managed, name: "Foo", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
@@ -149,16 +183,6 @@ shared_examples "manage managed users examples" do
       include_context "with a single step managed user form"
 
       it_behaves_like "creating a managed user"
-    end
-
-    context "when using the impersonation form" do
-      before do
-        impersonate(managed_user)
-      end
-
-      it_behaves_like "impersonating a user" do
-        let(:impersonated_user) { managed_user }
-      end
     end
 
     it "can promote users inviting them to the application" do
@@ -193,7 +217,10 @@ shared_examples "manage managed users examples" do
       relogin_as user
 
       navigate_to_managed_users_page
-      expect(page).to have_no_content(managed_user.name)
+
+      within find("tr", text: managed_user.name) do
+        expect(page).to have_no_link("Promote")
+      end
     end
   end
 

@@ -8,6 +8,9 @@ module Decidim
       class ImpersonationsController < Decidim::Admin::ApplicationController
         layout "decidim/admin/users"
 
+        helper_method :available_authorization_handlers,
+                      :select_authorization_handler_step?
+
         skip_authorization_check only: [:index, :close_session]
 
         def index
@@ -17,7 +20,7 @@ module Decidim
         def new
           authorize! :impersonate, user
 
-          if handler_name.present?
+          unless select_authorization_handler_step?
             @form = form(ImpersonateUserForm).from_params(
               authorization: {
                 handler_name: handler_name
@@ -59,12 +62,30 @@ module Decidim
 
         private
 
+        def select_authorization_handler_step?
+          handler_name.blank?
+        end
+
         def user
-          @user ||= current_organization.users.managed.find(params[:managed_user_id])
+          @user ||= current_organization.users.find(params[:managed_user_id])
         end
 
         def handler_name
-          authorization.name
+          return if available_authorization_handlers.blank?
+
+          return available_authorization_handlers.first.name unless more_than_one_authorization_handler?
+
+          authorization&.name
+        end
+
+        def available_authorization_handlers
+          Decidim::Verifications::Adapter.from_collection(
+            current_organization.available_authorizations & Decidim.authorization_handlers.map(&:name)
+          )
+        end
+
+        def more_than_one_authorization_handler?
+          available_authorization_handlers.length > 1
         end
 
         def authorization
