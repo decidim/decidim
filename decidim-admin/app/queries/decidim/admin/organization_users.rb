@@ -2,8 +2,8 @@
 
 module Decidim
   module Admin
-    # A class used to filter User's by their officialization state.
-    class UsersOfficialization < Rectify::Query
+    # A class used to filter organization users
+    class OrganizationUsers < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # organization - the Decidim::Organization where search will be scoped to

@@ -14,9 +14,9 @@ module Decidim
         @query = params[:q]
         @state = params[:state]
 
-        @users = Decidim::Admin::UsersOfficialization.for(current_organization, @query, @state)
-                                                     .page(params[:page])
-                                                     .per(15)
+        @users = Decidim::Admin::OrganizationUsers.for(current_organization, @query, @state)
+                                                  .page(params[:page])
+                                                  .per(15)
       end
 
       def new
