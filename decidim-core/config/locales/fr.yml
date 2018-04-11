@@ -13,7 +13,7 @@ fr:
         about: À propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Votre identifiant court et unique pour Decidim
+        nickname: Votre pseudonyme
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
         personal_url: Site internet personnel
@@ -62,20 +62,20 @@ fr:
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
     admin_log:
       feature:
-        create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
-        delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
+        create: "%{user_name} a ajouté le %{resource_name} caractéristique de la %{space_name} espace"
+        delete: "%{user_name} a retiré le %{resource_name} caractéristique de la %{space_name} espace"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
-        unpublish: "%{user_name} non publié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
-        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} a affiché une ressource de type %{resource_type} dans le %{space_name} espace"
       newsletter:
-        create: "%{user_name} créé le %{resource_name} bulletin"
-        delete: "%{user_name} supprimé le %{resource_name} bulletin"
-        deliver: "%{user_name} livré le %{resource_name} bulletin"
-        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+        create: "%{user_name} a créé le %{resource_name} bulletin"
+        delete: "%{user_name} a supprimé le %{resource_name} bulletin"
+        deliver: "%{user_name} a livré le %{resource_name} bulletin"
+        update: "%{user_name} a mis à jour le %{resource_name} bulletin"
       organization:
-        update: "%{user_name} mis à jour les paramètres de l'organisation"
+        update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
         create: "%{user_name} a créé la portée %{resource_name}"
         create_with_parent: "%{user_name} a créé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
@@ -84,17 +84,17 @@ fr:
         update: "%{user_name} a mis à jour la portée %{resource_name}"
         update_with_parent: "%{user_name} a mis à jour la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
       static_page:
-        create: "%{user_name} créé le %{resource_name} page statique"
-        delete: "%{user_name} supprimé le %{resource_name} page statique"
-        update: "%{user_name} mis à jour le %{resource_name} page statique"
+        create: "%{user_name} a créé le %{resource_name} page statique"
+        delete: "%{user_name} a supprimé le %{resource_name} page statique"
+        update: "%{user_name} a mis à jour le %{resource_name} page statique"
       user:
-        invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
-        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
-        remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
-        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
+        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec rôle: %{role}"
+        officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} a supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
+        unofficialize: "%{user_name} a enlevé la validation de l'utilisateur %{resource_name}"
       user_group:
-        reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
-        verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
+        reject: "%{user_name} a rejeté le %{resource_name} vérification du groupe d'utilisateurs"
+        verify: "%{user_name} a vérifié le %{resource_name} groupe d'utilisateurs"
     anonymous_user: Anonyme
     application:
       collection:
@@ -136,14 +136,14 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant court et unique pour Decidim
+          nickname_help: Votre identifiant court et unique sur cette plateforme
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
-          already_have_an_account?: Vous avez déjà un compte?
-          newsletter: Recevoir une newsletter occasionnelle avec des informations pertinentes
+          already_have_an_account?: Vous avez déjà un compte ?
+          newsletter: Recevoir une newsletter sur l'actualité de la plateforme.
           nickname_help: Votre identifiant court et unique pour Decidim
           sign_in: S'identifier
           sign_up: S'inscrire
@@ -152,7 +152,7 @@ fr:
             user: Individu
             user_group: Organisation / Collectif
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
-          terms: Les termes et conditions d'utilisation
+          terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
@@ -315,8 +315,8 @@ fr:
         unsubscribe: Se désabonner
     notifications_settings:
       show:
-        email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir les lettres d'informations
+        email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
+        newsletter_notifications: Je souhaite recevoir une newletter sur l'actualité de la plateforme.
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -444,7 +444,7 @@ fr:
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_manifest: Manifeste invalide
-      invalid_participatory_process: Processus participatif invalide
+      invalid_participatory_process: Concertation invalide
       long_words: Contient des mots trop longs
       must_start_with_caps: Doit commencer par des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
@@ -463,7 +463,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé par <a target="_blank" href="http://www.opensourcepolitics.eu/">Open Source Politics</a> grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -505,10 +505,10 @@ fr:
         meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus
         proposals: Propositions
-        proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
+        proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
-        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plateforme participative de %{organization} .
+        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+        footer_sub_hero_headline: Bienvenue sur %{organization}.
         register: S'inscrire
       hero:
         participate: Participez
@@ -517,12 +517,12 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Promotions
+        endorsements_count: Liste des recommandations
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus
+        processes_count: Concertations
         projects_count: Projets
         proposals_accepted: Propositions acceptées
         proposals_count: Propositions

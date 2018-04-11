@@ -22,7 +22,7 @@ fr:
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         slug: Identifiant
         subtitle: Sous-titre
         target: Participants
@@ -84,7 +84,7 @@ fr:
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'assemblée
+          assembly_admins: Utilisateurs de l'agora
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
@@ -95,7 +95,7 @@ fr:
       models:
         assembly:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -105,7 +105,7 @@ fr:
             email: Email
             name: Nom
             role: Rôle
-          name: Utilisateur de l'assemblée
+          name: Utilisateur de l'agora
           roles:
             admin: Administrateur
             collaborator: Collaborateur
@@ -150,7 +150,7 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Promotions
+        endorsements_count: Liste des recommandations
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes

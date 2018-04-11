@@ -15,15 +15,15 @@ fr:
         hero_image: Image de la page d'accueil
         local_area: Périmètre
         meta_scope: Échelle
-        participatory_process_group_id: Groupe de processus
+        participatory_process_group_id: Groupe de concertations
         participatory_scope: Objectif
         participatory_structure: Modalités
-        promoted: Mis en avant
-        published_at: Publié à
+        promoted: Mise en avant
+        published_at: Publiée à
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
@@ -33,7 +33,7 @@ fr:
         description: Description
         hero_image: Image
         name: Nom
-        participatory_process_ids: Processus liés
+        participatory_process_ids: Concertations liées
       participatory_process_step:
         description: Description
         end_date: Date de fin
@@ -59,8 +59,8 @@ fr:
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
       menu:
-        participatory_process_groups: Groupes de processus
-        participatory_processes: Processus
+        participatory_process_groups: Groupes de concertations
+        participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -72,32 +72,32 @@ fr:
           moderation:
             upstream: A priori
             downstream: A posteriori
-          process_admins: Administrateurs du processus
+          process_admins: Administrateurs de la concertation
           steps: Etapes
       models:
         participatory_process:
           fields:
-            created_at: Crée le
-            promoted: Mis en évidence
-            published: Publié
+            created_at: Créée le
+            promoted: Mise en évidence
+            published: Publiée
             title: Titre
-          name: Processus participatif
+          name: Concertation
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupes de processus
+          name: Groupes de concertations
         participatory_process_step:
           fields:
             end_date: Date de fin
             start_date: Date de début
             title: Titre
-          name: Etape du processus
+          name: Etape de la concertation
         participatory_process_user_role:
           fields:
             email: Email
             name: Nom
             role: Rôle
-          name: Rôle utilisateur du processus
+          name: Rôle utilisateur de la concertation
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -110,119 +110,119 @@ fr:
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer le processus
+          title: Dupliquer la concertation
       participatory_process_groups:
         destroy:
-          success: Le groupe de processus a été détruit avec succès.
+          success: Le groupe de concertations a été détruit avec succès.
         edit:
-          title: Modifier le groupe de processus
+          title: Modifier le groupe de concertations
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de processus
+          title: Nouveau groupe de concertations
         update:
-          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus.
-          success: Groupe de processus mis à jour avec succès.
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
+          success: Groupe de concertations mis à jour avec succès.
       participatory_process_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de ce processus.
-          success: Processus participatif publié avec succès.
+          error: Une erreur s'est produite lors de la publication de cette concertation.
+          success: Concertation publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication de ce processus.
-          success: Processus participatif dépublié avec succès.
+          error: Une erreur s'est produite lors de la publication de cette concertation.
+          success: Concertation dépubliée avec succès.
       participatory_process_step_activations:
         create:
-          error: Une erreur s'est produite lors de l'activation de cette étape du processus.
-          success: Etape du processus activée avec succès.
+          error: Une erreur s'est produite lors de l'activation de cette étape de la concertation.
+          success: Etape de la concertation activée avec succès.
       participatory_process_steps:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus.
-          success: Etape de processus créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
+          success: Etape de la concertation créée avec succès.
         default_title: Introduction
         destroy:
           error:
-            active_step: Vous ne pouvez pas supprimer l'étape active du processus.
-            last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
-          success: L'étape du processus a été supprimée avec succès.
+            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
+            last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
+          success: L'étape de la concertation a été supprimée avec succès.
         edit:
-          title: Modifier l'étape du processus
+          title: Modifier l'étape de la concertation
           update: Mettre à jour
         index:
           steps_title: Etapes
         new:
           create: Créer
-          title: Nouvelle étape du processus
+          title: Nouvelle étape de la concertation
         ordering:
-          error: Une erreur s'est produite lors de la réorganisation des étapes du processus.
+          error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette étape du processus.
-          success: Etape du processus mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
+          success: Etape de la concertation mise à jour avec succès.
       participatory_process_user_roles:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus.
-          success: Utilisateur créé avec succès pour ce processus.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
+          success: Utilisateur créé avec succès pour cette concertation.
         destroy:
-          success: L'utilisateur a été supprimé avec succès pour ce processus.
+          success: L'utilisateur a été supprimé avec succès pour cette concertation.
         edit:
-          title: Mettre à jour l'utilisateur du processus.
+          title: Mettre à jour l'utilisateur de la concertation.
           update: Mettre à jour
         index:
-          process_admins_title: Administrateurs du processus
+          process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel utilisateur de processus.
+          title: Nouvel utilisateur de la concertation.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour ce processus.
-          success: L'utilisateur a été mis à jour avec succès pour ce processus.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
+          success: L'utilisateur a été mis à jour avec succès pour cette concertation.
       participatory_processes:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau processus.
-          success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
+          error: Une erreur s'est produite lors de la création d'une nouvelle concertation.
+          success: Concertation créée avec succès. Configurez maintenant ses étapes.
         destroy:
-          success: Processus participatif supprimé avec succès.
+          success: Concertation supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
           title: Informations générales
         index:
-          not_published: Non publié
-          published: Publié
+          not_published: Non publiée
+          published: Publiée
         new:
           create: Créer
-          title: Nouveau processus
+          title: Nouvelle concertation
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce processus.
-          success: Processus participatif mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette concertation.
+          success: Concertation mise à jour avec succès.
       participatory_processes_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de ce processus.
-          success: Processus participatif dupliqué avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette concertation.
+          success: Concertation dupliquée avec succès.
       participatory_processes_group:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus.
-          success: Groupe de processus créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
+          success: Groupe de concertations créé avec succès.
       titles:
-        participatory_process_groups: Groupes de processus
-        participatory_processes: Processus
+        participatory_process_groups: Groupes de concertations
+        participatory_processes: Concertations
       users:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
           success: Invitation renvoyée avec succès.
     admin_log:
       participatory_process:
-        create: "%{user_name} créé le %{resource_name} processus"
-        publish: "%{user_name} publié le %{resource_name} processus"
-        unpublish: "%{user_name} non publié le %{resource_name} processus"
-        update: "%{user_name} a mis à jour le processus %{resource_name}"
+        create: "%{user_name} a créé la concertation %{resource_name}"
+        publish: "%{user_name} a publié la concertation %{resource_name}"
+        unpublish: "%{user_name} a non publié la concertation %{resource_name}"
+        update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} a activé l'étape %{resource_name} dans le processus %{space_name}"
-        create: "%{user_name} a créé l'étape %{resource_name} dans le processus %{space_name}"
-        delete: "%{user_name} a supprimé l'étape %{resource_name} du processus %{space_name}"
-        update: "%{user_name} a mis à jour l'étape %{resource_name} du processus %{space_name}"
+        activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
+        create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
+        delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
+        update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} invité l'utilisateur %{resource_name} à la %{space_name} processus"
-        delete: "%{user_name} supprimé l'utilisateur %{resource_name} à partir du %{space_name} processus"
-        update: "%{user_name} changé le rôle de l'utilisateur %{resource_name} dans le %{space_name} processus"
+        create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} à partir de la concertation %{space_name}"
+        update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -236,37 +236,37 @@ fr:
           email_subject: Une mise à jour de %{participatory_space_title}
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> à <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
-      processes: Processus
+      processes: Concertations
     participatory_process_groups:
       show:
-        group_participatory_processes: Processus pour %{group}
-        title: Groupes de processus
+        group_participatory_processes: Concertations pour %{group}
+        title: Groupes de concertations
     participatory_process_steps:
       index:
-        process_steps: Etapes du processus
-        title: Etapes du processus
+        process_steps: Etapes de la concertation
+        title: Etapes de la concertation
     participatory_processes:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
-            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations du processus.
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
-        title: Processus
+        title: Concertation
       order_by_processes:
-        active: Actif
-        all: Tout
-        past: Passés
+        active: Actives
+        all: Toutes
+        past: Passées
         upcoming: À venir
       pages:
         home:
           highlighted_processes:
-            active_processes: Processus actifs
+            active_processes: Concertations actives
             active_step: Étape active
-            see_all_processes: Voir tous les processus
+            see_all_processes: Voir toutes les concertation
       participatory_process_groups:
         none: Aucun
       participatory_processes:
@@ -284,12 +284,12 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
-        endorsements_count: Promotions
+        endorsements_count: Liste des recommandations
         headline: Activité
         meetings_count: Réunions
         orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus
+        processes_count: Concertations
         projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
@@ -303,15 +303,15 @@ fr:
           browse: Parcourir
       participatory_process_widgets:
         show:
-          active_step: Etape active
+          active_step: "Etape actuelle :"
           take_part: Participer
       participatory_processes:
         index:
-          promoted_processes: Processus mis en avant
+          promoted_processes: Concertation mise en avant
         order_by_processes:
           processes:
-            one: "%{count} processus"
-            other: "%{count} processus"
+            one: "%{count} concertation"
+            other: "%{count} concertations"
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer
@@ -320,7 +320,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
       process_header:
-        process_menu_item: Le processus
+        process_menu_item: Présentation
         unfold: Déplier
       process_header_steps:
         step: Étape %{current} sur %{total}

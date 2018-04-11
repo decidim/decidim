@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone
-        name: Prénom
+        name: Titre
         organization: Organisation
       area_type:
-        name: Prénom
+        name: Titre
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -15,8 +15,8 @@ fr:
         file: Fichier
         title: Titre
       attachment_collection:
-        description: La description
-        name: Prénom
+        description: Description
+        name: Titre
       category:
         description: Description
         name: Nom
@@ -31,10 +31,10 @@ fr:
         subject: Objet
       organization:
         cta_button_path: Chemin du bouton d'action
-        cta_button_text: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
-        enable_omnipresent_banner: Montrer une bannière omniprésente
+        enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         github_handler: Gestionnaire GitHub
@@ -57,7 +57,7 @@ fr:
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         twitter_handler: Gestionnaire de Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
@@ -103,7 +103,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Processus
+        participatory_processes: Concertations
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
@@ -212,9 +212,9 @@ fr:
       dashboard:
         show:
           view_more_logs: Voir plus de journaux
-          welcome: Bienvenue au Panneau Administrateur de Decidim.
+          welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
-        export_as: "%{name} comme %{export_format}"
+        export_as: "%{name} sous format .%{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       feature_permissions:
         edit:
@@ -292,7 +292,7 @@ fr:
             new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
             promote: Transformer
       menu:
-        admin_log: Journal d'activité de l'administrateur
+        admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
         area_types: Types de zones d'application
@@ -301,7 +301,7 @@ fr:
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
-        officializations: Validations
+        officializations: Validation d'utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d’application
         settings: Paramètres
@@ -313,10 +313,10 @@ fr:
         area:
           fields:
             area_type: Type de zone
-            name: prénom
+            name: Titre
         area_type:
           fields:
-            name: prénom
+            name: Singulier
             plural: Pluriel
         attachment:
           fields:
@@ -340,7 +340,7 @@ fr:
           name: Utilisateur représenté
         newsletter:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
@@ -351,11 +351,11 @@ fr:
             scope_type: Type de périmètre d'application
         scope_type:
           fields:
-            name: Nom
+            name: Singulier
             plural: Pluriel
         static_page:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             title: Titre
         user:
           fields:
@@ -371,7 +371,7 @@ fr:
         user_group:
           fields:
             actions: Actions
-            created_at: Crée le
+            created_at: Créé le
             document_number: Numéro de document
             name: Nom
             phone: Téléphone
@@ -381,13 +381,13 @@ fr:
           fields:
             title: Titre
             link: Lien
-            weight: Position
+            weight: Rang d'affichage
       moderations:
         index:
           title: Modérations
           title:
             upstream: Modération a priori
-            downstream: Modération a postériori
+            downstream: Modération a posteriori
           unmoderated: Non modérés
           moderated: Modérés
         report:
@@ -430,7 +430,7 @@ fr:
         destroy:
           success: Utilisateur non validé avec succès
         index:
-          actions: actes
+          actions: Actions
           badge: Badge
           created_at: Créé à
           filter:
@@ -459,7 +459,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
+          social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url
           youtube: YouTube
@@ -470,13 +470,13 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton d''Appel à action de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton d''Appel à action apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple: %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton d'Appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'Appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
+          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple: %{url}'
+          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier la bannière omniprésente
+          omnipresent_banner_appearance_title: Modifier la bannière d'actualités
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
@@ -533,7 +533,7 @@ fr:
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
-        officializations: Validations
+        officializations: Validation d'utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages
@@ -600,7 +600,7 @@ fr:
       actions:
         hidden: Masqués
         hide: Masquer
-        not_hidden: Non masqués
+        not_hidden: Visibles
         title: Actions
         unreport: Annuler le signalement
         moderated: Modéré
@@ -619,10 +619,10 @@ fr:
         moderation:
           fields:
             hidden_at: Masqué le
-            report_count: Compter
-            reportable: Signalable
-            reported_content_url: Contenu d'une URL
-            reports: Signalements
+            report_count: Compteur
+            reportable: Contenu
+            reported_content_url: URL
+            reports: Motif
             visit_url: Visitez l'URL
             date: Date
             type: Type
