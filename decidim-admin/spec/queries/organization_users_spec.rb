@@ -60,7 +60,7 @@ module Decidim::Admin
         context 'when filtering by "Non Officialized"' do
           let(:filter) { "not_officialized" }
 
-          it "returns all the verified users" do
+          it "returns all the non officialized users" do
             expect(subject.query).to match_array(not_officialized_users)
           end
         end
