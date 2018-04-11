@@ -18,6 +18,7 @@ Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEv
 
 **Added**:
 
+- **decidim-proposals**: Add configuration for set the number of proposals to be highlighted [\#3198](https://github.com/decidim/decidim/pull/3198)
 - **decidim-accountability**: Proposal selection from accountability with autoComplete [\#2348](https://github.com/decidim/decidim/pull/2584)
 - **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
 - **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
@@ -97,7 +98,8 @@ Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEv
 
 **Fixed**:
 
-**decidim-debates**: Fix debates times. [\#3078](https://github.com/decidim/decidim/pull/3078)
+**decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3198](https://github.com/decidim/decidim/pull/3198)
+- **decidim-debates**: Fix debates times. [\#3078](https://github.com/decidim/decidim/pull/3078)
 - **decidim-proposals**: Fix treshold absolute view and rename the field maximum_votes_per_proposal to threshold_per_proposal. [\#3017](https://github.com/decidim/decidim/pull/3017)
 - **decidim-core**: FIX Mispelling in available_locales initializer: pr-BR should be pt-BR. [\#2883](https://github.com/decidim/decidim/pull/2883)
 - **decidim-admin**: FIX Area and AreaType command specs [\#2859](https://github.com/decidim/decidim/pull/2859)
