@@ -20,6 +20,19 @@ module Decidim
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
+
+      def meeting_type_badge_css_class(type)
+        case type
+        when "private"
+          "alert"
+        when "transparent"
+          "secondary"
+        end
+      end
+
+      def humanize_meeting_type(type)
+        I18n.t(type, scope: "decidim.meetings.types", default: :is_transparent)
+      end
     end
   end
 end

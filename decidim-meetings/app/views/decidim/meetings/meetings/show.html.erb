@@ -65,6 +65,16 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <% if meeting.is_private? %>
+        <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
+          <%= humanize_meeting_type("private") %>
+        </span>
+      <% end %>
+      <% if meeting.is_private? and meeting.is_transparent? %>
+        <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
+          <%= humanize_meeting_type("transparent") %>
+        </span>
+      <% end %>
       <p><%= decidim_sanitize translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>

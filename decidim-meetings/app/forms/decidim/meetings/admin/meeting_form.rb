@@ -11,7 +11,7 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        
+
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
