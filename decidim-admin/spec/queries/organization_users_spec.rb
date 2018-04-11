@@ -21,7 +21,7 @@ module Decidim::Admin
     end
 
     describe "when the list is filtered" do
-      context "and recieves a search param" do
+      context "and receives a search param" do
         let!(:users) do
           %w(Walter Fargo Phargo).map do |name|
             create(:user, name: name, organization: organization)
@@ -45,7 +45,7 @@ module Decidim::Admin
         end
       end
 
-      context "and recieves a filter param" do
+      context "and receives a filter param" do
         let!(:not_officialized_users) { create_list(:user, 2, organization: organization) }
         let!(:officialized_users) { create_list(:user, 2, :officialized, organization: organization) }
 
@@ -66,7 +66,7 @@ module Decidim::Admin
         end
       end
 
-      context "and recieves a search and a filter param" do
+      context "and receives a search and a filter param" do
         let(:officialized_users) do
           %w(Lorem Ipsum Dolor).map do |name|
             create(:user, :officialized, name: name, organization: organization)
