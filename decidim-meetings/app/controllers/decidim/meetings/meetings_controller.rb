@@ -22,6 +22,10 @@ module Decidim
         end
       end
 
+      def show
+        check_current_user_can_visit_meeting
+      end
+
       private
 
       def meeting
@@ -29,7 +33,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results)
+        @meetings ||= paginate(search.results).visible_meeting_for(current_user)
       end
 
       def geocoded_meetings
@@ -51,6 +55,21 @@ module Decidim
 
       def context_params
         { component: current_component, organization: current_organization }
+      end
+
+      # Method for current user can visit the meeting
+      def current_user_can_visit_meeting?
+        (meeting.try(:is_private?) &&
+         meeting.registrations.exists?(decidim_user_id: current_user.try(:id))) ||
+          !meeting.try(:is_private?) ||
+          (meeting.try(:is_private?) &&
+          meeting.try(:is_transparent?))
+      end
+
+      def check_current_user_can_visit_meeting
+        return if current_user_can_visit_meeting?
+        flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
+        redirect_to action: "index"
       end
     end
   end

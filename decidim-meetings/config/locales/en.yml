@@ -171,6 +171,8 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
+      meeting:
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
           category: Category

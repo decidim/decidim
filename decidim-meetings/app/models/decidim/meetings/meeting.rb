@@ -30,6 +30,14 @@ module Decidim
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
 
+      scope :visible_meeting_for, lambda { |user|
+                            joins("LEFT JOIN decidim_meetings_registrations ON
+                            decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
+                            .where("(is_private = ? and decidim_meetings_registrations.decidim_user_id = ?)
+                            or is_private = ? or (is_private = ? and is_transparent = ?)", true, user, false, true, true).distinct
+
+                            }
+
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
       end
@@ -77,6 +85,8 @@ module Decidim
       end
 
       def can_participate?(user)
+        return true if is_private? && registrations.exists?(decidim_user_id: user.try(:id))
+        return false if is_private? && is_transparent?
         return true unless participatory_space.try(:private_space?)
         return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
         return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
