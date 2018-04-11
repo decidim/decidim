@@ -13,13 +13,22 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
+        created_by_other: Créé par d'autres
+        creation_date: Date créée
         decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
         domain: Domaine
+        duration: Durée
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        included_at: Inclus à
+        instagram: Instagram
+        internal_organisation: Organisation interne
+        is_transparent: Est transparent
         local_area: Périmètre
         meta_scope: Échelle
         participatory_processes_ids: Processus participatifs associés
@@ -27,6 +36,7 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
+        purpose_of_action: But de l'action
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
@@ -35,6 +45,8 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+        twitter: Gazouillement
+        youtube: Youtube
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -142,11 +154,26 @@ fr:
       admin:
         assemblies:
           form:
+            select_a_created_by: Sélectionnez un créé par
             select_an_area: Sélectionnez une région
+            select_an_assembly_type: Sélectionnez un type d'assemblage
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+      assembly_types:
+        commission: Commission
+        consultative_advisory: Consultatif / consultatif
+        executive: Exécutif
+        government: Gouvernement
+        others: Autres
+        participatory: Participatif
+        working_group: Groupe de travail
+      created_by:
+        city_council: Conseil municipal
+        others: Autres
+        public: Publique
       index:
         title: Agora
       pages:
@@ -156,14 +183,30 @@ fr:
             see_all_assemblies: Voir toutes les agora
       show:
         area: Région
+        assembly_type: Type d'assemblage
         children: Agora
+        closing_date: Date de clôture
+        composition: Composition
+        created_by: Créé par
+        creation_date: Date créée
         developer_group: Organisateur
+        duration: Durée
+        included_at: Inclus à
+        indefinite_duration: Indéfini
+        internal_organisation: Organisation interne
+        is_transparent:
+          'false': opaque
+          'true': transparent
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
+        purpose_of_action: But de l'action
+        read_less: Lire moins
+        read_more: Lire la suite
         related_participatory_processes: Processus participatifs associés
         scope: Périmètre d'application
+        social_networks: Réseaux sociaux
         target: Participants
       statistics:
         answers_count: Réponses
@@ -187,6 +230,9 @@ fr:
           not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
       assemblies: Agora
+  errors:
+    messages:
+      cannot_be_blank: ne peut être vide
   layouts:
     decidim:
       assemblies:
