@@ -3,9 +3,17 @@ it:
     attributes:
       assembly:
         area_id: La zona
+        assembly_type: Tipo di assieme
+        assembly_type_other: Tipo di assemblaggio altro
         banner_image: Immagine del banner
+        closing_date: Data di chiusura
+        closing_date_reason: Motivo della data di chiusura
+        composition: Composizione
         copy_categories: Copia le categorie
         copy_components: Copia componenti
+        copy_features: Copia le caratteristiche
+        created_by: Creato da
+        created_by_other: Creato da altri
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
