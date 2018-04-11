@@ -72,34 +72,34 @@ module Decidim
 
       def can_endorse_proposal?
         is_allowed = proposal &&
-          authorized?(:endorse) &&
-          current_settings&.endorsements_enabled? &&
-          !current_settings&.endorsements_blocked?
+                     authorized?(:endorse) &&
+                     current_settings&.endorsements_enabled? &&
+                     !current_settings&.endorsements_blocked?
 
         toggle_allow(is_allowed)
       end
 
       def can_unendorse_proposal?
         is_allowed = proposal &&
-          authorized?(:endorse) &&
-          current_settings&.endorsements_enabled?
+                     authorized?(:endorse) &&
+                     current_settings&.endorsements_enabled?
 
         toggle_allow(is_allowed)
       end
 
       def can_vote_proposal?
         is_allowed = proposal &&
-          authorized?(:vote) &&
-          voting_enabled? &&
-          remaining_votes.positive?
+                     authorized?(:vote) &&
+                     voting_enabled? &&
+                     remaining_votes.positive?
 
         toggle_allow(is_allowed)
       end
 
       def can_unvote_proposal?
         is_allowed = proposal &&
-          authorized?(:vote) &&
-          voting_enabled?
+                     authorized?(:vote) &&
+                     voting_enabled?
 
         toggle_allow(is_allowed)
       end
