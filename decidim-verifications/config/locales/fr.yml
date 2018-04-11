@@ -8,7 +8,7 @@ fr:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
-        verification_attachment: Copie scannée de votre document
+        verification_attachment: Copie scannée du document
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -35,7 +35,7 @@ fr:
             - Vous marquez la lettre comme envoyée.
             - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
       direct: Direct
-      help: Aidez-moi
+      help: Texte d'aide
       id_documents:
         explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
