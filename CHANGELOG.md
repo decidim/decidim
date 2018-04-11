@@ -46,6 +46,12 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Changed**:
 
+- **decidim-admin**: Moved the following reusable javascript components from `decidim-surveys` component [\#3194](https://github.com/decidim/decidim/pull/3194)
+  - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
+  - Dependent inputs (field_dependent_inputs.component.js.es6)
+- **decidim-surveys**: Moved the following reusable javascript components to `decidim-admin` component [\#3194](https://github.com/decidim/decidim/pull/3194)
+  - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
+  - Dependent inputs (field_dependent_inputs.component.js.es6)
 - **decidim-participatory_processes**: Render documents in first place (before view hooks). [\#2977](https://github.com/decidim/decidim/pull/2977)
 
 **Fixed**:
