@@ -1,0 +1,21 @@
+.inline-filters{
+  display: flex;
+  justify-content: space-between;
+
+  @include flexgap($global-margin * 2);
+
+  label{
+    display: flex;
+    align-items: baseline;
+
+    @include flexgap($global-margin / 2);
+
+    span{
+      white-space: nowrap;
+    }
+
+    select{
+      color: $secondary;
+    }
+  }
+}

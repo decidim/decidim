@@ -37,3 +37,19 @@
     margin-left: .5rem;
   }
 }
+
+// flex--cc:
+// justify-content: center;
+// align-items: center;
+.flex--cc{
+  @include flex;
+  @include flex-align($x: center, $y: middle);
+}
+
+// flex--sbc:
+// justify-content: space-between;
+// align-items: center;
+.flex--sbc{
+  @include flex;
+  @include flex-align($x: justify, $y: middle);
+}

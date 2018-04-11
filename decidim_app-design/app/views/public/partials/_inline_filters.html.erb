@@ -1,0 +1,21 @@
+<% sort = true unless local_assigns.has_key?(:sort) %>
+<% order = true unless local_assigns.has_key?(:order) %>
+
+<div class="inline-filters">
+  <% if sort %>
+    <label>
+      <span>Show:</span>
+      <select>
+        <option value="">All types of assemblies</option>
+      </select>
+    </label>
+  <% end %>
+  <% if order %>
+    <label>
+      <span>Order by:</span>
+      <select>
+        <option value="">All types of assemblies</option>
+      </select>
+    </label>
+  <% end %>
+</div>
