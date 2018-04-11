@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     module ManagedUsers
       # Controller that allows promoting managed users at the admin panel.
       #
-      class PromotionsController < Admin::ApplicationController
+      class PromotionsController < Decidim::Admin::ApplicationController
         layout "decidim/admin/users"
 
         def new

@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     module ManagedUsers
       # Controller that allows impersonating managed users at the admin panel.
       #
-      class ImpersonationsController < Admin::ApplicationController
+      class ImpersonationsController < Decidim::Admin::ApplicationController
         layout "decidim/admin/users"
 
         skip_authorization_check only: [:index, :close_session]
