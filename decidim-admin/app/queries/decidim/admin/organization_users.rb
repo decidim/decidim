@@ -26,7 +26,7 @@ module Decidim
 
       # List the User groups by the diferents filters.
       def query
-        users = Decidim::User.where(organization: organization)
+        users = organization.users
         users = filter_by_search(users)
         users = filter_by_state(users)
         users
