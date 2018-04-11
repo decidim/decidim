@@ -3,9 +3,17 @@ pl:
     attributes:
       assembly:
         area_id: Powierzchnia
+        assembly_type: Typ zespołu
+        assembly_type_other: Typ zespołu inny
         banner_image: Obraz baneru
+        closing_date: Data zamknięcia
+        closing_date_reason: Termin zamknięcia terminu
+        composition: Kompozycja
         copy_categories: Kopiuj kategorie
         copy_components: Skopiuj komponenty
+        copy_features: Kopiuj funkcje
+        created_by: Stworzone przez
+        created_by_other: Stworzony przez inne
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
