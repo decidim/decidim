@@ -9,9 +9,10 @@ eu:
         end_date: Bukaera-data
         progress: ' Aurrerapena '
         project_ids: Proiektu barne
-        proposal_ids: Sartutako proposamenak
+        proposals: Proposamen sortak
         start_date: Hasiera-data
         title: Izenburua
+        updated_at: Eguneratuta
       status:
         description: Descripción
         key: Gakoa
@@ -49,11 +50,17 @@ eu:
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
+          form:
+            add_proposal: Gehitu proposamena
           index:
             title: Emaitzak
           new:
             create: Sortu emaitza
             title: Emaitza berria
+          proposals:
+            close: Itxi
+            current_selection: Oraingo hautapena
+            select: Aukeratu
           update:
             invalid: Arazo bat izan da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratu da.
@@ -94,6 +101,10 @@ eu:
           update:
             invalid: Arazo bat izan da sarrera hau eguneratzean
             success: Sarrera ondo eguneratu da
+      admin_log:
+        result:
+          create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
+          update: "%{user_name} emaitza eguneratu %{resource_name} en %{space_name}"
       models:
         result:
           fields:
@@ -156,6 +167,13 @@ eu:
           changes_at_title: Aldaketak "%{title}" atalean
         version:
           version_index: '%{index} bertsioa'
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: '"%{proposal_title}" proposamena emaitza batean sartu da. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu "%{proposal_title}" jarraitzen ari zarenagatik. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{proposal_title} eguneratzea'
+          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> <a href="%{resource_path}">%{resource_title}</a> emaitza izan da.
     features:
       accountability:
         name: Emaitzak
@@ -163,12 +181,21 @@ eu:
           global:
             categories_label: '"Kategoriak" izena'
             comments_enabled: Iruzkinak gaituta
+            display_progress_enabled: Bistaratze aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
             subcategories_label: Izena "Azpikategoriak" izenarekin
           step:
             comments_blocked: Iruzkinak blokeatuta
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Emaitzak
+    participatory_spaces:
+      highlighted_results:
+        results: Emaitzak
+        see_all_results: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_projects: Emaitza honetan sartutako proiektuak

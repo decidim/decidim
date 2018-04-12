@@ -38,7 +38,7 @@ module Decidim
       attr_reader :form, :proposal, :current_user
 
       def update_proposal
-        @proposal.update_attributes!(
+        @proposal.update!(
           title: form.title,
           body: form.body,
           category: form.category,
@@ -72,11 +72,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: current_user, feature: form.current_feature).where.not(id: proposal.id)
+        Proposal.where(author: current_user, feature: form.current_feature).published.where.not(id: proposal.id)
       end
 
       def user_group_proposals
-        Proposal.where(user_group: user_group, feature: form.current_feature).where.not(id: proposal.id)
+        Proposal.where(user_group: user_group, feature: form.current_feature).published.where.not(id: proposal.id)
       end
     end
   end

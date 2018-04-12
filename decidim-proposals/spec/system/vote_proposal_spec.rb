@@ -199,7 +199,7 @@ describe "Vote Proposal", type: :system do
               }
             }
 
-            feature.update_attributes!(permissions: permissions)
+            feature.update!(permissions: permissions)
             visit_feature
           end
 
@@ -248,7 +248,7 @@ describe "Vote Proposal", type: :system do
           end
 
           it "is not able to vote other proposals" do
-            expect(page).to have_css(".card__button[disabled]", count: 2)
+            expect(page).to have_css(".button[disabled]", count: 2)
           end
 
           context "when votes are blocked" do
@@ -272,7 +272,7 @@ describe "Vote Proposal", type: :system do
       let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
 
       before do
-        feature.update_attributes!(settings: { proposal_answering_enabled: true })
+        feature.update!(settings: { proposal_answering_enabled: true })
       end
 
       it "cannot be voted" do
@@ -288,7 +288,7 @@ describe "Vote Proposal", type: :system do
       let!(:feature) do
         create(:proposal_feature,
                :with_votes_enabled,
-               :with_maximum_votes_per_proposal,
+               :with_threshold_per_proposal,
                manifest: manifest,
                participatory_space: participatory_process)
       end
@@ -319,6 +319,33 @@ describe "Vote Proposal", type: :system do
           within ".card__support", match: :first do
             click_button "Vote"
             expect(page).to have_content("Already voted")
+          end
+        end
+      end
+    end
+    context "when proposals have vote limit but can accumulate more votes" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_enabled,
+               :with_threshold_per_proposal,
+               :with_can_accumulate_supports_beyond_threshold,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "allows users to vote on proposals over the limit" do
+        create(:proposal_vote, proposal: proposal)
+        visit_feature
+
+        proposal_element = page.find("article", text: proposal.reference)
+
+        within proposal_element do
+          within ".card__support", match: :first do
+            expect(page).to have_content("1 VOTE")
           end
         end
       end

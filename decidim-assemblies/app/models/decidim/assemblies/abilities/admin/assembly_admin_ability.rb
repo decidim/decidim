@@ -35,6 +35,10 @@ module Decidim
               attachment.attached_to.is_a?(Decidim::Assembly) && can_manage_assembly?(attachment.attached_to)
             end
 
+            can :manage, AttachmentCollection do |attachment_collection|
+              attachment_collection.collection_for.is_a?(Decidim::Assembly) && can_manage_assembly?(attachment_collection.collection_for)
+            end
+
             can :manage, AssemblyUserRole do |role|
               can_manage_assembly?(role.assembly) && role.user != @user
             end

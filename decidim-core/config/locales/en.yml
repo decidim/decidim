@@ -7,11 +7,13 @@ en:
       report:
         details: Additional comments
       user:
+        about: About
         email: Your email
         name: Your name
         nickname: Your short, unique identifier in decidim
         password: New password
         password_confirmation: Confirm your new password
+        personal_url: Personal URL
         remove_avatar: Remove avatar
         user_group_document_number: Organization document number
         user_group_name: Organization name
@@ -54,8 +56,47 @@ en:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    admin_log:
+      feature:
+        create: "%{user_name} added the %{resource_name} feature to the %{space_name} space"
+        delete: "%{user_name} removed the %{resource_name} feature from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} feature in the %{space_name} space"
+        unpublish: "%{user_name} unpublished the %{resource_name} feature from the %{space_name} space"
+      moderation:
+        hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
+        unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
+      newsletter:
+        create: "%{user_name} created the %{resource_name} newsletter"
+        delete: "%{user_name} deleted the %{resource_name} newsletter"
+        deliver: "%{user_name} delivered the %{resource_name} newsletter"
+        update: "%{user_name} updated the %{resource_name} newsletter"
+      organization:
+        update: "%{user_name} updated the organization settings"
+      scope:
+        create: "%{user_name} created the %{resource_name} scope"
+        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
+        delete: "%{user_name} deleted the %{resource_name} scope"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
+        update: "%{user_name} updated the %{resource_name} scope"
+        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
+      static_page:
+        create: "%{user_name} created the %{resource_name} static page"
+        delete: "%{user_name} deleted the %{resource_name} static page"
+        update: "%{user_name} updated the %{resource_name} static page"
+      user:
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
+        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+      user_group:
+        reject: "%{user_name} rejected the %{resource_name} user group verification"
+        verify: "%{user_name} verified the %{resource_name} user group"
     anonymous_user: Anonymous
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Related documents
       photos:
@@ -144,13 +185,20 @@ en:
         email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
         email_subject: An update to %{participatory_space_title}
         notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
-        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-        email_subject: An update to %{participatory_space_title}
-        notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -198,6 +246,23 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    log:
+      base_presenter:
+        create: "%{user_name} created %{resource_name}"
+        create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted %{resource_name}"
+        delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} performed some action on %{resource_name}"
+        unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        update: "%{user_name} updated %{resource_name}"
+        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'The area was not found on the database (ID: %{id})'
+        scope_presenter:
+          not_found: 'The scope was not found on the database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:
@@ -448,6 +513,7 @@ en:
         answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Current state of %{organization}
         meetings_count: Meetings
         orders_count: Votes
@@ -487,6 +553,7 @@ en:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

@@ -36,7 +36,7 @@ module Decidim
         end
 
         processed_collection.each_with_index do |resource, index|
-          sheet.row(index + 1).replace headers.map { |header| resource[header] }
+          sheet.row(index + 1).replace(headers.map { |header| resource[header] })
         end
 
         output = StringIO.new

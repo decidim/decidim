@@ -18,6 +18,9 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :navbar_links
 
+    resources :logs, only: [:index]
+    resources :area_types, except: [:show]
+    resources :areas, except: [:show]
     resources :authorization_workflows, only: :index
 
     Decidim.authorization_admin_engines.each do |manifest|

@@ -1,0 +1,26 @@
+.consultations-title{
+  margin-bottom: $margin-s;
+
+  @include breakpoint(medium){
+    margin-bottom: $margin-sm;
+  }
+
+  .heading1,
+  .heading2{
+    text-align: center;
+
+    @include breakpoint(medium down){
+      font-size: 1.5em;
+    }
+  }
+}
+
+.consultations-title__cta{
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-top: $margin-s;
+
+  @include breakpoint(medium){
+    margin-top: $margin-sm;
+  }
+}

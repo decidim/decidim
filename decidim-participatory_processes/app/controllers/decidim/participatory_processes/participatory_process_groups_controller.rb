@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ParticipatoryProcessGroupsController < Decidim::ApplicationController
+    class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::ApplicationController
       helper Decidim::SanitizeHelper
       helper_method :participatory_processes, :group, :collection
 

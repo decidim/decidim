@@ -33,7 +33,7 @@ module Decidim
         attr_reader :timeline_entry, :form
 
         def update_timeline_entry
-          timeline_entry.update_attributes!(
+          timeline_entry.update!(
             entry_date: @form.entry_date,
             description: @form.description
           )

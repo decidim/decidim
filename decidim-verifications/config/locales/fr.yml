@@ -9,6 +9,13 @@ fr:
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée de votre document
+      postal_letter_address:
+        full_address: Adresse complète
+      postal_letter_confirmation:
+        verification_code: Code de vérification
+      postal_letter_postage:
+        full_address: Adresse complète
+        verification_code: Code de vérification
   decidim:
     admin:
       menu:
@@ -52,7 +59,7 @@ fr:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
         new:
           authorize: Envoyer
-          authorize_with: Vérifier avec %{authorizer}
+          authorize_with: Vérifier avec le formulaire
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
       dummy_authorization:

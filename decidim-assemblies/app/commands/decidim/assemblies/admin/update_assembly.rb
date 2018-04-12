@@ -40,7 +40,16 @@ module Decidim
 
         def update_assembly
           @assembly.assign_attributes(attributes)
-          @assembly.save! if @assembly.valid?
+          save_assembly if @assembly.valid?
+        end
+
+        def save_assembly
+          transaction do
+            @assembly.save!
+            Decidim.traceability.perform_action!(:update, @assembly, form.current_user) do
+              @assembly
+            end
+          end
         end
 
         def attributes
@@ -58,6 +67,7 @@ module Decidim
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            area: form.area,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,

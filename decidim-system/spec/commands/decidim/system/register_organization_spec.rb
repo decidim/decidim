@@ -31,7 +31,7 @@ module Decidim
           end
 
           it "creates a new organization" do
-            expect { command.call }.to change { Organization.count }.by(1)
+            expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
 
             expect(organization.name).to eq("Gotham City")
@@ -40,19 +40,20 @@ module Decidim
           end
 
           it "invites a user as organization admin" do
-            expect { command.call }.to change { User.count }.by(1)
+            expect { command.call }.to change(User, :count).by(1)
             admin = User.last
 
             expect(admin.email).to eq("f.laguardia@gotham.gov")
             expect(admin.organization.name).to eq("Gotham City")
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
+            expect(admin).to be_valid
           end
 
           it "sends a custom email" do
             expect do
               perform_enqueued_jobs { command.call }
-            end.to change { emails.count }.by(1)
+            end.to change(emails, :count).by(1)
             expect(last_email_body).to include(URI.encode_www_form(["/admin"]))
           end
 

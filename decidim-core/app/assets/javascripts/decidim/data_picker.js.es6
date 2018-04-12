@@ -9,32 +9,36 @@
       this.current = null;
 
       elements.each((_index, element) => {
-        let $element = $(element);
-        let input    = "hidden",
-            name     = $element.data('picker-name'),
-            values   = $(".picker-values", $element);
+        this.activate(element);
+      });
+    }
 
-        if ($element.hasClass("picker-multiple")) {
-          input = "checkbox";
-          name += "[]";
+    activate(picker) {
+      let $element = $(picker);
+      let input    = "hidden",
+          name     = $element.data('picker-name'),
+          values   = $(".picker-values", $element);
+
+      if ($element.hasClass("picker-multiple")) {
+        input = "checkbox";
+        name += "[]";
+      }
+
+      $("div", values).each((_index2, div) => {
+        let value = $("a", div).data("picker-value");
+        $(div).prepend($(`<input type="${input}" checked name="${name}" value="${value}"/>`));
+      });
+
+      $element.on("click", "a", (event) => {
+        event.preventDefault();
+        if ($element.hasClass('disabled')) {
+          return;
         }
+        this._openPicker($element, event.target.parentNode);
+      });
 
-        $("div", values).each((_index2, div) => {
-          let value = $("a", div).data("picker-value");
-          $(div).prepend($(`<input type="${input}" checked name="${name}" value="${value}"/>`));
-        });
-
-        $element.on("click", "a", (event) => {
-          event.preventDefault();
-          if ($element.hasClass('disabled')) {
-            return;
-          }
-          this._openPicker($element, event.target.parentNode);
-        });
-
-        $element.on("click", "input", (event) => {
-          this._removeValue($element, event.target.parentNode);
-        });
+      $element.on("click", "input", (event) => {
+        this._removeValue($element, event.target.parentNode);
       });
     }
 
@@ -84,12 +88,12 @@
       }
 
       this.current = {
-                        multiple: $picker.hasClass("picker-multiple"),
-                        picker: $picker,
-                        name: $picker.data('picker-name'),
-                        values: $picker.find(".picker-values"),
-                        div: currentDiv
-                      };
+        multiple: $picker.hasClass("picker-multiple"),
+        picker: $picker,
+        name: $picker.data('picker-name'),
+        values: $picker.find(".picker-values"),
+        div: currentDiv
+      };
     }
 
     _load(url) {

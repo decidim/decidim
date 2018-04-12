@@ -1,0 +1,103 @@
+<%
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          Estás creando una <strong>consulta ciudadana.</strong>
+        </p>
+        <p>
+          <a href="#">Más información</a>.
+        </p>
+      </div>
+      <div class="show-for-large">
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol class="wizard__steps">
+          <li>Crea tu iniciativa</li>
+          <li class="step--active">Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="callout secondary mb-sm">
+        <p>
+          Rellena los siguientes campos para validar la iniciativa ciudadana.
+        </p>
+      </div>
+      <h2 class="section-heading">Valida tu iniciativa</h2>
+      <div class="hide-for-large m-bottom">
+        <span class="text-small">Paso 1 de 3 (<a data-toggle="steps">ver pasos</a>)</span>
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+          <li class="step--active">Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <form>
+            <div>
+              <div>
+                <label>Nombre y apellidos *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>DNI/NIE *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>Domicilio (Calle, Nº, Piso, Puerta) *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>Población *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>Provincia *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>Codi postal *
+                  <input type="text">
+                </label>
+              </div>
+              <div>
+                <label>Teléfono *
+                  <input type="text">
+                </label>
+              </div>
+              <div class="pb-s">
+                <small class="text-small">Les dades personals recollides serán incorporades i tractades en el sistema informàtic de l'Ajuntament de Barcelona i només es podrán cedir de conformitat amb la Llei Orgànica 15/1999, del 13 de desembre, de Protecció de Dades de Caràcter Personal, poden la persona interessada exercir els drets d'access, rectificació, cancel·lació i oposició, tal com estableix l'article 5 de l'esmentada llei.</small>
+              </div>
+            </div>
+            <%= link_to page_path("initiatives/initiatives-support-step-4") do %>
+              <button type="button" class="button expanded mt-s mb-none">Continuar</button>
+            <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

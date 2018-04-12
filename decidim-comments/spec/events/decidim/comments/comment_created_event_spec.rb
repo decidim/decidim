@@ -10,8 +10,9 @@ describe Decidim::Comments::CommentCreatedEvent do
   let(:comment_author) { comment.author }
   let(:event_name) { "decidim.events.comments.comment_created" }
   let(:extra) { { comment_id: comment.id } }
+  let(:i18n_scope) { "decidim.events.comments.comment_created.comment" }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

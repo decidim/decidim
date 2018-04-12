@@ -14,6 +14,7 @@ module Decidim
 
         helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
+        helper Decidim::Admin::BulkActionsHelper
 
         helper_method :current_feature,
                       :current_participatory_space,

@@ -2,25 +2,30 @@ fr:
   activemodel:
     attributes:
       assembly:
+        area_id: Région
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
+        decidim_area_id: Région
+        decidim_scope_id: Portée
         description: Description
-        developer_group: Groupe d'initiateurs
+        developer_group: Organisateur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Localisation
-        meta_scope: Metadonnée de la zone d’application
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        local_area: Périmètre
+        meta_scope: Échelle
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mis en avant
-        scope_id: Zone d'application
-        scopes_enabled: Zone d'application activées
+        published_at: Publié à
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
+        show_statistics: Montrez les statistiques
         slug: Identifiant
         subtitle: Sous-titre
-        target: Public visé
+        target: Participants
         title: Titre
   decidim:
     admin:
@@ -80,9 +85,11 @@ fr:
         assemblies: Agora
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
+          attachment_collections: Dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctions
+          features: Fonctionnalités
           info: Information
           moderations: Modérations
       models:
@@ -105,10 +112,21 @@ fr:
             moderator: Modérateur
       titles:
         assemblies: Agora
+    admin_log:
+      assembly:
+        create: "%{user_name} a créé l'assemblage %{resource_name}"
+        publish: "%{user_name} a publié l'assembly %{resource_name}"
+        unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
+        update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assembly %{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assembly %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Sélectionnez une zone
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
@@ -121,16 +139,18 @@ fr:
             active_assemblies: Agora actives
             see_all_assemblies: Voir toutes les Agora
       show:
-        developer_group: Groupe d'initiateurs
-        local_area: Localisation
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
-        scope: Zone d'application
-        target: Public visé
+        area: Région
+        developer_group: Organisateur
+        local_area: Périmètre
+        participatory_scope: Objectif
+        participatory_structure: Modalités
+        scope: Échelle
+        target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes

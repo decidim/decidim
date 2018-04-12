@@ -9,7 +9,7 @@ module Capybara
     RSpec::Matchers.define :have_scope_picked do |expected|
       match do |scope_picker|
         data_picker = scope_picker.data_picker
-        scope_name = expected ? translated(expected.name) : I18n.t("decidim.scopes.global")
+        scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
         expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
         expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
@@ -18,7 +18,7 @@ module Capybara
     RSpec::Matchers.define :have_scope_not_picked do |expected|
       match do |scope_picker|
         data_picker = scope_picker.data_picker
-        scope_name = expected ? translated(expected.name) : I18n.t("decidim.scopes.global")
+        scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
         expect(data_picker).not_to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
         expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
@@ -83,7 +83,7 @@ module Capybara
     def scope_picker_browse_scope(scope, back: false)
       body = find(:xpath, "//body")
       where = back ? "header" : "content"
-      scope_name = scope ? translated(scope.name) : I18n.t("decidim.scopes.global")
+      scope_name = scope ? translated(scope.name) : t("decidim.scopes.global")
       expect(body).to have_selector("#data_picker-modal .picker-#{where} a", text: scope_name)
       body.find("#data_picker-modal .picker-#{where} a", text: scope_name).click
     end

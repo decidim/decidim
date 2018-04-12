@@ -29,9 +29,7 @@ module Decidim::Admin
         end
 
         it "doesn't create a newsletter" do
-          expect do
-            command.call
-          end.not_to change { newsletter.reload.updated_at }
+          expect { command.call }.not_to(change { newsletter.reload.updated_at })
         end
       end
 
@@ -46,6 +44,19 @@ module Decidim::Admin
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "traces the creation", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:update!)
+            .with(newsletter, user, a_kind_of(Hash))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "update"
         end
 
         it "updates the newsletter" do

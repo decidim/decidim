@@ -31,7 +31,11 @@ module Decidim
       attr_reader :form
 
       def update_page
-        @page.update_attributes!(attributes)
+        Decidim.traceability.update!(
+          @page,
+          form.current_user,
+          attributes
+        )
       end
 
       def attributes

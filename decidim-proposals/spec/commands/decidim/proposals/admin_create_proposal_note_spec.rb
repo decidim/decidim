@@ -9,7 +9,7 @@ module Decidim
         describe "call" do
           let(:proposal) { create(:proposal) }
           let(:current_user) { create(:user, :admin, organization: proposal.feature.organization) }
-          let(:form) { ProposalNoteForm.from_params(form_params) }
+          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user: current_user) }
 
           let(:form_params) do
             {
@@ -17,7 +17,7 @@ module Decidim
             }
           end
 
-          let(:command) { described_class.new(form, proposal, current_user) }
+          let(:command) { described_class.new(form, proposal) }
 
           describe "when the form is not valid" do
             before do
@@ -31,7 +31,7 @@ module Decidim
             it "doesn't create the proposal note" do
               expect do
                 command.call
-              end.to change { ProposalVote.count }.by(0)
+              end.to change(ProposalVote, :count).by(0)
             end
           end
 
@@ -47,7 +47,18 @@ module Decidim
             it "creates the proposal notes" do
               expect do
                 command.call
-              end.to change { ProposalNote.count }.by(1)
+              end.to change(ProposalNote, :count).by(1)
+            end
+
+            it "traces the action", versioning: true do
+              expect(Decidim.traceability)
+                .to receive(:create!)
+                .with(ProposalNote, current_user, hash_including(:body, :proposal, :author), resource: hash_including(:title))
+                .and_call_original
+
+              expect { command.call }.to change(ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.version).to be_present
             end
           end
         end

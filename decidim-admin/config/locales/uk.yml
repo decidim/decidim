@@ -1,10 +1,22 @@
 uk:
   activemodel:
     attributes:
+      area:
+        area_type: Різновид терену
+        name: Назва
+        organization: Організація
+      area_type:
+        name: Назва
+        organization: Організація
+        plural: Множина
       attachment:
+        attachment_collection_id: Збірка
         description: Опис
         file: Файл
-        title: Назва
+        title: Заголовок
+      attachment_collection:
+        description: Опис
+        name: Назва
       category:
         description: Опис
         name: Ім'я
@@ -17,22 +29,37 @@ uk:
         body: Основний текст
         subject: Тема
       organization:
-        default_locale: Мова за замовчуванням
-        name: Назва
-        reference_prefix: Довідковий префікс
-      organization_appearance:
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
+        default_locale: Мова за замовчуванням
         description: Опис
+        enable_omnipresent_banner: Показувати всюдисущий банер
+        facebook_handler: Адреса Facebook
         favicon: Значок
+        github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
+        highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
+        highlighted_content_banner_action_title: Заголовок кнопки дії
+        highlighted_content_banner_action_url: URL-адреса кнопки дії
+        highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
+        highlighted_content_banner_image: Зображення
+        highlighted_content_banner_short_description: Стислий опис
+        highlighted_content_banner_title: Заголовок
         homepage_image: Зображення головної сторінки
+        instagram_handler: Адреса Instagram
         logo: Логотип
+        name: Назва
         official_img_footer: Нижній колонтитул офіційного логотипу
         official_img_header: Заголовок офіційного логотипу
         official_url: Офіційна URL-адреса організації
+        omnipresent_banner_short_description: Стислий опис
+        omnipresent_banner_title: Заголовок
+        omnipresent_banner_url: URL-адреса
+        reference_prefix: Довідковий префікс
         show_statistics: Показувати статистику
+        twitter_handler: Адреса Twitter
         welcome_text: Текст привітання
+        youtube_handler: Адреса YouTube
       scope:
         code: Код
         name: Назва
@@ -46,7 +73,7 @@ uk:
         content: Вміст
         organization: Організація
         slug: Скорочена URL-адреса
-        title: Назва
+        title: Заголовок
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -57,7 +84,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Терен
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
@@ -68,7 +95,7 @@ uk:
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Назва
+        title: Заголовок
       decidim/participatory_process_group:
         description: Опис
         hero_image: Зображення головної сторінки
@@ -80,7 +107,7 @@ uk:
       decidim/static_page:
         content: Вміст
         slug: Скорочена URL-адреса
-        title: Назва
+        title: Заголовок
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -94,6 +121,55 @@ uk:
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
+      area_types:
+        create:
+          error: При створенні нового різновиду терену сталася помилка.
+          success: Різновид терену успішно створено.
+        destroy:
+          success: Різновид терену успішно видалено
+        edit:
+          title: Редагувати різновид терену
+          update: Оновити
+        new:
+          create: Створити різновид терену
+          title: Новий різновид терену
+        update:
+          error: При оновленні цього різновиду терену сталася помилка.
+          success: Різновид терену успішно оновлено
+      areas:
+        create:
+          error: При створенні нового терену сталася помилка.
+          success: Терен успішно створено.
+        destroy:
+          success: Терен успішно видалено
+        edit:
+          title: Редагувати терен
+          update: Оновити
+        new:
+          create: Створити терен
+          title: Новий терен
+        no_areas: Немає теренів
+        update:
+          error: При оновленні цього терену сталася помилка.
+          success: Терен успішно оновлено
+      attachment_collections:
+        create:
+          error: При створенні нової збірки сталася помилка.
+          success: Збірку успішно створено.
+        destroy:
+          success: Збірку успішно видалено.
+        edit:
+          title: Редагувати збірку
+          update: Оновити
+        index:
+          attachment_collection_used: Цю збірку не можна видалити, оскільки вона використовується.
+          attachment_collections_title: Збірки вкладень
+        new:
+          create: Створити
+          title: Додати збірку
+        update:
+          error: При оновленні цієї збірки сталася помилка.
+          success: Збірку успішно оновлено.
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -132,6 +208,7 @@ uk:
           success: Розділ успішно оновлено.
       dashboard:
         show:
+          view_more_logs: Переглянути інші журнали
           welcome: Ласкаво просимо до адмін-панелі Десідім!
       exports:
         export_as: "%{name} як %{export_format}"
@@ -197,6 +274,7 @@ uk:
         new:
           create: Створити
           new_managed_user: Новий керований учасник
+          no_authorization_handlers: Немає доступних шляхів підтвердження особи для керування учасниками. Будь ласка, зв'яжіться зі своїм системним адміністратором.
           select_authorization_method: Оберіть спосіб підтвердження своєї особи
           step: '%{current}-й крок з %{total} кроків'
         promotion:
@@ -208,8 +286,11 @@ uk:
             new_managed_user_promotion: Нове підвищення керованого учасника
             promote: Підвищити
       menu:
+        admin_log: Журнал діяльності адміністратора
         admins: Адміністратори
         appearance: Зовнішній вигляд
+        area_types: Різновиди теренів
+        areas: Терени
         configuration: Конфігурація
         dashboard: Приладна дошка
         managed_users: Керовані учасники
@@ -222,11 +303,23 @@ uk:
         user_groups: Групи учасників
         users: Учасники
       models:
+        area:
+          fields:
+            area_type: Різновид терену
+            name: Назва
+        area_type:
+          fields:
+            name: Назва
+            plural: Множина
         attachment:
           fields:
+            collection: Збірка
             content_type: Різновид
-            title: Назва
+            file_size: Розмір
+            title: Заголовок
           name: Вкладений файл
+        attachment_collection:
+          name: Збірка
         category:
           name: Розділ
         impersonation_log:
@@ -256,7 +349,7 @@ uk:
         static_page:
           fields:
             created_at: 'Створено:'
-            title: Назва
+            title: Заголовок
         user:
           fields:
             created_at: Дата створення
@@ -364,7 +457,9 @@ uk:
           cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
           header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
           homepage_appearance_title: Редагувати вигляд головної сторінки
+          homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
+          omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       scope_types:
         create:
           error: При створенні нового різновиду терену сталася помилка.
@@ -408,11 +503,15 @@ uk:
           title: Редагувати сторінку
           update: Оновити
         new:
+          create: Створити
           title: Нова сторінка
         update:
           error: При оновленні цієї сторінки сталася помилка.
           success: Сторінку успішно оновлено
       titles:
+        admin_log: Журнал адміністратора
+        area_types: Різновиди теренів
+        areas: Терени
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника

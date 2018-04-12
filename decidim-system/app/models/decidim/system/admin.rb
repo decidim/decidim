@@ -4,7 +4,7 @@ module Decidim
   module System
     # Admins are the users in charge of managing a Decidim installation.
     class Admin < ApplicationRecord
-      devise :database_authenticatable, :recoverable, :rememberable, :validatable
+      devise :database_authenticatable, :rememberable, :validatable
 
       validates :email, uniqueness: true
 

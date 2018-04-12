@@ -7,12 +7,15 @@ module Decidim
     class Meeting < Meetings::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasFeature
       include Decidim::HasReference
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -21,6 +24,13 @@ module Decidim
       validates :title, presence: true
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
+
+      scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
+      scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Meetings::AdminLog::MeetingPresenter
+      end
 
       def closed?
         closed_at.present?

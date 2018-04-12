@@ -1,5 +1,8 @@
 fr:
   decidim:
+    admin_log:
+      page:
+        update: "%{user_name} a mis à jour la page %{resource_name} dans %{space_name}"
     features:
       pages:
         name: Page

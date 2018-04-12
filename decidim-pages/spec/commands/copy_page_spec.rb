@@ -24,7 +24,7 @@ module Decidim
           it "doesn't duplicate the page" do
             expect do
               command.call
-            end.not_to change { Page.count }
+            end.not_to change(Page, :count)
           end
         end
 
@@ -38,7 +38,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { Page.count }.by(1)
+            end.to change(Page, :count).by(1)
           end
         end
       end

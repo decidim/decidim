@@ -8,6 +8,13 @@ module Decidim
 
     let(:user_group) { create(:user_group) }
 
+    it { is_expected.to be_versioned }
+
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::UserGroupPresenter
+    end
+
     it "is valid" do
       expect(subject).to be_valid
     end

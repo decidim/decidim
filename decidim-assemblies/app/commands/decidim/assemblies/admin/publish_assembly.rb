@@ -8,8 +8,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # assembly - A Assembly that will be published
-        def initialize(assembly)
+        # current_user - the user performing the action
+        def initialize(assembly, current_user)
           @assembly = assembly
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,13 +23,16 @@ module Decidim
         def call
           return broadcast(:invalid) if assembly.nil? || assembly.published?
 
-          assembly.publish!
+          Decidim.traceability.perform_action!("publish", assembly, current_user) do
+            assembly.publish!
+          end
+
           broadcast(:ok)
         end
 
         private
 
-        attr_reader :assembly
+        attr_reader :assembly, :current_user
       end
     end
   end

@@ -11,7 +11,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
   let(:extra) { { comment_id: comment.id } }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

@@ -1,32 +1,44 @@
 fi:
   activemodel:
     attributes:
+      area:
+        area_type: Alueen tyyppi
+        name: Nimi
+        organization: organisaatio
+      area_type:
+        name: Nimi
+        organization: organisaatio
+        plural: monikko
       attachment:
+        attachment_collection_id: Kokoelma
         description: Kuvaus
         file: Tiedosto
         title: Otsikko
+      attachment_collection:
+        description: Kuvaus
+        name: Nimi
       category:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
       feature:
         name: Nimi
+        published_at: Julkaistu osoitteessa
         weight: Painoarvo
       id: ID
       newsletter:
         body: Runko
         subject: Otsikko
       organization:
+        cta_button_path: Call To Action -painikkeen polku
+        cta_button_text: Call To Action -painikkeen teksti
         default_locale: Oletuskieli
-        name: Nimi
-        reference_prefix: Viitteen etuliite
-      organization_appearance:
-        cta_button_path: Toimintopainikkeen (Call To Action) polku
-        cta_button_text: Toimintopainikkeen (Call To Action) teksti
         description: Kuvaus
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
-        favicon: Ikoni
-        header_snippets: Yläosion koodit
+        facebook_handler: Facebook-käsittelijä
+        favicon: ikoni
+        github_handler: GitHub-käsittelijä
+        header_snippets: Yläotsikot
         highlighted_content_banner_action_subtitle: Toiminnon painikkeen tekstitys
         highlighted_content_banner_action_title: Toiminnon painikkeen otsikko
         highlighted_content_banner_action_url: Toimintonäppäimen URL-osoite
@@ -35,20 +47,27 @@ fi:
         highlighted_content_banner_short_description: Lyhyt kuvaus
         highlighted_content_banner_title: otsikko
         homepage_image: Kotisivun kuva
+        instagram_handler: Instagram-käsittelijä
         logo: Logo
-        official_img_footer: Virallinen alapalkin logo
-        official_img_header: Virallinen yläpalkin logo
+        name: Nimi
+        official_img_footer: Virallinen logo-alatunniste
+        official_img_header: Virallinen logo header
         official_url: Virallinen organisaation URL-osoite
         omnipresent_banner_short_description: Lyhyt kuvaus
-        omnipresent_banner_title: Otsikko
+        omnipresent_banner_title: otsikko
         omnipresent_banner_url: URL-
+        reference_prefix: Viitteen etuliite
         show_statistics: Näytä tilastot
-        welcome_text: Tervetuloa-teksti
+        twitter_handler: Twitter käsittelijä
+        welcome_text: Tervetulotoivotus
+        youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
         name: Nimi
         organization: Organisaatio
+        parent_id: vanhempi
         scope_type: Kontekstin tyyppi
+        scope_type_id: Laajuuden tyyppi
       scope_type:
         name: Nimi
         organization: Organisaatio
@@ -105,6 +124,55 @@ fi:
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
+      area_types:
+        create:
+          error: Uuden aluetyypin luomisessa tapahtui virhe.
+          success: Aluetyyppi luotu onnistuneesti.
+        destroy:
+          success: Alueen tyyppi onnistuneesti tuhoutunut
+        edit:
+          title: Muokkaa aluetyyppiä
+          update: Päivittää
+        new:
+          create: Luo aluetyyppi
+          title: Uusi alue tyyppi
+        update:
+          error: Alueen tyyppiä päivitettäessä tapahtui virhe.
+          success: Alueen tyyppi on päivitetty onnistuneesti
+      areas:
+        create:
+          error: Virhe aiheutti uuden alueen luomisen.
+          success: Alue luotiin onnistuneesti.
+        destroy:
+          success: Alue onnistuneesti tuhoutui
+        edit:
+          title: Muokkaa aluetta
+          update: Päivittää
+        new:
+          create: Luo alue
+          title: Uusi alue
+        no_areas: Ei alueita
+        update:
+          error: Virhe päivitettäessä tätä aluetta.
+          success: Alue päivitettiin onnistuneesti
+      attachment_collections:
+        create:
+          error: Virhe uuden kokoelman luomisessa.
+          success: Kokoelma on luotu onnistuneesti.
+        destroy:
+          success: Kokoelma on tuhottu onnistuneesti.
+        edit:
+          title: Muokkaa kokoelmia
+          update: Päivittää
+        index:
+          attachment_collection_used: Tätä kokoelmaa ei voida poistaa, koska se on käytössä.
+          attachment_collections_title: Liitetiedostot
+        new:
+          create: Luoda
+          title: Uusi kokoelma
+        update:
+          error: Tämän kokoelman päivittämisessä tapahtui virhe.
+          success: Kokoelma on päivitetty onnistuneesti.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
@@ -143,6 +211,7 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
+          view_more_logs: Näytä lisää lokeja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
@@ -185,6 +254,9 @@ fi:
         update:
           error: Tämän ominaisuuden päivityksessä tapahtui virhe.
           success: Ominaisuus päivitetty onnistuneesti.
+      logs:
+        logs_list:
+          no_logs_yet: Ei vielä lokeja
       managed_users:
         close_session:
           error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.
@@ -220,8 +292,11 @@ fi:
             new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
       menu:
+        admin_log: Hallintatoimintojen loki
         admins: Ylläpitäjät
         appearance: Ulkoasu
+        area_types: Alueen tyypit
+        areas: alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
@@ -234,11 +309,23 @@ fi:
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
       models:
+        area:
+          fields:
+            area_type: Alueen tyyppi
+            name: Nimi
+        area_type:
+          fields:
+            name: Nimi
+            plural: monikko
         attachment:
           fields:
+            collection: Kokoelma
             content_type: Tyyppi
+            file_size: Koko
             title: Otsikko
           name: Liite
+        attachment_collection:
+          name: Kokoelma
         category:
           name: Aihepiiri
         impersonation_log:
@@ -428,6 +515,9 @@ fi:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
       titles:
+        admin_log: Admin-loki
+        area_types: Alueen tyypit
+        areas: alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä

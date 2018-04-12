@@ -7,6 +7,18 @@ pt-BR:
         mandatory: Obrigatório
         question_type: Tipo
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A pesquisa %{resource_title} em %{participatory_space_title} foi fechada.
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma pesquisa terminou em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> terminou.
+        survey_opened:
+          email_intro: 'A pesquisa %{resource_title} em %{participatory_space_title} está agora aberta. Você pode participar desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma nova pesquisa em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
     features:
       surveys:
         actions:

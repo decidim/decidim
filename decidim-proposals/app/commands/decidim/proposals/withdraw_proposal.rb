@@ -30,7 +30,7 @@ module Decidim
       private
 
       def change_proposal_state_to_withdrawn
-        @proposal.update_attributes state: "withdrawn"
+        @proposal.update state: "withdrawn"
       end
     end
   end

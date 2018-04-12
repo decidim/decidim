@@ -7,18 +7,15 @@ module Decidim
     describe QueriesController, type: :controller do
       routes { Decidim::Api::Engine.routes }
 
-      let!(:participatory_process) { create(:participatory_process) }
-      let!(:other_participatory_process) { create(:participatory_process) }
-
       before do
-        request.env["decidim.current_organization"] = participatory_process.organization
+        request.env["decidim.current_organization"] = create(:organization)
       end
 
       it "executes a query" do
-        post :create, params: { query: "{ processes { id }}" }
+        post :create, params: { query: "{ __schema { queryType { name } } }" }
 
         parsed_response = JSON.parse(response.body)["data"]
-        expect(parsed_response["processes"]).to eq(["id" => participatory_process.id.to_s])
+        expect(parsed_response["__schema"]["queryType"]["name"]).to eq("Query")
       end
     end
   end

@@ -2,6 +2,11 @@
 
 # A collection of methods to help dealing with translated attributes.
 module TranslationHelpers
+  # Allows using the `t` shortcut inside specs just like in views
+  def t(key, scope: nil)
+    I18n.t(key, scope: scope, raise: true)
+  end
+
   # Gives the localized version of the attribute for the given locale. The
   # locale defaults to the application's default one.
   #
@@ -79,7 +84,7 @@ module TranslationHelpers
   def fill_in_i18n_fields(field, tab_selector, localized_values)
     localized_values.each do |locale, value|
       within tab_selector do
-        click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
     end

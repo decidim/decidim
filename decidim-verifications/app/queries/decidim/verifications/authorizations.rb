@@ -6,10 +6,12 @@ module Decidim
     class Authorizations < Rectify::Query
       # Initializes the class.
       #
+      # @param organization [Organization] The organization where this authorization belongs to
       # @param name [String] The name of an authorization method
       # @param user [User] A user to find authorizations for
       # @param granted [Boolean] Whether the authorization is granted or not
-      def initialize(user: nil, name: nil, granted: nil)
+      def initialize(organization:, user: nil, name: nil, granted: nil)
+        @organization = organization
         @user = user
         @name = name
         @granted = granted
@@ -19,7 +21,7 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation.
       def query
-        scope = Decidim::Authorization.where(nil)
+        scope = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
 
         scope = scope.where(name: name) unless name.nil?
         scope = scope.where(user: user) unless user.nil?
@@ -35,7 +37,7 @@ module Decidim
 
       private
 
-      attr_reader :user, :name, :granted
+      attr_reader :user, :name, :granted, :organization
     end
   end
 end

@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
-    class ParticipatoryProcessesController < Decidim::ApplicationController
+    class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
 
@@ -12,6 +12,7 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ResourceReferenceHelper
 
       helper ParticipatoryProcessHelper
 
@@ -57,11 +58,11 @@ module Decidim
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
-        @process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
+        @participatory_process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
       end
 
       def stats

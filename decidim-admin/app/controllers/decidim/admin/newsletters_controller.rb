@@ -78,13 +78,16 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :destroy, @newsletter
 
-        if @newsletter.sent?
-          flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
-          redirect_to :back
-        else
-          @newsletter.destroy!
-          flash[:notice] = I18n.t("newsletters.destroy.success", scope: "decidim.admin")
-          redirect_to action: :index
+        DestroyNewsletter.call(@newsletter, current_user) do
+          on(:already_sent) do
+            flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
+            redirect_to :back
+          end
+
+          on(:ok) do
+            flash[:notice] = I18n.t("newsletters.destroy.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
         end
       end
 
@@ -92,7 +95,7 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
 
-        DeliverNewsletter.call(@newsletter) do
+        DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index

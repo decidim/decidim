@@ -26,7 +26,7 @@ module Decidim
 
         @form = form(InviteUserForm).from_params(params.merge(default_params))
 
-        InviteUser.call(@form) do
+        InviteAdmin.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("users.create.success", scope: "decidim.admin")
             redirect_to users_path
@@ -58,7 +58,7 @@ module Decidim
       def destroy
         authorize! :destroy, :admin_users
 
-        RemoveAdmin.call(user) do
+        RemoveAdmin.call(user, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("users.destroy.success", scope: "decidim.admin")
           end

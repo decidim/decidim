@@ -1,32 +1,44 @@
 nl:
   activemodel:
     attributes:
+      area:
+        area_type: Soort gebied
+        name: Naam
+        organization: Organisatie
+      area_type:
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
       attachment:
+        attachment_collection_id: Verzameling
         description: Beschrijving
         file: Bestand
         title: Titel
+      attachment_collection:
+        description: Beschrijving
+        name: Naam
       category:
         description: Beschrijving
         name: Naam
         parent_id: Ouder
       feature:
         name: Naam
+        published_at: Gepubliceerd op
         weight: Gewicht
       id: ID
       newsletter:
         body: Body
         subject: Onderwerp
       organization:
+        cta_button_path: Oproep naar actieknop pad
+        cta_button_text: Call To Action-knoptekst
         default_locale: Standaard taal
-        name: Naam
-        reference_prefix: Referentievoorvoegsel
-      organization_appearance:
-        cta_button_path: Call to Action knop pad
-        cta_button_text: Oproep naar actie knop tekst
         description: Beschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
+        facebook_handler: Facebook handler
         favicon: Icoon
-        header_snippets: Header snippets
+        github_handler: GitHub-handler
+        header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Actieknop ondertitel
         highlighted_content_banner_action_title: Actieknop titel
         highlighted_content_banner_action_url: Actieknop URL
@@ -35,20 +47,27 @@ nl:
         highlighted_content_banner_short_description: Korte beschrijving
         highlighted_content_banner_title: Titel
         homepage_image: Homepage afbeelding
+        instagram_handler: Instagram handler
         logo: Logo
+        name: Naam
         official_img_footer: Officiële logo voettekst
-        official_img_header: Officiële logo header
-        official_url: URL van de officiële organisatie
+        official_img_header: Officiële logo-header
+        official_url: Officiële organisatie-URL
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        reference_prefix: Referentievoorvoegsel
         show_statistics: Toon statistieken
-        welcome_text: Welkom tekst
+        twitter_handler: Twitter-handler
+        welcome_text: Welkomsttekst
+        youtube_handler: YouTube-handler
       scope:
         code: Code
         name: Naam
         organization: Organisatie
+        parent_id: Ouder
         scope_type: Scope type
+        scope_type_id: Scope type
       scope_type:
         name: Naam
         organization: Organisatie
@@ -105,6 +124,55 @@ nl:
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
+      area_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw gebiedstype.
+          success: Gebiedstype met succes gemaakt.
+        destroy:
+          success: Gebiedstype met succes vernietigd
+        edit:
+          title: Gebiedstype bewerken
+          update: Bijwerken
+        new:
+          create: Maak een gebiedstype
+          title: Nieuw gebiedstype
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit gebiedstype.
+          success: Gebiedstype is succesvol bijgewerkt
+      areas:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw gebied.
+          success: Gebied met succes gemaakt.
+        destroy:
+          success: Gebied met succes vernietigd
+        edit:
+          title: Gebied bewerken
+          update: Bijwerken
+        new:
+          create: Maak een gebied
+          title: Nieuw gebied
+        no_areas: Geen gebieden
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit gebied.
+          success: Gebied met succes bijgewerkt
+      attachment_collections:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
+          success: Verzameling succesvol gemaakt.
+        destroy:
+          success: Collectie succesvol vernietigd.
+        edit:
+          title: Bewerk verzameling
+          update: Bijwerken
+        index:
+          attachment_collection_used: Deze verzameling kan niet worden verwijderd omdat deze in gebruik is.
+          attachment_collections_title: Attachment collecties
+        new:
+          create: creëren
+          title: Nieuwe collectie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze verzameling.
+          success: Verzameling succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -143,6 +211,7 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       dashboard:
         show:
+          view_more_logs: Bekijk meer logs
           welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -185,6 +254,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze functionaliteit.
           success: De functionaliteit is succesvol bijgewerkt.
+      logs:
+        logs_list:
+          no_logs_yet: Er zijn nog geen logs
       managed_users:
         close_session:
           error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
@@ -220,8 +292,11 @@ nl:
             new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
+        admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
+        area_types: Gebiedstypen
+        areas: gebieden
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -234,11 +309,23 @@ nl:
         user_groups: Gebruikersgroepen
         users: Gebruikers
       models:
+        area:
+          fields:
+            area_type: Soort gebied
+            name: Naam
+        area_type:
+          fields:
+            name: Naam
+            plural: Meervoud
         attachment:
           fields:
+            collection: Verzameling
             content_type: Type
+            file_size: Grootte
             title: Titel
           name: Bijlage
+        attachment_collection:
+          name: Verzameling
         category:
           name: Categorie
         impersonation_log:
@@ -428,6 +515,9 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
+        admin_log: Beheerderslog
+        area_types: Gebiedstypen
+        areas: gebieden
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen

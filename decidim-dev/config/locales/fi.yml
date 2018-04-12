@@ -1,4 +1,12 @@
 fi:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Luotu osoitteessa
+        field: Oma kenttä
+        start_date: Aloituspäivämäärä
+        title: otsikko
+        updated_at: Päivitetty klo
   decidim:
     dummy:
       admin:

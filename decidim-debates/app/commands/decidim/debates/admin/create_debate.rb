@@ -28,7 +28,9 @@ module Decidim
         attr_reader :debate, :form
 
         def create_debate
-          @debate = Debate.create!(
+          @debate = Decidim.traceability.create!(
+            Debate,
+            form.current_user,
             category: form.category,
             title: form.title,
             description: form.description,

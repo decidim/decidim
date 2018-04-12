@@ -13,7 +13,7 @@ describe("<UpVoteButton />", () => {
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResources::DummyResource",
+    type: "Decidim::DummyResources::DummyResource"
   };
   let comment: UpVoteButtonFragment;
   let session: any = null;
@@ -22,7 +22,7 @@ describe("<UpVoteButton />", () => {
   beforeEach(() => {
     const commentsData = generateCommentsData(1);
     session = {
-      user: generateUserData(),
+      user: generateUserData()
     };
     comment = commentsData[0];
   });

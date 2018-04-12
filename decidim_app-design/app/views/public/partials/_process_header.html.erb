@@ -16,7 +16,11 @@
         </div>
       </div>
       <div class="columns mediumlarge-3">
-        <%= partial "process_phase" %>
+        <% if is("initiatives") %>
+          <%= render partial: page_path("initiatives") + "/process_phase" %>
+        <% else %>
+          <%= partial "process_phase" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -34,11 +34,17 @@ module Decidim
         attr_reader :form, :proposal
 
         def answer_proposal
-          proposal.update_attributes!(
-            state: @form.state,
-            answer: @form.answer,
-            answered_at: Time.current
-          )
+          Decidim.traceability.perform_action!(
+            "answer",
+            proposal,
+            form.current_user
+          ) do
+            proposal.update!(
+              state: @form.state,
+              answer: @form.answer,
+              answered_at: Time.current
+            )
+          end
         end
 
         def notify_followers

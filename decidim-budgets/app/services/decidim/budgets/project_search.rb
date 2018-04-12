@@ -22,7 +22,7 @@ module Decidim
 
       # Returns the random projects for the current page.
       def results
-        @projects ||= Project.transaction do
+        @results ||= Project.transaction do
           Project.connection.execute("SELECT setseed(#{Project.connection.quote(random_seed)})")
           super.reorder("RANDOM()").load
         end

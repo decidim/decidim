@@ -23,13 +23,13 @@ module Decidim
 
           def new
             authorize! :create, authorization_object
-            @form = form(AttachmentForm).instance
+            @form = form(AttachmentForm).from_params({}, attached_to: attached_to)
             render template: "decidim/admin/attachments/new"
           end
 
           def create
             authorize! :create, authorization_object
-            @form = form(AttachmentForm).from_params(params)
+            @form = form(AttachmentForm).from_params(params, attached_to: attached_to)
 
             CreateAttachment.call(@form, attached_to) do
               on(:ok) do
@@ -47,14 +47,14 @@ module Decidim
           def edit
             @attachment = collection.find(params[:id])
             authorize! :update, authorization_object
-            @form = form(AttachmentForm).from_model(@attachment)
+            @form = form(AttachmentForm).from_model(@attachment, attached_to: attached_to)
             render template: "decidim/admin/attachments/edit"
           end
 
           def update
             @attachment = collection.find(params[:id])
             authorize! :update, authorization_object
-            @form = form(AttachmentForm).from_params(attachment_params)
+            @form = form(AttachmentForm).from_params(attachment_params, attached_to: attached_to)
 
             UpdateAttachment.call(@attachment, @form) do
               on(:ok) do

@@ -9,7 +9,7 @@ import {
   CommentFragment,
   GetCommentsQuery,
   UpVoteButtonFragment,
-  UpVoteMutation,
+  UpVoteMutation
 } from "../support/schema";
 
 interface UpVoteButtonProps {
@@ -25,7 +25,7 @@ interface UpVoteButtonProps {
 export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
   session,
   comment: { upVotes, upVoted, downVoted },
-  upVote,
+  upVote
 }) => {
   let selectedClass = "";
 
@@ -58,7 +58,7 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
   props: ({ ownProps, mutate }: { ownProps: UpVoteButtonProps, mutate: MutationFunc<UpVoteMutation> }) => ({
     upVote: () => mutate({
       variables: {
-        id: ownProps.comment.id,
+        id: ownProps.comment.id
       },
       optimisticResponse: {
         __typename: "Mutation",
@@ -68,15 +68,15 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
             __typename: "Comment",
             ...ownProps.comment,
             upVotes: ownProps.comment.upVotes + 1,
-            upVoted: true,
-          },
-        },
+            upVoted: true
+          }
+        }
       },
       update: (store, { data }: { data: UpVoteMutation }) => {
         const variables = {
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
-          orderBy: ownProps.orderBy,
+          orderBy: ownProps.orderBy
         };
 
         const commentReducer = (comment: CommentFragment): CommentFragment => {
@@ -88,7 +88,7 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
 
           return {
             ...comment,
-            comments: replies.map(commentReducer),
+            comments: replies.map(commentReducer)
           };
         };
 
@@ -101,15 +101,15 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
               ...prev,
               commentable: {
                 ...prev.commentable,
-                comments: prev.commentable.comments.map(commentReducer),
-              },
+                comments: prev.commentable.comments.map(commentReducer)
+              }
             },
-            variables,
+            variables
           });
         }
-      },
-    }),
-  }),
+      }
+    })
+  })
 })(UpVoteButton);
 
 export default UpVoteButtonWithMutation;

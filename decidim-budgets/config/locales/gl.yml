@@ -11,6 +11,7 @@ gl:
   decidim:
     budgets:
       actions:
+        attachment_collections: Coleccións
         attachments: Anexos
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar

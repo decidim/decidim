@@ -13,7 +13,7 @@ module Decidim
         @newsletter.with_lock do
           raise "Newsletter already sent" if @newsletter.sent?
 
-          @newsletter.update_attributes!(
+          @newsletter.update!(
             sent_at: Time.current,
             total_recipients: recipients.count,
             total_deliveries: 0

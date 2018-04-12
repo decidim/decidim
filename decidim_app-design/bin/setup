@@ -5,7 +5,7 @@ require "pathname"
 require "fileutils"
 
 # path to your application root.
-APP_ROOT = Pathname.new File.expand_path("../../", __FILE__)
+APP_ROOT = Pathname.new File.expand_path("..", __dir__)
 
 def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")

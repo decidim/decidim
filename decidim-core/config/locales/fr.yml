@@ -3,14 +3,20 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+      dummy_authorization_handler:
+        document_number: Numéro de document d'identité
+        postal_code: Code postal
+        birthday: Date de naissance
       report:
         details: Commentaires additionnels
       user:
+        about: À propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre identifiant court et unique pour Decidim
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
+        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -21,6 +27,7 @@ fr:
         current_password: Mot de passe actuel
         email: Email
         name: Nom d'utilisateur
+        nickname: Votre pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
         remember_me: Retenir le mot de passe
@@ -53,19 +60,59 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+    admin_log:
+      feature:
+        create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
+        delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
+        publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
+        unpublish: "%{user_name} non publié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+      moderation:
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
+      newsletter:
+        create: "%{user_name} créé le %{resource_name} bulletin"
+        delete: "%{user_name} supprimé le %{resource_name} bulletin"
+        deliver: "%{user_name} livré le %{resource_name} bulletin"
+        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+      organization:
+        update: "%{user_name} mis à jour les paramètres de l'organisation"
+      scope:
+        create: "%{user_name} a créé la portée %{resource_name}"
+        create_with_parent: "%{user_name} a créé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        delete: "%{user_name} a supprimé la portée %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        update: "%{user_name} a mis à jour la portée %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+      static_page:
+        create: "%{user_name} créé le %{resource_name} page statique"
+        delete: "%{user_name} supprimé le %{resource_name} page statique"
+        update: "%{user_name} mis à jour le %{resource_name} page statique"
+      user:
+        invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
+        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
+        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
+      user_group:
+        reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
+        verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
     anonymous_user: Anonyme
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document d'identité
         fields:
-          document_number: Numéro de document
+          document_number: Numéro de document d'identité
           postal_code: Code postal
-        name: Exemple d'autorisation
+          birthday: Date de naissance
+        name: Formulaire de vérification d'identité
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
@@ -110,7 +157,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plate-forme?
+          are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -143,13 +190,20 @@ fr:
         email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Une mise à jour de %{participatory_space_title}
         notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
-        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-        email_subject: Une mise à jour de %{participatory_space_title}
-        notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -168,11 +222,11 @@ fr:
         name: Fonctionnalité exemple
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Exemple d'attribut 1
             dummy_global_attribute_2: Exemple d'attribut 2
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Exemple d'attribut pour une étape 1
             dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
@@ -197,6 +251,23 @@ fr:
       errors:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
+    log:
+      base_presenter:
+        create: "%{user_name} créé %{resource_name}"
+        create_with_space: "%{user_name} créé %{resource_name} dans %{space_name}"
+        delete: "%{user_name} supprimé %{resource_name}"
+        delete_with_space: "%{user_name} supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} mis à jour %{resource_name}"
+        update_with_space: "%{user_name} mis à jour %{resource_name} dans %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
+        scope_presenter:
+          not_found: 'La portée n''a pas été trouvée sur la base de données (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Le type d''étendue n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -285,7 +356,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
@@ -346,7 +417,7 @@ fr:
       edit:
         header: Définir votre mot de passe
         nickname_help: Votre identifiant unique pour Decidim.
-        submit_button: sauvegarder
+        submit_button: Sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
@@ -437,7 +508,7 @@ fr:
         proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
         footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization} .
+        footer_sub_hero_headline: Bienvenue sur la plateforme participative de %{organization} .
         register: S'inscrire
       hero:
         participate: Participez
@@ -446,18 +517,19 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus participatifs
+        processes_count: Processus
         projects_count: Projets
         proposals_accepted: Propositions acceptées
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:
@@ -485,6 +557,7 @@ fr:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

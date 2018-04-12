@@ -396,7 +396,10 @@ $button-margin: 0;
 // 24. Off-canvas
 // --------------
 
-// $offcanvas-size: 250px;
+// $offcanvas-sizes: (
+//   small: 250px
+// );
+//
 $offcanvas-background: $black;
 // $offcanvas-zindex: -1;
 // $offcanvas-transition-length: 0.5s;

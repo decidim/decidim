@@ -9,15 +9,23 @@ uk:
         proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
         address: Адреса
+        available_slots: Наявні місця на цю зустріч
         decidim_category_id: Розділ
         decidim_scope_id: Терен
         description: Опис
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        registration_terms: Умови реєстрації
+        registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
-        title: Назва
+        title: Заголовок
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
     features:
       meetings:
         actions:
@@ -32,6 +40,7 @@ uk:
             comments_blocked: Коментарі вимкнено
     meetings:
       actions:
+        attachment_collections: Збірки
         attachments: Вкладені файли
         close: Закрити
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
@@ -110,7 +119,7 @@ uk:
           date: Дата
           past: Минулі
           search: Шукати
-          upcoming: Майбутні
+          upcoming: Прийдешні
         filters_small_view:
           close_modal: Закрити віконце
           filter: Відібрати
@@ -144,7 +153,7 @@ uk:
             end_time: Дата закінчення
             map: Мапа
             start_time: Дата початку
-            title: Назва
+            title: Заголовок
       read_more: "(читати далі)"
       registration_mailer:
         confirmation:
@@ -157,6 +166,16 @@ uk:
         destroy:
           invalid: При спробі скасувати реєстрацію на цю зустріч виникла проблема.
           success: Ви успішно скасували реєстрацію на зустріч.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Минулі зустрічі
+          upcoming_meetings: Прийдешні зустрічі
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Минулі зустрічі
+        see_all_meetings: Переглянути всі зустрічі
+        upcoming_meetings: Прийдешні зустрічі
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Пов''язані підсумки:'

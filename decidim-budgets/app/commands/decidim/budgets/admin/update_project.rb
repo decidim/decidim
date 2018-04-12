@@ -34,7 +34,7 @@ module Decidim
         attr_reader :project, :form
 
         def update_project
-          project.update_attributes!(
+          project.update!(
             scope: form.scope,
             category: form.category,
             title: form.title,

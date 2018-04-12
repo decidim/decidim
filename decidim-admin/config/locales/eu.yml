@@ -1,32 +1,44 @@
 eu:
   activemodel:
     attributes:
+      area:
+        area_type: Area mota
+        name: izena
+        organization: Erakundea
+      area_type:
+        name: izena
+        organization: Erakundea
+        plural: plural
       attachment:
+        attachment_collection_id: Bilduma
         description: Descripción
         file: Fitxategia
         title: Titulua
+      attachment_collection:
+        description: deskribapena
+        name: izena
       category:
         description: Descripción
         name: Izena
         parent_id: Nagusia
       feature:
         name: Izena
+        published_at: Argitaratu at
         weight: Pisua
       id: NAN
       newsletter:
         body: Testua
         subject: Gaia
       organization:
-        default_locale: Eskualdeko ezarpen lehenetsiak
-        name: Izena
-        reference_prefix: Erreferentzia-aurrizkia
-      organization_appearance:
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
-        description: Descripción
+        default_locale: Eskualdeko ezarpen lehenetsiak
+        description: deskribapena
         enable_omnipresent_banner: Erakutsi omnipresent banner
+        facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
-        header_snippets: Izenburu-snippets-ak
+        github_handler: GitHub kudeatzailea
+        header_snippets: Goiburuko mozkinak
         highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
         highlighted_content_banner_action_title: Ekintza botoien titulua
         highlighted_content_banner_action_url: Ekintza botoia URLa
@@ -34,21 +46,28 @@ eu:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Deskribapen laburra
         highlighted_content_banner_title: Izenburua
-        homepage_image: Orri nagusiko irudia
+        homepage_image: Irudiaren irudia
+        instagram_handler: Instagram kudeatzailea
         logo: Logotipo
-        official_img_footer: Orri-oineko logotipo ofiziala
-        official_img_header: Goiburuko logotipo ofiziala
+        name: Izena
+        official_img_footer: Logotipoaren logotipo ofiziala
+        official_img_header: Logotipoaren goiburu ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
         omnipresent_banner_url: URL
+        reference_prefix: Erreferentzia-aurrizkia
         show_statistics: Erakutsi estatistikak
-        welcome_text: Ongietorri-testua
+        twitter_handler: Twitter kudeatzailea
+        welcome_text: Ongietorri testua
+        youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
         name: Izena
         organization: Erakundea
+        parent_id: Guraso
         scope_type: Esparru mota
+        scope_type_id: Esparru mota
       scope_type:
         name: Izena
         organization: Erakundea
@@ -105,6 +124,55 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
+      area_types:
+        create:
+          error: Errorea eremu mota berri bat sortzean.
+          success: Area mota sortu da.
+        destroy:
+          success: Area mota behar bezala suntsitu da
+        edit:
+          title: Editatu eremu mota
+          update: eguneratzearen
+        new:
+          create: Sortu eremu mota
+          title: Area mota berria
+        update:
+          error: Errore bat gertatu da eremu mota hau eguneratzean.
+          success: Area mota eguneratu da behar bezala
+      areas:
+        create:
+          error: Errore bat gertatu da area berri bat sortzean.
+          success: Area sortu da behar bezala.
+        destroy:
+          success: Area behar bezala suntsitu da
+        edit:
+          title: Editatu eremua
+          update: eguneratzearen
+        new:
+          create: Sortu eremua
+          title: Area berria
+        no_areas: No Arloak
+        update:
+          error: Errore bat gertatu da eremu hau eguneratzean.
+          success: Area ondo eguneratu da
+      attachment_collections:
+        create:
+          error: Errore bat gertatu da bilduma berria sortzean.
+          success: Bilduma sortu da.
+        destroy:
+          success: Bilduma suntsitu egin da.
+        edit:
+          title: Editatu bilduma
+          update: eguneratzearen
+        index:
+          attachment_collection_used: Bilduma hau ezin da ezabatu erabiltzen ari delako.
+          attachment_collections_title: Eranskinen bildumak
+        new:
+          create: Sortu
+          title: Bilduma berria
+        update:
+          error: Errore bat gertatu da bilduma hau eguneratzean.
+          success: Bilduma eguneratu da.
       attachments:
         create:
           error: Errorea gertatu da fitxategi erantsi bat sortzean.
@@ -143,6 +211,7 @@ eu:
           success: Kategoria zuzen eguneratu da.
       dashboard:
         show:
+          view_more_logs: Ikusi gehiago erregistroak
           welcome: Ongi etorri Decidim Admin Panelera.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
@@ -185,6 +254,9 @@ eu:
         update:
           error: Errorea gertatu da funtzionalitate hau eguneratzean.
           success: Funtzionalitatea zuzen eguneratu da.
+      logs:
+        logs_list:
+          no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
         close_session:
           error: Errore bat gertatu da egungo suplifikaziorako saioa ixtean.
@@ -220,8 +292,11 @@ eu:
             new_managed_user_promotion: Kudeatutako erabiltzaileen maila igoera berria
             promote: Goratu
       menu:
+        admin_log: Admin jarduera erregistroa
         admins: Administratzaileak
         appearance: Itxura
+        area_types: Area motak
+        areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
         managed_users: Kudeatutako erabiltzaileak
@@ -234,11 +309,23 @@ eu:
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       models:
+        area:
+          fields:
+            area_type: Area mota
+            name: izena
+        area_type:
+          fields:
+            name: izena
+            plural: plural
         attachment:
           fields:
+            collection: Bilduma
             content_type: Mota
+            file_size: Tamaina
             title: Titulua
           name: Fitxategi erantsia
+        attachment_collection:
+          name: Bilduma
         category:
           name: Kategoria
         impersonation_log:
@@ -428,6 +515,9 @@ eu:
           error: Errorea gertatu da orri hau eguneratzean.
           success: Orria zuzen eguneratu da.
       titles:
+        admin_log: Admin erregistroa
+        area_types: Area motak
+        areas: Arloak
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
         impersonations: Ordezteak

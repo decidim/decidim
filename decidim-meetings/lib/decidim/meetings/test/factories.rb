@@ -35,6 +35,15 @@ FactoryBot.define do
       available_slots { 10 }
       registration_terms { Decidim::Faker::Localized.sentence(3) }
     end
+
+    trait :past do
+      start_time { end_time.ago(2.hours) }
+      end_time { Faker::Time.between(10.days.ago, 1.day.ago) }
+    end
+
+    trait :upcoming do
+      start_time { Faker::Time.between(1.day.from_now, 10.days.from_now) }
+    end
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do

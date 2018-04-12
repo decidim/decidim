@@ -1,31 +1,43 @@
 pl:
   activemodel:
     attributes:
+      area:
+        area_type: Typ obszaru
+        name: Nazwa
+        organization: Organizacja
+      area_type:
+        name: Nazwa
+        organization: Organizacja
+        plural: Liczba mnoga
       attachment:
+        attachment_collection_id: Kolekcja
         description: Opis
         file: Plik
         title: Tytuł
+      attachment_collection:
+        description: Opis
+        name: Nazwa
       category:
         description: Opis
         name: Nazwa
         parent_id: Roślina mateczna
       feature:
         name: Nazwa
+        published_at: Opublikowano na
         weight: Waga
       id: ID
       newsletter:
         body: Ciało
         subject: Przedmiot
       organization:
-        default_locale: Domena domyślna
-        name: Nazwa
-        reference_prefix: Prefiks referencyjny
-      organization_appearance:
         cta_button_path: Ścieżka przycisku wezwania do działania
-        cta_button_text: Tekst przycisku przycisku wezwania do działania
+        cta_button_text: Tekst przycisku wezwania do działania
+        default_locale: Domena domyślna
         description: Opis
         enable_omnipresent_banner: Pokaż wszechobecny baner
+        facebook_handler: Handler Facebooka
         favicon: Ikona
+        github_handler: Obsługa programu GitHub
         header_snippets: Fragmenty nagłówków
         highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
         highlighted_content_banner_action_title: Tytuł przycisku akcji
@@ -35,20 +47,27 @@ pl:
         highlighted_content_banner_short_description: Krótki opis
         highlighted_content_banner_title: Tytuł
         homepage_image: Obraz strony głównej
+        instagram_handler: Obsługa Instagram
         logo: Logo
-        official_img_footer: Oficjalny stopka logo
+        name: Nazwa
+        official_img_footer: Oficjalna stopka logo
         official_img_header: Oficjalny nagłówek logo
-        official_url: Oficjalna witryna organizacji
+        official_url: Oficjalny URL organizacji
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
+        reference_prefix: Prefiks referencyjny
         show_statistics: Pokaż statystyki
+        twitter_handler: Obsługa Twittera
         welcome_text: Tekst powitalny
+        youtube_handler: Poradnik YouTube
       scope:
         code: Kod
         name: Nazwa
         organization: Organizacja
+        parent_id: Rodzic
         scope_type: Typ zakresu
+        scope_type_id: Rodzaj zakresu
       scope_type:
         name: Nazwa
         organization: Organizacja
@@ -105,6 +124,55 @@ pl:
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
+      area_types:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego typu obszaru.
+          success: Typ obszaru został pomyślnie utworzony.
+        destroy:
+          success: Typ obszaru został zniszczony
+        edit:
+          title: Edytuj typ obszaru
+          update: Aktualizacja
+        new:
+          create: Utwórz typ obszaru
+          title: Nowy typ obszaru
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego typu obszaru.
+          success: Typ obszaru został pomyślnie zaktualizowany
+      areas:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego obszaru.
+          success: Obszar utworzony pomyślnie.
+        destroy:
+          success: Obszar pomyślnie zniszczony
+        edit:
+          title: Edytuj obszar
+          update: Aktualizacja
+        new:
+          create: Utwórz obszar
+          title: Nowa okolica
+        no_areas: Brak obszarów
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego obszaru.
+          success: Obszar zaktualizowany pomyślnie
+      attachment_collections:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowej kolekcji.
+          success: Kolekcja utworzona pomyślnie.
+        destroy:
+          success: Kolekcja zniszczona pomyślnie.
+        edit:
+          title: Edytuj kolekcję
+          update: Aktualizacja
+        index:
+          attachment_collection_used: Ta kolekcja nie może zostać usunięta, ponieważ jest używana.
+          attachment_collections_title: Zbiory załączników
+        new:
+          create: Stwórz
+          title: Nowa kolekcja
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej kolekcji.
+          success: Kolekcja zaktualizowana pomyślnie.
       attachments:
         create:
           error: Podczas tworzenia nowego załącznika wystąpił błąd.
@@ -143,6 +211,7 @@ pl:
           success: Kategoria została zaktualizowana.
       dashboard:
         show:
+          view_more_logs: Zobacz więcej dzienników
           welcome: Witamy w Decidim Admin Panel.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -185,6 +254,9 @@ pl:
         update:
           error: Podczas aktualizowania tej funkcji wystąpił błąd.
           success: Funkcja została zaktualizowana pomyślnie.
+      logs:
+        logs_list:
+          no_logs_yet: Nie ma jeszcze dzienników
       managed_users:
         close_session:
           error: Podczas zamykania bieżącej sesji personifikacji wystąpił błąd.
@@ -220,8 +292,11 @@ pl:
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
             promote: Promować
       menu:
+        admin_log: Dziennik aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
+        area_types: Rodzaje powierzchni
+        areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
         managed_users: Zarządzane użytkownicy
@@ -234,11 +309,23 @@ pl:
         user_groups: Grupy użytkowników
         users: Użytkownicy
       models:
+        area:
+          fields:
+            area_type: Typ obszaru
+            name: Nazwa
+        area_type:
+          fields:
+            name: Nazwa
+            plural: Liczba mnoga
         attachment:
           fields:
+            collection: Kolekcja
             content_type: Rodzaj
+            file_size: Rozmiar
             title: Tytuł
           name: Załącznik
+        attachment_collection:
+          name: Kolekcja
         category:
           name: Kategoria
         impersonation_log:
@@ -428,6 +515,9 @@ pl:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
       titles:
+        admin_log: Dziennik administratora
+        area_types: Rodzaje powierzchni
+        areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty

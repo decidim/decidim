@@ -7,16 +7,19 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Authorable
       include Decidim::HasFeature
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Proposals::CommentableProposal
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "proposals"
 
+      has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
@@ -29,6 +32,7 @@ module Decidim
       scope :evaluating, -> { where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :published, -> { where.not(published_at: nil) }
 
       def self.order_randomly(seed)
         transaction do
@@ -37,11 +41,23 @@ module Decidim
         end
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Proposals::AdminLog::ProposalPresenter
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
       def voted_by?(user)
         votes.where(author: user).any?
+      end
+
+      # Public: Check if the user has endorsed the proposal.
+      # - user_group: may be nil if user is not representing any user_group.
+      #
+      # Returns Boolean.
+      def endorsed_by?(user, user_group = nil)
+        endorsements.where(author: user, user_group: user_group).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
@@ -79,32 +95,6 @@ module Decidim
         state == "withdrawn"
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        feature.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !feature.current_settings.comments_blocked
-      end
-
-      # Public: Overrides the `comments_have_alignment?` Commentable concern method.
-      def comments_have_alignment?
-        true
-      end
-
-      # Public: Overrides the `comments_have_votes?` Commentable concern method.
-      def comments_have_votes?
-        true
-      end
-
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      def users_to_notify_on_comment_created
-        return (followers | feature.participatory_space.admins).uniq if official?
-        followers
-      end
-
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
@@ -120,7 +110,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def maximum_votes
-        maximum_votes = feature.settings.maximum_votes_per_proposal
+        maximum_votes = feature.settings.threshold_per_proposal
         return nil if maximum_votes.zero?
 
         maximum_votes
@@ -135,26 +125,31 @@ module Decidim
         votes.count >= maximum_votes
       end
 
-      # Checks whether the user is author of the given proposal, either directly
-      # authoring it or via a user group.
+      # Public: Can accumulate more votres than maximum for this proposal.
       #
-      # user - the user to check for authorship
-      def authored_by?(user)
-        author == user || user.user_groups.include?(user_group)
+      # Returns true if can accumulate, false otherwise
+      def can_accumulate_supports_beyond_threshold
+        feature.settings.can_accumulate_supports_beyond_threshold
       end
 
       # Checks whether the user can edit the given proposal.
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        authored_by?(user) && !answered? && within_edit_time_limit?
+        return true if draft?
+        authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
       end
 
       # Checks whether the user can withdraw the given proposal.
       #
       # user - the user to check for withdrawability.
       def withdrawable_by?(user)
-        user && !withdrawn? && authored_by?(user)
+        user && !withdrawn? && authored_by?(user) && !copied_from_other_component?
+      end
+
+      # Public: Whether the proposal is a draft or not.
+      def draft?
+        published_at.nil?
       end
 
       # method for sort_link by number of comments
@@ -172,10 +167,15 @@ module Decidim
 
       private
 
-      # Checks whether the proposal is inside the time window to be editable or not.
+      # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
-        limit = created_at + feature.settings.proposal_edit_before_minutes.minutes
+        return true if draft?
+        limit = updated_at + feature.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      end
+
+      def copied_from_other_component?
+        linked_resources(:proposals, "copied_from_component").any?
       end
     end
   end

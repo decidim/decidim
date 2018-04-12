@@ -8,16 +8,15 @@ module Decidim
 
     let(:parent) { nil }
 
+    it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
+
     describe "has an association for children scopes" do
       subject(:scope_children) { scope.children }
 
       let(:scopes) { create_list(:scope, 2, parent: scope) }
 
       it { is_expected.to contain_exactly(*scopes) }
-    end
-
-    context "when it is valid" do
-      it { is_expected.to be_valid }
     end
 
     context "with two scopes with the same code and organization" do

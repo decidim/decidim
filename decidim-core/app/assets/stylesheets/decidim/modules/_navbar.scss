@@ -48,6 +48,32 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
+.topbar__search{
+  position: relative;
+
+  input,
+  input:focus{
+    color: $navbar-color-hover;
+    border: 0;
+    padding-left: $input-padding * 4;
+    box-shadow: none;
+    background: $navbar-active-bg;
+
+    @include breakpoint(medium){
+      background: $navbar-bg;
+    }
+  }
+
+  svg{
+    color: $input-placeholder-color;
+    position: absolute;
+    top: 50%;
+    left: $input-padding;
+    transform: translateY(-50%);
+    opacity: .5;
+  }
+}
+
 /* Top bar */
 .topbar{
   display: flex;

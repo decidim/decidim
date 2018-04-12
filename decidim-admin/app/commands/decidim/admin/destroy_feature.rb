@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # feature - The Feature to be destroyed.
-      def initialize(feature)
+      # current_user - the user performing the action
+      def initialize(feature, current_user)
         @feature = feature
+        @current_user = current_user
       end
 
       # Public: Executes the command.
@@ -28,7 +30,15 @@ module Decidim
       def destroy_feature
         transaction do
           run_before_hooks
-          @feature.destroy!
+
+          Decidim.traceability.perform_action!(
+            "delete",
+            @feature,
+            @current_user
+          ) do
+            @feature.destroy!
+          end
+
           run_hooks
         end
       end

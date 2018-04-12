@@ -13,7 +13,7 @@ import {
   AddCommentFormSessionFragment,
   addCommentMutation,
   CommentFragment,
-  GetCommentsQuery,
+  GetCommentsQuery
 } from "../support/schema";
 
 interface AddCommentFormProps {
@@ -50,7 +50,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     showTitle: true,
     submitButtonClassName: "button button--sc",
     arguable: false,
-    autoFocus: false,
+    autoFocus: false
   };
 
   public bodyTextArea: HTMLTextAreaElement;
@@ -63,7 +63,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       disabled: true,
       error: false,
       alignment: 0,
-      remainingCharacterCount: MAX_LENGTH,
+      remainingCharacterCount: MAX_LENGTH
     };
   }
 
@@ -176,7 +176,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       required: "required",
       pattern: `^(.){0,${MAX_LENGTH}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
-      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value),
+      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value)
     };
 
     if (autoFocus) {
@@ -223,13 +223,13 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     const { alignment } = this.state;
     const buttonClassName = classnames("button", "tiny", "button--muted");
     const okButtonClassName = classnames(buttonClassName, "opinion-toggle--ok", {
-      "is-active": alignment === 1,
+      "is-active": alignment === 1
     });
     const koButtonClassName = classnames(buttonClassName, "opinion-toggle--ko", {
-      "is-active": alignment === -1,
+      "is-active": alignment === -1
     });
     const neutralButtonClassName = classnames(buttonClassName, "opinion-toggle--meh", {
-      "is-active": alignment === 0,
+      "is-active": alignment === 0
     });
 
     if (session && arguable) {
@@ -307,7 +307,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
   private _checkCommentBody(body: string) {
     this.setState({
       disabled: body === "", error: body === "" || body.length > MAX_LENGTH,
-      remainingCharacterCount: MAX_LENGTH - body.length,
+      remainingCharacterCount: MAX_LENGTH - body.length
     });
   }
 
@@ -355,7 +355,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
             commentableType: ownProps.commentable.type,
             body,
             alignment,
-            userGroupId,
+            userGroupId
           },
           optimisticResponse: {
             commentable: {
@@ -373,7 +373,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   __typename: "User",
                   name: ownProps.session && ownProps.session.user.name,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
-                  deleted: false,
+                  deleted: false
                 },
                 comments: [],
                 hasComments: false,
@@ -382,19 +382,19 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 upVoted: false,
                 downVotes: 0,
                 downVoted: false,
-                alreadyReported: false,
-              },
-            },
+                alreadyReported: false
+              }
+            }
           },
           update: (store, { data }: { data: addCommentMutation }) => {
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
-              orderBy: ownProps.orderBy,
+              orderBy: ownProps.orderBy
             };
             const prev = store.readQuery<GetCommentsQuery>({
               query: getCommentsQuery,
-              variables,
+              variables
              });
             const { id, type } = ownProps.commentable;
             const newComment = data.commentable && data.commentable.addComment;
@@ -409,13 +409,13 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   hasComments: true,
                   comments: [
                     ...replies,
-                    newComment,
-                  ],
+                    newComment
+                  ]
                 };
               }
               return {
                 ...comment,
-                comments: replies.map(commentReducer),
+                comments: replies.map(commentReducer)
               };
             };
 
@@ -425,7 +425,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 } else {
                   comments = [
                     ...prev.commentable.comments,
-                    newComment,
+                    newComment
                   ];
                 }
 
@@ -436,17 +436,17 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   commentable: {
                     ...prev.commentable,
                     totalCommentsCount: prev.commentable.totalCommentsCount + 1,
-                    comments,
-                  },
+                    comments
+                  }
                 },
-                variables,
+                variables
               });
             }
-          },
+          }
         });
       }
-    },
-  }),
+    }
+  })
 })(AddCommentForm);
 
 export default AddCommentFormWithMutation;

@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # user_group - The user_group to verify
-      def initialize(user_group)
+      # current_user - the user performing the action
+      def initialize(user_group, current_user)
         @user_group = user_group
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -25,7 +27,13 @@ module Decidim
       private
 
       def verify_user_group
-        @user_group.update_attributes!(verified_at: Time.current, rejected_at: nil)
+        Decidim.traceability.perform_action!(
+          "verify",
+          @user_group,
+          @current_user
+        ) do
+          @user_group.update!(verified_at: Time.current, rejected_at: nil)
+        end
       end
     end
   end

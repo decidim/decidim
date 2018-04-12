@@ -41,7 +41,7 @@ module Decidim
           it "doesn't create a category" do
             expect do
               command.call
-            end.not_to change { Category.count }
+            end.not_to change(Category, :count)
           end
         end
 
@@ -53,7 +53,7 @@ module Decidim
           it "creates a new category" do
             expect do
               command.call
-            end.to change { participatory_space.categories.count }.by(1)
+            end.to change(participatory_space.categories, :count).by(1)
           end
         end
       end

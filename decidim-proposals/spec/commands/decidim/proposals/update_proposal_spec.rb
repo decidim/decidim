@@ -14,6 +14,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization: organization,
+          current_participatory_space: feature.participatory_space,
           current_feature: feature
         )
       end
@@ -57,7 +58,7 @@ module Decidim
           it "doesn't update the proposal" do
             expect do
               command.call
-            end.not_to change { proposal.title }
+            end.not_to change(proposal, :title)
           end
         end
 
@@ -73,7 +74,7 @@ module Decidim
           it "doesn't update the proposal" do
             expect do
               command.call
-            end.not_to change { proposal.title }
+            end.not_to change(proposal, :title)
           end
         end
 
@@ -94,7 +95,7 @@ module Decidim
           it "updates the proposal" do
             expect do
               command.call
-            end.to change { proposal.title }
+            end.to change(proposal, :title)
           end
 
           context "with an author" do

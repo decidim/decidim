@@ -64,7 +64,7 @@ module Decidim
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
-          <<~RUBY.gsub(/^ *\|/, "")
+          cut <<~RUBY
             |
             |  config.action_mailer.smtp_settings = {
             |    :address        => Rails.application.secrets.smtp_address,
@@ -86,16 +86,18 @@ module Decidim
       end
 
       def letter_opener_web
-        route <<~RUBY.gsub(/^ *\|/, "")
+        letter_opener_route = cut <<~RUBY
           |
           |  if Rails.env.development?
           |    mount LetterOpenerWeb::Engine, at: "/letter_opener"
           |  end
         RUBY
 
+        route letter_opener_route
+
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
-          <<~RUBY.gsub(/^ *\|/, "")
+          cut <<~RUBY
             |
             |  config.action_mailer.delivery_method = :letter_opener_web
             |  config.action_mailer.default_url_options = { port: 3000 }
@@ -108,13 +110,8 @@ module Decidim
       def recreate_db
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
-
-        if options[:seed_db]
-          rails "db:migrate", "db:seed"
-        else
-          rails "db:migrate"
-        end
-
+        rails "db:migrate"
+        rails "db:seed" if options[:seed_db]
         rails "db:test:prepare"
       end
 
@@ -131,6 +128,10 @@ module Decidim
       def scss_variables
         variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
         File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
+      end
+
+      def cut(text)
+        text.gsub(/^ *\|/, "").rstrip
       end
     end
   end

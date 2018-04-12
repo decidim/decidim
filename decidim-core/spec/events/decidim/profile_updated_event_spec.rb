@@ -9,7 +9,7 @@ describe Decidim::ProfileUpdatedEvent do
   let(:resource) { create :user }
   let(:author) { resource }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event", true
 
   describe "email_subject" do
     it "is generated correctly" do

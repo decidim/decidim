@@ -14,4 +14,16 @@ One particular thing about this kind of applications is the need to Authorize a 
 
 * By having a list of valid users emails
 
-Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of verifications. You can go see some example code, read more about how to work with Decidim modules, or even see how it’s done for Decidim Barcelona, the Barcelona City Council.
+Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations. To create your own `AuthorizationHandler` for an external API (ie a Municipal Census) you should add a `app/services/` file, then activate it on `config/initializers/decidim.rb` and finally enabling it on `/system` for the tenant.
+
+You can go see some example code on:
+
+* [Erabaki Pamplona](https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb)
+
+* [Decidim Barcelona](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb)
+
+* [Decidim Terrassa](https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb)
+
+* [Decidim Sant Cugat](https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb)
+
+These are just a few examples but mostly all the Municipal installations have somekind of Authorization.

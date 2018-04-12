@@ -43,7 +43,7 @@ module Decidim
     def authorization
       return nil unless user && authorization_handler_name
 
-      @authorization ||= Verifications::Authorizations.new(user: user, name: authorization_handler_name).first
+      @authorization ||= Verifications::Authorizations.new(organization: user.organization, user: user, name: authorization_handler_name).first
     end
 
     def authorization_handler

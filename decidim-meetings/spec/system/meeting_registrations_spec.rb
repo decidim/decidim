@@ -28,7 +28,7 @@ describe "Meeting registrations", type: :system do
   end
 
   before do
-    meeting.update_attributes!(
+    meeting.update!(
       registrations_enabled: registrations_enabled,
       available_slots: available_slots,
       registration_terms: registration_terms

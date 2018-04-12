@@ -53,8 +53,44 @@ eu:
         error: Errorea gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    admin_log:
+      feature:
+        create: "%{user_name} gehitu %{resource_name} ezaugarri %{space_name} espazioa"
+        delete: "%{user_name} kendu %{resource_name} Ezaugarri %{space_name} espazioa"
+        publish: "%{user_name} %{resource_name} funtzioak %{space_name} espazioan argitaratu zituen"
+        unpublish: "%{user_name} %{resource_name} funtzioak %{space_name} espaziotik argitaratu gabe argitaratu du"
+      moderation:
+        hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
+        unreport: "%{user_name} %{resource_type} motako baliabide bat ez da %{space_name} espazioan"
+      newsletter:
+        create: "%{user_name} sortu %{resource_name} buletina"
+        delete: "%{user_name} ezabatu %{resource_name} buletina"
+        deliver: "%{user_name} entregatu %{resource_name} buletina"
+        update: "%{user_name} eguneratu %{resource_name} buletina"
+      organization:
+        update: "%{user_name} Eguneratu antolazioaren ezarpenak"
+      scope:
+        create: "%{user_name} %{resource_name} esparrua sortu zen"
+        delete: "%{user_name} %{resource_name} esparrua ezabatu da"
+        update: "%{user_name} %{resource_name} eremua eguneratu du"
+      static_page:
+        create: "%{user_name} sortu %{resource_name} orri estatikoa"
+        delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
+        update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
+      user:
+        invite: "%{user_name} erabiltzaileak %{resource_name} erabiltzaile gonbidatu rola: %{role}"
+        officialize: "%{user_name} Erabiltzaile ofiziala %{resource_name}"
+        remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
+        unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
+      user_group:
+        reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
+        verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
     anonymous_user: Anonimoa
     application:
+      collection:
+        documents:
+          one: Dokumentuaren
+          other: Dokumentuak
       documents:
         related_documents: Honekin lotutako agiriak
       photos:
@@ -143,13 +179,20 @@ eu:
         email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
         email_subject: '%{participatory_space_title} eguneratze bat'
         notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
+      participatory_process:
+        step_activated:
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{participatory_space_title} eguneratze bat'
+          notification_title: '%{resource_title} urratsa dago aktiboa orain <a href="%{resource_path}">%{participatory_space_title}</a>'
+      features:
+        feature_published:
+          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{participatory_space_title} eguneratze bat'
+          notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
-      participatory_process_step_activated_event:
-        email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
-        email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-        email_subject: '%{participatory_space_title} eguneratze bat'
-        notification_title: '%{resource_title} urratsa dago aktiboa orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
@@ -197,6 +240,23 @@ eu:
       errors:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
+    log:
+      base_presenter:
+        create: "%{user_name} sortu %{resource_name}"
+        create_with_space: "%{user_name} sortu %{resource_name} en %{space_name}"
+        delete: "%{user_name} ezabatu %{resource_name}"
+        delete_with_space: "%{user_name} ezabatu %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} Ekintza batzuk egin %{resource_name}"
+        unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
+        update: "%{user_name} eguneratu %{resource_name}"
+        update_with_space: "%{user_name} eguneratu %{resource_name} en %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Ez zen datu-basea aurkitu (ID: %{id})'
+        scope_presenter:
+          not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Eremu mota ez da aurkitu datu-baseko (ID: %{id})'
     managed_users:
       expired_session: Ordezte-saio hau iraungi da.
     menu:
@@ -446,6 +506,7 @@ eu:
         answers_count: Amaitutako inkestak
         assemblies_count: Batzar
         comments_count: Iruzkinak
+        endorsements_count: Oniritziak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
         orders_count: Euskarriak
@@ -485,6 +546,7 @@ eu:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

@@ -22,13 +22,13 @@ module Decidim::Budgets
         let!(:order) { create(:order, user: user, feature: feature) }
 
         it "doesn't create a new order" do
-          expect { subject.call }.not_to change { Order.count }
+          expect { subject.call }.not_to change(Order, :count)
         end
       end
 
       context "when a order for the current user doesn't exist" do
         it "creates an order" do
-          expect { subject.call }.to change { Order.count }.by(1)
+          expect { subject.call }.to change(Order, :count).by(1)
         end
       end
 

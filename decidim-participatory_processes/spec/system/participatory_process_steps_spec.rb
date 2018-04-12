@@ -23,7 +23,7 @@ describe "Participatory Process Steps", type: :system do
     end
 
     before do
-      participatory_process.steps.first.update_attributes!(active: true)
+      participatory_process.steps.first.update!(active: true)
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
     end
 

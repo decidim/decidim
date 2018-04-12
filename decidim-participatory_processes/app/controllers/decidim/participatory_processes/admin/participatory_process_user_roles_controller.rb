@@ -61,11 +61,13 @@ module Decidim
         def destroy
           @participatory_process_user_role = collection.find(params[:id])
           authorize! :destroy, @participatory_process_user_role
-          @participatory_process_user_role.destroy!
 
-          flash[:notice] = I18n.t("participatory_process_user_roles.destroy.success", scope: "decidim.admin")
-
-          redirect_to participatory_process_user_roles_path(@participatory_process_user_role.participatory_process)
+          DestroyParticipatoryProcessAdmin.call(@participatory_process_user_role, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_process_user_roles.destroy.success", scope: "decidim.admin")
+              redirect_to participatory_process_user_roles_path(current_participatory_process)
+            end
+          end
         end
 
         def resend_invitation

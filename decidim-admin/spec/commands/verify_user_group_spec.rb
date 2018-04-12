@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Admin
   describe VerifyUserGroup do
-    subject { described_class.new(user_group) }
+    subject { described_class.new(user_group, current_user) }
 
+    let(:current_user) { create :user, organization: organization }
     let(:organization) { create :organization }
 
     describe "User group validation is pending" do
@@ -14,7 +15,7 @@ module Decidim::Admin
       context "when the command is not valid" do
         let(:invalid) { true }
 
-        it "broadcast invalid in return" do
+        it "broadcasts invalid in return" do
           expect(user_group).to receive(:valid?).and_return(false)
           expect { subject.call }.to broadcast(:invalid)
 
@@ -24,11 +25,19 @@ module Decidim::Admin
       end
 
       context "when the command is valid" do
-        it "the user group is rejected" do
+        it "rejects the user group" do
           expect { subject.call }.to broadcast(:ok)
 
           expect(user_group.rejected_at).to be_nil
           expect(user_group.verified_at).not_to be_nil
+        end
+
+        it "tracks the changes" do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("verify", user_group, current_user)
+
+          subject.call
         end
       end
     end
@@ -39,7 +48,7 @@ module Decidim::Admin
       context "when the command is not valid" do
         let(:invalid) { true }
 
-        it "broadcast invalid in return and do not clean rejected_at" do
+        it "broadcasts invalid in return and do not clean rejected_at" do
           expect(user_group).to receive(:valid?).and_return(false)
           expect { subject.call }.to broadcast(:invalid)
 
@@ -49,11 +58,19 @@ module Decidim::Admin
       end
 
       context "when the command is valid" do
-        it "the user group is verified" do
+        it "verifies the user group" do
           expect { subject.call }.to broadcast(:ok)
 
           expect(user_group.rejected_at).to be_nil
           expect(user_group.verified_at).not_to be_nil
+        end
+
+        it "tracks the changes" do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("verify", user_group, current_user)
+
+          subject.call
         end
       end
     end

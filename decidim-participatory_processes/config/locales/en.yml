@@ -20,6 +20,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
+        published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
@@ -62,6 +63,8 @@ en:
         participatory_process_groups: Process groups
         participatory_processes: Processes
         participatory_processes_submenu:
+          attachment_collections: Collections
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           features: Features
@@ -206,6 +209,33 @@ en:
         resend_invitation:
           error: There was an error resending the invitation.
           success: Invitation resent successfully.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_step:
+        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
+        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
+        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
+      participatory_process_user_role:
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     menu:
       processes: Processes
     participatory_process_groups:
@@ -255,6 +285,7 @@ en:
       statistics:
         answers_count: Answers
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes

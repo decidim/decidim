@@ -59,7 +59,7 @@ module Decidim
       it "deletes user's identities" do
         expect do
           command.call
-        end.to change { Identity.count }.by(-1)
+        end.to change(Identity, :count).by(-1)
       end
 
       it "deletes user group memberships" do
@@ -68,7 +68,7 @@ module Decidim
 
         expect do
           command.call
-        end.to change { UserGroupMembership.count }.by(-1)
+        end.to change(UserGroupMembership, :count).by(-1)
       end
     end
   end

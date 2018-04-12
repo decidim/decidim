@@ -8,6 +8,18 @@ en:
         mandatory: Mandatory
         question_type: Type
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has been closed.
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A survey has finished in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has finished.
+        survey_opened:
+          email_intro: 'The survey %{resource_title} in %{participatory_space_title} is now open. You can participate in it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     features:
       surveys:
         actions:

@@ -35,7 +35,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
   let(:form) { form_class.new(secret_code: secret_code) }
 
   let(:authorizations) do
-    Decidim::Verifications::Authorizations.new(user: user, granted: true)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: true)
   end
 
   let(:user) { authorization.user }
@@ -66,7 +66,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
     end
 
     it "confirms the authorization for the user" do
-      expect { subject.call }.to change { authorizations.count }.by(1)
+      expect { subject.call }.to change(authorizations, :count).by(1)
     end
   end
 end

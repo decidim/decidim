@@ -2,7 +2,6 @@
 
 require "decidim/core/engine"
 require "decidim/core/version"
-require "decidim/core/api"
 
 # Decidim configuration.
 module Decidim
@@ -10,26 +9,27 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
   autoload :Traceable, "decidim/traceable"
+  autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
+  autoload :ScopableFeature, "decidim/scopable_feature"
   autoload :ContentParsers, "decidim/content_parsers"
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
   autoload :Features, "decidim/features"
+  autoload :HasAttachmentCollections, "decidim/has_attachment_collections"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"
   autoload :HasSettings, "decidim/has_settings"
   autoload :HasFeature, "decidim/has_feature"
-  autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
   autoload :FriendlyDates, "decidim/friendly_dates"
@@ -49,6 +49,7 @@ module Decidim
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :QueryExtensions, "decidim/query_extensions"
 
   include ActiveSupport::Configurable
 
@@ -93,7 +94,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu fi fr gl it nl pt pr-BR ru sv uk)
+    %w(en ca es eu fi fr gl it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -121,19 +122,30 @@ module Decidim
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
 
-  # Exposes a configuration option: a custom method to generate references
+  # Exposes a configuration option: a custom method to generate references.
+  # If overwritten, it should handle both feature resources and participatory spaces.
   # Default: Calculates a unique reference for the model in
   # the following format:
   #
-  # "BCN-DPP-2017-02-6589" which in this example translates to:
+  # "BCN-PROP-2017-02-6589" which in this example translates to:
   #
   # BCN: A setting configured at the organization to be prepended to each reference.
-  # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal (MEET for meetings or PROJ for projects).
+  # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal
+  #       (MEET for meetings or PROJ for projects).
   # 2017-02: Year-Month of the resource creation date
   # 6589: ID of the resource
-  config_accessor :resource_reference_generator do
+  config_accessor :reference_generator do
     lambda do |resource, feature|
-      ref = feature.participatory_space.organization.reference_prefix
+      ref = ""
+
+      if resource.is_a?(Decidim::HasFeature) && feature.present?
+        # It's a feature resource
+        ref = feature.participatory_space.organization.reference_prefix
+      elsif resource.is_a?(Decidim::Participable)
+        # It's a participatory space
+        ref = resource.organization.reference_prefix
+      end
+
       class_identifier = resource.class.name.demodulize[0..3].upcase
       year_month = (resource.created_at || Time.current).strftime("%Y-%m")
 
@@ -325,5 +337,11 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
+  end
+
+  module Core
+    autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
+    autoload :ComponentInterface, "decidim/api/component_interface"
+    autoload :AuthorInterface, "decidim/api/author_interface"
   end
 end

@@ -53,8 +53,47 @@ sv:
         error: Det har uppstått ett fel när du uppdaterade ditt konto.
         success: Ditt konto har uppdaterats framgångsrikt.
         success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
+    admin_log:
+      feature:
+        create: "%{user_name} lagt till %{resource_name} funktion till %{space_name} rymden"
+        delete: "%{user_name} tog bort %{resource_name} funktion från %{space_name} rymden"
+        publish: "%{user_name} publicerade %{resource_name} -funktionen i %{space_name} -utrymmet"
+        unpublish: "%{user_name} opublicerade %{resource_name} -funktionen från %{space_name} -platsen"
+      moderation:
+        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
+        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
+      newsletter:
+        create: "%{user_name} skapade %{resource_name} nyhetsbrev"
+        delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
+        deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
+        update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
+      organization:
+        update: "%{user_name} uppdaterade organisationsinställningarna"
+      scope:
+        create: "%{user_name} skapade området %{resource_name}"
+        create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
+        delete: "%{user_name} raderade området %{resource_name}"
+        delete_with_parent: "%{user_name} raderade området %{resource_name} inom ramen för %{parent_scope}"
+        update: "%{user_name} uppdaterade %{resource_name} -räckvidden"
+        update_with_parent: "%{user_name} uppdaterade området %{resource_name} inom ramen för %{parent_scope}"
+      static_page:
+        create: "%{user_name} skapade %{resource_name} statisk sida"
+        delete: "%{user_name} raderade %{resource_name} statisk sida"
+        update: "%{user_name} uppdaterade %{resource_name} statisk sida"
+      user:
+        invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
+        officialize: "%{user_name} publicerade användaren %{resource_name}"
+        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
+        unofficialize: "%{user_name} oofficiserad användaren %{resource_name}"
+      user_group:
+        reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
+        verify: "%{user_name} verifierade %{resource_name} användargrupp"
     anonymous_user: Anonym
     application:
+      collection:
+        documents:
+          one: Dokumentera
+          other: Dokument
       documents:
         related_documents: Relaterade dokument
       photos:
@@ -135,18 +174,20 @@ sv:
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
         email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
-      feature_published_event:
-        email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-        email_subject: En uppdatering till %{participatory_space_title}
-        notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-        email_subject: En uppdatering till %{participatory_space_title}
-        notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
+      participatory_process:
+        step_activated:
+          email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -194,6 +235,23 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    log:
+      base_presenter:
+        create: "%{user_name} skapad %{resource_name}"
+        create_with_space: "%{user_name} skapad %{resource_name} i %{space_name}"
+        delete: "%{user_name} borttagen %{resource_name}"
+        delete_with_space: "%{user_name} borttagen %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utfört en viss åtgärd på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utfört en viss åtgärd på %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterad %{resource_name}"
+        update_with_space: "%{user_name} uppdaterad %{resource_name} i %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Området hittades inte i databasen (ID: %{id})'
+        scope_presenter:
+          not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     menu:
@@ -443,6 +501,7 @@ sv:
         answers_count: Avslutade undersökningar
         assemblies_count: Assemblies
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktuellt tillstånd %{organization}
         meetings_count: möten
         orders_count: röster
@@ -482,6 +541,7 @@ sv:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

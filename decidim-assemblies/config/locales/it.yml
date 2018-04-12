@@ -2,9 +2,12 @@ it:
   activemodel:
     attributes:
       assembly:
+        area_id: La zona
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
         copy_features: Copia le caratteristiche
+        decidim_area_id: La zona
+        decidim_scope_id: Scopo
         description: Descrizione
         developer_group: Gruppo sviluppatori
         domain: Dominio
@@ -15,9 +18,11 @@ it:
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
         promoted: Promosso
+        published_at: Pubblicato a
         scope_id: Scopi
         scopes_enabled: Scopi abilitati
         short_description: Breve descrizione
+        show_statistics: Mostra statistiche
         slug: URL slug
         subtitle: Sottotitolo
         target: Target
@@ -80,6 +85,8 @@ it:
         assemblies: assemblee
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
+          attachment_collections: collezioni
+          attachment_files: File
           attachments: Allegati
           categories: Categorie
           features: Funzionalità (features)
@@ -105,10 +112,21 @@ it:
             moderator: Moderatore
       titles:
         assemblies: assemblee
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creato l'assemblaggio %{resource_name}"
+        publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
+        unpublish: "%{user_name} non pubblicato l'assembly %{resource_name}"
+        update: "%{user_name} ha aggiornato l'assembly %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
+        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleziona un'area
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ it:
             active_assemblies: Assemblee attive
             see_all_assemblies: Vedere tutti gli assiemi
       show:
+        area: La zona
         developer_group: Gruppo promotore
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
@@ -131,6 +150,7 @@ it:
         answers_count: risposte
         assemblies_count: assemblee
         comments_count: Commenti
+        endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
         orders_count: Voti

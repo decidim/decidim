@@ -9,9 +9,10 @@ sv:
         end_date: Slutdatum
         progress: Framsteg
         project_ids: Inkluderade projekt
-        proposal_ids: Ingår förslag
+        proposals: Ingår förslag
         start_date: Start datum
         title: Titel
+        updated_at: Uppdaterad på
       status:
         description: Beskrivning
         key: Nyckel
@@ -49,11 +50,17 @@ sv:
           edit:
             title: Ändra resultat
             update: Uppdateringsresultat
+          form:
+            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
+          proposals:
+            close: Stänga
+            current_selection: Aktuellt urval
+            select: Välj
           update:
             invalid: Det har varit ett problem att uppdatera resultatet
             success: Resultatet uppdaterades med framgång
@@ -94,6 +101,10 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera den här posten
             success: Inmatning uppdaterad
+      admin_log:
+        result:
+          create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
       models:
         result:
           fields:
@@ -156,6 +167,13 @@ sv:
           changes_at_title: Ändringar vid "%{title}"
         version:
           version_index: Version %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{proposal_title}
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
     features:
       accountability:
         name: Ansvarighet
@@ -163,12 +181,21 @@ sv:
           global:
             categories_label: Namn för "kategorier"
             comments_enabled: Kommentarer aktiverade
+            display_progress_enabled: Visningsframsteg
             heading_leaf_level_results: Namn på "Projekt"
             heading_parent_level_results: Namn på "Resultat"
             intro: Intro
             subcategories_label: Namn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerad
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultat
+    participatory_spaces:
+      highlighted_results:
+        results: Resultat
+        see_all_results: Se alla resultat
     resource_links:
       included_projects:
         result_projects: Projekt som ingår i detta resultat

@@ -2,4 +2,106 @@ uk:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Розділ
+        category_id: Розділ
+        description: Опис
+        end_time: 'Завершується:'
+        information_updates: Оновлення відомостей
+        instructions: Вказівки до участі
+        start_time: 'Розпочато: '
+        title: Заголовок
+        user_group_id: Створити обговорення як
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Ви впевнені?
+        destroy: Видалити
+        edit: Редагувати
+        new: Додати %{name}
+        title: Дії
+      admin:
+        debates:
+          create:
+            success: Обговорення успішно створено.
+          destroy:
+            success: Обговорення успішно видалено.
+          edit:
+            title: Редагувати обговорення
+            update: Оновити обговорення
+          index:
+            title: Обговорення
+          new:
+            create: Створити обговорення
+            title: Нове обговорення
+          update:
+            success: Обговорення успішно оновлено.
+        models:
+          debate:
+            name: Обговорення
+      debates:
+        count:
+          debates_count:
+            one: "%{count} обговорення"
+            few: "%{count} обговорення"
+            many: "%{count} обговорень"
+            other: "%{count} обговорень"
+        create:
+          success: Обговорення успішно створено.
+        debate:
+          comments:
+            one: Коментар
+            few: Коментарі
+            many: Коментарів
+            other: Коментарів
+          participate: Взяти участь
+        filters:
+          all: Усі
+          category: Розділ
+          category_prompt: Оберіть розділ
+          citizens: Громадяни
+          official: Офіційне
+          origin: Походження
+          search: Шукати
+        filters_small_view:
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
+        index:
+          new_debate: Нове обговорення
+        new:
+          back: Назад
+          create: Створити
+          select_a_category: Будь ласка, оберіть розділ
+          title: Нове обговорення
+        share:
+          close_window: Закрити вікно
+          share: Поділитися
+          share_link: Поділитись посиланням
+        show:
+          comments: Коментарі
+          report: Поскаржитись
+      models:
+        debate:
+          fields:
+            end_time: Дата закінчення
+            official_debate: Офіційне обговорення
+            start_time: Дата початку
+            title: Заголовок
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_subject: Нове обговорення у %{space_title}
+          user_followers:
+            email_subject: Нове обговорення, створене %{author_nickname}
+    features:
+      debates:
+        actions:
+          create: Створити
+        name: Обговорення
+        settings:
+          global:
+            comments_enabled: Коментарі ввімкнено
+          step:
+            comments_blocked: Коментарі заблоковано
+            creation_enabled: Увімкнено створення обговорень учасниками

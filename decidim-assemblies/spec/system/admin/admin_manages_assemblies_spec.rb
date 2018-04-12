@@ -8,6 +8,12 @@ describe "Admin manages assemblies", type: :system do
   it_behaves_like "manage assemblies"
 
   describe "creating an assembly" do
+    let(:image1_filename) { "city.jpeg" }
+    let(:image1_path) { Decidim::Dev.asset(image1_filename) }
+
+    let(:image2_filename) { "city2.jpeg" }
+    let(:image2_path) { Decidim::Dev.asset(image2_filename) }
+
     before do
       switch_to_host(organization.host)
       login_as user, scope: :user

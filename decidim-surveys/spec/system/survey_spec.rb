@@ -42,7 +42,7 @@ describe "Answer a survey", type: :system do
 
   context "when the survey allow answers" do
     before do
-      feature.update_attributes!(
+      feature.update!(
         step_settings: {
           feature.participatory_space.active_step.id => {
             allow_answers: true

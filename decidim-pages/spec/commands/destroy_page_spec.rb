@@ -17,7 +17,7 @@ module Decidim
         it "deletes the page associated to the feature" do
           expect do
             command.call
-          end.to change { Page.count }.by(-1)
+          end.to change(Page, :count).by(-1)
         end
       end
     end

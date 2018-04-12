@@ -41,7 +41,7 @@ describe "Profile", type: :system do
     end
 
     context "and user officialized the standard way" do
-      let(:user) { create(:user, :officialized) }
+      let(:user) { create(:user, :officialized, officialized_as: nil) }
 
       it "shows officialization status" do
         expect(page).to have_content("This participant is publicly verified")

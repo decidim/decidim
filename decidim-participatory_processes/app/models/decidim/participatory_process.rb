@@ -8,10 +8,14 @@ module Decidim
   # active.
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::Scopable
     include Decidim::Followable
+    include Decidim::HasReference
+    include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -58,6 +62,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
     def hashtag

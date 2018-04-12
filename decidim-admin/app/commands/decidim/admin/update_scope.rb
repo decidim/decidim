@@ -31,15 +31,22 @@ module Decidim
       attr_reader :form
 
       def update_scope
-        @scope.update_attributes!(attributes)
+        Decidim.traceability.update!(
+          @scope,
+          form.current_user,
+          attributes,
+          extra: {
+            parent_name: @scope.parent.try(:name),
+            scope_type_name: form.scope_type.try(:name)
+          }
+        )
       end
 
       def attributes
         {
           name: form.name,
           code: form.code,
-          scope_type: form.scope_type,
-          parent: @parent_scope
+          scope_type: form.scope_type
         }
       end
     end

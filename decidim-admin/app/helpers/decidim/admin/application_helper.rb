@@ -11,6 +11,7 @@ module Decidim
       include Decidim::AriaSelectedLinkToHelper
       include Decidim::MetaTagsHelper
       include Decidim::MapHelper
+      include Decidim::Admin::LogRenderHelper
 
       def title
         current_organization.name

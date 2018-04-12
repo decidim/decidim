@@ -54,7 +54,7 @@ module Decidim
           it "doesn't create a user" do
             expect do
               command.call
-            end.not_to change { User.count }
+            end.not_to change(User, :count)
           end
         end
 
@@ -68,7 +68,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { User.count }.by(1)
+            end.to change(User, :count).by(1)
 
             user = User.find_by(email: form.email)
             expect(user.encrypted_password).not_to be_nil
@@ -86,7 +86,7 @@ module Decidim
 
               it "links a previously existing user" do
                 user = create(:user, email: email, organization: organization)
-                expect { command.call }.to change { User.count }.by(0)
+                expect { command.call }.to change(User, :count).by(0)
 
                 expect(user.identities.length).to eq(1)
               end
@@ -107,7 +107,7 @@ module Decidim
           it "creates a new identity" do
             expect do
               command.call
-            end.to change { Identity.count }.by(1)
+            end.to change(Identity, :count).by(1)
             last_identity = Identity.last
             expect(last_identity.provider).to eq(form.provider)
             expect(last_identity.uid).to eq(form.uid)

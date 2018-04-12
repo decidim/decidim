@@ -43,7 +43,7 @@ module Decidim
             )
 
             expect(flash[:notice]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
       end
@@ -58,7 +58,7 @@ module Decidim
             put :withdraw, params: params.merge(id: proposal.id)
 
             expect(flash[:notice]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
 
@@ -73,7 +73,7 @@ module Decidim
               put :withdraw, params: params.merge(id: proposal.id)
 
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end

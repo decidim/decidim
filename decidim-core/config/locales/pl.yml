@@ -53,6 +53,41 @@ pl:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+    admin_log:
+      feature:
+        create: "%{user_name} dodano %{resource_name} funkcja do %{space_name} przestrzeń"
+        delete: "%{user_name} usunięto %{resource_name} funkcja od %{space_name} przestrzeń"
+        publish: "%{user_name} opublikował funkcję %{resource_name} w przestrzeni %{space_name}"
+        unpublish: "%{user_name} cofnął publikację funkcji %{resource_name} z przestrzeni %{space_name}"
+      moderation:
+        hide: "%{user_name} ukrył zasób typu %{resource_type} w %{space_name} przestrzeń"
+        unreport: "%{user_name} niezgłoszony zasób typu %{resource_type} w %{space_name} przestrzeń"
+      newsletter:
+        create: "%{user_name} stworzył %{resource_name} biuletyn"
+        delete: "%{user_name} usunięto %{resource_name} biuletyn"
+        deliver: "%{user_name} dostarczone %{resource_name} biuletyn"
+        update: "%{user_name} zaktualizowałem %{resource_name} biuletyn"
+      organization:
+        update: "%{user_name} zaktualizował ustawienia organizacji"
+      scope:
+        create: "%{user_name} utworzył zasięg %{resource_name}"
+        create_with_parent: "%{user_name} utworzył zasięg %{resource_name} w zasięgu %{parent_scope}"
+        delete: "%{user_name} usunął zasięg %{resource_name}"
+        delete_with_parent: "%{user_name} usunął zasięg %{resource_name} wewnątrz zakresu %{parent_scope}"
+        update: "%{user_name} zaktualizował zasięg %{resource_name}"
+        update_with_parent: "%{user_name} zaktualizował zasięg %{resource_name} wewnątrz zakresu %{parent_scope}"
+      static_page:
+        create: "%{user_name} stworzył %{resource_name} strona statyczna"
+        delete: "%{user_name} usunięto %{resource_name} strona statyczna"
+        update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
+      user:
+        invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
+        officialize: "%{user_name} oficjalny użytkownik %{resource_name}"
+        remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
+        unofficialize: "%{user_name} nieoficjalny użytkownik %{resource_name}"
+      user_group:
+        reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
+        verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
       documents:
@@ -143,13 +178,20 @@ pl:
         email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
         email_subject: Aktualizacja do %{participatory_space_title}
         notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'Komponent %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-        email_subject: Aktualizacja do %{participatory_space_title}
-        notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
@@ -197,6 +239,23 @@ pl:
       errors:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
+    log:
+      base_presenter:
+        create: "%{user_name} stworzony %{resource_name}"
+        create_with_space: "%{user_name} stworzony %{resource_name} w %{space_name}"
+        delete: "%{user_name} usunięte %{resource_name}"
+        delete_with_space: "%{user_name} usunięte %{resource_name} w %{space_name}"
+        unknown_action: "%{user_name} wykonał jakąś akcję na %{resource_name}"
+        unknown_action_with_space: "%{user_name} wykonał jakąś akcję na %{resource_name} w %{space_name}"
+        update: "%{user_name} zaktualizowano %{resource_name}"
+        update_with_space: "%{user_name} zaktualizowano %{resource_name} w %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Obszar nie został znaleziony w bazie danych (ID: %{id})'
+        scope_presenter:
+          not_found: 'Zakres nie został znaleziony w bazie danych (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
     menu:
@@ -446,6 +505,7 @@ pl:
         answers_count: Ankiety zakończone
         assemblies_count: Złożenia
         comments_count: Komentarze
+        endorsements_count: Adnotacje
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
         orders_count: Głosowania
@@ -485,6 +545,7 @@ pl:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

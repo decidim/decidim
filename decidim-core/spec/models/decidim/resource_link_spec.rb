@@ -53,6 +53,16 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
+
+      context "when from & to are from different participatory spaces" do
+        before do
+          link.to = create(:dummy_resource)
+          from_feature = create(:feature, manifest_name: "dummy", organization: link.to.organization)
+          link.from = create(:dummy_resource, feature: from_feature)
+        end
+
+        it { is_expected.to be_invalid }
+      end
     end
   end
 end

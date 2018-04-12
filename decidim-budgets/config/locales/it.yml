@@ -11,6 +11,7 @@ it:
   decidim:
     budgets:
       actions:
+        attachment_collections: collezioni
         attachments: Allegati
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella

@@ -9,6 +9,22 @@ FactoryBot.define do
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
+
     trait :with_votes_enabled do
       step_settings do
         {
@@ -21,6 +37,14 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => { votes_enabled: false }
+        }
+      end
+    end
+
+    trait :with_votes_hidden do
+      step_settings do
+        {
+          participatory_space.active_step.id => { votes_hidden: true }
         }
       end
     end
@@ -45,6 +69,17 @@ FactoryBot.define do
       settings do
         {
           proposal_limit: proposal_limit
+        }
+      end
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            endorsements_enabled: true,
+            endorsements_blocked: true
+          }
         }
       end
     end
@@ -84,10 +119,18 @@ FactoryBot.define do
       end
     end
 
-    trait :with_maximum_votes_per_proposal do
+    trait :with_threshold_per_proposal do
       settings do
         {
-          maximum_votes_per_proposal: 1
+          threshold_per_proposal: 1
+        }
+      end
+    end
+
+    trait :with_can_accumulate_supports_beyond_threshold do
+      settings do
+        {
+          can_accumulate_supports_beyond_threshold: true
         }
       end
     end
@@ -97,6 +140,9 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     feature { create(:proposal_feature) }
+    published_at { Time.current }
+    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+
     author do
       create(:user, organization: feature.organization) if feature
     end
@@ -128,11 +174,41 @@ FactoryBot.define do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end
+
+    trait :draft do
+      published_at nil
+    end
+
+    trait :with_votes do
+      after :create do |proposal|
+        create_list(:proposal_vote, 5, proposal: proposal)
+      end
+    end
+
+    trait :with_endorsements do
+      after :create do |proposal|
+        create_list(:proposal_endorsement, 5, proposal: proposal)
+      end
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+    user_group { create(:user_group) }
+    after(:create) do |support|
+      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
+    end
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

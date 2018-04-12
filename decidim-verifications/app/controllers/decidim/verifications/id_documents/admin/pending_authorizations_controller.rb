@@ -17,7 +17,7 @@ module Decidim
 
           def pending_authorizations
             Authorizations
-              .new(name: "id_documents", granted: false)
+              .new(organization: current_organization, name: "id_documents", granted: false)
               .query
               .where("verification_metadata->'rejected' IS NULL")
           end

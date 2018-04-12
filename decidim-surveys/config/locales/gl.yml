@@ -7,6 +7,18 @@ gl:
         mandatory: Obrigatorio
         question_type: Tipo
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A enquisa %{resource_title} en %{participatory_space_title} foi pechada.
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Acaba unha enquisa en %{participatory_space_title}
+          notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> rematou.
+        survey_opened:
+          email_intro: 'A enquisa %{resource_title} en %{participatory_space_title} está agora aberta. Podes participar nesta páxina dende esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha nova enquisa en %{participatory_space_title}
+          notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
     features:
       surveys:
         actions:

@@ -2,9 +2,12 @@ nl:
   activemodel:
     attributes:
       assembly:
+        area_id: Gebied
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_features: Functies kopiëren
+        decidim_area_id: Gebied
+        decidim_scope_id: strekking
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
@@ -15,9 +18,11 @@ nl:
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
+        published_at: Gepubliceerd op
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
+        show_statistics: Toon statistieken
         slug: URL slak
         subtitle: Ondertiteling
         target: Doel
@@ -80,6 +85,8 @@ nl:
         assemblies: Bijeenkomsten
         assemblies_submenu:
           assembly_admins: Assemblage gebruikers
+          attachment_collections: collecties
+          attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
           features: Kenmerken
@@ -105,10 +112,21 @@ nl:
             moderator: Moderator
       titles:
         assemblies: Bijeenkomsten
+    admin_log:
+      assembly:
+        create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
+        update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+      assembly_user_role:
+        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
+        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Selecteer een gebied
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ nl:
             active_assemblies: Actieve bijeenkomsten
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
+        area: Gebied
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
@@ -131,6 +150,7 @@ nl:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen

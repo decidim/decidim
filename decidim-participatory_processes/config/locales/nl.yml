@@ -19,6 +19,7 @@ nl:
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
         promoted: Gepromoveerd
+        published_at: Gepubliceerd op
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -61,6 +62,8 @@ nl:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
+          attachment_collections: collecties
+          attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
           features: Functionaliteiten
@@ -202,6 +205,33 @@ nl:
         resend_invitation:
           error: Er is een fout opgetreden bij het opnieuw verzenden van de uitnodiging.
           success: Uitnodiging opnieuw verzonden met succes.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} creëerde de %{resource_name} participatief proces"
+        publish: "%{user_name} publiceerde de %{resource_name} participatief proces"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} participatief proces"
+        update: "%{user_name} heeft het participatief proces %{resource_name} bijgewerkt"
+      participatory_process_step:
+        activate: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces geactiveerd"
+        create: "%{user_name} heeft de %{resource_name} stap gemaakt in het %{space_name} participatieproces"
+        delete: "%{user_name} heeft de %{resource_name} stap verwijderd in het %{space_name} participatieproces"
+        update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces bijgewerkt"
+      participatory_process_user_role:
+        create: "%{user_name} nodigde de gebruiker uit %{resource_name} naar de %{space_name} participatief proces"
+        delete: "%{user_name} de gebruiker verwijderd %{resource_name} van de %{space_name} participatief proces"
+        update: "%{user_name} veranderde de rol van de gebruiker %{resource_name} in de %{space_name} participatief proces"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'De datums voor de %{resource_title} stap op %{participatory_space_title} zijn bijgewerkt. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De datums voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
       processes: Processen
     participatory_process_groups:
@@ -251,6 +281,7 @@ nl:
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen

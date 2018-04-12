@@ -23,13 +23,12 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_organization
-
-        if @organization.valid?
-          broadcast(:ok, @organization)
-        else
-          form.errors.add(:official_img_header, @organization.errors[:official_img_header]) if @organization.errors.include? :official_img_header
-          form.errors.add(:official_img_footer, @organization.errors[:official_img_footer]) if @organization.errors.include? :official_img_footer
+        begin
+          update_organization
+          broadcast(:ok, organization)
+        rescue ActiveRecord::RecordInvalid
+          form.errors.add(:official_img_header, organization.errors[:official_img_header]) if organization.errors.include? :official_img_header
+          form.errors.add(:official_img_footer, organization.errors[:official_img_footer]) if organization.errors.include? :official_img_footer
           broadcast(:invalid)
         end
       end
@@ -39,8 +38,11 @@ module Decidim
       attr_reader :form, :organization
 
       def update_organization
-        @organization.assign_attributes(attributes)
-        @organization.save! if @organization.valid?
+        @organization = Decidim.traceability.update!(
+          organization,
+          form.current_user,
+          attributes
+        )
       end
 
       def attributes

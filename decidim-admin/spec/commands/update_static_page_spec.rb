@@ -7,11 +7,13 @@ module Decidim::Admin
     describe "call" do
       let(:organization) { create(:organization) }
       let(:page) { create(:static_page, organization: organization) }
+      let(:user) { create :user, :admin, :confirmed, organization: organization }
       let(:form) do
         StaticPageForm.from_params(
           static_page: page.attributes.merge(slug: "new-slug")
         ).with_context(
-          current_organization: page.organization
+          current_organization: page.organization,
+          current_user: user
         )
       end
       let(:command) { described_class.new(page, form) }
@@ -36,6 +38,19 @@ module Decidim::Admin
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "traces the update", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:update!)
+            .with(Decidim::StaticPage, user, hash_including(:title, :slug, :content))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "update"
         end
 
         it "updates the page in the organization" do

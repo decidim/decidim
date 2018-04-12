@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 shared_context "when assembly admin administrating an assembly" do
-  let(:assembly) { create :assembly }
-  let!(:user) { create(:assembly_admin, :confirmed, organization: organization, assembly: assembly) }
+  let!(:user) do
+    create(
+      :assembly_admin,
+      :confirmed,
+      organization: organization,
+      assembly: assembly
+    )
+  end
 
   include_context "when administrating an assembly"
 end

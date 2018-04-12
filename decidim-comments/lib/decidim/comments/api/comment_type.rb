@@ -31,7 +31,7 @@ module Decidim
 
       field :formattedCreatedAt, !types.String, "The creation date of the comment in relative format", property: :friendly_created_at
 
-      field :author, !Decidim::AuthorInterface, "The comment's author" do
+      field :author, !Decidim::Core::AuthorInterface, "The comment's author" do
         resolve lambda { |obj, _args, _ctx|
           obj.user_group || obj.author
         }

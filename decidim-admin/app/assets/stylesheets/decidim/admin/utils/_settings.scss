@@ -498,9 +498,10 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-sizes:(
+$offcanvas-sizes: (
   small: 250px
 );
+
 $offcanvas-background: $light-gray;
 $offcanvas-shadow: 0 0 10px rgba($black, .7);
 $offcanvas-inner-shadow-size: 20px;
@@ -831,9 +832,9 @@ $titlebar-icon-spacing: .25rem;
 // 54. Tooltip
 // -----------
 
-$has-tip-cursor: help;
+$has-tip-cursor: pointer;
 $has-tip-font-weight: $global-weight-bold;
-$has-tip-border-bottom: dotted 1px $dark-gray;
+$has-tip-border-bottom: 0;
 $tooltip-background-color: $black;
 $tooltip-color: $white;
 $tooltip-padding: .3rem 1rem;

@@ -21,27 +21,27 @@
           <li <% if @activesubpage == "component-meetings" %>
            class="is-active"
           <% end %> >
-            <%= link_to "Encuentros <span class="component-counter">1</span>", page_path("component-meetings") %>
+            <%= link_to raw("Encuentros <span class='component-counter'>1</span>"), page_path("component-meetings") %>
           </li>
           <li <% if @activesubpage == "component-proposals" %>
            class="is-active"
           <% end %> >
-            <%= link_to "Propuestas <span class="component-counter">1</span>", page_path("component-proposals") %>
+            <%= link_to raw("Propuestas <span class='component-counter'>1</span>"), page_path("component-proposals") %>
           </li>
           <li <% if @activesubpage == "component-debates" %>
            class="is-active"
           <% end %> >
-            <%= link_to "Debates <span class="component-counter component-counter--off">0</span>", page_path("component-debates") %>
+            <%= link_to raw("Debates <span class='component-counter component-counter--off'>0</span>"), page_path("component-debates") %>
           </li>
           <li <% if @activesubpage == "component-results" %>
            class="is-active"
           <% end %> >
-            <%= link_to "Resultados <span class="component-counter component-counter--off">0</span>", page_path("component-results") %>
+            <%= link_to raw("Resultados <span class='component-counter component-counter--off'>0</span>"), page_path("component-results") %>
           </li>
           <li <% if @activesubpage == "component-budgets" %>
            class="is-active"
           <% end %> >
-            <%= link_to "Presupuestos <span class="component-counter component-counter--off">0</span>", page_path("component-budgets") %>
+            <%= link_to raw("Presupuestos <span class='component-counter component-counter--off'>0</span>"), page_path("component-budgets") %>
           </li>
         </ul>
       <% end %>

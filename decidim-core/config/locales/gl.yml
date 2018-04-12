@@ -53,8 +53,47 @@ gl:
         error: Produciuse un erro ao actualizar a túa conta.
         success: A túa conta foi actualizada correctamente.
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
+    admin_log:
+      feature:
+        create: "%{user_name} engadiu a función %{resource_name} ao espazo %{space_name}"
+        delete: "%{user_name} eliminou a función %{resource_name} do espazo %{space_name}"
+        publish: "%{user_name} publicou a función %{resource_name} no espazo %{space_name}"
+        unpublish: "%{user_name} non se publicou a función %{resource_name} desde o espazo %{space_name}"
+      moderation:
+        hide: "%{user_name} agochar un recurso do tipo %{resource_type} no espazo %{space_name}"
+        unreport: "%{user_name} Non se informou un recurso do tipo %{resource_type} no espazo %{space_name}"
+      newsletter:
+        create: "%{user_name} creou o boletín informativo %{resource_name}"
+        delete: "%{user_name} eliminou o boletín informativo %{resource_name}"
+        deliver: "%{user_name} entregou o boletín informativo %{resource_name}"
+        update: "%{user_name} actualizou o boletín informativo %{resource_name}"
+      organization:
+        update: "%{user_name} actualizou a configuración da organización"
+      scope:
+        create: "O %{user_name} creou o alcance %{resource_name}"
+        create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
+        delete: "%{user_name} eliminou o alcance %{resource_name}"
+        delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
+        update: "%{user_name} actualizou o alcance %{resource_name}"
+        update_with_parent: "%{user_name} actualizou o alcance %{resource_name} no ámbito %{parent_scope}"
+      static_page:
+        create: "%{user_name} creou a páxina estática %{resource_name}"
+        delete: "%{user_name} eliminou a páxina estática %{resource_name}"
+        update: "%{user_name} actualizou a páxina estática %{resource_name}"
+      user:
+        invite: "%{user_name} convidou ao usuario %{resource_name} co rol: %{role}"
+        officialize: "%{user_name} oficializou ao usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminou o usuario %{resource_name} co rol: %{role}"
+        unofficialize: "%{user_name} non oficializou ao usuario %{resource_name}"
+      user_group:
+        reject: "%{user_name} rexeitou a verificación do grupo de usuarios %{resource_name}"
+        verify: "%{user_name} verificou o grupo de usuarios %{resource_name}"
     anonymous_user: Anónimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
       documents:
         related_documents: Documentos relacionados
       photos:
@@ -135,18 +174,20 @@ gl:
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
         email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
         email_subject: Unha actualización a %{resource_title}
-      feature_published_event:
-        email_intro: 'O compoñente %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
-        email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-        email_subject: Unha actualización a %{participatory_space_title}
-        notification_title: O compoñente %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'O compoñente %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: O compoñente %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
-        email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-        email_subject: Unha actualización a %{participatory_space_title}
-        notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
@@ -194,6 +235,23 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    log:
+      base_presenter:
+        create: "%{user_name} creouse %{resource_name}"
+        create_with_space: "%{user_name} creou %{resource_name} en %{space_name}"
+        delete: "%{user_name} eliminado %{resource_name}"
+        delete_with_space: "%{user_name} eliminado %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizou algunha acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizou algunha acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizouse %{resource_name}"
+        update_with_space: "%{user_name} actualizouse %{resource_name} en %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'A área non se atopou na base de datos (ID: %{id})'
+        scope_presenter:
+          not_found: 'O alcance non se atopou na base de datos (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Non se atopou o tipo de alcance na base de datos (ID: %{id})'
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
@@ -443,6 +501,7 @@ gl:
         answers_count: Enquisas concluídas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        endorsements_count: Aprobacións
         headline: Estado actual de %{organization}
         meetings_count: Reunións
         orders_count: Votos
@@ -482,6 +541,7 @@ gl:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

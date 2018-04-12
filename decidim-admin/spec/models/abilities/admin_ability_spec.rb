@@ -17,6 +17,8 @@ module Decidim::Admin
       end
     end
 
+    it { is_expected.to be_able_to(:read, :admin_log) }
+
     it { is_expected.to be_able_to(:manage, Decidim::Moderation) }
     it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
     it { is_expected.to be_able_to(:manage, Decidim::Scope) }

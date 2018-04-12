@@ -19,6 +19,7 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
       </div>
+      <%= render_hook(:participatory_space_highlighted_elements) %>
       <%= attachments_for current_participatory_space %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
@@ -84,6 +85,7 @@
           </div>
         <% end %>
       </div>
+      <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
       <%= embed_modal_for participatory_process_participatory_process_widget_url(current_participatory_space, format: :js) %>
     </div>

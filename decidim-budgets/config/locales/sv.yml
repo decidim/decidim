@@ -11,6 +11,7 @@ sv:
   decidim:
     budgets:
       actions:
+        attachment_collections: samlingar
         attachments: bilagor
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera

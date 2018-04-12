@@ -25,7 +25,7 @@ module Decidim
       it "does not create another user" do
         expect do
           command.call
-        end.not_to change { User.count }
+        end.not_to change(User, :count)
       end
 
       it "broadcasts ok and the user" do
@@ -43,7 +43,7 @@ module Decidim
       it "creates another user" do
         expect do
           command.call
-        end.to change { User.count }.by(1)
+        end.to change(User, :count).by(1)
       end
 
       it "broadcasts ok and the user" do
@@ -74,7 +74,7 @@ module Decidim
       it "creates it" do
         expect do
           command.call
-        end.to change { User.count }.by(1)
+        end.to change(User, :count).by(1)
 
         expect(invited_user.email).to eq(form.email)
       end

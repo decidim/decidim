@@ -24,7 +24,7 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
     super(props);
 
     this.state = {
-      orderBy: this.props.defaultOrderBy,
+      orderBy: this.props.defaultOrderBy
     };
   }
 

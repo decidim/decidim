@@ -20,7 +20,7 @@ module Decidim
         @user_group = collection.find(params[:id])
         authorize! :verify, @user_group
 
-        VerifyUserGroup.call(@user_group) do
+        VerifyUserGroup.call(@user_group, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("user_group.verify.success", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
@@ -37,7 +37,7 @@ module Decidim
         @user_group = collection.find(params[:id])
         authorize! :reject, @user_group
 
-        RejectUserGroup.call(@user_group) do
+        RejectUserGroup.call(@user_group, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("user_group.reject.success", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)

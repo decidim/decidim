@@ -9,9 +9,10 @@ nl:
         end_date: Einddatum
         progress: Vooruitgang
         project_ids: Opgenomen projecten
-        proposal_ids: Opgenomen voorstellen
+        proposals: Inbegrepen voorstellen
         start_date: Begin datum
         title: Titel
+        updated_at: Bijgewerkt om
       status:
         description: Beschrijving
         key: sleutel
@@ -49,11 +50,17 @@ nl:
           edit:
             title: Bewerk resultaat
             update: Update resultaat
+          form:
+            add_proposal: Voeg voorstel toe
           index:
             title: Resultaten
           new:
             create: Maak resultaat
             title: Nieuw resultaat
+          proposals:
+            close: Dichtbij
+            current_selection: Huidige selectie
+            select: kiezen
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
@@ -94,6 +101,10 @@ nl:
           update:
             invalid: Er is een probleem opgetreden met het bijwerken van dit item
             success: Item succesvol bijgewerkt
+      admin_log:
+        result:
+          create: "%{user_name} gemaakt resultaat %{resource_name} in %{space_name}"
+          update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
       models:
         result:
           fields:
@@ -156,6 +167,13 @@ nl:
           changes_at_title: Veranderingen bij "%{title}"
         version:
           version_index: Versie %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update voor %{proposal_title}
+          notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het <a href="%{resource_path}">%{resource_title}</a> resultaat.
     features:
       accountability:
         name: Verantwoording
@@ -163,12 +181,21 @@ nl:
           global:
             categories_label: Naam voor "Categorieën"
             comments_enabled: Reacties ingeschakeld
+            display_progress_enabled: Geef de voortgang weer
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
             intro: Intro
             subcategories_label: Naam voor "Subcategorieën"
           step:
             comments_blocked: Reacties geblokkeerd
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: resultaten
+    participatory_spaces:
+      highlighted_results:
+        results: resultaten
+        see_all_results: Bekijk alle resultaten
     resource_links:
       included_projects:
         result_projects: Projecten opgenomen in dit resultaat

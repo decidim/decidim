@@ -31,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def update_scope_type
-        @scope_type.update_attributes!(attributes)
+        @scope_type.update!(attributes)
       end
 
       def attributes

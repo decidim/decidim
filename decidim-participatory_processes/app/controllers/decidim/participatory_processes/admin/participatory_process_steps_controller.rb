@@ -67,7 +67,7 @@ module Decidim
           @participatory_process_step = collection.find(params[:id])
           authorize! :destroy, @participatory_process_step
 
-          DestroyParticipatoryProcessStep.call(@participatory_process_step) do
+          DestroyParticipatoryProcessStep.call(@participatory_process_step, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")
               redirect_to participatory_process_steps_path(current_participatory_process)

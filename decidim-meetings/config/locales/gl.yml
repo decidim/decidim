@@ -28,6 +28,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A reunión "%{resource_title}" pechouse
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+        meeting_created:
+          email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: Nova reunión engadida a %{participatory_space_title}
+          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: As xuntas ocupadas con "%{resource_title}" ocupan máis de %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da reunión.
@@ -62,6 +67,7 @@ gl:
             comments_blocked: Comentarios bloqueados
     meetings:
       actions:
+        attachment_collections: Coleccións
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
@@ -124,6 +130,12 @@ gl:
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
+      admin_log:
+        meeting:
+          close: "%{user_name} pechou a %{resource_name} reunión no espazo %{space_name}"
+          create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"
+          delete: "%{user_name} eliminou a %{resource_name} reunión no espazo %{space_name}"
+          update: "%{user_name} actualizou a %{resource_name} reunión no espazo %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +195,16 @@ gl:
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reunións pasadas
+          upcoming_meetings: Próximas reunións
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Reunións pasadas
+        see_all_meetings: Ver todas as reunións
+        upcoming_meetings: Próximas reunións
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

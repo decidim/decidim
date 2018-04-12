@@ -31,6 +31,10 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(4).upcase}-#{n}"
   end
 
+  sequence(:area_name) do |n|
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+  end
+
   factory :category, class: "Decidim::Category" do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -105,13 +109,8 @@ FactoryBot.define do
 
     trait :officialized do
       officialized_at { Time.zone.now }
+      officialized_as { Decidim::Faker::Localized.sentence(3) }
     end
-  end
-
-  factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
-    user
-    participatory_process { create :participatory_process, organization: user.organization }
-    role "admin"
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
@@ -181,10 +180,19 @@ FactoryBot.define do
     end
   end
 
+  factory :attachment_collection, class: "Decidim::AttachmentCollection" do
+    name { Decidim::Faker::Localized.sentence(1) }
+    description { Decidim::Faker::Localized.sentence(2) }
+    weight { Faker::Number.number(1) }
+
+    association :collection_for, factory: :participatory_process
+  end
+
   factory :attachment, class: "Decidim::Attachment" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
     file_size { 108_908 }
@@ -240,6 +248,17 @@ FactoryBot.define do
     end
   end
 
+  factory :area_type, class: "Decidim::AreaType" do
+    name { Decidim::Faker::Localized.word }
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
+    organization
+  end
+
+  factory :area, class: "Decidim::Area" do
+    name { Decidim::Faker::Localized.literal(generate(:area_name)) }
+    organization
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
@@ -258,6 +277,10 @@ FactoryBot.define do
 
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+
+    trait :sent do
+      sent_at { Time.current }
+    end
   end
 
   factory :moderation, class: "Decidim::Moderation" do
@@ -305,6 +328,39 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+  end
+
+  factory :action_log, class: "Decidim::ActionLog" do
+    transient do
+      extra_data { {} }
+    end
+
+    organization { user.organization }
+    user
+    participatory_space { build :participatory_process, organization: organization }
+    feature { build :feature, participatory_space: participatory_space }
+    resource { build(:dummy_resource, feature: feature) }
+    action { "create" }
+    extra do
+      {
+        feature: {
+          manifest_name: feature.try(:manifest_name),
+          title: feature.try(:name) || feature.try(:title)
+        }.compact,
+        participatory_space: {
+          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+          title: participatory_space.try(:name) || participatory_space.try(:title)
+        }.compact,
+        resource: {
+          title: resource.try(:name) || resource.try(:title)
+        }.compact,
+        user: {
+          ip: user.try(:current_sign_in_ip),
+          name: user.try(:name),
+          nickname: user.try(:nickname)
+        }.compact
+      }.deep_merge(extra_data)
     end
   end
 end

@@ -12,7 +12,7 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
-      "@#{super}"
+      "@#{__getobj__.nickname}"
     end
 
     def badge

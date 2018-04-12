@@ -30,7 +30,9 @@ module Decidim
         attr_reader :debate, :form
 
         def update_debate
-          debate.update_attributes!(
+          Decidim.traceability.update!(
+            debate,
+            form.current_user,
             category: form.category,
             title: form.title,
             description: form.description,

@@ -7,6 +7,12 @@ module Decidim
     subject(:organization) { build(:organization) }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
+
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::OrganizationPresenter
+    end
 
     describe "has an association for scopes" do
       subject(:organization_scopes) { organization.scopes }

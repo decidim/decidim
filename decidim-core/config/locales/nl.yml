@@ -53,8 +53,47 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin_log:
+      feature:
+        create: "%{user_name} de %{resource_name} toegevoegd functie naar de %{space_name} ruimte"
+        delete: "%{user_name} de %{resource_name} verwijderd functie van de %{space_name} ruimte"
+        publish: "%{user_name} heeft de functie %{resource_name} in de ruimte %{space_name} gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de functie %{resource_name} van de %{space_name} spatie"
+      moderation:
+        hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+        unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+      newsletter:
+        create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
+        deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      organization:
+        update: "%{user_name} de organisatie-instellingen bijgewerkt"
+      scope:
+        create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
+        create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
+        delete: "%{user_name} heeft de bereik %{resource_name} verwijderd"
+        delete_with_parent: "%{user_name} verwijderde het bereik %{resource_name} binnen de scope bereik %{parent_scope}"
+        update: "%{user_name} heeft het bereik %{resource_name} bijgewerkt"
+        update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen de bereikbereik %{parent_scope} bijgewerkt"
+      static_page:
+        create: "%{user_name} creëerde de %{resource_name} statische pagina"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd statische pagina"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
+      user:
+        invite: "%{user_name} nodigde de gebruiker uit %{resource_name} met rol: %{role}"
+        officialize: "%{user_name} officieel de gebruiker %{resource_name}"
+        remove_from_admin: "%{user_name} de gebruiker verwijderd %{resource_name} met rol: %{role}"
+        unofficialize: "%{user_name} de gebruiker onofficieel %{resource_name}"
+      user_group:
+        reject: "%{user_name} verwierp de %{resource_name} gebruikersgroep verificatie"
+        verify: "%{user_name} de %{resource_name} geverifieerd gebruikersgroep"
     anonymous_user: Anoniem
     application:
+      collection:
+        documents:
+          one: Document
+          other: documenten
       documents:
         related_documents: Gerelateerde documenten
       photos:
@@ -143,13 +182,20 @@ nl:
         email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
         email_subject: Een update naar %{participatory_space_title}
         notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-        email_subject: Een update naar %{participatory_space_title}
-        notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
@@ -197,6 +243,23 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    log:
+      base_presenter:
+        create: "%{user_name} gemaakt %{resource_name}"
+        create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
+        delete: "%{user_name} verwijderd %{resource_name}"
+        delete_with_space: "%{user_name} verwijderd %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} voerde wat actie uit op %{resource_name}"
+        unknown_action_with_space: "%{user_name} voerde wat actie uit op %{resource_name} in %{space_name}"
+        update: "%{user_name} bijgewerkt %{resource_name}"
+        update_with_space: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+        scope_presenter:
+          not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
     menu:
@@ -446,6 +509,7 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
@@ -485,6 +549,7 @@ nl:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

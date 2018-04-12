@@ -28,6 +28,11 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: '"%{resource_title}" mötet stängdes'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet stängdes.
+        meeting_created:
+          email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
+          email_subject: Nytt möte läggs till %{participatory_space_title}
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: De upptagna platserna "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här meddelandet eftersom du är en administratör för mötes deltagande utrymme.
@@ -62,6 +67,7 @@ sv:
             comments_blocked: Kommentarer blockerad
     meetings:
       actions:
+        attachment_collections: samlingar
         attachments: bilagor
         close: Stänga
         confirm_destroy: Är du säker på att du vill radera detta möte?
@@ -124,6 +130,12 @@ sv:
           update:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
+      admin_log:
+        meeting:
+          close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
+          create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"
+          delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
+          update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +195,16 @@ sv:
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Tidigare möten
+        see_all_meetings: Se alla möten
+        upcoming_meetings: Kommande möten
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Relaterade resultat:'

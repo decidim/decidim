@@ -1,0 +1,16 @@
+<div class="columns large-3">
+  <div class="m-bottom">
+    <%= link_to :back do %>
+      <%= icon "chevron-left", class: "icon--small" %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
+  <div class="section">
+    <p>
+      <%= t(".info").html_safe %>
+    </p>
+  </div>
+  <div class="show-for-large">
+    <%= proposal_wizard_stepper(@step) %>
+  </div>
+</div>

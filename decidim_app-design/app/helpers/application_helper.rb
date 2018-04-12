@@ -8,4 +8,8 @@ module ApplicationHelper
   def page_path(name)
     url_for(id: name)
   end
+
+  def is(mod)
+    request.path_info.include?(mod)
+  end
 end

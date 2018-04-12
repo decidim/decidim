@@ -34,16 +34,18 @@ module Decidim
       attr_reader :form
 
       def update_attachment
-        attachment.update_attributes!(attributes)
+        attachment.update!(attributes)
       end
 
       def attributes
         {
           title: form.title,
           file: form.file,
-          description: form.description
-        }.reject do |_attribute, value|
-          value.blank?
+          description: form.description,
+          weight: form.weight,
+          attachment_collection: form.attachment_collection
+        }.reject do |attribute, value|
+          value.blank? && attribute != :attachment_collection
         end
       end
     end

@@ -1,8 +1,8 @@
 $(() => {
   const checkProgressPosition = () => {
     let progressFix = document.querySelector("[data-progressbox-fixed]"),
-      progressRef = document.querySelector("[data-progress-reference]"),
-      progressVisibleClass = "is-progressbox-visible";
+        progressRef = document.querySelector("[data-progress-reference]"),
+        progressVisibleClass = "is-progressbox-visible";
 
     if (!progressRef) {
       return;

@@ -21,7 +21,7 @@ module Decidim::Meetings
       end
 
       it "creates a registration for the meeting and the user" do
-        expect { subject.call }.to change { Registration.count }.by(1)
+        expect { subject.call }.to change(Registration, :count).by(1)
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
         expect(last_registration.meeting).to eq(meeting)

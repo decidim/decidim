@@ -32,12 +32,12 @@ shared_examples "manage proposals" do
   describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.update_attributes!(settings: { official_proposals_enabled: true })
+        current_feature.update!(settings: { official_proposals_enabled: true })
       end
 
       context "when creation is enabled" do
         before do
-          current_feature.update_attributes!(
+          current_feature.update!(
             step_settings: {
               current_feature.participatory_space.active_step.id => {
                 creation_enabled: true
@@ -151,7 +151,7 @@ shared_examples "manage proposals" do
 
           context "when geocoding is enabled" do
             before do
-              current_feature.update_attributes!(settings: { geocoding_enabled: true })
+              current_feature.update!(settings: { geocoding_enabled: true })
             end
 
             it "creates a new proposal related to the process scope" do
@@ -181,7 +181,7 @@ shared_examples "manage proposals" do
 
         context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
           before do
-            current_feature.update_attributes!(settings: { attachments_allowed: true })
+            current_feature.update!(settings: { attachments_allowed: true })
           end
 
           it "creates a new proposal with attachments" do
@@ -205,7 +205,7 @@ shared_examples "manage proposals" do
 
       context "when creation is not enabled" do
         before do
-          current_feature.update_attributes!(
+          current_feature.update!(
             step_settings: {
               current_feature.participatory_space.active_step.id => {
                 creation_enabled: false
@@ -228,7 +228,7 @@ shared_examples "manage proposals" do
 
     context "when official_proposals setting is disabled" do
       before do
-        current_feature.update_attributes!(settings: { official_proposals_enabled: false })
+        current_feature.update!(settings: { official_proposals_enabled: false })
       end
 
       it "cannot create a new proposal from the main site" do
@@ -245,12 +245,12 @@ shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is enabled" do
     before do
-      current_feature.update_attributes!(settings: { proposal_answering_enabled: true })
+      current_feature.update!(settings: { proposal_answering_enabled: true })
     end
 
     context "when the proposal_answering step setting is enabled" do
       before do
-        current_feature.update_attributes!(
+        current_feature.update!(
           step_settings: {
             current_feature.participatory_space.active_step.id => {
               proposal_answering_enabled: true
@@ -312,7 +312,7 @@ shared_examples "manage proposals" do
       end
 
       it "can edit a proposal answer" do
-        proposal.update_attributes!(
+        proposal.update!(
           state: "rejected",
           answer: {
             "en" => "I don't like it"
@@ -343,7 +343,7 @@ shared_examples "manage proposals" do
 
     context "when the proposal_answering step setting is disabled" do
       before do
-        current_feature.update_attributes!(
+        current_feature.update!(
           step_settings: {
             current_feature.participatory_space.active_step.id => {
               proposal_answering_enabled: false
@@ -364,7 +364,7 @@ shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is disabled" do
     before do
-      current_feature.update_attributes!(settings: { proposal_answering_enabled: false })
+      current_feature.update!(settings: { proposal_answering_enabled: false })
     end
 
     it "cannot answer a proposal" do
@@ -378,7 +378,7 @@ shared_examples "manage proposals" do
 
   context "when the votes_enabled feature setting is disabled" do
     before do
-      current_feature.update_attributes!(
+      current_feature.update!(
         step_settings: {
           feature.participatory_space.active_step.id => {
             votes_enabled: false
@@ -398,7 +398,7 @@ shared_examples "manage proposals" do
 
   context "when the votes_enabled feature setting is enabled" do
     before do
-      current_feature.update_attributes!(
+      current_feature.update!(
         step_settings: {
           feature.participatory_space.active_step.id => {
             votes_enabled: true

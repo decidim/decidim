@@ -2,17 +2,33 @@ it:
   activemodel:
     attributes:
       proposal:
+        answer: Risposta
+        answered_at: Risposto a
         body: Corpo del testo
         category_id: Categoria
         has_address: Ha un indirizzo
         scope_id: Visibilità
+        state: Stato
         title: Titolo
         user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
+      proposals_copy:
+        copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
+        origin_feature_id: Componente per copiare le proposte da
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Proposte ora disponibili in %{participatory_space_title}
+          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
+          notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -23,6 +39,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Nuova proposta di %{author_nickname}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: La proposta "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuova proposta aggiunta a %{participatory_space_title}
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena approvato una proposta che potrebbe essere interessante per te, controllala e contribuisci:"
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: "%{endorser_nickname} ha approvato una nuova proposta"
+          notification_title: Il <a href="%{resource_path}">%{resource_title}</a> la proposta è stata approvata da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -33,16 +59,29 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Una proposta che stai seguendo è stata respinta
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
+        proposal_update_category:
+          email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
+          email_subject: La categoria di proposta %{resource_title} è stata aggiornata
+          notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
+        voting_enabled:
+          email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
+          notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
           create: Crea
+          endorse: Approvare
           vote: Vota
+          withdraw: ritirarsi
         name: Proposte
         settings:
           global:
             announcement: Annuncio
             attachments_allowed: Autorizzare allegati
+            can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
             maximum_votes_per_proposal: Numero massimo di voti per proposta
@@ -50,19 +89,40 @@ it:
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
             proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
+            proposal_length: Lunghezza massima della proposta
             proposal_limit: Limite di proposta per utente
+            proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
+            proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
+            proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: Creazione delle Proposte abilitata
+            endorsements_blocked: Approvazioni bloccate
+            endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
             votes_blocked: Votazioni bloccate
             votes_enabled: Votazioni abilitate
             votes_hidden: Voti nascosti (se i voti sono abilitati, spuntando questa casella verrà nascosto il numero dei voti)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: proposte
+        proposal:
+          creation_date: 'Creazione: %{date}'
+          view_proposal: Visualizza proposta
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: proposte
+        see_all_proposals: Vedi tutte le proposte
+      proposal:
+        creation_date: 'Creazione: %{date}'
+        view_proposal: Visualizza proposta
     proposals:
       actions:
         answer: Risposta
+        import: Importa da un altro componente
         new: Nuovo
         private_notes: Note private
         title: Azioni
@@ -83,6 +143,9 @@ it:
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
+          create:
+            error: Si è verificato un problema durante la creazione di questa nota di proposta
+            success: Nota della proposta creata con successo
           form:
             note: Nota
             submit: Sottoscrivi
@@ -99,16 +162,41 @@ it:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             select_a_category: Scegli una categoria
           index:
+            actions: Azioni
+            cancel: Annulla
+            change_category: Cambia categoria
+            selected: selezionato
             title: Proposte
+            update: Aggiornare
           new:
             create: Crea
             title: Crea una proposta
+          update_category:
+            invalid: 'Queste proposte avevano già la categoria %{category} : %{proposals}.'
+            select_a_category: Si prega di selezionare una categoria
+            select_a_proposal: Si prega di selezionare una proposta
+            success: 'Proposte aggiornate con successo alla categoria %{category} : %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: C'è stato un problema nell'importazione delle proposte
+            success: "%{number} proposte importate con successo"
+          new:
+            create: Importa proposte
+            no_features: Non ci sono altre funzionalità di proposta in questo spazio partecipativo per importare le proposte da.
+            select_feature: Si prega di selezionare un componente
+            select_states: Controlla gli stati delle proposte da importare
         shared:
           info_proposal:
             body: Corpo
             created_at: Data di creazione
             proposal_votes_count: Contare i voti
             proposals: proposte
+      admin_log:
+        proposal:
+          answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato la proposta %{resource_name} nello spazio %{space_name} come proposta ufficiale"
+        proposal_note:
+          create: "%{user_name} ha lasciato una nota privata sulla proposta %{resource_name} sullo spazio %{space_name}"
       answers:
         accepted: Accettata
         evaluating: Valutare
@@ -117,7 +205,7 @@ it:
         withdrawn: Ritirato
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
-        success: OK, la proposta è stata creata.
+        success: Proposta creata con successo. Salvato come bozza.
       models:
         proposal:
           fields:
@@ -133,10 +221,24 @@ it:
             votes: Voti
       new:
         limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
+      proposal_endorsements:
+        create:
+          error: Ci sono stati errori nel sostenere la proposta.
+        identities:
+          done: Fatto
+          select_identity: Seleziona identità
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Già approvato
+          endorse: Approvare
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
+        compare:
+          mine_is_different: La mia proposta è diversa
+          no_similars_found: Molto bene! Non sono state trovate proposte simili
+          title: Proposte simili
         count:
           proposals_count:
             one: 1 proposta
@@ -146,6 +248,20 @@ it:
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
+        edit_draft:
+          send: Anteprima
+          title: Modifica bozza di proposta
+        endorsement_button:
+          already_endorsed: Già approvato
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Approvare
+        endorsements_card_row:
+          endorse: Approvare
+        endorsements_listing:
+          see_all: Vedi tutto
+          see_less: Vedi di meno
+          title: Elenco di approvazioni
         filters:
           accepted: Accettata
           activity: Attività
@@ -176,18 +292,21 @@ it:
             other: voti
         new:
           attachment_legend: "(Opzionale) Aggiungere un allegato"
-          back: Indietro
-          proposal_edit_before_minutes:
-            one: Sarà possibile modificare questa proposta nel primo minuto dopo la creazione della proposta. Una volta che questa finestra di tempo passa, non sarà possibile modificare la proposta.
-            other: Sarai in grado di modificare questa proposta durante i primi %{count} minuti dopo la creazione della proposta. Una volta che questa finestra di tempo passa, non sarà possibile modificare la proposta.
           select_a_category: Scegli una categoria
-          send: Invia
-          title: Nuova proposta
+          send: Continua
+          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_voted: Più votate
           random: A caso
           recent: le più recenti
+        preview:
+          modify: Modifica la proposta
+          proposal_edit_before_minutes:
+            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
+            other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
+          publish: Pubblicare
+          title: Pubblica la tua proposta
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
@@ -197,6 +316,10 @@ it:
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
           report: Report
+          sign_in: registrati
+          sign_in_or_up: "%{in} o %{up} per partecipare"
+          sign_up: Iscriviti
+          withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
         vote_button:
@@ -210,7 +333,11 @@ it:
           count:
             one: VOTO
             other: VOTI
+          most_popular_proposal: La proposta più popolare
+          need_more_votes: Hai bisogno di più voti
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Ogni proposta può accumulare oltre il numero massimo di voti
           maximum_votes_per_proposal:
             description: Ogni proposta può ricevere un massimo di %{limit} voti.
           proposal_limit:
@@ -220,10 +347,27 @@ it:
             description: Puoi votare fino a %{limit} proposte.
             left: Restano
             votes: Voti
+        wizard_aside:
+          back: Indietro
+          info: Stai creando una <strong>proposta</strong>.
+        wizard_steps:
+          see_steps: vedere i passaggi
+          step_1: Crea la tua proposta
+          step_2: Confrontare
+          step_3: Pubblica la tua proposta
+          step_of: Step %{current_step_num} di %{total_steps}
+      publish:
+        error: Si sono verificati errori durante la pubblicazione della proposta.
+        success: Proposta pubblicata con successo.
       update:
         error: Ci sono stati errori quando si salva la proposta.
         success: La proposta è stata aggiornata correttamente.
+      update_draft:
+        error: Si sono verificati errori durante il salvataggio della bozza della proposta.
+        success: Bozza proposta aggiornata correttamente.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Proposte correlate
       included_projects:
         project_results: 'Risultati che appaiono in questo progetto:'
       included_proposals:

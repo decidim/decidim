@@ -23,7 +23,7 @@ module Decidim
           it "doesn't create a page" do
             expect do
               command.call
-            end.not_to change { Page.count }
+            end.not_to change(Page, :count)
           end
         end
 
@@ -37,7 +37,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { Page.count }.by(1)
+            end.to change(Page, :count).by(1)
           end
         end
       end

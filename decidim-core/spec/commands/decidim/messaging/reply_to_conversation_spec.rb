@@ -24,7 +24,7 @@ module Decidim::Messaging
       end
 
       it "does not create a message" do
-        expect { command.call }.not_to change { Message.count }
+        expect { command.call }.not_to change(Message, :count)
       end
 
       it "broadcasts invalid" do
@@ -34,7 +34,7 @@ module Decidim::Messaging
       it "does not send notifications" do
         expect do
           perform_enqueued_jobs { command.call }
-        end.not_to change { emails.count }
+        end.not_to change(emails, :count)
       end
     end
 
@@ -47,9 +47,9 @@ module Decidim::Messaging
 
       it "creates a message with two receipts" do
         expect { command.call }
-          .to change { Message.count }
+          .to change(Message, :count)
           .by(1)
-          .and change { Receipt.count }
+          .and change(Receipt, :count)
           .by(2)
       end
 
@@ -61,7 +61,7 @@ module Decidim::Messaging
         it "sends a notification to the recipient" do
           expect do
             perform_enqueued_jobs { command.call }
-          end.to change { emails.count }.by(1)
+          end.to change(emails, :count).by(1)
         end
       end
 
@@ -73,7 +73,7 @@ module Decidim::Messaging
         it "does not send notifications" do
           expect do
             perform_enqueued_jobs { command.call }
-          end.not_to change { emails.count }
+          end.not_to change(emails, :count)
         end
       end
     end

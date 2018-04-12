@@ -56,7 +56,9 @@ module Decidim
         authorize! :update, @feature
 
         UpdateFeature.call(@form, @feature) do
-          on(:ok) do
+          on(:ok) do |settings_changed, previous_settings, current_settings|
+            handle_feature_settings_change(previous_settings, current_settings) if settings_changed
+
             flash[:notice] = I18n.t("features.update.success", scope: "decidim.admin")
             redirect_to action: :index
           end
@@ -72,7 +74,7 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :destroy, @feature
 
-        DestroyFeature.call(@feature) do
+        DestroyFeature.call(@feature, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("features.destroy.success", scope: "decidim.admin")
             redirect_to action: :index
@@ -89,27 +91,24 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
-        @feature.publish!
-
-        Decidim::EventsManager.publish(
-          event: "decidim.events.features.feature_published",
-          event_class: Decidim::FeaturePublishedEvent,
-          resource: @feature,
-          recipient_ids: current_participatory_space.followers.pluck(:id)
-        )
-
-        flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
-        redirect_to action: :index
+        PublishFeature.call(@feature, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
       end
 
       def unpublish
         @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
-        @feature.unpublish!
-
-        flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
-        redirect_to action: :index
+        UnpublishFeature.call(@feature, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
       end
 
       private
@@ -126,6 +125,16 @@ module Decidim
         TranslationsHelper.multi_translation(
           "decidim.features.#{manifest.name}.name",
           current_organization.available_locales
+        )
+      end
+
+      def handle_feature_settings_change(previous_settings, current_settings)
+        return if @feature.participatory_space.allows_steps?
+
+        Decidim::SettingsChange.publish(
+          @feature,
+          previous_settings["default_step"] || {},
+          current_settings["default_step"] || {}
         )
       end
     end

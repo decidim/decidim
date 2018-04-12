@@ -8,6 +8,7 @@ module Decidim
   class User < ApplicationRecord
     include Nicknamizable
     include Decidim::Followable
+    include Decidim::Loggable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
@@ -28,8 +29,7 @@ module Decidim
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
-    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
-    validates :email, 'valid_email_2/email': { disposable: true }
+    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
 
@@ -43,6 +43,10 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::UserPresenter
+    end
 
     # Checks if the user has the given `role` or not.
     #

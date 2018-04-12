@@ -54,8 +54,47 @@ ca:
         error: S'ha produït un error en actualitzar el seu compte.
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    admin_log:
+      feature:
+        create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
+        unpublish: "%{user_name} no s'ha publicat el component %{resource_name} des de l'espai %{space_name}"
+      moderation:
+        hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
+        unreport: "%{user_name} ha publicat un recurs del tipus %{resource_type} a l'espai %{space_name}"
+      newsletter:
+        create: "%{user_name} ha creat el butlletí %{resource_name}"
+        delete: "%{user_name} ha eliminat el butlletí %{resource_name}"
+        deliver: "%{user_name} ha enviat el butlletí %{resource_name}"
+        update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
+      organization:
+        update: "%{user_name} ha actualitzat la configuració de l'organització"
+      scope:
+        create: "%{user_name} ha creat l'àmbit %{resource_name}"
+        create_with_parent: "%{user_name} ha creat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+        delete: "%{user_name} ha suprimit l'àmbit %{resource_name}"
+        delete_with_parent: "%{user_name} ha suprimit l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+        update: "%{user_name} ha actualitzat l'àmbit %{resource_name}"
+        update_with_parent: "%{user_name} ha actualitzat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+      static_page:
+        create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
+        delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
+        update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      user:
+        invite: "%{user_name} ha convidat l'usuari a %{resource_name} amb el rol: %{role}"
+        officialize: "%{user_name} ha oficialitzat l'usuari %{resource_name}"
+        remove_from_admin: "%{user_name} ha eliminat l'usuari %{resource_name} amb el rol: %{role}"
+        unofficialize: "%{user_name} ha desoficialitzat l'usuari %{resource_name}"
+      user_group:
+        reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
+        verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
     anonymous_user: Anònim
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Documents relacionats
       photos:
@@ -97,7 +136,7 @@ ca:
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
-          newsletter: Rebeu un butlletí ocasional amb informació rellevant
+          newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           nickname_help: El vostre identificador curt i únic
           sign_in: Entra
           sign_up: Registra't
@@ -144,13 +183,20 @@ ca:
         email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: Una actualització a %{participatory_space_title}
         notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
+      participatory_process:
+        step_activated:
+          email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha produït un esdeveniment a %{participatory_space_title}
+          notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: S'ha produït un esdeveniment a %{participatory_space_title}
-        notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -198,6 +244,23 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    log:
+      base_presenter:
+        create: "%{user_name} creat %{resource_name}"
+        create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
+        delete: "%{user_name} ha eliminat %{resource_name}"
+        delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
+        unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
+        update: "%{user_name} ha actualitzat %{resource_name}"
+        update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
+        scope_presenter:
+          not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió de suplantació actual ha caducat.
     menu:
@@ -450,6 +513,7 @@ ca:
         answers_count: Enquestes realitzades
         assemblies_count: Assemblees
         comments_count: Comentaris
+        endorsements_count: Adhesions
         headline: Estat actual de %{organization}
         meetings_count: Trobades
         orders_count: Vots
@@ -489,6 +553,7 @@ ca:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d/%m/%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

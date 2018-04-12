@@ -32,7 +32,7 @@ module Decidim
         private
 
         def proposal
-          @proposals ||= Proposal.where(feature: current_feature).find(params[:id])
+          @proposal ||= Proposal.where(feature: current_feature).find(params[:id])
         end
       end
     end

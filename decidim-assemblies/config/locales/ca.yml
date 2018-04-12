@@ -3,9 +3,12 @@ ca:
   activemodel:
     attributes:
       assembly:
+        area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_features: Copiar funcionalitats
+        decidim_area_id: Àrea
+        decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
@@ -16,13 +19,15 @@ ca:
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
+        published_at: Publicat el
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
+        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
-        title: Grup de processos participatius
+        title: Títol
   decidim:
     admin:
       assemblies:
@@ -81,6 +86,8 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
@@ -92,7 +99,7 @@ ca:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
-            title: Grup de processos participatius
+            title: Títol
           name: Assemblea
         assembly_user_role:
           fields:
@@ -106,10 +113,21 @@ ca:
             moderator: Moderador
       titles:
         assemblies: Assemblees
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Selecciona una àrea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_copies:
           form:
@@ -122,6 +140,7 @@ ca:
             active_assemblies: Assemblees actives
             see_all_assemblies: Veure totes les assemblees
       show:
+        area: Àrea
         developer_group: Grup promotor
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
@@ -132,6 +151,7 @@ ca:
         answers_count: Respostes
         assemblies_count: Assemblees
         comments_count: Comentaris
+        endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots

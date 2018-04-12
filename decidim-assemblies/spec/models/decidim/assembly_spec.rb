@@ -9,6 +9,7 @@ module Decidim
     let(:assembly) { build(:assembly, slug: "my-slug") }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     include_examples "publicable"
 

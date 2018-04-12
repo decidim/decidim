@@ -1,0 +1,5 @@
+<%= inline_comments_for(@commentable) %>
+
+<%= action_authorized_link_to :foo, foo_dummy_resource_path(@commentable) do %>
+  Foo
+<% end %>

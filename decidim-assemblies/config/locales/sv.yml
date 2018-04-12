@@ -2,9 +2,12 @@ sv:
   activemodel:
     attributes:
       assembly:
+        area_id: Område
         banner_image: Banner image
         copy_categories: Kopiera kategorier
         copy_features: Kopiera funktioner
+        decidim_area_id: Område
+        decidim_scope_id: Omfattning
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
@@ -15,9 +18,11 @@ sv:
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
+        published_at: Publicerad på
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
+        show_statistics: Visa statistik
         slug: URL slug
         subtitle: Texta
         target: Mål
@@ -80,6 +85,8 @@ sv:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
+          attachment_collections: samlingar
+          attachment_files: filer
           attachments: bilagor
           categories: kategorier
           features: Funktioner
@@ -105,10 +112,21 @@ sv:
             moderator: moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} skapade %{resource_name} -enheten"
+        publish: "%{user_name} publicerade %{resource_name} -enheten"
+        unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
+        update: "%{user_name} uppdaterade %{resource_name} -enheten"
+      assembly_user_role:
+        create: "%{user_name} inbjudna %{resource_name} till sammansättningen %{space_name}"
+        delete: "%{user_name} tog bort användaren %{resource_name} från enheten %{space_name}"
+        update: "%{user_name} ändrade rollen som %{resource_name} i sammansättningen %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Välj ett område
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ sv:
             active_assemblies: Aktiva aggregat
             see_all_assemblies: Se alla församlingar
       show:
+        area: Område
         developer_group: Utvecklargrupp
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
@@ -131,6 +150,7 @@ sv:
         answers_count: svar
         assemblies_count: Assemblies
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
         orders_count: röster

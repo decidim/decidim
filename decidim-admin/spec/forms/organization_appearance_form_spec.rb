@@ -46,7 +46,7 @@ module Decidim
       let(:omnipresent_banner_short_description) { empty_traslatable_attribute }
       let(:attributes) do
         {
-          "organization_appearance" => {
+          "organization" => {
             "welcome_text_en" => welcome_text[:en],
             "welcome_text_es" => welcome_text[:es],
             "welcome_text_ca" => welcome_text[:ca],

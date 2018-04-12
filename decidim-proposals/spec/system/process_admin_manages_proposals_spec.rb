@@ -17,4 +17,7 @@ describe "Process admin manages proposals", type: :system do
   it_behaves_like "export proposals"
   it_behaves_like "manage announcements"
   it_behaves_like "manage proposals help texts"
+  it_behaves_like "manage proposal wizard steps help texts"
+  it_behaves_like "when managing proposals category as an admin"
+  it_behaves_like "import proposals"
 end

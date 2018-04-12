@@ -49,7 +49,7 @@ module Decidim
         it "doesn't create survey answers" do
           expect do
             command.call
-          end.not_to change { SurveyAnswer.count }
+          end.not_to change(SurveyAnswer, :count)
         end
       end
 
@@ -61,7 +61,7 @@ module Decidim
         it "creates a survey answer for each question answered" do
           expect do
             command.call
-          end.to change { SurveyAnswer.count }.by(2)
+          end.to change(SurveyAnswer, :count).by(2)
           last_answer = SurveyAnswer.last
           expect(last_answer.survey).to eq(survey)
         end

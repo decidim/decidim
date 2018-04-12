@@ -61,11 +61,13 @@ module Decidim
         def destroy
           @assembly_user_role = collection.find(params[:id])
           authorize! :destroy, @assembly_user_role
-          @assembly_user_role.destroy!
 
-          flash[:notice] = I18n.t("assembly_user_roles.destroy.success", scope: "decidim.admin")
-
-          redirect_to assembly_user_roles_path(@assembly_user_role.assembly)
+          DestroyAssemblyAdmin.call(@assembly_user_role, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("assembly_user_roles.destroy.success", scope: "decidim.admin")
+              redirect_to assembly_user_roles_path(current_assembly)
+            end
+          end
         end
 
         def resend_invitation

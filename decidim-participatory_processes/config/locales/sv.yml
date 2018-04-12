@@ -19,6 +19,7 @@ sv:
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
+        published_at: Publicerad på
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
@@ -61,6 +62,8 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: processer
         participatory_processes_submenu:
+          attachment_collections: samlingar
+          attachment_files: filer
           attachments: bilagor
           categories: kategorier
           features: Funktioner
@@ -202,6 +205,33 @@ sv:
         resend_invitation:
           error: Det uppstod ett fel när du skickade inbjudan igen.
           success: Inbjudan misslyckas framgångsrikt.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} skapade %{resource_name} deltagande process"
+        publish: "%{user_name} publicerade %{resource_name} deltagande process"
+        unpublish: "%{user_name} opublicerade %{resource_name} deltagande process"
+        update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} aktiverade %{resource_name} -steget i deltagarprocessen %{space_name}"
+        create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
+        delete: "%{user_name} raderade %{resource_name} -steget i den deltagande processen %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name} -steget i den deltagande processen %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} bjudit in användaren %{resource_name} till %{space_name} deltagande process"
+        delete: "%{user_name} tagit bort användaren %{resource_name} från %{space_name} deltagande process"
+        update: "%{user_name} ändrade användarens roll %{resource_name} i %{space_name} deltagande process"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: '%{resource_title} -steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: '%{resource_title} -steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
+        step_changed:
+          email_intro: 'Dagen för %{resource_title} -steget vid %{participatory_space_title} har uppdaterats. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     menu:
       processes: processer
     participatory_process_groups:
@@ -251,6 +281,7 @@ sv:
       statistics:
         answers_count: svar
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
         orders_count: röster

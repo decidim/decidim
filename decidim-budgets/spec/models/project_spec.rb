@@ -40,7 +40,7 @@ module Decidim::Budgets
       let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
 
       it "return number of finished orders for this project" do
-        order.reload.update_attributes!(checked_out_at: Time.current)
+        order.reload.update!(checked_out_at: Time.current)
         expect(project.confirmed_orders_count).to eq(1)
       end
     end

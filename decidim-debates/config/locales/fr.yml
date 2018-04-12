@@ -3,6 +3,7 @@ fr:
     attributes:
       debate:
         category_id: Catégorie
+        decidim_category_id: Catégorie
         description: Description
         end_time: Prend fin à
         information_updates: Informations mises à jour
@@ -39,6 +40,10 @@ fr:
         models:
           debate:
             name: Débat
+      admin_log:
+        debate:
+          create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
         count:
           debates_count:
@@ -101,6 +106,16 @@ fr:
             email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
             email_subject: Nouveau débat par %{author_nickname}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'La création du débat n''est plus active dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: La création du débat est désactivée dans %{participatory_space_title}
+          notification_title: La création du débat est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Vous pouvez maintenant commencer de nouveaux débats dans %{participatory_space_title}! Commencez à participer à cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Débats maintenant disponibles en %{participatory_space_title}
+          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
@@ -108,7 +123,9 @@ fr:
         name: Débats
         settings:
           global:
-            comments_enabled: Commentaires activés
+            announcement: Annonce
+            comments_enabled: Activer le module de commentaire
           step:
-            comments_blocked: Commentaires bloqués
+            announcement: Annonce
+            comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Création de débats par les utilisateurs activés

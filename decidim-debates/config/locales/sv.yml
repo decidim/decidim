@@ -3,6 +3,7 @@ sv:
     attributes:
       debate:
         category_id: Kategori
+        decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
@@ -39,6 +40,10 @@ sv:
         models:
           debate:
             name: Debatt
+      admin_log:
+        debate:
+          create: "%{user_name} skapade debatten %{resource_name} på %{space_name} -platsen"
+          update: "%{user_name} uppdaterade debatten %{resource_name} på %{space_name} -platsen"
       debates:
         count:
           debates_count:
@@ -101,6 +106,16 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt av %{author_nickname}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'Debatt skapande är inte längre aktiv i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Debatt skapades inaktiverat i %{participatory_space_title}
+          notification_title: Debatt skapande är nu inaktiverad i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja delta på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Debatter finns nu i %{participatory_space_title}
+          notification_title: Du kan nu starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
@@ -108,7 +123,9 @@ sv:
         name: debatter
         settings:
           global:
+            announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
           step:
+            announcement: Meddelande
             comments_blocked: Kommentarer blockerad
             creation_enabled: Debatt skapande av användare aktiverat

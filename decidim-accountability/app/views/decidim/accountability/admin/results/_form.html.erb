@@ -54,11 +54,9 @@
 
     <div class="row column">
       <% if @form.proposals %>
-        <%= form.select :proposal_ids,
-                        @form.proposals,
-                        {},
-                        { multiple: true, class: "chosen-select" }
-        %>
+        <% picker_options = { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]', multiple: true }
+        prompt_params= { url: 'proposals', text: t(".add_proposal") } %>
+        <%= form.data_picker(:proposals, picker_options, prompt_params) {|item| { url: 'proposals', text: "##{item.id}- #{item.title}" }} %>
       <% end %>
     </div>
 

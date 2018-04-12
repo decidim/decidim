@@ -6,17 +6,21 @@ module Decidim
   # several features (proposals, debates...) that can be enabled or disabled.
   class Assembly < ApplicationRecord
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::Scopable
     include Decidim::Followable
+    include Decidim::HasReference
+    include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :scope,
-               foreign_key: "decidim_scope_id",
-               class_name: "Decidim::Scope",
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
                optional: true
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
@@ -37,6 +41,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
     def hashtag

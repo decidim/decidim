@@ -8,9 +8,11 @@ describe Decidim::Debates::Admin::UpdateDebate do
   let(:debate) { create :debate }
   let(:organization) { debate.feature.organization }
   let(:category) { create :category, participatory_space: debate.feature.participatory_space }
+  let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     double(
       invalid?: invalid,
+      current_user: user,
       title: { en: "title" },
       description: { en: "description" },
       information_updates: { en: "information_updates" },
@@ -42,6 +44,18 @@ describe Decidim::Debates::Admin::UpdateDebate do
     it "sets the category" do
       subject.call
       expect(debate.category).to eq category
+    end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:update!)
+        .with(debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time))
+        .and_call_original
+
+      expect { subject.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.version).to be_present
+      expect(action_log.version.event).to eq "update"
     end
   end
 end

@@ -7,6 +7,7 @@ module Decidim::Meetings
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:scope) { create :scope, organization: organization }
@@ -30,6 +31,7 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
+        current_user: current_user,
         current_feature: current_feature
       )
     end
@@ -46,7 +48,7 @@ module Decidim::Meetings
       let(:meeting) { Meeting.last }
 
       it "creates the meeting" do
-        expect { subject.call }.to change { Meeting.count }.by(1)
+        expect { subject.call }.to change(Meeting, :count).by(1)
       end
 
       it "sets the scope" do
@@ -71,6 +73,17 @@ module Decidim::Meetings
         expect(last_meeting.longitude).to eq(longitude)
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Meeting, current_user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       it "schedules a upcoming meeting notification job 48h before start time" do
         expect_any_instance_of(Meeting) # rubocop:disable RSpec/AnyInstance
           .to receive(:id).at_least(:once).and_return 1
@@ -81,6 +94,22 @@ module Decidim::Meetings
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
           .with(set: start_time - 2.days).with(1, "1234")
+
+        subject.call
+      end
+
+      it "sends a notification to the participatory space followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: participatory_process, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_created",
+            event_class: Decidim::Meetings::CreateMeetingEvent,
+            resource: kind_of(Meeting),
+            recipient_ids: [follower.id]
+          )
 
         subject.call
       end

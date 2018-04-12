@@ -5,6 +5,7 @@ $card-secondary-bg: $light-gray-dark;
 $card-border: $border;
 $card-border-radius: $global-radius;
 $card-shadow: 0 2px 7px rgba(black, .1);
+$card-id: $medium-gray;
 
 $card-padding-small: 1rem;
 $card-padding: 1.5rem;
@@ -47,9 +48,11 @@ $datetime-bg: $primary;
 
 .card__content{
   padding: $card-padding-small;
+  padding-bottom: $card-padding-small / 2;
 
   @include breakpoint(medium){
     padding: $card-padding;
+    padding-bottom: $card-padding / 2;
   }
 }
 
@@ -72,7 +75,7 @@ $datetime-bg: $primary;
 }
 
 .card__header{
-  margin-bottom: 1rem;
+  margin-bottom: $card-padding / 2;
 }
 
 .card__button{
@@ -101,20 +104,32 @@ $datetime-bg: $primary;
   }
 }
 
-/* Card meetings */
-.card--meeting{
-  .card__content{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.card__text{
+  .card__text--status{
+    font-weight: bold;
+    text-transform: uppercase;
 
-    .address{
-      margin-top: auto;
+    &::after{
+      content: " ";
     }
+
+    @include modifiers(color, (muted: $muted));
+  }
+
+  .card__text--category{
+    display: block;
+    margin-top: $global-margin / 2;
   }
 }
 
+.card__image{
+  width: 100%;
+  max-height: 10rem;
+  object-fit: cover;
+}
+
 /* Card datetime */
+// NOTE: Possible deprecated
 .card__datetime{
   flex-shrink: 0;
   text-align: center;
@@ -184,8 +199,12 @@ $datetime-bg: $primary;
 }
 
 .card__author{
-  margin-top: -.3rem;
   margin-bottom: .5rem;
+
+  // Hack when there's a toggler list
+  [data-toggler]{
+    margin-bottom: -.5rem;
+  }
 }
 
 .card__voting{
@@ -214,7 +233,7 @@ $datetime-bg: $primary;
   flex-grow: 1;
   text-align: center;
   text-transform: uppercase;
-  font-size: 85%;
+  font-size: rem-calc(15);
   line-height: 1;
   color: $muted;
   padding: .5em;
@@ -267,8 +286,11 @@ $datetime-bg: $primary;
     padding: $card-padding;
   }
 
+  > *:only-child{
+    margin-left: auto;
+  }
+
   .card__button{
-    //margin-left: auto;
     font-size: $small-font-size;
   }
 }
@@ -308,7 +330,11 @@ $datetime-bg: $primary;
 
 /* Card Link */
 .card__link{
-  color: inherit;
+  color: $anchor-color;
+
+  @include breakpoint(small only){
+    word-break: break-all;
+  }
 
   &:hover{
     color: $anchor-color;
@@ -418,6 +444,15 @@ $datetime-bg: $primary;
     .icon{
       fill: $anchor-color;
     }
+  }
+}
+
+.card--list__data__icon--lg{
+  @extend .card--list__data__icon;
+
+  .icon{
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -606,10 +641,76 @@ $datetime-bg: $primary;
       }
     }
   }
+}
 
-  .card-status__text{
-    font-weight: bold;
+// card label
+.card__label{
+  display: inline-flex;
+  color: $card-id;
+  padding: 0 .5rem;
+  text-transform: uppercase;
+  font-size: $small-font-size;
+  font-weight: bold;
+  position: absolute;
+  background-color: $card-bg;
+  margin-top: -$global-margin * .75;
+  margin-left: $card-padding-small;
 
-    @include modifiers(color, (muted: $muted));
+  .icon{
+    // Reduces some icon space
+    margin-left: -.25rem;
+  }
+
+  @include breakpoint(medium){
+    margin-left: $card-padding;
+  }
+
+  @include modifiers(color, (muted: tint($muted, 50))){
+    margin-top: -$global-margin * .95;
+  }
+}
+
+// card metadata with icon
+.card__icondata{
+  ul{
+    align-items: stretch;
+    border-top: $border;
+
+    li{
+      border-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > *{
+        margin: .5rem;
+      }
+    }
+
+    li:first-child{
+      color: $primary;
+      flex: 0;
+    }
+
+    li:not(:first-child){
+      font-size: $global-font-size;
+      text-transform: none;
+      justify-content: left;
+
+      strong{
+        color: $body-font-color;
+        text-transform: uppercase;
+      }
+
+      .card__icondata--address{
+        color: $body-font-color;
+        line-height: 120%;
+
+        & + a{
+          display: block;
+          margin-top: $global-margin;
+        }
+      }
+    }
   }
 }

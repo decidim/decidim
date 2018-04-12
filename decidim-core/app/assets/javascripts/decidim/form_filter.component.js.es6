@@ -93,7 +93,7 @@
           const [, key, array, value] = result.match(/filter\[([^\]]*)\](\[\])?=([^&]*)/);
           if (array) {
             if (!acc[key]) {
-              acc[key]=[];
+              acc[key] = [];
             }
             acc[key].push(value);
           } else {
@@ -108,7 +108,7 @@
       return null;
     }
 
-     /**
+    /**
      * Parse current location and get the current order.
      * @private
      * @returns {string} - The current order

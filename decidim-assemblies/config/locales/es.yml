@@ -3,9 +3,12 @@ es:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcionalidades
+        decidim_area_id: Área
+        decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -16,9 +19,11 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        published_at: Publicado
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
@@ -81,6 +86,8 @@ es:
         assemblies: Asambleas
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
+          attachment_collections: Colecciones
+          attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
@@ -106,10 +113,21 @@ es:
             moderator: Moderador
       titles:
         assemblies: Asambleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creó la asamblea %{resource_name}"
+        publish: "%{user_name} publicó la asamblea %{resource_name}"
+        unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        update: "%{user_name} actualizó la asamblea %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
+        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccione un Área
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_copies:
           form:
@@ -122,6 +140,7 @@ es:
             active_assemblies: Asambleas activas
             see_all_assemblies: Ver todas las asambleas
       show:
+        area: Área
         developer_group: Grupo promotor
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
@@ -132,6 +151,7 @@ es:
         answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        endorsements_count: Respaldos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos

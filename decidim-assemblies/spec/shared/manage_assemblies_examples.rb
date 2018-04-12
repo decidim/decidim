@@ -8,6 +8,9 @@ shared_examples "manage assemblies" do
   end
 
   describe "updating an assembly" do
+    let(:image3_filename) { "city3.jpeg" }
+    let(:image3_path) { Decidim::Dev.asset(image3_filename) }
+
     before do
       click_link translated(assembly.title)
     end
@@ -30,7 +33,6 @@ shared_examples "manage assemblies" do
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
-        expect(page).not_to have_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -141,7 +143,7 @@ shared_examples "manage assemblies" do
     let(:scope) { create(:scope, organization: organization) }
 
     before do
-      assembly.update_attributes!(scopes_enabled: true, scope: scope)
+      assembly.update!(scopes_enabled: true, scope: scope)
     end
 
     it "disables the scope for the assembly" do

@@ -9,9 +9,10 @@ gl:
         end_date: Data de finalización
         progress: Progreso
         project_ids: Proxectos incluídos
-        proposal_ids: Propostas incluidas
+        proposals: Propostas incluidas
         start_date: Data de inicio
         title: Título
+        updated_at: Actualizado en
       status:
         description: Descrición
         key: Clave
@@ -49,11 +50,17 @@ gl:
           edit:
             title: Editar resultado
             update: Actualizar resultado
+          form:
+            add_proposal: Engadir proposta
           index:
             title: Resultados
           new:
             create: Crear resultado
             title: Novo resultado
+          proposals:
+            close: Pechar
+            current_selection: Selección actual
+            select: Seleccionar
           update:
             invalid: Produciuse un problema ao actualizar este resultado
             success: Resultado actualizado correctamente
@@ -94,6 +101,10 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar esta entrada
             success: Entrada actualizada con éxito
+      admin_log:
+        result:
+          create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
       models:
         result:
           fields:
@@ -156,6 +167,13 @@ gl:
           changes_at_title: Cambios en "%{title}"
         version:
           version_index: Versión %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída nun resultado. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no <a href="%{resource_path}">%{resource_title}</a> resultado.
     features:
       accountability:
         name: Responsabilidade
@@ -163,12 +181,21 @@ gl:
           global:
             categories_label: Nome para "Categorías"
             comments_enabled: Comentarios habilitados
+            display_progress_enabled: Mostrar o progreso
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Intro
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultados
+    participatory_spaces:
+      highlighted_results:
+        results: Resultados
+        see_all_results: Ver todos os resultados
     resource_links:
       included_projects:
         result_projects: Proxectos incluídos neste resultado

@@ -100,12 +100,6 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when current_feature is missing" do
-      let(:current_feature) { nil }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when start_time is after end_time" do
       let(:start_time) { end_time + 3.days }
 

@@ -94,20 +94,22 @@ shared_examples "comments" do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
-      before do
+      it "shows reply to the user" do
         visit resource_path
 
         expect(page).to have_selector(".comment__reply")
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
-          expect(page).to have_selector(".add-comment")
-          fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
+        end
+
+        expect(page).to have_selector("#comment_#{comment.id} .add-comment")
+        fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
+        within ".comment-thread .add-comment" do
           click_button "Send"
         end
-      end
 
-      it "shows reply to the user" do
+        expect(page).to have_selector(".comment-thread .comment--nested")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
     end
@@ -169,6 +171,46 @@ shared_examples "comments" do
               expect(page).to have_no_selector(".comment__votes--down", text: /0/)
             end
           end
+        end
+      end
+    end
+
+    describe "mentions" do
+      before do
+        visit resource_path
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          click_button "Send"
+        end
+      end
+
+      context "when mentioning a valid user" do
+        let!(:mentioned_user) { create(:user, :confirmed, organization: organization) }
+        let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
+
+        it "replaces the mention with a link to the user's profile" do
+          expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}")
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "/profiles/#{mentioned_user.nickname}"
+        end
+      end
+
+      context "when mentioning an existing user outside current organization" do
+        let!(:mentioned_user) { create(:user, :confirmed, organization: create(:organization)) }
+        let(:content) { "This text mentions a user outside current organization: @#{mentioned_user.nickname}" }
+
+        it "ignores the mention" do
+          expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}")
+          expect(page).not_to have_link "@#{mentioned_user.nickname}"
+        end
+      end
+
+      context "when mentioning a non valid user" do
+        let(:content) { "This text mentions a @nonexistent user" }
+
+        it "ignores the mention" do
+          expect(page).to have_comment_from(user, "This text mentions a @nonexistent user")
+          expect(page).not_to have_link "@nonexistent"
         end
       end
     end

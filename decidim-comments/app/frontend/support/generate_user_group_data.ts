@@ -7,7 +7,7 @@ import { company, random } from "faker/locale/en";
 const generateUserGrouprData = () => {
   return {
     id: random.uuid(),
-    name: company.companyName(),
+    name: company.companyName()
   };
 };
 

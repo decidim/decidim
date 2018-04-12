@@ -33,7 +33,7 @@ module Decidim
           it "allows voting" do
             expect do
               post :create, format: :js, params: params
-            end.to change { ProposalVote.count }.by(1)
+            end.to change(ProposalVote, :count).by(1)
 
             expect(ProposalVote.last.author).to eq(user)
             expect(ProposalVote.last.proposal).to eq(proposal)
@@ -48,10 +48,10 @@ module Decidim
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.not_to change { ProposalVote.count }
+            end.not_to change(ProposalVote, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
 
@@ -63,10 +63,10 @@ module Decidim
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.not_to change { ProposalVote.count }
+            end.not_to change(ProposalVote, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
       end
@@ -84,7 +84,7 @@ module Decidim
           it "deletes the vote" do
             expect do
               delete :destroy, format: :js, params: params
-            end.to change { ProposalVote.count }.by(-1)
+            end.to change(ProposalVote, :count).by(-1)
 
             expect(ProposalVote.count).to eq(0)
           end
@@ -98,7 +98,7 @@ module Decidim
           it "deletes the vote" do
             expect do
               delete :destroy, format: :js, params: params
-            end.to change { ProposalVote.count }.by(-1)
+            end.to change(ProposalVote, :count).by(-1)
 
             expect(ProposalVote.count).to eq(0)
           end

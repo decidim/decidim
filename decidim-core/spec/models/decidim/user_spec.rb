@@ -11,6 +11,11 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::UserPresenter
+    end
+
     it "has an association for identities" do
       expect(subject.identities).to eq([])
     end
@@ -40,17 +45,6 @@ module Decidim
     end
 
     describe "validations", processing_uploads_for: Decidim::AvatarUploader do
-      context "when the email is a disposable account" do
-        before do
-          user.email = "user@mailbox92.biz"
-        end
-
-        it "is not valid" do
-          expect(user).not_to be_valid
-          expect(user.errors[:email].length).to eq(1)
-        end
-      end
-
       context "when the nickname is empty" do
         before do
           user.nickname = ""
@@ -59,6 +53,148 @@ module Decidim
         it "is not valid" do
           expect(user).not_to be_valid
           expect(user.errors[:nickname].length).to eq(1)
+        end
+
+        it "can't be empty backed by an index" do
+          expect { user.save(validate: false) }.not_to raise_error
+        end
+
+        context "when managed" do
+          before do
+            user.managed = true
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            managed: true)
+            end.not_to raise_error
+          end
+        end
+
+        context "when deleted" do
+          before do
+            user.deleted_at = Time.zone.now
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            deleted_at: Time.zone.now)
+            end.not_to raise_error
+          end
+        end
+      end
+
+      context "when the nickname is not empty" do
+        before do
+          user.nickname = "a-nickname"
+        end
+
+        it "can be created" do
+          expect(user.save).to eq(true)
+        end
+
+        it "can't have duplicates even when skipping validations" do
+          user.save!
+
+          expect do
+            build(:user, organization: user.organization,
+                         nickname: user.nickname).save(validate: false)
+          end.to raise_error(ActiveRecord::RecordNotUnique)
+        end
+
+        it "can't be empty backed by an index" do
+          expect { user.save(validate: false) }.not_to raise_error
+        end
+
+        context "when managed" do
+          before do
+            user.managed = true
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            managed: true)
+            end.not_to raise_error
+          end
+        end
+
+        context "when deleted" do
+          before do
+            user.deleted_at = Time.zone.now
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            deleted_at: Time.zone.now)
+            end.not_to raise_error
+          end
+        end
+      end
+
+      context "when the nickname is not empty" do
+        before do
+          user.nickname = "a-nickname"
+        end
+
+        it "can be created" do
+          expect(user.save).to eq(true)
+        end
+
+        it "can't have duplicates even when skipping validations" do
+          user.save!
+
+          expect do
+            build(:user, organization: user.organization,
+                         nickname: user.nickname).save(validate: false)
+          end.to raise_error(ActiveRecord::RecordNotUnique)
         end
       end
 

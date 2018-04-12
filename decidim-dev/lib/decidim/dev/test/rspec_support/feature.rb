@@ -4,30 +4,34 @@ require "decidim/feature_validator"
 require "decidim/comments"
 
 module Decidim
-  # Dummy engine to be able to test components.
-  class DummyEngine < Rails::Engine
-    engine_name "dummy"
-
-    routes do
-      root to: proc { [200, {}, ["DUMMY ENGINE"]] }
-      resources :dummy_resources, controller: "decidim/dummy_resources"
-    end
-  end
-
-  class DummyAdminEngine < Rails::Engine
-    engine_name "dummy_admin"
-
-    routes do
-      root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
-    end
-  end
-
   class DummyResourceEvent < Events::BaseEvent
     include Decidim::Events::EmailEvent
     include Decidim::Events::NotificationEvent
   end
 
   module DummyResources
+    # Dummy engine to be able to test components.
+    class DummyEngine < Rails::Engine
+      engine_name "dummy"
+      isolate_namespace Decidim::DummyResources
+
+      routes do
+        root to: proc { [200, {}, ["DUMMY ENGINE"]] }
+
+        resources :dummy_resources do
+          get :foo, on: :member
+        end
+      end
+    end
+
+    class DummyAdminEngine < Rails::Engine
+      engine_name "dummy_admin"
+
+      routes do
+        root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
+      end
+    end
+
     class ApplicationRecord < ActiveRecord::Base
       self.abstract_class = true
     end
@@ -38,7 +42,7 @@ module Decidim
       include Reportable
       include Authorable
       include HasCategory
-      include HasScope
+      include ScopableFeature
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -49,22 +53,6 @@ module Decidim
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
       end
-    end
-  end
-
-  class DummyResourcesController < ActionController::Base
-    helper Decidim::Comments::CommentsHelper
-    skip_authorization_check
-
-    def show
-      @commentable = DummyResources::DummyResource.find(params[:id])
-      render inline: %{
-        <%= csrf_meta_tags %>
-        <%= display_flash_messages %>
-        <div class="reveal" id="loginModal" data-reveal></div>
-        <%= javascript_include_tag 'application' %>
-        <%= inline_comments_for(@commentable) %>
-      }
     end
   end
 end
@@ -82,8 +70,8 @@ class DummySerializer
 end
 
 Decidim.register_feature(:dummy) do |feature|
-  feature.engine = Decidim::DummyEngine
-  feature.admin_engine = Decidim::DummyAdminEngine
+  feature.engine = Decidim::DummyResources::DummyEngine
+  feature.admin_engine = Decidim::DummyResources::DummyAdminEngine
   feature.icon = "decidim/dummy.svg"
 
   feature.actions = %w(foo bar)
@@ -126,18 +114,18 @@ end
 RSpec.configure do |config|
   config.before(:suite) do
     ActiveRecord::Migration.suppress_messages do
-      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources")
-        ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.string :title
           t.text :address
           t.float :latitude
           t.float :longitude
           t.datetime :published_at
 
-          t.references :decidim_feature, index: true
-          t.references :decidim_author, index: true
-          t.references :decidim_category, index: true
-          t.references :decidim_scope, index: true
+          t.references :decidim_feature, index: false
+          t.references :decidim_author, index: false
+          t.references :decidim_category, index: false
+          t.references :decidim_scope, index: false
 
           t.timestamps
         end

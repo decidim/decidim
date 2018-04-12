@@ -7,10 +7,11 @@ uk:
         decidim_scope_id: Терен
         description: Опис
         proposal_ids: Супутні пропозиції
-        title: Назва
+        title: Заголовок
   decidim:
     budgets:
       actions:
+        attachment_collections: Збірки
         attachments: Вкладені файли
         confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
@@ -44,7 +45,7 @@ uk:
       models:
         project:
           fields:
-            title: Назва
+            title: Заголовок
       projects:
         budget_confirm:
           are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його потім змінити.
