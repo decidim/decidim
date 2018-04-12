@@ -49,6 +49,7 @@ module Decidim
 
       def handler_name
         return params[:handler_name] if more_than_one_authorization_handler?
+
         available_authorization_handlers.first.name
       end
 
