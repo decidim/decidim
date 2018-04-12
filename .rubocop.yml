@@ -1233,3 +1233,5 @@ RSpec/NamedSubject:
 
 RSpec/VerifiedDoubles:
   Enabled: false
+
+inherit_from: .rubocop_rails.yml
