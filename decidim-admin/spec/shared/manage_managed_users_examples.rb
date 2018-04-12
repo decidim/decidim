@@ -153,7 +153,7 @@ shared_examples "manage managed users examples" do
 
     context "when using the impersonation form" do
       before do
-        impersonate_the_managed_user
+        impersonate(managed_user)
       end
 
       it_behaves_like "impersonating a user" do
@@ -228,10 +228,10 @@ shared_examples "manage managed users examples" do
     click_button "Impersonate"
   end
 
-  def impersonate_the_managed_user
+  def impersonate(user)
     navigate_to_managed_users_page
 
-    within find("tr", text: managed_user.name) do
+    within find("tr", text: user.name) do
       click_link "Impersonate"
     end
 
