@@ -125,7 +125,7 @@ nl:
         title: Titel
       doorkeeper/application:
         authorize_url: Autoriseer URL
-        client_id: klant identificatie
+        client_id: Client ID
         client_secret: Client Secret
         organization_name: Organisatie naam
         organization_url: Organisatie-URL
