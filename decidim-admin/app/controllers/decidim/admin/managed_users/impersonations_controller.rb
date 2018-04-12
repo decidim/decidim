@@ -18,7 +18,7 @@ module Decidim
           authorize! :impersonate, user
 
           if handler_name.present?
-            @form = form(ImpersonateManagedUserForm).from_params(
+            @form = form(ImpersonateUserForm).from_params(
               authorization: {
                 handler_name: handler_name
               }
@@ -29,9 +29,9 @@ module Decidim
         def create
           authorize! :impersonate, user
 
-          @form = form(ImpersonateManagedUserForm).from_params(params)
+          @form = form(ImpersonateUserForm).from_params(params)
 
-          ImpersonateManagedUser.call(@form, user) do
+          ImpersonateUser.call(@form, user) do
             on(:ok) do
               redirect_to decidim.root_path
             end

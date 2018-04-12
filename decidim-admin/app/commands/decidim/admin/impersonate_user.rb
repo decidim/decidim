@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to impersonate a managed user.
-    class ImpersonateManagedUser < Rectify::Command
+    class ImpersonateUser < Rectify::Command
       # Public: Initializes the command.
       #
       # form         - The form with the authorization info

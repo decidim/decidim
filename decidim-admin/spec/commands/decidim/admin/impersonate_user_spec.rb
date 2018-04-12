@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe ImpersonateManagedUser do
+  describe ImpersonateUser do
     include ActiveSupport::Testing::TimeHelpers
 
     subject { described_class.new(form, user) }
@@ -20,7 +20,7 @@ module Decidim::Admin
       }
     end
     let(:form) do
-      ImpersonateManagedUserForm.from_params(
+      ImpersonateUserForm.from_params(
         form_params
       ).with_context(
         current_organization: organization,

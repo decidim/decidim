@@ -43,7 +43,7 @@ module Decidim
       end
 
       def impersonation_ok?
-        ImpersonateManagedUser.call(form, managed_user) do
+        ImpersonateUser.call(form, managed_user) do
           on(:ok) do
             return true
           end

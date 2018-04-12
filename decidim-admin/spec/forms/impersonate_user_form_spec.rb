@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ImpersonateManagedUserForm do
+    describe ImpersonateUserForm do
       subject do
         described_class.from_params(
           attributes
