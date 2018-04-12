@@ -1,0 +1,248 @@
+pt:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Imagem de banner
+        decidim_highlighted_scope_id: Escopo destacado
+        description: Descrição
+        end_voting_date: Data final
+        introductory_image: Imagem introdutória
+        introductory_video_url: URL de vídeo introdutório
+        slug: Lesma de URL
+        start_voting_date: Data de início
+        subtitle: Legenda
+        title: Título
+      question:
+        banner_image: Imagem de banner
+        decidim_scope_id: Área municipal
+        hashtag: Hashtag
+        hero_image: Imagem inicial
+        i_frame_url: URL do sistema de votação externa
+        origin_scope: Escopo
+        origin_title: Origem
+        origin_url: URL de origem
+        participatory_scope: Escopo participativo
+        promoter_group: Grupo promotor
+        question_context: Contexto
+        reference: Referência
+        scope: Área municipal
+        slug: Lesma de URL
+        subtitle: Legenda
+        title: Título
+        vote: Sistema de voto externo
+        what_is_decided: O que é decidido
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Resposta não encontrada.
+  decidim:
+    admin:
+      actions:
+        publish_results: Publicar resultados
+        unpublish_results: Cancelar publicação dos resultados
+      consultation_publications:
+        create:
+          error: Ocorreu um erro ao publicar esta consulta.
+          success: Consulta publicada com sucesso.
+        destroy:
+          error: Ocorreu um erro ao cancelar a publicação desta consulta.
+          success: Consulta não publicada com sucesso.
+      consultation_results_publications:
+        create:
+          error: Ocorreu um erro ao publicar os resultados dessa consulta.
+          success: Resultados de consulta publicados com sucesso.
+        destroy:
+          error: Ocorreu um erro ao cancelar a publicação dos resultados dessa consulta.
+          success: Resultados da consulta não publicados com sucesso.
+      consultations:
+        create:
+          error: Ocorreu um erro ao criar uma nova consulta.
+          success: Consulta criada com sucesso.
+        destroy:
+          success: Consulta destruída com sucesso.
+        edit:
+          update: Atualizar
+        form:
+          slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa consulta. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+          title: Informação geral
+        index:
+          not_published: Não publicado
+          published: Publicados
+        new:
+          create: Crio
+          title: Nova consulta
+        update:
+          error: Ocorreu um erro ao atualizar esta consulta.
+          success: Consulta atualizada com sucesso.
+      menu:
+        consultations: Consultas
+        consultations_submenu:
+          info: Em formação
+          questions: Questões
+        questions_submenu:
+          components: Componentes
+          consultation: Consulta
+          info: Em formação
+          responses: Respostas
+      models:
+        consultation:
+          fields:
+            created_at: Criado em
+            published: Publicados
+            title: Título
+          name:
+            one: Consulta
+            other: Consultas
+        question:
+          fields:
+            created_at: Criado em
+            published: Publicados
+            title: Título
+          name:
+            one: Questão
+            other: Questões
+        response:
+          fields:
+            created_at: Criado em
+            title: Título
+          name:
+            one: Resposta
+            other: Respostas
+      question_publications:
+        create:
+          error: Ocorreu um erro ao publicar esta questão.
+          success: Pergunta publicada com sucesso.
+        destroy:
+          error: Ocorreu um erro ao cancelar a publicação desta pergunta.
+          success: Pergunta não publicada com sucesso.
+      questions:
+        create:
+          error: Ocorreu um erro ao criar uma nova pergunta.
+          success: Pergunta criada com sucesso.
+        destroy:
+          success: Pergunta destruída com sucesso.
+        edit:
+          update: Atualizar
+        form:
+          title: Informação geral
+        index:
+          not_published: Não publicado
+          published: Publicados
+        new:
+          create: Crio
+          title: Nova pergunta
+        update:
+          error: Ocorreu um erro ao atualizar esta questão.
+          success: Pergunta atualizada com sucesso.
+      responses:
+        create:
+          error: Ocorreu um erro ao criar uma nova resposta.
+          success: Resposta criada com sucesso.
+        destroy:
+          error: Houve um erro ao remover a resposta.
+          success: Resposta destruída com sucesso.
+        edit:
+          update: Atualizar
+        form:
+          title: Informação geral
+        new:
+          create: Crio
+          title: Nova resposta
+        update:
+          error: Houve um erro ao atualizar essa resposta.
+          success: Resposta atualizada com sucesso.
+      titles:
+        consultations: Consultas
+        questions: Questões
+        responses: Respostas
+    consultations:
+      consultation:
+        start_voting_date: Votando de
+        view_results: Ver resultados
+      consultation_card:
+        view_results: Ver resultados
+      consultations:
+        orders:
+          label: 'Ordenar consultas por:'
+          random: Aleatória
+          recent: Mais recente
+      count:
+        title:
+          one: "%{count} consulta"
+          other: "%{count} consultas"
+      filters:
+        active: Ativo
+        all: Todos
+        finished: Acabado
+        search: Pesquisa
+        state: Estado
+        upcoming: próximos
+      filters_small_view:
+        close_modal: Janela fechada
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
+      finished:
+        active_consultations: Consultas ativas
+        past_consultations: Consultas anteriores
+      highlighted_questions:
+        title: Consultas de %{scope_name}
+      index:
+        title: Consultas
+      question:
+        take_part: Participar
+        view_results: Ver resultados
+        votes_out_of:
+          one: votar fora
+          other: votos de
+      question_votes:
+        create:
+          error: Houve erros ao votar a questão
+      regular_questions:
+        title: Outras consultas
+      show:
+        see_finished_consultations: Veja as consultas anteriores
+    menu:
+      consultations: Consultas
+    questions:
+      results:
+        title: Resultados
+      show:
+        read_more: Consulte Mais informação
+      statistics:
+        assistants_count_title: Assistentes
+        comments_count_title: Comentários
+        meetings_count_title: Reuniões
+        supports_count_title: Adesões
+      technical_info:
+        technical_data: Dados técnicos
+      vote_button:
+        already_voted: Já votei
+        already_voted_hover: Revogar suporte
+        starting_from: A partir de %{date}
+        vote: Voto
+      vote_modal:
+        contextual_help: Por favor selecione uma opção. Tenha em mente que uma vez que você confirmou seu apoio não pode ser alterado.
+        title: 'Consulta: suporte a perguntas'
+      vote_modal_confirm:
+        change: mudança
+        confirm: confirme
+        contextual_help: Por favor, confirme a opção selecionada.
+        title: 'Consulta: confirme o suporte'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Anexos
+          categories: Categorias
+      consultation_voting_data:
+        start_voting_date: Votando de
+      question_components:
+        question_menu_item: A questão
+        unfold: Desdobrar
+      question_header:
+        back_to_consultation: Veja todas as consultas
+  pages:
+    home:
+      statistics:
+        consultations_count: Consultas

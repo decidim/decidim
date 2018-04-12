@@ -36,7 +36,7 @@ module Decidim
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def highlighted_scope
-          @highlighted_scope ||= current_organization.scopes.where(id: decidim_highlighted_scope_id).first
+          @highlighted_scope ||= current_organization.scopes.find_by(id: decidim_highlighted_scope_id)
         end
 
         private

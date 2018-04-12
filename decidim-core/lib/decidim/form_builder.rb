@@ -79,26 +79,71 @@ module Decidim
       safe_join [label_tabs, tabs_content]
     end
 
+    # Public: Generates an form field for each social.
+    #
+    # type - The form field's type, like `text_area` or `text_input`
+    # name - The name of the field
+    # handlers - The social handlers to be created
+    # options - The set of options to send to the field
+    #
+    # Renders form fields for each locale.
+    def social_field(type, name, handlers, options = {})
+      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+
+      label_tabs = content_tag(:div, class: "label--tabs") do
+        field_label = label_i18n(name, options[:label] || label_for(name))
+
+        tabs_panels = "".html_safe
+        if options[:label] != false
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+            handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
+              string + content_tag(:li, class: tab_element_class_for("title", index)) do
+                title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
+                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                content_tag(:a, title, href: "##{tab_content_id}")
+              end
+            end
+          end
+        end
+
+        safe_join [field_label, tabs_panels]
+      end
+
+      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
+        handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
+          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
+            send(type, "#{handler}_handler", options.merge(label: false))
+          end
+        end
+      end
+
+      safe_join [label_tabs, tabs_content]
+    end
+
     # Public: generates a hidden field and a container for WYSIWYG editor
     #
     # name - The name of the field
     # options - The set of options to send to the field
-    #           :label   - The Boolean value to create or not the input label (optional) (default: true)
+    #           :label - The Boolean value to create or not the input label (optional) (default: true)
     #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
     #                      or 'full' (optional) (default: 'basic')
-    #           :lines   - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :disabled - Whether the editor should be disabled
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
       options[:toolbar] ||= "basic"
       options[:lines] ||= 10
+      options[:disabled] ||= false
 
       content_tag(:div, class: "editor") do
         template = ""
         template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
-                                  toolbar: options[:toolbar]
+                                  toolbar: options[:toolbar],
+                                  disabled: options[:disabled]
                                 }, style: "height: #{options[:lines]}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe

@@ -12,6 +12,19 @@ fr:
         title: Titre
         user_group_id: Créer un débat en tant que
   decidim:
+    components:
+      debates:
+        actions:
+          create: Créer
+        name: Débats
+        settings:
+          global:
+            announcement: Annonce
+            comments_enabled: Activer le module de commentaire
+          step:
+            announcement: Annonce
+            comments_blocked: Bloquer la création de nouveaux commentaires
+            creation_enabled: Création de débats par les utilisateurs activés
     debates:
       actions:
         confirm_destroy: Êtes-vous certain ?
@@ -116,16 +129,3 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant ce dernier lien.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Créer
-        name: Débats
-        settings:
-          global:
-            announcement: Annonce
-            comments_enabled: Commentaires activés
-          step:
-            announcement: Annonce
-            comments_blocked: Commentaires bloqués
-            creation_enabled: Création de débats par les utilisateurs activés

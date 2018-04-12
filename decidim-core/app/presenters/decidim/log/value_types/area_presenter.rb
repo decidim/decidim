@@ -20,7 +20,7 @@ module Decidim
         private
 
         def area
-          @area ||= Decidim::Area.where(id: value).first
+          @area ||= Decidim::Area.find_by(id: value)
         end
       end
     end

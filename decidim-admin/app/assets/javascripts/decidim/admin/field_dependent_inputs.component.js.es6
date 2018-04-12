@@ -5,7 +5,7 @@
       this.wrapperSelector = options.wrapperSelector;
       this.dependentFieldsSelector = options.dependentFieldsSelector;
       this.dependentInputSelector = options.dependentInputSelector;
-      this.enablingValues = options.enablingValues;
+      this.enablingCondition = options.enablingCondition;
       this._bindEvent();
       this._run();
     }
@@ -14,9 +14,8 @@
       const $controllerField = this.controllerField;
       const $dependentFields = $controllerField.parents(this.wrapperSelector).find(this.dependentFieldsSelector);
       const $dependentInputs = $dependentFields.find(this.dependentInputSelector);
-      const value = $controllerField.val();
 
-      if (this.enablingValues.indexOf(value) > -1) {
+      if (this.enablingCondition($controllerField)) {
         $dependentInputs.prop("disabled", false);
         $dependentFields.show();
       } else {

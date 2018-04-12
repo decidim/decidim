@@ -6,7 +6,7 @@ describe Decidim::Meetings::CreateMeetingEvent do
   let(:resource) { create :meeting }
   let(:event_name) { "decidim.events.meetings.meeting_created" }
 
-  include_context "simple event"
+  include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do

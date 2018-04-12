@@ -3,3 +3,4 @@ ru:
     attributes:
       debate:
         decidim_category_id: Категория
+        title: Название

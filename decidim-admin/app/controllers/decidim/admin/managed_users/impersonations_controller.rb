@@ -70,7 +70,7 @@ module Decidim
         end
 
         def authorization
-          @authorization ||= Authorization.where(user: user).first
+          @authorization ||= Authorization.find_by(user: user)
         end
       end
     end

@@ -20,7 +20,7 @@ module Decidim
         private
 
         def area_type
-          @area_type ||= Decidim::AreaType.where(id: value).first
+          @area_type ||= Decidim::AreaType.find_by(id: value)
         end
       end
     end

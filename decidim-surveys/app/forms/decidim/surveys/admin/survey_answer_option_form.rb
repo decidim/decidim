@@ -4,10 +4,11 @@ module Decidim
   module Surveys
     module Admin
       # This class holds a Form to update survey question answer options
-      class SurveyQuestionAnswerOptionForm < Decidim::Form
+      class SurveyAnswerOptionForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :deleted, Boolean
+        attribute :deleted, Boolean, default: false
+        attribute :free_text, Boolean
 
         translatable_attribute :body, String
 

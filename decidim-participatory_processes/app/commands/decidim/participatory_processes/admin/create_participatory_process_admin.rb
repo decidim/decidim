@@ -64,20 +64,20 @@ module Decidim
         end
 
         def existing_role
-          Decidim::ParticipatoryProcessUserRole.where(
+          Decidim::ParticipatoryProcessUserRole.find_by(
             role: form.role.to_sym,
             user: user,
             participatory_process: @participatory_process
-          ).first
+          )
         end
 
         def existing_user
           return @existing_user if defined?(@existing_user)
 
-          @existing_user = User.where(
+          @existing_user = User.find_by(
             email: form.email,
             organization: participatory_process.organization
-          ).first
+          )
 
           InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
 

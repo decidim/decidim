@@ -98,6 +98,8 @@ Rails/FindBy:
   Description: "Prefer find_by over where.first."
   StyleGuide: "https://github.com/bbatsov/rails-style-guide#find_by"
   Enabled: true
+  Include:
+    - "**/*.rb"
 
 Rails/FindEach:
   Description: "Prefer all.find_each over all.find."

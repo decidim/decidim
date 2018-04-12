@@ -12,8 +12,9 @@ en:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: has too many options checked
+            choices:
+              missing: are not complete
+              too_many: are too many
   decidim:
     components:
       surveys:
@@ -38,6 +39,10 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
+    forms:
+      errors:
+        survey_answer:
+          body: Body can't be blank
     surveys:
       admin:
         exports:
@@ -49,6 +54,7 @@ en:
         surveys:
           answer_option:
             answer_option: Answer option
+            free_text: Free text
             remove: Remove
             statement: Statement
           edit:
@@ -74,6 +80,7 @@ en:
         multiple_option: Multiple option
         short_answer: Short answer
         single_option: Single option
+        sorting: Sorting
       surveys:
         answer:
           invalid: There's been errors when answering the survey.

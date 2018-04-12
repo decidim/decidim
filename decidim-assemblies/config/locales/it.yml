@@ -149,6 +149,7 @@ it:
             see_all_assemblies: Vedere tutti gli assiemi
       show:
         area: La zona
+        children: assemblee
         developer_group: Gruppo promotore
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
@@ -173,6 +174,10 @@ it:
         surveys_count: indagini
         users_count: Partecipanti
         votes_count: Voti
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
   layouts:

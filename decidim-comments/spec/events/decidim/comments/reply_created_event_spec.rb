@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Comments::ReplyCreatedEvent do
-  include_context "simple event"
+  include_context "when a simple event"
 
   let(:resource) { comment.root_commentable }
   let(:resource_title) { comment.root_commentable.title }

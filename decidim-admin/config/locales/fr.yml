@@ -2,15 +2,15 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone
-        name: Prénom
+        area_type: Type de zone d'application
+        name: Nom
         organization: Organisation
       area_type:
-        name: Prénom
+        name: Nom
         organization: Organisation
         plural: Pluriel
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Dossier
         description: Description
         file: Fichier
         title: Titre
@@ -24,7 +24,7 @@ fr:
       component:
         name: prénom
         published_at: Publié à
-        weight: Poids
+        weight: Rang d'affichage
       id: ID
       newsletter:
         body: Corps de texte
@@ -48,7 +48,7 @@ fr:
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu en surbrillance
+        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
@@ -72,8 +72,8 @@ fr:
         name: Nom
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de zone de d'application
-        scope_type_id: Type de zone d'application
+        scope_type: Type de périmètre d'application
+        scope_type_id: Type de périmètre d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -94,7 +94,7 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Initiateurs
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -104,7 +104,7 @@ fr:
         participatory_scope: Objectif
         participatory_structure: Modalités
         promoted: Mis en avant
-        scope: Zone d’application
+        scope: Périmètre d’application
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -147,37 +147,37 @@ fr:
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
-          success: Fonctionnalité créée avec succès.
+          success: Type de zone d'application créé avec succès.
         destroy:
-          success: La fonctionnalité a bien été supprimée
+          success: Le type de zone d'application a bien été supprimé
         edit:
-          title: Editer la fonctionnalité
+          title: Modifier le type de zone d'application
           update: Mettre à jour
         new:
-          create: Créer un type de zone
-          title: Nouveau type de zone
+          create: Créer un type de zone d'application
+          title: Nouveau type de zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de la fonctionnalité.
-          success: La fonctionnalité a été mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
+          success: Le type de zone d'application a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone.
-          success: Fonctionnalité créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
+          success: Zone d'application créée avec succès.
         destroy:
-          success: Fonctionnalité supprimée avec succès
+          success: Zone d'application supprimée avec succès
         edit:
-          title: Editer la fonctionnalité
+          title: Modifier la zone d'application
           update: Mettre à jour
         new:
-          create: Créer une zone
-          title: Nouvelle zone
-        no_areas: Aucun espace
+          create: Créer une zone d'application
+          title: Nouvelle zone d'application
+        no_areas: Aucune zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet espace.
-          success: Espace mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Zone d'application mise à jour avec succès
       attachment_collections:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle collection.
+          error: Une erreur s'est produite lors de la création d'un nouveau dossier.
           success: Dossier crée avec succès.
         destroy:
           success: Dossier détruit avec succès.
@@ -189,7 +189,7 @@ fr:
           attachment_collections_title: Dossier de pièces jointes
         new:
           create: Créer
-          title: Nouvelle collection
+          title: Nouveau dossier
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce dossier.
           success: Dossier mis à jour avec succès.
@@ -315,16 +315,16 @@ fr:
         admin_log: Journal d'activité de l'administrateur
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types d'espace
-        areas: Espaces
+        area_types: Types de zone d'application
+        areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
         officializations: Validations
-        scope_types: Types de zone d'application
-        scopes: Zones d’application
+        scope_types: Types de périmètre d'application
+        scopes: Périmètres d’application
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -332,7 +332,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type d'espace
+            area_type: Type de zone d'application
             name: Nom
         area_type:
           fields:
@@ -375,7 +375,7 @@ fr:
         scope:
           fields:
             name: Nom
-            scope_type: Type de zone d'application
+            scope_type: Type de périmètre d'application
         scope_type:
           fields:
             name: Nom
@@ -526,35 +526,35 @@ fr:
           title: Nouvel utilisateur de l'espace participatif.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Type de zone d'application créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
+          success: Type de périmètre d'application créé avec succès.
         destroy:
-          success: Le type de zone d'application a été détruit avec succès
+          success: Le type de périmètre d'application a été supprimé avec succès
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'application
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouvelle zone d'application
+          create: Créer un type de périmètre d'application
+          title: Nouveau périmètre d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Type de zone d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
+          success: Type de périmètre d'application mis à jour avec succès
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
+          success: Périmètre d'application créé avec succès.
         destroy:
-          success: Zone d'application supprimée avec succès
+          success: Périmètre d'application supprimé avec succès
         edit:
-          title: Editer la zone d'application
+          title: Modifier le périmètre d'application
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_scopes: Pas de zone d'application à ce niveau.
+          create: Créer un périmètre d'application
+          title: Nouveau périmètre d'application
+        no_scopes: Pas de périmètre d'application à ce niveau.
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'applicaiton mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
+          success: Périmètre d'application mis à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
@@ -574,15 +574,15 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types d'espace
-        areas: Espaces
+        area_types: Types de zone d'application
+        areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
         officializations: Validations
-        scope_types: Types de zone d'application
-        scopes: Zones d'application
+        scope_types: Types de périmètre d'application
+        scopes: Périmètres d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs

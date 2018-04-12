@@ -1,6 +1,6 @@
 # Decidim::Sortitions
 
-This module makes possible to select amont a set of proposal by sortition.
+This module makes possible to select among a set of proposals by sortition.
 
 ## Usage
 
@@ -18,12 +18,6 @@ And then execute:
 
 ```bash
 bundle
-```
-
-Or install it yourself as:
-
-```bash
-gem install decidim-sortitions
 ```
 
 ## Import migrations

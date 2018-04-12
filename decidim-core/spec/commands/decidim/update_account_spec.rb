@@ -117,7 +117,7 @@ module Decidim
           form.password_confirmation = "test123"
         end
 
-        it "broadcasts invalid" do
+        it "updates the password" do
           expect { command.call }.to broadcast(:ok)
           expect(user.reload.valid_password?("test123")).to eq(true)
         end

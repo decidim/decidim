@@ -12,6 +12,19 @@ eu:
         title: Izenburua
         user_group_id: Sortu eztabaida gisa
   decidim:
+    components:
+      debates:
+        actions:
+          create: Sortu
+        name: eztabaidak
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea
     debates:
       actions:
         confirm_destroy: Ziur zaude?
@@ -116,16 +129,3 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debates orain eskuragarri %{participatory_space_title}
           notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Sortu
-        name: eztabaidak
-        settings:
-          global:
-            announcement: Anuntzio
-            comments_enabled: Iruzkinak gaituta
-          step:
-            announcement: Anuntzio
-            comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea

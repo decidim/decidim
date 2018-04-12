@@ -3,7 +3,7 @@ gl:
     admin_log:
       page:
         update: "%{user_name} actualizou a páxina %{resource_name} en %{space_name}"
-    features:
+    components:
       pages:
         name: Páxina
         settings:

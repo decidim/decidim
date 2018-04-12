@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Accountability::ProposalLinkedEvent do
-  include_context "simple event"
+  include_context "when a simple event"
 
   let(:event_name) { "decidim.events.accountability.proposal_linked" }
   let(:resource) { create(:result) }

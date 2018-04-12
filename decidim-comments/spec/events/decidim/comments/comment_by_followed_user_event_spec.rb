@@ -7,7 +7,7 @@ module Decidim
     describe CommentByFollowedUserEvent do
       include Decidim::ComponentPathHelper
 
-      include_context "simple event"
+      include_context "when a simple event"
 
       let(:event_name) { "decidim.events.comments.comment_by_followed_user" }
       let(:comment) { create(:comment) }

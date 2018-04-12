@@ -7,7 +7,7 @@ module Decidim
     describe OpenedSurveyEvent do
       include Decidim::ComponentPathHelper
 
-      include_context "simple event"
+      include_context "when a simple event"
 
       let(:event_name) { "decidim.events.surveys.survey_opened" }
       let(:resource) { create(:surveys_component) }

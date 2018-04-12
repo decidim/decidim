@@ -75,11 +75,11 @@ module Decidim
     end
 
     def existing_identity
-      @existing_identity ||= Identity.where(
+      @existing_identity ||= Identity.find_by(
         user: organization.users,
         provider: form.provider,
         uid: form.uid
-      ).first
+      )
     end
 
     def verify_oauth_signature!

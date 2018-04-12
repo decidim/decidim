@@ -6,7 +6,7 @@ describe Decidim::Proposals::RejectedProposalEvent do
   let(:resource) { create :proposal }
   let(:event_name) { "decidim.events.proposals.proposal_rejected" }
 
-  include_context "simple event"
+  include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do

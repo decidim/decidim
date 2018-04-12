@@ -14,7 +14,7 @@ module Decidim
       end
 
       def proposal
-        @proposal ||= resource.linked_resources(:proposals, "included_proposals").where(id: extra[:proposal_id]).first
+        @proposal ||= resource.linked_resources(:proposals, "included_proposals").find_by(id: extra[:proposal_id])
       end
     end
   end
