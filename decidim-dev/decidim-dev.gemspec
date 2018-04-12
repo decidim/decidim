@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "capybara", "~> 2.15"
+  s.add_dependency "capybara", "~> 3.0"
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 

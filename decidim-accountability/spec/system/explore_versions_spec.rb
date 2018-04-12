@@ -42,7 +42,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the versions count" do
-      expect(page).to have_content("VERSIONS 2")
+      expect(page).to have_content("VERSIONS\n2")
     end
 
     it "allows going back to the result" do
@@ -68,7 +68,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version number" do
-      expect(page).to have_content("VERSION NUMBER 2 out of 2")
+      expect(page).to have_content("VERSION NUMBER\n2 out of 2")
     end
 
     it "allows going back to the result" do

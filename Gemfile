@@ -8,6 +8,10 @@ gem "decidim", path: "."
 gem "decidim-consultations", path: "decidim-consultations"
 gem "decidim-initiatives", path: "decidim-initiatives"
 
+# Use unreleased 5-1-stable because 5.1.6 is not compatible with capybara 3.0
+# and 5.1.7 is not yet released
+gem "rails", git: "https://github.com/rails/rails", branch: "5-1-stable"
+
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
 
