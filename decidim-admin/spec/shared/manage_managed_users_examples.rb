@@ -103,17 +103,7 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  context "when no authorization workflows enabled" do
-    include_context "with a single step managed user form"
-
-    it_behaves_like "creating a managed user"
-  end
-
-  context "when authorization workflows are enabled" do
-    let(:available_authorizations) do
-      %w(dummy_authorization_handler dummy_authorization_workflow)
-    end
-
+  context "when a single authorization handler enabled" do
     include_context "with a single step managed user form"
 
     it_behaves_like "creating a managed user"

@@ -76,8 +76,6 @@ module Decidim
         end
 
         def handler_name
-          return if available_authorization_handlers.blank?
-
           return available_authorization_handlers.first.name unless more_than_one_authorization_handler?
 
           authorization&.name

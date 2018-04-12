@@ -14,11 +14,6 @@ module Decidim
       def new
         authorize! :new, :managed_users
 
-        if available_authorization_handlers.blank?
-          flash[:alert] = I18n.t("managed_users.new.no_authorization_handlers", scope: "decidim.admin")
-          redirect_to impersonations_path
-        end
-
         unless select_authorization_handler_step?
           @form = form(ManagedUserForm).from_params(
             authorization: {
@@ -53,7 +48,6 @@ module Decidim
       end
 
       def handler_name
-        return if available_authorization_handlers.blank?
         return params[:handler_name] if more_than_one_authorization_handler?
         available_authorization_handlers.first.name
       end

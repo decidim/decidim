@@ -306,7 +306,6 @@ en:
         new:
           create: Create
           new_managed_user: New managed user
-          no_authorization_handlers: There are no available authorization handlers to manage users. Please contact your system administrator.
           step: Step %{current} of %{total}
         promotion:
           error: There has been an error promoting the managed user.
