@@ -206,6 +206,9 @@ shared_examples "manage managed users examples" do
     end
 
     page.find(".datepicker-dropdown .day", text: "12").click
+
+    expect(page).to have_selector("*[type=submit]", count: 1)
+
     click_button "Create"
   end
 
@@ -217,6 +220,9 @@ shared_examples "manage managed users examples" do
     end
 
     page.find(".datepicker-dropdown .day", text: "12").click
+
+    expect(page).to have_selector("*[type=submit]", count: 1)
+
     click_button "Impersonate"
   end
 
