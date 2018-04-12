@@ -34,11 +34,12 @@ module Decidim::Admin
         document_number: handler_document_number
       )
     end
+    let(:authorized_user) { user }
     let!(:authorization) do
       create(:authorization,
-             user: user,
+             user: authorized_user,
              name: handler.handler_name,
-             attributes: { unique_id: handler.unique_id })
+             unique_id: handler.unique_id)
     end
 
     context "when everything is ok" do
@@ -68,7 +69,7 @@ module Decidim::Admin
     end
 
     context "when the authorization is not valid" do
-      let(:handler_document_number) { "98765432X" }
+      let(:authorized_user) { create(:user, organization: organization) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
