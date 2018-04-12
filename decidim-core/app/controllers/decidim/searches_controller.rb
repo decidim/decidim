@@ -3,8 +3,14 @@
 module Decidim
   class SearchesController < Decidim::ApplicationController
     include Rectify::ControllerHelpers
-    # include Paginable
+    include FormFactory
+    include FilterResource
+    # include Orderable
+    include Paginable
+
     skip_authorization_check
+
+    helper Decidim::FiltersHelper
     helper_method :term
 
     def index
@@ -20,6 +26,14 @@ module Decidim
     private
 
     #--------------------------------------------------------------
+
+    def default_filter_params
+      {
+        term: "",
+        resource_type: nil,
+        decidim_scope_id: nil
+      }
+    end
 
     def term
       @term ||= params[:term]

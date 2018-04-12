@@ -8,10 +8,11 @@ module Decidim
   module Searchable
     extend ActiveSupport::Concern
 
+    @searchable_resources = []
+
     # Public: an Array of searchable resources
     def self.searchable_resources
-      @searchable_resources ||= []
-      @searchable_resources.uniq
+      @searchable_resources
     end
 
     included do
@@ -78,8 +79,9 @@ module Decidim
       # }
       def searchable_fields(declared_fields)
         @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        @searchable_resources ||= []
-        @searchable_resources << name
+        unless Decidim::Searchable.searchable_resources.include? self
+          Decidim::Searchable.searchable_resources << self
+        end
       end
     end
   end

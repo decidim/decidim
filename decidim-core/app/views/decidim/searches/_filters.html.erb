@@ -1,55 +1,30 @@
-<div class="columns mediumlarge-4 large-3">
-  <div class="filters-controls hide-for-mediumlarge">
-    <%= form_tag(decidim.search_path, method: :get, id: "form-search_filter_sm") do %>
-      <%= text_field_tag :term, term, class: "m-none", placeholder: t("decidim.search.term_input_placeholder") %>
-    <% end %>
-    <button data-open="filter-box" class="filters-controls__trigger" aria-controls="filter-box" aria-haspopup="true" tabindex="0">
-      <%= t("filter", scope: "decidim.search.filter") %>
-      <svg aria-label="Unfold" role="img" class="icon--caret-bottom icon icon--small float-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/decidim/icons-509a478a67af62ad7c73a2b25fa27fbf9874be8aee5d9366428cf650b335b143.svg#icon-caret-bottom"></use></svg>
-    </button>
-  </div>
-
-  <div class="card card--secondary show-for-mediumlarge">
-    <div class="filters">
-      <%= form_tag(decidim.search_path, method: :get, id: "form-search_filter") do %>
-        <div class="filters__section">
-          <div class="filters__search">
-            <div class="input-group">
-              <%= text_field_tag :term, term, class: "input-group-field", placeholder: t("decidim.search.term_input_placeholder") %>
-
-              <div class="input-group-button">
-                <button type="submit" class="button button--muted">
-                  <svg aria-label="Search" class="icon--magnifying-glass icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/decidim/icons-509a478a67af62ad7c73a2b25fa27fbf9874be8aee5d9366428cf650b335b143.svg#icon-magnifying-glass"></use></svg>
-                </button>
-              </div>
-            </div>
+<%= filter_form_for filter do |form| %>
+  <div class="filters-controls">
+    <div class="filters__section">
+      <div class="filters__search">
+        <div class="input-group">
+          <%= form.search_field :term, label: false, class: "input-group-field", placeholder: t(".search") %>
+          <div class="input-group-button">
+            <button type="submit" class="button button--muted">
+              <%= icon "magnifying-glass", aria_label: t(".search") %>
+            </button>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="filters__section">
-          <fieldset>
-            <legend>
-              <h6 class="heading6">
-                <%= t("components", scope: "decidim.search.filter") %>
-              </h6>
-            </legend>
+    <div class="filters__section">
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            <%= t("components", scope: "decidim.search.filter") %>
+          </h6>
+        </legend>
 
-            <input type="hidden" name="filter[component]" value="">
+        <input type="hidden" name="filter[component]" value="">
 
-            <label for="filter_component_all">
-              <input type="radio" value="" <%= radio_checked?("") %> name="filter[resource_type]" id="filter_component_all">
-              <%= t("all", scope: "decidim.search.filter") %>
-            </label>
-
-            <% searchable_resources_class_names.each do |searchable_resource_class_name| %>
-              <label for="filter_component_<%= searchable_resource_human_name(searchable_resource_class_name).underscore %>">
-                <input type="radio" value="<%= searchable_resource_class_name %>" <%= radio_checked?(searchable_resource_class_name) %> name="filter[resource_type]" id="filter_component_<%= searchable_resource_human_name(searchable_resource_class_name).underscore %>">
-                  <%= searchable_resource_human_name searchable_resource_class_name %>
-              </label>
-            <% end %>
-          </fieldset>
-          </div>
-      <% end %>
+        <%= form.collection_radio_buttons :resource_type, searchable_resources_as_options(t("all", scope: "decidim.search.filter")), :first, :last, legend_title: t(".search") %>
+      </fieldset>
     </div>
   </div>
-</div>
+<% end %>

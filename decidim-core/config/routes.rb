@@ -20,7 +20,7 @@ Decidim::Core::Engine.routes.draw do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
 
-  # get "search/:term", to: "searches#index"
+  # get "search/:term", to: "searches#index", as: :search
 
   resource :locale, only: [:create]
 

@@ -29,21 +29,4 @@ describe "Search", type: :system do
       expect(page).to have_selector(".filters__section")
     end
   end
-
-  context "when searching from filter input" do
-    before do
-      visit decidim.search_path
-
-      within "#form-search_filter" do
-        fill_in "term", with: term
-        find(".button").click
-      end
-    end
-
-    it "displays the results page" do
-      expect(page).to have_current_path decidim.search_path, ignore_query: true
-      expect(page).to have_no_content("results for the search: #{term}")
-      expect(page).to have_selector(".filters__section")
-    end
-  end
 end

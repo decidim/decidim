@@ -12,15 +12,16 @@ module Decidim
     end
 
     def searchable_resources_class_names
-      searchable_resources ||= []
-      Decidim::Searchable.searchable_resources.each do |resource|
-        searchable_resources << resource.constantize.model_name.singular
-      end
-      Decidim::Searchable.searchable_resources
+      Decidim::Searchable.searchable_resources.collect {|r| r.class_name }
+    end
+    def searchable_resource_human_name(resource)
+      resource.model_name.human.pluralize
     end
 
-    def searchable_resource_human_name(searchable_resources_model_name)
-      searchable_resources_model_name.constantize.model_name.human
+    def searchable_resources_as_options(all_label)
+      [['', all_label]] + Decidim::Searchable.searchable_resources.collect do |r|
+        [r.name,searchable_resource_human_name(r)]
+      end.sort
     end
   end
 end
