@@ -221,6 +221,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: true
     end
 
+    context "when publishing a process" do
+      let(:action) do
+        { scope: :admin, action: :publish, subject: :process }
+      end
+
+      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+    end
+
     context "when user is a collaborator" do
       let(:user) { process_collaborator }
 
@@ -286,6 +294,44 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
+    end
+
+    context "when user is n org admin" do
+      context "when creating a process" do
+        let(:action) do
+          { scope: :admin, action: :create, subject: :process }
+        end
+
+        it { is_expected.to eq true }
+      end
+
+      context "when destroying a process" do
+        let(:action) do
+          { scope: :admin, action: :destroy, subject: :process }
+        end
+
+        it { is_expected.to eq true }
+      end
+
+      shared_examples "allows any action on subject" do |action_subject|
+        context "when action subject is #{action_subject}" do
+          let(:action) do
+            { scope: :admin, action: :foo, subject: action_subject }
+          end
+
+          it { is_expected.to eq true }
+        end
+      end
+
+      it_behaves_like "allows any action on subject", :attachment
+      it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :category
+      it_behaves_like "allows any action on subject", :component
+      it_behaves_like "allows any action on subject", :moderation
+      it_behaves_like "allows any action on subject", :process
+      it_behaves_like "allows any action on subject", :process_step
+      it_behaves_like "allows any action on subject", :process_user_role
+      it_behaves_like "allows any action on subject", :space_private_user
     end
   end
 end

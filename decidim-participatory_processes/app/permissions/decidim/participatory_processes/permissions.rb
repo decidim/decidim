@@ -190,6 +190,7 @@ module Decidim
       # processes. They cannot destroy their process either.
       def process_admin_action?
         return unless can_manage_process?(role: :admin)
+        return if user.admin?
         return disallow! if permission_action.action == :create &&
                             permission_action.subject == :process
         return disallow! if permission_action.action == :destroy &&
@@ -221,7 +222,8 @@ module Decidim
           :moderation,
           :process,
           :process_step,
-          :process_user_role
+          :process_user_role,
+          :space_private_user
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

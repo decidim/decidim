@@ -89,7 +89,7 @@ module Decidim
 
       def publish
         @component = query_scope.find(params[:id])
-        enforce_permission_to :update, :component, component: @component
+        enforce_permission_to :publish, :component, component: @component
 
         PublishComponent.call(@component, current_user) do
           on(:ok) do
@@ -101,7 +101,7 @@ module Decidim
 
       def unpublish
         @component = query_scope.find(params[:id])
-        enforce_permission_to :update, @component
+        enforce_permission_to :unpublish, :component, component: @component
 
         UnpublishComponent.call(@component, current_user) do
           on(:ok) do
