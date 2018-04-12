@@ -31,7 +31,7 @@ module Decidim
       end
 
       def humanize_meeting_type(type)
-        I18n.t("#{type}", scope: "decidim.meetings.types")
+        I18n.t(type.to_s, scope: "decidim.meetings.types")
       end
     end
   end

@@ -35,7 +35,7 @@ module Decidim
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
         validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
-        
+
         alias component current_component
 
         def organizer
