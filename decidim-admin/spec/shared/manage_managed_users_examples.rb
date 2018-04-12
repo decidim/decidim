@@ -16,7 +16,7 @@ shared_examples "manage managed users examples" do
     let(:available_authorizations) { [] }
 
     it "the managed users page displays a warning and creation is disabled" do
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       expect(page).to have_selector("a.button.disabled", text: "NEW")
       expect(page).to have_content("You need at least one authorization enabled for this organization.")
@@ -70,7 +70,7 @@ shared_examples "manage managed users examples" do
     it "can impersonate again after an impersonation session expiration" do
       simulate_session_expiration
 
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       expect(page).to have_link("Impersonate")
     end
@@ -78,7 +78,7 @@ shared_examples "manage managed users examples" do
 
   shared_context "with a single step managed user form" do
     before do
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       click_link "New"
 
@@ -88,7 +88,7 @@ shared_examples "manage managed users examples" do
 
   shared_context "with a multiple step managed user form" do
     before do
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       click_link "New"
 
@@ -186,7 +186,7 @@ shared_examples "manage managed users examples" do
     end
 
     it "can promote users inviting them to the application" do
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
         click_link "Promote"
@@ -216,7 +216,7 @@ shared_examples "manage managed users examples" do
 
       relogin_as user
 
-      navigate_to_managed_users_page
+      navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
         expect(page).to have_no_link("Promote")
@@ -256,7 +256,7 @@ shared_examples "manage managed users examples" do
   end
 
   def impersonate(user)
-    navigate_to_managed_users_page
+    navigate_to_impersonations_page
 
     within find("tr", text: user.name) do
       click_link "Impersonate"

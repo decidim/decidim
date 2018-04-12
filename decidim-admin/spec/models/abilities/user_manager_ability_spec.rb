@@ -64,6 +64,9 @@ module Decidim::Admin
       it { is_expected.not_to be_able_to(:impersonate, managed) }
     end
 
-    it { is_expected.to be_able_to(:manage, :managed_users) }
+    it { is_expected.to be_able_to(:read, :impersonations) }
+
+    it { is_expected.to be_able_to(:new, :managed_users) }
+    it { is_expected.to be_able_to(:create, :managed_users) }
   end
 end

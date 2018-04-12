@@ -46,7 +46,7 @@ module Decidim
         expired_log.ended_at = Time.current
         expired_log.save!
         flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
-        redirect_to decidim_admin.managed_users_path
+        redirect_to decidim_admin.impersonations_path
       end
 
       # Gets the ability instance for the real user logged in.

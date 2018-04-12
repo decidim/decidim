@@ -18,12 +18,16 @@ module Decidim::Admin
     end
 
     it { is_expected.to be_able_to(:read, :admin_log) }
+    it { is_expected.to be_able_to(:read, :impersonations) }
 
     it { is_expected.to be_able_to(:manage, Decidim::Moderation) }
     it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
     it { is_expected.to be_able_to(:manage, Decidim::Scope) }
     it { is_expected.to be_able_to(:manage, :admin_users) }
-    it { is_expected.to be_able_to(:manage, :managed_users) }
+
+    it { is_expected.to be_able_to(:new, :managed_users) }
+    it { is_expected.to be_able_to(:create, :managed_users) }
+
     it { is_expected.to be_able_to(:manage, :oauth_applications) }
     it { is_expected.to be_able_to(:manage, Decidim::OAuthApplication) }
 

@@ -9,9 +9,9 @@ module Decidim
         def define_abilities
           super
 
-          can :manage, :managed_users
+          can :read, :impersonations
 
-          cannot [:new, :create], :managed_users if empty_available_authorizations?
+          can [:new, :create], :managed_users unless empty_available_authorizations?
 
           can :impersonate, Decidim::User do
             Decidim::ImpersonationLog.active.where(admin: user).empty?

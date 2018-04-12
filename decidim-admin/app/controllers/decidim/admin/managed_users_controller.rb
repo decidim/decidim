@@ -11,17 +11,12 @@ module Decidim
                     :more_than_one_authorization_handler?,
                     :select_authorization_handler_step?
 
-      def index
-        authorize! :index, :managed_users
-        @managed_users = collection.page(params[:page]).per(15)
-      end
-
       def new
         authorize! :new, :managed_users
 
         if available_authorization_handlers.blank?
           flash[:alert] = I18n.t("managed_users.new.no_authorization_handlers", scope: "decidim.admin")
-          redirect_to action: :index
+          redirect_to impersonations_path
         end
 
         unless select_authorization_handler_step?
@@ -55,10 +50,6 @@ module Decidim
 
       def select_authorization_handler_step?
         handler_name.blank? && params[:managed_user].blank?
-      end
-
-      def collection
-        @collection ||= current_organization.users
       end
 
       def handler_name

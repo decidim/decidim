@@ -31,7 +31,7 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.managed_users" %>
+      <%= t "decidim.admin.titles.impersonations" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.managed_user.name", scope: "decidim.admin")), ["new", "managed_user"], class: "button tiny button--title #{'disabled' if current_organization.available_authorizations.empty?}" %>
     </h2>
   </div>
@@ -45,7 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @managed_users.each do |user| %>
+          <% @users.each do |user| %>
             <tr>
               <td><%= user.name %></td>
               <td class="table-list__actions">
@@ -61,7 +61,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @managed_users, theme: "decidim" %>
+      <%= paginate @users, theme: "decidim" %>
     </div>
   </div>
 </div>
