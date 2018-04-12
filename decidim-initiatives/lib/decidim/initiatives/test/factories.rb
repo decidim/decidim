@@ -35,10 +35,7 @@ FactoryBot.define do
 
     after(:create) do |initiative|
       create(:authorization, user: initiative.author, granted_at: Time.now.utc) unless Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).any?
-
-      3.times do
-        create(:initiatives_committee_member, initiative: initiative)
-      end
+      create_list(:initiatives_committee_member, 3, initiative: initiative)
     end
 
     trait :created do
