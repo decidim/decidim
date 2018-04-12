@@ -67,12 +67,12 @@
     <div class="section">
       <% if meeting.is_private? %>
         <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
-          <%= humanize_meeting_type("private") %>
+          <%= t("private", scope: "decidim.meetings.types")%>
         </span>
       <% end %>
       <% if meeting.is_private? and meeting.is_transparent? %>
         <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
-          <%= humanize_meeting_type("transparent") %>
+          <%= t("transparent", scope: "decidim.meetings.types")%>
         </span>
       <% end %>
       <p><%= decidim_sanitize translated_attribute meeting.description %></p>
