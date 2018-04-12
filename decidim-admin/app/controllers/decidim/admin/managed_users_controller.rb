@@ -60,7 +60,7 @@ module Decidim
 
       def available_authorization_handlers
         Decidim::Verifications::Adapter.from_collection(
-          current_organization.available_authorizations & Decidim.authorization_handlers.map(&:name)
+          current_organization.available_authorization_handlers
         )
       end
 

@@ -6,10 +6,11 @@ module Decidim::Admin
   describe Abilities::AdminAbility do
     subject { described_class.new(user, {}) }
 
-    let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
+    let(:organization) { create(:organization, available_authorizations: available_authorizations) }
+    let(:available_authorizations) { ["dummy_authorization_handler"] }
     let(:user) { build(:user, :admin, organization: organization) }
 
-    context "when the organization has authorizations" do
+    context "when the organization has authorization handlers" do
       it "can create new managed users" do
         expect(subject).to be_able_to(:new, :managed_users)
         expect(subject).to be_able_to(:create, :managed_users)
@@ -17,7 +18,16 @@ module Decidim::Admin
     end
 
     context "when the organization doesn't have authorizations" do
-      let(:organization) { create(:organization, available_authorizations: []) }
+      let(:available_authorizations) { [] }
+
+      it "can't create new managed users" do
+        expect(subject).not_to be_able_to(:new, :managed_users)
+        expect(subject).not_to be_able_to(:create, :managed_users)
+      end
+    end
+
+    context "when the organization has only authorization workflows" do
+      let(:available_authorizations) { ["dummy_authorization_workflow"] }
 
       it "can't create new managed users" do
         expect(subject).not_to be_able_to(:new, :managed_users)
