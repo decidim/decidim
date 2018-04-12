@@ -20,8 +20,12 @@ module Decidim
       allow(view).to receive(:stored_location).and_return("/processes")
     end
 
-    it "renders the form the partial" do
+    it "renders the form from the partial" do
       expect(render).to include("partial-demo")
+    end
+
+    it "renders the button separately" do
+      expect(render).to have_tag("input[type=submit]", count: 1)
     end
 
     context "when there's not a partial to render the form" do
