@@ -7,6 +7,7 @@ Decidim.register_component(:meetings) do |component|
   component.admin_engine = Decidim::Meetings::AdminEngine
   component.icon = "decidim/meetings/icon.svg"
   component.card = "decidim/meetings/meeting"
+  component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
@@ -25,8 +26,6 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.actions = %w(join)
-
-  component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
