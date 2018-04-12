@@ -48,7 +48,7 @@ module Decidim
           reportable.moderation.refuse!
           redirect_to moderations_path(moderation_type: "upstream", moderated: moderated)
         else
-          Admin::HideResource.call(reportable) do
+          Admin::HideResource.call(reportable, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("reportable.hide.success", scope: "decidim.moderations.admin")
 
