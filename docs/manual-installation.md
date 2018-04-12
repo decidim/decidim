@@ -2,7 +2,7 @@
 
 ## Step by step
 
-We're starting with an Ubuntu 16.04 LTS. This is an opinionated guy and YMMV, so if you're free to use the technology that you fell most comfortable on. If you have any doubts and you're blocked you can go and ask on [our Gitter](https://gitter.im/decidim/decidim). We recommend that you follow some Ruby on Rails tutorials (like [Getting Started with Ruby on Rails](http://guides.rubyonrails.org/getting_started.html)) and have some knowledge on how gems and engines work.
+We're starting with an Ubuntu 16.04 LTS. This is an opinionated guide and YMMV, so if you're free to use the technology that you fell most comfortable on. If you have any doubts and you're blocked you can go and ask on [our Gitter](https://gitter.im/decidim/decidim). We recommend that you follow some Ruby on Rails tutorials (like [Getting Started with Ruby on Rails](http://guides.rubyonrails.org/getting_started.html)) and have some knowledge on how gems and engines work.
 
 On this tutorial we'll see how to install rbenv, PostgreSQL and Decidim, and how to configure everything together.
 
@@ -24,6 +24,17 @@ echo "gem: --no-document" > ~/.gemrc
 gem install bundler
 ```
 
+### Installing PostgreSQL
+
+Now we're going to install PostgreSQL for the database:
+
+```bash
+sudo apt-get install -y postgresql libpq-dev
+sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
+```
+
+You need to change the password (on this example is "thepassword") and save it somewhere to configure it later with the application.
+
 ### Installing Decidim
 
 Next, we need to install the `decidim` gem:
@@ -37,7 +48,6 @@ Afterwards, we can create an application with the nice `decidim` executable, whe
 ```bash
 decidim decidim_application
 cd decidim_application
-bundle install
 ```
 
 We recommend that you save it all on Git.
@@ -47,23 +57,9 @@ git init .
 git commit -m "Initial commit. Generated with Decidim 0.X https://decidim.org"
 ```
 
-### Installing PostgreSQL
-
-Now we're going to install PostgreSQL for the database:
-
-```bash
-sudo apt-get install -y postgresql libpq-dev
-sudo su - postgres
-psql
-> CREATE USER decidim_app WITH CREATEROLE SUPERUSER CREATEDB;
-> \password decidim_app
-```
-
-You need to enter a password (two times) and save it somewhere to configure it later with the application.
-
 ### Configure the database
 
-You need to modify your secrets (see `config/database.yml`). For this you can use [figaro](), [dotenv](https://github.com/bkeepers/dotenv) or [rbenv-vars](https://github.com/rbenv/rbenv-vars). You should always be careful of not uploading your secrets on git or your version control system.
+You need to modify your secrets (see `config/database.yml`). For this you can use [figaro](), [dotenv](https://github.com/bkeepers/dotenv) or [rbenv-vars](https://github.com/rbenv/rbenv-vars). You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.  
 
 For instance, for working with figaro, add this to your `Gemfile`:
 
