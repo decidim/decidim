@@ -79,9 +79,7 @@ module Decidim
       # }
       def searchable_fields(declared_fields)
         @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        unless Decidim::Searchable.searchable_resources.include? self
-          Decidim::Searchable.searchable_resources << self
-        end
+        Decidim::Searchable.searchable_resources << self unless Decidim::Searchable.searchable_resources.include? self
       end
     end
   end
