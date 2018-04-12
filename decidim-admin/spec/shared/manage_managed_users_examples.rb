@@ -36,12 +36,12 @@ shared_examples "manage managed users examples" do
       end
     end
 
-    it_behaves_like "impersonating a user"
+    it_behaves_like "impersonating a user" do
+      let(:impersonated_user) { Decidim::User.managed.last }
+    end
   end
 
   shared_examples_for "impersonating a user" do
-    let(:impersonated_user) { Decidim::User.managed.last }
-
     it "can impersonate the user filling in the correct authorization" do
       expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
@@ -156,7 +156,9 @@ shared_examples "manage managed users examples" do
         impersonate_the_managed_user
       end
 
-      it_behaves_like "impersonating a user"
+      it_behaves_like "impersonating a user" do
+        let(:impersonated_user) { managed_user }
+      end
     end
 
     it "can promote users inviting them to the application" do
