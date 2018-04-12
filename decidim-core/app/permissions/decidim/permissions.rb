@@ -24,7 +24,7 @@ module Decidim
 
     def read_public_pages_action?
       return unless permission_action.subject == :public_page &&
-        permission_action.action == :read
+                    permission_action.action == :read
       allow!
     end
 

@@ -7,7 +7,7 @@ describe Decidim::Permissions do
 
   let(:user) { nil }
   let(:context) do
-    { }
+    {}
   end
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:action_name) { :foo }
@@ -29,6 +29,7 @@ describe Decidim::Permissions do
       { scope: :foo, action: :foo, subject: :locales }
     end
 
+    it { is_expected.to eq true }
   end
 
   context "when reading a component" do
@@ -103,17 +104,6 @@ describe Decidim::Permissions do
         let(:current_user) { create :user }
 
         it { is_expected.to eq false }
-      end
-    end
-
-    context "when action is on authorizations" do
-      let(:action_subject) { :authorization }
-
-      context "when creating an authorization" do
-        let(:action_name) { :create }
-        let(:context) { { authorization: authorization } }
-
-        context "when authorization does not belong to the user"
       end
     end
 
