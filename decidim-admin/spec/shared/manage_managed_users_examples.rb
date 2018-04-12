@@ -141,7 +141,7 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  context "when a manager user already exists" do
+  context "when a managed user already exists" do
     let!(:managed_user) { create(:user, :managed, name: "Foo", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
