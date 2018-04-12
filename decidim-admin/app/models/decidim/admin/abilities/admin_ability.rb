@@ -66,8 +66,7 @@ module Decidim
         private
 
         def empty_available_authorizations?
-          return unless @context[:current_organization]
-          @context[:current_organization].available_authorizations.empty?
+          user.organization.available_authorizations.empty?
         end
       end
     end

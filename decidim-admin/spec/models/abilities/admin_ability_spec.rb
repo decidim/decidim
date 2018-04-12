@@ -6,7 +6,24 @@ module Decidim::Admin
   describe Abilities::AdminAbility do
     subject { described_class.new(user, {}) }
 
-    let(:user) { build(:user, :admin) }
+    let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
+    let(:user) { build(:user, :admin, organization: organization) }
+
+    context "when the organization has authorizations" do
+      it "can create new managed users" do
+        expect(subject).to be_able_to(:new, :managed_users)
+        expect(subject).to be_able_to(:create, :managed_users)
+      end
+    end
+
+    context "when the organization doesn't have authorizations" do
+      let(:organization) { create(:organization, available_authorizations: []) }
+
+      it "can't create new managed users" do
+        expect(subject).not_to be_able_to(:new, :managed_users)
+        expect(subject).not_to be_able_to(:create, :managed_users)
+      end
+    end
 
     context "when the user is not an admin" do
       let(:user) { build(:user) }
@@ -67,17 +84,15 @@ module Decidim::Admin
     end
 
     context "when the organization is the one they belong to" do
-      let(:organization) { user.organization }
-
       it { is_expected.to be_able_to(:update, organization) }
       it { is_expected.to be_able_to(:read, organization) }
     end
 
     context "when the organization is different form the one they belong to" do
-      let(:organization) { build(:organization) }
+      let(:other_organization) { build(:organization) }
 
-      it { is_expected.not_to be_able_to(:update, organization) }
-      it { is_expected.not_to be_able_to(:read, organization) }
+      it { is_expected.not_to be_able_to(:update, other_organization) }
+      it { is_expected.not_to be_able_to(:read, other_organization) }
     end
 
     context "when destroying a user" do
