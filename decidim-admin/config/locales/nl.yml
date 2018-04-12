@@ -31,9 +31,9 @@ nl:
         subject: Onderwerp
       oauth_application:
         name: Naam
-        organization_logo: Organisatie logo (vierkant)
-        organization_name: Organisatie naam
-        organization_url: Organisatie-URL
+        organization_logo: Logo van de organisatie (vierkant)
+        organization_name: Naam van de organisatie
+        organization_url: URL van de organisatie
         redirect_uri: URI omleiden
       organization:
         cta_button_path: Oproep naar actieknop pad
@@ -42,7 +42,7 @@ nl:
         description: Beschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
         facebook_handler: Facebook handler
-        favicon: Icoon
+        favicon: Favicon
         github_handler: GitHub-handler
         header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Actieknop ondertitel
@@ -71,7 +71,7 @@ nl:
         code: Code
         name: Naam
         organization: Organisatie
-        parent_id: Ouder
+        parent_id: Parent
         scope_type: Scope type
         scope_type_id: Scope type
       scope_type:
