@@ -2,8 +2,8 @@
   <%= form.text_field :name, label: t(".name") %>
 
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
-    <% if lookup_context.exists?(form.object.authorization.to_partial_path, [], true) %>
-      <%= render partial: form.object.authorization.to_partial_path, locals: { handler: form.object.authorization, form: f } %>
+    <% if lookup_context.exists?(f.object.to_partial_path, [], true) %>
+      <%= render partial: f.object.to_partial_path, locals: { handler: f.object, form: f } %>
     <% else %>
       <%= f.all_fields %>
     <% end %>
