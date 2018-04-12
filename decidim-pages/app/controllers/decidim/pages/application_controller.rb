@@ -11,18 +11,6 @@ module Decidim
       def show
         @page = Page.find_by(component: current_component)
       end
-
-      def permission_class_chain
-        [
-          Decidim::Pages::Permissions,
-          current_participatory_space.manifest.permissions_class,
-          Decidim::Permissions
-        ]
-      end
-
-      def permission_scope
-        :public
-      end
     end
   end
 end

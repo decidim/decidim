@@ -8,6 +8,7 @@ module Decidim
     class BaseController < Decidim::ApplicationController
       include Settings
       include ActionAuthorization
+      include Decidim::NeedsPermission
 
       include ParticipatorySpaceContext
       participatory_space_layout
@@ -54,6 +55,18 @@ module Decidim
           current_settings: current_settings,
           component_settings: component_settings
         )
+      end
+
+      def permission_scope
+        :public
+      end
+
+      def permission_class_chain
+        [
+          current_component.manifest.permissions_class,
+          current_participatory_space.manifest.permissions_class,
+          Decidim::Permissions
+        ]
       end
 
       def redirect_unless_feature_private

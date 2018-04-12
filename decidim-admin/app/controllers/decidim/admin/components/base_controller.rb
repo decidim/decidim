@@ -9,6 +9,7 @@ module Decidim
         include Settings
 
         include Decidim::Admin::ParticipatorySpaceAdminContext
+        include Decidim::NeedsPermission
         participatory_space_admin_layout
 
         helper Decidim::ResourceHelper
@@ -29,6 +30,18 @@ module Decidim
 
         def permissions_context
           super.merge(participatory_space: current_participatory_space)
+        end
+
+        def permission_class_chain
+          [
+            current_component.manifest.permissions_class,
+            current_participatory_space.manifest.permissions_class,
+            Decidim::Admin::Permissions
+          ]
+        end
+
+        def permission_scope
+          :admin
         end
 
         def current_component

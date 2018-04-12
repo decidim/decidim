@@ -11,22 +11,6 @@ module Decidim
       class ApplicationController < Decidim::Admin::Components::BaseController
         helper_method :sortitions, :sortition
 
-        include NeedsPermission
-
-        private
-
-        def permission_class_chain
-          [
-            Decidim::Sortitions::Permissions,
-            current_participatory_space.manifest.permissions_class,
-            Decidim::Admin::Permissions
-          ]
-        end
-
-        def permission_scope
-          :admin
-        end
-
         def sortitions
           @sortitions ||= Decidim::Sortitions::FilteredSortitions
                           .for(current_component)
