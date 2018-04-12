@@ -36,10 +36,10 @@ shared_examples "manage managed users examples" do
       end
     end
 
-    it_behaves_like "impersonating a managed user"
+    it_behaves_like "impersonating a user"
   end
 
-  shared_examples_for "impersonating a managed user" do
+  shared_examples_for "impersonating a user" do
     let(:impersonated_user) { Decidim::User.managed.last }
 
     it "can impersonate the user filling in the correct authorization" do
@@ -156,7 +156,7 @@ shared_examples "manage managed users examples" do
         impersonate_the_managed_user
       end
 
-      it_behaves_like "impersonating a managed user"
+      it_behaves_like "impersonating a user"
     end
 
     it "can promote users inviting them to the application" do
