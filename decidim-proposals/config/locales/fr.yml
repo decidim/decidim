@@ -81,7 +81,7 @@ fr:
       proposals:
         actions:
           create: Créer
-          endorse: Promouvoir
+          endorse: Recommander
           vote: Soutenir
           withdraw: Se désister
         name: Propositions
@@ -174,7 +174,7 @@ fr:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
           index:
-            actions: actes
+            actions: Actions
             cancel: Annuler
             change_category: Changer de catégorie
             selected: choisi
@@ -250,8 +250,8 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Déjà promu
-          endorse: Promouvoir
+          already_endorsed: Déjà recommandé
+          endorse: Recommander
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -278,12 +278,12 @@ fr:
           send: Aperçu
           title: Modifier le projet de proposition
         endorsement_button:
-          already_endorsed: Déjà promu
+          already_endorsed: Déjà recommandé
           already_endorsed_hover: Ne plus promouvoir
         endorsement_identities_cabin:
-          endorse: Promouvoir
+          endorse: Recommander
         endorsements_card_row:
-          endorse: Promouvoir
+          endorse: Recommander
         endorsements_listing:
           see_all: Voir tout
           see_less: Voir moins
@@ -368,6 +368,8 @@ fr:
             description: Chaque proposition peut recevoir un maximum de %{limit} soutiens.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
+          threshold_per_proposal:
+            description: Pour être acceptée une proposition doit atteindre un minimum de %{limit} soutiens
           title: 'Le soutien est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
