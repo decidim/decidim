@@ -77,6 +77,10 @@ $datetime-bg: $primary;
 
 .card__header{
   margin-bottom: $card-padding / 2;
+
+  &.collapse{
+    margin-bottom: 0;
+  }
 }
 
 .card__button{
@@ -124,6 +128,12 @@ $datetime-bg: $primary;
 
   &:not(:last-child){
     margin-bottom: $global-margin / 2;
+  }
+
+  &.card--picture-offset{
+    // _author-avatar.scss:58 (.author-data--big .author__avatar img)
+    // _author-avatar.scss:133 padding (.author__avatar)
+    margin-left: calc(#{rem-calc(54)} + .5rem);
   }
 }
 

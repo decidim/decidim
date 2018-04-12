@@ -110,7 +110,25 @@
         </div>
         <div class="section">
           <h2 class="section-heading">Membres <span class="text-muted">(<%= Faker::Number.between(10, 200) %>)</span></h2>
-          <p><%= Faker::Lovecraft.paragraph %></p>
+          <div class="row small-up-1 medium-up-2 card-grid">
+            <% 6.times do %>
+              <div class="column">
+                <article class="card card--member">
+                  <div class="card__content">
+                    <div class="card__header collapse">
+                      <%= partial "author_data", { big: true, verified: false, nick: Faker::Boolean.boolean } %>
+                    </div>
+                    <div class="card__text card--picture-offset">
+                      <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
+                      <div><small><%= Faker::StarWars.vehicle %></small></div>
+                      <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
+                      <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
