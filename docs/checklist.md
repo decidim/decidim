@@ -24,11 +24,11 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Comply with our License (Affero GPL 3) and **publish your code** to [GitHub](http://github.com) or wherever you want.
 
-1. Review your **decidim initializer** on your application (config/initializers/decidim.rb). 
+1. Review your **decidim initializer** on your application (config/initializers/decidim.rb).
 
-1. Configure your [**ActiveJob**](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md) background queue. 
+1. Configure your [**ActiveJob**](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md) background queue.
 
-1. If you want, configure your [**social providers**](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md) to enable login using external applications. 
+1. If you want, configure your [**social providers**](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md) to enable login using external applications.
 
 ## Contents
 
@@ -45,4 +45,3 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 1. Participate on **[MetaDecidim](http://meta.decidim.barcelona)**.
 
 1. Read the Decidim **[Social Contract](https://decidim.org/contract/)**.
-
