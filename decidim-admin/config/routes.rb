@@ -34,7 +34,8 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :managed_users, controller: "managed_users", except: [:edit, :update] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]
-      resources :impersonations, controller: "managed_users/impersonations", only: [:index, :new, :create] do
+      resources :impersonation_logs, controller: "managed_users/impersonation_logs", only: [:index]
+      resources :impersonations, controller: "managed_users/impersonations", only: [:new, :create] do
         collection do
           post :close_session
         end

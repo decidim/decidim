@@ -11,11 +11,7 @@ module Decidim
         helper_method :available_authorization_handlers,
                       :select_authorization_handler_step?
 
-        skip_authorization_check only: [:index, :close_session]
-
-        def index
-          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order(started_at: :desc).page(params[:page]).per(15)
-        end
+        skip_authorization_check only: [:close_session]
 
         def new
           authorize! :impersonate, user
