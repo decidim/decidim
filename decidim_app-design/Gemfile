@@ -4,9 +4,9 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "decidim", path: ".."
+gem "faker"
 gem "puma", "~> 3.7"
 gem "uglifier", ">= 1.3.0"
-gem "faker"
 
 group :development do
   gem "decidim-dev", path: ".."
