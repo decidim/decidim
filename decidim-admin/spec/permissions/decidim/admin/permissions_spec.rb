@@ -21,7 +21,15 @@ describe Decidim::Admin::Permissions do
       { scope: :public, action: :foo, subject: :bar }
     end
 
-    it { is_expected.to eq false }
+    context "when reading the admin dashboard" do
+      let(:action) do
+        { scope: :public, action: :read, subject: :admin_dashboard }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    it_behaves_like "permission is not set"
   end
 
   context "when user is not present" do
@@ -34,12 +42,6 @@ describe Decidim::Admin::Permissions do
     let(:user) { build :user, :user_manager }
 
     it_behaves_like "delegates permissions to", Decidim::Admin::UserManagerPermissions
-  end
-
-  context "when user is not admin" do
-    let(:user) { build :user }
-
-    it { is_expected.to eq false }
   end
 
   context "when action is not registered" do
