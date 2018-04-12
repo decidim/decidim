@@ -46,7 +46,7 @@ module Decidim
         authorize! :create, Proposal
         @step = :step_1
         if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, feature_id: proposal_draft.feature.id, question_slug: proposal_draft.feature.participatory_space.slug)
+          redirect_to edit_draft_proposal_path(proposal_draft, feature_id: proposal_draft.feature.id, assembly_slug: proposal_draft.feature.participatory_space.slug)
         else
           @form = form(ProposalForm).from_params(
             attachment: form(AttachmentForm).from_params({})

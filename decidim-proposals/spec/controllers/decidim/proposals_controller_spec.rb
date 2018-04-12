@@ -49,7 +49,7 @@ module Decidim
           it "redirects to edit draft" do
             get :new, params: params
             expect(response).to have_http_status(:found)
-            path = edit_draft_proposal_path(draft, feature_id: feature.id, question_slug: feature.participatory_space.slug)
+            path = edit_draft_proposal_path(draft, feature_id: feature.id, assembly_slug: feature.participatory_space.slug)
             expect(response).to redirect_to(path)
           end
         end
