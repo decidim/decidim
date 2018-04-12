@@ -11,9 +11,6 @@ module Decidim
       end
     end
 
-    def searchable_resources_class_names
-      Decidim::Searchable.searchable_resources.collect {|r| r.class_name }
-    end
     def searchable_resource_human_name(resource)
       resource.model_name.human.pluralize
     end
