@@ -14,27 +14,34 @@ module Decidim
         end
 
         return permission_action unless user
-        return permission_action if !has_manageable_processes? && !user.admin?
+        if !has_manageable_processes? && !user.admin?
+          disallow!
+          return permission_action
+        end
         return permission_action unless permission_action.scope == :admin
 
-        permission_action.allow! if user_can_enter_space_area?
+        user_can_enter_space_area?
 
-        permission_action.allow! if valid_process_group_action?
+        valid_process_group_action?
 
-        permission_action.allow! if user_can_read_admin_dashboard?
+        if read_admin_dashboard_action?
+          user_can_read_admin_dashboard?
+          return permission_action
+        end
 
-        permission_action.allow! if user_can_read_process?
-        permission_action.allow! if user_can_create_process?
-        permission_action.allow! if user_can_destroy_process?
+        user_can_read_process_list?
+        user_can_read_current_process?
+        user_can_create_process?
+        user_can_destroy_process?
 
         # org admins and space admins can do everything in the admin section
-        permission_action.allow! if org_admin_action?
+        org_admin_action?
 
         return permission_action unless process
 
-        permission_action.allow! if moderator_action?
-        permission_action.allow! if collaborator_action?
-        permission_action.allow! if process_admin_action?
+        moderator_action?
+        collaborator_action?
+        process_admin_action?
 
         permission_action
       end
@@ -111,12 +118,13 @@ module Decidim
         return unless permission_action.action == :enter &&
                       permission_action.subject == :space_area
 
-        user.admin? || has_manageable_processes?
+        toggle_allow(user.admin? || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
       def valid_process_group_action?
-        permission_action.subject == :process_group && user.admin?
+        return unless permission_action.subject == :process_group
+        toggle_allow(user.admin?)
       end
 
       # Checks if the permission_action is to read in the admin or not.
@@ -124,12 +132,14 @@ module Decidim
         permission_action.action == :read
       end
 
+      def read_admin_dashboard_action?
+        permission_action.action == :read &&
+          permission_action.subject == :admin_dashboard
+      end
+
       # Any user that can enter the space area can read the admin dashboard.
       def user_can_read_admin_dashboard?
-        return unless permission_action.action == :read &&
-                      permission_action.subject == :admin_dashboard
-
-        user.admin? || has_manageable_processes?
+        toggle_allow(user.admin? || has_manageable_processes?)
       end
 
       # Only organization admins can create a process
@@ -137,20 +147,27 @@ module Decidim
         return unless permission_action.action == :create &&
                       permission_action.subject == :process
 
-        user.admin?
+        toggle_allow(user.admin?)
       end
 
       # Only organization admins can destroy a process
       def user_can_destroy_process?
-        return unless permission_action.action == :create &&
-                      permission_action.subject == :destroy
+        return unless permission_action.action == :destroy &&
+                      permission_action.subject == :process
 
-        user.admin?
+        toggle_allow(user.admin?)
       end
 
       # Everyone can read the process list
-      def user_can_read_process?
-        read_process_list_permission_action? && (user.admin? || has_manageable_processes?)
+      def user_can_read_process_list?
+        return unless read_process_list_permission_action?
+        toggle_allow(user.admin? || has_manageable_processes?)
+      end
+
+      def user_can_read_current_process?
+        return unless read_process_list_permission_action?
+        return if permission_action.subject == :process_list
+        toggle_allow(user.admin? || can_manage_process?)
       end
 
       # A moderator needs to be able to read the process they are assigned to,
@@ -158,15 +175,14 @@ module Decidim
       def moderator_action?
         return unless can_manage_process?(role: :moderator)
 
-        permission_action.subject == :moderation
+        allow! if permission_action.subject == :moderation
       end
 
       # Collaborators can read/preview everything inside their process.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
 
-        permission_action.action == :read ||
-          permission_action.action == :preview
+        allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
       # Process admins can eprform everything *inside* that process. They cannot
@@ -174,12 +190,12 @@ module Decidim
       # processes. They cannot destroy their process either.
       def process_admin_action?
         return unless can_manage_process?(role: :admin)
-        return if permission_action.action == :create &&
-                  permission_action.subject == :process
-        return if permission_action.action == :destroy &&
-                  permission_action.subject == :process
+        return disallow! if permission_action.action == :create &&
+                            permission_action.subject == :process
+        return disallow! if permission_action.action == :destroy &&
+                            permission_action.subject == :process
 
-        [
+        is_allowed = [
           :attachment,
           :attachment_collection,
           :category,
@@ -190,12 +206,13 @@ module Decidim
           :process_step,
           :process_user_role
         ].include?(permission_action.subject)
+        allow! if is_allowed
       end
 
       def org_admin_action?
         return unless user.admin?
 
-        [
+        is_allowed = [
           :attachment,
           :attachment_collection,
           :category,
@@ -206,6 +223,7 @@ module Decidim
           :process_step,
           :process_user_role
         ].include?(permission_action.subject)
+        allow! if is_allowed
       end
 
       # Checks if the permission_action is to read the admin processes list or

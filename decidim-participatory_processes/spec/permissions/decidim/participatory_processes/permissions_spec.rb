@@ -15,10 +15,12 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_moderator) { create :process_moderator, participatory_process: process }
 
   shared_examples "access for role" do |access|
-    if access
+    if access == true
       it { is_expected.to eq true }
-    else
+    elsif access == :not_set
       it_behaves_like "permission is not set"
+    else
+      it { is_expected.to eq false }
     end
   end
 
@@ -163,7 +165,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
     let(:context) { { current_participatory_space: process } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: false, moderator: false
+    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
   end
 
   context "when reading the processes list" do
@@ -178,6 +180,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     let(:action) do
       { scope: :admin, action: :read, subject: :process }
     end
+    let(:context) { { process: process } }
 
     it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
   end
@@ -186,6 +189,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     let(:action) do
       { scope: :admin, action: :read, subject: :participatory_space }
     end
+    let(:context) { { current_participatory_space: process } }
 
     it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
   end
@@ -214,7 +218,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :admin, action: :foo, subject: :moderation }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: false, moderator: true
+      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: true
     end
 
     context "when user is a collaborator" do
@@ -253,7 +257,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :create, subject: :process }
         end
 
-        it_behaves_like "permission is not set"
+        it { is_expected.to eq false }
       end
 
       context "when destroying a process" do
@@ -261,7 +265,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :destroy, subject: :process }
         end
 
-        it_behaves_like "permission is not set"
+        it { is_expected.to eq false }
       end
 
       shared_examples "allows any action on subject" do |action_subject|

@@ -39,11 +39,10 @@ module Decidim
       end
 
       def enforce_permission_to(action, subject, extra_context = {})
-        if Rails.env.development? || ENV["PERMISSION_LOG"].present?
-          Rails.logger.debug "==========="
-          Rails.logger.debug [permission_scope, action, subject, permission_class_chain].map(&:inspect).join("\n")
-          Rails.logger.debug "==========="
-        end
+        Rails.logger.debug "==========="
+        Rails.logger.debug [permission_scope, action, subject, permission_class_chain].map(&:inspect).join("\n")
+        Rails.logger.debug "==========="
+
         raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 

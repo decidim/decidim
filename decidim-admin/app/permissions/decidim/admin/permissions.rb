@@ -7,7 +7,7 @@ module Decidim
         return permission_action if managed_user_action?
 
         unless permission_action.scope == :admin
-          permission_action.disallow!
+          read_admin_dashboard_action?
           return permission_action
         end
 
@@ -20,33 +20,30 @@ module Decidim
 
         permission_action.allow! if user_can_enter_space_area?
 
-        permission_action.allow! if read_admin_dashboard_action?
+        read_admin_dashboard_action?
 
-        unless user.admin?
-          permission_action.disallow!
-          return permission_action
+        if user.admin?
+          permission_action.allow! if read_admin_log_action?
+          permission_action.allow! if static_page_action?
+          permission_action.allow! if organization_action?
+          permission_action.allow! if user_action?
+
+          permission_action.allow! if permission_action.subject == :category
+          permission_action.allow! if permission_action.subject == :component
+          permission_action.allow! if permission_action.subject == :admin_user
+          permission_action.allow! if permission_action.subject == :attachment
+          permission_action.allow! if permission_action.subject == :attachment_collection
+          permission_action.allow! if permission_action.subject == :scope
+          permission_action.allow! if permission_action.subject == :scope_type
+          permission_action.allow! if permission_action.subject == :area
+          permission_action.allow! if permission_action.subject == :area_type
+          permission_action.allow! if permission_action.subject == :newsletter
+          permission_action.allow! if permission_action.subject == :oauth_application
+          permission_action.allow! if permission_action.subject == :user_group
+          permission_action.allow! if permission_action.subject == :officialization
+          permission_action.allow! if permission_action.subject == :authorization
+          permission_action.allow! if permission_action.subject == :authorization_workflow
         end
-
-        permission_action.allow! if read_admin_log_action?
-        permission_action.allow! if static_page_action?
-        permission_action.allow! if organization_action?
-        permission_action.allow! if user_action?
-
-        permission_action.allow! if permission_action.subject == :category
-        permission_action.allow! if permission_action.subject == :component
-        permission_action.allow! if permission_action.subject == :admin_user
-        permission_action.allow! if permission_action.subject == :attachment
-        permission_action.allow! if permission_action.subject == :attachment_collection
-        permission_action.allow! if permission_action.subject == :scope
-        permission_action.allow! if permission_action.subject == :scope_type
-        permission_action.allow! if permission_action.subject == :area
-        permission_action.allow! if permission_action.subject == :area_type
-        permission_action.allow! if permission_action.subject == :newsletter
-        permission_action.allow! if permission_action.subject == :oauth_application
-        permission_action.allow! if permission_action.subject == :user_group
-        permission_action.allow! if permission_action.subject == :officialization
-        permission_action.allow! if permission_action.subject == :authorization
-        permission_action.allow! if permission_action.subject == :authorization_workflow
 
         permission_action
       end
@@ -57,7 +54,7 @@ module Decidim
         return unless permission_action.subject == :admin_dashboard &&
                       permission_action.action == :read
 
-        user.admin? || space_allows_admin_access_to_current_action?
+        toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 
       def read_admin_log_action?

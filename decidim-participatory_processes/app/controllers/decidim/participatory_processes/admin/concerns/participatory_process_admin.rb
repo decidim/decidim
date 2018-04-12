@@ -35,7 +35,6 @@ module Decidim
             def permission_class_chain
               [
                 Decidim::ParticipatoryProcesses::Permissions,
-                current_participatory_space.manifest.permissions_class,
                 Decidim::Admin::Permissions
               ]
             end

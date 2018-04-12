@@ -49,7 +49,10 @@ module Decidim
     end
 
     def permission_class_chain
-      [Decidim::Permissions]
+      [
+        Decidim::Admin::Permissions,
+        Decidim::Permissions
+      ]
     end
 
     def permission_scope
