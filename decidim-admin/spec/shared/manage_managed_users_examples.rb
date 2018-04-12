@@ -32,7 +32,7 @@ shared_examples "manage managed users examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number* is invalid")
+        expect(page).to have_selector("label", text: "Document number*\nis invalid")
       end
     end
 
