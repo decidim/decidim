@@ -795,3 +795,40 @@ $datetime-bg: $primary;
     z-index: -2;
   }
 }
+
+.card--widget{
+  .card-data{
+    flex-wrap: inherit;
+
+    .card-data__item{
+      color: $body-font-color;
+      text-transform: none;
+
+      strong{
+        display: block;
+        text-transform: uppercase;
+        font-size: rem-calc(16);
+
+        &:not(:first-child){
+          margin-top: $global-margin;
+        }
+      }
+
+      span{
+        color: $muted;
+        font-size: 90%;
+      }
+
+      @include modifiers(color);
+
+      &:first-child{
+        flex: 0;
+        background-color: $card-secondary-bg;
+      }
+    }
+  }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin;
+  }
+}
