@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Soort gebied
+        area_type: Omgeving type
         name: Naam
         organization: Organisatie
       area_type:
@@ -247,7 +247,7 @@ nl:
           title: Bewerk component
           update: Bijwerken
         form:
-          default_step_settings: Standaard step-instellingen
+          default_step_settings: Standaard stappenplan
           global_settings: Algemene instellingen
           step_settings: Stapinstellingen
         index:
@@ -263,7 +263,7 @@ nl:
           success: Het onderdeel is met succes gepubliceerd.
         title: Components
         unpublish:
-          success: Het onderdeel is met succes ongepubliceerd.
+          success: Het onderdeel is met succes verwijderd.
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
