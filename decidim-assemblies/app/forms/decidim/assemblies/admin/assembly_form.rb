@@ -9,6 +9,9 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
 
+        ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
+        CREATED_BY = %w(city_council public others).freeze
+
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
         translatable_attribute :description, String
@@ -19,6 +22,13 @@ module Decidim
         translatable_attribute :target, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
+        translatable_attribute :purpose_of_action, String
+        translatable_attribute :composition, String
+        translatable_attribute :assembly_type_other, String
+        translatable_attribute :created_by_other, String
+        translatable_attribute :closing_date_reason, String
+        translatable_attribute :internal_organisation, String
+        translatable_attribute :special_features, String
 
         mimic :assembly
 
@@ -36,12 +46,27 @@ module Decidim
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
         attribute :private_space, Boolean
+        attribute :assembly_type, String
+        attribute :creation_date, Decidim::Attributes::TimeWithZone
+        attribute :created_by, String
+        attribute :duration, Decidim::Attributes::TimeWithZone
+        attribute :included_at, Decidim::Attributes::TimeWithZone
+        attribute :closing_date, Decidim::Attributes::TimeWithZone
+        attribute :is_transparent, Boolean
+        attribute :twitter_handler, String
+        attribute :facebook_handler, String
+        attribute :instagram_handler, String
+        attribute :youtube_handler, String
+        attribute :github_handler, String
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
+
+        validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
+        validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
         validate :slug_uniqueness
 
@@ -58,6 +83,24 @@ module Decidim
 
         def area
           @area ||= current_organization.areas.find_by(id: area_id)
+        end
+
+        def assembly_types_for_select
+          ASSEMBLY_TYPES.map do |type|
+            [
+              I18n.t("assembly_types.#{type}", scope: "decidim.assemblies"),
+              type
+            ]
+          end
+        end
+
+        def created_by_for_select
+          CREATED_BY.map do |by|
+            [
+              I18n.t("created_by.#{by}", scope: "decidim.assemblies"),
+              by
+            ]
+          end
         end
 
         def parent
