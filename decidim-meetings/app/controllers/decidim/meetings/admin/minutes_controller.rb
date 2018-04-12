@@ -46,16 +46,6 @@ module Decidim
           end
         end
 
-        def destroy
-          # DestroyMeeting.call(meeting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
-          #
-          #     redirect_to meetings_path
-          #   end
-          # end
-        end
-
         private
 
         def current_meeting

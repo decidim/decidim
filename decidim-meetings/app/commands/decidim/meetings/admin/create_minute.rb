@@ -27,14 +27,26 @@ module Decidim
         private
 
         def create_minute!
+          log_info = {
+            resource: {
+              title: @meeting.title
+            },
+            participatory_space: {
+              title: @meeting.participatory_space.title
+            }
+          }
+
           @minute = Decidim.traceability.create!(
             Minute,
             @form.current_user,
-            description: @form.description,
-            video_url: @form.video_url,
-            audio_url: @form.audio_url,
-            is_visible: @form.is_visible,
-            meeting: @meeting
+            {
+              description: @form.description,
+              video_url: @form.video_url,
+              audio_url: @form.audio_url,
+              is_visible: @form.is_visible,
+              meeting: @meeting
+            },
+            log_info
           )
         end
       end

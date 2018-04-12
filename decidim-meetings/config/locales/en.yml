@@ -170,9 +170,8 @@ en:
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
         minute:
-          create: "%{user_name} created the %{resource_name} minute on the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the minute of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minute of the meeting %{resource_name} on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:

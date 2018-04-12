@@ -34,14 +34,39 @@ module Decidim
         attr_reader :form, :current_meeting, :minute
 
         def update_minute!
-          Decidim.traceability.update!(
+          log_info = {
+            resource: {
+              title: @current_meeting.title
+            },
+            participatory_space: {
+              title: @current_meeting.participatory_space.title
+            }
+          }
+
+          # @minute = Decidim.traceability.update!(
+          #   minute,
+          #   form.current_user,
+          #   form.attributes.slice(
+          #     :description,
+          #     :video_url,
+          #     :audio_url,
+          #     :is_visible
+          #   ).merge(
+          #     meeting: @current_meeting
+          #   ),
+          #   log_info
+          # )
+          @minute = Decidim.traceability.update!(
             minute,
             form.current_user,
-            description: form.description,
-            video_url: form.video_url,
-            audio_url: form.audio_url,
-            is_visible: form.is_visible,
-            meeting: @current_meeting
+            {
+              description: form.description,
+              video_url: form.video_url,
+              audio_url: form.audio_url,
+              is_visible: form.is_visible,
+              meeting: current_meeting
+            },
+            log_info
           )
         end
       end

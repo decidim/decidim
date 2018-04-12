@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMeetingsMinutes < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_meetings_minutes do |t|

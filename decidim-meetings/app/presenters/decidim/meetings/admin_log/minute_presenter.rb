@@ -36,11 +36,6 @@ module Decidim
         def i18n_labels_scope
           "activemodel.attributes.minute"
         end
-
-        def video_url
-          action_log.extra.dig("extra", "video_url")
-        end
-
       end
     end
   end
