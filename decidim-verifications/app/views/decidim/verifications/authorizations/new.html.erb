@@ -17,10 +17,11 @@
                 <%= render partial: handler.to_partial_path, locals: { handler: handler, form: form } %>
               <% else %>
                 <%= form.all_fields %>
-                <div class="actions">
-                  <%= form.submit t(".authorize"), class: "button expanded" %>
-                </div>
               <% end %>
+
+              <div class="actions">
+                <%= form.submit t(".authorize"), class: "button expanded" %>
+              </div>
             <% end %>
             <p class="text-center skip">
               <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
