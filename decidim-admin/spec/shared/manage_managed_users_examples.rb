@@ -76,35 +76,18 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  shared_context "with a single step managed user form" do
+  shared_context "with a managed user form" do
     before do
       navigate_to_impersonations_page
 
       click_link "New"
-
-      fill_in_the_managed_user_form(document_number)
-    end
-  end
-
-  shared_context "with a multiple step managed user form" do
-    before do
-      navigate_to_impersonations_page
-
-      click_link "New"
-
-      expect(page).to have_content(/Select an authorization method/i)
-      expect(page).to have_content(/Step 1 of 2/i)
-
-      click_link "Example authorization", match: :first
-
-      expect(page).to have_content(/Step 2 of 2/i)
 
       fill_in_the_managed_user_form(document_number)
     end
   end
 
   context "when a single authorization handler enabled" do
-    include_context "with a single step managed user form"
+    include_context "with a managed user form"
 
     it_behaves_like "creating a managed user"
   end
@@ -125,7 +108,7 @@ shared_examples "manage managed users examples" do
     end
 
     context "and available for the organization" do
-      include_context "with a multiple step managed user form"
+      include_context "with a managed user form"
 
       it_behaves_like "creating a managed user"
     end
@@ -170,7 +153,7 @@ shared_examples "manage managed users examples" do
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
     context "when using the create managed user form" do
-      include_context "with a single step managed user form"
+      include_context "with a managed user form"
 
       it_behaves_like "creating a managed user"
     end

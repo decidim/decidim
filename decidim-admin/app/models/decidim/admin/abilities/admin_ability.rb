@@ -60,6 +60,8 @@ module Decidim
           can [:index, :new, :create, :destroy], :officializations
 
           can :index, :authorization_workflows
+          can :show, :authorization_handler
+
           can [:index, :update], Authorization
         end
 

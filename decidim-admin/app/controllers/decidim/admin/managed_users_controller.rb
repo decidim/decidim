@@ -7,20 +7,16 @@ module Decidim
     class ManagedUsersController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"
 
-      helper_method :available_authorization_handlers,
-                    :more_than_one_authorization_handler?,
-                    :select_authorization_handler_step?
+      helper_method :available_authorization_handlers
 
       def new
         authorize! :new, :managed_users
 
-        unless select_authorization_handler_step?
-          @form = form(ManagedUserForm).from_params(
-            authorization: {
-              handler_name: handler_name
-            }
-          )
-        end
+        @form = form(ManagedUserForm).from_params(
+          authorization: {
+            handler_name: handler_name
+          }
+        )
       end
 
       def create
@@ -43,13 +39,7 @@ module Decidim
 
       private
 
-      def select_authorization_handler_step?
-        handler_name.blank? && params[:managed_user].blank?
-      end
-
       def handler_name
-        return params[:handler_name] if more_than_one_authorization_handler?
-
         available_authorization_handlers.first.name
       end
 
@@ -57,10 +47,6 @@ module Decidim
         Decidim::Verifications::Adapter.from_collection(
           current_organization.available_authorization_handlers
         )
-      end
-
-      def more_than_one_authorization_handler?
-        available_authorization_handlers.length > 1
       end
     end
   end

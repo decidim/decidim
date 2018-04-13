@@ -2,11 +2,15 @@
   <%= form.text_field :name, label: t(".name") %>
 
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
-    <% if lookup_context.exists?(f.object.to_partial_path, [], true) %>
-      <%= render partial: f.object.to_partial_path, locals: { handler: f.object, form: f } %>
-    <% else %>
-      <%= f.all_fields %>
-    <% end %>
-    <%= f.hidden_field :handler_name %>
+    <%= f.collection_select :handler_name,
+                            available_authorization_handlers,
+                            :name,
+                            :fullname,
+                            { label: t(".authorization_method") },
+                            { "data-authorization-handler-path" => decidim_admin.authorization_handler_path(id: ":handler_name") } %>
+
+    <div id="authorization-handler-fields">
+      <%= render "handler_form", handler_form: f %>
+    </div>
   <% end %>
 </div>
