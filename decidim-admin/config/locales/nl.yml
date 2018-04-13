@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: Verzameling
+        attachment_collection_id: collection
         description: Beschrijving
         file: Bestand
         title: Titel
