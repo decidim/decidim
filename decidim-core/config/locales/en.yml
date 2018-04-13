@@ -371,7 +371,6 @@ en:
       filter:
         all: All
         components: Components
-        filter: Filter
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
