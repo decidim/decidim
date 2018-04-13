@@ -179,6 +179,12 @@ FactoryBot.define do
       published_at nil
     end
 
+    trait :hidden do
+      moderation do
+        create(:moderation, hidden_at: Time.current)
+      end
+    end
+
     trait :with_votes do
       after :create do |proposal|
         create_list(:proposal_vote, 5, proposal: proposal)

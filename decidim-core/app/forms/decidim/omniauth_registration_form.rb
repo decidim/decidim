@@ -12,6 +12,7 @@ module Decidim
     attribute :uid, String
     attribute :tos_agreement, Boolean
     attribute :oauth_signature, String
+    attribute :avatar_url, String
 
     validates :email, presence: true
     validates :name, presence: true

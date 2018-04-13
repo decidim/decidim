@@ -45,7 +45,27 @@ module Decidim::Assemblies
         parent: nil,
         private_space: false,
         errors: errors,
-        participatory_processes_ids: participatory_processes.map(&:id)
+        participatory_processes_ids: participatory_processes.map(&:id),
+        show_statistics: false,
+        purpose_of_action: { en: "purpose of action" },
+        composition: { en: "composition of internal working groups" },
+        assembly_type: "others",
+        assembly_type_other: "others",
+        creation_date: 1.day.from_now,
+        created_by: "others",
+        created_by_other: "other created by",
+        duration: 2.days.from_now,
+        included_at: 5.days.from_now,
+        closing_date: 5.days.from_now,
+        closing_date_reason: { en: "closing date reason" },
+        internal_organisation: { en: "internal organisation" },
+        is_transparent: true,
+        special_features: { en: "special features" },
+        twitter_handler: "lorem",
+        facebook_handler: "lorem",
+        instagram_handler: "lorem",
+        youtube_handler: "lorem",
+        github_handler: "lorem"
       )
     end
     let(:invalid) { false }
