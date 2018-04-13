@@ -318,4 +318,3 @@ describe Decidim::Assemblies::Permissions do
     end
   end
 end
-
