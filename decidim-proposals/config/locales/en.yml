@@ -235,6 +235,9 @@ en:
           most_contributed: Most contributed
           random: Random
           recent: Recent
+        show:
+          info-message: "This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft."
+          report: Report
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully. Saved as a Draft.

@@ -25,10 +25,10 @@ module Decidim
         @collaborative_drafts = reorder(@collaborative_drafts)
       end
 
-      # def show
-      #   @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-      #   @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
-      # end
+      def show
+        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
+      end
 
       # def new
       #   authorize! :create, Proposal

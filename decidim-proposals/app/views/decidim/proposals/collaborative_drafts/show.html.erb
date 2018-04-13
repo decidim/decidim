@@ -1,0 +1,47 @@
+<% add_decidim_meta_tags({
+  description: @collaborative_draft.body,
+  title: @collaborative_draft.title,
+  # url: proposal_url(@proposal.id)
+}) %>
+
+<div class="row column view-header">
+  <%# if !(current_user and @collaborative_draft.authorship?(current_user)) %>
+    <div class="callout secondary"><%= t('.info-message').html_safe %></div>
+  <%# end %>
+  <h2 class="heading2"><%= @collaborative_draft.title %></h2>
+  <%= cell "decidim/author_box", present(@collaborative_draft).author, extra: (capture do %>
+      <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
+      </button>
+  <% end) %>
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if can?(:edit, @collaborative_draft) %>
+      <%= link_to t(".edit"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
+    <%= resource_reference(@collaborative_draft) %>
+    <%= render partial: "decidim/shared/share_modal" %>
+    <%#= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%= simple_format @collaborative_draft.body %>
+      <%# TODO = render partial: "tags", locals: { resource: @collaborative_draft } %>
+    </div>
+  </div>
+</div>
+<%= attachments_for @collaborative_draft %>
+
+<%= comments_for @collaborative_draft %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: @collaborative_draft,
+    form: @report_form,
+    url: decidim.report_path(sgid: @collaborative_draft.to_sgid.to_s)
+  }
+%>
