@@ -22,16 +22,23 @@ module Decidim
 
           @form = form(ImpersonateUserForm).from_params(
             user: user,
-            authorization: {
-              handler_name: handler_name
-            }
+            authorization: Decidim::AuthorizationHandler.handler_for(
+              handler_name,
+              user: user
+            )
           )
         end
 
         def create
           authorize! :impersonate, user
 
-          @form = form(ImpersonateUserForm).from_params(params.merge(user: user))
+          @form = form(ImpersonateUserForm).from_params(
+            user: user,
+            authorization: Decidim::AuthorizationHandler.handler_for(
+              handler_name,
+              params[:impersonate_user][:authorization].merge(user: user)
+            )
+          )
 
           ImpersonateUser.call(@form) do
             on(:ok) do

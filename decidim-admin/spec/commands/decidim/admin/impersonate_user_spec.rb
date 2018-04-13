@@ -13,10 +13,7 @@ module Decidim::Admin
     let(:document_number) { "12345678X" }
     let(:form_params) do
       {
-        authorization: {
-          handler_name: "dummy_authorization_handler",
-          document_number: document_number
-        },
+        authorization: handler,
         user: user
       }
     end
@@ -29,18 +26,10 @@ module Decidim::Admin
       )
     end
     let(:user) { create :user, :managed, organization: organization }
-    let(:handler_document_number) { document_number }
     let(:handler) do
       Decidim::DummyAuthorizationHandler.from_params(
-        document_number: handler_document_number
+        document_number: document_number
       )
-    end
-    let(:authorized_user) { user }
-    let!(:authorization) do
-      create(:authorization,
-             user: authorized_user,
-             name: handler.handler_name,
-             unique_id: handler.unique_id)
     end
 
     context "when everything is ok" do
@@ -62,7 +51,7 @@ module Decidim::Admin
     end
 
     context "when the authorization is not valid" do
-      let(:authorized_user) { create(:user, organization: organization) }
+      let(:document_number) { "12345678Y" }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

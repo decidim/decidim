@@ -13,16 +13,20 @@ module Decidim
         authorize! :new, :managed_users
 
         @form = form(ImpersonateUserForm).from_params(
-          authorization: {
-            handler_name: handler_name
-          }
+          authorization: Decidim::AuthorizationHandler.handler_for(handler_name)
         )
       end
 
       def create
         authorize! :create, :managed_users
 
-        @form = form(ImpersonateUserForm).from_params(params)
+        @form = form(ImpersonateUserForm).from_params(
+          name: params[:impersonate_user][:name],
+          authorization: Decidim::AuthorizationHandler.handler_for(
+            handler_name,
+            params[:impersonate_user][:authorization]
+          )
+        )
 
         CreateManagedUser.call(@form) do
           on(:ok) do

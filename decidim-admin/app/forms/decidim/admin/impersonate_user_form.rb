@@ -9,19 +9,11 @@ module Decidim
     class ImpersonateUserForm < Form
       attribute :name, String
       attribute :user, Decidim::User
+      attribute :authorization, Decidim::AuthorizationHandler
 
       attribute :impersonation_target, Decidim::User
 
       validates :impersonation_target, presence: true
-
-      def initialize(attributes)
-        extend(Virtus.model)
-
-        # Set the authorization dynamic attribute as a nested form class based on the handler name.
-        attribute(:authorization, Decidim::AuthorizationHandler.handler_for(attributes.dig(:authorization, :handler_name)))
-
-        super
-      end
 
       def impersonation_target
         return user if name.blank?
