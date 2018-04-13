@@ -11,6 +11,7 @@
           <tr>
             <th><%= t("models.impersonation_log.fields.admin", scope: "decidim.admin") %></th>
             <th><%= t("models.impersonation_log.fields.user", scope: "decidim.admin") %></th>
+            <th><%= t("models.impersonation_log.fields.reason", scope: "decidim.admin") %></th>
             <th><%= t("models.impersonation_log.fields.started_at", scope: "decidim.admin") %></th>
             <th><%= t("models.impersonation_log.fields.ended_at", scope: "decidim.admin") %></th>
             <th><%= t("models.impersonation_log.fields.expired_at", scope: "decidim.admin") %></th>
@@ -21,6 +22,7 @@
             <tr>
               <td><%= impersonation_log.admin.name %></td>
               <td><%= impersonation_log.user.name %></td>
+              <td><%= impersonation_log.reason %></td>
               <td><%= impersonation_log.started_at ? l(impersonation_log.started_at, format: :long) : nil %></td>
               <td><%= impersonation_log.ended_at ? l(impersonation_log.ended_at, format: :long) : nil %></td>
               <td><%= impersonation_log.expired_at ? l(impersonation_log.expired_at, format: :long) : nil %></td>

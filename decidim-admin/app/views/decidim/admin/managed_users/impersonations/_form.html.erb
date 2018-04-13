@@ -1,3 +1,7 @@
+<% unless form.object.user.managed? %>
+  <%= form.text_field :reason, label: t(".reason") %>
+<% end %>
+
 <div class="row column">
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
     <%= f.collection_select :handler_name,

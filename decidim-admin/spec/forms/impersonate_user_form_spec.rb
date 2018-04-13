@@ -13,8 +13,10 @@ module Decidim
         )
       end
 
+      let(:user) { create(:user, managed: managed, organization: organization) }
       let(:organization) { create :organization }
-      let(:user) { create(:user, organization: organization) }
+      let(:reason) { nil }
+      let(:managed) { true }
       let(:document_number) { "12345678X" }
 
       let(:authorization) do
@@ -41,6 +43,22 @@ module Decidim
         end
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when the user is a regular user" do
+        let(:managed) { false }
+
+        context "and no reason is provided" do
+          it { is_expected.to be_invalid }
+        end
+
+        context "and a reason is provided" do
+          let(:extra_attributes) do
+            { user: user, reason: "Because we really need to" }
+          end
+
+          it { is_expected.to be_valid }
+        end
       end
 
       context "when authorization already exists for another user in the organization" do

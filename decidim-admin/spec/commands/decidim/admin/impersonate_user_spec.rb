@@ -17,9 +17,12 @@ module Decidim::Admin
         user: user
       }
     end
+    let(:extra_params) do
+      {}
+    end
     let(:form) do
       ImpersonateUserForm.from_params(
-        form_params
+        form_params.merge(extra_params)
       ).with_context(
         current_organization: organization,
         current_user: current_user
@@ -62,6 +65,11 @@ module Decidim::Admin
 
     context "when passed a regular user" do
       let(:user) { create :user, organization: organization }
+      let(:extra_params) do
+        {
+          reason: "Need it"
+        }
+      end
 
       it_behaves_like "the impersonate user command"
     end

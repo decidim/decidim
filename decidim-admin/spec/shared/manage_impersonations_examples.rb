@@ -125,15 +125,17 @@ shared_examples "manage impersonations examples" do
       let(:managed) { false }
 
       before do
-        impersonate(impersonated_user)
+        impersonate(impersonated_user, reason: "Because yes")
       end
 
       it_behaves_like "impersonating a user"
     end
 
     context "when impersonating a never authorized user" do
+      let(:reason) { nil }
+
       before do
-        impersonate(impersonated_user)
+        impersonate(impersonated_user, reason: reason)
       end
 
       context "and it's a managed user" do
@@ -145,7 +147,27 @@ shared_examples "manage impersonations examples" do
       context "and its a regular user" do
         let(:managed) { false }
 
-        it_behaves_like "impersonating a user"
+        context "and no reason is provided" do
+          it "prevents submissions and shows an error" do
+            expect(page).to have_content("You need to provide a reason when impersonating a non managed user")
+          end
+        end
+
+        context "and a reason is provided" do
+          let(:reason) do
+            "We're on a meeting and want to do a collaborative session in the pope's name."
+          end
+
+          it_behaves_like "impersonating a user"
+
+          it "saves the reason in the impersonation logs" do
+            click_button "Close session"
+            expect(page).to have_content("successfully")
+
+            check_impersonation_logs
+            expect(page).to have_content("We're on a meeting and want to do a collaborative session in the pope's name.")
+          end
+        end
       end
     end
   end
@@ -201,9 +223,10 @@ shared_examples "manage impersonations examples" do
 
   private
 
-  def fill_in_the_impersonation_form(document_number, name: nil)
+  def fill_in_the_impersonation_form(document_number, name: nil, reason: nil)
     within "form.new_impersonation" do
       fill_in(:impersonate_user_name, with: name) if name
+      fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
       page.execute_script("$('#impersonate_user_authorization_birthday').siblings('input:first').focus()")
@@ -214,14 +237,14 @@ shared_examples "manage impersonations examples" do
     expect(page).to have_selector("*[type=submit]", count: 1)
   end
 
-  def impersonate(user)
+  def impersonate(user, reason: nil)
     navigate_to_impersonations_page
 
     within find("tr", text: user.name) do
       click_link "Impersonate"
     end
 
-    fill_in_the_impersonation_form("123456789X")
+    fill_in_the_impersonation_form("123456789X", reason: reason)
 
     click_button "Impersonate"
   end

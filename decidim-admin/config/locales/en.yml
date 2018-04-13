@@ -296,6 +296,7 @@ en:
             new_managed_user_impersonation: New managed user impersonation
           form:
             authorization_method: Authorization method
+            reason: Reason
           index:
             impersonate: Impersonate
             needs_authorization_warning: You need at least one authorization enabled for this organization.
@@ -360,6 +361,7 @@ en:
             admin: Admin
             ended_at: Ended at
             expired_at: Expired at
+            reason: Reason
             started_at: Started at
             user: User
         managed_user:
@@ -649,6 +651,10 @@ en:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+    forms:
+      errors:
+        impersonate_user:
+          reason: You need to provide a reason when impersonating a non managed user
   errors:
     messages:
       invalid_json: Invalid JSON

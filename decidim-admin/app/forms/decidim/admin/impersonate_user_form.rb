@@ -8,10 +8,18 @@ module Decidim
     # This authorization will be selected by the admin user if more than one exists.
     class ImpersonateUserForm < Form
       attribute :name, String
+      attribute :reason, String
       attribute :user, Decidim::User
       attribute :authorization, Decidim::AuthorizationHandler
 
       validates :user, presence: true
+      validates :reason, presence: true, unless: :managed_user?
+
+      private
+
+      def managed_user?
+        user && user.managed?
+      end
     end
   end
 end

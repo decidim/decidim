@@ -34,6 +34,7 @@ module Decidim
 
           @form = form(ImpersonateUserForm).from_params(
             user: user,
+            reason: params[:impersonate_user][:reason],
             authorization: Decidim::AuthorizationHandler.handler_for(
               handler_name,
               params[:impersonate_user][:authorization].merge(user: user)
