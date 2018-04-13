@@ -77,7 +77,7 @@ module Decidim
 
       def public_read_assembly_action?
         return unless permission_action.action == :read &&
-                      [:assembly, :space].include?(permission_action.subject) &&
+                      [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
         return allow! if user&.admin?
