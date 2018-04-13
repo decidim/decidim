@@ -16,6 +16,10 @@ module Decidim
 
       private
 
+      def organization
+        proposal&.component&.organization
+      end
+
       # Private: check if the proposal and the author have the same organization
       def author_and_proposal_same_organization
         return if !proposal || !author
