@@ -22,7 +22,8 @@ module Decidim
         name: name,
         provider: provider,
         uid: uid,
-        oauth_signature: oauth_signature
+        oauth_signature: oauth_signature,
+        avatar_url: "http://www.example.org/foo.jpg"
       }
     end
 
