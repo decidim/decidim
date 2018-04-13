@@ -30,7 +30,7 @@
           <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.categories_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if allowed_to?(:read, Decidim::AttachmentCollection) || allowed_to?(:read, Decidim::Attachment) %>
+      <% if allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment) %>
         <li>
           <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.assemblies_submenu") %></span>
           <ul>

@@ -10,7 +10,7 @@ module Decidim
         layout "decidim/admin/assemblies"
 
         def index
-          enforce_permission_to :index, :assembly
+          enforce_permission_to :read, :assembly_list
           @assemblies = collection
         end
 

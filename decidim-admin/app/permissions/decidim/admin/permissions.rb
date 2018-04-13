@@ -131,7 +131,12 @@ module Decidim
         Decidim.participatory_space_manifests.any? do |manifest|
           next if manifest.name == :consultations
           begin
-            manifest.permissions_class.new(user, permission_action, context).permissions.allowed?
+            new_permission_action = Decidim::PermissionAction.new(
+              action: permission_action.action,
+              scope: permission_action.scope,
+              subject: permission_action.subject
+            )
+            manifest.permissions_class.new(user, new_permission_action, context).permissions.allowed?
           rescue Decidim::PermissionAction::PermissionNotSetError
             nil
           end
