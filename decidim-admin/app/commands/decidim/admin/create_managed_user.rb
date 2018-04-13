@@ -32,7 +32,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :user
+      attr_reader :form
 
       def managed_user
         @managed_user ||= Decidim::User.find_or_initialize_by(
