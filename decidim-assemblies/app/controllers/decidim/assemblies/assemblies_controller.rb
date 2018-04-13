@@ -19,7 +19,7 @@ module Decidim
       def index
         redirect_to "/404" if published_assemblies.none?
 
-        authorize! :read, Assembly
+        enforce_permission_to :read, :assembly
       end
 
       def show

@@ -10,18 +10,18 @@ module Decidim
         layout "decidim/admin/assemblies"
 
         def index
-          authorize! :index, Decidim::Assembly
+          enforce_permission_to :index, :assembly
           @assemblies = collection
         end
 
         def new
-          authorize! :new, Decidim::Assembly
+          enforce_permission_to :create, :assembly
           @form = form(AssemblyForm).instance
           @form.parent_id = params[:parent_id]
         end
 
         def create
-          authorize! :new, Decidim::Assembly
+          enforce_permission_to :create, :assembly
           @form = form(AssemblyForm).from_params(params)
 
           CreateAssembly.call(@form) do
@@ -38,13 +38,13 @@ module Decidim
         end
 
         def edit
-          authorize! :update, current_assembly
+          enforce_permission_to :update, :assembly, assembly: current_assembly
           @form = form(AssemblyForm).from_model(current_assembly)
           render layout: "decidim/admin/assembly"
         end
 
         def update
-          authorize! :update, current_assembly
+          enforce_permission_to :update, :assembly, assembly: current_assembly
           @form = form(AssemblyForm).from_params(
             assembly_params,
             assembly_id: current_assembly.id
@@ -64,7 +64,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, current_assembly
+          enforce_permission_to :destroy, :assembly, assembly: current_assembly
           current_assembly.destroy!
 
           flash[:notice] = I18n.t("assemblies.destroy.success", scope: "decidim.admin")
@@ -73,7 +73,7 @@ module Decidim
         end
 
         def copy
-          authorize! :create, Decidim::Assembly
+          enforce_permission_to :create, :assembly
         end
 
         private
