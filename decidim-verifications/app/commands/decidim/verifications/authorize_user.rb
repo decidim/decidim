@@ -42,14 +42,16 @@ module Decidim
         authorization.grant!
       end
 
-      def unique?
-        return true if handler.unique_id.nil?
-
-        duplicates = Authorization.where(
+      def duplicates
+        Authorization.where(
           user: User.where.not(id: handler.user.id).where(organization: handler.user.organization.id),
           name: handler.handler_name,
           unique_id: handler.unique_id
         )
+      end
+
+      def unique?
+        return true if handler.unique_id.nil?
 
         return true unless duplicates.any?
 
