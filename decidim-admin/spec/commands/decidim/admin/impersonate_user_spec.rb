@@ -25,7 +25,6 @@ module Decidim::Admin
         current_user: current_user
       )
     end
-    let(:user) { create :user, :managed, organization: organization }
     let(:handler) do
       Decidim::DummyAuthorizationHandler.from_params(
         document_number: document_number,
@@ -33,29 +32,53 @@ module Decidim::Admin
       )
     end
 
-    context "when everything is ok" do
-      it "broadcasts ok" do
-        expect { subject.call }.to broadcast(:ok)
+    shared_examples_for "the impersonate user command" do
+      context "when everything is ok" do
+        it "broadcasts ok" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+
+        it "creates a impersonation log" do
+          expect do
+            subject.call
+          end.to change { Decidim::ImpersonationLog.count }.by(1)
+        end
+
+        it "expires the impersonation session automatically" do
+          perform_enqueued_jobs { subject.call }
+          travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+          expect(Decidim::ImpersonationLog.last).to be_expired
+        end
       end
 
-      it "creates a impersonation log" do
-        expect do
-          subject.call
-        end.to change { Decidim::ImpersonationLog.count }.by(1)
-      end
+      context "when the authorization is not valid" do
+        let(:document_number) { "12345678Y" }
 
-      it "expires the impersonation session automatically" do
-        perform_enqueued_jobs { subject.call }
-        travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
-        expect(Decidim::ImpersonationLog.last).to be_expired
+        it "is not valid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
 
-    context "when the authorization is not valid" do
-      let(:document_number) { "12345678Y" }
+    context "when passed a regular user" do
+      let(:user) { create :user, organization: organization }
 
-      it "is not valid" do
-        expect { subject.call }.to broadcast(:invalid)
+      it_behaves_like "the impersonate user command"
+    end
+
+    context "when passed an existing managed user" do
+      let(:user) { create :user, :managed, organization: organization }
+
+      it_behaves_like "the impersonate user command"
+    end
+
+    context "when passed a new managed user" do
+      let(:user) { build :user, :managed, organization: organization }
+
+      it_behaves_like "the impersonate user command"
+
+      it "creates the user in DB" do
+        expect { subject.call }.to change { Decidim::User.managed.count }.by(1)
       end
     end
   end

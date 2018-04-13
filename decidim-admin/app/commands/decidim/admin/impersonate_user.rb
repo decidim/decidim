@@ -21,7 +21,12 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        create_impersonation_log
+        transaction do
+          user.save! unless user.persisted?
+
+          create_impersonation_log
+        end
+
         enqueue_expire_job
 
         broadcast(:ok)

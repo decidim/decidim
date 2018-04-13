@@ -28,7 +28,7 @@ module Decidim
           )
         )
 
-        CreateManagedUser.call(@form) do
+        ImpersonateUser.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("managed_users.create.success", scope: "decidim.admin")
             redirect_to decidim.root_path
