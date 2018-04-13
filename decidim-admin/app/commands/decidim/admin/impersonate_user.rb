@@ -8,9 +8,8 @@ module Decidim
       #
       # form         - The form with the authorization info
       # user         - The user to impersonate
-      def initialize(form, user)
+      def initialize(form)
         @form = form
-        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -30,7 +29,11 @@ module Decidim
 
       private
 
-      attr_reader :user, :form
+      attr_reader :form
+
+      def user
+        form.impersonation_target
+      end
 
       def authorization_valid?
         form.authorization.user = user

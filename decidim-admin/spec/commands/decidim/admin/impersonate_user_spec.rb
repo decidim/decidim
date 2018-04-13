@@ -6,7 +6,7 @@ module Decidim::Admin
   describe ImpersonateUser do
     include ActiveSupport::Testing::TimeHelpers
 
-    subject { described_class.new(form, user) }
+    subject { described_class.new(form) }
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, organization: organization }

@@ -33,7 +33,7 @@ module Decidim
 
           @form = form(ImpersonateUserForm).from_params(params.merge(user: user))
 
-          ImpersonateUser.call(@form, user) do
+          ImpersonateUser.call(@form) do
             on(:ok) do
               redirect_to decidim.root_path
             end
