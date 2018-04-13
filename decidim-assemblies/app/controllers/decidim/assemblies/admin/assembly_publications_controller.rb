@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assembly publications.
       #
-      class AssemblyPublicationsController < Decidim::Admin::ApplicationController
+      class AssemblyPublicationsController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def create

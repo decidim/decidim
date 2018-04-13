@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssembliesController < Decidim::Admin::ApplicationController
+      class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
         layout "decidim/admin/assemblies"
 

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssemblyCopiesController < Decidim::Admin::ApplicationController
+      class AssemblyCopiesController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def new

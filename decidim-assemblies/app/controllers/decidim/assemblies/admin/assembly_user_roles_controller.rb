@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assembly user roles.
       #
-      class AssemblyUserRolesController < Decidim::Assemblies::Admin::ApplicationController
+      class AssemblyUserRolesController < Decidim::Assemblies::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def index
