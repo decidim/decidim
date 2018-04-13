@@ -12,7 +12,7 @@ module Decidim
       return user_manager_permissions if not_admin? && user_manager?
 
       manage_self_user_action?
-      # authorization_action?
+      authorization_action?
       follow_action?
       notification_action?
       conversation_action?
