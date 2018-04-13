@@ -51,9 +51,7 @@ module Decidim
       end
 
       def unique?
-        return true if handler.unique_id.nil?
-
-        return true unless duplicates.any?
+        return true if handler.unique_id.nil? || duplicates.none?
 
         handler.errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
         false
