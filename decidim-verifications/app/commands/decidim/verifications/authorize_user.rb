@@ -18,7 +18,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless handler.valid? && unique?
+        return broadcast(:invalid) unless handler.valid?
 
         create_authorization
         broadcast(:ok)
@@ -40,21 +40,6 @@ module Decidim
         }
 
         authorization.grant!
-      end
-
-      def duplicates
-        Authorization.where(
-          user: User.where.not(id: handler.user.id).where(organization: handler.user.organization.id),
-          name: handler.handler_name,
-          unique_id: handler.unique_id
-        )
-      end
-
-      def unique?
-        return true if handler.unique_id.nil? || duplicates.none?
-
-        handler.errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
-        false
       end
     end
   end

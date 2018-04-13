@@ -58,8 +58,8 @@ module Decidim::Admin
           expect(user).to be_managed
         end
 
-        it "authorizes the user" do
-          expect(Decidim::Verifications::AuthorizeUser).to receive(:call).with(form.authorization)
+        it "impersonates the user" do
+          expect(Decidim::Admin::ImpersonateUser).to receive(:call).with(form)
           command.call
         end
       end
