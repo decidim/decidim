@@ -11,22 +11,7 @@ module Decidim
       attribute :user, Decidim::User
       attribute :authorization, Decidim::AuthorizationHandler
 
-      attribute :impersonation_target, Decidim::User
-
-      validates :impersonation_target, presence: true
-
-      def impersonation_target
-        return user if name.blank?
-
-        Decidim::User.find_or_initialize_by(
-          organization: current_organization,
-          managed: true,
-          name: name
-        ) do |u|
-          u.admin = false
-          u.tos_agreement = true
-        end
-      end
+      validates :user, presence: true
     end
   end
 end

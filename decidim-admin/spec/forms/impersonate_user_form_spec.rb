@@ -14,11 +14,15 @@ module Decidim
       end
 
       let(:organization) { create :organization }
+      let(:user) { create(:user, organization: organization) }
+      let(:document_number) { "12345678X" }
+
       let(:authorization) do
-        {
-          handler_name: "dummy_authorization_handler",
-          document_number: "12345678X"
-        }
+        AuthorizationHandler.handler_for(
+          "dummy_authorization_handler",
+          document_number: document_number,
+          user: user
+        )
       end
       let(:attributes) do
         {
@@ -26,37 +30,30 @@ module Decidim
         }
       end
       let(:extra_attributes) do
-        {}
+        { user: user }
       end
 
-      context "when no new managed user name nor managed user id passed" do
+      it { is_expected.to be_valid }
+
+      context "when no user is passed" do
+        let(:extra_attributes) do
+          {}
+        end
+
         it { is_expected.to be_invalid }
       end
 
-      context "when a new managed user is passed" do
-        let(:name) { "Peter Parker" }
-
-        let(:extra_attributes) do
-          { name: name }
+      context "when authorization already exists for another user in the organization" do
+        before do
+          create(
+            :authorization,
+            user: create(:user, organization: organization),
+            name: "dummy_authorization_handler",
+            unique_id: document_number
+          )
         end
 
-        context "and it's an existing managed user" do
-          before { create(:user, name: name, organization: organization, managed: true) }
-
-          it { is_expected.to be_valid }
-        end
-
-        context "and it's an non existing managed user" do
-          it { is_expected.to be_valid }
-        end
-      end
-
-      context "when an existing user is passed" do
-        let(:extra_attributes) do
-          { user: create(:user, organization: organization) }
-        end
-
-        it { is_expected.to be_valid }
+        it { is_expected.to be_invalid }
       end
     end
   end

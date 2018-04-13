@@ -21,10 +21,10 @@ module Decidim
         authorize! :create, :managed_users
 
         @form = form(ImpersonateUserForm).from_params(
-          name: params[:impersonate_user][:name],
+          user: user,
           authorization: Decidim::AuthorizationHandler.handler_for(
             handler_name,
-            params[:impersonate_user][:authorization]
+            params[:impersonate_user][:authorization].merge(user: user)
           )
         )
 
@@ -42,6 +42,17 @@ module Decidim
       end
 
       private
+
+      def user
+        Decidim::User.find_or_initialize_by(
+          organization: current_organization,
+          managed: true,
+          name: params[:impersonate_user][:name]
+        ) do |u|
+          u.admin = false
+          u.tos_agreement = true
+        end
+      end
 
       def handler_name
         available_authorization_handlers.first.name

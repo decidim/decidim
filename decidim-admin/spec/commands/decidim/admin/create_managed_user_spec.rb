@@ -8,13 +8,15 @@ module Decidim::Admin
       let(:available_authorizations) { ["dummy_authorization_handler"] }
       let(:organization) { create(:organization, available_authorizations: available_authorizations) }
       let!(:current_user) { create :user, :admin, organization: organization }
+      let!(:managed_user) { build :user, :managed, organization: organization }
       let(:document_number) { "12345678X" }
       let(:form_params) do
         {
-          name: "Foo",
+          user: managed_user,
           authorization: Decidim::AuthorizationHandler.handler_for(
             "dummy_authorization_handler",
-            document_number: document_number
+            document_number: document_number,
+            user: managed_user
           )
         }
       end

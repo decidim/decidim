@@ -32,7 +32,7 @@ module Decidim
       attr_reader :form
 
       def user
-        form.impersonation_target
+        form.user
       end
 
       def create_impersonation_log

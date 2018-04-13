@@ -19,7 +19,6 @@ module Decidim
       #
       # Returns nothing.
       def call
-        form.authorization.user = managed_user
         return broadcast(:invalid) if form.invalid?
 
         transaction do
@@ -36,7 +35,7 @@ module Decidim
       attr_reader :form
 
       def managed_user
-        form.impersonation_target
+        form.user
       end
 
       def impersonation_ok?

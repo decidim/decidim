@@ -28,7 +28,8 @@ module Decidim::Admin
     let(:user) { create :user, :managed, organization: organization }
     let(:handler) do
       Decidim::DummyAuthorizationHandler.from_params(
-        document_number: document_number
+        document_number: document_number,
+        user: user
       )
     end
 
