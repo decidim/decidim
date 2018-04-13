@@ -33,8 +33,8 @@ $(() => {
         );
       },
       renderItem: function (item, search) {
-        let sanitizedSearch = search.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-        let re = new RegExp(`(${sanitizedSearch.split(" ").join("|")})`, "gi");
+        let re = new RegExp(`(${search.split(" ").join("|")})`, "gi");
+
         let modelId = item[0];
         let name = item[1];
         let nickname = item[2];
