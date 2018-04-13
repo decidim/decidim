@@ -122,6 +122,16 @@ shared_examples "manage impersonations examples" do
     context "when impersonating a previously authorized user" do
       let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }
 
+      let(:managed) { false }
+
+      before do
+        impersonate(impersonated_user)
+      end
+
+      it_behaves_like "impersonating a user"
+    end
+
+    context "when impersonating a never authorized user" do
       before do
         impersonate(impersonated_user)
       end
@@ -137,16 +147,6 @@ shared_examples "manage impersonations examples" do
 
         it_behaves_like "impersonating a user"
       end
-    end
-
-    context "when impersonating a never authorized user" do
-      before do
-        impersonate(impersonated_user)
-      end
-
-      let(:managed) { false }
-
-      it_behaves_like "impersonating a user"
     end
   end
 
