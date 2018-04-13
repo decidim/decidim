@@ -82,7 +82,9 @@ shared_examples "manage impersonations examples" do
 
       click_link "New"
 
-      fill_in_the_managed_user_form(document_number)
+      fill_in_the_impersonation_form(document_number, name: "Foo")
+
+      click_button "Create"
     end
   end
 
@@ -199,9 +201,9 @@ shared_examples "manage impersonations examples" do
 
   private
 
-  def fill_in_the_managed_user_form(document_number)
-    within "form.new_managed_user" do
-      fill_in :impersonate_user_name, with: "Foo"
+  def fill_in_the_impersonation_form(document_number, name: nil)
+    within "form.new_impersonation" do
+      fill_in(:impersonate_user_name, with: name) if name
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
       page.execute_script("$('#impersonate_user_authorization_birthday').siblings('input:first').focus()")
@@ -210,22 +212,6 @@ shared_examples "manage impersonations examples" do
     page.find(".datepicker-dropdown .day", text: "12").click
 
     expect(page).to have_selector("*[type=submit]", count: 1)
-
-    click_button "Create"
-  end
-
-  def fill_in_the_impersonation_form
-    within "form.new_managed_user_impersonation" do
-      fill_in :impersonate_user_authorization_document_number, with: "123456789X"
-      fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_user_authorization_birthday').siblings('input:first').focus()")
-    end
-
-    page.find(".datepicker-dropdown .day", text: "12").click
-
-    expect(page).to have_selector("*[type=submit]", count: 1)
-
-    click_button "Impersonate"
   end
 
   def impersonate(user)
@@ -235,7 +221,9 @@ shared_examples "manage impersonations examples" do
       click_link "Impersonate"
     end
 
-    fill_in_the_impersonation_form
+    fill_in_the_impersonation_form("123456789X")
+
+    click_button "Impersonate"
   end
 
   def simulate_session_expiration
