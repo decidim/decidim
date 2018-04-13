@@ -25,10 +25,12 @@ describe Decidim::Doorkeeper::CredentialsController, type: :controller do
 
       credentials = JSON.parse(response.body)
 
-      expect(credentials.keys).to eq(%w(id email nickname))
+      expect(credentials.keys).to eq(%w(id email name nickname image))
       expect(credentials["id"]).to eq(user.id)
       expect(credentials["email"]).to eq(user.email)
+      expect(credentials["name"]).to eq(user.name)
       expect(credentials["nickname"]).to eq(user.nickname)
+      expect(credentials["image"]).to start_with("http")
     end
   end
 end
