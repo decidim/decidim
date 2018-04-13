@@ -17,13 +17,14 @@ module Decidim
             participatory_space_admin_layout
 
             helper_method :current_assembly
-            alias_method :current_participatory_space, :current_assembly
 
             def current_assembly
               @current_assembly ||= organization_assemblies.find_by!(
                 slug: params[:assembly_slug] || params[:slug]
               )
             end
+
+            alias_method :current_participatory_space, :current_assembly
 
             def organization_assemblies
               @organization_assemblies ||= OrganizationAssemblies.new(current_organization).query
