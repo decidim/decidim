@@ -12,10 +12,10 @@ module Decidim::Admin
       let(:form_params) do
         {
           name: "Foo",
-          authorization: {
-            handler_name: "dummy_authorization_handler",
+          authorization: Decidim::AuthorizationHandler.handler_for(
+            "dummy_authorization_handler",
             document_number: document_number
-          }
+          )
         }
       end
       let(:form) do
@@ -30,7 +30,12 @@ module Decidim::Admin
 
       describe "when the form is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          create(
+            :authorization,
+            user: create(:user, organization: organization),
+            name: "dummy_authorization_handler",
+            unique_id: document_number
+          )
         end
 
         it "broadcasts invalid" do
