@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages managed users", type: :system do
+describe "Admin manages impersonations", type: :system do
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   def navigate_to_impersonations_page
@@ -11,5 +11,5 @@ describe "Admin manages managed users", type: :system do
     click_link "Impersonations"
   end
 
-  it_behaves_like "manage managed users examples"
+  it_behaves_like "manage impersonations examples"
 end

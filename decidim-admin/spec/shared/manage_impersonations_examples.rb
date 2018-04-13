@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage managed users examples" do
+shared_examples "manage impersonations examples" do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization, available_authorizations: available_authorizations) }
