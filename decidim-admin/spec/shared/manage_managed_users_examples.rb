@@ -201,10 +201,10 @@ shared_examples "manage managed users examples" do
 
   def fill_in_the_managed_user_form(document_number)
     within "form.new_managed_user" do
-      fill_in :managed_user_name, with: "Foo"
-      fill_in :managed_user_authorization_document_number, with: document_number
-      fill_in :managed_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
+      fill_in :impersonate_user_name, with: "Foo"
+      fill_in :impersonate_user_authorization_document_number, with: document_number
+      fill_in :impersonate_user_authorization_postal_code, with: "08224"
+      page.execute_script("$('#impersonate_user_authorization_birthday').siblings('input:first').focus()")
     end
 
     page.find(".datepicker-dropdown .day", text: "12").click

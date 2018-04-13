@@ -19,7 +19,7 @@ module Decidim::Admin
         }
       end
       let(:form) do
-        ManagedUserForm.from_params(
+        ImpersonateUserForm.from_params(
           form_params
         ).with_context(
           current_organization: organization,

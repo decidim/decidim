@@ -22,7 +22,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          managed_user.update!(admin: false, tos_agreement: true) unless managed_user.persisted?
+          managed_user.save! unless managed_user.persisted?
 
           raise ActiveRecord::Rollback unless impersonation_ok?
 
@@ -35,11 +35,7 @@ module Decidim
       attr_reader :form
 
       def managed_user
-        @managed_user ||= Decidim::User.find_or_initialize_by(
-          organization: form.current_organization,
-          managed: true,
-          name: form.name
-        )
+        form.impersonation_target
       end
 
       def impersonation_ok?

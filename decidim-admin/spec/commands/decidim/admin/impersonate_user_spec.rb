@@ -16,7 +16,8 @@ module Decidim::Admin
         authorization: {
           handler_name: "dummy_authorization_handler",
           document_number: document_number
-        }
+        },
+        user: user
       }
     end
     let(:form) do

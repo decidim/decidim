@@ -21,6 +21,7 @@ module Decidim
           authorize! :impersonate, user
 
           @form = form(ImpersonateUserForm).from_params(
+            user: user,
             authorization: {
               handler_name: handler_name
             }
@@ -30,7 +31,7 @@ module Decidim
         def create
           authorize! :impersonate, user
 
-          @form = form(ImpersonateUserForm).from_params(params)
+          @form = form(ImpersonateUserForm).from_params(params.merge(user: user))
 
           ImpersonateUser.call(@form, user) do
             on(:ok) do
