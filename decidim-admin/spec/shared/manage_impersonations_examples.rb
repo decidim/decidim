@@ -48,8 +48,6 @@ shared_examples "manage impersonations examples" do
     end
 
     it "closes the current session and check the logs" do
-      visit decidim.root_path
-
       click_button "Close session"
 
       expect(page).to have_content("successfully")
