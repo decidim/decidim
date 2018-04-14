@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require "decidim/gem_manager"
+
 describe "Application generation" do
-  let(:status) do
-    Bundler.with_original_env { system(command, out: File::NULL) }
+  let(:result) do
+    Bundler.with_original_env { GemManager.run(command, out: File::NULL) }
   end
 
   let(:test_app) { "spec/generator_test_app" }
@@ -11,20 +13,20 @@ describe "Application generation" do
 
   shared_examples_for "a sane generator" do
     it "successfully generates application" do
-      expect(status).to eq(true)
+      expect(result[1]).to be_success, result[0]
     end
   end
 
   # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     Bundler.with_original_env do
-      system("rake install_all", out: File::NULL)
+      GemManager.run("rake install_all", out: File::NULL)
     end
   end
 
   after(:all) do
     Bundler.with_original_env do
-      system("rake uninstall_all", out: File::NULL)
+      GemManager.run("rake uninstall_all", out: File::NULL)
     end
   end
   # rubocop:enable RSpec/BeforeAfterAll

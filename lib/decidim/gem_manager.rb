@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "open3"
+
 module Decidim
   #
   # Handles a decidim components.
@@ -40,8 +42,7 @@ module Decidim
     def run(command, out: STDOUT)
       Dir.chdir(@dir) do
         command = command.gsub("%version", version).gsub("%name", name)
-        status = system(command, out: out)
-        abort unless status || ENV["FAIL_FAST"] == "false"
+        self.class.run(command, out: out)
       end
     end
 
@@ -60,6 +61,20 @@ module Decidim
     end
 
     class << self
+      def run(cmd, out: STDOUT)
+        output, status = Open3.capture2e(cmd)
+
+        STDOUT.puts output if out == STDOUT || !continue?(status)
+
+        abort unless continue?(status)
+
+        [output, status]
+      end
+
+      def continue?(status)
+        status.success? || ENV["FAIL_FAST"] == "false"
+      end
+
       def test_participatory_space
         new("decidim-#{PARTICIPATORY_SPACES.sample}").run("rake")
       end
