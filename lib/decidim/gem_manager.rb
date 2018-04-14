@@ -101,7 +101,11 @@ module Decidim
       end
 
       def all_dirs(include_root: true)
-        Dir.glob(include_root ? "{decidim-*,.}" : "decidim-*")
+        root = File.expand_path(File.join("..", ".."), __dir__)
+
+        glob = "#{root}/#{include_root ? "{decidim-*,.}" : "decidim-*"}"
+
+        Dir.glob(glob)
            .select { |f| File.directory?(f) }
            .each { |dir| yield(dir) }
       end
