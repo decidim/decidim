@@ -67,7 +67,7 @@ module Decidim::Admin
     end
 
     it { is_expected.to be_able_to(:read, :admin_log) }
-    it { is_expected.to be_able_to(:read, :impersonations) }
+    it { is_expected.to be_able_to(:read, :impersonatable_users) }
 
     it { is_expected.to be_able_to(:manage, Decidim::Moderation) }
     it { is_expected.to be_able_to(:manage, Decidim::Attachment) }

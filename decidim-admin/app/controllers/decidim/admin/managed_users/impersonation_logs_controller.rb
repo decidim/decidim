@@ -17,7 +17,7 @@ module Decidim
         private
 
         def user
-          @user ||= current_organization.users.find(params[:managed_user_id])
+          @user ||= current_organization.users.find(params[:impersonatable_user_id])
         end
       end
     end

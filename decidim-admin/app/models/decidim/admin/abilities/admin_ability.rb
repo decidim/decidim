@@ -27,7 +27,7 @@ module Decidim
           can :manage, Component
           can :manage, :admin_users
 
-          can :read, :impersonations
+          can :read, :impersonatable_users
 
           can(:impersonate, Decidim::User) do
             available_authorization_handlers? && Decidim::ImpersonationLog.active.where(admin: user).empty?

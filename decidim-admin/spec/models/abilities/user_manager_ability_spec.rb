@@ -66,6 +66,6 @@ module Decidim::Admin
       it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
     end
 
-    it { is_expected.to be_able_to(:read, :impersonations) }
+    it { is_expected.to be_able_to(:read, :impersonatable_users) }
   end
 end

@@ -13,12 +13,6 @@ module Decidim
 
       skip_authorization_check only: [:close_session]
 
-      def index
-        authorize! :index, :impersonations
-
-        @users = collection.page(params[:page]).per(15)
-      end
-
       def new
         authorize! :impersonate, user
 
@@ -62,7 +56,7 @@ module Decidim
         CloseSessionManagedUser.call(user, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("impersonations.close_session.success", scope: "decidim.admin")
-            redirect_to managed_users_path
+            redirect_to impersonatable_users_path
           end
 
           on(:invalid) do
@@ -74,15 +68,11 @@ module Decidim
 
       private
 
-      def collection
-        @collection ||= current_organization.users
-      end
-
       def user
         @user ||= if creating_managed_user?
                     new_managed_user
                   else
-                    current_organization.users.find(params[:managed_user_id])
+                    current_organization.users.find(params[:impersonatable_user_id])
                   end
       end
 
@@ -98,7 +88,7 @@ module Decidim
       end
 
       def creating_managed_user?
-        params[:managed_user_id] == "new_managed_user"
+        params[:impersonatable_user_id] == "new_managed_user"
       end
 
       def handler_name
