@@ -280,6 +280,10 @@ en:
           no_logs_yet: There are no logs yet
       impersonatable_users:
         index:
+          managed: Managed
+          name: Name
+          not_managed: Not managed
+          status: Status
           filter:
             all: All
             managed: Managed
@@ -288,6 +292,7 @@ en:
           impersonate: Impersonate
           needs_authorization_warning: You need at least one authorization enabled for this organization.
           promote: Promote
+          search: Search
           view_logs: View logs
       impersonations:
         close_session:

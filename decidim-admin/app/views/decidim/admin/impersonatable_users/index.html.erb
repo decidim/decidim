@@ -26,6 +26,21 @@
       </li>
     </ul>
   </div>
+  <div class="column medium-4">
+    <%= form_tag "", method: :get do %>
+      <div class="filters__search">
+        <div class="input-group">
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+          <%= hidden_field_tag :state, @state %>
+          <div class="input-group-button">
+            <button type="submit" class="button button--muted">
+              <%= icon "magnifying-glass", aria_label: t(".search") %>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="card">
@@ -40,14 +55,16 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t(".name") %></th>
+            <th><%= t(".status") %></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>
-            <tr>
+            <tr data-user-id="<%= user.id %>">
               <td><%= user.name %></td>
+              <td><%= user.managed? ? t(".managed") : t(".not_managed") %></td>
               <td class="table-list__actions">
                 <% if can? :impersonate, user %>
                   <%= icon_link_to "account-login", new_impersonatable_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
