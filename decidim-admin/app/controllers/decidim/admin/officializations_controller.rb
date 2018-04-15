@@ -11,6 +11,7 @@ module Decidim
 
       def index
         authorize! :index, :officializations
+
         @query = params[:q]
         @state = params[:state]
 
