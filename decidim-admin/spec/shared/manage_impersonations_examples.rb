@@ -131,6 +131,11 @@ shared_examples "manage impersonations examples" do
 
     it "allows selecting the preferred authorization handler" do
       expect(page).to have_select("Authorization method")
+
+      expect(page).to have_field("Document number").and have_no_field("Passport number")
+
+      select "Another dummy authorization handler", from: "Authorization method"
+      expect(page).to have_no_field("Document number").and have_field("Passport number")
     end
   end
 
