@@ -83,7 +83,7 @@ shared_examples "manage impersonations examples" do
 
     context "and submitting the form" do
       before do
-        fill_in_the_impersonation_form(document_number, name: "Foo")
+        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
       end
 
       it_behaves_like "creating a managed user"
@@ -123,7 +123,7 @@ shared_examples "manage impersonations examples" do
 
     context "and submitting the form" do
       before do
-        fill_in_the_impersonation_form(document_number, name: "Foo")
+        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
       end
 
       it_behaves_like "creating a managed user"
@@ -140,7 +140,7 @@ shared_examples "manage impersonations examples" do
   end
 
   describe "impersonation" do
-    let!(:impersonated_user) { create(:user, managed: managed, name: "Foo", organization: organization) }
+    let!(:impersonated_user) { create(:user, managed: managed, name: "Rigoberto", organization: organization) }
 
     context "when impersonating a previously authorized user" do
       let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }
@@ -196,7 +196,7 @@ shared_examples "manage impersonations examples" do
   end
 
   context "when a managed user already exists" do
-    let!(:managed_user) { create(:user, :managed, name: "Foo", organization: organization) }
+    let!(:managed_user) { create(:user, :managed, name: "Rigoberto", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
     context "when using the create managed user form" do
@@ -205,7 +205,7 @@ shared_examples "manage impersonations examples" do
 
         click_link "Impersonate new managed user"
 
-        fill_in_the_impersonation_form(document_number, name: "Foo")
+        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
       end
 
       it_behaves_like "creating a managed user"
