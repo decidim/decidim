@@ -19,8 +19,8 @@
           <%= link_to t("menu.officializations", scope: "decidim.admin"), decidim_admin.officializations_path %>
         </li>
       <% end %>
-      <li <% if is_active_link?(decidim_admin.impersonations_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.impersonations", scope: "decidim.admin"), decidim_admin.impersonations_path %>
+      <li <% if is_active_link?(decidim_admin.managed_users_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.impersonations", scope: "decidim.admin"), decidim_admin.managed_users_path %>
       </li>
       <li <% if is_active_link?(decidim_admin.authorization_workflows_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path %>

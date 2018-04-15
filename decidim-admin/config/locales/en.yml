@@ -282,20 +282,17 @@ en:
         close_session:
           error: There has been an error closing the current impersonation session.
           success: The current impersonation session has been successfully ended.
-        create:
-          error: There has been an error creating the managed user.
-          success: The managed user has been successfully created.
-        form:
-          name: Name
-          authorization_method: Authorization method
-        impersonate:
-          error: There has been an error impersonating the managed user.
         impersonations:
+          create:
+            error: There has been an error impersonating the user.
+            success: The managed user has been successfully created.
           new:
             impersonate: Impersonate
+            new_managed_user: New managed user
             new_managed_user_impersonation: New managed user impersonation
           form:
             authorization_method: Authorization method
+            name: Name
             reason: Reason
           index:
             impersonate: Impersonate
@@ -307,9 +304,6 @@ en:
               managed: Managed
               not_managed: Not managed
             filter_by: Filter by
-        new:
-          create: Create
-          new_managed_user: New managed user
         promotion:
           error: There has been an error promoting the managed user.
           success: The managed user has been successfully promoted.

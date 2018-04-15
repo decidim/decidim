@@ -1,5 +1,9 @@
 <h2 class="process-title-summary">
-  <%= t(".new_managed_user_impersonation") %>
+  <% if creating_managed_user? %>
+    <%= t(".new_managed_user") %>
+  <% else %>
+    <%= t(".new_managed_user_impersonation") %>
+  <% end %>
 </h2>
 
 <%= decidim_form_for(@form, url: managed_user_impersonations_path, html: { class: "form new_impersonation" }) do |f| %>

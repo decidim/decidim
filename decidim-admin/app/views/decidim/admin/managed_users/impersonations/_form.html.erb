@@ -3,6 +3,10 @@
     <%= form.text_field :reason, label: t(".reason") %>
   <% end %>
 
+  <% if creating_managed_user? %>
+    <%= form.text_field :name, label: t(".name") %>
+  <% end %>
+
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
     <%= f.collection_select :handler_name,
                             available_authorization_handlers,
@@ -12,7 +16,7 @@
 
     <div id="authorization-handler-<%= form.object.authorization.handler_name %>"
            class="authorization-handler">
-      <%= render "decidim/admin/managed_users/handler_form", handler_form: f %>
+      <%= render "handler_form", handler_form: f %>
     </div>
   <% end %>
 
@@ -21,7 +25,7 @@
       <div id="authorization-handler-<%= authorization.handler_name %>"
            class="authorization-handler"
            style="display:none">
-        <%= render "decidim/admin/managed_users/handler_form", handler_form: f %>
+        <%= render "handler_form", handler_form: f %>
       </div>
     <% end %>
   <% end %>

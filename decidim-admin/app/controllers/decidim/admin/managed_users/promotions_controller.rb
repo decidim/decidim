@@ -20,7 +20,7 @@ module Decidim
           PromoteManagedUser.call(@form, user, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.promotion.success", scope: "decidim.admin")
-              redirect_to impersonations_path
+              redirect_to managed_users_path
             end
 
             on(:invalid) do

@@ -59,7 +59,7 @@ module Decidim
                     if: can?(:read, Decidim::StaticPage)
 
           menu.item I18n.t("menu.users", scope: "decidim.admin"),
-                    can?(:read, :admin_users) ? decidim_admin.users_path : decidim_admin.impersonations_path,
+                    can?(:read, :admin_users) ? decidim_admin.users_path : decidim_admin.managed_users_path,
                     icon_name: "person",
                     position: 5,
                     active: [%w(decidim/admin/user_groups decidim/admin/users decidim/admin/managed_users decidim/admin/impersonations decidim/admin/authorization_workflows), []],

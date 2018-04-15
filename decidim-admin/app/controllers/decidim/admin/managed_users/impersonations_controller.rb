@@ -9,12 +9,14 @@ module Decidim
         layout "decidim/admin/users"
 
         helper_method :available_authorization_handlers,
-                      :other_available_authorizations
+                      :other_available_authorizations,
+                      :creating_managed_user?
 
         skip_authorization_check only: [:close_session]
 
         def index
           authorize! :index, :impersonations
+
           @users = collection.page(params[:page]).per(15)
         end
 
@@ -46,11 +48,12 @@ module Decidim
 
           ImpersonateUser.call(@form) do
             on(:ok) do
+              flash[:notice] = I18n.t("managed_users.impersonations.create.success", scope: "decidim.admin") if creating_managed_user?
               redirect_to decidim.root_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("managed_users.impersonate.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("managed_users.impersonations.create.error", scope: "decidim.admin")
               render :new
             end
           end
@@ -60,7 +63,7 @@ module Decidim
           CloseSessionManagedUser.call(user, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.close_session.success", scope: "decidim.admin")
-              redirect_to impersonations_path
+              redirect_to managed_users_path
             end
 
             on(:invalid) do
@@ -77,7 +80,26 @@ module Decidim
         end
 
         def user
-          @user ||= current_organization.users.find(params[:managed_user_id])
+          @user ||= if creating_managed_user?
+                      new_managed_user
+                    else
+                      current_organization.users.find(params[:managed_user_id])
+                    end
+        end
+
+        def new_managed_user
+          Decidim::User.find_or_initialize_by(
+            organization: current_organization,
+            managed: true,
+            name: params.dig(:impersonate_user, :name)
+          ) do |u|
+            u.admin = false
+            u.tos_agreement = true
+          end
+        end
+
+        def creating_managed_user?
+          params[:managed_user_id] == "new_managed_user"
         end
 
         def handler_name

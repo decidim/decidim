@@ -81,8 +81,6 @@ shared_examples "manage impersonations examples" do
       click_link "New"
 
       fill_in_the_impersonation_form(document_number, name: "Foo")
-
-      click_button "Create"
     end
   end
 
@@ -241,6 +239,8 @@ shared_examples "manage impersonations examples" do
     page.find(".datepicker-dropdown .day", text: "12").click
 
     expect(page).to have_selector("*[type=submit]", count: 1)
+
+    click_button "Impersonate"
   end
 
   def impersonate(user, reason: nil)
@@ -251,8 +251,6 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason: reason)
-
-    click_button "Impersonate"
   end
 
   def simulate_session_expiration
