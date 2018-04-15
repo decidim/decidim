@@ -29,8 +29,11 @@ module Decidim
 
           can :read, :impersonatable_users
 
-          can(:impersonate, Decidim::User) do
-            available_authorization_handlers? && Decidim::ImpersonationLog.active.where(admin: user).empty?
+          can(:impersonate, Decidim::User) do |user_to_impersonate|
+            available_authorization_handlers? &&
+              !user_to_impersonate.admin? &&
+              user_to_impersonate.roles.empty? &&
+              Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can(:promote, Decidim::User) do |user_to_promote|

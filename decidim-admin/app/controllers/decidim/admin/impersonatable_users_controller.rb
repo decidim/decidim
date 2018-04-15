@@ -22,7 +22,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users
+        @collection ||= current_organization.users.where(admin: false, roles: [])
       end
     end
   end

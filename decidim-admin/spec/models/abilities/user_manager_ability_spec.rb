@@ -66,6 +66,18 @@ module Decidim::Admin
       it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
     end
 
+    context "when the impersonated user is an admin" do
+      let(:impersonated_user) { create(:user, :admin, organization: organization) }
+
+      it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
+    end
+
+    context "when the impersonated user is a user manager" do
+      let(:impersonated_user) { create(:user, :user_manager, organization: organization) }
+
+      it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
+    end
+
     it { is_expected.to be_able_to(:read, :impersonatable_users) }
   end
 end
