@@ -46,6 +46,8 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Allow multiple choice questions to have "free text options" where the user can customize the selected answer [\#3134](https://github.com/decidim/decidim/pull/3134)
 - **decidim-surveys**: New question type to sort different options [\#3148](https://github.com/decidim/decidim/pull/3148)
 - **decidim-budgets**: Setting to control the number of projects per page to be listed [\#3239](https://github.com/decidim/decidim/pull/3239)
+- **decidim-admin**: Regular users can now be impersonated [\#3226](https://github.com/decidim/decidim/pull/3226)
+- **decidim-admin**: All available authorization handlers can always be chosen for impersonation even after the first impersonation [\#3226](https://github.com/decidim/decidim/pull/3226)
 
 **Changed**:
 
