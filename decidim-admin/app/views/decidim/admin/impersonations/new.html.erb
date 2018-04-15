@@ -1,8 +1,12 @@
 <h2 class="process-title-summary">
   <% if creating_managed_user? %>
-    <%= t(".new_managed_user") %>
+    <%= t(".impersonate_new_managed_user") %>
   <% else %>
-    <%= t(".new_managed_user_impersonation") %>
+    <% if @form.user.managed? %>
+      <%= t(".impersonate_existing_managed_user", name: @form.user.name) %>
+    <% else %>
+      <%= t(".impersonate_existing_user", name: @form.user.name) %>
+    <% end %>
   <% end %>
 </h2>
 

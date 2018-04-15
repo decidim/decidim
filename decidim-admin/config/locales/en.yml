@@ -282,6 +282,7 @@ en:
         index:
           managed: Managed
           name: Name
+          impersonate_new_managed_user: Impersonate new managed user
           not_managed: Not managed
           status: Status
           filter:
@@ -307,8 +308,9 @@ en:
           reason: Reason
         new:
           impersonate: Impersonate
-          new_managed_user: New managed user
-          new_managed_user_impersonation: New managed user impersonation
+          impersonate_new_managed_user: Impersonate new managed user
+          impersonate_existing_user: 'Impersonate user "%{name}"'
+          impersonate_existing_managed_user: 'Impersonate managed user "%{name}"'
       managed_users:
         promotion:
           error: There has been an error promoting the managed user.
@@ -586,6 +588,7 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
+        impersonatable_users: Impersonatable users
         impersonations: Impersonations
         officializations: Officializations
         scope_types: Scope types

@@ -78,7 +78,7 @@ shared_examples "manage impersonations examples" do
     before do
       navigate_to_impersonations_page
 
-      click_link "New"
+      click_link "Impersonate new managed user"
     end
 
     context "and submitting the form" do
@@ -114,7 +114,7 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      click_link "New"
+      click_link "Impersonate new managed user"
     end
 
     after do
@@ -203,7 +203,7 @@ shared_examples "manage impersonations examples" do
       before do
         navigate_to_impersonations_page
 
-        click_link "New"
+        click_link "Impersonate new managed user"
 
         fill_in_the_impersonation_form(document_number, name: "Foo")
       end
