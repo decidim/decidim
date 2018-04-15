@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe OrganizationUsers do
-    subject { described_class.new(organization, search, filter) }
+  describe UserFilter do
+    subject { described_class.new(organization.users, search, filter) }
 
     let(:organization) { create :organization }
     let(:search) { nil }

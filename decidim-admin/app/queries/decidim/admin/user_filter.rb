@@ -2,8 +2,9 @@
 
 module Decidim
   module Admin
-    # A class used to filter organization users
-    class OrganizationUsers < Rectify::Query
+    # A class used to filter users by whitelisted scope or searches on their
+    # name
+    class UserFilter < Rectify::Query
       WHITELISTED_STATE_SCOPES = %w(
         officialized
         not_officialized
@@ -13,27 +14,27 @@ module Decidim
 
       # Syntactic sugar to initialize the class and return the queried objects.
       #
-      # organization - the Decidim::Organization where search will be scoped to
+      # scope - the ActiveRecord::Relation of users to be filtered
       # name_query - query to filter user group names
       # state - evaluation state to be used as a filter
-      def self.for(organization, name_query = nil, state = nil)
-        new(organization, name_query, state).query
+      def self.for(scope, name_query = nil, state = nil)
+        new(scope, name_query, state).query
       end
 
       # Initializes the class.
       #
-      # organization - the Decidim::Organization where search will be scoped to
+      # scope - the ActiveRecord::Relation of users to be filtered
       # name_query - query to filter user group names
       # state - users state, must be defined as a scope in the user model
-      def initialize(organization, name_query = nil, state = nil)
-        @organization = organization
+      def initialize(scope, name_query = nil, state = nil)
+        @scope = scope
         @name_query = name_query
         @state = state
       end
 
       # List the User groups by the diferents filters.
       def query
-        users = organization.users
+        users = scope
         users = filter_by_search(users)
         users = filter_by_state(users)
         users
@@ -41,7 +42,7 @@ module Decidim
 
       private
 
-      attr_reader :name_query, :state, :organization
+      attr_reader :name_query, :state, :scope
 
       def filter_by_search(users)
         return users if name_query.blank?
