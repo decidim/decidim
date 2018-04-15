@@ -74,7 +74,7 @@ shared_examples "manage impersonations examples" do
     end
   end
 
-  shared_context "with a managed user form" do
+  context "when a single authorization handler enabled" do
     before do
       navigate_to_impersonations_page
 
@@ -82,10 +82,6 @@ shared_examples "manage impersonations examples" do
 
       fill_in_the_impersonation_form(document_number, name: "Foo")
     end
-  end
-
-  context "when a single authorization handler enabled" do
-    include_context "with a managed user form"
 
     it_behaves_like "creating a managed user"
   end
@@ -114,7 +110,13 @@ shared_examples "manage impersonations examples" do
     end
 
     context "and available for the organization" do
-      include_context "with a managed user form"
+      before do
+        navigate_to_impersonations_page
+
+        click_link "New"
+
+        fill_in_the_impersonation_form(document_number, name: "Foo")
+      end
 
       it_behaves_like "creating a managed user"
     end
@@ -181,7 +183,13 @@ shared_examples "manage impersonations examples" do
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
     context "when using the create managed user form" do
-      include_context "with a managed user form"
+      before do
+        navigate_to_impersonations_page
+
+        click_link "New"
+
+        fill_in_the_impersonation_form(document_number, name: "Foo")
+      end
 
       it_behaves_like "creating a managed user"
     end
