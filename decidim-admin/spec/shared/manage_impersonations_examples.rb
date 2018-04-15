@@ -97,9 +97,17 @@ shared_examples "manage impersonations examples" do
       %w(dummy_authorization_handler another_dummy_authorization_handler)
     end
 
+    let(:another_dummy_authorization_handler) do
+      Class.new(Decidim::AuthorizationHandler) do
+        attribute :passport_number, String
+      end
+    end
+
     before do
+      stub_const("Decidim::AnotherDummyAuthorizationHandler", another_dummy_authorization_handler)
+
       Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
-        workflow.form = "Decidim::DummyAuthorizationHandler"
+        workflow.form = "Decidim::AnotherDummyAuthorizationHandler"
       end
     end
 
