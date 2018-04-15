@@ -103,23 +103,19 @@ shared_examples "manage impersonations examples" do
       Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
         workflow.form = "Decidim::AnotherDummyAuthorizationHandler"
       end
+
+      navigate_to_impersonations_page
+
+      click_link "New"
+
+      fill_in_the_impersonation_form(document_number, name: "Foo")
     end
 
     after do
       Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
     end
 
-    context "and available for the organization" do
-      before do
-        navigate_to_impersonations_page
-
-        click_link "New"
-
-        fill_in_the_impersonation_form(document_number, name: "Foo")
-      end
-
-      it_behaves_like "creating a managed user"
-    end
+    it_behaves_like "creating a managed user"
   end
 
   describe "impersonation" do
