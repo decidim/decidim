@@ -286,24 +286,24 @@ en:
           create:
             error: There has been an error impersonating the user.
             success: The managed user has been successfully created.
-          new:
-            impersonate: Impersonate
-            new_managed_user: New managed user
-            new_managed_user_impersonation: New managed user impersonation
           form:
             authorization_method: Authorization method
             name: Name
             reason: Reason
           index:
-            impersonate: Impersonate
-            needs_authorization_warning: You need at least one authorization enabled for this organization.
-            promote: Promote
-            view_logs: View logs
             filter:
               all: All
               managed: Managed
               not_managed: Not managed
             filter_by: Filter by
+            impersonate: Impersonate
+            needs_authorization_warning: You need at least one authorization enabled for this organization.
+            promote: Promote
+            view_logs: View logs
+          new:
+            impersonate: Impersonate
+            new_managed_user: New managed user
+            new_managed_user_impersonation: New managed user impersonation
         promotion:
           error: There has been an error promoting the managed user.
           success: The managed user has been successfully promoted.
@@ -621,6 +621,10 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+    forms:
+      errors:
+        impersonate_user:
+          reason: You need to provide a reason when impersonating a non managed user
     moderations:
       actions:
         hidden: Hidden
@@ -645,10 +649,6 @@ en:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
-    forms:
-      errors:
-        impersonate_user:
-          reason: You need to provide a reason when impersonating a non managed user
   errors:
     messages:
       invalid_json: Invalid JSON
