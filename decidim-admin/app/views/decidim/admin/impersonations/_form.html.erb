@@ -8,11 +8,15 @@
   <% end %>
 
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
-    <%= f.collection_select :handler_name,
-                            available_authorization_handlers,
-                            :name,
-                            :fullname,
-                            { label: t(".authorization_method") } %>
+    <% if other_available_authorizations.any? %>
+      <%= f.collection_select :handler_name,
+                              available_authorization_handlers,
+                              :name,
+                              :fullname,
+                              { label: t(".authorization_method") } %>
+    <% else %>
+      <%= f.hidden_field :handler_name %>
+    <% end %>
 
     <div id="authorization-handler-<%= f.object.handler_name %>"
            class="authorization-handler">
@@ -31,4 +35,6 @@
   <% end %>
 </div>
 
-<%= javascript_include_tag "decidim/admin/managed_users" %>
+<% if other_available_authorizations.any? %>
+  <%= javascript_include_tag "decidim/admin/managed_users" %>
+<% end %>

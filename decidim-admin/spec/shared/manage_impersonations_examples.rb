@@ -79,11 +79,19 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       click_link "New"
-
-      fill_in_the_impersonation_form(document_number, name: "Foo")
     end
 
-    it_behaves_like "creating a managed user"
+    context "and submitting the form" do
+      before do
+        fill_in_the_impersonation_form(document_number, name: "Foo")
+      end
+
+      it_behaves_like "creating a managed user"
+    end
+
+    it "does not offer authorization handler selection" do
+      expect(page).not_to have_select("Authorization method")
+    end
   end
 
   context "when more than one authorization handler enabled" do
@@ -107,15 +115,23 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       click_link "New"
-
-      fill_in_the_impersonation_form(document_number, name: "Foo")
     end
 
     after do
       Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
     end
 
-    it_behaves_like "creating a managed user"
+    context "and submitting the form" do
+      before do
+        fill_in_the_impersonation_form(document_number, name: "Foo")
+      end
+
+      it_behaves_like "creating a managed user"
+    end
+
+    it "allows selecting the preferred authorization handler" do
+      expect(page).to have_select("Authorization method")
+    end
   end
 
   describe "impersonation" do
