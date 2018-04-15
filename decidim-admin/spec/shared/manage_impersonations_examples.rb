@@ -47,6 +47,49 @@ shared_examples "manage impersonations examples" do
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
+    context "when performing an authorized action" do
+      let(:participatory_space) do
+        create(:participatory_process, organization: organization)
+      end
+
+      let(:component) do
+        create(
+          :component,
+          participatory_space: participatory_space,
+          permissions: {
+            "foo" => {
+              "authorization_handler_name" => authorization_handler
+            }
+          }
+        )
+      end
+
+      let(:dummy_resource) { create(:dummy_resource, component: component) }
+
+      before do
+        visit resource_locator(dummy_resource).path
+        click_link "Foo"
+      end
+
+      context "and the action allowed by the handler used to impersonate" do
+        let(:authorization_handler) { "dummy_authorization_handler" }
+
+        it "grants access" do
+          expect(page).to have_current_path(/foo/)
+        end
+      end
+
+      context "and the action not allowed by the handler used to impersonate" do
+        let(:authorization_handler) { "another_dummy_authorization_handler" }
+
+        it "shows popup to require verification" do
+          expect(page).to have_content(
+            /In order to perform this action, you need to be authorized with "Another example authorization"/
+          )
+        end
+      end
+    end
+
     it "closes the current session and check the logs" do
       click_button "Close session"
 
@@ -134,7 +177,7 @@ shared_examples "manage impersonations examples" do
 
       expect(page).to have_field("Document number").and have_no_field("Passport number")
 
-      select "Another dummy authorization handler", from: "Authorization method"
+      select "Another example authorization", from: "Authorization method"
       expect(page).to have_no_field("Document number").and have_field("Passport number")
     end
   end

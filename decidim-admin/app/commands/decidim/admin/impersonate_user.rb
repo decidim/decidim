@@ -24,6 +24,8 @@ module Decidim
         transaction do
           user.save! unless user.persisted?
 
+          create_authorization
+
           create_impersonation_log
         end
 
@@ -38,6 +40,10 @@ module Decidim
 
       def user
         form.user
+      end
+
+      def create_authorization
+        Authorization.create_or_update_from(form.authorization)
       end
 
       def create_impersonation_log

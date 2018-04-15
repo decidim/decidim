@@ -20,27 +20,14 @@ module Decidim
       def call
         return broadcast(:invalid) unless handler.valid?
 
-        create_authorization
+        Authorization.create_or_update_from(handler)
+
         broadcast(:ok)
       end
 
       private
 
       attr_reader :handler
-
-      def create_authorization
-        authorization = Authorization.find_or_initialize_by(
-          user: handler.user,
-          name: handler.handler_name
-        )
-
-        authorization.attributes = {
-          unique_id: handler.unique_id,
-          metadata: handler.metadata
-        }
-
-        authorization.grant!
-      end
     end
   end
 end
