@@ -4,7 +4,6 @@
 // = require ./tab_focus
 // = require ./toggle_nav
 // = require ./sort_list.component
-// = require ./authorization_handler_select
 // = require decidim/editor
 // = require foundation-datepicker
 // = require form_datepicker

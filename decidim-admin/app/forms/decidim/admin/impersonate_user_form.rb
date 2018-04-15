@@ -11,6 +11,7 @@ module Decidim
       attribute :reason, String
       attribute :user, Decidim::User
       attribute :authorization, Decidim::AuthorizationHandler
+      attribute :handler_name, String
 
       validates :user, presence: true
       validates :reason, presence: true, unless: :managed_user?

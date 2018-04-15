@@ -6,11 +6,23 @@
                             available_authorization_handlers,
                             :name,
                             :fullname,
-                            { label: t(".authorization_method") },
-                            { "data-authorization-handler-path" => decidim_admin.authorization_handler_path(id: ":handler_name") } %>
+                            { label: t(".authorization_method") } %>
 
-    <div id="authorization-handler-fields">
+    <div id="authorization-handler-<%= form.object.authorization.handler_name %>"
+         class="authorization-handler">
       <%= render "handler_form", handler_form: f %>
     </div>
   <% end %>
+
+  <% other_available_authorizations.each do |authorization| %>
+    <%= form.fields_for :authorization, authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
+      <div id="authorization-handler-<%= authorization.handler_name %>"
+           class="authorization-handler"
+           style="display:none">
+        <%= render "handler_form", handler_form: f %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
+<%= javascript_include_tag "decidim/admin/managed_users" %>
