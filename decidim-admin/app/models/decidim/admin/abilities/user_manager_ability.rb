@@ -11,10 +11,8 @@ module Decidim
 
           can :read, :impersonations
 
-          can [:new, :create], :managed_users unless empty_available_authorization_handlers?
-
           can :impersonate, Decidim::User do
-            Decidim::ImpersonationLog.active.where(admin: user).empty?
+            available_authorization_handlers? && Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can :promote, Decidim::User do |user_to_promote|
@@ -24,8 +22,8 @@ module Decidim
 
         private
 
-        def empty_available_authorization_handlers?
-          user.organization.available_authorization_handlers.empty?
+        def available_authorization_handlers?
+          user.organization.available_authorization_handlers.any?
         end
       end
     end

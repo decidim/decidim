@@ -29,14 +29,12 @@ module Decidim
 
           can :read, :impersonations
 
-          can [:new, :create], :managed_users unless empty_available_authorization_handlers?
-
           can(:impersonate, Decidim::User) do
-            Decidim::ImpersonationLog.active.empty?
+            available_authorization_handlers? && Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can(:promote, Decidim::User) do |user_to_promote|
-            user_to_promote.managed? && Decidim::ImpersonationLog.active.empty?
+            user_to_promote.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can :manage, Moderation
@@ -66,8 +64,8 @@ module Decidim
 
         private
 
-        def empty_available_authorization_handlers?
-          user.organization.available_authorization_handlers.empty?
+        def available_authorization_handlers?
+          user.organization.available_authorization_handlers.any?
         end
       end
     end
