@@ -24,6 +24,15 @@ describe Decidim::Consultations::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when the user is not an admin" do
+    let(:user) { create :user, organization: organization }
+    let(:action) do
+      { scope: :admin, action: :foo, subject: :bar }
+    end
+
+    it { is_expected.to eq false }
+  end
+
   describe "consultations" do
     let(:action_subject) { :consultation }
 
