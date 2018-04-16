@@ -73,7 +73,7 @@ nl:
         organization: Organisatie
         parent_id: Parent
         scope_type: Scope type
-        scope_type_id: Scope type
+        scope_type_id: Bereiktype
       scope_type:
         name: Naam
         organization: Organisatie
