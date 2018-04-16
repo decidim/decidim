@@ -59,20 +59,20 @@ nl:
           email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor de vergadering van de burgerinspraak.
           email_subject: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> ontmoetingen over bezette slots zijn meer dan %{percentage}%.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergaderingen over bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
-          email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
+          email_outro: Je ontvangt deze omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: De vergadering "%{resource_title}" is bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering is bijgewerkt.
         registrations_enabled:
-          email_intro: 'De vergadering ''%{resource_title}'' heeft registraties ingeschakeld. U kunt uzelf registreren op zijn pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: 'De vergadering ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
+          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Je kunt het ontvolgen door te klikken op de vorige link.
           email_subject: De vergadering '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering heeft registraties ingeschakeld.
         upcoming_meeting:
           email_intro: De "%{resource_title}" -vergadering start in minder dan 48 uur.
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: De "%{resource_title}" -vergadering start in minder dan 48 uur.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering begint over minder dan 48 uur.
     meetings:
@@ -144,10 +144,10 @@ nl:
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       admin_log:
         meeting:
-          close: "%{user_name} sloot de %{resource_name} vergadering op de %{space_name} spatie"
-          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt op de %{space_name} -spatie"
-          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd op de %{space_name} spatie"
-          export_registrations: "%{user_name} exporteerde de registraties van de %{resource_name} ontmoeting op de %{space_name} spatie"
+          close: "%{user_name} sloot de %{resource_name} vergadering op de %{space_name} ruimte"
+          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt op de %{space_name} -ruimte"
+          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd op de %{space_name} ruimte"
+          export_registrations: "%{user_name} exporteerde de registraties van de %{resource_name} vergadering op de %{space_name} ruimte"
           update: "%{user_name} heeft de %{resource_name} -vergadering bijgewerkt op de %{space_name} -spatie"
       mailer:
         invite_join_meeting_mailer:
