@@ -9,8 +9,7 @@
           </h5>
           <% end %>
           <div class="card__author">
-            <%= render partial: "decidim/shared/author_reference", locals: { author: present(post.author) } %>
-            <%#= render partial: "author_data", locals: { post: post, extra: true } %>
+            <%= render partial: "author_data", locals: { post: post } %>
           </div>
         </div>
         <%= sanitize post_description(post) %>

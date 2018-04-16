@@ -7,7 +7,7 @@ describe Decidim::Blogs::CreatePostEvent do
   let(:resource) { create :post }
   let(:event_name) { "decidim.events.blogs.post_created" }
 
-  include_context "simple event"
+  include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do
