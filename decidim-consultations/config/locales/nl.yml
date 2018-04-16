@@ -3,7 +3,7 @@ nl:
     attributes:
       consultation:
         banner_image: Banner afbeelding
-        decidim_highlighted_scope_id: Gemarkeerde scope
+        decidim_highlighted_scope_id: Opvallend bereik
         description: Beschrijving
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
@@ -18,10 +18,10 @@ nl:
         hashtag: Hashtag
         hero_image: Home afbeelding
         i_frame_url: URL van het externe stemsysteem
-        origin_scope: strekking
+        origin_scope: Bereik
         origin_title: Oorsprong
         origin_url: Origin URL
-        participatory_scope: Participatieve reikwijdte
+        participatory_scope: Participatief bereik
         promoter_group: Promotergroep
         question_context: Context
         reference: Referentie
