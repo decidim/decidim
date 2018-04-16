@@ -81,6 +81,10 @@ module Decidim
           end
         end
       end
+
+      def list_identities_xxs(identities)
+        render partial: "endorsements_listing", locals: {identities: identities}
+      end
     end
   end
 end

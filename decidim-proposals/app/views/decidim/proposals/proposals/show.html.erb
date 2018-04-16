@@ -87,7 +87,7 @@
 <%= attachments_for @proposal %>
 
 <a name="list-of-endorsements"></a>
-<%= render partial: "endorsements_listing", locals: {proposal: @proposal} %>
+<%= list_identities_xxs(@proposal.endorsements.for_listing) %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

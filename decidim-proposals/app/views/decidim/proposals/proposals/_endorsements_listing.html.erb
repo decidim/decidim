@@ -1,5 +1,5 @@
 <%
-count = proposal.endorsements.count
+count = identities.count
 if count > 0
 %>
   <div class="row">
@@ -8,7 +8,7 @@ if count > 0
     </div>
 
     <div class="columns large-12">
-      <%= proposal.endorsements.for_listing.limit(5).collect do |endorsement| %>
+      <%= identities.limit(5).collect do |endorsement| %>
         <% render partial: "endorsement_xxs", locals: {endorsement: endorsement} %>
       <% end.join(', ').html_safe %>
       <% if count > 5 %><span id="ellipsys" data-toggler=".hide">...</span><% end -%>
@@ -21,7 +21,7 @@ if count > 0
       </div>
       <div id="remaining-endorsements" class="hide" data-toggler=".hide">
         <div class="columns large-12">
-        <%= proposal.endorsements.for_listing.offset(5).collect do |endorsement| %>
+        <%= identities.offset(5).collect do |endorsement| %>
           <% render partial: "endorsement_xxs", locals: {endorsement: endorsement} %>
         <% end.join(', ').html_safe %>
         </div>
