@@ -219,23 +219,23 @@ nl:
         activate: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
         create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
         delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
-        update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces bijgewerkt"
+        update: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak bijgewerkt"
       participatory_process_user_role:
-        create: "%{user_name} nodigde de gebruiker uit %{resource_name} naar de %{space_name} participatief proces"
-        delete: "%{user_name} de gebruiker verwijderd %{resource_name} van de %{space_name} participatief proces"
-        update: "%{user_name} veranderde de rol van de gebruiker %{resource_name} in de %{space_name} participatief proces"
+        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor de %{space_name} burgerinspraak"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd van de %{space_name} burgerinspraak"
+        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in de %{space_name} burgerinspraak"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'De datums voor de %{resource_title} stap op %{participatory_space_title} zijn bijgewerkt. Je kunt het vanaf deze pagina bekijken:'
+          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update naar %{participatory_space_title}
-          notification_title: De datums voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
+          notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
       processes: Processen
     participatory_process_groups:
