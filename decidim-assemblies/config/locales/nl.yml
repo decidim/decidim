@@ -31,7 +31,7 @@ nl:
         is_transparent: Is transparant
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
-        participatory_processes_ids: Verwante participatieve processen
+        participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
@@ -204,7 +204,7 @@ nl:
         purpose_of_action: Doel van actie
         read_less: Lees minder
         read_more: Lees verder
-        related_participatory_processes: Verwante participatieve processen
+        related_participatory_processes: Verwante burgerinspraken
         scope: Scope
         social_networks: Sociale netwerken
         target: Doel
