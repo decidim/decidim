@@ -371,7 +371,7 @@ nl:
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
-          name: Privégebruiker deelruimte
+          name: Privégebruiker burgerinspraak
         scope:
           fields:
             name: Naam
@@ -515,12 +515,12 @@ nl:
           omnipresent_banner_appearance_title: Bewerken alomtegenwoordig
       participatory_space_private_users:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze deelruimte.
-          success: De toegang voor de privégebruiker van de deelruimte is met succes aangemaakt.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze burgerinspraak.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes aangemaakt.
         destroy:
-          success: De toegang voor de privégebruiker van de deelruimte is met succes verwijderd.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
-          title: Privégebruiker van de deelruimte
+          title: Privégebruiker van de burgerinspraak
         new:
           create: creëren
           title: Nieuwe privégebruiker van de deelruimte.
