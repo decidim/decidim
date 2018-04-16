@@ -170,11 +170,11 @@ nl:
           update: Bijwerken
         new:
           create: Maak een thema
-          title: Nieuw gebied
-        no_areas: Geen gebieden
+          title: Nieuw thema
+        no_areas: Geen thema's
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit gebied.
-          success: Gebied met succes bijgewerkt
+          success: Thema met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
@@ -315,8 +315,8 @@ nl:
         admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Gebiedstypen
-        areas: gebieden
+        area_types: Thema
+        areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -371,7 +371,7 @@ nl:
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
-          name: Participator private gebruiker
+          name: Privégebruiker deelruimte
         scope:
           fields:
             name: Naam
@@ -516,11 +516,11 @@ nl:
       participatory_space_private_users:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze deelruimte.
-          success: Particuliere gebruikerstoegang voor privéruimte die met succes is gemaakt.
+          success: De toegang voor de privégebruiker van de deelruimte is met succes aangemaakt.
         destroy:
-          success: Particuliere toegang voor privégebruik met succes vernietigd.
+          success: De toegang voor de privégebruiker van de deelruimte is met succes verwijderd.
         index:
-          title: Participator private gebruiker
+          title: Privégebruiker van de deelruimte
         new:
           create: creëren
           title: Nieuwe privéparticipatiepartner.
@@ -574,7 +574,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Beheerderslog
-        area_types: Gebiedstypen
+        area_types: Thema's
         areas: gebieden
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
