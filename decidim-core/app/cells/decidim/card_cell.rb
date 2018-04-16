@@ -24,7 +24,7 @@ module Decidim
     def resource_cell
       if model.class.method_defined? :component
         @resource_cell ||= model.component.manifest.card
-      elsif "Decidim::Proposals::OfficialAuthorPresenter".include? model.class.to_s
+      elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
         @resource_cell ||= "decidim/author"
       elsif ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
         @resource_cell ||= "decidim/author"
