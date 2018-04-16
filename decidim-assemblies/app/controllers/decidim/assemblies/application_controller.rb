@@ -1,19 +1,24 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
-    # This controller is the abstract class from which all other controllers of
-    # this engine inherit.
+  module Assemblies
+    # The main admin application controller for assemblies
     class ApplicationController < Decidim::ApplicationController
-      helper Decidim::ParticipatoryProcesses::ApplicationHelper
-
+      helper Decidim::ApplicationHelper
+      helper Decidim::Assemblies::AssembliesHelper
       include NeedsPermission
 
       private
 
+      def permissions_context
+        super.merge(
+          current_participatory_space: try(:current_participatory_space)
+        )
+      end
+
       def permission_class_chain
         [
-          Decidim::ParticipatoryProcesses::Permissions,
+          Decidim::Assemblies::Permissions,
           Decidim::Admin::Permissions,
           Decidim::Permissions
         ]
