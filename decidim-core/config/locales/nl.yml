@@ -335,7 +335,7 @@ nl:
       index:
         title: Meer informatie
     participatory_space_private_users:
-      not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+      not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
     profiles:
@@ -444,7 +444,7 @@ nl:
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
       invite_private_user:
-        subject: Je bent uitgenodigd voor een persoonlijk participatieproces op %{organization}
+        subject: Je bent uitgenodigd voor een persoonlijk burgerinspraak op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
