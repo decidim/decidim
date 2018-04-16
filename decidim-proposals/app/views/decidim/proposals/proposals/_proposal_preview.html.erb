@@ -7,7 +7,7 @@
       <div class="card__author author-data author-data--small">
         <!-- AUTHOR-CEL!!! -->
         <%= card_for present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
-        <%#= cell "decidim/author_box", present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
+        <% #= cell "decidim/author_box", present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
       </div>
     </div>
     <p><%= truncate(proposal.body, length: 100) %></p>

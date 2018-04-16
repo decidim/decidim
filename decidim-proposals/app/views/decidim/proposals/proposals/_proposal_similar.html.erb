@@ -7,7 +7,7 @@
         <% end %>
           <!-- AUTHOR-CEL!!! -->
           <%= card_for present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
-          <%#= cell "decidim/author_box", present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
+          <% #= cell "decidim/author_box", present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
         </div>

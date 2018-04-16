@@ -3,7 +3,7 @@
     <div class="card__author author-data author-data--small">
       <!-- AUTHOR-CEL!!! -->
       <%= card_for present(message.sender), context: {extra_classes: ["author-data--small"]} %>
-      <%#= cell "decidim/author_box", present(message.sender), context: {extra_classes: ["author-data--small"]} %>
+      <% #= cell "decidim/author_box", present(message.sender), context: {extra_classes: ["author-data--small"]} %>
 
       <time datetime="<%= message.created_at.utc %>">
         <%= message.friendly_created_at %>
