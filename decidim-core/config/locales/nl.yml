@@ -453,7 +453,7 @@ nl:
         subject: Wachtwoord is veranderd
   doorkeeper:
     scopes:
-      public: Uw openbare informatie.
+      public: Jouw openbare informatie.
   errors:
     messages:
       content_type_whitelist_error: Het bestandstype is niet geldig
