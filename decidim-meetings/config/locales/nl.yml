@@ -52,12 +52,12 @@ nl:
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering was gesloten.
         meeting_created:
           email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
-          email_outro: U hebt deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de vorige link.
           email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
           notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
-          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de vergadering.
+          email_outro: Je ontvangt deze melding omdat je beheerder bent voor de vergadering van de burgerinspraak.
           email_subject: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> ontmoetingen over bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
