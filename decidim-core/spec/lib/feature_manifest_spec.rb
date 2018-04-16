@@ -41,7 +41,7 @@ module Decidim
           subject.run_hooks(:foo, context)
           expect(context[:foo_1]).to eq(1)
           expect(context[:foo_2]).to eq(1)
-          expect(context[:bar]).not_to be
+          expect(context[:bar]).not.to be_truthy
         end
       end
 

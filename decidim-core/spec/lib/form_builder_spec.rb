@@ -57,9 +57,9 @@ module Decidim
         end
 
         it "renders a hidden field and a container for the editor" do
-          expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be
-          expect(parsed.css(".editor label[for='resource_slug']").first).to be
-          expect(parsed.css(".editor .editor-container[data-toolbar='basic']").first).to be
+          expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be_truthy
+          expect(parsed.css(".editor label[for='resource_slug']").first).to be_truthy
+          expect(parsed.css(".editor .editor-container[data-toolbar='basic']").first).to be_truthy
         end
       end
 
@@ -69,9 +69,9 @@ module Decidim
         end
 
         it "renders a hidden field and a container for the editor" do
-          expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be
-          expect(parsed.css(".editor label[for='resource_slug']").first).to be
-          expect(parsed.css(".editor .editor-container[data-toolbar='full']").first).to be
+          expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be_truthy
+          expect(parsed.css(".editor label[for='resource_slug']").first).to be_truthy
+          expect(parsed.css(".editor .editor-container[data-toolbar='full']").first).to be_truthy
         end
       end
     end
@@ -83,21 +83,21 @@ module Decidim
         end
 
         it "renders a tabbed input for each field" do
-          expect(parsed.css("label[for='resource_name']").first).to be
+          expect(parsed.css("label[for='resource_name']").first).to be_truthy
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
 
-          expect(parsed.css(".tabs-panel textarea[name='resource[name_ca]']").first).to be
-          expect(parsed.css(".tabs-panel textarea[name='resource[name_en]']").first).to be
-          expect(parsed.css(".tabs-panel textarea[name='resource[name_de__CH]']").first).to be
+          expect(parsed.css(".tabs-panel textarea[name='resource[name_ca]']").first).to be_truthy
+          expect(parsed.css(".tabs-panel textarea[name='resource[name_en]']").first).to be_truthy
+          expect(parsed.css(".tabs-panel textarea[name='resource[name_de__CH]']").first).to be_truthy
         end
 
         context "with a single locale" do
           let(:available_locales) { %w(en) }
 
           it "renders a single input" do
-            expect(parsed.css("label[for='resource_name_en']").first).to be
-            expect(parsed.css("textarea[name='resource[name_en]']").first).to be
+            expect(parsed.css("label[for='resource_name_en']").first).to be_truthy
+            expect(parsed.css("textarea[name='resource[name_en]']").first).to be_truthy
           end
         end
       end
@@ -108,15 +108,15 @@ module Decidim
         end
 
         it "renders a tabbed input hidden for each field and a container for the editor" do
-          expect(parsed.css("label[for='resource_short_description']").first).to be
+          expect(parsed.css("label[for='resource_short_description']").first).to be_truthy
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
 
           expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
 
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_ca]']").first).to be
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_en]']").first).to be
-          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_de__CH]']").first).to be
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_ca]']").first).to be_truthy
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_en]']").first).to be_truthy
+          expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_de__CH]']").first).to be_truthy
 
           expect(parsed.css(".tabs-panel .editor .editor-container").count).to eq 3
         end
@@ -125,9 +125,9 @@ module Decidim
           let(:available_locales) { %w(en) }
 
           it "renders a single input and a container for the editor" do
-            expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']").first).to be
-            expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be
-            expect(parsed.css(".editor .editor-container").first).to be
+            expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']").first).to be_truthy
+            expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_truthy
+            expect(parsed.css(".editor .editor-container").first).to be_truthy
           end
         end
       end
@@ -237,7 +237,7 @@ module Decidim
         end
 
         it "adds an abide error element" do
-          expect(parsed.css("span.form-error").first).to be
+          expect(parsed.css("span.form-error").first).to be_truthy
         end
 
         describe "translations" do
@@ -306,7 +306,7 @@ module Decidim
         end
 
         it "adds an abide error element" do
-          expect(parsed.css("span.form-error").first).to be
+          expect(parsed.css("span.form-error").first).to be_truthy
         end
       end
 
@@ -316,8 +316,8 @@ module Decidim
         end
 
         it "adds a pattern" do
-          expect(parsed.css("input[pattern='^(.|[\n\r]){0,150}$']").first).to be
-          expect(parsed.css("input[maxlength='150']")).to be
+          expect(parsed.css("input[pattern='^(.|[\n\r]){0,150}$']").first).to be_truthy
+          expect(parsed.css("input[maxlength='150']")).to be_truthy
         end
       end
 
@@ -327,7 +327,7 @@ module Decidim
         end
 
         it "adds a pattern" do
-          expect(parsed.css("input[pattern='^(.|[\n\r]){150,}$']").first).to be
+          expect(parsed.css("input[pattern='^(.|[\n\r]){150,}$']").first).to be_truthy
           expect(output).not_to include("minlength")
         end
       end
@@ -339,11 +339,11 @@ module Decidim
           end
 
           it "injects presence validations" do
-            expect(parsed.css("input[required='required']").first).to be
+            expect(parsed.css("input[required='required']").first).to be_truthy
           end
 
           it "injects a span to show an error" do
-            expect(parsed.css("span.form-error").first).to be
+            expect(parsed.css("span.form-error").first).to be_truthy
           end
 
           context "when the validation has a condition and it is false" do
@@ -352,11 +352,11 @@ module Decidim
             end
 
             it "does not inject the presence validations" do
-              expect(parsed.css("input[required='required']").first).not_to be
+              expect(parsed.css("input[required='required']").first).not.to be_truthy
             end
 
             it "does nto inject a span to show an error" do
-              expect(parsed.css("span.form-error").first).not_to be
+              expect(parsed.css("span.form-error").first).not.to be_truthy
             end
           end
         end
@@ -367,11 +367,11 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.|[\n\r]){10,30}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){10,30}$']").first).to be_truthy
           end
 
           it "injects a span to show an error" do
-            expect(parsed.css("span.form-error").first).to be
+            expect(parsed.css("span.form-error").first).to be_truthy
           end
         end
 
@@ -381,7 +381,7 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.|[\n\r]){10,}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){10,}$']").first).to be_truthy
           end
         end
 
@@ -391,7 +391,7 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.|[\n\r]){0,50}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){0,50}$']").first).to be_truthy
           end
         end
       end
@@ -432,7 +432,7 @@ module Decidim
       end
 
       it "renders a file_field" do
-        expect(parsed.css('input[type="file"]').first).to be
+        expect(parsed.css('input[type="file"]').first).to be_truthy
       end
 
       context "when it is an image" do
@@ -450,7 +450,7 @@ module Decidim
           end
 
           it "renders an image with the current file url" do
-            expect(parsed.css('img[src="' + url + '"]').first).to be
+            expect(parsed.css('img[src="' + url + '"]').first).to be_truthy
           end
         end
       end
@@ -466,11 +466,11 @@ module Decidim
           end
 
           it "doesn't render an image tag" do
-            expect(parsed.css('img[src="' + url + '"]').first).not_to be
+            expect(parsed.css('img[src="' + url + '"]').first).not.to be_truthy
           end
 
           it "renders a link to the current file url" do
-            expect(parsed.css('a[href="' + url + '"]').first).to be
+            expect(parsed.css('a[href="' + url + '"]').first).to be_truthy
           end
         end
       end
@@ -479,14 +479,14 @@ module Decidim
         let(:present?) { true }
 
         it "renders the delete checkbox" do
-          expect(parsed.css('input[type="checkbox"]').first).to be
+          expect(parsed.css('input[type="checkbox"]').first).to be_truthy
         end
 
         context "when the optional argument is false" do
           let(:optional) { false }
 
           it "doesn't render the delete checkbox" do
-            expect(parsed.css('input[type="checkbox"]').first).not_to be
+            expect(parsed.css('input[type="checkbox"]').first).not.to be_truthy
           end
         end
       end
