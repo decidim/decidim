@@ -71,6 +71,16 @@ module Decidim
       def current_user_proposals
         Proposal.where(component: current_component, author: current_user)
       end
+
+      def follow_button_for(model)
+        if current_user
+          render partial: "decidim/shared/follow_button", locals: { followable: model }
+        else
+          content_tag(:p, class: "mt-s mb-none") do
+            t(".sign_in_or_up", {in: link_to(t(".sign_in"), decidim.new_user_session_path), up: link_to(t(".sign_up"), decidim.new_user_registration_path)}).html_safe
+          end
+        end
+      end
     end
   end
 end
