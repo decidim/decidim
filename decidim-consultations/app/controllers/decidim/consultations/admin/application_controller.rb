@@ -13,8 +13,11 @@ module Decidim
 
         private
 
-        def permission_class
-          Decidim::Consultations::Permissions
+        def permission_class_chain
+          [
+            Decidim::Consultations::Permissions,
+            Decidim::Admin::Permissions
+          ]
         end
 
         def permission_scope

@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # Controller that manages responses for a question
-      class ResponsesController < Decidim::Admin::ApplicationController
+      class ResponsesController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
         helper_method :current_response

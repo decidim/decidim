@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # Controller that allows managing question publications.
-      class QuestionPublicationsController < Decidim::Admin::ApplicationController
+      class QuestionPublicationsController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
         def create
