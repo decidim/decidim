@@ -3,8 +3,6 @@
 module Decidim
   # The controller to handle the user's public profile page.
   class ProfilesController < Decidim::ApplicationController
-    skip_authorization_check
-
     helper Decidim::Messaging::ConversationHelper
 
     helper_method :user

@@ -10,8 +10,6 @@ module Decidim
       class ImpersonationsController < Admin::ApplicationController
         layout "decidim/admin/users"
 
-        skip_authorization_check only: [:index, :close_session]
-
         def index
           enforce_permission_to :read, :managed_user
 

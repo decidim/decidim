@@ -10,8 +10,6 @@ module Decidim
     included do
       helper_method :allowed_to?
 
-      skip_authorization_check
-
       class ::Decidim::ActionForbidden < StandardError
       end
 
