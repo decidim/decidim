@@ -92,7 +92,7 @@ module Decidim
       #
       def identities_list_xxs(identities, widget_id='identities-xxs')
         widget_ids = {
-          ellipsys: "#{widget_id}-ellipsys",
+          ellipsis: "#{widget_id}-ellipsis",
           remaining_identities: "#{widget_id}-remaining-identities",
           see_all_identities: "#{widget_id}-see-all-identities"
         }
