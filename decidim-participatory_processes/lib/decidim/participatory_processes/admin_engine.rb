@@ -81,14 +81,14 @@ module Decidim
                     icon_name: "target",
                     position: 2,
                     active: :inclusive,
-                    if: allowed_to?(:enter, :space_area)
+                    if: allowed_to?(:enter, :space_area, space_name: :processes)
 
           menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
                     decidim_admin_participatory_processes.participatory_process_groups_path,
                     icon_name: "layers",
                     position: 3,
                     active: :inclusive,
-                    if: allowed_to?(:enter, :space_area) && allowed_to?(:manage, :process_group, {}, [Decidim::ParticipatoryProcesses::Permissions])
+                    if: allowed_to?(:enter, :space_area, space_name: :processes) && allowed_to?(:manage, :process_group, {}, [Decidim::ParticipatoryProcesses::Permissions])
         end
       end
     end

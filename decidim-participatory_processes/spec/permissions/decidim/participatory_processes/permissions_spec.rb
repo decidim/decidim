@@ -139,6 +139,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     let(:action) do
       { scope: :admin, action: :enter, subject: :space_area }
     end
+    let(:context) { { space_name: :processes } }
 
     it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
   end

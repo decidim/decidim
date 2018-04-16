@@ -8,6 +8,18 @@ module Decidim
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
+          if !user.admin?
+            disallow!
+            return permission_action
+          end
+
+          user_can_enter_space_area?
+
+          if read_admin_dashboard_action?
+            allow!
+            return permission_action
+          end
+
           allowed_consultation_action?
           allowed_question_action?
           allowed_response_action?
@@ -66,6 +78,20 @@ module Decidim
           when :update, :destroy
             toggle_allow(response.present?)
           end
+        end
+
+        # Only admin users can enter the consultations area.
+        def user_can_enter_space_area?
+          return unless permission_action.action == :enter &&
+                        permission_action.subject == :space_area &&
+                        context.fetch(:space_name, nil) == :consultations
+
+          allow!
+        end
+
+        def read_admin_dashboard_action?
+          permission_action.action == :read &&
+            permission_action.subject == :admin_dashboard
         end
       end
     end
