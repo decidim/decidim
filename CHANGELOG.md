@@ -8,11 +8,19 @@
 
 **Fixed**:
 
+## [0.10.1](https://github.com/decidim/decidim/tree/v0.10.1)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
 - **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3219](https://github.com/decidim/decidim/pull/3219)
 - **decidim-proposals**: Fix when I create a proposal I see the draft proposal from someone else! [\#3170](https://github.com/decidim/decidim/pull/3083)
 - **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3175](https://github.com/decidim/decidim/pull/3175)
 
-## [0.10.0](https://github.com/decidim/decidim/tree/v0.9.2)
+## [0.10.0](https://github.com/decidim/decidim/tree/v0.10.0)
 
 **Note**: As per [\#2983](https://github.com/decidim/decidim/pull/2983), if you've been using `0.10.pre` version of Decidim for a while you'll need to fix some values in the database. In order to fix them,  run this script in your Rails console:
 
