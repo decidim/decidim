@@ -14,7 +14,7 @@ nl:
         title: Titel
       question:
         banner_image: Banner afbeelding
-        decidim_scope_id: Gemeentelijk gebied
+        decidim_scope_id: Gemeentelijk thema
         hashtag: Hashtag
         hero_image: Home afbeelding
         i_frame_url: URL van het externe stemsysteem
@@ -25,7 +25,7 @@ nl:
         promoter_group: Promotergroep
         question_context: Context
         reference: Referentie
-        scope: Gemeentelijk gebied
+        scope: Gemeentelijk thema
         slug: URL-slug
         subtitle: subtitel
         title: Titel
