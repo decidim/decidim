@@ -35,6 +35,8 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
+Capybara.server = :puma, { Silent: true }
+
 # Monkeypatch the other place where capybara can timeout. We should contribute
 # the configurability to capybara if this works consistently and proves to be
 # useful
