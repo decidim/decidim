@@ -5,7 +5,7 @@ module Decidim
   # delegated to the components' cell if specified in the manifest
   # otherwise a primary cell wil be shown.
   class CardCell < Decidim::ViewModel
-    include Devise::Controllers::Helpers
+    # include Devise::Controllers::Helpers
 
     def show
       if resource_cell?
