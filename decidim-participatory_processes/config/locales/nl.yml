@@ -158,7 +158,7 @@ nl:
           success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit participatieproces.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze burgerinspraak.
           success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
         destroy:
           success: Gebruiker met succes vernietigd voor dit participatieproces.
@@ -171,7 +171,7 @@ nl:
           create: creëren
           title: Nieuwe participatieve procesgebruiker.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor dit participatieproces.
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze burgerinspraak.
           success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
@@ -211,14 +211,14 @@ nl:
           success: Uitnodiging opnieuw verzonden met succes.
     admin_log:
       participatory_process:
-        create: "%{user_name} creëerde de %{resource_name} participatief proces"
-        publish: "%{user_name} publiceerde de %{resource_name} participatief proces"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} participatief proces"
-        update: "%{user_name} heeft het participatief proces %{resource_name} bijgewerkt"
+        create: "%{user_name} creëerde de %{resource_name} burgerinspraak"
+        publish: "%{user_name} publiceerde de %{resource_name} burgerinspraak"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} burgerinspraak"
+        update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
       participatory_process_step:
-        activate: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces geactiveerd"
-        create: "%{user_name} heeft de %{resource_name} stap gemaakt in het %{space_name} participatieproces"
-        delete: "%{user_name} heeft de %{resource_name} stap verwijderd in het %{space_name} participatieproces"
+        activate: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
+        create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
+        delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
         update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces bijgewerkt"
       participatory_process_user_role:
         create: "%{user_name} nodigde de gebruiker uit %{resource_name} naar de %{space_name} participatief proces"
