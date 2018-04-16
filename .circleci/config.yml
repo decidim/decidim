@@ -36,17 +36,6 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake test_app
-      - restore_cache:
-         keys:
-           - assets-{{ .Branch }}
-           - assets-master
-      - run:
-          name: Precompile test app assets
-          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
-      - save_cache:
-          key: assets-{{ .Branch }}
-          paths:
-            - spec/decidim_dummy_app/public/assets
       - run:
           name: Install CodeClimate test reporter
           command: /app/.circleci/install_cc_test_reporter.sh
