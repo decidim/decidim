@@ -222,6 +222,38 @@ describe "Orders", type: :system do
     end
   end
 
+  describe "index" do
+    it "respects the projects_per_page setting when under total projects" do
+      component.update!(settings: { projects_per_page: 1 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 1)
+    end
+
+    it "respects the projects_per_page setting when it matches total projects" do
+      component.update!(settings: { projects_per_page: 2 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
+    end
+
+    it "respects the projects_per_page setting when over total projects" do
+      component.update!(settings: { projects_per_page: 3 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
+    end
+  end
+
   describe "show" do
     let!(:project) { create(:project, component: component, budget: 25_000_000) }
 
