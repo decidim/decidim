@@ -90,8 +90,13 @@ module Decidim
       # @param widget_id: Mandatory when placing more than 1 widget in a page, optional otherwise. Is the id
       #   uniquely identify this widget in the page.
       #
-      def identities_list_xxs(identities, name='identities-xxs') 
-        render partial: "identities_listing", locals: {identities: identities}
+      def identities_list_xxs(identities, widget_id='identities-xxs')
+        widget_ids = {
+          ellipsys: "#{widget_id}-ellipsys",
+          remaining_identities: "#{widget_id}-remaining-identities",
+          see_all_identities: "#{widget_id}-see-all-identities"
+        }
+        render partial: "identities_listing", locals: {identities: identities, widget_ids: widget_ids}
       end
 
       def identities_xxs(identities)

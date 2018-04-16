@@ -9,20 +9,20 @@ if count > 0
 
     <div class="columns large-12">
       <%= identities_xxs(identities.limit(5)) %>
-      <% if count > 5 %><span id="ellipsys" data-toggler=".hide">+<%= count - 5 %></span><% end -%>
+      <% if count > 5 %><span id="<%= widget_ids[:ellipsys] %>" data-toggler=".hide">+<%= count - 5 %></span><% end -%>
     </div>
   </div>
   <% if count > 5 %>
     <div class="row">
-      <div id="see-all-identities" class="columns large-12" data-toggler=".hide">
-        <a data-toggle="remaining-identities see-all-identities ellipsys"><%= t(".see_all") %></a>
+      <div id="<%= widget_ids[:see_all_identities] %>" class="columns large-12" data-toggler=".hide">
+        <a data-toggle="<%= widget_ids.values_at(:remaining_identities, :see_all_identities, :ellipsys).join(' ') %>"><%= t(".see_all") %></a>
       </div>
-      <div id="remaining-identities" class="hide" data-toggler=".hide">
+      <div id="<%= widget_ids[:remaining_identities] %>" class="hide" data-toggler=".hide">
         <div class="columns large-12">
           <%= identities_xxs(identities.offset(5)) %>
         </div>
         <div class="columns large-12">
-          <a data-toggle="remaining-identities see-all-identities ellipsys"><%= t(".see_less") %></a>
+          <a data-toggle="<%= widget_ids.values_at(:remaining_identities, :see_all_identities, :ellipsys).join(' ') %>"><%= t(".see_less") %></a>
         </div>
       </div>
     </div>
