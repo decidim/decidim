@@ -8,10 +8,8 @@ if count > 0
     </div>
 
     <div class="columns large-12">
-      <%= identities.limit(5).collect do |endorsement| %>
-        <% render partial: "endorsement_xxs", locals: {endorsement: endorsement} %>
-      <% end.join(', ').html_safe %>
-      <% if count > 5 %><span id="ellipsys" data-toggler=".hide">...</span><% end -%>
+      <%= identities_xxs(identities.limit(5)) %>
+      <% if count > 5 %><span id="ellipsys" data-toggler=".hide">+<%= count - 5 %></span><% end -%>
     </div>
   </div>
   <% if count > 5 %>
@@ -21,9 +19,7 @@ if count > 0
       </div>
       <div id="remaining-endorsements" class="hide" data-toggler=".hide">
         <div class="columns large-12">
-        <%= identities.offset(5).collect do |endorsement| %>
-          <% render partial: "endorsement_xxs", locals: {endorsement: endorsement} %>
-        <% end.join(', ').html_safe %>
+          <%= identities_xxs(identities.offset(5)) %>
         </div>
         <div class="columns large-12">
           <a data-toggle="remaining-endorsements see-all-endorsements ellipsys"><%= t(".see_less") %></a>

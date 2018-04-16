@@ -52,10 +52,6 @@ module Decidim
         endorsements_enabled?
       end
 
-      def endorsement_identity(endorsement)
-        endorsement.user_group ? endorsement.user_group : endorsement.author
-      end
-
       def endorsement_identity_presenter(endorsement)
         if endorsement.user_group
           Decidim::UserGroupPresenter.new(endorsement.user_group)
