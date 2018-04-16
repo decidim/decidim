@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Gebied
+        area_id: Thema
         assembly_type: Montage type
         assembly_type_other: Montagetype anders
         banner_image: Bannerafbeelding
@@ -15,7 +15,7 @@ nl:
         created_by: Gemaakt door
         created_by_other: Gemaakt door een ander
         creation_date: Datum gecreeërd
-        decidim_area_id: Gebied
+        decidim_area_id: Thema
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -182,7 +182,7 @@ nl:
             active_assemblies: Actieve bijeenkomsten
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
-        area: Gebied
+        area: Thema
         assembly_type: Montage type
         children: Assemblies
         closing_date: Einddatum
