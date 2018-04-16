@@ -22,7 +22,7 @@
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Component %>
+      <% if allowed_to? :read, :component %>
         <li <% if is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.questions_submenu"),
                                     decidim_admin_consultations.components_path(current_participatory_space) %>
@@ -45,14 +45,14 @@
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Category %>
+      <% if allowed_to? :read, :category %>
         <li <% if is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".categories"),
                                     decidim_admin_consultations.categories_path(current_participatory_space) %>
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Attachment %>
+      <% if allowed_to? :read, :attachment %>
         <li <% if is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".attachments"),
                                     decidim_admin_consultations.question_attachments_path(current_participatory_space) %>

@@ -20,6 +20,7 @@ module Decidim
             return permission_action
           end
 
+          allowed_read_participatory_space?
           allowed_consultation_action?
           allowed_question_action?
           allowed_response_action?
@@ -34,7 +35,7 @@ module Decidim
         end
 
         def consultation
-          @consultation ||= context.fetch(:consultation, nil)
+          @consultation ||= context.fetch(:consultation, nil) || context.fetch(:participatory_space, nil)
         end
 
         def response
@@ -45,7 +46,7 @@ module Decidim
           return unless permission_action.subject == :consultation
 
           case permission_action.action
-          when :create, :read
+          when :create, :read, :publish
             allow!
           when :update, :destroy, :preview
             toggle_allow(consultation.present?)
@@ -92,6 +93,13 @@ module Decidim
         def read_admin_dashboard_action?
           permission_action.action == :read &&
             permission_action.subject == :admin_dashboard
+        end
+
+        def allowed_read_participatory_space?
+          return unless permission_action.action == :read &&
+                        permission_action.subject == :participatory_space
+
+          allow!
         end
       end
     end
