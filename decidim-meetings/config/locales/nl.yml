@@ -33,7 +33,7 @@ nl:
     components:
       meetings:
         actions:
-          join: toetreden
+          join: word lid
         name: vergaderingen
         settings:
           global:
@@ -46,13 +46,13 @@ nl:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'De vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: 'De vergadering "%{resource_title}" is gesloten. Je kan het besluiten hier lezen:'
+          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: De vergadering "%{resource_title}" is gesloten
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering was gesloten.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
         meeting_created:
           email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de vorige link.
           email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
           notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
