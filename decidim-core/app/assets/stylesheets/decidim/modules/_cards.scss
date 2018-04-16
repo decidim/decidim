@@ -77,6 +77,10 @@ $datetime-bg: $primary;
 
 .card__header{
   margin-bottom: $card-padding / 2;
+
+  &.collapse{
+    margin-bottom: 0;
+  }
 }
 
 .card__button{
@@ -124,6 +128,12 @@ $datetime-bg: $primary;
 
   &:not(:last-child){
     margin-bottom: $global-margin / 2;
+  }
+
+  &.card--picture-offset{
+    // _author-avatar.scss:58 (.author-data--big .author__avatar img)
+    // _author-avatar.scss:133 padding (.author__avatar)
+    margin-left: calc(#{rem-calc(54)} + .5rem);
   }
 }
 
@@ -793,5 +803,42 @@ $datetime-bg: $primary;
     left: 5px;
     top: 5px;
     z-index: -2;
+  }
+}
+
+.card--widget{
+  .card-data{
+    flex-wrap: inherit;
+
+    .card-data__item{
+      color: $body-font-color;
+      text-transform: none;
+
+      strong{
+        display: block;
+        text-transform: uppercase;
+        font-size: rem-calc(16);
+
+        &:not(:first-child){
+          margin-top: $global-margin;
+        }
+      }
+
+      span{
+        color: $muted;
+        font-size: 90%;
+      }
+
+      @include modifiers(color);
+
+      &:first-child{
+        flex: 0;
+        background-color: $card-secondary-bg;
+      }
+    }
+  }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin;
   }
 }

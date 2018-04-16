@@ -62,6 +62,19 @@ module Decidim
         template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
       end
 
+      def disable_precompilation_on_demand
+        %w(development test).each do |environment|
+          inject_into_file "config/environments/#{environment}.rb",
+                           before: /^end$/ do
+            cut <<~RUBY, strip: false
+              |
+              |  # No precompilation on demand on first request
+              |  config.assets.check_precompiled_asset = false
+            RUBY
+          end
+        end
+      end
+
       def configure_js_compressor
         gsub_file "config/environments/production.rb", "config.assets.js_compressor = :uglifier", "config.assets.js_compressor = Uglifier.new(:harmony => true)"
       end
@@ -146,8 +159,11 @@ module Decidim
         File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
       end
 
-      def cut(text)
-        text.gsub(/^ *\|/, "").rstrip
+      def cut(text, strip: true)
+        cutted = text.gsub(/^ *\|/, "")
+        return cutted unless strip
+
+        cutted.rstrip
       end
     end
   end
