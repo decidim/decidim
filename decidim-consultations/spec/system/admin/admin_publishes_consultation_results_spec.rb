@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Consultations::Admin::ConsultationResultsPublicationsController, type: :system do
+describe "Admin publishes consultation results", type: :system do
   include_context "when administrating a consultation"
 
   before do

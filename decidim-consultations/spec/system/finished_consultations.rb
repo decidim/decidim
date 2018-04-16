@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Consultations::ConsultationsController, type: :system do
+describe "Finished consultations", type: :system do
   let(:organization) { create(:organization) }
 
   before do
