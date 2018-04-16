@@ -9,7 +9,7 @@ fr:
         proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
-        available_slots: Emplacements disponibles pour cette réunion
+        available_slots: Places disponibles pour cette réunion
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -17,7 +17,7 @@ fr:
         location: Lieu
         location_hints: Données de localisation
         registration_terms: Conditions d'inscription
-        registrations_enabled: Conditions d'inscription
+        registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
   decidim:
@@ -25,11 +25,11 @@ fr:
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
-          success: La réunion en double a réussi.
+          success: Cette assemblée a été dupliquée avec succès.
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer une réunion
+          title: Dupliquer une assemblée
     components:
       meetings:
         actions:
@@ -38,10 +38,11 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
+            default_registration_terms: Conditions d'enregistrement par défaut
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
     events:
       meetings:
         meeting_closed:
@@ -55,9 +56,9 @@ fr:
           email_subject: Nouvelle réunion ajoutée à %{participatory_space_title}
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: Le nombre d'emplacements occupés par la réunion "%{resource_title}" est supérieur à %{percentage}%.
+          email_intro: Le nombre de places occupées par la réunion "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la réunion.
-          email_subject: Les emplacements occupés par la réunion "%{resource_title}" sont au-dessus de %{percentage}%
+          email_subject: Les places occupées par la réunion "%{resource_title}" sont au-dessus de %{percentage}%
           notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de réunion occupées occupent plus de %{percentage}%.
         meeting_updated:
           email_intro: 'La réunion "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
@@ -76,7 +77,7 @@ fr:
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     meetings:
       actions:
-        attachment_collections: Collections
+        attachment_collections: Dossier
         attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
@@ -136,6 +137,8 @@ fr:
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
+            reserved_slots_help: Laissez-le à 0 si vous n'avez pas de créneaux réservés
+            reserved_slots_less_than: Doit être inférieur ou égal à %{count}
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscriptions ont été enregistrés avec succès.

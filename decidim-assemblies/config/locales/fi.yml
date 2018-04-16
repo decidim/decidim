@@ -149,6 +149,7 @@ fi:
             see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
         area: alue
+        children: osat
         developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
@@ -173,6 +174,10 @@ fi:
         surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Kokoonpanoa ei löytynyt tietokannasta (ID: %{id})'
     menu:
       assemblies: Kehitysryhmät
   layouts:

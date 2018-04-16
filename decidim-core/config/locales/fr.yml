@@ -6,11 +6,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
+        about: A propos
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
+        personal_url: URL personnelle
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -55,9 +57,9 @@ fr:
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone %{resource_name}"
-        delete: "%{user_name} a supprimé la zone %{resource_name}"
-        update: "%{user_name} a mis à jour la zone %{resource_name}"
+        create: "%{user_name} a créé la zone d'application %{resource_name}"
+        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
+        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
       component:
         create: "%{user_name} a ajouté le module %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé le module %{resource_name} de l'espace %{space_name}"
@@ -103,7 +105,7 @@ fr:
           one: Document
           other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
@@ -134,11 +136,11 @@ fr:
         name: Composant factice
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut fictif 2
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
@@ -264,13 +266,13 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'La zone d''application n''a pas été trouvée sur la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de zone d''application n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -363,7 +365,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
@@ -532,10 +534,10 @@ fr:
         assemblies_count: Assemblées
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Soutiens
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -544,7 +546,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:

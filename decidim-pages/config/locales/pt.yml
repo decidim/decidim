@@ -3,7 +3,7 @@ pt:
     admin_log:
       page:
         update: "%{user_name} atualizou a página %{resource_name} em %{space_name}"
-    features:
+    components:
       pages:
         name: Página
         settings:

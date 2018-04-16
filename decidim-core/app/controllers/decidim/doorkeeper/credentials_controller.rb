@@ -18,12 +18,28 @@ module Decidim
         {
           id: current_resource_owner.id,
           email: current_resource_owner.email,
-          nickname: current_resource_owner.nickname
+          name: current_resource_owner.name,
+          nickname: current_resource_owner.nickname,
+          image: avatar_url
         }
       end
 
       def current_resource_owner
         @current_resource_owner ||= Decidim::User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+      end
+
+      def avatar_url
+        avatar_url = current_resource_owner.avatar_url
+        return unless avatar_url
+
+        unless avatar_url.match?(%r{/https?://})
+          request_uri = URI.parse(request.url)
+          request_uri.path = avatar_url
+          request_uri.query = nil
+          avatar_url = request_uri.to_s
+        end
+
+        avatar_url
       end
     end
   end

@@ -56,7 +56,10 @@ module Decidim
       initializer "decidim_proposals.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          proposals = Decidim::Proposals::Proposal.where(component: published_components).order_randomly(rand * 2 - 1).limit(4)
+          proposals = Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
+                                                  .where(component: published_components)
+                                                  .order_randomly(rand * 2 - 1)
+                                                  .limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
 
           next unless proposals.any?
 
@@ -72,7 +75,10 @@ module Decidim
         if defined? Decidim::ParticipatoryProcesses
           Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
             published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
-            proposals = Decidim::Proposals::Proposal.where(component: published_components).order_randomly(rand * 2 - 1).limit(3)
+            proposals = Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
+                                                    .where(component: published_components)
+                                                    .order_randomly(rand * 2 - 1)
+                                                    .limit(Decidim::Proposals.config.process_group_highlighted_proposals_limit)
 
             next unless proposals.any?
 

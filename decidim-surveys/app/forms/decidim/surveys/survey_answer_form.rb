@@ -8,12 +8,13 @@ module Decidim
 
       attribute :question_id, String
       attribute :body, String
-      attribute :choices, Array[String]
+      attribute :choices, Array[SurveyAnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
-      validates :choices, presence: true, if: :mandatory_choices?
+      validates :selected_choices, presence: true, if: :mandatory_choices?
 
-      validate :max_answers, if: -> { question.max_choices }
+      validate :max_choices, if: -> { question.max_choices }
+      validate :all_choices, if: -> { question.question_type == "sorting" }
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
@@ -21,8 +22,8 @@ module Decidim
         @question ||= survey.questions.find(question_id)
       end
 
-      def label
-        base = "#{id}. #{translated_attribute(question.body)}"
+      def label(idx)
+        base = "#{idx + 1}. #{translated_attribute(question.body)}"
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base
@@ -33,6 +34,14 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_survey_question_id
+
+        self.choices = model.choices.map do |choice|
+          SurveyAnswerChoiceForm.from_model(choice)
+        end
+      end
+
+      def selected_choices
+        choices.select(&:body)
       end
 
       private
@@ -41,8 +50,12 @@ module Decidim
         @survey ||= Survey.find_by(component: current_component)
       end
 
-      def max_answers
-        errors.add(:choices, :too_many) if choices.size > question.max_choices
+      def max_choices
+        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+      end
+
+      def all_choices
+        errors.add(:choices, :missing) if selected_choices.size != question.number_of_options
       end
 
       def mandatory_label

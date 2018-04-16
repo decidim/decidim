@@ -26,6 +26,18 @@ module Decidim
     config_accessor :similarity_limit do
       10
     end
+
+    # Public Setting that defines how many proposals will be shown in the
+    # participatory_space_highlighted_elements view hook
+    config_accessor :participatory_space_highlighted_proposals_limit do
+      4
+    end
+
+    # Public Setting that defines how many proposals will be shown in the
+    # process_group_highlighted_elements view hook
+    config_accessor :process_group_highlighted_proposals_limit do
+      3
+    end
   end
 
   module ContentParsers

@@ -13,8 +13,8 @@ module Decidim
       #
       # Returns nothing.
       def map_model(model)
-        self.answers = model.questions.each_with_index.map do |question, id|
-          SurveyAnswerForm.new(id: id + 1, question_id: question.id)
+        self.answers = model.questions.map do |question|
+          SurveyAnswerForm.from_model(SurveyAnswer.new(question: question))
         end
       end
     end

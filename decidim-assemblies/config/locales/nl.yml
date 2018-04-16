@@ -149,6 +149,7 @@ nl:
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
         area: Gebied
+        children: Assemblies
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
@@ -173,6 +174,10 @@ nl:
         surveys_count: Enquêtes
         users_count: Deelnemers
         votes_count: Stemmen
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Bijeenkomsten
   layouts:

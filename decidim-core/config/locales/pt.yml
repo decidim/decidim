@@ -6,11 +6,13 @@ pt:
       report:
         details: Comentários adicionais
       user:
+        about: Sobre
         email: O seu email
         name: O seu nome
         nickname: Seu identificador curto e exclusivo
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
+        personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização

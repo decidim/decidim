@@ -21,10 +21,10 @@ module Decidim
         subject
 
         organization.static_pages.each do |page|
-          expect(page.title["en"]).to be
-          expect(page.title["ca"]).to be
-          expect(page.content["en"]).to be
-          expect(page.content["ca"]).to be
+          expect(page.title["en"]).not_to be_nil
+          expect(page.title["ca"]).not_to be_nil
+          expect(page.content["en"]).not_to be_nil
+          expect(page.content["ca"]).not_to be_nil
         end
       end
     end

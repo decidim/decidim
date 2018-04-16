@@ -1,11 +1,16 @@
 form.answer-survey{
   .radio-button-collection,
-  .check-box-collection{
+  .check-box-collection,
+  .sortable-check-box-collection{
     margin: 0 0 1rem;
   }
 
-  .tos-agreement-help-text{
-    margin: .2rem 0 0;
+  .tos-agreement{
+    margin: 1rem 0 0;
+
+    .help-text{
+      margin: .2rem 0 0;
+    }
   }
 
   label.survey-question{
@@ -18,5 +23,9 @@ form.answer-survey{
     .ql-video{
       margin: .5em auto;
     }
+  }
+
+  .last-sorted{
+    margin-bottom: 1rem;
   }
 }

@@ -1,9 +1,5 @@
-// = require ./auto_label_by_position.component
-// = require ./auto_buttons_by_position.component
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
-// = require ./dynamic_fields.component
-// = require ./field_dependent_inputs.component
 
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
@@ -84,7 +80,7 @@
   const isMultipleChoiceOption = ($selectField) => {
     const value = $selectField.val();
 
-    return value === "single_option" || value === "multiple_option"
+    return value === "single_option" || value === "multiple_option" || value === "sorting"
   }
 
   const setupInitialQuestionAttributes = ($target) => {

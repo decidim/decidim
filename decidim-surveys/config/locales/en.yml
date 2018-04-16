@@ -13,6 +13,7 @@ en:
         survey_answer:
           attributes:
             choices:
+              missing: are not complete
               too_many: are too many
   decidim:
     components:
@@ -53,6 +54,7 @@ en:
         surveys:
           answer_option:
             answer_option: Answer option
+            free_text: Free text
             remove: Remove
             statement: Statement
           edit:
@@ -78,6 +80,7 @@ en:
         multiple_option: Multiple option
         short_answer: Short answer
         single_option: Single option
+        sorting: Sorting
       surveys:
         answer:
           invalid: There's been errors when answering the survey.

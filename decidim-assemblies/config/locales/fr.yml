@@ -2,14 +2,14 @@ fr:
   activemodel:
     attributes:
       assembly:
-        area_id: Région
+        area_id: Zone d'application
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
-        decidim_area_id: Périmètre
+        decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
@@ -20,8 +20,8 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
-        scope_id: Zone d'application
-        scopes_enabled: Zone d'application activées
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -92,7 +92,7 @@ fr:
         assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
-          attachment_collections: Collections
+          attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
@@ -149,30 +149,35 @@ fr:
             see_all_assemblies: Voir toutes les assemblées
       show:
         area: Région
-        developer_group: Promoteur
+        children: Agora
+        developer_group: Organisateur
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
         related_participatory_processes: Processus participatifs associés
-        scope: Zone d'application
+        scope: Périmètre d'application
         target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
   layouts:

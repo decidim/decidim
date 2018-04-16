@@ -10,6 +10,10 @@
 // = require moment.min
 // = require decidim/data_picker
 // = require jquery.auto-complete
+// = require ./auto_label_by_position.component
+// = require ./auto_buttons_by_position.component
+// = require ./dynamic_fields.component
+// = require ./field_dependent_inputs.component
 // = require_self
 
 window.Decidim = window.Decidim || {};

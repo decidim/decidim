@@ -12,6 +12,19 @@ pt-BR:
         title: Título
         user_group_id: Criar debate como
   decidim:
+    components:
+      debates:
+        actions:
+          create: Crio
+        name: Debates
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+            creation_enabled: Criação de debate por usuários habilitado
     debates:
       actions:
         confirm_destroy: Você tem certeza?
@@ -116,16 +129,3 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
           notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Crio
-        name: Debates
-        settings:
-          global:
-            announcement: Anúncio
-            comments_enabled: Comentários ativados
-          step:
-            announcement: Anúncio
-            comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de debate por usuários habilitado

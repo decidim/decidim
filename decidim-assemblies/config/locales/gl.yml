@@ -149,6 +149,7 @@ gl:
             see_all_assemblies: Ver todos os conxuntos
       show:
         area: Área
+        children: Asembleas
         developer_group: Grupo de desenvolvedores
         local_area: Área local
         participatory_scope: Alcance participativo
@@ -173,6 +174,10 @@ gl:
         surveys_count: Enquisas
         users_count: Participantes
         votes_count: Votos
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Asembleas
   layouts:

@@ -11,7 +11,7 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
 
   def up
     add_column :decidim_surveys_survey_answers, :text_body, :text
-    add_column :decidim_surveys_survey_answers, :choices, :jsonb
+    add_column :decidim_surveys_survey_answers, :choices, :jsonb, default: []
 
     SurveyAnswer.find_each do |answer|
       question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)

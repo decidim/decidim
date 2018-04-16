@@ -30,17 +30,17 @@
             <% else %>
               <div class="answer-survey">
                 <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
-                  <% @form.answers.each do |answer| %>
+                  <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
-                      <%= fields_for "survey[answers][]", answer do |answer_form| %>
-                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer.id %>
+                      <%= fields_for "survey[answers][#{answer_idx}]", answer do |answer_form| %>
+                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx %>
                       <% end %>
                     </div>
                   <% end %>
 
-                  <div class="row column">
+                  <div class="row column tos-agreement">
                     <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
-                    <div class="tos-agreement-help-text help-text">
+                    <div class="help-text">
                       <%= decidim_sanitize translated_attribute survey.tos %>
                     </div>
                   </div>
@@ -67,6 +67,9 @@
             </div>
           </div>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/surveys/surveys" %>

@@ -39,6 +39,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            default_registration_terms: Standardregistreringsvillkor
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -136,6 +137,8 @@ sv:
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har registrerats %{count}.
+            reserved_slots_help: Lämna det till 0 om du inte har reserverade kortplatser
+            reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
           update:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.

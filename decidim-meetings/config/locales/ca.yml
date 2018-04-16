@@ -39,6 +39,7 @@ ca:
           global:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
+            default_registration_terms: Termes de registre per defecte
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
@@ -136,6 +137,8 @@ ca:
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
+            reserved_slots_help: Deixa'l a 0 si no tens ranures reservades
+            reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.

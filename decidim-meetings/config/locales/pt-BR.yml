@@ -39,6 +39,7 @@ pt-BR:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            default_registration_terms: Termos de registro padrão
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -136,6 +137,8 @@ pt-BR:
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
+            reserved_slots_help: Deixe para 0 se você não tiver slots reservados
+            reserved_slots_less_than: Deve ser menor ou igual a %{count}
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
