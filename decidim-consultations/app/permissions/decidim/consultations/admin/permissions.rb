@@ -3,27 +3,19 @@
 module Decidim
   module Consultations
     module Admin
-      class Permissions
-        def initialize(user, permission_action, context = {})
-          @user = user
-          @permission_action = permission_action
-          @context = context
-        end
+      class Permissions < Decidim::DefaultPermissions
+        def permissions
+          return permission_action unless user
+          return permission_action unless permission_action.scope == :admin
 
-        def allowed?
-          return false unless user
-          return false unless permission_action.scope == :admin
+          allowed_consultation_action?
+          allowed_question_action?
+          allowed_response_action?
 
-          return true if allowed_consultation_action?
-          return true if allowed_question_action?
-          return true if allowed_response_action?
-
-          false
+          permission_action
         end
 
         private
-
-        attr_reader :user, :context, :permission_action
 
         def question
           @question ||= context.fetch(:question, nil)
@@ -42,15 +34,13 @@ module Decidim
 
           case permission_action.action
           when :create, :read
-            true
+            allow!
           when :update, :destroy, :preview
-            consultation.present?
+            toggle_allow(consultation.present?)
           when :publish_results
-            consultation.finished? && !consultation.results_published?
+            toggle_allow(consultation.finished? && !consultation.results_published?)
           when :unpublish_results
-            consultation.results_published?
-          else
-            false
+            toggle_allow(consultation.results_published?)
           end
         end
 
@@ -59,13 +49,11 @@ module Decidim
 
           case permission_action.action
           when :create, :read
-            true
+            allow!
           when :update, :destroy, :preview
-            question.present?
+            toggle_allow(question.present?)
           when :publish
-            question.external_voting || question.responses_count.positive?
-          else
-            false
+            toggle_allow(question.external_voting || question.responses_count.positive?)
           end
         end
 
@@ -74,9 +62,9 @@ module Decidim
 
           case permission_action.action
           when :create, :read
-            true
+            allow!
           when :update, :destroy
-            response.present?
+            toggle_allow(response.present?)
           end
         end
       end

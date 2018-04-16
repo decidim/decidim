@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Consultations::Admin::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: organization }
   let(:organization) { create :organization }
@@ -21,7 +21,7 @@ describe Decidim::Consultations::Admin::Permissions do
       { scope: :public, action: :foo, subject: :bar }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   describe "consultations" do

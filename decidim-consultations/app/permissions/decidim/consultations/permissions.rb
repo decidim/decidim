@@ -2,28 +2,20 @@
 
 module Decidim
   module Consultations
-    class Permissions
-      def initialize(user, permission_action, context = {})
-        @user = user
-        @permission_action = permission_action
-        @context = context
-      end
+    class Permissions < Decidim::DefaultPermissions
+      def permissions
+        allowed_public_anonymous_action?
 
-      def allowed?
-        return true if allowed_public_anonymous_action?
+        permission_action unless user
+        allowed_public_action?
 
-        return false unless user
-        return true if allowed_public_action?
+        permission_action unless permission_action.scope == :admin
+        return Decidim::Consultations::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
-        return false unless permission_action.scope == :admin
-        return Decidim::Consultations::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
-
-        false
+        permission_action
       end
 
       private
-
-      attr_reader :user, :context, :permission_action
 
       def question
         @question ||= context.fetch(:question, nil)
@@ -38,12 +30,12 @@ module Decidim
         return unless permission_action.scope == :public
 
         case permission_action.subject
+        when :consultation_list
+          allow!
         when :consultation
-          consultation.published? || user&.admin?
+          toggle_allow(consultation.published? || user&.admin?)
         when :question
-          question.published? || user&.admin?
-        else
-          false
+          toggle_allow(question.published? || user&.admin?)
         end
       end
 
@@ -53,11 +45,9 @@ module Decidim
 
         case permission_action.action
         when :vote
-          question.can_be_voted_by?(user)
+          toggle_allow(question.can_be_voted_by?(user))
         when :unvote
-          question.can_be_unvoted_by?(user)
-        else
-          false
+          toggle_allow(question.can_be_unvoted_by?(user))
         end
       end
     end

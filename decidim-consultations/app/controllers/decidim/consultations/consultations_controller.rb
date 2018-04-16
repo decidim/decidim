@@ -22,7 +22,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
 
       def index
-        enforce_permission_to :read, :consultation
+        enforce_permission_to :read, :consultation_list
         redirect_to consultation_path(active_consultations.first) if active_consultations.count == 1
       end
 

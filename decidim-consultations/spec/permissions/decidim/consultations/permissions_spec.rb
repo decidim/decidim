@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Consultations::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: organization }
   let(:organization) { create :organization }
@@ -17,18 +17,7 @@ describe Decidim::Consultations::Permissions do
       { scope: :admin, action: :foo, subject: :bar }
     end
 
-    it "delegates the check to the admin permissions class" do
-      admin_permissions = instance_double(Decidim::Consultations::Admin::Permissions, allowed?: true)
-      allow(Decidim::Consultations::Admin::Permissions)
-        .to receive(:new)
-        .with(user, permission_action, context)
-        .and_return admin_permissions
-
-      expect(admin_permissions)
-        .to receive(:allowed?)
-
-      subject
-    end
+    it_behaves_like "delegates permissions to", Decidim::Consultations::Admin::Permissions
   end
 
   context "when the action is for the public part" do
