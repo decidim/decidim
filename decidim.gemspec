@@ -39,7 +39,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-assemblies", Decidim.version
   s.add_dependency "decidim-budgets", Decidim.version
   s.add_dependency "decidim-comments", Decidim.version
-  s.add_dependency "decidim-consultations", Decidim.version
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "decidim-debates", Decidim.version
   s.add_dependency "decidim-meetings", Decidim.version
