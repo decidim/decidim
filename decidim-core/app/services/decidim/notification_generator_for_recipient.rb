@@ -49,7 +49,7 @@ module Decidim
     attr_reader :event, :event_class, :resource, :recipient_id, :extra
 
     def recipient
-      @recipient ||= User.where(id: recipient_id).first
+      @recipient ||= User.find_by(id: recipient_id)
     end
   end
 end

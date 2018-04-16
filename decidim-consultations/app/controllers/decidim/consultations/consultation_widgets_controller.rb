@@ -10,7 +10,7 @@ module Decidim
       private
 
       def model
-        @model ||= Consultation.where(slug: params[:consultation_slug]).first
+        @model ||= Consultation.find_by(slug: params[:consultation_slug])
       end
 
       def current_participatory_space

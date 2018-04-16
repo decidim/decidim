@@ -259,7 +259,22 @@ shared_examples "edit surveys" do
         end
       end
 
+      it "updates the free text option selector according to the selected question type" do
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Multiple option", from: "Type"
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Short answer", from: "Type"
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+
+        select "Single option", from: "Type"
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
+      end
+
       it "updates the max choices selector according to the configured options" do
+        expect(page).to have_no_select("Maximum number of choices")
+
         select "Multiple option", from: "Type"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
@@ -572,7 +587,7 @@ shared_examples "edit surveys" do
   end
 
   context "when the survey is already answered" do
-    let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
+    let!(:survey_question) { create(:survey_question, survey: survey, body: body, question_type: "multiple_option") }
     let!(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question) }
 
     it "cannot modify survey questions" do
@@ -581,6 +596,9 @@ shared_examples "edit surveys" do
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
+      expect(page).to have_selector("select[id$=question_type][disabled]")
+      expect(page).to have_selector("select[id$=max_choices][disabled]")
+      expect(page).to have_selector(".ql-editor[contenteditable=false]")
     end
   end
 

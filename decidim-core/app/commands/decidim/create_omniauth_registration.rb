@@ -55,6 +55,7 @@ module Decidim
         @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password
+        @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
         @user.skip_confirmation! if verified_email
       end
 
@@ -75,11 +76,11 @@ module Decidim
     end
 
     def existing_identity
-      @existing_identity ||= Identity.where(
+      @existing_identity ||= Identity.find_by(
         user: organization.users,
         provider: form.provider,
         uid: form.uid
-      ).first
+      )
     end
 
     def verify_oauth_signature!

@@ -6,11 +6,13 @@ ca:
       report:
         details: Comentaris addicionals
       user:
+        about: Quant a
         email: El teu email
         name: El teu nom
         nickname: El vostre identificador curt i únic
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
+        personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització

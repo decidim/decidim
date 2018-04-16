@@ -7,7 +7,7 @@ module Decidim
     describe CreationDisabledEvent do
       include Decidim::ComponentPathHelper
 
-      include_context "simple event"
+      include_context "when a simple event"
 
       let(:event_name) { "decidim.events.debates.creation_disabled" }
       let(:resource) { create(:debates_component) }

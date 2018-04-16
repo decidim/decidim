@@ -15,6 +15,12 @@ module Decidim
         attribute :questions, Array[SurveyQuestionForm]
 
         validates :title, :tos, translatable_presence: true
+
+        def map_model(model)
+          self.questions = model.questions.map do |question|
+            SurveyQuestionForm.from_model(question)
+          end
+        end
       end
     end
   end

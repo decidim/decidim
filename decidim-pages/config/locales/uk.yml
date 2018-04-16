@@ -1,6 +1,6 @@
 uk:
   decidim:
-    features:
+    components:
       pages:
         name: Сторінка
         settings:

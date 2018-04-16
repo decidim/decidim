@@ -58,6 +58,11 @@ AllCops:
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 2.3
 
+  RSpec:
+    Patterns:
+      - "(?:^|/)spec/"
+      - "(?:^|/)test/"
+
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -1176,6 +1181,9 @@ Performance/RedundantMerge:
 Metrics/BlockLength:
   Enabled: false
 
+FactoryBot/StaticAttributeDefinedDynamically:
+  Enabled: false
+
 RSpec/BeforeAfterAll:
   Enabled: true
 
@@ -1190,6 +1198,7 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/i18n_spec.rb
+    - spec/icon_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb
     - decidim-core/spec/lib/global_engines_spec.rb
@@ -1224,3 +1233,5 @@ RSpec/NamedSubject:
 
 RSpec/VerifiedDoubles:
   Enabled: false
+
+inherit_from: .rubocop_rails.yml

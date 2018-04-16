@@ -8,7 +8,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -62,7 +62,7 @@ fr:
         participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
-          attachment_collections: Collections
+          attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
@@ -274,23 +274,23 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Promoteur
+        developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités
         private_space: Ceci est un processus privé
-        scope: Zone d'application
+        scope: Périmètre d'application
         start_date: Date de début
         target: Participants
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: Activité
         meetings_count: Réunions
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -298,7 +298,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
   layouts:
     decidim:
       participatory_process_groups:

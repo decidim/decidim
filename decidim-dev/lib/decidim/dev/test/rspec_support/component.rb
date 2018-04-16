@@ -133,7 +133,7 @@ RSpec.configure do |config|
     end
   end
 
-  config.before(:each) do
+  config.before do
     Decidim.find_component_manifest(:dummy).reset_hooks!
   end
 end

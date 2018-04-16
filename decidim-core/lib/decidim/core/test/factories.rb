@@ -285,7 +285,10 @@ FactoryBot.define do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
+    # rubocop:disable RSpec/EmptyLineAfterSubject
+    # Bug in rubocop-rspec
     subject { Decidim::Faker::Localized.sentence(3) }
+    # rubocop:enable RSpec/EmptyLineAfterSubject
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
 
     trait :sent do

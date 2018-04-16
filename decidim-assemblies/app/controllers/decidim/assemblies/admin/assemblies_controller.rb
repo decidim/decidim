@@ -88,7 +88,7 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= OrganizationAssemblies.new(current_organization).query.where(id: params[:parent_id]).first
+          @parent_assembly ||= OrganizationAssemblies.new(current_organization).query.find_by(id: params[:parent_id])
         end
 
         def parent_assemblies

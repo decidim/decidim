@@ -115,7 +115,7 @@ shared_examples "comments" do
     end
 
     describe "arguable option" do
-      context "commenting with alignment" do
+      context "when commenting with alignment" do
         before do
           visit resource_path
 
@@ -146,7 +146,7 @@ shared_examples "comments" do
         visit resource_path
       end
 
-      context "upvoting a comment" do
+      context "when upvoting a comment" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
@@ -160,7 +160,7 @@ shared_examples "comments" do
         end
       end
 
-      context "downvoting a comment" do
+      context "when downvoting a comment" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?

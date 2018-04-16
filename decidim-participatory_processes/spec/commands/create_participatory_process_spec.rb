@@ -80,6 +80,8 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when everything is ok" do
+      let(:process) { Decidim::ParticipatoryProcess.last }
+
       it "creates a participatory process" do
         expect { subject.call }.to change { Decidim::ParticipatoryProcess.count }.by(1)
       end
@@ -102,20 +104,14 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "adds the default active step" do
-        subject.call do
-          on(:ok) do |process|
-            expect(process.steps.count).to eq(1)
-            expect(process.steps.first).to be_active
-          end
-        end
+        subject.call
+        expect(process.steps.count).to eq(1)
+        expect(process.steps.first).to be_active
       end
 
       it "adds the admins as followers" do
-        subject.call do
-          on(:ok) do |process|
-            expect(current_user.follows?(process)).to be_true
-          end
-        end
+        subject.call
+        expect(current_user.follows?(process)).to be true
       end
     end
   end

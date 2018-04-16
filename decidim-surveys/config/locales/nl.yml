@@ -5,7 +5,15 @@ nl:
         body: Antwoord
       survey_question:
         mandatory: Verplicht
+        max_choices: Maximum aantal keuzes
         question_type: Type
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: zijn niet compleet
+              too_many: zijn te veel
   decidim:
     components:
       surveys:
@@ -30,6 +38,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
+    forms:
+      errors:
+        survey_answer:
+          body: Lichaam mag niet leeg zijn
     surveys:
       admin:
         exports:
@@ -41,6 +53,7 @@ nl:
         surveys:
           answer_option:
             answer_option: Antwoord optie
+            free_text: Vrije tekst
             remove: Verwijderen
             statement: Stelling
           edit:
@@ -51,6 +64,7 @@ nl:
             already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
           question:
             add_answer_option: Voeg antwoord optie toe
+            any: Ieder
             description: Beschrijving
             down: naar beneden
             question: Vraag
@@ -65,10 +79,13 @@ nl:
         multiple_option: Meerdere opties
         short_answer: Kort antwoord
         single_option: Enkelvoudige optie
+        sorting: sorteer-
       surveys:
         answer:
           invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
           success: Enquête met succes beantwoord.
+        question:
+          max_choices: 'Max. Keuzes: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">schrijf u in</a> om uw reactie toe te voegen.

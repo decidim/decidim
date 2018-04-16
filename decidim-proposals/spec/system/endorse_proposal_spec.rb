@@ -7,7 +7,7 @@ describe "Endorse Proposal", type: :system do
   let(:manifest_name) { "proposals" }
 
   let!(:proposals) { create_list(:proposal, 3, component: component) }
-  let!(:proposal) { Decidim::Proposals::Proposal.where(component: component).first }
+  let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def expect_page_not_to_include_endorsements

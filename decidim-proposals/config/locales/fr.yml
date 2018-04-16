@@ -7,7 +7,7 @@ fr:
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseignez une adresse
-        scope_id: Zone d'application
+        scope_id: Périmètre d'application
         state: État
         title: Titre
         user_group_id: Créer une proposition en tant que
@@ -21,8 +21,8 @@ fr:
       proposals:
         actions:
           create: Créer
-          endorse: Appuyer
-          vote: Voter
+          endorse: Promouvoir
+          vote: Soutenir
           withdraw: Retirer
         name: Propositions
         settings:
@@ -30,29 +30,29 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
-            new_proposal_help_text: Nouveau texte d'aide à la proposition
-            official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponse à la proposition activée
+            new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
+            official_proposals_enabled: Autoriser la création de propositions officielles
+            proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
-            proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
-            proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide à la publication de proposition
+            proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
+            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
-            vote_limit: Limite de vote par utilisateur
+            vote_limit: Limite de soutiens par utilisateur
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
-            creation_enabled: Création de proposition activée
-            endorsements_blocked: Promotions bloquées
-            endorsements_enabled: Promotions activées
-            proposal_answering_enabled: Réponse à la proposition activée
-            votes_blocked: Votes bloqués
-            votes_enabled: Votes activés
-            votes_hidden: Votes cachés (si les votes sont activés, cette option cachera le nombre de votes)
+            comments_blocked: Bloquer la création de nouveaux commentaires
+            creation_enabled: Autoriser la création de nouvelles propositions
+            endorsements_blocked: Empêcher les utilisateurs de promouvoir une proposition
+            endorsements_enabled: Autoriser les utilisateurs à promouvoir une proposition
+            proposal_answering_enabled: Autoriser la réponse officielle aux propositions
+            votes_blocked: Soutiens bloqués
+            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
+            votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
       proposals:
         creation_enabled:
@@ -105,10 +105,10 @@ fr:
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez voter sur les propositions de %{participatory_space_title} ! Participez ici :'
+          email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Le vote des propositions a commencé pour %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Le soutien des propositions a commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à soutenir les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -193,7 +193,7 @@ fr:
           info_proposal:
             body: Corps du texte
             created_at: Date de création
-            proposal_votes_count: Nombre de votes
+            proposal_votes_count: Nombre de soutiens
             proposals: Propositions
       admin_log:
         proposal:
@@ -222,10 +222,10 @@ fr:
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
-            scope: Zone d'application
+            scope: Périmètre d'application
             state: Etat
             title: Titre
-            votes: Votes
+            votes: Soutiens
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
@@ -233,14 +233,14 @@ fr:
           error: Des erreurs sont survenues au moment de promouvoir la proposition.
         identities:
           done: Terminé
-          select_identity: Sélectionnez l'identité
+          select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Promu
           endorse: Promouvoir
       proposal_votes:
         create:
-          error: Des erreurs se sont produites lors du vote de la proposition.
+          error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
           mine_is_different: Ma proposition est différente
@@ -265,7 +265,7 @@ fr:
         endorsements_card_row:
           endorse: Promouvoir
         endorsements_listing:
-          see_all: Voir tous
+          see_all: Tout voir
           see_less: Voir moins
           title: Liste des promotions
         filters:
@@ -282,7 +282,7 @@ fr:
           related_to: Liée à
           search: Rechercher
           state: État
-          voted: Votées
+          voted: Soutenues
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -294,8 +294,8 @@ fr:
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: vote
-            other: votes
+            one: soutien
+            other: soutiens
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           select_a_category: Veuillez sélectionner une catégorie
@@ -303,7 +303,7 @@ fr:
           title: Créez votre proposition
         orders:
           label: 'Classement des propositions par:'
-          most_voted: Les plus votées
+          most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
         preview:
@@ -326,24 +326,24 @@ fr:
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: s'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
-          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition?
+          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
-          already_voted: Déjà voté
-          already_voted_hover: Retirer le vote
-          maximum_votes_reached: Nombre maximum de votes atteint
-          no_votes_remaining: Aucun vote restant
-          vote: Voter
-          votes_blocked: Votes désactivés
+          already_voted: Déjà soutenue
+          already_voted_hover: Retirer le soutien
+          maximum_votes_reached: Nombre maximum de soutiens atteint
+          no_votes_remaining: Aucun soutien restant
+          vote: Soutenir
+          votes_blocked: Soutiens désactivés
         votes_count:
           count:
-            one: VOTE
-            other: VOTES
+            one: SOUTIEN
+            other: SOUTIENS
           most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
+          need_more_votes: Besoin de plus de soutiens
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition peut rassembler plus de %{limit} soutiens
@@ -351,11 +351,11 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le vote est soumis aux règles suivantes:'
+          title: 'Le soutien est soumis aux règles suivantes:'
           vote_limit:
-            description: Vous pouvez voter pour %{limit} propositions au maximum.
+            description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
-            votes: Votes
+            votes: Soutiens
         wizard_aside:
           back: Arrière
           info: Vous créez une <strong>proposition</strong>.

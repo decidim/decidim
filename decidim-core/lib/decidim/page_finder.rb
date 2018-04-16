@@ -21,7 +21,7 @@ module Decidim
     #
     # Returns a Decidim::Page or nil.
     def page
-      @page ||= organization.static_pages.where(slug: page_id).first
+      @page ||= organization.static_pages.find_by(slug: page_id)
     end
 
     private

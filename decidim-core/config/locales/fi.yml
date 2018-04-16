@@ -6,11 +6,13 @@ fi:
       report:
         details: Lisätiedot
       user:
+        about: Noin
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Lyhyt, ainutkertainen tunniste
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
+        personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi

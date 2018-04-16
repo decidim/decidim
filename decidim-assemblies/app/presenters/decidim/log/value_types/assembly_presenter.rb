@@ -20,7 +20,7 @@ module Decidim
         private
 
         def assembly
-          @assembly ||= Decidim::Assembly.where(id: value).first
+          @assembly ||= Decidim::Assembly.find_by(id: value)
         end
       end
     end

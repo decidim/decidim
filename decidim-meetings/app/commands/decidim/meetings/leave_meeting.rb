@@ -28,7 +28,7 @@ module Decidim
       private
 
       def registration
-        @registration ||= Decidim::Meetings::Registration.where(meeting: @meeting, user: @user).first
+        @registration ||= Decidim::Meetings::Registration.find_by(meeting: @meeting, user: @user)
       end
 
       def destroy_registration

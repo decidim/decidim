@@ -50,10 +50,10 @@ module Decidim
       def existing_user
         return @existing_user if defined?(@existing_user)
 
-        @existing_user = User.where(
+        @existing_user = User.find_by(
           email: form.email,
           organization: private_user_to.organization
-        ).first
+        )
 
         InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
 

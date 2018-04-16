@@ -39,6 +39,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            default_registration_terms: Oletussäännöt
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
@@ -136,6 +137,8 @@ fi:
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
+            reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
+            reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.

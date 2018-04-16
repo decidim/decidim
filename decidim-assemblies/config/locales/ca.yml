@@ -149,6 +149,7 @@ ca:
             see_all_assemblies: Veure totes les assemblees
       show:
         area: Àrea
+        children: Assemblees
         developer_group: Grup promotor
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
@@ -173,6 +174,10 @@ ca:
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L''assemblea no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
   layouts:

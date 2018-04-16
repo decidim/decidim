@@ -22,7 +22,7 @@ shared_examples "manage moderations" do
     click_link "Moderations"
   end
 
-  context "listing moderations" do
+  context "when listing moderations" do
     it "user can review them" do
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
@@ -50,7 +50,7 @@ shared_examples "manage moderations" do
     end
   end
 
-  context "listing hidden resources" do
+  context "when listing hidden resources" do
     it "user can review them" do
       click_link "Hidden"
 

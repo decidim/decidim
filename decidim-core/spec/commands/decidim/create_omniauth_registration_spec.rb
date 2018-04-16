@@ -21,7 +21,8 @@ module Decidim
               "email_verified" => true,
               "name" => "Facebook User",
               "nickname" => "facebook_user",
-              "oauth_signature" => oauth_signature
+              "oauth_signature" => oauth_signature,
+              "avatar_url" => "http://www.example.com/foo.jpg"
             }
           }
         end
@@ -40,6 +41,11 @@ module Decidim
           it "raises a InvalidOauthSignature exception" do
             expect { command.call }.to raise_error InvalidOauthSignature
           end
+        end
+
+        before do
+          stub_request(:get, "http://www.example.com/foo.jpg")
+            .to_return(status: 200, body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" })
         end
 
         context "when the form is not valid" do

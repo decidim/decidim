@@ -3,7 +3,7 @@ eu:
     admin_log:
       page:
         update: "%{user_name} %{resource_name} orrialdea %{space_name} eguneratu du"
-    features:
+    components:
       pages:
         name: Orria
         settings:

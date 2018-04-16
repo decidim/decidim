@@ -5,6 +5,15 @@ require "spec_helper"
 module Decidim
   module Admin
     shared_examples_for "attachment collection form" do
+      subject do
+        described_class.from_params(
+          attributes
+        ).with_context(
+          collection_for: collection_for,
+          current_organization: organization
+        )
+      end
+
       let(:name) do
         {
           en: "My attachment collection",
@@ -33,15 +42,6 @@ module Decidim
         }
       end
       let(:organization) { create :organization }
-
-      subject do
-        described_class.from_params(
-          attributes
-        ).with_context(
-          collection_for: collection_for,
-          current_organization: organization
-        )
-      end
 
       context "with correct data" do
         it "is valid" do

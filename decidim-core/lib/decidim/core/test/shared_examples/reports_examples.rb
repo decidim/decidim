@@ -2,7 +2,7 @@
 
 shared_examples "reports" do
   context "when the user is not logged in" do
-    it "should be given the option to sign in" do
+    it "gives the option to sign in" do
       visit reportable_path
 
       expect(page).to have_no_css("body.is-reveal-open")
