@@ -352,11 +352,11 @@ module Decidim
             end
 
             it "does not inject the presence validations" do
-              expect(parsed.css("input[required='required']").first).not.to be_truthy
+              expect(parsed.css("input[required='required']").first).to be_nil
             end
 
             it "does nto inject a span to show an error" do
-              expect(parsed.css("span.form-error").first).not.to be_truthy
+              expect(parsed.css("span.form-error").first).to be_nil
             end
           end
         end
