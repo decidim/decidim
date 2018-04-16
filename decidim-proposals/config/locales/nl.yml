@@ -56,13 +56,13 @@ nl:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'U kunt nu nieuwe voorstellen maken in %{participatory_space_title}! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door het volgen van de vorige link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'U kunt voorstellen in %{participatory_space_title}goedkeuren! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Je kan voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: Het steunen van voorstellen is gestart voor %{participatory_space_title}
           notification_title: U kunt nu <a href="%{resource_path}">endorsievoorstellen</a> starten in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
@@ -90,8 +90,8 @@ nl:
           email_subject: Nieuw voorstel van %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat u volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
@@ -105,10 +105,10 @@ nl:
           email_subject: De voorstelcategorie van %{resource_title} is bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> voorstelcategorie is bijgewerkt door een beheerder.
         voting_enabled:
-          email_intro: 'Je kunt voorstellen in %{participatory_space_title}stemmen! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Voorstellen stemmen is gestart voor %{participatory_space_title}
-          notification_title: U kunt nu beginnen met <a href="%{resource_path}">stemvoorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Je kunt op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_subject: Je kan nu stemmen op de voorstellen van %{participatory_space_title}
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">stemmen op</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -186,7 +186,7 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Voorstellen importeren
-            no_components: Er zijn geen andere componenten van het voorstel in deze participatieruimte om de voorstellen in te voeren.
+            no_components: Er zijn geen andere componenten van het voorstel in deze burgerinspraak om de voorstellen in te voeren.
             select_component: Selecteer een component
             select_states: Controleer de toestanden van de voorstellen om te importeren
         shared:
