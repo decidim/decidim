@@ -8,12 +8,12 @@
         <strong><%= link_to translated_attribute(post.title), post %></strong>
         <div class="author-data author-data--nopadding">
           <%= render partial: "datetime", locals: { post: post } %>&nbsp;&nbsp;·&nbsp;&nbsp;
-          <%= link_to "#{post_path(post)}#comments", title: t('.comments') do %>
-            <%= icon "comment-square", class: "icon--small", aria_label: "#{t('.comments')}", role: "img" %>
+          <%= link_to "#{post_path(post)}#comments", title: t(".comments") do %>
+            <%= icon "comment-square", class: "icon--small", aria_label: "#{t(".comments")}", role: "img" %>
             <%= post.comments.count %>
-            <%= t('.comments') %>
+            <%= t(".comments") %>
           <% end %>
-          <a href="#comments" title="<%= t('.comments')%>"></a>
+          <a href="#comments" title="<%= t(".comments") %>"></a>
         </div>
       </div>
     <% end %>

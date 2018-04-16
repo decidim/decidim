@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.blogs", name: t("models.post.name", scope: "decidim.blogs.admin")), new_post_path, class: 'button tiny button--title' if can? :manage, current_component %>
+      <%= link_to t("actions.new", scope: "decidim.blogs", name: t("models.post.name", scope: "decidim.blogs.admin")), new_post_path, class: "button tiny button--title" if can? :manage, current_component %>
     </h2>
   </div>
 
@@ -26,7 +26,7 @@
                 <%= translated_attribute(post.title) %><br />
               </td>
               <td>
-                <%= sanitize post_description_admin(post)%>
+                <%= sanitize post_description_admin(post) %>
               </td>
               <td>
                 <%= post.try(:author).try(:name) %>
