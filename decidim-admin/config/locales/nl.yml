@@ -523,7 +523,7 @@ nl:
           title: Privégebruiker van de deelruimte
         new:
           create: creëren
-          title: Nieuwe privéparticipatiepartner.
+          title: Nieuwe privégebruiker van de deelruimte.
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
