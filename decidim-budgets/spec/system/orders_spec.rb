@@ -7,7 +7,6 @@ describe "Orders", type: :system do
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -18,6 +17,8 @@ describe "Orders", type: :system do
   end
 
   context "when the user is not logged in" do
+    let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
+
     it "is given the option to sign in" do
       visit_component
 
@@ -30,6 +31,8 @@ describe "Orders", type: :system do
   end
 
   context "when the user is logged in" do
+    let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
+
     before do
       login_as user, scope: :user
     end
