@@ -25,7 +25,7 @@ Read more about the [installation script](https://github.com/alabs/decidim-insta
 
 ### B. Using Docker [experimental]
 
-You can also use [docker v17+] && [docker-compose] to develop decidim. You'll
+You can also use [docker] && [docker-compose] to develop decidim. You'll
 need to install those but in exchange you don't need to install any other
 dependency in your computer, not even Ruby!
 
@@ -167,6 +167,10 @@ bin/rails decidim:check_locales
 
 Be aware that this task might not be able to detect everything, so make sure you
 also manually check your application before upgrading.
+
+## Checklist
+
+There are several things you need to check before making your putting your application on production. See the [checklist](docs/checklist.md).
 
 [docker]: https://docs.docker.com/engine/installation/
 [docker-compose]: https://docs.docker.com/compose/install/
