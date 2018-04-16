@@ -81,20 +81,6 @@ module Decidim
   # the mails.
   config_accessor :mailer_sender
 
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the base `Decidim::Abilities::BaseAbility`
-  # class.
-  config_accessor :abilities do
-    []
-  end
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the `Decidim::Admin::Abilities::BaseAbility`
-  # class.
-  config_accessor :admin_abilities do
-    []
-  end
-
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
     %w(en ca es eu fi fr gl it nl pt pt-BR ru sv uk)
