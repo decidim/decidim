@@ -82,7 +82,15 @@ module Decidim
         end
       end
 
-      def list_identities_xxs(identities)
+      # Public - A widget that lists all identities in an xxs card format.
+      # Shows the first 5 identities and hides the rest, but presents a 'see all'
+      # button to make the rest of identities visible.
+      # 
+      # @param identities: The list of identities. Each item must have a user_group or author method.
+      # @param widget_id: Mandatory when placing more than 1 widget in a page, optional otherwise. Is the id
+      #   uniquely identify this widget in the page.
+      #
+      def identities_list_xxs(identities, name='identities-xxs') 
         render partial: "identities_listing", locals: {identities: identities}
       end
 
