@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe Admin::MinuteForm do
+  describe Admin::MinutesForm do
     subject(:form) { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }

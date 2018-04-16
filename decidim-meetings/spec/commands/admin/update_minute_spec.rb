@@ -3,11 +3,11 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe Admin::UpdateMinute do
-    subject { described_class.new(form, meeting, minute) }
+  describe Admin::UpdateMinutes do
+    subject { described_class.new(form, meeting, minutes) }
 
     let(:meeting) { create(:meeting) }
-    let(:minute) { create(:minute, meeting: meeting) }
+    let(:minutes) { create(:minutes, meeting: meeting) }
     let(:user) { create :user, :admin }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
@@ -37,16 +37,16 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "updates the minute" do
+      it "updates the minutes" do
         subject.call
-        expect(translated(minute.description)).to eq "description"
+        expect(translated(minutes.description)).to eq "description"
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
           .with(
-            minute,
+            minutes,
             user,
             {
               description: form.description,

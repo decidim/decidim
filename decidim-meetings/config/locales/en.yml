@@ -21,7 +21,7 @@ en:
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
-      minute:
+      minutes:
         audio_url: Audio url
         description: Description
         is_visible: Is visible
@@ -134,16 +134,16 @@ en:
             success: Meeting successfully updated
         minutes:
           create:
-            invalid: There's been a problem creating this minute
-            success: Minute successfully created
+            invalid: There's been a problem creating this minutes
+            success: Minutes successfully created
           edit:
             update: Update
           new:
             create: Create
-            title: Create minute
+            title: Create minutes
           update:
-            invalid: There's been a problem updating this minute
-            success: Minute successfully updated
+            invalid: There's been a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
             name: Meeting
@@ -169,9 +169,9 @@ en:
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
-        minute:
-          create: "%{user_name} created the minute of the meeting %{resource_name} on the %{space_name} space"
-          update: "%{user_name} updated the minute of the meeting %{resource_name} on the %{space_name} space"
+        minutes:
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:

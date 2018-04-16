@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     module Admin
       # This class holds a Form to create/update minutes from Decidim's admin panel.
-      class MinuteForm < Decidim::Form
+      class MinutesForm < Decidim::Form
         include TranslatableAttributes
 
         mimic :meeting

@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", path: "."
-gem "decidim-consultations", path: "decidim-consultations"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"

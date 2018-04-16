@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe Admin::CreateMinute do
+  describe Admin::CreateMinutes do
     subject { described_class.new(form, meeting) }
 
     let(:organization) { create :organization, available_locales: [:en] }
@@ -37,22 +37,22 @@ module Decidim::Meetings
     end
 
     context "when everything is ok" do
-      let(:minute) { Minute.last }
+      let(:minutes) { Minutes.last }
 
       it "creates the minute" do
-        expect { subject.call }.to change(Minute, :count).by(1)
+        expect { subject.call }.to change(Minutes, :count).by(1)
       end
 
       it "sets the meeting" do
         subject.call
-        expect(minute.meeting).to eq meeting
+        expect(minutes.meeting).to eq meeting
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
           .with(
-            Decidim::Meetings::Minute,
+            Decidim::Meetings::Minutes,
             form.current_user,
             kind_of(Hash),
             resource: {

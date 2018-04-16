@@ -3,18 +3,18 @@
 module Decidim
   module Meetings
     module Admin
-      # This command is executed when the user changes a Minute from the admin
+      # This command is executed when the user changes a Minutes from the admin
       # panel.
-      class UpdateMinute < Rectify::Command
-        # Initializes a UpdateMinute Command.
+      class UpdateMinutes < Rectify::Command
+        # Initializes a UpdateMinutes Command.
         #
         # form - The form from which to get the data.
         # current_meeting - The current instance of the meeting.
-        # minute - The current instance of the minute to be updated.
-        def initialize(form, current_meeting, minute)
+        # minutes - The current instance of the minutes to be updated.
+        def initialize(form, current_meeting, minutes)
           @form = form
           @current_meeting = current_meeting
-          @minute = minute
+          @minutes = minutes
         end
 
         # Updates the minute if valid.
@@ -23,17 +23,17 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           transaction do
-            update_minute!
+            update_minutes!
           end
 
-          broadcast(:ok, minute)
+          broadcast(:ok, minutes)
         end
 
         private
 
-        attr_reader :form, :current_meeting, :minute
+        attr_reader :form, :current_meeting, :minutes
 
-        def update_minute!
+        def update_minutes!
           log_info = {
             resource: {
               title: @current_meeting.title
@@ -43,8 +43,8 @@ module Decidim
             }
           }
 
-          @minute = Decidim.traceability.update!(
-            minute,
+          @minutes = Decidim.traceability.update!(
+            minutes,
             form.current_user,
             {
               description: form.description,

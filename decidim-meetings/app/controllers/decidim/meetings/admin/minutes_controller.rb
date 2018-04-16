@@ -5,16 +5,16 @@ module Decidim
     module Admin
       # This controller allows an admin to manage minutes from a Meeting
       class MinutesController < Admin::ApplicationController
-        helper_method :current_meeting, :minute
+        helper_method :current_meeting, :minutes
 
         def new
-          @form = form(MinuteForm).instance
+          @form = form(MinutesForm).instance
         end
 
         def create
-          @form = form(MinuteForm).from_params(params)
+          @form = form(MinutesForm).from_params(params)
 
-          CreateMinute.call(@form, current_meeting) do
+          CreateMinutes.call(@form, current_meeting) do
             on(:ok) do
               flash[:notice] = I18n.t("minutes.create.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
@@ -28,12 +28,12 @@ module Decidim
         end
 
         def edit
-          @form = form(MinuteForm).from_model(minute)
+          @form = form(MinutesForm).from_model(minutes)
         end
 
         def update
-          @form = form(MinuteForm).from_params(params)
-          UpdateMinute.call(@form, current_meeting, minute) do
+          @form = form(MinutesForm).from_params(params)
+          UpdateMinutes.call(@form, current_meeting, minutes) do
             on(:ok) do
               flash[:notice] = I18n.t("minutes.update.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
@@ -52,8 +52,8 @@ module Decidim
           @current_meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
         end
 
-        def minute
-          @minute ||= Minute.where(meeting: current_meeting).find(params[:id])
+        def minutes
+          @minutes ||= Minutes.where(meeting: current_meeting).find(params[:id])
         end
       end
     end

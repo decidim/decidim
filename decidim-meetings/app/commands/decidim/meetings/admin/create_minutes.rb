@@ -3,9 +3,9 @@
 module Decidim
   module Meetings
     module Admin
-      # This command is executed when the user creates a Minute from the admin
+      # This command is executed when the user creates a Minutes from the admin
       # panel.
-      class CreateMinute < Rectify::Command
+      class CreateMinutes < Rectify::Command
         def initialize(form, meeting)
           @form = form
           @meeting = meeting
@@ -18,15 +18,15 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           transaction do
-            create_minute!
+            create_minutes!
           end
 
-          broadcast(:ok, @minute)
+          broadcast(:ok, @minutes)
         end
 
         private
 
-        def create_minute!
+        def create_minutes!
           log_info = {
             resource: {
               title: @meeting.title
@@ -36,8 +36,8 @@ module Decidim
             }
           }
 
-          @minute = Decidim.traceability.create!(
-            Minute,
+          @minutes = Decidim.traceability.create!(
+            Minutes,
             @form.current_user,
             {
               description: @form.description,
