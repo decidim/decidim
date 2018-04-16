@@ -3,7 +3,7 @@
 The BLOG module adds posts to any participatory process. It adds a CRUD engine
 to the admin and public view scoped inside the participatory process.
 
-# Usage
+## Usage
 
 BLOG will be available as a Component for a Participatory Process.
 
