@@ -29,7 +29,7 @@ module Decidim
 
     def default_filter_params
       {
-        term: "",
+        term: params[:term],
         resource_type: nil,
         decidim_scope_id: nil
       }

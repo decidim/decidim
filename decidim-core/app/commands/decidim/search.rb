@@ -28,7 +28,7 @@ module Decidim
         query = query.where(att_name => value) if permit_filter?(att_name, value)
       end
       @results = if term.present?
-                   query.global_search(term)
+                   query.global_search(I18n.transliterate(term))
                  else
                    query.all
                  end

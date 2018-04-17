@@ -85,6 +85,38 @@ module Decidim
         end
       end
 
+      describe "when search term has imperfections" do
+        # NOTE: when indexing searchables accents are removed
+        let!(:searchable1) { create(:searchable_rsrc, organization: current_organization, locale: :en, content_a: "Sangtrait és un gran grup") }
+        let!(:searchable2) { create(:searchable_rsrc, organization: current_organization, locale: :en, content_a: "A mi m'agrada Sangtrait") }
+
+        context "with accents in the term" do
+          let(:term) { "sangtraït" }
+
+          it "returns all matches ignoring accents" do
+            described_class.call(term, current_organization) do
+              on(:ok) do |results|
+                expect(results.count).to eq(2)
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
+          end
+        end
+
+        context "with up and down cased letters in the term" do
+          let(:term) { "sAnGtRaït" }
+
+          it "returns all matches ignoring letter case" do
+            described_class.call(term, current_organization) do
+              on(:ok) do |results|
+                expect(results.count).to eq(2)
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
+          end
+        end
+      end
+
       describe "when filtering" do
         let(:term) { "king nothing" }
         let(:scope) { create(:scope, organization: current_organization) }
