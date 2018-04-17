@@ -83,8 +83,8 @@ module Decidim
       end
 
       def highlighted_content_banner_image_is_changed?
-        highlighted_content_banner_enabled? && 
-          !current_organization.highlighted_content_banner_image.present?
+        highlighted_content_banner_enabled? &&
+          current_organization.highlighted_content_banner_image.blank?
       end
     end
   end
