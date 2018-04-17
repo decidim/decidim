@@ -2,12 +2,12 @@ nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Gebied
+        area_id: Thema
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_features: Functies kopiëren
-        decidim_area_id: Gebied
-        decidim_scope_id: strekking
+        decidim_area_id: Thema
+        decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
@@ -84,7 +84,7 @@ nl:
       menu:
         assemblies: Bijeenkomsten
         assemblies_submenu:
-          assembly_admins: Assemblage gebruikers
+          assembly_admins: Gebruikersbijeenkomst
           attachment_collections: collecties
           attachment_files: bestanden
           attachments: Bijlagen
@@ -139,7 +139,7 @@ nl:
             active_assemblies: Actieve bijeenkomsten
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
-        area: Gebied
+        area: Thema
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
@@ -150,7 +150,7 @@ nl:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
-        endorsements_count: Endorsements
+        endorsements_count: Goedkeuringen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
