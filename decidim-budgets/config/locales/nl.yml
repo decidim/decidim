@@ -109,7 +109,7 @@ nl:
       budgets:
         actions:
           vote: Stemmen
-        name: begrotingen
+        name: Budgetten
         settings:
           global:
             announcement: Aankondiging
