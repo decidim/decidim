@@ -13,18 +13,8 @@
       </div>
     </div>
 
-    <div class="filters__section">
-      <fieldset>
-        <legend>
-          <h6 class="heading6">
-            <%= t("components", scope: "decidim.search.filter") %>
-          </h6>
-        </legend>
+      <%= form.collection_radio_buttons :resource_type,searchable_resources_as_options(t("all", scope: "decidim.search.filter")), :first, :last, legend_title: t("component", scope: "decidim.search.filter") %>
 
-        <input type="hidden" name="filter[component]" value="">
-
-        <%= form.collection_radio_buttons :resource_type, searchable_resources_as_options(t("all", scope: "decidim.search.filter")), :first, :last, legend_title: t(".search") %>
-      </fieldset>
-    </div>
+      <%= scopes_picker_filter form, :decidim_scope_id %>
   </div>
 <% end %>

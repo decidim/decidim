@@ -40,7 +40,8 @@ module Decidim
     end
 
     def filters
-      @filters ||= params[:filter]&.permit([:resource_type, :scope_id])&.to_h
+      # @filters ||= params[:filter]&.permit([:resource_type, :scope_id])&.to_h
+      filter_params
     end
   end
 end
