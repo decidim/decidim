@@ -8,7 +8,7 @@ module Decidim
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
-          if !user.admin?
+          unless user.admin?
             disallow!
             return permission_action
           end
