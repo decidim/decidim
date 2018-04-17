@@ -115,6 +115,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            projects_per_page: Projects per page
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
           step:
