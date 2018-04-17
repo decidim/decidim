@@ -12,7 +12,6 @@ module Decidim
       include Decidim::LocaleSwitcher
 
       include NeedsPermission
-      skip_authorization_check
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper

@@ -116,7 +116,8 @@ module Decidim
       # not the process groups one.
       def user_can_enter_space_area?
         return unless permission_action.action == :enter &&
-                      permission_action.subject == :space_area
+                      permission_action.subject == :space_area &&
+                      context.fetch(:space_name, nil) == :processes
 
         toggle_allow(user.admin? || has_manageable_processes?)
       end

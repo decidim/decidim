@@ -129,7 +129,6 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?
         Decidim.participatory_space_manifests.any? do |manifest|
-          next if manifest.name == :consultations
           begin
             new_permission_action = Decidim::PermissionAction.new(
               action: permission_action.action,

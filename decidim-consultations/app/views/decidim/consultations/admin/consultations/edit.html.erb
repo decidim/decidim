@@ -3,7 +3,7 @@
   <div class="button--double form-general-submit">
     <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button" %>
 
-    <% if can? :publish, current_consultation %>
+    <% if allowed_to? :publish, :consultation, consultation: current_consultation %>
       <% if current_consultation.published? %>
         <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                     consultation_publish_path(current_consultation),
@@ -17,21 +17,21 @@
       <% end %>
     <% end %>
 
-    <% if can? :publish_results, current_consultation %>
+    <% if allowed_to? :publish_results, :consultation, consultation: current_consultation %>
       <%= link_to t("actions.publish_results", scope: "decidim.admin"),
                   consultation_publish_results_path(current_consultation),
                   method: :post,
                   class: "button hollow" %>
     <% end %>
 
-    <% if can? :unpublish_results, current_consultation %>
+    <% if allowed_to? :unpublish_results, :consultation, consultation: current_consultation %>
       <%= link_to t("actions.unpublish_results", scope: "decidim.admin"),
                   consultation_publish_results_path(current_consultation),
                   method: :delete,
                   class: "button muted" %>
     <% end %>
 
-    <% if can? :destroy, current_consultation %>
+    <% if allowed_to? :destroy, :consultation, consultation: current_consultation %>
       <%= link_to t("decidim.admin.actions.destroy"),
                   current_consultation,
                   method: :delete,

@@ -76,7 +76,7 @@ module Decidim
                     icon_name: "dial",
                     position: 3.5,
                     active: :inclusive,
-                    if: allowed_to?(:enter, :space_area)
+                    if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
     end

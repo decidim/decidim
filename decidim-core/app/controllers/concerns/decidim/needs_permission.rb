@@ -10,8 +10,6 @@ module Decidim
     included do
       helper_method :allowed_to?
 
-      skip_authorization_check
-
       class ::Decidim::ActionForbidden < StandardError
       end
 
@@ -66,16 +64,6 @@ module Decidim
 
       def permission_scope
         raise "Please, make this method return a symbol"
-      end
-
-      def current_ability
-        @current_ability ||= FakeAbility.new(current_user, permissions_context)
-      end
-
-      class FakeAbility
-        include CanCan::Ability
-
-        def initialize(*); end
       end
     end
   end

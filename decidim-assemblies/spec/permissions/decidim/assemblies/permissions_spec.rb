@@ -132,6 +132,7 @@ describe Decidim::Assemblies::Permissions do
     let(:action) do
       { scope: :admin, action: :enter, subject: :space_area }
     end
+    let(:context) { { space_name: :assemblies } }
 
     it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
   end
