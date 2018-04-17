@@ -6,8 +6,4 @@
   <% else  %>
     <%= render :profile_inline %>
   <% end %>
-
-  <% if profile_path? %>
-    <%= link_to_current_or_new_conversation_with(model) %>
-  <% end %>
 </div>

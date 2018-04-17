@@ -62,6 +62,7 @@ module Decidim
     def actionable?
       # true if proposals_controller? && index_action? && @options[:extra]
       true if user_author? && proposals_controller? && index_action?
+      true if withdrawable? || flagable?
     end
 
     def user_author?
