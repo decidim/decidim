@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Soort gebied
+        area_type: Thema
         name: Naam
         organization: Organisatie
       area_type:
@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: Verzameling
+        attachment_collection_id: collection
         description: Beschrijving
         file: Bestand
         title: Titel
@@ -36,7 +36,7 @@ nl:
         description: Beschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
         facebook_handler: Facebook handler
-        favicon: Icoon
+        favicon: Favicon
         github_handler: GitHub-handler
         header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Actieknop ondertitel
@@ -65,9 +65,9 @@ nl:
         code: Code
         name: Naam
         organization: Organisatie
-        parent_id: Ouder
+        parent_id: Parent
         scope_type: Scope type
-        scope_type_id: Scope type
+        scope_type_id: Bereiktype
       scope_type:
         name: Naam
         organization: Organisatie
@@ -126,35 +126,35 @@ nl:
         verify: Verifiëren
       area_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw gebiedstype.
-          success: Gebiedstype met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuw thema.
+          success: Thema met succes gemaakt.
         destroy:
-          success: Gebiedstype met succes vernietigd
+          success: Thema met succes verwijderd
         edit:
           title: Gebiedstype bewerken
           update: Bijwerken
         new:
-          create: Maak een gebiedstype
-          title: Nieuw gebiedstype
+          create: Maak een thema
+          title: Nieuw thema
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit gebiedstype.
+          error: Er is een fout opgetreden bij het bijwerken van dit thema.
           success: Gebiedstype is succesvol bijgewerkt
       areas:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw gebied.
+          error: Er is een fout opgetreden bij het maken van een nieuw thema.
           success: Gebied met succes gemaakt.
         destroy:
-          success: Gebied met succes vernietigd
+          success: Thema met succes verwijderd
         edit:
-          title: Gebied bewerken
+          title: Thema bewerken
           update: Bijwerken
         new:
-          create: Maak een gebied
-          title: Nieuw gebied
-        no_areas: Geen gebieden
+          create: Maak een thema
+          title: Nieuw thema
+        no_areas: Geen thema's
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit gebied.
-          success: Gebied met succes bijgewerkt
+          success: Thema met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
@@ -226,7 +226,7 @@ nl:
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functie.
-          success: Functionaliteit is succesvol gemaakt.
+          success: Faciliteit is succesvol gemaakt.
         destroy:
           error: Er is een fout onstaan bij het vernietigingen van deze functionaliteit.
           success: Functionaliteit is succesvol verwijderd.
@@ -234,7 +234,7 @@ nl:
           title: Bewerk functie
           update: Bijwerken
         form:
-          default_step_settings: Standaard step-instellingen
+          default_step_settings: Standaard stappenplan
           global_settings: Algemene instellingen
           step_settings: Stapinstellingen
         index:
@@ -248,7 +248,7 @@ nl:
           title: 'Functionaliteit toevoegen: %{name}'
         publish:
           success: De functionaliteit is succesvol gepubliceerd.
-        title: Functionaliteiten
+        title: Faciliteiten
         unpublish:
           success: De functionaliteit is succesvol ongepubliceerd.
         update:
@@ -295,8 +295,8 @@ nl:
         admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Gebiedstypen
-        areas: gebieden
+        area_types: Thema
+        areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -516,7 +516,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Beheerderslog
-        area_types: Gebiedstypen
+        area_types: Thema's
         areas: gebieden
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
