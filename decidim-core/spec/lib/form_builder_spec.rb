@@ -466,7 +466,7 @@ module Decidim
           end
 
           it "doesn't render an image tag" do
-            expect(parsed.css('img[src="' + url + '"]').first).not.to be_truthy
+            expect(parsed.css('img[src="' + url + '"]').first).to be_nil
           end
 
           it "renders a link to the current file url" do
@@ -486,7 +486,7 @@ module Decidim
           let(:optional) { false }
 
           it "doesn't render the delete checkbox" do
-            expect(parsed.css('input[type="checkbox"]').first).not.to be_truthy
+            expect(parsed.css('input[type="checkbox"]').first).to be_nil
           end
         end
       end
