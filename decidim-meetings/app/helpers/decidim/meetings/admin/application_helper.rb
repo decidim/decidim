@@ -9,8 +9,8 @@ module Decidim
         include Decidim::MapHelper
 
         def meeting_organizer_picker_text(form)
-          return "" unless form.object.organizer.present?
-          return "#{form.object.organizer.name} (@#{form.object.organizer.nickname})" if form.object.organizer.present?
+          return "" if form.object.organizer.blank?
+          "#{form.object.organizer.name} (@#{form.object.organizer.nickname})"
         end
       end
     end
