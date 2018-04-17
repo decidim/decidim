@@ -2,6 +2,15 @@
 
 ## Step by step
 
+In order to develop on decidim, you'll need:
+
+* **Git** 2.15+
+* **PostgreSQL** 9.4+
+* **Ruby** 2.5.0 (2.3+ should work just fine, but that's the version we test against)
+* **NodeJS** 9.x.x
+* **ImageMagick**
+* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
+
 We're starting with an Ubuntu 16.04 LTS. This is an opinionated guide and YMMV, so if you're free to use the technology that you fell most comfortable on. If you have any doubts and you're blocked you can go and ask on [our Gitter](https://gitter.im/decidim/decidim). We recommend that you follow some Ruby on Rails tutorials (like [Getting Started with Ruby on Rails](http://guides.rubyonrails.org/getting_started.html)) and have some knowledge on how gems and engines work.
 
 On this tutorial we'll see how to install rbenv, PostgreSQL and Decidim, and how to configure everything together.
