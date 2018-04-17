@@ -9,7 +9,6 @@ module Decidim
 
     layout "layouts/decidim/application"
 
-    authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
     helper_method :page, :stats
     helper CtaButtonHelper
@@ -17,6 +16,7 @@ module Decidim
     skip_before_action :store_current_location
 
     def index
+      enforce_permission_to :read, :public_page
       @pages = current_organization.static_pages.all.to_a.sort do |a, b|
         a.title[I18n.locale.to_s] <=> b.title[I18n.locale.to_s]
       end

@@ -4,28 +4,23 @@ module Decidim
   module Sortitions
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        def allowed?
-          # Stop checks if the user is not authorized to perform the
-          # permission_action for this space
-          return false unless spaces_allows_user?
-          return false unless user
+        def permissions
+          return permission_action unless user
 
-          return false if permission_action.scope != :admin
+          return permission_action if permission_action.scope != :admin
 
-          return false if permission_action.subject != :sortition
+          return permission_action if permission_action.subject != :sortition
 
-          return true if case permission_action.action
-                         when :destroy
-                           sortition.present? && !sortition.cancelled?
-                         when :update
-                           sortition.present?
-                         when :create, :read
-                           true
-                         else
-                           false
-                         end
+          case permission_action.action
+          when :destroy
+            permission_action.allow! if sortition.present? && !sortition.cancelled?
+          when :update
+            permission_action.allow! if sortition.present?
+          when :create, :read
+            permission_action.allow!
+          end
 
-          false
+          permission_action
         end
 
         private

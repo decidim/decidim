@@ -13,7 +13,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "creating a consultation" do
     before do
-      click_link("New")
+      within ".layout-content" do
+        click_link("New")
+      end
     end
 
     it "creates a new consultation" do
@@ -64,7 +66,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "trying to create a consultation with invalid data" do
     before do
-      click_link("New")
+      within ".layout-content" do
+        click_link("New")
+      end
     end
 
     it "fails to create a new consultation" do

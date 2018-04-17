@@ -1,27 +1,39 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Default permissions class for all components and spaces. It authorizes all
+  # Default permissions class for all components and spaces. It disauthorizes all
   # actions by any kind of user. Also works as a default implementation so other
   # components can inherit from it and get some cenvenience methods.
   class DefaultPermissions
-    def initialize(user, permission_action, context)
+    def initialize(user, permission_action, context = {})
       @user = user
       @permission_action = permission_action
       @context = context
     end
 
-    def allowed?
-      true
+    def permissions
+      permission_action
     end
 
     private
 
     attr_reader :user, :permission_action, :context
 
-    def spaces_allows_user?
-      return unless space.manifest.permissions_class
-      space.manifest.permissions_class.new(user, permission_action, context).allowed?
+    def disallow!
+      permission_action.disallow!
+    end
+
+    def allow!
+      permission_action.allow!
+    end
+
+    def toggle_allow(condition)
+      condition ? allow! : disallow!
+    end
+
+    def read_participatory_space_action?
+      permission_action.action == :read &&
+        [:participatory_space, :component].include?(permission_action.subject)
     end
 
     def authorized?(permission_action)

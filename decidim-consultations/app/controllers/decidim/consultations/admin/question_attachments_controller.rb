@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # Controller that allows managing all the attachments for a question
-      class QuestionAttachmentsController < Decidim::Admin::ApplicationController
+      class QuestionAttachmentsController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
         include Decidim::Admin::Concerns::HasAttachments
 

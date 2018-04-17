@@ -3,28 +3,23 @@
 module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        # Stop checks if the user is not authorized to perform the
-        # permission_action for this space
-        return false unless spaces_allows_user?
-        return false unless user
+      def permissions
+        return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
-        return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
-        return false if permission_action.scope != :public
+        return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+        return permission_action if permission_action.scope != :public
 
-        return false if permission_action.subject != :meeting
+        return permission_action if permission_action.subject != :meeting
 
-        return true if case permission_action.action
-                       when :join
-                         can_join_meeting?
-                       when :leave
-                         can_leave_meeting?
-                       else
-                         false
-                       end
+        case permission_action.action
+        when :join
+          toggle_allow(can_join_meeting?)
+        when :leave
+          toggle_allow(can_leave_meeting?)
+        end
 
-        false
+        permission_action
       end
 
       private

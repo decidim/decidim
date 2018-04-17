@@ -4,8 +4,6 @@ module Decidim
   module Doorkeeper
     # Custom Doorkeeper AuthorizationsController to avoid namespace problems.
     class AuthorizationsController < ::Doorkeeper::AuthorizationsController
-      skip_authorization_check
-
       helper_method :oauth_application
 
       def oauth_application

@@ -15,8 +15,26 @@ module Decidim
       @action = action
       @scope = scope
       @subject = subject
+      @state = nil
     end
 
     attr_reader :action, :scope, :subject
+
+    def allow!
+      raise PermissionCannotBeDisallowedError, "Allowing a previously disallowed action is not permitted: #{inspect}" if @state == :disallowed
+      @state = :allowed
+    end
+
+    def disallow!
+      @state = :disallowed
+    end
+
+    def allowed?
+      raise PermissionNotSetError, "Permission hasn't been allowed or disallowed yet: #{inspect}" if @state.blank?
+      @state == :allowed
+    end
+
+    class PermissionNotSetError < StandardError; end
+    class PermissionCannotBeDisallowedError < StandardError; end
   end
 end

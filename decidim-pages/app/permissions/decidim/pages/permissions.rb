@@ -3,16 +3,12 @@
 module Decidim
   module Pages
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        # Stop checks if the user is not authorized to perform the
-        # permission_action for this space
-        return false unless spaces_allows_user?
+      def permissions
+        return permission_action if permission_action.scope != :admin
 
-        return false if permission_action.scope != :admin
+        permission_action.allow! if permission_action.action == :update
 
-        return true if permission_action.action == :update
-
-        false
+        permission_action
       end
     end
   end
