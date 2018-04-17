@@ -1,0 +1,72 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if can? :update, current_participatory_space.consultation %>
+        <li <% if is_active_link?(decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("consultation", scope: "decidim.admin.menu.questions_submenu"),
+                                    decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation) %>
+        </li>
+      <% end %>
+
+      <% if can?(:update, current_participatory_space) %>
+        <li <% if is_active_link?(decidim_admin_consultations.edit_question_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.questions_submenu"),
+                                    decidim_admin_consultations.edit_question_path(current_participatory_space) %>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Consultations::Response %>
+        <li <% if is_active_link?(decidim_admin_consultations.responses_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("responses", scope: "decidim.admin.menu.questions_submenu"),
+                                    decidim_admin_consultations.responses_path(current_participatory_space) %>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Component %>
+        <li <% if is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.questions_submenu"),
+                                    decidim_admin_consultations.components_path(current_participatory_space) %>
+          <ul>
+            <% current_participatory_space.components.each do |component| %>
+              <% if component.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_component_path(component)) || is_active_link?(decidim_admin_consultations.edit_component_path(current_participatory_space, component)) || is_active_link?(decidim_admin_consultations.edit_component_permissions_path(current_participatory_space, component)) %> class="is-active" <% end %>>
+                  <%= link_to manage_component_path(component) do %>
+                    <%= translated_attribute component.name %>
+                    <% if component.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
+                        <%= component.primary_stat %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Category %>
+        <li <% if is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".categories"),
+                                    decidim_admin_consultations.categories_path(current_participatory_space) %>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Attachment %>
+        <li <% if is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".attachments"),
+                                    decidim_admin_consultations.question_attachments_path(current_participatory_space) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= translated_attribute(current_participatory_space.consultation.title) %>
+    </div>
+  </div>
+  <%= yield %>
+<% end %>

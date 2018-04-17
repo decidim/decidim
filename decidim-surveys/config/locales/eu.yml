@@ -5,19 +5,43 @@ eu:
         body: Erantzuna
       survey_question:
         mandatory: Derrigorrezkoa
+        max_choices: Gehienezko aukera kopurua
         question_type: Mota
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: ez dira osatu
+              too_many: gehiegi dira
   decidim:
-    features:
+    components:
       surveys:
         actions:
           answer: Erantzuna
         name: Inkesta
         settings:
           global:
-            announcement: Oharra
+            announcement: Anuntzio
           step:
             allow_answers: Baimendu erantzunak
-            announcement: Oharra
+            announcement: Anuntzio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: '%{resource_title} inkesta %{participatory_space_title} itxita egon da.'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Inkestaren arabera %{participatory_space_title} amaitu da
+          notification_title: Inkesta <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> amaitu da.
+        survey_opened:
+          email_intro: '%{resource_title} inkestaren %{participatory_space_title} zenbakian dago orain. Orri honetan parte har dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{participatory_space_title} inkesta berri bat'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
+    forms:
+      errors:
+        survey_answer:
+          body: Gorputza ezin da hutsik egon
     surveys:
       admin:
         exports:
@@ -29,7 +53,8 @@ eu:
         surveys:
           answer_option:
             answer_option: Erantzuna aukera
-            remove_answer_option: Kendu erantzun aukera
+            free_text: Testu librea
+            remove: Kendu
             statement: Adierazpena
           edit:
             save: Gorde
@@ -39,9 +64,13 @@ eu:
             already_answered_warning: Inkesta dagoeneko erabiltzaile batzuek erantzun dute, beraz, ezin dituzu bere galderak aldatu.
           question:
             add_answer_option: Gehitu erantzun aukera
+            any: Edozein
+            description: deskribapena
+            down: Down
             question: Galdera
-            remove_question: Galdera kendu
+            remove: Kendu
             statement: Adierazpena
+            up: up
           update:
             invalid: Inkesta gordetzean erroreak gertatu dira.
             success: Inkesta ondo gorde da.
@@ -50,10 +79,13 @@ eu:
         multiple_option: Aukera anitz
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
+        sorting: Lazcoz
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
           success: Inkesta ondo bete da.
+        question:
+          max_choices: 'Gehienezko aukerak: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_link}">kontua sortu</a> inkesta erantzuteko.

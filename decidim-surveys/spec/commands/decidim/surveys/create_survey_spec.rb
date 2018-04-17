@@ -6,8 +6,8 @@ module Decidim
   module Surveys
     describe CreateSurvey do
       describe "call" do
-        let(:feature) { create(:feature, manifest_name: "surveys") }
-        let(:command) { described_class.new(feature) }
+        let(:component) { create(:component, manifest_name: "surveys") }
+        let(:command) { described_class.new(component) }
 
         describe "when the survey is not saved" do
           before do
@@ -32,8 +32,8 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new survey with the same name as the feature" do
-            expect(Survey).to receive(:new).with(feature: feature).and_call_original
+          it "creates a new survey with the same name as the component" do
+            expect(Survey).to receive(:new).with(component: component).and_call_original
 
             expect do
               command.call

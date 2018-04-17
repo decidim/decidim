@@ -39,7 +39,7 @@ module Decidim
           progress: result.progress,
           created_at: result.created_at,
           url: url,
-          feature: { id: feature.id },
+          component: { id: component.id },
           proposal_urls: proposals
         }
       end
@@ -48,8 +48,8 @@ module Decidim
 
       attr_reader :result
 
-      def feature
-        result.feature
+      def component
+        result.component
       end
 
       def proposals

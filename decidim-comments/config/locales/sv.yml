@@ -6,7 +6,7 @@ sv:
           error: Det har varit fel när du röstar kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}"> Logga in med ditt konto</a> eller <a href="%{sign_up_url}">sign up</a> för att lägga till din kommentar.
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera</a> för att lägga till din kommentar.
         form:
           body:
             label: Kommentar
@@ -23,13 +23,13 @@ sv:
       comment:
         alignment:
           against: Mot
-          in_favor: Till förmån för
-        deleted_user: Ta bort användare
-        reply: Svar
+          in_favor: För
+        deleted_user: Raderad användare
+        reply: Svara
         report:
           action: Rapportera
           already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
-          close: Stänga
+          close: Stäng
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
@@ -40,34 +40,36 @@ sv:
       comment_order_selector:
         order:
           best_rated: Bästa betyg
-          most_discussed: Mest diskuterat
+          most_discussed: Mest diskuterade
           older: Äldre
-          recent: Nyligen
+          recent: Senaste
         title: 'Sortera efter:'
       comment_thread:
         title: Samtal med %{authorName}
       comments:
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
-        loading: Laddar kommentarer ...
+        loading: Laddar kommentarer...
         title: "%{count} kommentarer"
-      featured_comment:
-        title: Utvalda kommentarer
     events:
       comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
+          email_outro: Du har fått den här meddelandet eftersom du följer %{author_name}. Du kan följa bort den här användaren från deras profilsida.
+          email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          comment:
-            email_intro: '"%{resource_title}" har kommenterats. Du kan läsa kommentaren på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan följa det från föregående länk.
-            email_subject: Det finns en ny kommentar från %{author_name} på %{resource_title}
-            notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: '"%{resource_title}" har kommenterats'
-            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan följa det från föregående länk.
-            email_subject: Det finns ett nytt svar på din kommentar från %{author_name} i <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Det finns ett nytt svar på din kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan följa det från föregående länk.
+          email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
+          email_outro: Du har fått den här meddelandet eftersom din kommentar var svarad.
+          email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Du har nämnts
-          email_outro: Du har fått den här meddelandet eftersom du har nämnts i "%{resource_title}".
+          email_outro: Du har fått den här meddelandet eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:

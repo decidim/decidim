@@ -58,7 +58,7 @@ module Decidim
         private
 
         def statuses
-          @statuses ||= Status.where(feature: current_feature).page(params[:page]).per(15)
+          @statuses ||= Status.where(component: current_component).page(params[:page]).per(15)
         end
 
         def status

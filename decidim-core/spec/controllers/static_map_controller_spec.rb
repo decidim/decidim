@@ -7,12 +7,12 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:feature) { create(:feature, organization: organization) }
-    let(:resource) { create(:dummy_resource, feature: feature) }
+    let(:component) { create(:component, organization: organization) }
+    let(:resource) { create(:dummy_resource, component: component) }
 
     before do
       request.env["decidim.current_organization"] = organization
-      request.env["decidim.current_feature"] = feature
+      request.env["decidim.current_component"] = component
     end
 
     describe "GET /static_map" do

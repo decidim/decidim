@@ -1,0 +1,3 @@
+<% if proposal.answered? %>
+  <span class="<%= proposal_state_badge_css_class(proposal.state) %> label proposal-status"><%= humanize_proposal_state proposal.state %></span>
+<% end %>

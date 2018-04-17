@@ -1,4 +1,12 @@
 pl:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Utworzono w
+        field: Moja dziedzina
+        start_date: Data rozpoczęcia
+        title: Tytuł
+        updated_at: Zaktualizowano na
   decidim:
     dummy:
       admin:

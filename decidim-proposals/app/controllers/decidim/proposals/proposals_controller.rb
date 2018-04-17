@@ -13,7 +13,7 @@ module Decidim
 
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
-      before_action :ensure_is_draft, only: [:compare, :preview, :publish, :edit_draft, :update_draft]
+      before_action :ensure_is_draft, only: [:compare, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
       def index
         @proposals = search
@@ -38,7 +38,7 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -46,7 +46,7 @@ module Decidim
         authorize! :create, Proposal
         @step = :step_1
         if proposal_draft.present?
-          redirect_to edit_draft_proposal_path proposal_draft.id
+          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
           @form = form(ProposalForm).from_params(
             attachment: form(AttachmentForm).from_params({})
@@ -76,7 +76,7 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_feature, @proposal)
+                               .for(current_component, @proposal)
                                .all
 
         if @similar_proposals.blank?
@@ -92,9 +92,9 @@ module Decidim
       def publish
         @step = :step_3
         PublishProposal.call(@proposal, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to proposal_path(@proposal)
           end
 
           on(:invalid) do
@@ -129,15 +129,31 @@ module Decidim
         end
       end
 
+      def destroy_draft
+        authorize! :edit, Proposal
+
+        DestroyProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
+            redirect_to new_proposal_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
+
       def edit
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
@@ -155,7 +171,7 @@ module Decidim
       end
 
       def withdraw
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :withdraw, @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
@@ -193,11 +209,11 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.not_hidden.where(feature: current_feature).find_by(published_at: nil)
+        Proposal.not_hidden.where(component: current_component, author: current_user).find_by(published_at: nil)
       end
 
       def ensure_is_draft
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
     end

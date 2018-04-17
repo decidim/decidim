@@ -5,7 +5,7 @@ ca:
         announcement: Anunci
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
-        copy_features: Copiar funcionalitats
+        copy_components: Copiar components
         copy_steps: Copiar fases
         description: Descripció
         developer_group: Grup promotor
@@ -19,6 +19,7 @@ ca:
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
+        published_at: Publicat el
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
@@ -61,17 +62,21 @@ ca:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
         participatory_processes_submenu:
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
-          features: Funcionalitats
+          components: Components
           info: Informació
           moderations: Moderacions
+          private_users: Usuaris privats
           process_admins: Usuaris del procés
           steps: Fases del procés
       models:
         participatory_process:
           fields:
             created_at: Data de creació
+            private: Privat
             promoted: Destacat
             published: Publicat
             title: Títol
@@ -180,6 +185,8 @@ ca:
           title: Informació general
         index:
           not_published: No publicada
+          private: Privat
+          public: Públic
           published: Publicat
         new:
           create: Crear
@@ -202,6 +209,33 @@ ca:
         resend_invitation:
           error: Hi ha hagut un error reenviant la invitació.
           success: Invitació reenviada amb èxit.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} ha creat el procés participatiu %{resource_name}"
+        publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
+        update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"
+        create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
+        update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} ha convidat l'usuari %{resource_name} al procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} del procés participatiu %{space_name}"
+        update: "%{user_name} ha canviat el rol de l'usuari %{resource_name} en el procés participatiu %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'S''han actualitzat les dates de la fase %{resource_title} a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
     menu:
       processes: Processos
     participatory_process_groups:
@@ -245,12 +279,15 @@ ca:
         local_area: Àrea d'organització
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
+        private_space: Aquest és un procés privat
         scope: Àmbit
         start_date: Data d'inici
         target: Qui participa
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
+        debates_count: Debats
+        endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots

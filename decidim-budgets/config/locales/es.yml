@@ -11,6 +11,7 @@ es:
   decidim:
     budgets:
       actions:
+        attachment_collections: Colecciones
         attachments: Archivos adjuntos
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
@@ -41,6 +42,11 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
+      admin_log:
+        project:
+          create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
       models:
         project:
           fields:
@@ -99,21 +105,21 @@ es:
         show:
           budget: Presupuesto
           view_all_projects: Ver todos los proyectos
-    features:
+    components:
       budgets:
         actions:
-          vote: Dar apoyo
+          vote: Votar
         name: Presupuestos
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
             comments_enabled: Comentarios habilitados
             total_budget: Presupuesto total
-            vote_threshold_percent: Porcentaje mínimo del presupuesto
+            vote_threshold_percent: Porcentaje de votos
           step:
-            announcement: Aviso
+            announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            show_votes: Mostrar votos
+            show_votes: Mostrar los votos
             votes_enabled: Votos habilitados
     orders:
       checkout:

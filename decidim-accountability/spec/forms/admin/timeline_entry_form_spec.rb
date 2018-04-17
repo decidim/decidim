@@ -10,12 +10,12 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature
+        current_component: current_component
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-    let(:result) { create :result, feature: current_feature }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:result) { create :result, component: current_component }
 
     let(:entry_date) { "12/3/2017" }
     let(:description) do

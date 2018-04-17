@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Proposal", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
@@ -18,27 +18,31 @@ describe "Proposal", type: :system do
   let(:proposal_title) { "Oriol for president" }
   let(:proposal_body) { "He will solve everything" }
 
-  let!(:feature) do
-    create(:proposal_feature,
+  let!(:component) do
+    create(:proposal_component,
            :with_creation_enabled,
            manifest: manifest,
            participatory_space: participatory_process)
   end
 
-  let!(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
+  let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
 
   let!(:compare_proposal_path) do
-    Decidim::EngineRouter.main_proxy(feature).compare_proposal_path(proposal_draft)
+    Decidim::EngineRouter.main_proxy(component).compare_proposal_path(proposal_draft)
   end
 
   let!(:preview_proposal_path) do
-    Decidim::EngineRouter.main_proxy(feature).preview_proposal_path(proposal_draft)
+    Decidim::EngineRouter.main_proxy(component).preview_proposal_path(proposal_draft)
+  end
+
+  let!(:edit_draft_proposal_path) do
+    Decidim::EngineRouter.main_proxy(component).edit_draft_proposal_path(proposal_draft)
   end
 
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
-      visit_feature
+      visit_component
       click_link "New proposal"
     end
 
@@ -63,8 +67,8 @@ describe "Proposal", type: :system do
     context "when in step_2: Compare" do
       context "with similar results" do
         before do
-          create(:proposal, title: "Agusti for president", body: "He will solve everything", feature: feature)
-          create(:proposal, title: "Homer for president", body: "He will not solve everything", feature: feature)
+          create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
+          create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
           visit compare_proposal_path
         end
 
@@ -125,6 +129,34 @@ describe "Proposal", type: :system do
 
       it "shows a modify proposal link" do
         expect(page).to have_selector("a", text: "Modify the proposal")
+      end
+    end
+
+    context "when editing a proposal draft" do
+      context "when in step_1: edit proposal draft" do
+        before do
+          visit edit_draft_proposal_path
+        end
+
+        it "show current step_1 highlighted" do
+          within ".wizard__steps" do
+            expect(page).to have_css(".step--active", count: 1)
+            expect(page).to have_css(".step--past", count: 0)
+            expect(page).to have_css(".step--active.step_1")
+          end
+        end
+
+        it "renders a Discard button" do
+          within ".card__content" do
+            expect(page).to have_content("Discard this draft")
+          end
+        end
+
+        it "renders a Preview button" do
+          within ".card__content" do
+            expect(page).to have_content("Preview")
+          end
+        end
       end
     end
   end

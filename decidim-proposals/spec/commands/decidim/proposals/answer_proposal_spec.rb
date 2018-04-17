@@ -28,7 +28,7 @@ module Decidim
             end
 
             it "doesn't update the proposal" do
-              expect(proposal).not_to receive(:update_attributes!)
+              expect(proposal).not_to receive(:update!)
               command.call
             end
           end

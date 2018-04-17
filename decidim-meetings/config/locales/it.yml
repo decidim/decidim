@@ -21,6 +21,28 @@ it:
         start_time: Orario inizio
         title: Titolo
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: C'era un errore en duplicazione di questo incontro.
+          success: Riunione duplicata con successo.
+        new:
+          copy: copia
+          select: Seleziona i dati che desideri duplicare
+          title: Riunione duplicata
+    components:
+      meetings:
+        actions:
+          join: Aderire
+        name: incontri
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+            default_registration_terms: Termini di registrazione predefiniti
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
     events:
       meetings:
         meeting_closed:
@@ -28,6 +50,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata chiusa
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+        meeting_created:
+          email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuova riunione aggiunta a %{participatory_space_title}
+          notification_title: L'incontro <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
@@ -48,20 +75,9 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
-    features:
-      meetings:
-        actions:
-          join: Unirsi
-        name: Incontri
-        settings:
-          global:
-            announcement: Annuncio
-            comments_enabled: Commenti abilitati
-          step:
-            announcement: Annuncio
-            comments_blocked: Commenti bloccati
     meetings:
       actions:
+        attachment_collections: collezioni
         attachments: Allegati
         close: Chiuso
         confirm_destroy: Sei certo di voler cancellare questo meeting?
@@ -121,9 +137,18 @@ it:
             registrations_count:
               one: Si è registrato un'iscrizione.
               other: Si sono registrate %{count} iscrizione.
+            reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
+            reserved_slots_less_than: Deve essere minore o uguale a %{count}
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
+      admin_log:
+        meeting:
+          close: "%{user_name} ha chiuso la riunione %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato la riunione %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} ha eliminato la riunione %{resource_name} nello spazio %{space_name}"
+          export_registrations: "%{user_name} esportate le registrazioni della riunione %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato la riunione %{resource_name} sullo spazio %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +208,16 @@ it:
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Incontri passati
+          upcoming_meetings: Prossimi incontri
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Incontri passati
+        see_all_meetings: Vedi tutte le riunioni
+        upcoming_meetings: Prossimi incontri
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Risultati correlati:'

@@ -6,9 +6,9 @@ shared_examples "scope helpers" do
   let(:organization) { create(:organization) }
   let(:scopes_enabled) { true }
   let(:participatory_space_scope) { nil }
-  let(:feature) { create(:feature, manifest_name: "dummy", participatory_space: participatory_space) }
+  let(:component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
   let(:scope) { create(:scope, organization: organization) }
-  let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
+  let(:resource) { create(:dummy_resource, component: component, scope: scope) }
 
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
@@ -29,28 +29,33 @@ shared_examples "scope helpers" do
 
     context "when the process has not scope enabled" do
       let(:scopes_enabled) { false }
+
       it { is_expected.to be_falsey }
     end
 
     context "when the process has a different scope than the organization" do
       let(:participatory_space_scope) { create(:scope, organization: organization) }
+
       it { is_expected.to be_truthy }
     end
 
     context "when the process has the same scope as the organization" do
       let(:participatory_space_scope) { scope }
+
       it { is_expected.to be_falsey }
     end
 
     context "when the resource has not a scope" do
       let(:scope) { nil }
+
       it { is_expected.to be_falsey }
     end
   end
 
   describe "scope_name_for_picker" do
-    let(:global_name) { "Global name" }
     subject { helper.scope_name_for_picker(scope, global_name) }
+
+    let(:global_name) { "Global name" }
 
     context "when a scope is given" do
       context "when the scope has a scope type" do

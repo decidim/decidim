@@ -27,7 +27,7 @@ module Decidim
       attr_reader :debate, :form
 
       def organization
-        @organization = form.current_feature.organization
+        @organization = form.current_component.organization
       end
 
       def i18n_field(field)
@@ -43,7 +43,7 @@ module Decidim
           category: form.category,
           title: i18n_field(form.title),
           description: i18n_field(form.description),
-          feature: form.current_feature
+          component: form.current_component
         )
       end
 

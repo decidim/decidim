@@ -16,7 +16,7 @@
     activate(picker) {
       let $element = $(picker);
       let input    = "hidden",
-          name     = $element.data('picker-name'),
+          name     = $element.data("picker-name"),
           values   = $(".picker-values", $element);
 
       if ($element.hasClass("picker-multiple")) {
@@ -31,7 +31,7 @@
 
       $element.on("click", "a", (event) => {
         event.preventDefault();
-        if ($element.hasClass('disabled')) {
+        if ($element.hasClass("disabled")) {
           return;
         }
         this._openPicker($element, event.target.parentNode);
@@ -78,7 +78,7 @@
 
     _openPicker($picker, div) {
       this._setCurrentPicker($picker, div);
-      this._load($("a", div).attr('href'));
+      this._load($("a", div).attr("href"));
     }
 
     _setCurrentPicker($picker, div) {
@@ -90,7 +90,7 @@
       this.current = {
         multiple: $picker.hasClass("picker-multiple"),
         picker: $picker,
-        name: $picker.data('picker-name'),
+        name: $picker.data("picker-name"),
         values: $picker.find(".picker-values"),
         div: currentDiv
       };
@@ -101,7 +101,7 @@
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
         this._handleLinks(modalContent);
-        this.modal.foundation('open');
+        this.modal.foundation("open");
       });
     }
 
@@ -110,16 +110,16 @@
         let $link = $(link);
         $link.click((event) => {
           event.preventDefault();
-          if ($link.data('data-close')) {
+          if ($link.data("data-close")) {
             return;
           }
 
-          let chooseUrl = $link.attr('href');
+          let chooseUrl = $link.attr("href");
           if (chooseUrl) {
-            if (typeof $link.data('picker-choose') === 'undefined') {
+            if (typeof $link.data("picker-choose") === "undefined") {
               this._load(chooseUrl);
             } else {
-              this._choose({url: chooseUrl, value: $link.data('picker-value') || "", text: $link.data('picker-text') || ""});
+              this._choose({url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || ""});
             }
           }
         });
@@ -153,7 +153,7 @@
       if (user) {
         $input.trigger("change");
         this._removeErrors();
-        this.modal.foundation('close');
+        this.modal.foundation("close");
       }
 
       // Unselect updated value and close modal

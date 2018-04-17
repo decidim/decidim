@@ -10,9 +10,9 @@ const fetcherFactory = (path) => {
     return jQuery.ajax({
       url: path,
       data: JSON.stringify({ query }),
-      method: 'POST',
-      contentType: 'application/json',
-      dataType: 'json'
+      method: "POST",
+      contentType: "application/json",
+      dataType: "json"
     });
   };
 }
@@ -20,6 +20,6 @@ const fetcherFactory = (path) => {
 window.renderDocumentation = (path) => {
   ReactDOM.render(
     <GraphQLDocs.GraphQLDocs fetcher={fetcherFactory(path)} />,
-    document.getElementById('documentation'),
+    document.getElementById("documentation"),
   );
 };

@@ -5,14 +5,14 @@
 @activesubpage = "component-proposals"
 %>
 
-<%= partial 'template_top' %>
+<%= partial "template_top" %>
 <div class="layout-nav">
-  <%= partial 'process_sub_nav' %>
+  <%= partial "process_sub_nav" %>
 </div>
 <div class="layout-content has-process-title">
   <div class="container">
-    <%= partial 'process_title' %>
-    <%= partial 'filter_table' %>
+    <%= partial "process_title" %>
+    <%= partial "filter_table" %>
     <div class="card">
       <div class="card-divider card-divider--reduced"><!-- card-divider--reduced ONLY in apply-action.html-->
         <h2 class="card-title flex--sbc">
@@ -33,7 +33,7 @@
         <table class="table-list table-list--lastcenter">
             <thead>
               <tr>
-                <th><input type="checkbox" checked></th>
+                <th><input type="checkbox" checked /></th>
                 <th>id</th>
                 <th>title</th>
                 <th>categoría</th>
@@ -46,7 +46,7 @@
             <tbody>
               <% 6.times do %>
                 <tr class="selected">
-                  <td><input type="checkbox" checked></td>
+                  <td><input type="checkbox" checked /></td>
                   <td><%= Faker::Number.digit %></td>
                   <td><%= Faker::FamilyGuy.quote %></td>
                   <td><%= Faker::Food.dish %></td>
@@ -62,4 +62,4 @@
     </div>
   </div>
 </div>
-<%= partial 'template_bottom' %>
+<%= partial "template_bottom" %>

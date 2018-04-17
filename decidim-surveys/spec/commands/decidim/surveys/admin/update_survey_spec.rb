@@ -8,8 +8,8 @@ module Decidim
       describe UpdateSurvey do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
-        let(:survey) { create(:survey, feature: feature) }
+        let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
+        let(:survey) { create(:survey, component: component) }
         let(:published_at) { nil }
         let(:form_params) do
           {
@@ -28,8 +28,8 @@ module Decidim
               "ca" => "<p>Contingut</p>",
               "es" => "<p>Contenido</p>"
             },
-            "questions" => [
-              {
+            "questions" => {
+              "0" => {
                 "body" => {
                   "en" => "First question",
                   "ca" => "Primera pregunta",
@@ -37,20 +37,21 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "short_answer",
-                "answer_options" => []
+                "answer_options" => {}
               },
-              {
+              "1" => {
                 "body" => {
                   "en" => "Second question",
                   "ca" => "Segona pregunta",
                   "es" => "Segunda pregunta"
                 },
+                "description" => { "en" => "Description" },
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
-                "answer_options" => []
+                "answer_options" => {}
               },
-              {
+              "2" => {
                 "body" => {
                   "en" => "Third question",
                   "ca" => "Tercera pregunta",
@@ -58,30 +59,58 @@ module Decidim
                 },
                 "position" => "2",
                 "question_type" => "single_option",
-                "answer_options" => [
-                  {
+                "answer_options" => {
+                  "0" => {
                     "body" => {
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
-                    }
+                    },
+                    "free_text" => "0"
                   },
-                  {
+                  "1" => {
                     "body" => {
                       "en" => "Second answer",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
                   }
-                ]
+                }
+              },
+              "3" => {
+                "body" => {
+                  "en" => "Fourth question",
+                  "ca" => "Cuarta pregunta",
+                  "es" => "Cuarta pregunta"
+                },
+                "position" => "3",
+                "question_type" => "multiple_option",
+                "max_choices" => "2",
+                "answer_options" => {
+                  "0" => {
+                    "body" => {
+                      "en" => "First answer",
+                      "ca" => "Primera resposta",
+                      "es" => "Primera respuesta"
+                    },
+                    "free_text" => "1"
+                  },
+                  "1" => {
+                    "body" => {
+                      "en" => "Second answer",
+                      "ca" => "Segona resposta",
+                      "es" => "Segunda respuesta"
+                    }
+                  }
+                }
               }
-            ],
+            },
             "published_at" => published_at
           }
         end
         let(:form) do
           SurveyForm.from_params(
-            form_params
+            survey: form_params
           ).with_context(
             current_organization: current_organization
           )
@@ -98,7 +127,7 @@ module Decidim
           end
 
           it "doesn't update the survey" do
-            expect(survey).not_to receive(:update_attributes!)
+            expect(survey).not_to receive(:update!)
             command.call
           end
         end
@@ -113,15 +142,27 @@ module Decidim
             survey.reload
 
             expect(survey.description["en"]).to eq("<p>Content</p>")
-            expect(survey.questions.length).to eq(3)
+            expect(survey.questions.length).to eq(4)
 
             survey.questions.each_with_index do |question, idx|
-              expect(question.body["en"]).to eq(form_params["questions"][idx]["body"]["en"])
+              expect(question.body["en"]).to eq(form_params["questions"][idx.to_s]["body"]["en"])
             end
 
             expect(survey.questions[1]).to be_mandatory
+            expect(survey.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
             expect(survey.questions[1].question_type).to eq("long_answer")
-            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"][2]["answer_options"][1]["body"]["en"])
+            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+
+            expect(survey.questions[2].question_type).to eq("single_option")
+            expect(survey.questions[2].max_choices).to be_nil
+
+            expect(survey.questions[3].question_type).to eq("multiple_option")
+            expect(survey.questions[2].answer_options[0].free_text).to eq(false)
+            expect(survey.questions[2].max_choices).to be_nil
+
+            expect(survey.questions[3].question_type).to eq("multiple_option")
+            expect(survey.questions[3].answer_options[0].free_text).to eq(true)
+            expect(survey.questions[3].max_choices).to eq(2)
           end
         end
 

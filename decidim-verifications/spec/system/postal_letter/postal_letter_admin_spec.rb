@@ -8,11 +8,14 @@ describe "Postal letter management", type: :system do
   end
 
   let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+  let(:user) { create :user, organization: organization }
+  let(:user2) { create :user, organization: organization }
 
   let!(:letter_not_sent) do
     create(
       :authorization,
       :pending,
+      user: user,
       name: "postal_letter",
       verification_metadata: {
         pending_verification_code: "123456",
@@ -25,6 +28,7 @@ describe "Postal letter management", type: :system do
     create(
       :authorization,
       :pending,
+      user: user2,
       name: "postal_letter",
       verification_metadata: {
         verification_code: "123456",

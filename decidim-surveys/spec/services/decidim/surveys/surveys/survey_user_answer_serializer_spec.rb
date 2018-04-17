@@ -10,7 +10,7 @@ module Decidim
       end
 
       let!(:survey) { create(:survey) }
-      let!(:user) { create(:user, organization: survey.feature.organization) }
+      let!(:user) { create(:user, organization: survey.component.organization) }
       let!(:survey_questions) { create_list :survey_question, 3, survey: survey }
       let!(:survey_answers) do
         survey_questions.map do |question|

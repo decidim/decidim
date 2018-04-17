@@ -3,23 +3,24 @@
 require "spec_helper"
 
 describe "Orders", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:projects) { create_list(:project, 3, feature: feature, budget: 25_000_000) }
   let(:project) { projects.first }
 
-  let!(:feature) do
-    create(:budget_feature,
+  let!(:component) do
+    create(:budget_component,
            :with_total_budget_and_vote_threshold_percent,
            manifest: manifest,
            participatory_space: participatory_process)
   end
 
   context "when the user is not logged in" do
+    let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
+
     it "is given the option to sign in" do
-      visit_feature
+      visit_component
 
       within "#project-#{project.id}-item" do
         page.find(".budget--list__action").click
@@ -30,13 +31,15 @@ describe "Orders", type: :system do
   end
 
   context "when the user is logged in" do
+    let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
+
     before do
       login_as user, scope: :user
     end
 
     context "and has not a pending order" do
       it "adds a project to the current order" do
-        visit_feature
+        visit_component
 
         within "#project-#{project.id}-item" do
           page.find(".budget--list__action").click
@@ -66,11 +69,11 @@ describe "Orders", type: :system do
           }
         }
 
-        feature.update_attributes!(permissions: permissions)
+        component.update!(permissions: permissions)
       end
 
       it "shows a modal dialog" do
-        visit_feature
+        visit_component
 
         within "#project-#{project.id}-item" do
           page.find(".budget--list__action").click
@@ -81,11 +84,11 @@ describe "Orders", type: :system do
     end
 
     context "and has pending order" do
-      let!(:order) { create(:order, user: user, feature: feature) }
+      let!(:order) { create(:order, user: user, component: component) }
       let!(:line_item) { create(:line_item, order: order, project: project) }
 
       it "removes a project from the current order" do
-        visit_feature
+        visit_component
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
@@ -105,10 +108,10 @@ describe "Orders", type: :system do
       end
 
       context "and try to vote a project that exceed the total budget" do
-        let!(:expensive_project) { create(:project, feature: feature, budget: 250_000_000) }
+        let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
 
         it "cannot add the project" do
-          visit_feature
+          visit_component
 
           within "#project-#{expensive_project.id}-item" do
             page.find(".budget--list__action").click
@@ -119,10 +122,10 @@ describe "Orders", type: :system do
       end
 
       context "and add another project exceeding vote threshold" do
-        let!(:other_project) { create(:project, feature: feature, budget: 50_000_000) }
+        let!(:other_project) { create(:project, component: component, budget: 50_000_000) }
 
         it "can complete the checkout process" do
-          visit_feature
+          visit_component
 
           within "#project-#{other_project.id}-item" do
             page.find(".budget--list__action").click
@@ -151,7 +154,7 @@ describe "Orders", type: :system do
 
     context "and has a finished order" do
       let!(:order) do
-        order = create(:order, user: user, feature: feature)
+        order = create(:order, user: user, component: component)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -159,7 +162,7 @@ describe "Orders", type: :system do
       end
 
       it "can cancel the order" do
-        visit_feature
+        visit_component
 
         within ".budget-summary" do
           accept_confirm { page.find(".cancel-order").click }
@@ -178,15 +181,15 @@ describe "Orders", type: :system do
     end
 
     context "and votes are disabled" do
-      let!(:feature) do
-        create(:budget_feature,
+      let!(:component) do
+        create(:budget_component,
                :with_votes_disabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       it "cannot create new orders" do
-        visit_feature
+        visit_component
 
         expect(page).to have_selector("button.budget--list__action[disabled]", count: 3)
         expect(page).to have_no_selector(".budget-summary")
@@ -194,15 +197,15 @@ describe "Orders", type: :system do
     end
 
     context "and show votes are enabled" do
-      let!(:feature) do
-        create(:budget_feature,
+      let!(:component) do
+        create(:budget_component,
                :with_show_votes_enabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       let!(:order) do
-        order = create(:order, user: user, feature: feature)
+        order = create(:order, user: user, component: component)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -210,7 +213,7 @@ describe "Orders", type: :system do
       end
 
       it "displays the number of votes for a project" do
-        visit_feature
+        visit_component
 
         within "#project-#{project.id}-item" do
           expect(page).to have_content("1 SUPPORT")
@@ -219,8 +222,40 @@ describe "Orders", type: :system do
     end
   end
 
+  describe "index" do
+    it "respects the projects_per_page setting when under total projects" do
+      component.update!(settings: { projects_per_page: 1 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 1)
+    end
+
+    it "respects the projects_per_page setting when it matches total projects" do
+      component.update!(settings: { projects_per_page: 2 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
+    end
+
+    it "respects the projects_per_page setting when over total projects" do
+      component.update!(settings: { projects_per_page: 3 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
+    end
+  end
+
   describe "show" do
-    let!(:project) { create(:project, feature: feature, budget: 25_000_000) }
+    let!(:project) { create(:project, component: component, budget: 25_000_000) }
 
     before do
       visit resource_locator(project).path
@@ -230,23 +265,23 @@ describe "Orders", type: :system do
       let(:attached_to) { project }
     end
 
-    it "shows the feature" do
+    it "shows the component" do
       expect(page).to have_i18n_content(project.title)
       expect(page).to have_i18n_content(project.description)
     end
 
     context "with linked proposals" do
-      let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_space: project.feature.participatory_space)
+      let(:proposal_component) do
+        create(:component, manifest_name: :proposals, participatory_space: project.component.participatory_space)
       end
-      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+      let(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
       before do
         project.link_resources(proposals, "included_proposals")
       end
 
       it "shows related proposals" do
-        visit_feature
+        visit_component
         click_link translated(project.title)
 
         proposals.each do |proposal|

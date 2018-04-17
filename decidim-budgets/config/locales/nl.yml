@@ -11,6 +11,7 @@ nl:
   decidim:
     budgets:
       actions:
+        attachment_collections: collecties
         attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
@@ -41,6 +42,11 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit project
             success: Project succesvol bijgewerkt
+      admin_log:
+        project:
+          create: "%{user_name} heeft het project %{resource_name} gemaakt in de ruimte %{space_name}"
+          delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} spatie"
+          update: "%{user_name} heeft het project %{resource_name} bijgewerkt in de ruimte %{space_name}"
       models:
         project:
           fields:
@@ -99,17 +105,17 @@ nl:
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
-    features:
+    components:
       budgets:
         actions:
-          vote: Stem
-        name: Begrotingen
+          vote: Stemmen
+        name: begrotingen
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-            total_budget: Totale begroting
-            vote_threshold_percent: Stem drempel percentage
+            total_budget: Totale budget
+            vote_threshold_percent: Stemdrempel procent
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd

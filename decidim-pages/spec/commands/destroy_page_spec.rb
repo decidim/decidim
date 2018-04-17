@@ -6,15 +6,15 @@ module Decidim
   module Pages
     describe DestroyPage do
       describe "call" do
-        let(:feature) { create(:feature, manifest_name: "pages") }
-        let!(:page) { create(:page, feature: feature) }
-        let(:command) { described_class.new(feature) }
+        let(:component) { create(:component, manifest_name: "pages") }
+        let!(:page) { create(:page, component: component) }
+        let(:command) { described_class.new(component) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "deletes the page associated to the feature" do
+        it "deletes the page associated to the component" do
           expect do
             command.call
           end.to change(Page, :count).by(-1)

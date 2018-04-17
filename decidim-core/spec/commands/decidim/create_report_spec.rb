@@ -6,8 +6,8 @@ module Decidim
   describe CreateReport do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:feature) { create(:feature, organization: organization) }
-      let(:reportable) { create(:dummy_resource, feature: feature) }
+      let(:component) { create(:component, organization: organization) }
+      let(:reportable) { create(:dummy_resource, component: component) }
       let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user) { create(:user, :confirmed, organization: organization) }
       let(:form) { ReportForm.from_params(form_params) }

@@ -18,6 +18,7 @@ describe "Admin manages officializations", type: :system do
     let!(:officialized) { create(:user, :officialized, organization: organization) }
 
     let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:external_not_officialized) { create(:user) }
 
     before do
       click_link "Officializations"
@@ -26,6 +27,8 @@ describe "Admin manages officializations", type: :system do
     it "shows each user and its officialization status" do
       expect(page).to have_selector("tr[data-user-id=\"#{officialized.id}\"]", text: officialized.name)
       expect(page).to have_selector("tr[data-user-id=\"#{officialized.id}\"]", text: "Officialized")
+
+      expect(page).to have_no_selector("tr[data-user-id=\"#{external_not_officialized.id}\"]", text: not_officialized.name)
 
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: not_officialized.name)
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: "Not officialized")

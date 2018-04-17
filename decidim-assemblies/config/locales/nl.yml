@@ -2,9 +2,12 @@ nl:
   activemodel:
     attributes:
       assembly:
+        area_id: Gebied
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
+        copy_components: Kopieer componenten
+        decidim_area_id: Gebied
+        decidim_scope_id: strekking
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
@@ -12,16 +15,23 @@ nl:
         hero_image: Afbeelding van de startpagina
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
+        participatory_processes_ids: Verwante participatieve processen
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
+        published_at: Gepubliceerd op
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
+        show_statistics: Toon statistieken
         slug: URL slak
         subtitle: Ondertiteling
         target: Doel
         title: Titel
+      assembly_user_role:
+        email: E-mail
+        name: Naam
+        role: Rol
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ nl:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
+          private: Privaat
+          public: Openbaar
           published: Gepubliceerd
         new:
           create: creëren
@@ -80,15 +92,19 @@ nl:
         assemblies: Bijeenkomsten
         assemblies_submenu:
           assembly_admins: Assemblage gebruikers
+          attachment_collections: collecties
+          attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
+          components: Components
           info: info
           moderations: Moderaties
+          private_users: Particuliere gebruikers
       models:
         assembly:
           fields:
             created_at: Gemaakt bij
+            private: Privaat
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
@@ -105,10 +121,21 @@ nl:
             moderator: Moderator
       titles:
         assemblies: Bijeenkomsten
+    admin_log:
+      assembly:
+        create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
+        update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+      assembly_user_role:
+        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
+        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Selecteer een gebied
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ nl:
             active_assemblies: Actieve bijeenkomsten
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
+        area: Gebied
+        children: Assemblies
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
+        private_space: Dit is een privévergadering
+        related_participatory_processes: Verwante participatieve processen
         scope: Scope
         target: Doel
       statistics:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        debates_count: debatten
+        endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
@@ -141,6 +174,10 @@ nl:
         surveys_count: Enquêtes
         users_count: Deelnemers
         votes_count: Stemmen
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Bijeenkomsten
   layouts:

@@ -32,7 +32,7 @@ module Decidim
       private
 
       def survey
-        @survey ||= Survey.find_by(feature: current_feature)
+        @survey ||= Survey.find_by(component: current_component)
       end
     end
   end

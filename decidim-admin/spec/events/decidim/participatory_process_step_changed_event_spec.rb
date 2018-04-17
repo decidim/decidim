@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::ParticipatoryProcessStepChangedEvent do
   include Rails.application.routes.mounted_helpers
 
-  include_context "simple event"
+  include_context "when a simple event"
 
   let(:event_name) { "decidim.events.participatory_process.step_changed" }
   let(:participatory_process) { resource.participatory_process }

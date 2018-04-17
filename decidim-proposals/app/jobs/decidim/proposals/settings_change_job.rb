@@ -3,8 +3,8 @@
 module Decidim
   module Proposals
     class SettingsChangeJob < ApplicationJob
-      def perform(feature_id, previous_settings, current_settings)
-        feature = Decidim::Feature.find(feature_id)
+      def perform(component_id, previous_settings, current_settings)
+        component = Decidim::Component.find(component_id)
 
         if creation_enabled?(previous_settings, current_settings)
           event = "decidim.events.proposals.creation_enabled"
@@ -22,8 +22,8 @@ module Decidim
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,
-          resource: feature,
-          recipient_ids: feature.participatory_space.followers.pluck(:id)
+          resource: component,
+          recipient_ids: component.participatory_space.followers.pluck(:id)
         )
       end
 

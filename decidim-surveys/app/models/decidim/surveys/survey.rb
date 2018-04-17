@@ -4,9 +4,9 @@ module Decidim
   module Surveys
     # The data store for a Survey in the Decidim::Surveys component.
     class Survey < Surveys::ApplicationRecord
-      include Decidim::HasFeature
+      include Decidim::HasComponent
 
-      feature_manifest_name "surveys"
+      component_manifest_name "surveys"
 
       has_many :questions, -> { order(:position) }, class_name: "SurveyQuestion", foreign_key: "decidim_survey_id", dependent: :destroy
       has_many :answers, class_name: "SurveyAnswer", foreign_key: "decidim_survey_id", dependent: :destroy

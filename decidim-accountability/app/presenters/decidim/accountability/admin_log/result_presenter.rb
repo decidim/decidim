@@ -17,10 +17,10 @@ module Decidim
 
         def action_string
           case action
-          when "create"
-            "decidim.accountability.admin_log.result.create"
-          when "update"
-            "decidim.accountability.admin_log.result.update"
+          when "create", "delete", "update"
+            "decidim.accountability.admin_log.result.#{action}"
+          else
+            super
           end
         end
 
@@ -31,6 +31,7 @@ module Decidim
             description: :i18n,
             title: :i18n,
             decidim_scope_id: :scope,
+            parent_id: "Decidim::Accountability::AdminLog::ValueTypes::ParentPresenter",
             progress: :percentage
           }
         end

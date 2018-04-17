@@ -8,8 +8,8 @@ module Decidim::Budgets
 
     let(:user) { create(:user) }
     let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
-    let(:feature) { create(:budget_feature, participatory_space: participatory_process, settings: settings) }
-    let(:project) { create(:project, feature: feature, budget: 60_000) }
+    let(:component) { create(:budget_component, participatory_space: participatory_process, settings: settings) }
+    let(:project) { create(:project, component: component, budget: 60_000) }
     let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 } }
     let(:order) { nil }
 
@@ -19,7 +19,7 @@ module Decidim::Budgets
       end
 
       context "when a order for the current user does exist" do
-        let!(:order) { create(:order, user: user, feature: feature) }
+        let!(:order) { create(:order, user: user, component: component) }
 
         it "doesn't create a new order" do
           expect { subject.call }.not_to change(Order, :count)
@@ -41,13 +41,13 @@ module Decidim::Budgets
 
     context "when the order is checked out" do
       let(:projects) do
-        build_list(:project, 2, budget: 30_000, feature: feature)
+        build_list(:project, 2, budget: 30_000, component: component)
       end
 
       let!(:order) do
         order = create(:order,
                        user: user,
-                       feature: feature)
+                       component: component)
         order.projects << projects
         order.checked_out_at = Time.current
         order.save!
@@ -60,7 +60,7 @@ module Decidim::Budgets
     end
 
     context "when the votes are not enabled" do
-      let(:feature) { create(:budget_feature, :with_votes_disabled, participatory_space: participatory_process, settings: settings) }
+      let(:component) { create(:budget_component, :with_votes_disabled, participatory_space: participatory_process, settings: settings) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

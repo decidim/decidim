@@ -5,7 +5,7 @@ import Comment from "./comment.component";
 import {
   AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
-  CommentFragment,
+  CommentFragment
 } from "../support/schema";
 
 const { I18n } = require("react-i18nify");
@@ -29,7 +29,7 @@ interface CommentThreadProps {
 class CommentThread extends React.Component<CommentThreadProps> {
   public static defaultProps: any = {
     session: null,
-    votable: false,
+    votable: false
   };
 
   public render() {

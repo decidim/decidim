@@ -8,9 +8,9 @@ module Decidim::Accountability
 
     let(:organization) { create :organization, available_locales: [:en] }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
 
-    let(:status) { create :status, feature: current_feature }
+    let(:status) { create :status, component: current_component }
 
     let(:key) { "planned" }
     let(:name) { "Planned" }

@@ -4,12 +4,12 @@ module Decidim
   class ExportJob < ApplicationJob
     queue_as :default
 
-    def perform(user, feature, name, format)
-      export_manifest = feature.manifest.export_manifests.find do |manifest|
+    def perform(user, component, name, format)
+      export_manifest = component.manifest.export_manifests.find do |manifest|
         manifest.name == name.to_sym
       end
 
-      collection = export_manifest.collection.call(feature)
+      collection = export_manifest.collection.call(component)
       serializer = export_manifest.serializer
 
       export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export

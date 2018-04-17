@@ -1,0 +1,10 @@
+var $consultations = $('#consultations');
+var $consultationsCount = $('#consultations-count');
+var $orderFilterInput = $('.order_filter');
+
+$consultations.html('<%= j(render partial: "consultations") %>');
+$consultationsCount.html('<%= j(render partial: "count", locals: { count: consultations.count }) %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $consultations);
+$dropdownMenu.foundation();

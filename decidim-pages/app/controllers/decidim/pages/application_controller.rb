@@ -5,11 +5,11 @@ module Decidim
     # This controller is the abstract class from which all other controllers of
     # this engine inherit.
     #
-    # Note that it inherits from `Decidim::Features::Basecontroller`, which
+    # Note that it inherits from `Decidim::Components::Basecontroller`, which
     # override its layout and provide all kinds of useful methods.
-    class ApplicationController < Decidim::Features::BaseController
+    class ApplicationController < Decidim::Components::BaseController
       def show
-        @page = Page.find_by(feature: current_feature)
+        @page = Page.find_by(component: current_component)
       end
     end
   end

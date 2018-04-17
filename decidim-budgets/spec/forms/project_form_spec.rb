@@ -12,12 +12,12 @@ module Decidim::Budgets
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature,
+        current_component: current_component,
         current_participatory_space: participatory_process
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :budget_feature, participatory_space: participatory_process }
+    let(:current_component) { create :budget_component, participatory_space: participatory_process }
     let(:title) do
       Decidim::Faker::Localized.sentence(3)
     end
@@ -78,14 +78,14 @@ module Decidim::Budgets
     end
 
     it "properly maps category id from model" do
-      project = create(:project, feature: current_feature, category: category)
+      project = create(:project, component: current_component, category: category)
 
       expect(described_class.from_model(project).decidim_category_id).to eq(category_id)
     end
 
     context "with proposals" do
-      let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
-      let!(:proposal) { create :proposal, feature: proposals_feature }
+      let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
+      let!(:proposal) { create :proposal, component: proposals_component }
 
       describe "#proposals" do
         it "returns the available proposals in a way suitable for the form" do
@@ -100,7 +100,7 @@ module Decidim::Budgets
         let(:project) do
           create(
             :project,
-            feature: current_feature,
+            component: current_component,
             scope: scope,
             category: category
           )

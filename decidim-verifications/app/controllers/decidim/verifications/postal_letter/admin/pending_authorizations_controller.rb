@@ -18,7 +18,7 @@ module Decidim
           private
 
           def pending_authorizations
-            Authorizations.new(name: "postal_letter", granted: false)
+            Authorizations.new(organization: current_organization, name: "postal_letter", granted: false)
           end
         end
       end

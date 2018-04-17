@@ -1,0 +1,17 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <span class="author__avatar author__avatar--small">
+      <%= image_tag sortition.cancelled_by_user.avatar_url %>
+    </span>
+    <span class="author__name">
+      <% if sortition.cancelled_by_user&.deleted? %>
+        <span class="label label--small label--basic">
+          <%= t(".deleted") %>
+        </span>
+      <% else %>
+        <%= sortition.cancelled_by_user.name %>
+      <% end %>
+    </span>
+    <%= l sortition.cancelled_on, format: :decidim_short %>
+  </div>
+</div>

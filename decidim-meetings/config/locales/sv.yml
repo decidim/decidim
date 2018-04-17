@@ -15,12 +15,34 @@ sv:
         description: Beskrivning
         end_time: Sluttid
         location: Plats
-        location_hints: Plats tips
+        location_hints: Platstips
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Det gick inte att duplicera det här mötet.
+          success: Duplicerat möte framgångsrikt.
+        new:
+          copy: Kopiera
+          select: Välj vilken data du vill duplicera
+          title: Duplicera möte
+    components:
+      meetings:
+        actions:
+          join: Gå med
+        name: Möten
+        settings:
+          global:
+            announcement: Meddelande
+            comments_enabled: Kommentarer aktiverade
+            default_registration_terms: Standardregistreringsvillkor
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerade
     events:
       meetings:
         meeting_closed:
@@ -28,6 +50,11 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: '"%{resource_title}" mötet stängdes'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet stängdes.
+        meeting_created:
+          email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
+          email_subject: Nytt möte läggs till %{participatory_space_title}
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: De upptagna platserna "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här meddelandet eftersom du är en administratör för mötes deltagande utrymme.
@@ -48,32 +75,21 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
-    features:
-      meetings:
-        actions:
-          join: Ansluta sig
-        name: möten
-        settings:
-          global:
-            announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-          step:
-            announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
     meetings:
       actions:
-        attachments: bilagor
-        close: Stänga
+        attachment_collections: Samlingar
+        attachments: Bifogade filer
+        close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
         new: Ny
-        preview: Förhandsvisning
-        registrations: registreringar
+        preview: Förhandsvisa
+        registrations: Registreringar
         title: Handlingar
       admin:
         exports:
-          registrations: registreringar
+          registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
@@ -84,12 +100,12 @@ sv:
             success: Användaren framgångsrikt inbjuden att delta i mötet.
           new:
             explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Inbjudan
+            invite: Bjud in
             new_invite: Bjud in användare
         meeting_closes:
           edit:
-            close: Stänga
-            title: Stängt möte
+            close: Stäng
+            title: Stäng mötet
         meetings:
           close:
             invalid: Det här problemet har avslutats
@@ -100,9 +116,9 @@ sv:
           destroy:
             success: Mötet har tagits bort
           edit:
-            update: Uppdatering
+            update: Uppdatera
           index:
-            title: möten
+            title: Möten
           new:
             create: Skapa
             title: Skapa möte
@@ -121,9 +137,18 @@ sv:
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har registrerats %{count}.
+            reserved_slots_help: Lämna det till 0 om du inte har reserverade kortplatser
+            reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
           update:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
+      admin_log:
+        meeting:
+          close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
+          create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"
+          delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
+          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
+          update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -136,11 +161,11 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           date: Datum
-          past: Dåtid
+          past: Tidigare
           search: Sök
-          upcoming: kommande
+          upcoming: Kommande
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -150,28 +175,28 @@ sv:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
         registration_confirm:
-          cancel: Annullera
+          cancel: Avbryt
           confirm: Bekräfta
         show:
-          attendees: Deltagare räknas
-          contributions: Bidragsräkning
-          going: Gående
+          attendees: Antal deltagare
+          contributions: Antal bidrag
+          going: Jag kommer
           join: Gå med i mötet
           meeting_report: Mötesrapport
-          no_slots_available: Inga slots tillgängliga
+          no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           remaining_slots:
-            one: 1 slits kvar
-            other: "%{count} luckor kvar"
+            one: 1 plats kvar
+            other: "%{count} platser kvar"
       models:
         meeting:
           fields:
             closed: Stängd
             end_time: Slutdatum
             map: Karta
-            start_time: Start datum
+            start_time: Startdatum
             title: Titel
-      read_more: "(Läs mer)"
+      read_more: "(läs mer)"
       registration_mailer:
         confirmation:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
@@ -183,6 +208,16 @@ sv:
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Tidigare möten
+        see_all_meetings: Se alla möten
+        upcoming_meetings: Kommande möten
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Relaterade resultat:'

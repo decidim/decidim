@@ -5,7 +5,7 @@ module Decidim
     # This form handles a set of forms related to handling permissions
     # in the admin panel.
     class PermissionsForm < Form
-      mimic :feature_permissions
+      mimic :component_permissions
 
       attribute :permissions, Hash[String => PermissionForm]
 

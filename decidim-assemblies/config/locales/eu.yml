@@ -2,9 +2,12 @@ eu:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
-        copy_features: Kopiatu funtzionalitateak
+        copy_components: Kopiatu osagaiak
+        decidim_area_id: Area
+        decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
@@ -12,16 +15,23 @@ eu:
         hero_image: Orri nagusiko irudia
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
+        published_at: Argitaratu at
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
+        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Prozesu partizipatiboen multzoak
+      assembly_user_role:
+        email: Emaila
+        name: izena
+        role: Role
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ eu:
           title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
+          private: Pribatua
+          public: Publiko
           published: Argitaratua
         new:
           create: Sortu
@@ -80,15 +92,19 @@ eu:
         assemblies: Biltzarrak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
+          attachment_collections: Bilduma
+          attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
-          features: Funtzionalitateak
+          components: Osagaiak
           info: Informazioa
           moderations: Moderazioak
+          private_users: Erabiltzaile pribatuak
       models:
         assembly:
           fields:
             created_at: Sortze-data
+            private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
@@ -105,10 +121,21 @@ eu:
             moderator: Moderatzaile
       titles:
         assemblies: Biltzarrak
+    admin_log:
+      assembly:
+        create: "%{user_name} %{resource_name} muntaia sortu zuen"
+        publish: "%{user_name} %{resource_name} muntaia argitaratu du"
+        unpublish: "%{user_name} %{resource_name} muntaia argitaratu gabe"
+        update: "%{user_name} %{resource_name} muntaia eguneratu du"
+      assembly_user_role:
+        create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
+        delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
+        update: "%{user_name} %{resource_name} %{space_name} muntaiarako rola aldatu da"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Hautatu eremu bat
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ eu:
             active_assemblies: Batzar aktiboak
             see_all_assemblies: Ikusi muntaia guztiak
       show:
+        area: Area
+        children: Batzar
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
+        private_space: Hau muntaia pribatua da
+        related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:
         answers_count: Erantzunak
         assemblies_count: Biltzarrak
         comments_count: Iruzkinak
+        debates_count: eztabaidak
+        endorsements_count: Oniritziak
         headline: Jarduera
         meetings_count: Topaketak
         orders_count: Euskarriak
@@ -141,6 +174,10 @@ eu:
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
         votes_count: Euskarriak
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
     menu:
       assemblies: Biltzarrak
   layouts:

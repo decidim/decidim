@@ -233,7 +233,7 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "quote-props": "off",
-        "quotes": "off",
+        "quotes": ["error", "double", { "avoidEscape": true }],
         "radix": "error",
         "require-jsdoc": "error",
         "rest-spread-spacing": "error",
@@ -248,7 +248,7 @@
             "error",
             "never"
         ],
-        "space-infix-ops": "off",
+        "space-infix-ops": "error",
         "space-unary-ops": "error",
         "spaced-comment": [
             "error",

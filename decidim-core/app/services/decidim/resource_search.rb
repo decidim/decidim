@@ -16,12 +16,12 @@ module Decidim
     end
 
     # Creates the SearchLight base query.
-    # Check if the option feature was provided.
+    # Check if the option component was provided.
     def base_query
       # raise order_start_time.inspect
-      raise "Missing feature" unless feature
+      raise "Missing component" unless component
 
-      @scope.where(feature: feature)
+      @scope.where(component: component)
     end
 
     # Handle the category_id filter
@@ -57,17 +57,17 @@ module Decidim
     # Private: Creates an array of category ids.
     # It contains categories' subcategories ids as well.
     def category_ids
-      feature
+      component
         .categories
         .where(id: category_id)
-        .or(feature.categories.where(parent_id: category_id))
+        .or(component.categories.where(parent_id: category_id))
         .pluck(:id)
     end
 
-    # Private: Since feature is not used by a search method we need
+    # Private: Since component is not used by a search method we need
     # to define the method manually.
-    def feature
-      options[:feature]
+    def component
+      options[:component]
     end
   end
 end

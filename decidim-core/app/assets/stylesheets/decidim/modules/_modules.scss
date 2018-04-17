@@ -33,6 +33,8 @@
 @import "address";
 @import "order-by";
 @import "tags";
+@import "input-tags";
+@import "input-mentions";
 @import "list-docs";
 @import "datepicker";
 @import "pagination";
@@ -48,6 +50,7 @@
 @import "timeline";
 @import "filter-tags";
 @import "filters";
+@import "inline-filters";
 @import "reference";
 @import "status-labels";
 

@@ -8,23 +8,23 @@ module Decidim
       describe ProposalAnswersController, type: :controller do
         routes { Decidim::Proposals::AdminEngine.routes }
 
-        let(:feature) { proposal.feature }
+        let(:component) { proposal.component }
         let(:proposal) { create(:proposal) }
-        let(:user) { create(:user, :confirmed, :admin, organization: feature.organization) }
+        let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
         let(:params) do
           {
             id: proposal.id,
             proposal_id: proposal.id,
-            feature_id: feature.id,
-            participatory_process_slug: feature.participatory_space.slug,
+            component_id: component.id,
+            participatory_process_slug: component.participatory_space.slug,
             state: "rejected"
           }
         end
 
         before do
-          request.env["decidim.current_organization"] = feature.organization
-          request.env["decidim.current_feature"] = feature
+          request.env["decidim.current_organization"] = component.organization
+          request.env["decidim.current_component"] = component
           sign_in user
         end
 

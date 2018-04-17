@@ -17,7 +17,7 @@ module Decidim
 
         resolve lambda { |obj, args, ctx|
           params = { "comment" => { "body" => args[:body], "alignment" => args[:alignment], "user_group_id" => args[:userGroupId] } }
-          form = Decidim::Comments::CommentForm.from_params(params)
+          form = Decidim::Comments::CommentForm.from_params(params).with_context(current_organization: ctx[:current_organization])
           Decidim::Comments::CreateComment.call(form, ctx[:current_user], obj) do
             on(:ok) do |comment|
               return comment

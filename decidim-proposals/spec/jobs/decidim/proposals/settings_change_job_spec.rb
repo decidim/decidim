@@ -7,9 +7,9 @@ module Decidim
     describe SettingsChangeJob do
       subject { described_class }
 
-      let(:feature) { create(:proposal_feature) }
-      let(:user) { create :user, organization: feature.organization }
-      let!(:follow) { create :follow, followable: feature.participatory_space, user: user }
+      let(:component) { create(:proposal_component) }
+      let(:user) { create :user, organization: component.organization }
+      let!(:follow) { create :follow, followable: component.participatory_space, user: user }
 
       describe "creation enabled" do
         let(:previous_settings) do
@@ -29,11 +29,11 @@ module Decidim
               .with(
                 event: "decidim.events.proposals.creation_enabled",
                 event_class: Decidim::Proposals::CreationEnabledEvent,
-                resource: feature,
+                resource: component,
                 recipient_ids: [user.id]
               )
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -45,7 +45,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
       end
@@ -76,11 +76,11 @@ module Decidim
               .with(
                 event: "decidim.events.proposals.voting_enabled",
                 event_class: Decidim::Proposals::VotingEnabledEvent,
-                resource: feature,
+                resource: component,
                 recipient_ids: [user.id]
               )
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -94,7 +94,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -108,7 +108,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
       end
@@ -139,11 +139,11 @@ module Decidim
               .with(
                 event: "decidim.events.proposals.endorsing_enabled",
                 event_class: Decidim::Proposals::EndorsingEnabledEvent,
-                resource: feature,
+                resource: component,
                 recipient_ids: [user.id]
               )
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -157,7 +157,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -171,7 +171,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
       end

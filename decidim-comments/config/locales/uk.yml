@@ -50,8 +50,12 @@ uk:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
-      featured_comment:
-        title: Рекомендований коментар
+    events:
+      comments:
+        user_mentioned:
+          email_intro: Вас згадали
+          email_subject: Вас згадали у %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: не підлягає коментуванню

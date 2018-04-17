@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Notifications", type: :system do
   let(:resource) { create :dummy_resource }
-  let(:participatory_space) { resource.feature.participatory_space }
+  let(:participatory_space) { resource.component.participatory_space }
   let(:organization) { participatory_space.organization }
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:notification) { create :notification, user: user, resource: resource }

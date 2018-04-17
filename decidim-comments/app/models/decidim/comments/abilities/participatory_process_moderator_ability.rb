@@ -10,7 +10,7 @@ module Decidim
           super
 
           can [:unreport, :hide], Comment do |comment|
-            can_manage_process?(comment.feature.participatory_space)
+            can_manage_process?(comment.component.participatory_space)
           end
         end
       end

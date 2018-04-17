@@ -22,7 +22,7 @@ module Decidim
         end
 
         def authorization_object
-          meeting.feature
+          meeting.component
         end
       end
     end

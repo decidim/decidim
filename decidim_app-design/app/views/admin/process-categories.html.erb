@@ -4,14 +4,14 @@
 @activepage = "process-categories"
 %>
 
-<%= partial 'template_top' %>
+<%= partial "template_top" %>
 
 <div class="layout-nav">
-  <%= partial 'process_sub_nav' %>
+  <%= partial "process_sub_nav" %>
 </div>
 <div class="layout-content has-process-title">
   <div class="container">
-    <%= partial 'process_title' %>
+    <%= partial "process_title" %>
     <div class="card">
       <div class="card-divider">
         <h2 class="card-title">Categorías <a href="#" class="button tiny button--title">Añadir</a></h2>
@@ -31,8 +31,8 @@
                   Categoría 1
                 </td>
                 <td class="table-list__actions">
-                  <a href="#"  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
-                  <a href="#" data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
                 </td>
               </tr>
               <tr>
@@ -40,8 +40,8 @@
                   Categoría 2
                 </td>
                 <td class="table-list__actions">
-                  <a href="#"  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
-                  <a href="#" data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
                 </td>
               </tr>
             </tbody>
@@ -51,4 +51,4 @@
     </div>
   </div>
 </div>
-<%= partial 'template_bottom' %>
+<%= partial "template_bottom" %>

@@ -9,6 +9,13 @@ fi:
         document_type: Asiakirjan tyyppi
         user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
+      postal_letter_address:
+        full_address: Koko osoite
+      postal_letter_confirmation:
+        verification_code: Vahvistuskoodi
+      postal_letter_postage:
+        full_address: Koko osoite
+        verification_code: Vahvistuskoodi
   decidim:
     admin:
       menu:

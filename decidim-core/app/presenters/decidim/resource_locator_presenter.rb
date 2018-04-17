@@ -59,8 +59,8 @@ module Decidim
         resource.class.try(:participatory_space_manifest)
     end
 
-    def feature
-      resource.feature if resource.respond_to?(:feature)
+    def component
+      resource.component if resource.respond_to?(:component)
     end
 
     def member_route_name
@@ -72,7 +72,7 @@ module Decidim
     end
 
     def route_proxy
-      @route_proxy ||= EngineRouter.main_proxy(feature || resource)
+      @route_proxy ||= EngineRouter.main_proxy(component || resource)
     end
   end
 end

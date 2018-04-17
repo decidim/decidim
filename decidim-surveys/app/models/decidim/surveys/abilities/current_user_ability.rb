@@ -22,24 +22,24 @@ module Decidim
         private
 
         def authorized?(action)
-          return unless feature
+          return unless component
 
-          ActionAuthorizer.new(user, feature, action).authorize.ok?
+          ActionAuthorizer.new(user, component, action).authorize.ok?
         end
 
         def current_settings
           context.fetch(:current_settings, nil)
         end
 
-        def feature_settings
-          context.fetch(:feature_settings, nil)
+        def component_settings
+          context.fetch(:component_settings, nil)
         end
 
-        def feature
-          feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == :surveys
+        def component
+          component = context.fetch(:current_component, nil)
+          return nil unless component && component.manifest.name == :surveys
 
-          feature
+          component
         end
       end
     end

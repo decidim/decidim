@@ -11,11 +11,13 @@ module Decidim::Meetings
       {
         registrations_enabled: registrations_enabled,
         available_slots: available_slots,
+        reserved_slots: reserved_slots,
         registration_terms: registration_terms
       }
     end
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
+    let(:reserved_slots) { 2 }
     let(:registration_terms) do
       {
         en: "A legal text",
@@ -63,6 +65,12 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
+    context "when the reserved slots is negative" do
+      let(:reserved_slots) { -1 }
+
+      it { is_expected.not_to be_valid }
+    end
+
     context "when a few registrations have been created" do
       before do
         create_list :registration, 10, meeting: meeting
@@ -74,8 +82,14 @@ module Decidim::Meetings
         it { is_expected.not_to be_valid }
       end
 
-      context "and available slots is equal to 0" do
+      context "and available slots is equal to 0 and not reserved slots" do
+        let(:reserved_slots) { 0 }
+
         it { is_expected.to be_valid }
+      end
+
+      context "and available slots is equal to 0 and there are reserved slots" do
+        it { is_expected.not_to be_valid }
       end
     end
   end

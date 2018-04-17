@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "when managing an accountability feature" do
-  let!(:result) { create :result, scope: scope, feature: current_feature }
-  let!(:child_result) { create :result, scope: scope, feature: current_feature, parent: result }
-  let!(:status) { create :status, key: "ongoing", name: { en: "Ongoing" }, feature: current_feature }
+RSpec.shared_context "when managing an accountability component" do
+  let!(:result) { create :result, scope: scope, component: current_component }
+  let!(:child_result) { create :result, scope: scope, component: current_component, parent: result }
+  let!(:status) { create :status, key: "ongoing", name: { en: "Ongoing" }, component: current_component }
 end
 
-RSpec.shared_context "when managing an accountability feature as a process admin" do
-  include_context "when managing a feature as a process admin"
+RSpec.shared_context "when managing an accountability component as a process admin" do
+  include_context "when managing a component as a process admin"
 
-  include_context "when managing an accountability feature"
+  include_context "when managing an accountability component"
 end
 
-RSpec.shared_context "when managing an accountability feature as an admin" do
-  include_context "when managing a feature as an admin"
+RSpec.shared_context "when managing an accountability component as an admin" do
+  include_context "when managing a component as an admin"
 
-  include_context "when managing an accountability feature"
+  include_context "when managing an accountability component"
 end

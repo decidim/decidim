@@ -4,7 +4,7 @@ The Meetings module adds meeting to any participatory process. It adds a CRUD en
 
 ## Usage
 
-Meetings will be available as a Feature for a Participatory Process.
+Meetings will be available as a component for a Participatory Process.
 
 ## Installation
 

@@ -28,14 +28,14 @@
                 <p class="heading3">
                 <%= link_to translated_attribute(category.name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
 
-                <% if feature_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
+                <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
                   <div class="progress">
                     <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
                   </div>
                 <% end %>
 
                 <div class="progress-info">
-                  <% if feature_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
+                  <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
                     <div class="progress-figure heading3">
                       <%= display_percentage progress_calculator(current_scope, category.id) %>
                     </div>
@@ -55,7 +55,7 @@
                       <div class="category--line">
                         <strong><%= translated_attribute(subcategory.name) %></strong>
 
-                        <% if feature_settings.display_progress_enabled? && progress_calculator(current_scope, subcategory.id).present? %>
+                        <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, subcategory.id).present? %>
                           <div class="progress-figure heading3">
                             <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
                           </div>

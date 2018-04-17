@@ -3,7 +3,7 @@
 require "decidim/pages/admin"
 require "decidim/pages/engine"
 require "decidim/pages/admin_engine"
-require "decidim/pages/feature"
+require "decidim/pages/component"
 
 module Decidim
   # This namespace holds the logic of the `Pages` component. This component

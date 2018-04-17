@@ -28,7 +28,7 @@ module Decidim
             copy_participatory_process
             copy_participatory_process_steps if @form.copy_steps?
             copy_participatory_process_categories if @form.copy_categories?
-            copy_participatory_process_features if @form.copy_features?
+            copy_participatory_process_components if @form.copy_components?
           end
 
           broadcast(:ok, @copied_process)
@@ -91,17 +91,17 @@ module Decidim
           end
         end
 
-        def copy_participatory_process_features
-          @participatory_process.features.each do |feature|
-            copied_step_settings = @form.copy_steps? ? map_step_settings(feature.step_settings) : {}
-            new_feature = Feature.create!(
-              manifest_name: feature.manifest_name,
-              name: feature.name,
+        def copy_participatory_process_components
+          @participatory_process.components.each do |component|
+            copied_step_settings = @form.copy_steps? ? map_step_settings(component.step_settings) : {}
+            new_component = Component.create!(
+              manifest_name: component.manifest_name,
+              name: component.name,
               participatory_space: @copied_process,
-              settings: feature.settings,
+              settings: component.settings,
               step_settings: copied_step_settings
             )
-            feature.manifest.run_hooks(:copy, new_feature: new_feature, old_feature: feature)
+            component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
           end
         end
 

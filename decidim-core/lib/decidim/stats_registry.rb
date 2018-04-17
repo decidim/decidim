@@ -22,7 +22,7 @@ module Decidim
     # options - A hash of options
     #         * primary: Whether the stat is primary or not.
     #         * priority: The priority of the stat used for render issues.
-    # block - A block that receive the features to filter out the stat.
+    # block - A block that receive the components to filter out the stat.
     def register(name, options = {}, &block)
       stat = @stats.detect { |s| s[:name] == name }
       raise StandardError, "Stats '#{name}' is already registered." if stat.present?

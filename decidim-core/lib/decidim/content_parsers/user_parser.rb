@@ -28,7 +28,7 @@ module Decidim
       # @return [String] the content with the valid mentions replaced by a global id
       def rewrite
         content.gsub(MENTION_REGEX) do |match|
-          if (user = Decidim::User.where(nickname: Regexp.last_match[2], organization: context[:current_organization]).first)
+          if (user = Decidim::User.find_by(nickname: Regexp.last_match[2], organization: context[:current_organization]))
             Regexp.last_match[1] + user.to_global_id.to_s
           else
             match

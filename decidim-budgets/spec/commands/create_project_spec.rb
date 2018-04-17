@@ -7,30 +7,32 @@ module Decidim::Budgets
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :feature, manifest_name: :budgets, participatory_space: participatory_process }
+    let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },
         budget: 10_000_000,
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
-        current_feature: current_feature
+        current_component: current_component
       )
     end
     let(:invalid) { false }
@@ -60,9 +62,20 @@ module Decidim::Budgets
         expect(project.category).to eq category
       end
 
-      it "sets the feature" do
+      it "sets the component" do
         subject.call
-        expect(project.feature).to eq current_feature
+        expect(project.component).to eq current_component
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Project, current_user, hash_including(:scope, :category, :component, :title, :description, :budget))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       it "links proposals" do

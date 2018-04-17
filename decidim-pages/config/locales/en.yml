@@ -1,7 +1,10 @@
 ---
 en:
   decidim:
-    features:
+    admin_log:
+      page:
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+    components:
       pages:
         name: Page
         settings:

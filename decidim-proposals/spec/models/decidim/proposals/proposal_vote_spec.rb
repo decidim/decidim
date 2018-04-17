@@ -8,10 +8,10 @@ module Decidim
       subject { proposal_vote }
 
       let!(:organization) { create(:organization) }
-      let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
+      let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:proposal) { create(:proposal, feature: feature, author: author) }
+      let!(:proposal) { create(:proposal, component: component, author: author) }
       let!(:proposal_vote) { build(:proposal_vote, proposal: proposal, author: author) }
 
       it "is valid" do
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when proposal is rejected" do
-        let!(:proposal) { create(:proposal, :rejected, feature: feature, author: author) }
+        let!(:proposal) { create(:proposal, :rejected, component: component, author: author) }
 
         it { is_expected.to be_invalid }
       end

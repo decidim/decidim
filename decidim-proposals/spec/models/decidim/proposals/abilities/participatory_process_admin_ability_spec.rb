@@ -8,8 +8,8 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
   let!(:user_process_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
-  let(:feature) { create :proposal_feature, participatory_space: user_process }
-  let(:proposals) { create_list :proposal, 3, feature: feature }
+  let(:component) { create :proposal_component, participatory_space: user_process }
+  let(:proposals) { create_list :proposal, 3, component: component }
   let(:other_proposals) { create_list :proposal, 3 }
   let(:context) { { current_participatory_space: user_process } }
 
@@ -30,7 +30,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
       {
         current_participatory_space: user_process,
         current_settings: double(creation_enabled?: false),
-        feature_settings: double(official_proposals_enabled: true)
+        component_settings: double(official_proposals_enabled: true)
       }
     end
 
@@ -42,7 +42,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
       {
         current_participatory_space: user_process,
         current_settings: double(creation_enabled?: true),
-        feature_settings: double(official_proposals_enabled: false)
+        component_settings: double(official_proposals_enabled: false)
       }
     end
 
@@ -60,11 +60,11 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
     it { is_expected.not_to be_able_to(:update, Decidim::Proposals::Proposal) }
   end
 
-  context "when proposal_answering is disabled in feature level" do
+  context "when proposal_answering is disabled in component level" do
     let(:context) do
       {
         current_participatory_space: user_process,
-        feature_settings: double(proposal_answering_enabled: false)
+        component_settings: double(proposal_answering_enabled: false)
       }
     end
 

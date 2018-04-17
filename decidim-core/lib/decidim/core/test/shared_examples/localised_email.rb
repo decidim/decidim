@@ -14,7 +14,7 @@ shared_examples "localised email" do
     end
   end
 
-  context "otherwise" do
+  context "when the user does not have a custom locale" do
     let(:locale) { nil }
 
     it "uses the default locale" do

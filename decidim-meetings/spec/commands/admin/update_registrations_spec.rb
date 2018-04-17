@@ -10,6 +10,7 @@ module Decidim::Meetings
     let(:invalid) { false }
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
+    let(:reserved_slots) { 2 }
     let(:registration_terms) do
       {
         en: "A legal text",
@@ -22,6 +23,7 @@ module Decidim::Meetings
         invalid?: invalid,
         registrations_enabled: registrations_enabled,
         available_slots: available_slots,
+        reserved_slots: reserved_slots,
         registration_terms: registration_terms
       )
     end
@@ -43,6 +45,7 @@ module Decidim::Meetings
         subject.call
         expect(meeting.registrations_enabled).to eq(registrations_enabled)
         expect(meeting.available_slots).to eq(available_slots)
+        expect(meeting.reserved_slots).to eq(reserved_slots)
         expect(translated(meeting.registration_terms)).to eq "A legal text"
       end
     end

@@ -3,7 +3,7 @@
 require "decidim/proposals/admin"
 require "decidim/proposals/engine"
 require "decidim/proposals/admin_engine"
-require "decidim/proposals/feature"
+require "decidim/proposals/component"
 
 module Decidim
   # This namespace holds the logic of the `Proposals` component. This component
@@ -25,5 +25,25 @@ module Decidim
     config_accessor :similarity_limit do
       10
     end
+
+    # Public Setting that defines how many proposals will be shown in the
+    # participatory_space_highlighted_elements view hook
+    config_accessor :participatory_space_highlighted_proposals_limit do
+      4
+    end
+
+    # Public Setting that defines how many proposals will be shown in the
+    # process_group_highlighted_elements view hook
+    config_accessor :process_group_highlighted_proposals_limit do
+      3
+    end
+  end
+
+  module ContentParsers
+    autoload :ProposalParser, "decidim/content_parsers/proposal_parser"
+  end
+
+  module ContentRenderers
+    autoload :ProposalRenderer, "decidim/content_renderers/proposal_renderer"
   end
 end

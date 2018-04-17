@@ -12,36 +12,40 @@
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.surveys.admin")  %>
+      <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.surveys.admin") %>
     </div>
     <div class="row column">
-      <%= form.translated :editor, :tos, toolbar: :full, lines: 10, label: t("models.components.tos", scope: "decidim.surveys.admin")  %>
+      <%= form.translated :editor, :tos, toolbar: :full, lines: 10, label: t("models.components.tos", scope: "decidim.surveys.admin") %>
     </div>
   </div>
 </div>
 
 <div class="survey-questions">
   <% if survey.questions_editable? %>
-    <button class="button add-question"><%= t('.add_question') %></button>
-
-    <template id="survey-question-tmpl">
-      <%= render "question", question: blank_question %>
-    </template>
-
-    <template id="survey-question-answer-option-tmpl">
-      <%= render "answer_option", answer_option: blank_answer_option, question: nil, idx: nil %>
+    <template>
+      <%= fields_for "survey[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+        <%= render "question", form: question_form, id: tabs_id_for_question(blank_question), editable: survey.questions_editable? %>
+      <% end %>
     </template>
   <% else %>
     <div class="callout warning">
-      <%= t('.already_answered_warning') %>
+      <%= t(".already_answered_warning") %>
     </div>
   <% end %>
 
   <div class="survey-questions-list">
-    <% @form.questions.each_with_index do |question, idx| %>
-      <%= render "question", question: question %>
+    <% @form.questions.each do |question| %>
+      <%= fields_for "survey[questions][]", question do |question_form| %>
+        <%= render "question", form: question_form, id: tabs_id_for_question(question), editable: survey.questions_editable? %>
+      <% end %>
     <% end %>
   </div>
+
+  <% if survey.questions_editable? %>
+    <button class="button add-question"><%= t(".add_question") %></button>
+  <% end %>
 </div>
 
-<%= javascript_include_tag "decidim/surveys/admin/surveys" %>
+<% if survey.questions_editable? %>
+  <%= javascript_include_tag "decidim/surveys/admin/surveys" %>
+<% end %>

@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachmentCollections
 
         def after_destroy_path
-          project_attachment_collections_path(project, project.feature, current_participatory_space)
+          project_attachment_collections_path(project, project.component, current_participatory_space)
         end
 
         def collection_for
@@ -21,7 +21,7 @@ module Decidim
         end
 
         def authorization_object
-          project.feature
+          project.component
         end
       end
     end

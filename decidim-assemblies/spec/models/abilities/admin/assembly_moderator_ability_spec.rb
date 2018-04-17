@@ -15,9 +15,9 @@ module Decidim
 
     context "when the user is an admin for some assembly" do
       let(:unmanaged_assembly) { create :assembly, organization: user.organization }
-      let(:feature) { create(:feature, participatory_space: user_assembly) }
-      let(:unmanaged_feature) { create(:feature, participatory_space: unmanaged_assembly) }
-      let(:dummy_resource) { create(:dummy_resource, feature: feature) }
+      let(:component) { create(:component, participatory_space: user_assembly) }
+      let(:unmanaged_component) { create(:component, participatory_space: unmanaged_assembly) }
+      let(:dummy_resource) { create(:dummy_resource, component: component) }
       let(:user_assembly_moderation) { create(:moderation, reportable: dummy_resource) }
       let(:unmanaged_assembly_moderation) { create(:moderation) }
 

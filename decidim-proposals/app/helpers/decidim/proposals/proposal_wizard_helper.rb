@@ -89,7 +89,7 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_help_text?(step)
-        translated_attribute(feature_settings.try("proposal_wizard_#{step}_help_text")).present?
+        translated_attribute(component_settings.try("proposal_wizard_#{step}_help_text")).present?
       end
 
       # Renders a user_group select field in a form.

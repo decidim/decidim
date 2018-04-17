@@ -2,9 +2,12 @@ es:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcionalidades
+        copy_components: Copiar componentes
+        decidim_area_id: Área
+        decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -12,16 +15,23 @@ es:
         hero_image: Imagen de portada
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        published_at: Publicado
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      assembly_user_role:
+        email: Email
+        name: Nombre
+        role: Papel
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ es:
           title: Información general
         index:
           not_published: No publicado
+          private: Privado
+          public: Público
           published: Publicado
         new:
           create: Crear
@@ -80,15 +92,19 @@ es:
         assemblies: Asambleas
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
+          attachment_collections: Colecciones
+          attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Funcionalidades
+          components: Componentes
           info: Información
           moderations: Moderaciones
+          private_users: Usuarios privados
       models:
         assembly:
           fields:
             created_at: Fecha de creación
+            private: Privado
             promoted: Destacado
             published: Publicada
             title: Título
@@ -105,10 +121,21 @@ es:
             moderator: Moderador
       titles:
         assemblies: Asambleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creó la asamblea %{resource_name}"
+        publish: "%{user_name} publicó la asamblea %{resource_name}"
+        unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        update: "%{user_name} actualizó la asamblea %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
+        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccione un Área
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ es:
             active_assemblies: Asambleas activas
             see_all_assemblies: Ver todas las asambleas
       show:
+        area: Área
+        children: Asambleas
         developer_group: Grupo promotor
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        private_space: Esta es una asamblea privada
+        related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         target: '¿A quién va dirigida?'
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        debates_count: Debates
+        endorsements_count: Respaldos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos
@@ -141,6 +174,10 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'El ensamblado no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
   layouts:

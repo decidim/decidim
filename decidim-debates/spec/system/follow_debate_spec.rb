@@ -6,7 +6,7 @@ describe "Follow debates", type: :system do
   let(:manifest_name) { "debates" }
 
   let!(:followable) do
-    create(:debate, feature: feature)
+    create(:debate, component: component)
   end
 
   include_examples "follows"

@@ -5,18 +5,18 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalSearch do
-      let(:feature) { create(:feature, manifest_name: "proposals") }
-      let(:scope1) { create :scope, organization: feature.organization }
-      let(:scope2) { create :scope, organization: feature.organization }
-      let(:subscope1) { create :scope, organization: feature.organization, parent: scope1 }
-      let(:participatory_process) { feature.participatory_space }
-      let(:user) { create(:user, organization: feature.organization) }
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
+      let(:component) { create(:component, manifest_name: "proposals") }
+      let(:scope1) { create :scope, organization: component.organization }
+      let(:scope2) { create :scope, organization: component.organization }
+      let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
+      let(:participatory_process) { component.participatory_space }
+      let(:user) { create(:user, organization: component.organization) }
+      let!(:proposal) { create(:proposal, component: component, scope: scope1) }
 
       describe "results" do
         subject do
           described_class.new(
-            feature: feature,
+            component: component,
             activity: activity,
             search_text: search_text,
             state: state,
@@ -34,7 +34,7 @@ module Decidim
         let(:state) { "not_withdrawn" }
         let(:scope_id) { nil }
 
-        it "only includes proposals from the given feature" do
+        it "only includes proposals from the given component" do
           other_proposal = create(:proposal)
 
           expect(subject).to include(proposal)
@@ -45,9 +45,9 @@ module Decidim
           let(:search_text) { "dog" }
 
           it "returns the proposals containing the search in the title or the body" do
-            create_list(:proposal, 3, feature: feature)
-            create(:proposal, title: "A dog", feature: feature)
-            create(:proposal, body: "There is a dog in the office", feature: feature)
+            create_list(:proposal, 3, component: component)
+            create(:proposal, title: "A dog", component: component)
+            create(:proposal, body: "There is a dog in the office", component: component)
 
             expect(subject.size).to eq(2)
           end
@@ -57,7 +57,7 @@ module Decidim
           let(:activity) { ["voted"] }
 
           it "returns the proposals voted by the user" do
-            create_list(:proposal, 3, feature: feature)
+            create_list(:proposal, 3, component: component)
             create(:proposal_vote, proposal: Proposal.first, author: user)
 
             expect(subject.size).to eq(1)
@@ -69,8 +69,8 @@ module Decidim
             let(:origin) { "official" }
 
             it "returns only official proposals" do
-              official_proposals = create_list(:proposal, 3, :official, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              official_proposals = create_list(:proposal, 3, :official, component: component)
+              create_list(:proposal, 3, component: component)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(official_proposals)
@@ -81,8 +81,8 @@ module Decidim
             let(:origin) { "citizens" }
 
             it "returns only citizen proposals" do
-              create_list(:proposal, 3, :official, feature: feature)
-              citizen_proposals = create_list(:proposal, 2, feature: feature)
+              create_list(:proposal, 3, :official, component: component)
+              citizen_proposals = create_list(:proposal, 2, component: component)
               citizen_proposals << proposal
 
               expect(subject.size).to eq(3)
@@ -94,8 +94,8 @@ module Decidim
         describe "state filter" do
           context "when filtering for default states" do
             it "returns all except withdrawn proposals" do
-              create_list(:proposal, 3, :withdrawn, feature: feature)
-              other_proposals = create_list(:proposal, 3, feature: feature)
+              create_list(:proposal, 3, :withdrawn, component: component)
+              other_proposals = create_list(:proposal, 3, component: component)
               other_proposals << proposal
 
               expect(subject.size).to eq(4)
@@ -107,8 +107,8 @@ module Decidim
             let(:state) { "accepted" }
 
             it "returns only accepted proposals" do
-              accepted_proposals = create_list(:proposal, 3, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              accepted_proposals = create_list(:proposal, 3, :accepted, component: component)
+              create_list(:proposal, 3, component: component)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(accepted_proposals)
@@ -119,8 +119,8 @@ module Decidim
             let(:state) { "rejected" }
 
             it "returns only rejected proposals" do
-              create_list(:proposal, 3, feature: feature)
-              rejected_proposals = create_list(:proposal, 3, :rejected, feature: feature)
+              create_list(:proposal, 3, component: component)
+              rejected_proposals = create_list(:proposal, 3, :rejected, component: component)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
@@ -131,8 +131,8 @@ module Decidim
             let(:state) { "withdrawn" }
 
             it "returns only withdrawn proposals" do
-              create_list(:proposal, 3, feature: feature)
-              withdrawn_proposals = create_list(:proposal, 3, :withdrawn, feature: feature)
+              create_list(:proposal, 3, component: component)
+              withdrawn_proposals = create_list(:proposal, 3, :withdrawn, component: component)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(withdrawn_proposals)
@@ -141,8 +141,8 @@ module Decidim
         end
 
         describe "scope_id filter" do
-          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2) }
-          let!(:proposal3) { create(:proposal, feature: feature, scope: subscope1) }
+          let!(:proposal2) { create(:proposal, component: component, scope: scope2) }
+          let!(:proposal3) { create(:proposal, component: component, scope: subscope1) }
 
           context "when a parent scope id is being sent" do
             let(:scope_id) { scope1.id }
@@ -169,7 +169,7 @@ module Decidim
           end
 
           context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
+            let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
             let(:scope_id) { ["global"] }
 
             it "returns proposals without a scope" do
@@ -178,7 +178,7 @@ module Decidim
           end
 
           context "when `global` and some ids is being sent" do
-            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
+            let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
             let(:scope_id) { ["global", scope2.id, scope1.id] }
 
             it "returns proposals without a scope and with selected scopes" do
@@ -190,13 +190,13 @@ module Decidim
         describe "related_to filter" do
           context "when filtering by related to meetings" do
             let(:related_to) { "Decidim::Meetings::Meeting".underscore }
-            let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_space: participatory_process) }
-            let(:meeting) { create :meeting, feature: meetings_feature }
+            let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
+            let(:meeting) { create :meeting, component: meetings_component }
 
             it "returns only proposals related to meetings" do
-              related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal2 = create(:proposal, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              related_proposal = create(:proposal, :accepted, component: component)
+              related_proposal2 = create(:proposal, :accepted, component: component)
+              create_list(:proposal, 3, component: component)
               meeting.link_resources([related_proposal], "proposals_from_meeting")
               related_proposal2.link_resources([meeting], "proposals_from_meeting")
 
@@ -206,13 +206,13 @@ module Decidim
 
           context "when filtering by related to resources" do
             let(:related_to) { "Decidim::DummyResources::DummyResource".underscore }
-            let(:dummy_feature) { create(:feature, manifest_name: "dummy", participatory_space: participatory_process) }
-            let(:dummy_resource) { create :dummy_resource, feature: dummy_feature }
+            let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: participatory_process) }
+            let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
             it "returns only proposals related to results" do
-              related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal2 = create(:proposal, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              related_proposal = create(:proposal, :accepted, component: component)
+              related_proposal2 = create(:proposal, :accepted, component: component)
+              create_list(:proposal, 3, component: component)
               dummy_resource.link_resources([related_proposal], "included_proposals")
               related_proposal2.link_resources([dummy_resource], "included_proposals")
 

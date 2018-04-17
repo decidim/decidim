@@ -6,9 +6,8 @@ module Decidim
   describe Area do
     subject(:area) { build(:area) }
 
-    context "when it is valid" do
-      it { is_expected.to be_valid }
-    end
+    it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     context "with two areas with the same name and organization" do
       let!(:existing_area) { create(:area, name: area.name, organization: area.organization) }

@@ -4,21 +4,21 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe Checkout do
-    subject { described_class.new(current_order, feature) }
+    subject { described_class.new(current_order, component) }
 
     let(:user) { create(:user) }
-    let(:feature) do
+    let(:component) do
       create(
-        :budget_feature,
+        :budget_component,
         :with_total_budget_and_vote_threshold_percent,
         organization: user.organization
       )
     end
 
-    let(:project) { create(:project, feature: feature, budget: 90_000_000) }
+    let(:project) { create(:project, component: component, budget: 90_000_000) }
 
     let(:order) do
-      order = create(:order, user: user, feature: feature)
+      order = create(:order, user: user, component: component)
       order.projects << project
       order.save!
       order
@@ -47,7 +47,7 @@ module Decidim::Budgets
     end
 
     context "when the order total budget doesn't exceed the threshold" do
-      let(:project) { create(:project, feature: feature, budget: 30_000_000) }
+      let(:project) { create(:project, component: component, budget: 30_000_000) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

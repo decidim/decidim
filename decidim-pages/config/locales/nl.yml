@@ -1,6 +1,9 @@
 nl:
   decidim:
-    features:
+    admin_log:
+      page:
+        update: "%{user_name} heeft de %{resource_name} pagina in %{space_name} bijgewerkt"
+    components:
       pages:
         name: Pagina
         settings:

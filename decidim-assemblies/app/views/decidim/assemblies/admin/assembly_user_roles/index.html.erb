@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("assembly_user_roles.index.assembly_admins_title", scope: "decidim.admin") %>
       <% if can? :create, Decidim::AssemblyUserRole %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly_user_role.name", scope: "decidim.admin")), new_assembly_user_role_path(current_assembly), class: 'button tiny button--title new' %>
+         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly_user_role.name", scope: "decidim.admin")), new_assembly_user_role_path(current_assembly), class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>

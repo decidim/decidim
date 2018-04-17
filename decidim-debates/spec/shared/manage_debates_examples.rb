@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
-  let!(:debate) { create :debate, category: category, feature: current_feature }
+  let!(:debate) { create :debate, category: category, component: current_component }
 
   describe "updating a debate" do
     it "updates a debate" do
-      visit_feature_admin
+      visit_component_admin
 
       within find("tr", text: translated(debate.title)) do
         page.find(".action-icon--edit").click
@@ -33,10 +33,10 @@ RSpec.shared_examples "manage debates" do
     end
 
     context "when the debate has an author" do
-      let!(:debate) { create(:debate, :with_author, feature: current_feature) }
+      let!(:debate) { create(:debate, :with_author, component: current_component) }
 
       it "cannot edit the debate" do
-        visit_feature_admin
+        visit_component_admin
 
         within find("tr", text: translated(debate.title)) do
           expect(page).to have_no_selector(".action-icon--edit")
@@ -47,7 +47,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     before do
-      visit_feature_admin
+      visit_component_admin
     end
 
     it "links the debate correctly" do
@@ -62,7 +62,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new debate" do
-    visit_feature_admin
+    visit_component_admin
 
     within ".card-title" do
       page.find(".button.button--title").click
@@ -118,7 +118,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "deleting a debate" do
-    let!(:debate2) { create(:debate, feature: current_feature) }
+    let!(:debate2) { create(:debate, component: current_component) }
 
     before do
       visit current_path
@@ -141,7 +141,7 @@ RSpec.shared_examples "manage debates" do
     end
 
     context "when the debate has an author" do
-      let!(:debate2) { create(:debate, :with_author, feature: current_feature) }
+      let!(:debate2) { create(:debate, :with_author, component: current_component) }
 
       it "cannot delete the debate" do
         within find("tr", text: translated(debate2.title)) do

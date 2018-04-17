@@ -15,7 +15,7 @@
             <%= form.text_area :body, rows: 10 %>
           </div>
 
-          <% if feature_settings.geocoding_enabled? %>
+          <% if component_settings.geocoding_enabled? %>
             <div class="field">
               <%= form.check_box :has_address %>
             </div>
@@ -42,8 +42,10 @@
             </div>
           <% end %>
 
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
+          <div class="row column flex-center">
+            <%= link_to t(".discard"), destroy_draft_proposal_path(@proposal), method: :delete, data: { confirm: t(".discard_confirmation") } %>
+
+            <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
           </div>
         <% end %>
       </div>

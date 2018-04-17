@@ -34,7 +34,7 @@ module Decidim
     #                      or 'full' (optional) (default: 'basic')
     #           :lines   - The Integer to indicate how many lines should editor have (optional)
     #
-    # Returns a rich editor to be included in a html template.
+    # Returns a rich editor to be included in an html template.
     def editor_field_tag(name, value, options = {})
       options[:toolbar] ||= "basic"
       options[:lines] ||= 10
@@ -48,6 +48,31 @@ module Decidim
                                 }, style: "height: #{options[:lines]}rem")
         template.html_safe
       end
+    end
+
+    # A custom helper to include a scope picker field without requiring a form
+    # object
+    #
+    # name - The input name
+    # value - The input value as a scope id
+    # options - The set of options to send to the field
+    #           :id - The id to generate for the element (optional)
+    #
+    # Returns a scopes picker tag to be included in an html template.
+    def scopes_picker_field_tag(name, value, id: nil)
+      picker_options = {
+        id: id || sanitize_to_id(name),
+        class: "picker-single",
+        name: name
+      }
+
+      prompt_params = yield(nil)
+      selected_scopes = value ? Decidim::Scope.where(id: value) : []
+      scopes = selected_scopes.map { |scope| [scope, yield(scope)] }
+
+      template = ""
+      template += render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
+      template.html_safe
     end
 
     # A custom helper to include a translated field without requiring a form object.

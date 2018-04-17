@@ -11,6 +11,7 @@ fi:
   decidim:
     budgets:
       actions:
+        attachment_collections: kokoelmat
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
@@ -41,6 +42,11 @@ fi:
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
             success: Projekti päivitetty onnistuneesti
+      admin_log:
+        project:
+          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
+          delete: "%{user_name} poistanut %{resource_name} -projektin %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilaan"
       models:
         project:
           fields:
@@ -99,22 +105,22 @@ fi:
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki projektit
-    features:
+    components:
       budgets:
         actions:
-          vote: Äänestä
-        name: Budjetit
+          vote: Äänestys
+        name: budjetit
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
-            total_budget: Koko budjetti
-            vote_threshold_percent: Äänestyskynnyksen prosentti
+            comments_enabled: Kommentit ovat käytössä
+            total_budget: Kokonaisbudjetti
+            vote_threshold_percent: Äänestä kynnysarvoa
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi kielletty
+            comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
-            votes_enabled: Äänestys sallittu
+            votes_enabled: Äänet käytössä
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe

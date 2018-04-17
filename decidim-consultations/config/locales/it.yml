@@ -1,0 +1,248 @@
+it:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Immagine banner
+        decidim_highlighted_scope_id: Ambito evidenziato
+        description: Descrizione
+        end_voting_date: Data di fine
+        introductory_image: Immagine introduttiva
+        introductory_video_url: URL video introduttivo
+        slug: Slug URL
+        start_voting_date: Data d'inizio
+        subtitle: Sottotitolo
+        title: Titolo
+      question:
+        banner_image: Immagine banner
+        decidim_scope_id: Area comunale
+        hashtag: hashtag
+        hero_image: Immagine domestica
+        i_frame_url: URL del sistema di votazione esterno
+        origin_scope: Scopo
+        origin_title: Origine
+        origin_url: URL di origine
+        participatory_scope: Scopo partecipativo
+        promoter_group: Gruppo promotore
+        question_context: Contesto
+        reference: Riferimento
+        scope: Area comunale
+        slug: Slug URL
+        subtitle: Sottotitolo
+        title: Titolo
+        vote: Sistema di voto esterno
+        what_is_decided: Cosa è deciso
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Risposta non trovata
+  decidim:
+    admin:
+      actions:
+        publish_results: Pubblica risultati
+        unpublish_results: Annulla pubblicazione dei risultati
+      consultation_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questa consultazione.
+          success: Consultazione pubblicata con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione di questa consultazione.
+          success: Consultazione non pubblicata con successo.
+      consultation_results_publications:
+        create:
+          error: Si è verificato un errore nella pubblicazione dei risultati per questa consultazione.
+          success: Risultati della consultazione pubblicati con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione dei risultati per questa consultazione.
+          success: Risultati della consultazione non pubblicati con successo.
+      consultations:
+        create:
+          error: Si è verificato un errore durante la creazione di una nuova consultazione.
+          success: Consultazione creata con successo.
+        destroy:
+          success: Consultazione distrutta con successo.
+        edit:
+          update: Aggiornare
+        form:
+          slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa consultazione. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
+          title: Informazione generale
+        index:
+          not_published: Non pubblicato
+          published: Pubblicato
+        new:
+          create: Creare
+          title: Nuova consultazione
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa consultazione.
+          success: Consultazione aggiornata con successo.
+      menu:
+        consultations: consultazioni
+        consultations_submenu:
+          info: Informazione
+          questions: Domande
+        questions_submenu:
+          components: componenti
+          consultation: Consultazione
+          info: Informazione
+          responses: risposte
+      models:
+        consultation:
+          fields:
+            created_at: Creato a
+            published: Pubblicato
+            title: Titolo
+          name:
+            one: Consultazione
+            other: consultazioni
+        question:
+          fields:
+            created_at: Creato a
+            published: Pubblicato
+            title: Titolo
+          name:
+            one: Domanda
+            other: Domande
+        response:
+          fields:
+            created_at: Creato a
+            title: Titolo
+          name:
+            one: Risposta
+            other: risposte
+      question_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questa domanda.
+          success: Domanda pubblicata con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione di questa domanda.
+          success: Domanda non pubblicata con successo.
+      questions:
+        create:
+          error: Si è verificato un errore durante la creazione di una nuova domanda.
+          success: Domanda creata con successo.
+        destroy:
+          success: Domanda distrutta con successo.
+        edit:
+          update: Aggiornare
+        form:
+          title: Informazione generale
+        index:
+          not_published: Non pubblicato
+          published: Pubblicato
+        new:
+          create: Creare
+          title: Nuova domanda
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa domanda.
+          success: Domanda aggiornata correttamente.
+      responses:
+        create:
+          error: Si è verificato un errore durante la creazione di una nuova risposta.
+          success: Risposta creata con successo.
+        destroy:
+          error: Si è verificato un errore durante la rimozione della risposta.
+          success: Risposta distrutta con successo.
+        edit:
+          update: Aggiornare
+        form:
+          title: Informazione generale
+        new:
+          create: Creare
+          title: Nuova risposta
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa risposta.
+          success: Risposta aggiornata correttamente.
+      titles:
+        consultations: consultazioni
+        questions: Domande
+        responses: risposte
+    consultations:
+      consultation:
+        start_voting_date: Voto da
+        view_results: Vedi i risultati
+      consultation_card:
+        view_results: Vedi i risultati
+      consultations:
+        orders:
+          label: 'Ordina le consultazioni per:'
+          random: Casuale
+          recent: Piu recente
+      count:
+        title:
+          one: "%{count} consultazione"
+          other: "%{count} consultazioni"
+      filters:
+        active: Attivo
+        all: Tutti
+        finished: Finito
+        search: Ricerca
+        state: Stato
+        upcoming: Prossime
+      filters_small_view:
+        close_modal: Chiudi la finestra
+        filter: Filtro
+        filter_by: Filtra per
+        unfold: spiegare
+      finished:
+        active_consultations: Consultazioni attive
+        past_consultations: Consultazioni precedenti
+      highlighted_questions:
+        title: Consultazioni da %{scope_name}
+      index:
+        title: consultazioni
+      question:
+        take_part: Prendere parte
+        view_results: Vedi i risultati
+        votes_out_of:
+          one: votare fuori
+          other: voti fuori
+      question_votes:
+        create:
+          error: Ci sono stati errori nel votare la domanda
+      regular_questions:
+        title: Altre consultazioni
+      show:
+        see_finished_consultations: Vedi consultazioni precedenti
+    menu:
+      consultations: consultazioni
+    questions:
+      results:
+        title: risultati
+      show:
+        read_more: Leggi di più
+      statistics:
+        assistants_count_title: assistenti
+        comments_count_title: Commenti
+        meetings_count_title: incontri
+        supports_count_title: adesioni
+      technical_info:
+        technical_data: Dati tecnici
+      vote_button:
+        already_voted: Già votato
+        already_voted_hover: Revoca il supporto
+        starting_from: A partire da %{date}
+        vote: Votazione
+      vote_modal:
+        contextual_help: Per favore selezionate un'opzione. Ricorda che una volta confermato il tuo supporto non può essere modificato.
+        title: 'Consultazione: domanda di supporto'
+      vote_modal_confirm:
+        change: Modificare
+        confirm: Confermare
+        contextual_help: Si prega di confermare l'opzione selezionata.
+        title: 'Consultazione: conferma il supporto'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: allegati
+          categories: categorie
+      consultation_voting_data:
+        start_voting_date: Voto da
+      question_components:
+        question_menu_item: La domanda
+        unfold: spiegare
+      question_header:
+        back_to_consultation: Vedi tutte le consultazioni
+  pages:
+    home:
+      statistics:
+        consultations_count: consultazioni

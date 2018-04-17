@@ -2,16 +2,17 @@ fr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: statut
+        decidim_accountability_status_id: Statut
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
         end_date: Date et heure de fin
         progress: Avancement
         project_ids: Projets inclus
-        proposal_ids: Propositions incluses
+        proposals: Propositions incluses
         start_date: Date de début
         title: Titre
+        updated_at: Mis à jour à
       status:
         description: Description
         key: Clé
@@ -49,11 +50,17 @@ fr:
           edit:
             title: Modifier le résultat
             update: Mise à jour du résultat
+          form:
+            add_proposal: Ajouter une proposition
           index:
             title: Résultats
           new:
             create: Créer un résultat
             title: Nouveau résultat
+          proposals:
+            close: Fermer
+            current_selection: Sélection actuelle
+            select: Sélectionner
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce résultat
             success: Résultat mis à jour avec succès
@@ -94,6 +101,14 @@ fr:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette entrée
             success: Entrée mise à jour avec succès
+      admin_log:
+        result:
+          create: "%{user_name} a créé le résultat %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le résultat %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le résultat %{resource_name} dans %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
       models:
         result:
           fields:
@@ -156,19 +171,35 @@ fr:
           changes_at_title: Changements à "%{title}"
         version:
           version_index: Version %{index}
-    features:
+    components:
       accountability:
         name: Responsabilité
         settings:
           global:
             categories_label: Nom pour "Catégories"
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
+            display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
-            intro: Intro
+            intro: Introduction
             subcategories_label: Nom pour "Sous-catégories"
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposition "%{proposal_title}" a été incluse dans un résultat. Vous pouvez le voir sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{proposal_title}
+          notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans le résultat <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Résultats
+    participatory_spaces:
+      highlighted_results:
+        results: Résultats
+        see_all_results: Voir tous les résultats
     resource_links:
       included_projects:
         result_projects: Projets inclus dans ce résultat

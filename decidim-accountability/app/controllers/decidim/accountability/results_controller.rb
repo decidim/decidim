@@ -19,7 +19,7 @@ module Decidim
       end
 
       def result
-        @result ||= Result.includes(:timeline_entries).where(feature: current_feature).find(params[:id])
+        @result ||= Result.includes(:timeline_entries).where(component: current_component).find(params[:id])
       end
 
       def search_klass
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def context_params
-        { feature: current_feature, organization: current_organization }
+        { component: current_component, organization: current_organization }
       end
 
       def first_class_categories
@@ -43,7 +43,7 @@ module Decidim
       end
 
       def count_calculator(scope_id, category_id)
-        Decidim::Accountability::ResultsCalculator.new(current_feature, scope_id, category_id).count
+        Decidim::Accountability::ResultsCalculator.new(current_component, scope_id, category_id).count
       end
     end
   end

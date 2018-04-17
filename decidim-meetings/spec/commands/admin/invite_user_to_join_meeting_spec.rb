@@ -24,8 +24,8 @@ module Decidim::Meetings
       )
     end
     let!(:participatory_process) { create :participatory_process, organization: organization }
-    let!(:feature) { create :meeting_feature, participatory_space: participatory_process }
-    let!(:meeting) { create :meeting, feature: feature }
+    let!(:component) { create :meeting_component, participatory_space: participatory_process }
+    let!(:meeting) { create :meeting, component: component }
 
     context "when everything is ok" do
       before do

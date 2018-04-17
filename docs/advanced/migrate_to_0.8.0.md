@@ -1,17 +1,16 @@
 # Migration from 0.7.0 to 0.8.0
 
-## Note about this guide.
+## Note about this guide
 
 This is a work-in-progress guide for all those people that needs to adapt his existing source code from Decidim
 0.7.0 to Decidim 0.8.0. If you find a mistake or missing parts in this  document do not hesitate to make a pull request
 and add your discoveries.
 
-
-## Upgrading the gem.
+## Upgrading the gem
 
 You need to alter the following files:
 
-### Gemspec file.
+### Gemspec file
 
 You must set the decidim version to 0.8.0 or higher in your gemspec.
 
@@ -22,6 +21,7 @@ s.add-dependency "decidim-core", "~> 0.8.0"
 ```
 
 ### Gemfile
+
 You must adjust the decidim version in your gem file as well. You also need to add the new engine 'decidim-verifications':
 
 ```ruby
@@ -30,16 +30,17 @@ gem "decidim", "~> 0.8.0"
 gem "decidim-verifications"
 ...
 ```
-### bundle update
+
 Finally run *bundle update* to get the required gems updated.
 
 ```bash
-$ bundle update --full-index
+bundle update --full-index
 ```
 
-## Updating your sources.
+## Updating your sources
 
 ### Factories
+
 Decidim 0.8.0 has migratied from FactoryGirl gem to FactoryBot. Cause this you need to update your factories. Usually the *factories.rb* file looks like this:
 
 ```ruby
@@ -68,7 +69,7 @@ end
 
 ```
 
-### Spec tests examples.
+### Spec tests examples
 
 Some examples have changed its name to be more descriptive. In order to have your tests up and running again you must perform the following substitions in the specs folder:
 
@@ -91,34 +92,36 @@ where the dialog was supposed to be accepted:
 accept_confirm { click_button "Submit" }
 ```
 
-## Steps to do after migrating your source code.
+## Steps to do after migrating your source code
 
-### Adapting code for an existing engine:
+### Adapting code for an existing engine
 
 You must remove the external test app and regenerate it:
 
 ```bash
-$ rm -Rf spec/decidim_dummy_app
-$ bundle exec rails decidim:generate_external_test_app
+rm -Rf spec/decidim_dummy_app
+bundle exec rails decidim:generate_external_test_app
 ```
 
 After regenerating the test app you should recreate the test database as well:
 
 ```bash
-$ cd spec/decidim_dummy_app
-$ bundle exec rails db:drop
-$ bundle exec rails db:create
-$ bundle exec rails db:migrate
-$ bundle exec rails db:migrate RAILS_ENV=test
-$ bundle exec rails db:seed
+cd spec/decidim_dummy_app
+bundle exec rails db:drop
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:migrate RAILS_ENV=test
+bundle exec rails db:seed
+
 ```
-### Adapting code for an existing Decidim implementation.
+
+### Adapting code for an existing Decidim implementation
 
 After updating the decidim gems you should import the new migrations and execute them:
 
 ```bash
-$ rails decidim:upgraded
-$ rails db:migrate
+rails decidim:upgraded
+rails db:migrate
 ```
 
 Additionally you should change the way uglifier is used in your app:
@@ -132,6 +135,7 @@ Edit the file *config/environments/production.rb* and make the following changes
 # Enable ES6 support
 config.assets.js_compressor = Uglifier.new(harmony: true)
 ```
-# To sum it up.
+
+### To sum it up
 
 Take a cold beer and enjoy democracy.

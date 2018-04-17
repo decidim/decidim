@@ -2,9 +2,9 @@
 <% total ||= 100 %>
 <% percent = number_to_percentage((progress.to_f/total) * 100, precision: 0) %>
 <% vertical ||= false %>
-<% text ||= 'Apoyos' %>
-<% display ||= 'slash' %>
-<div class="progress__bar<%= (vertical) ? ' progress__bar--vertical' : '' %>">
+<% text ||= "Apoyos" %>
+<% display ||= "slash" %>
+<div class="progress__bar<%= (vertical) ? " progress__bar--vertical" : "" %>">
   <div class="progress__bar__title">
     <% if (display == 'slash') %>
       <span class="progress__bar__number"><%= progress %></span>/<%= total %>

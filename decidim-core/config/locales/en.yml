@@ -7,11 +7,13 @@ en:
       report:
         details: Additional comments
       user:
+        about: About
         email: Your email
         name: Your name
-        nickname: Your short, unique identifier in decidim
+        nickname: Your short, unique identifier
         password: New password
         password_confirmation: Confirm your new password
+        personal_url: Personal URL
         remove_avatar: Remove avatar
         user_group_document_number: Organization document number
         user_group_name: Organization name
@@ -55,11 +57,15 @@ en:
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
-      feature:
-        create: "%{user_name} added the %{resource_name} feature to the %{space_name} space"
-        delete: "%{user_name} removed the %{resource_name} feature from the %{space_name} space"
-        publish: "%{user_name} published the %{resource_name} feature in the %{space_name} space"
-        unpublish: "%{user_name} unpublished the %{resource_name} feature from the %{space_name} space"
+      area:
+        create: "%{user_name} created the %{resource_name} area"
+        delete: "%{user_name} deleted the %{resource_name} area"
+        update: "%{user_name} updated the %{resource_name} area"
+      component:
+        create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
+        delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
@@ -68,6 +74,10 @@ en:
         delete: "%{user_name} deleted the %{resource_name} newsletter"
         deliver: "%{user_name} delivered the %{resource_name} newsletter"
         update: "%{user_name} updated the %{resource_name} newsletter"
+      oauth_application:
+        create: "%{user_name} created the %{resource_name} OAuth application"
+        delete: "%{user_name} deleted the %{resource_name} OAuth application"
+        update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
       scope:
@@ -119,6 +129,21 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy Component
+        settings:
+          global:
+            comments_enabled: Comments enabled
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comments blocked
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
     core:
       actions:
@@ -129,7 +154,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your short, unique identifier in decidim
+          nickname_help: Your short, unique identifier in %{organization}
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -137,7 +162,7 @@ en:
         new:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
-          nickname_help: Your short, unique identifier in decidim
+          nickname_help: Your short, unique identifier in %{organization}
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -155,6 +180,21 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Authorize application
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          cancel: Cancel
+          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          publish_content: Publish content for you
+          see_email: See your email
+          see_name: See your name
+          see_username: See your username
+          this_application_will_be_able_to: 'This application will be able to:'
+          this_application_will_not_be_able_to: 'This application will not be able to:'
+          update_profile: Update your profile
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     errors:
       internal_server_error:
         title: There was a problem with our server
@@ -170,17 +210,17 @@ en:
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title}
           notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hello %{user_name},
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -193,21 +233,6 @@ en:
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Dummy Feature
-        settings:
-          global:
-            comments_enabled: Comments enabled
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
-          step:
-            comments_blocked: Comments blocked
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
         all: All
@@ -243,6 +268,8 @@ en:
       value_types:
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'The area type was not found on the database (ID: %{id})'
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
@@ -308,6 +335,10 @@ en:
     pages:
       index:
         title: More information
+    participatory_space_private_users:
+      not_allowed: You are not allowed to view this content
+    profile:
+      deleted: Deleted user
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
@@ -395,7 +426,7 @@ en:
     invitations:
       edit:
         header: Set your password
-        nickname_help: Your unique identifier in decidim.
+        nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
     mailer:
       invitation_instructions:
@@ -406,18 +437,25 @@ en:
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
+        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
+      invite_private_user:
+        subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
         subject: You've been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
         subject: Password changed
+  doorkeeper:
+    scopes:
+      public: Your public information.
   errors:
     messages:
       content_type_whitelist_error: The file type is not valid
@@ -497,6 +535,7 @@ en:
         answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
+        debates_count: Debates
         endorsements_count: Endorsements
         headline: Current state of %{organization}
         meetings_count: Meetings

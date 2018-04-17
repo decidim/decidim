@@ -14,7 +14,7 @@ shared_examples_for "has reference" do
 
     context "when there is a custom resource reference generator present" do
       before do
-        allow(Decidim).to receive(:reference_generator).and_return(->(resource, _feature) { "1234-#{resource.id}" })
+        allow(Decidim).to receive(:reference_generator).and_return(->(resource, _component) { "1234-#{resource.id}" })
       end
 
       it "generates a valid reference" do
@@ -37,7 +37,7 @@ shared_examples_for "has reference" do
     it "stores the reference" do
       subject.reference = nil
       subject.save!
-      expect(subject.reload.reference).to_not be_blank
+      expect(subject.reload.reference).not_to be_blank
     end
   end
 end

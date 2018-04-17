@@ -21,8 +21,8 @@ module Decidim::Admin
       let(:unmanaged_process_attachment) { create :attachment, attached_to: unmanaged_process }
       let(:user_process_attachment_collection) { create :attachment_collection, collection_for: user_process }
       let(:unmanaged_process_attachment_collection) { create :attachment_collection, collection_for: unmanaged_process }
-      let(:feature) { create(:feature, participatory_space: user_process) }
-      let(:dummy_resource) { create(:dummy_resource, feature: feature) }
+      let(:component) { create(:component, participatory_space: user_process) }
+      let(:dummy_resource) { create(:dummy_resource, component: component) }
       let(:user_process_moderation) { create(:moderation, reportable: dummy_resource) }
       let(:unmanaged_process_moderation) { create(:moderation) }
 

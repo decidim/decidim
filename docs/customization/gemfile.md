@@ -1,8 +1,8 @@
 # Gemfile
 
-You can add and change your Gemfile as you want, this is a classic Ruby on Rails application. For example to add[ rails-footnotes](https://github.com/josevalim/rails-footnotes) gem you would just add:
+You can add and change your Gemfile as you want, this is a classic Ruby on Rails application. For example to add [rails-footnotes](https://github.com/josevalim/rails-footnotes) gem you would just add:
 
-```
+```ruby
 gem 'rails-footnotes', '~> 4.0'
 ```
 

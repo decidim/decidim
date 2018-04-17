@@ -4,7 +4,16 @@ class PagesController < ApplicationController
   layout :set_layout
 
   def show
-    render template: "#{params[:layout]}/#{params[:id]}"
+    if request.format.pdf?
+      send_file(
+        Rails.root.join("app", "views", params[:layout], params[:id]).to_s,
+        filename: params[:id].split("/").last,
+        type: "application/pdf",
+        disposition: :inline
+      )
+    else
+      render template: "#{params[:layout]}/#{params[:id]}"
+    end
   end
 
   private

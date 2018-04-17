@@ -2,9 +2,12 @@ gl:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcións
+        copy_components: Copiar compoñentes
+        decidim_area_id: Área
+        decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo de desenvolvedores
         domain: Dominio
@@ -12,16 +15,23 @@ gl:
         hero_image: Imaxe na casa
         local_area: Área local
         meta_scope: Metadatos de ámbito
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
+        published_at: Publicado en
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
+        show_statistics: Amosar estatísticas
         slug: URL slug
         subtitle: Subtítulo
         target: Obxectivo
         title: Título
+      assembly_user_role:
+        email: Correo electrónico
+        name: Nome
+        role: Rol
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ gl:
           title: Información xeral
         index:
           not_published: Non publicado
+          private: Privado
+          public: Público
           published: Publicado
         new:
           create: Crear
@@ -80,15 +92,19 @@ gl:
         assemblies: Asembleas
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
+          attachment_collections: Coleccións
+          attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
-          features: características
+          components: Compoñentes
           info: Información
           moderations: Moderacións
+          private_users: Usuarios privados
       models:
         assembly:
           fields:
             created_at: Creado en
+            private: Privado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -105,10 +121,21 @@ gl:
             moderator: Moderador
       titles:
         assemblies: Asembleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creou o conxunto %{resource_name}"
+        publish: "%{user_name} publicou o conxunto %{resource_name}"
+        unpublish: "%{user_name} inédita a montaxe %{resource_name}"
+        update: "%{user_name} actualizou o conxunto %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
+        update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccione unha área
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ gl:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
       show:
+        area: Área
+        children: Asembleas
         developer_group: Grupo de desenvolvedores
         local_area: Área local
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        private_space: Esta é unha asemblea privada
+        related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         target: Obxectivo
       statistics:
         answers_count: Respostas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        debates_count: Debates
+        endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
         orders_count: Votos
@@ -141,6 +174,10 @@ gl:
         surveys_count: Enquisas
         users_count: Participantes
         votes_count: Votos
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Asembleas
   layouts:

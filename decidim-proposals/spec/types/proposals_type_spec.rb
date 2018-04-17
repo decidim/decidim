@@ -8,13 +8,13 @@ module Decidim
   module Proposals
     describe ProposalsType, type: :graphql do
       include_context "with a graphql type"
-      let(:model) { create(:proposal_feature) }
+      let(:model) { create(:proposal_component) }
 
       it_behaves_like "a component query type"
 
       describe "proposals" do
-        let!(:draft_proposals) { create_list(:proposal, 2, :draft, feature: model) }
-        let!(:published_proposals) { create_list(:proposal, 2, feature: model) }
+        let!(:draft_proposals) { create_list(:proposal, 2, :draft, component: model) }
+        let!(:published_proposals) { create_list(:proposal, 2, component: model) }
         let!(:other_proposals) { create_list(:proposal, 2) }
 
         let(:query) { "{ proposals { edges { node { id } } } }" }
@@ -31,16 +31,16 @@ module Decidim
         let(:query) { "query Proposal($id: ID!){ proposal(id: $id) { id } }" }
         let(:variables) { { id: proposal.id.to_s } }
 
-        context "when the proposal belongs to the feature" do
-          let!(:proposal) { create(:proposal, feature: model) }
+        context "when the proposal belongs to the component" do
+          let!(:proposal) { create(:proposal, component: model) }
 
           it "finds the proposal" do
             expect(response["proposal"]["id"]).to eq(proposal.id.to_s)
           end
         end
 
-        context "when the proposal doesn't belong to the feature" do
-          let!(:proposal) { create(:proposal, feature: create(:proposal_feature)) }
+        context "when the proposal doesn't belong to the component" do
+          let!(:proposal) { create(:proposal, component: create(:proposal_component)) }
 
           it "returns null" do
             expect(response["proposal"]).to be_nil

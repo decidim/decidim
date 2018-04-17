@@ -8,7 +8,7 @@ class RemoveStepsShortDescription < ActiveRecord::Migration[5.0]
   def change
     ParticipatoryProcessStep.transaction do
       ParticipatoryProcessStep.find_each do |step|
-        step.update_attributes!(
+        step.update!(
           description: new_description_for(step)
         )
       end

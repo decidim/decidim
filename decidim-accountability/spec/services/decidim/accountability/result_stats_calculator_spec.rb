@@ -7,37 +7,37 @@ module Decidim::Accountability
     subject { described_class.new(result) }
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: current_feature.organization }
-    let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:scope) { create :scope, organization: current_component.organization }
+    let(:parent_category) { create :category, participatory_space: current_component.participatory_space }
     let!(:result) do
       create(
         :result,
-        feature: current_feature,
+        component: current_component,
         category: parent_category,
         scope: scope
       )
     end
-    let(:meetings_feature) do
-      create(:feature, manifest_name: :meetings, participatory_space: participatory_process)
+    let(:meetings_component) do
+      create(:component, manifest_name: :meetings, participatory_space: participatory_process)
     end
     let(:meetings) do
       create_list(
         :meeting,
         3,
-        feature: meetings_feature,
+        component: meetings_component,
         attendees_count: 2,
         contributions_count: 5
       )
     end
-    let(:proposals_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
+    let(:proposals_component) do
+      create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposals_feature
+        component: proposals_component
       )
     end
 

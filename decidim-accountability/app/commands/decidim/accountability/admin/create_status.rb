@@ -29,7 +29,7 @@ module Decidim
 
         def create_status
           @status = Status.create!(
-            feature: @form.current_feature,
+            component: @form.current_component,
             key: @form.key,
             name: @form.name,
             description: @form.description,

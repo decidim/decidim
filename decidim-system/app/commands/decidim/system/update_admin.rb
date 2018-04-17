@@ -31,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def update_admin
-        @admin.update_attributes!(attributes)
+        @admin.update!(attributes)
       end
 
       def attributes

@@ -31,8 +31,8 @@ module Decidim
         scope "/assemblies/:assembly_slug" do
           resources :categories
 
-          resources :features do
-            resource :permissions, controller: "feature_permissions"
+          resources :components do
+            resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
@@ -46,13 +46,19 @@ module Decidim
               put :hide
             end
           end
+
+          resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            member do
+              post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+            end
+          end
         end
 
-        scope "/assemblies/:assembly_slug/features/:feature_id/manage" do
-          Decidim.feature_manifests.each do |manifest|
+        scope "/assemblies/:assembly_slug/components/:component_id/manage" do
+          Decidim.component_manifests.each do |manifest|
             next unless manifest.admin_engine
 
-            constraints CurrentFeature.new(manifest) do
+            constraints CurrentComponent.new(manifest) do
               mount manifest.admin_engine, at: "/", as: "decidim_admin_assembly_#{manifest.name}"
             end
           end

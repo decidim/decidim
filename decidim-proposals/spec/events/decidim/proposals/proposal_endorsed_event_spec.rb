@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe Decidim::Proposals::ProposalEndorsedEvent do
-  include_context "simple event"
+  include_context "when a simple event"
 
-  let(:event_name) { "decidim.events.users.profile_updated" }
+  let(:event_name) { "decidim.events.proposals.proposal_endorsed" }
   let(:resource) { proposal }
   let(:author) { create :user, organization: proposal.organization }
 
-  let(:extra) { { endorser: author } }
+  let(:extra) { { endorser_id: author.id } }
   let(:proposal) { create :proposal }
   let(:endorsement) { create :proposal_endorsement, proposal: proposal, author: author }
   let(:resource_path) { resource_locator(proposal).path }

@@ -62,7 +62,7 @@ module Decidim
 
       def context_params
         {
-          feature: current_feature,
+          component: current_component,
           current_user: current_user
         }
       end

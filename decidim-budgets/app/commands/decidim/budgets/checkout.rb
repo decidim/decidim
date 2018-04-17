@@ -7,10 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # order - The current order for the user.
-      # feature - The current feature.
-      def initialize(order, feature)
+      # component - The current component.
+      def initialize(order, component)
         @order = order
-        @feature = feature
+        @component = component
       end
 
       # Executes the command. Broadcasts these events:

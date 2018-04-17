@@ -40,6 +40,68 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:show_statistics) { true }
+        let(:private_space) { true }
+        let(:purpose_of_action) do
+          {
+            en: "Purpose of action",
+            es: "propósito de la acción",
+            ca: "propòsit d'acció"
+          }
+        end
+        let(:composition) do
+          {
+            en: "Composition of internal working groups",
+            es: "Composición de los grupos internos",
+            ca: "Composició dels grups interns"
+          }
+        end
+        let(:assembly_type) { "others" }
+        let(:assembly_type_other) do
+          {
+            en: "Lorem ipsum",
+            es: "Lorem ipsum",
+            ca: "Lorem ipsum"
+          }
+        end
+        let(:creation_date) { 2.days.from_now }
+        let(:created_by) { "others" }
+        let(:created_by_other) do
+          {
+            en: "Lorem ipsum",
+            es: "Lorem ipsum",
+            ca: "Lorem ipsum"
+          }
+        end
+        let(:duration) { 2.days.from_now }
+        let(:included_at) { 2.days.from_now }
+        let(:closing_date) { 2.days.from_now }
+        let(:closing_date_reason) do
+          {
+            en: "Closing date reason",
+            es: "Razón cierre",
+            ca: "Raó tancament"
+          }
+        end
+        let(:internal_organisation) do
+          {
+            en: "Internal organisation",
+            es: "Organización interna",
+            ca: "Organització interna"
+          }
+        end
+        let(:is_transparent) { true }
+        let(:special_features) do
+          {
+            en: "Special features",
+            es: "Caracterísitcas especiales",
+            ca: "Característiques especials"
+          }
+        end
+        let(:twitter_handler) { "lorem" }
+        let(:facebook_handler) { "lorem" }
+        let(:instagram_handler) { "lorem" }
+        let(:youtube_handler) { "lorem" }
+        let(:github_handler) { "lorem" }
         let(:attributes) do
           {
             "assembly" => {
@@ -58,7 +120,38 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
-              "show_statistics" => show_statistics
+              "show_statistics" => show_statistics,
+              "private_space" => private_space,
+              "purpose_of_action_en" => purpose_of_action[:en],
+              "purpose_of_action_es" => purpose_of_action[:es],
+              "purpose_of_action_ca" => purpose_of_action[:ca],
+              "assembly_type" => assembly_type,
+              "assembly_type_other_en" => assembly_type_other[:en],
+              "assembly_type_other_es" => assembly_type_other[:es],
+              "assembly_type_other_ca" => assembly_type_other[:ca],
+              "creation_date" => creation_date,
+              "created_by" => created_by,
+              "created_by_other_en" => created_by_other[:en],
+              "created_by_other_es" => created_by_other[:es],
+              "created_by_other_ca" => created_by_other[:ca],
+              "duration" => duration,
+              "included_at" => included_at,
+              "closing_date" => closing_date,
+              "closing_date_reason_en" => closing_date_reason[:en],
+              "closing_date_reason_es" => closing_date_reason[:es],
+              "closing_date_reason_ca" => closing_date_reason[:ca],
+              "internal_organisation_en" => internal_organisation[:en],
+              "internal_organisation_es" => internal_organisation[:es],
+              "internal_organisation_ca" => internal_organisation[:ca],
+              "is_transparent" => is_transparent,
+              "special_features_en" => special_features[:en],
+              "special_features_es" => special_features[:es],
+              "special_features_ca" => special_features[:ca],
+              "twitter_handler" => twitter_handler,
+              "facebook_handler" => facebook_handler,
+              "instagram_handler" => instagram_handler,
+              "youtube_handler" => youtube_handler,
+              "github_handler" => github_handler
             }
           }
         end

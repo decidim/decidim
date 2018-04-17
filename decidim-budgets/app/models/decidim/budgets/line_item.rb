@@ -9,11 +9,11 @@ module Decidim
       belongs_to :project, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
 
       validates :order, uniqueness: { scope: :project }
-      validate :same_feature
+      validate :same_component
 
-      def same_feature
+      def same_component
         return unless order && project
-        errors.add(:order, :invalid) unless order.feature == project.feature
+        errors.add(:order, :invalid) unless order.component == project.component
       end
     end
   end

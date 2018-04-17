@@ -11,7 +11,7 @@ module Decidim
         can :read, :public_pages
         can :manage, :locales
 
-        can :read, Feature, &:published?
+        can :read, Component, &:published?
 
         can :search, Scope
         can :pick, Scope

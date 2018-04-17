@@ -3,7 +3,7 @@
 require "decidim/surveys/admin"
 require "decidim/surveys/engine"
 require "decidim/surveys/admin_engine"
-require "decidim/surveys/feature"
+require "decidim/surveys/component"
 
 module Decidim
   # This namespace holds the logic of the `Surveys` component. This component

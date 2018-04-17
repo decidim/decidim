@@ -26,7 +26,7 @@ describe Decidim do
       expect(decidim_railties).to all(receive(:load_seed))
       expect(other_railties).not_to include(receive(:load_seed))
 
-      manifests = [double(name: "Feature A"), double(name: "Feature B")]
+      manifests = [double(name: "Component A"), double(name: "Component B")]
       expect(described_class).to receive(:participatory_space_manifests).and_return(manifests)
 
       expect(manifests).to all(receive(:seed!).once)

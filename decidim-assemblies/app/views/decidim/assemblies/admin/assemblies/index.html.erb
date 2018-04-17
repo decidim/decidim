@@ -1,7 +1,11 @@
 <div class="card" id="assemblies">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.assemblies" %><%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), ['new', 'assembly'], class: 'button tiny button--title' if can? :create, Decidim::Assembly %>
+      <% parent_assembly.self_and_ancestors.each do |assembly| %>
+        <%= link_to "#{translated_attribute(assembly.title)} > ", edit_assembly_path(assembly) %>
+      <% end if parent_assembly %>
+      <%= t "decidim.admin.titles.assemblies" %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if can? :create, Decidim::Assembly %>
     </h2>
   </div>
   <div class="card-section">
@@ -11,6 +15,7 @@
           <tr>
             <th><%= t("models.assembly.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.assembly.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly.fields.private", scope: "decidim.admin") %></th>
             <th class="table-list__actions"><%= t("models.assembly.fields.published", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -38,10 +43,17 @@
                 <%= l assembly.created_at, format: :short %>
               </td>
               <td class="table-list__state">
-                <% if assembly.published? %>
-                  <strong class="text-success"><%= t('assemblies.index.published', scope: "decidim.admin") %></strong>
+                <% if assembly.private_space? %>
+                  <strong class="text-alert"><%= t("assemblies.index.private", scope: "decidim.admin") %></strong>
                 <% else %>
-                  <strong class="text-alert"><%= t('assemblies.index.not_published', scope: "decidim.admin") %></strong>
+                  <strong class="text-success"><%= t("assemblies.index.public", scope: "decidim.admin") %></strong>
+                <% end %>
+              </td>
+              <td class="table-list__state">
+                <% if assembly.published? %>
+                  <strong class="text-success"><%= t("assemblies.index.published", scope: "decidim.admin") %></strong>
+                <% else %>
+                  <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
               </td>
               <td class="table-list__actions">
@@ -51,6 +63,10 @@
 
                 <% if can? :update, assembly %>
                   <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% end %>
+
+                <% if assembly.children_count > 0 || can?(:create, assembly) %>
+                  <%= icon_link_to "dial", decidim_admin_assemblies.assemblies_path(parent_id: assembly.id), t("decidim.admin.titles.assemblies"), class: "action-icon--dial" %>
                 <% end %>
 
                 <% if can? :preview, assembly %>

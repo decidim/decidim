@@ -8,16 +8,16 @@ module Decidim::Budgets
 
     let(:user) { create(:user) }
 
-    let(:feature) do
-      create(:budget_feature,
+    let(:component) do
+      create(:budget_component,
              organization: user.organization,
              settings: { "total_budget" => 100_000, "vote_threshold_percent": 50 })
     end
 
-    let(:project) { create(:project, feature: feature, budget: 50_000) }
+    let(:project) { create(:project, component: component, budget: 50_000) }
 
     let(:order) do
-      order = create(:order, user: user, feature: feature)
+      order = create(:order, user: user, component: component)
       order.projects << project
       order.save!
       order
@@ -37,7 +37,7 @@ module Decidim::Budgets
 
     context "when the order is checked out" do
       before do
-        order.update_attributes!(checked_out_at: Time.current)
+        order.update!(checked_out_at: Time.current)
       end
 
       it "broadcasts invalid" do

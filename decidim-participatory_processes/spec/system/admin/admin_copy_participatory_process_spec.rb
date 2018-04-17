@@ -6,7 +6,7 @@ describe "Admin copies participatory process", type: :system do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: participatory_process }
+  let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }
   let!(:category) do
     create(
       :category,
@@ -90,18 +90,18 @@ describe "Admin copies participatory process", type: :system do
       end
     end
 
-    it "copies the process with features" do
-      page.check("participatory_process[copy_features]")
+    it "copies the process with components" do
+      page.check("participatory_process[copy_components]")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
 
       click_link "Copy participatory process"
-      click_link "Features"
+      click_link "Components"
 
       within ".table-list" do
-        participatory_process.features.each do |feature|
-          expect(page).to have_content(translated(feature.name))
+        participatory_process.components.each do |component|
+          expect(page).to have_content(translated(component.name))
         end
       end
     end

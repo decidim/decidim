@@ -23,14 +23,14 @@
  */
 $(() => {
   const removeUrlParameter = (url, parameter) => {
-    const urlParts = url.split('?');
+    const urlParts = url.split("?");
 
     if (urlParts.length >= 2) {
       // Get first part, and remove from array
       const urlBase = urlParts.shift();
 
       // Join it back up
-      const queryString = urlParts.join('?');
+      const queryString = urlParts.join("?");
 
       const prefix = `${encodeURIComponent(parameter)}=`;
       const parts = queryString.split(/[&;]/g);
@@ -47,7 +47,7 @@ $(() => {
         return urlBase;
       }
 
-      return `${urlBase}?${parts.join('&')}`;
+      return `${urlBase}?${parts.join("&")}`;
     }
 
     return url;
@@ -66,12 +66,12 @@ $(() => {
 
       $(`${target} a`).attr("href", (index, href) => {
         const querystring = jQuery.param({"redirect_url": redirectUrl});
-        return href + (href.match(/\?/) ? '&' : '?') + querystring;
+        return href + (href.match(/\?/) ? "&" : "?") + querystring;
       });
     }
   });
 
-  $(document).on('closed.zf.reveal', (event) => {
+  $(document).on("closed.zf.reveal", (event) => {
     $("#redirect_url", event.target).remove();
     $("a", event.target).attr("href", (index, href) => {
       if (href && href.indexOf("redirect_url") !== -1) {

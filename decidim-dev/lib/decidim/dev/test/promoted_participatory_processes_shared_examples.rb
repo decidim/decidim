@@ -22,37 +22,44 @@ shared_examples "with promoted participatory processes" do
         organization: organization
       )
 
-      last = create(
-        :participatory_process,
-        :with_steps,
-        :published,
-        :promoted,
-        organization: organization
-      )
-      last.active_step.update_attributes!(end_date: nil)
+      last =
+        create(
+          :participatory_process,
+          :with_steps,
+          :published,
+          :promoted,
+          organization: organization
+        )
 
-      first = create(
-        :participatory_process,
-        :with_steps,
-        :published,
-        :promoted,
-        organization: organization,
-        end_date: Time.current.advance(days: 10)
-      )
-      first.active_step.update_attributes!(end_date: Time.current.advance(days: 2))
+      last.active_step.update!(end_date: nil)
 
-      second = create(
-        :participatory_process,
-        :with_steps,
-        :published,
-        :promoted,
-        organization: organization,
-        end_date: Time.current.advance(days: 8)
-      )
-      second.active_step.update_attributes!(end_date: Time.current.advance(days: 4))
+      first =
+        create(
+          :participatory_process,
+          :with_steps,
+          :published,
+          :promoted,
+          organization: organization,
+          end_date: Time.current.advance(days: 10)
+        )
 
-      expect(controller.helpers.promoted_participatory_processes)
-        .to match_array([first, second, last])
+      first.active_step.update!(end_date: Time.current.advance(days: 2))
+
+      second =
+        create(
+          :participatory_process,
+          :with_steps,
+          :published,
+          :promoted,
+          organization: organization,
+          end_date: Time.current.advance(days: 8)
+        )
+
+      second.active_step.update!(end_date: Time.current.advance(days: 4))
+
+      expect(controller.helpers.promoted_participatory_processes).to(
+        match_array([first, second, last])
+      )
     end
   end
 end

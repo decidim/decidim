@@ -108,8 +108,67 @@ shared_examples "manage meetings" do
     end
   end
 
+  describe "duplicating a meeting" do
+    it "creates a new meeting", :slow do
+      within find("tr", text: translated(meeting.title)) do
+        click_link "Duplicate"
+      end
+
+      fill_in_i18n(
+        :meeting_title,
+        "#meeting-title-tabs",
+        en: "My duplicate meeting",
+        es: "Mi meeting duplicado",
+        ca: "El meu meeting duplicat"
+      )
+      fill_in_i18n(
+        :meeting_location,
+        "#meeting-location-tabs",
+        en: "Location",
+        es: "Location",
+        ca: "Location"
+      )
+      fill_in_i18n(
+        :meeting_location_hints,
+        "#meeting-location_hints-tabs",
+        en: "Location hints",
+        es: "Location hints",
+        ca: "Location hints"
+      )
+      fill_in_i18n_editor(
+        :meeting_description,
+        "#meeting-description-tabs",
+        en: "A longer description",
+        es: "Descripción más larga",
+        ca: "Descripció més llarga"
+      )
+
+      fill_in :meeting_address, with: address
+
+      page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "10:00").click
+      page.find(".datepicker-dropdown .minute", text: "10:50").click
+
+      page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "12:00").click
+      page.find(".datepicker-dropdown .minute", text: "12:50").click
+
+      within ".copy_meetings" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content("My duplicate meeting")
+      end
+    end
+  end
+
   describe "deleting a meeting" do
-    let!(:meeting2) { create(:meeting, feature: current_feature) }
+    let!(:meeting2) { create(:meeting, component: current_component) }
 
     before do
       visit current_path
@@ -217,10 +276,10 @@ shared_examples "manage meetings" do
   end
 
   describe "closing a meeting" do
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
@@ -250,7 +309,7 @@ shared_examples "manage meetings" do
     end
 
     context "when a meeting has alredy been closed" do
-      let!(:meeting) { create(:meeting, :closed, feature: current_feature) }
+      let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do

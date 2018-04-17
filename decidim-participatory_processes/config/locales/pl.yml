@@ -5,7 +5,7 @@ pl:
         announcement: Ogłoszenie
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
-        copy_features: Kopiuj funkcje
+        copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
         description: Opis
         developer_group: Grupa programistyczna
@@ -19,6 +19,7 @@ pl:
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
+        published_at: Opublikowano na
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
@@ -61,17 +62,21 @@ pl:
         participatory_process_groups: Grupy procesowe
         participatory_processes: Procesy
         participatory_processes_submenu:
+          attachment_collections: Kolekcje
+          attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
-          features: cechy
+          components: składniki
           info: Informacje
           moderations: Modernizacje
+          private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
           steps: Kroki
       models:
         participatory_process:
           fields:
             created_at: Utworzono w
+            private: Prywatny
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
@@ -180,6 +185,8 @@ pl:
           title: Informacje ogólne
         index:
           not_published: Nie opublikowane
+          private: Prywatny
+          public: Publiczny
           published: Opublikowany
         new:
           create: Utwórz
@@ -202,6 +209,33 @@ pl:
         resend_invitation:
           error: Wystąpił błąd ponownego wysłania zaproszenia.
           success: Zaproszenie wysłane pomyślnie ponownie.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} stworzył %{resource_name} proces uczestnictwa"
+        publish: "%{user_name} opublikował %{resource_name} proces uczestnictwa"
+        unpublish: "%{user_name} niepublikowane %{resource_name} proces uczestnictwa"
+        update: "%{user_name} zaktualizował %{resource_name} proces uczestnictwa"
+      participatory_process_step:
+        activate: "%{user_name} aktywował krok %{resource_name} w procesie uczestniczenia %{space_name}"
+        create: "%{user_name} utworzył krok %{resource_name} w procesie uczestniczenia %{space_name}"
+        delete: "%{user_name} usunął %{resource_name} krok w procesie uczestniczenia %{space_name}"
+        update: "%{user_name} zaktualizował %{resource_name} krok w procesie uczestniczenia %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} zaprosił użytkownika %{resource_name} do %{space_name} proces uczestnictwa"
+        delete: "%{user_name} usunięto użytkownika %{resource_name} z %{space_name} proces uczestnictwa"
+        update: "%{user_name} zmienił rolę użytkownika %{resource_name} w %{space_name} proces uczestnictwa"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Daty dla kroku %{resource_title} na %{participatory_space_title} zostały zaktualizowane. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesy
     participatory_process_groups:
@@ -245,12 +279,15 @@ pl:
         local_area: Obszar Organizacji
         participatory_scope: Co jest zdecydowane
         participatory_structure: Jak to się stało
+        private_space: To jest prywatny proces
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
+        debates_count: Debaty
+        endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
         orders_count: Głosowania
@@ -274,11 +311,6 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
-        order_by_processes:
-          processes:
-            one: "%{count} proces"
-            few: "%{count} procesów"
-            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział

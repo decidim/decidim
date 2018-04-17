@@ -12,7 +12,7 @@ module Decidim
         end
 
         def create
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_feature: current_feature)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
 
           CreateDebate.call(@form) do
             on(:ok) do
@@ -34,7 +34,7 @@ module Decidim
 
         def update
           authorize! :edit, debate
-          @form = form(DebateForm).from_params(params, current_feature: current_feature)
+          @form = form(DebateForm).from_params(params, current_component: current_component)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do
@@ -61,7 +61,7 @@ module Decidim
         private
 
         def debates
-          @debates ||= Debate.where(feature: current_feature)
+          @debates ||= Debate.where(component: current_component)
         end
 
         def debate

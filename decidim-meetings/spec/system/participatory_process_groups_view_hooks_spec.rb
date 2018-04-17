@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Meetings in process group home", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "meetings" }
   let(:meetings_count) { 5 }
 
@@ -18,7 +18,7 @@ describe "Meetings in process group home", type: :system do
 
   context "when there are only past meetings" do
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :past, feature: feature)
+      create_list(:meeting, meetings_count, :past, component: component)
     end
 
     it "shows the last three past meetings" do
@@ -33,7 +33,7 @@ describe "Meetings in process group home", type: :system do
 
   context "when there are only upcoming meetings" do
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :upcoming, feature: feature)
+      create_list(:meeting, meetings_count, :upcoming, component: component)
     end
 
     it "shows the first three upcoming meetings" do
@@ -48,11 +48,11 @@ describe "Meetings in process group home", type: :system do
 
   context "when there are past and upcoming meetings" do
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :past, feature: feature)
+      create_list(:meeting, meetings_count, :past, component: component)
     end
 
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :upcoming, feature: feature)
+      create_list(:meeting, meetings_count, :upcoming, component: component)
     end
 
     it "only shows the first three upcoming meetings" do

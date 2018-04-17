@@ -22,11 +22,11 @@ And then execute:
 bundle
 ```
 
-## Features
+## Components
 
 ### Static pages
 
-This feature allows an admin to create pages to serve static content. Some
+This component allows an admin to create pages to serve static content. Some
 example of this kind of pages could be:
 
 * Terms and Conditions

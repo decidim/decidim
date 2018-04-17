@@ -62,7 +62,7 @@ module Decidim
 
         UpdateNewsletter.call(@newsletter, @form, current_user) do
           on(:ok) do |newsletter|
-            flash.now[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
             redirect_to action: :show, id: newsletter.id
           end
 

@@ -48,18 +48,18 @@ module Decidim
         let(:query) { %({ component(id: \"#{id}\") { id }}) }
 
         context "with a participatory space that belongs to the current organization" do
-          let!(:feature) { create(:dummy_feature, participatory_space: participatory_process) }
+          let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
           let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-          let(:id) { feature.id }
+          let(:id) { component.id }
 
           it "returns the component" do
-            expect(response["component"]).to eq("id" => feature.id.to_s)
+            expect(response["component"]).to eq("id" => component.id.to_s)
           end
         end
 
         context "with a participatory space that doesn't belong to the current organization" do
-          let!(:feature) { create(:dummy_feature) }
-          let(:id) { feature.id }
+          let!(:component) { create(:dummy_component) }
+          let(:id) { component.id }
 
           it "returns the component" do
             expect(response["component"]).to be_nil

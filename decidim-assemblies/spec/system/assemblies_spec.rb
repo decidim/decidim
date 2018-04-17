@@ -74,7 +74,7 @@ describe "Assemblies", type: :system do
     end
 
     context "and accessing from the homepage" do
-      it "the menu link is not shown" do
+      it "the menu link is shown" do
         visit decidim.root_path
 
         within ".main-nav" do
@@ -116,12 +116,12 @@ describe "Assemblies", type: :system do
 
   describe "when going to the assembly page" do
     let!(:assembly) { base_assembly }
-    let!(:proposals_feature) { create(:feature, :published, participatory_space: assembly, manifest_name: :proposals) }
-    let!(:meetings_feature) { create(:feature, :unpublished, participatory_space: assembly, manifest_name: :meetings) }
+    let!(:proposals_component) { create(:component, :published, participatory_space: assembly, manifest_name: :proposals) }
+    let!(:meetings_component) { create(:component, :unpublished, participatory_space: assembly, manifest_name: :meetings) }
 
     before do
-      create_list(:proposal, 3, feature: proposals_feature)
-      allow(Decidim).to receive(:feature_manifests).and_return([proposals_feature.manifest, meetings_feature.manifest])
+      create_list(:proposal, 3, component: proposals_component)
+      allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
 
       visit decidim_assemblies.assembly_path(assembly)
     end
@@ -146,15 +146,15 @@ describe "Assemblies", type: :system do
       let(:attached_to) { assembly }
     end
 
-    context "when the assembly has some features" do
-      it "shows the features" do
+    context "when the assembly has some components" do
+      it "shows the components" do
         within ".process-nav" do
-          expect(page).to have_content(translated(proposals_feature.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(meetings_feature.name, locale: :en).upcase)
+          expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
+          expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
         end
       end
 
-      it "shows the stats for those features" do
+      it "shows the stats for those components" do
         within ".process_stats" do
           expect(page).to have_content("3 PROPOSALS")
           expect(page).not_to have_content("0 MEETINGS")
@@ -164,10 +164,37 @@ describe "Assemblies", type: :system do
       context "when the assembly stats are not enabled" do
         let(:show_statistics) { false }
 
-        it "the stats for those features are not visible" do
+        it "the stats for those components are not visible" do
           expect(page).not_to have_content("3 PROPOSALS")
         end
       end
+    end
+
+    context "when the assembly has a child" do
+      let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+
+      before do
+        visit decidim_assemblies.assembly_path(assembly)
+      end
+
+      it "shows the children" do
+        within("#assemblies-grid") do
+          expect(page).to have_link translated(child_assembly.title)
+        end
+      end
+    end
+  end
+
+  describe "when going to the assembly child page" do
+    let!(:parent_assembly) { base_assembly }
+    let!(:child_assembly) { create :assembly, organization: organization, parent: parent_assembly }
+
+    before do
+      visit decidim_assemblies.assembly_path(child_assembly)
+    end
+
+    it "have a link to the parent assembly" do
+      expect(page).to have_link translated(parent_assembly.title)
     end
   end
 end

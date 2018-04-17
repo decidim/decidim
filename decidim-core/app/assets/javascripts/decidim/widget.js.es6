@@ -10,5 +10,5 @@ window.addEventListener("message", (event) => {
 
 $(() => {
   // Set target blank for all widget links.
-  $('a').attr('target', '_blank');
+  $("a").attr("target", "_blank");
 });

@@ -6,7 +6,7 @@ en:
         announcement: Announcement
         banner_image: Banner image
         copy_categories: Copy categories
-        copy_features: Copy features
+        copy_components: Copy components
         copy_steps: Copy steps
         description: Description
         developer_group: Developer group
@@ -67,15 +67,17 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
+          private_users: Private Users
           process_admins: Process users
           steps: Steps
       models:
         participatory_process:
           fields:
             created_at: Created at
+            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -184,6 +186,8 @@ en:
           title: General Information
         index:
           not_published: Not published
+          private: Private
+          public: Public
           published: Published
         new:
           create: Create
@@ -276,12 +280,14 @@ en:
         local_area: Organization Area
         participatory_scope: What is decided
         participatory_structure: How is it decided
+        private_space: This is a private process
         scope: Scope
         start_date: Start date
         target: Who participates
       statistics:
         answers_count: Answers
         comments_count: Comments
+        debates_count: Debates
         endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings

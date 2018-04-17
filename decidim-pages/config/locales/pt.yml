@@ -1,6 +1,9 @@
 pt:
   decidim:
-    features:
+    admin_log:
+      page:
+        update: "%{user_name} atualizou a página %{resource_name} em %{space_name}"
+    components:
       pages:
         name: Página
         settings:

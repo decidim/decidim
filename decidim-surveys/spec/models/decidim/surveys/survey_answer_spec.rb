@@ -10,12 +10,18 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:user) { create(:user, organization: organization) }
       let(:participatory_process) { create(:participatory_process, organization: organization) }
-      let(:feature) { create(:surveys_feature, participatory_space: participatory_process) }
-      let(:survey) { create(:survey, feature: feature) }
+      let(:component) { create(:surveys_component, participatory_space: participatory_process) }
+      let(:survey) { create(:survey, component: component) }
       let(:survey_question) { create(:survey_question, survey: survey) }
       let(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question, user: user) }
 
       it { is_expected.to be_valid }
+
+      it "requires choices for mandatory multiple choice questions" do
+        survey_answer.question.update!(question_type: "single_option", mandatory: true)
+        survey_answer.choices = []
+        expect(subject).not_to be_valid
+      end
 
       it "has an association of survey" do
         expect(subject.survey).to eq(survey)

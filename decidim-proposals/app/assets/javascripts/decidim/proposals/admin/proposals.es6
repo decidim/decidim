@@ -4,7 +4,7 @@ $(document).ready(function () {
     return $('.table-list .js-check-all-proposal:checked').length
   }
 
-  let selectedProposalsCountUpdate = function() {
+  window.selectedProposalsCountUpdate = function() {
     if(selectedProposalsCount() == 0){
       $("#js-recategorize-proposals-count").text("")
     } else {
@@ -25,7 +25,7 @@ $(document).ready(function () {
     }
   }
 
-  let showOtherActionsButtons = function() {
+  window.showOtherActionsButtons = function() {
     $("#js-other-actions-wrapper").removeClass('hide');
   }
 
@@ -37,13 +37,12 @@ $(document).ready(function () {
     $("#js-recategorize-proposals-actions").removeClass('hide');
   }
 
-  let hideRecategorizeProposalActions = function() {
-    $("#js-recategorize-proposals-actions").addClass('hide');
+  window.hideRecategorizeProposalActions = function() {
+    return $("#js-recategorize-proposals-actions").addClass('hide');
   }
 
-
   if ($('#js-form-recategorize-proposals').length) {
-    hideRecategorizeProposalActions();
+    window.hideRecategorizeProposalActions();
     $("#js-bulk-actions-button").addClass('hide');
 
     $("#js-bulk-actions-recategorize").click(function(e){
@@ -105,7 +104,7 @@ $(document).ready(function () {
     });
 
     $('#js-cancel-edit-category').on('click', function (e) {
-      hideRecategorizeProposalActions();
+      window.hideRecategorizeProposalActions()
       showBulkActionsButton();
       showOtherActionsButtons();
     });

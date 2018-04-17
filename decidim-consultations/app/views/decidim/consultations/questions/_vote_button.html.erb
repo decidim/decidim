@@ -1,0 +1,76 @@
+<div class="row question-vote-cabin">
+  <div class="columns mediumlarge-4 mediumlarge-push-4">
+    <% if question.consultation.upcoming? %>
+      <%= action_authorized_button_to :vote,
+                                    decidim_consultations.question_question_votes_path(question),
+                                    remote: true,
+                                    data: { disable: true },
+                                    class: "card__button button expanded disabled",
+                                    id: "vote_button" do %>
+        <div class="vote-button-caption"><%= t("questions.vote_button.vote", scope: "decidim") %></div>
+        <div>
+          <%= t "questions.vote_button.starting_from",
+                scope: "decidim",
+                date: l(question.start_voting_date) %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if question.consultation.finished? && signed_in? && question.voted_by?(current_user) %>
+      <%= action_authorized_button_to :unvote,
+                                      decidim_consultations.question_question_votes_path(question),
+                                      method: :delete,
+                                      remote: true,
+                                      data: { disable: true },
+                                      class: "card__button button expanded success disabled",
+                                      id: "unvote_button" do %>
+        <div class="vote-button-caption">
+          <%= t("questions.vote_button.already_voted", scope: "decidim") %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if signed_in? && question.consultation.active? %>
+      <% if can? :unvote, question %>
+        <%= action_authorized_button_to :unvote,
+                                        decidim_consultations.question_question_votes_path(question),
+                                        method: :delete,
+                                        remote: true,
+                                        data: {
+                                          disable: true
+                                        },
+                                        class: "card__button button expanded success",
+                                        id: "unvote_button" do %>
+          <div class="vote-button-caption"
+               data-original="<%= t("questions.vote_button.already_voted", scope: "decidim") %>"
+               data-replace="<%= t("questions.vote_button.already_voted_hover", scope: "decidim") %>">
+            <%= t("questions.vote_button.already_voted", scope: "decidim") %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if can? :vote, question %>
+        <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
+          <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% if question.consultation.active? %>
+        <%= action_authorized_button_to :vote,
+                                      decidim_consultations.question_question_votes_path(question),
+                                      class: "card__button button expanded",
+                                      data: { disable: true },
+                                      id: "vote_button" do %>
+          <div class="vote-button-caption">
+            <%= t("questions.vote_button.vote", scope: "decidim") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: question } %>
+<%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: question } %>
+<%= javascript_include_tag "decidim/consultations/utils" %>
+<%= javascript_include_tag "decidim/consultations/vote_dialog" %>

@@ -21,7 +21,7 @@ module Decidim
     private
 
     def current_participatory_space
-      @current_participatory_space ||= model.feature.participatory_space
+      @current_participatory_space ||= model.component.participatory_space
     end
 
     def iframe_url

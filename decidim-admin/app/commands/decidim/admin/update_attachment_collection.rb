@@ -31,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def update_attachment_collection
-        @attachment_collection.update_attributes!(attributes)
+        @attachment_collection.update!(attributes)
       end
 
       def attributes

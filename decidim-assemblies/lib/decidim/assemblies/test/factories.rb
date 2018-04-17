@@ -25,6 +25,26 @@ FactoryBot.define do
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     show_statistics true
+    private_space false
+    purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    assembly_type { "others" }
+    assembly_type_other { Decidim::Faker::Localized.sentence(1) }
+    creation_date { 1.month.ago }
+    created_by { "others" }
+    created_by_other { Decidim::Faker::Localized.word }
+    duration { 2.months.from_now.at_midnight }
+    included_at { 1.month.ago }
+    closing_date { 2.months.from_now.at_midnight }
+    closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    is_transparent true
+    special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    twitter_handler { "others" }
+    facebook_handler { "others" }
+    instagram_handler { "others" }
+    youtube_handler { "others" }
+    github_handler { "others" }
 
     trait :promoted do
       promoted true
@@ -36,6 +56,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_parent do
+      parent { create :assembly, organization: organization }
     end
   end
 

@@ -10,7 +10,7 @@ import UpVoteButton from "./up_vote_button.component";
 import {
   AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
-  CommentFragment,
+  CommentFragment
 } from "../support/schema";
 
 const { I18n } = require("react-i18nify");
@@ -41,7 +41,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     articleClassName: "comment",
     isRootComment: false,
     session: null,
-    votable: false,
+    votable: false
   };
 
   public commentNode: HTMLElement;
@@ -50,7 +50,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     super(props);
 
     this.state = {
-      showReplyForm: false,
+      showReplyForm: false
     };
   }
 
@@ -349,7 +349,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const { comment: { alignment } } = this.props;
     const spanClassName = classnames("label alignment", {
       success: alignment === 1,
-      alert: alignment === -1,
+      alert: alignment === -1
     });
 
     let label = "";
@@ -429,7 +429,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                     </label>
                     <button type="submit" name="commit" className="button">{I18n.t("components.comment.report.action")}</button>
                   </form>
-                ),
+                )
               ];
             })()
           }

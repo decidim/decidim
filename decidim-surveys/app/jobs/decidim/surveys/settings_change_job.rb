@@ -3,10 +3,10 @@
 module Decidim
   module Surveys
     class SettingsChangeJob < ApplicationJob
-      def perform(feature_id, previous_settings, current_settings)
+      def perform(component_id, previous_settings, current_settings)
         return if unchanged?(previous_settings, current_settings)
 
-        feature = Decidim::Feature.find(feature_id)
+        component = Decidim::Component.find(component_id)
 
         if survey_opened?(previous_settings, current_settings)
           event = "decidim.events.surveys.survey_opened"
@@ -19,8 +19,8 @@ module Decidim
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,
-          resource: feature,
-          recipient_ids: feature.participatory_space.followers.pluck(:id)
+          resource: component,
+          recipient_ids: component.participatory_space.followers.pluck(:id)
         )
       end
 

@@ -9,10 +9,10 @@ module Decidim
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
-    let!(:feature) { create(:feature, participatory_space: process) }
+    let!(:component) { create(:component, participatory_space: process) }
 
     let(:manifest) do
-      Decidim::FeatureManifest.new.tap do |manifest|
+      Decidim::ComponentManifest.new.tap do |manifest|
         manifest.name = "Test"
       end
     end
@@ -31,7 +31,7 @@ module Decidim
         }
       )
 
-      allow(Decidim).to receive(:feature_manifests).and_return([manifest])
+      allow(Decidim).to receive(:component_manifests).and_return([manifest])
     end
 
     describe "#highlighted" do

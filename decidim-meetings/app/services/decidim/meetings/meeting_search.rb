@@ -3,11 +3,11 @@
 module Decidim
   module Meetings
     # This class handles search and filtering of meetings. Needs a
-    # `current_feature` param with a `Decidim::Feature` in order to
+    # `current_component` param with a `Decidim::Component` in order to
     # find the meetings.
     class MeetingSearch < ResourceSearch
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the meetings from.
+      # component     - A Decidim::Component to get the meetings from.
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})

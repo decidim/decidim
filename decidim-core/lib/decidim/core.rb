@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/engine"
+require "decidim/core/api"
 require "decidim/core/version"
 
 # Decidim configuration.
@@ -9,7 +10,7 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :FeatureManifest, "decidim/feature_manifest"
+  autoload :ComponentManifest, "decidim/component_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
@@ -20,16 +21,16 @@ module Decidim
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
+  autoload :ScopableComponent, "decidim/scopable_component"
   autoload :ContentParsers, "decidim/content_parsers"
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
-  autoload :Features, "decidim/features"
+  autoload :Components, "decidim/components"
   autoload :HasAttachmentCollections, "decidim/has_attachment_collections"
   autoload :HasAttachments, "decidim/has_attachments"
-  autoload :FeatureValidator, "decidim/feature_validator"
+  autoload :ComponentValidator, "decidim/component_validator"
   autoload :HasSettings, "decidim/has_settings"
-  autoload :HasFeature, "decidim/has_feature"
-  autoload :HasScope, "decidim/has_scope"
+  autoload :HasComponent, "decidim/has_component"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
   autoload :FriendlyDates, "decidim/friendly_dates"
@@ -49,6 +50,10 @@ module Decidim
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :QueryExtensions, "decidim/query_extensions"
+  autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
+  autoload :HasPrivateUsers, "decidim/has_private_users"
+  autoload :ViewModel, "decidim/view_model"
 
   include ActiveSupport::Configurable
 
@@ -122,7 +127,7 @@ module Decidim
   config_accessor :geocoder
 
   # Exposes a configuration option: a custom method to generate references.
-  # If overwritten, it should handle both feature resources and participatory spaces.
+  # If overwritten, it should handle both component resources and participatory spaces.
   # Default: Calculates a unique reference for the model in
   # the following format:
   #
@@ -134,12 +139,12 @@ module Decidim
   # 2017-02: Year-Month of the resource creation date
   # 6589: ID of the resource
   config_accessor :reference_generator do
-    lambda do |resource, feature|
+    lambda do |resource, component|
       ref = ""
 
-      if resource.is_a?(Decidim::HasFeature) && feature.present?
-        # It's a feature resource
-        ref = feature.participatory_space.organization.reference_prefix
+      if resource.is_a?(Decidim::HasComponent) && component.present?
+        # It's a component resource
+        ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
         # It's a participatory space
         ref = resource.organization.reference_prefix
@@ -189,7 +194,7 @@ module Decidim
   config_accessor :base_uploads_path
 
   # Public: Registers a global engine. This method is intended to be used
-  # by feature engines that also offer unscoped functionality
+  # by component engines that also offer unscoped functionality
   #
   # name    - The name of the engine to register. Should be unique.
   # engine  - The engine to register.
@@ -225,18 +230,18 @@ module Decidim
     @global_engines ||= {}
   end
 
-  # Public: Registers a feature, usually held in an external library or in a
+  # Public: Registers a component, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
-  # `Decidim::FeatureManifest`.
+  # `Decidim::ComponentManifest`.
   #
-  # Feature manifests are held in a global registry and are used in all kinds of
-  # places to figure out what new components or functionalities the feature provides.
+  # Component manifests are held in a global registry and are used in all kinds of
+  # places to figure out what new components or functionalities the component provides.
   #
-  # name - A Symbol with the feature's unique name.
+  # name - A Symbol with the component's unique name.
   #
   # Returns nothing.
-  def self.register_feature(name, &block)
-    feature_registry.register(name, &block)
+  def self.register_component(name, &block)
+    component_registry.register(name, &block)
   end
 
   # Public: Registers a participatory space, usually held in an external library
@@ -254,12 +259,12 @@ module Decidim
     participatory_space_registry.register(name, &block)
   end
 
-  # Public: Finds all registered feature manifest's via the `register_feature`
+  # Public: Finds all registered component manifest's via the `register_component`
   # method.
   #
-  # Returns an Array[FeatureManifest].
-  def self.feature_manifests
-    feature_registry.manifests
+  # Returns an Array[ComponentManifest].
+  def self.component_manifests
+    component_registry.manifests
   end
 
   # Public: Finds all registered participatory space manifest's via the
@@ -270,13 +275,13 @@ module Decidim
     participatory_space_registry.manifests
   end
 
-  # Public: Finds a feature manifest by the feature's name.
+  # Public: Finds a component manifest by the component's name.
   #
-  # name - The name of the FeatureManifest to find.
+  # name - The name of the ComponentManifest to find.
   #
-  # Returns a FeatureManifest if found, nil otherwise.
-  def self.find_feature_manifest(name)
-    feature_registry.find(name.to_sym)
+  # Returns a ComponentManifest if found, nil otherwise.
+  def self.find_component_manifest(name)
+    component_registry.find(name.to_sym)
   end
 
   # Public: Finds a participatory space manifest by the participatory space's
@@ -296,12 +301,12 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    feature_registry.find_resource_manifest(resource_name_or_klass)
+    component_registry.find_resource_manifest(resource_name_or_klass)
   end
 
-  # Public: Stores the registry of features
-  def self.feature_registry
-    @feature_registry ||= ManifestRegistry.new(:features)
+  # Public: Stores the registry of components
+  def self.component_registry
+    @component_registry ||= ManifestRegistry.new(:components)
   end
 
   # Public: Stores the registry of participatory spaces

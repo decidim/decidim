@@ -1,9 +1,0 @@
-<% form.object.manifest.attributes.each do |name, attribute| %>
-  <%= settings_attribute_input(
-    form,
-    attribute,
-    name,
-    label: t("decidim.features.#{feature.manifest.name}.settings.#{settings_name}.#{name}"),
-    tabs_prefix: tabs_prefix
-  )%>
-<% end %>

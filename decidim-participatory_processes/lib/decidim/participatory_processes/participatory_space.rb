@@ -139,7 +139,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         )
       end
 
-      Decidim.feature_manifests.each do |manifest|
+      Decidim.component_manifests.each do |manifest|
         manifest.seed!(process.reload)
       end
     end

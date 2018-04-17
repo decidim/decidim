@@ -3,7 +3,7 @@
 require "decidim/budgets/admin"
 require "decidim/budgets/engine"
 require "decidim/budgets/admin_engine"
-require "decidim/budgets/feature"
+require "decidim/budgets/component"
 
 module Decidim
   # Base module for this engine.

@@ -6,11 +6,13 @@ ca:
       report:
         details: Comentaris addicionals
       user:
+        about: Quant a
         email: El teu email
         name: El teu nom
         nickname: El vostre identificador curt i únic
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
+        personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
@@ -53,8 +55,55 @@ ca:
         error: S'ha produït un error en actualitzar el seu compte.
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    admin_log:
+      area:
+        create: "%{user_name} ha creat l'àrea %{resource_name}"
+        delete: "%{user_name} ha eliminat l'àrea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'àrea %{resource_name}"
+      component:
+        create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
+        unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
+      moderation:
+        hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
+        unreport: "%{user_name} ha publicat un recurs del tipus %{resource_type} a l'espai %{space_name}"
+      newsletter:
+        create: "%{user_name} ha creat el butlletí %{resource_name}"
+        delete: "%{user_name} ha eliminat el butlletí %{resource_name}"
+        deliver: "%{user_name} ha enviat el butlletí %{resource_name}"
+        update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
+      oauth_application:
+        create: "%{user_name} ha creat la %{resource_name} aplicació OAuth"
+        delete: "%{user_name} ha eliminat la %{resource_name} aplicació OAuth"
+        update: "%{user_name} ha actualitzat la %{resource_name} aplicació OAuth"
+      organization:
+        update: "%{user_name} ha actualitzat la configuració de l'organització"
+      scope:
+        create: "%{user_name} ha creat l'àmbit %{resource_name}"
+        create_with_parent: "%{user_name} ha creat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+        delete: "%{user_name} ha suprimit l'àmbit %{resource_name}"
+        delete_with_parent: "%{user_name} ha suprimit l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+        update: "%{user_name} ha actualitzat l'àmbit %{resource_name}"
+        update_with_parent: "%{user_name} ha actualitzat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+      static_page:
+        create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
+        delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
+        update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      user:
+        invite: "%{user_name} ha convidat l'usuari a %{resource_name} amb el rol: %{role}"
+        officialize: "%{user_name} ha oficialitzat l'usuari %{resource_name}"
+        remove_from_admin: "%{user_name} ha eliminat l'usuari %{resource_name} amb el rol: %{role}"
+        unofficialize: "%{user_name} ha desoficialitzat l'usuari %{resource_name}"
+      user_group:
+        reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
+        verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
     anonymous_user: Anònim
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Documents relacionats
       photos:
@@ -79,6 +128,21 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Component de prova
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+            dummy_global_attribute_1: Atribut de prova 1
+            dummy_global_attribute_2: Atribut de prova 2
+          step:
+            comments_blocked: Comentaris bloquejats
+            dummy_step_attribute_1: Atribut de fase de prova 1
+            dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
     core:
       actions:
@@ -89,7 +153,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El vostre identificador curt i únic
+          nickname_help: El vostre identificador curt i únic a %{organization}
           sign_up: Si us plau completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -97,7 +161,7 @@ ca:
         new:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
-          nickname_help: El vostre identificador curt i únic
+          nickname_help: El vostre identificador curt i únic a %{organization}
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -115,6 +179,21 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoritza l'aplicació
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
+          cancel: Cancel · lar
+          connect_your_account_html: Connecteu el vostre compte iniciant la sessió a <strong>%{organization}</strong>
+          publish_content: Publiqueu contingut per a vosaltres
+          see_email: Consulteu el vostre correu electrònic
+          see_name: Mira el teu nom
+          see_username: Consulta el teu nom d'usuari
+          this_application_will_be_able_to: 'Aquesta aplicació podrà:'
+          this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
+          update_profile: Actualitzeu el vostre perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el vostre compte"
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -130,23 +209,19 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha produït un esdeveniment a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: Ja està actiu el component %{resource_title} per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
         email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
         email_subject: Una actualització a %{resource_title}
-      feature_published_event:
-        email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: Una actualització a %{participatory_space_title}
-        notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: S'ha produït un esdeveniment a %{participatory_space_title}
-        notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -157,21 +232,6 @@ ca:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
       subject: L'exportació "%{name}" està a punt
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Funcionalitat de prova
-        settings:
-          global:
-            comments_enabled: Comentaris habilitats
-            dummy_global_attribute_1: Atribut de prova 1
-            dummy_global_attribute_2: Atribut de prova 2
-          step:
-            comments_blocked: Comentaris bloquejats
-            dummy_step_attribute_1: Atribut de fase de prova 1
-            dummy_step_attribute_2: Atribut de fase de prova 2
     filters:
       linked_classes:
         all: Tots
@@ -194,6 +254,25 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    log:
+      base_presenter:
+        create: "%{user_name} creat %{resource_name}"
+        create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
+        delete: "%{user_name} ha eliminat %{resource_name}"
+        delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
+        unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
+        update: "%{user_name} ha actualitzat %{resource_name}"
+        update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
+        area_type_presenter:
+          not_found: 'El tipus d''àrea no s''ha trobat a la base de dades (ID: %{id})'
+        scope_presenter:
+          not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió de suplantació actual ha caducat.
     menu:
@@ -255,6 +334,10 @@ ca:
     pages:
       index:
         title: Més informació
+    participatory_space_private_users:
+      not_allowed: No tens permís per visualitzar aquest contingut
+    profile:
+      deleted: Usuari eliminat
     profiles:
       default_officialization_text: Aquest participant es verifica públicament. El seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
       show:
@@ -342,7 +425,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
-        nickname_help: El teu identificador únic.
+        nickname_help: El vostre identificador únic a %{organization}.
         submit_button: Desa
     mailer:
       invitation_instructions:
@@ -353,18 +436,25 @@ ca:
           Si no vols acceptar la invitació, ignora aquest correu.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
+        someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}, pots acceptar-ho a través del següent enllaç.
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
+      invite_private_user:
+        subject: Has estat convidat a un procés participatiu privat en %{organization}
       organization_admin_invitation_instructions:
         subject: Has estat convidat a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
+  doorkeeper:
+    scopes:
+      public: La vostra informació pública.
   errors:
     messages:
       content_type_whitelist_error: El tipus de fitxer no és vàlid
@@ -444,6 +534,8 @@ ca:
         answers_count: Enquestes realitzades
         assemblies_count: Assemblees
         comments_count: Comentaris
+        debates_count: Debats
+        endorsements_count: Adhesions
         headline: Estat actual de %{organization}
         meetings_count: Trobades
         orders_count: Vots
@@ -483,6 +575,7 @@ ca:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d/%m/%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

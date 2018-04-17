@@ -6,11 +6,13 @@ nl:
       report:
         details: Aanvullende opmerkingen
       user:
+        about: Over
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Uw korte unieke ID in decidim
+        nickname: Uw korte unieke ID
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
+        personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
@@ -53,8 +55,55 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin_log:
+      area:
+        create: "%{user_name} heeft het gebied %{resource_name} gemaakt"
+        delete: "%{user_name} heeft het gebied %{resource_name} verwijderd"
+        update: "%{user_name} heeft het gebied %{resource_name} bijgewerkt"
+      component:
+        create: "%{user_name} voegde de %{resource_name} component toe aan de %{space_name} spatie"
+        delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} spatie verwijderd"
+        publish: "%{user_name} heeft de %{resource_name} component in de %{space_name} spatie gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} component uit de %{space_name} spatie"
+      moderation:
+        hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+        unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+      newsletter:
+        create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
+        deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      oauth_application:
+        create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
+        delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
+        update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
+      organization:
+        update: "%{user_name} de organisatie-instellingen bijgewerkt"
+      scope:
+        create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
+        create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
+        delete: "%{user_name} heeft de bereik %{resource_name} verwijderd"
+        delete_with_parent: "%{user_name} verwijderde het bereik %{resource_name} binnen de scope bereik %{parent_scope}"
+        update: "%{user_name} heeft het bereik %{resource_name} bijgewerkt"
+        update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen de bereikbereik %{parent_scope} bijgewerkt"
+      static_page:
+        create: "%{user_name} creëerde de %{resource_name} statische pagina"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd statische pagina"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
+      user:
+        invite: "%{user_name} nodigde de gebruiker uit %{resource_name} met rol: %{role}"
+        officialize: "%{user_name} officieel de gebruiker %{resource_name}"
+        remove_from_admin: "%{user_name} de gebruiker verwijderd %{resource_name} met rol: %{role}"
+        unofficialize: "%{user_name} de gebruiker onofficieel %{resource_name}"
+      user_group:
+        reject: "%{user_name} verwierp de %{resource_name} gebruikersgroep verificatie"
+        verify: "%{user_name} de %{resource_name} geverifieerd gebruikersgroep"
     anonymous_user: Anoniem
     application:
+      collection:
+        documents:
+          one: Document
+          other: documenten
       documents:
         related_documents: Gerelateerde documenten
       photos:
@@ -79,6 +128,21 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy component
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+            dummy_global_attribute_1: Dummy-kenmerk 1
+            dummy_global_attribute_2: Dummy-kenmerk 2
+          step:
+            comments_blocked: Reacties geblokkeerd
+            dummy_step_attribute_1: Dummy stapkenmerk 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
     core:
       actions:
@@ -89,7 +153,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw korte unieke ID in decidim
+          nickname_help: Uw korte, unieke ID in %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -97,7 +161,7 @@ nl:
         new:
           already_have_an_account?: U heeft al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
-          nickname_help: Uw korte unieke ID in decidim
+          nickname_help: Uw korte, unieke ID in %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -115,6 +179,21 @@ nl:
       shared:
         omniauth_buttons:
           or: Of
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Aanvraag autoriseren
+          by_organization_link_html: <small class="heading-small">door %{link}</small>
+          cancel: Annuleer
+          connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
+          publish_content: Publiceer inhoud voor u
+          see_email: Zie uw e-mail
+          see_name: Zie je naam
+          see_username: Zie je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
+          this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
+          update_profile: update je profiel
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil je account gebruiken"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -130,23 +209,19 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update voor %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
         email_subject: Een update voor %{resource_title}
-      feature_published_event:
-        email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-        email_subject: Een update naar %{participatory_space_title}
-        notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-        email_subject: Een update naar %{participatory_space_title}
-        notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
@@ -157,21 +232,6 @@ nl:
       export:
         ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Dummy functie
-        settings:
-          global:
-            comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy Kenmerk 1
-            dummy_global_attribute_2: Dummy kenmerk 2
-          step:
-            comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy Stap Kenmerk 1
-            dummy_step_attribute_2: Dummy Stap Kenmerk 2
     filters:
       linked_classes:
         all: Alle
@@ -194,6 +254,25 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    log:
+      base_presenter:
+        create: "%{user_name} gemaakt %{resource_name}"
+        create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
+        delete: "%{user_name} verwijderd %{resource_name}"
+        delete_with_space: "%{user_name} verwijderd %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} voerde wat actie uit op %{resource_name}"
+        unknown_action_with_space: "%{user_name} voerde wat actie uit op %{resource_name} in %{space_name}"
+        update: "%{user_name} bijgewerkt %{resource_name}"
+        update_with_space: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Het gebiedstype is niet gevonden in de database (ID: %{id})'
+        scope_presenter:
+          not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
     menu:
@@ -255,6 +334,10 @@ nl:
     pages:
       index:
         title: Meer informatie
+    participatory_space_private_users:
+      not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+    profile:
+      deleted: Verwijderde gebruiker
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
       show:
@@ -342,7 +425,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
-        nickname_help: Uw unieke ID in decidim.
+        nickname_help: Uw unieke ID in %{organization}.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -352,18 +435,25 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Je kunt het accepteren via de onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-gebruiker van %{application}, je kunt het accepteren via de onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
+      invite_private_user:
+        subject: Je bent uitgenodigd voor een persoonlijk participatieproces op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
         greeting: Hallo %{recipient}!
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
+  doorkeeper:
+    scopes:
+      public: Uw openbare informatie.
   errors:
     messages:
       content_type_whitelist_error: Het bestandstype is niet geldig
@@ -443,6 +533,8 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        debates_count: debatten
+        endorsements_count: Endorsements
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
@@ -482,6 +574,7 @@ nl:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

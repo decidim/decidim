@@ -43,6 +43,11 @@ en:
           update:
             invalid: There's been a problem updating this project
             success: Project successfully updated
+      admin_log:
+        project:
+          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       models:
         project:
           fields:
@@ -101,7 +106,7 @@ en:
         show:
           budget: Budget
           view_all_projects: View all projects
-    features:
+    components:
       budgets:
         actions:
           vote: Vote
@@ -110,6 +115,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            projects_per_page: Projects per page
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
           step:

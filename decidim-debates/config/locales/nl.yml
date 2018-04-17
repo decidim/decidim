@@ -3,6 +3,7 @@ nl:
     attributes:
       debate:
         category_id: Categorie
+        decidim_category_id: Categorie
         description: Beschrijving
         end_time: Eindigt bij
         information_updates: Informatie-updates
@@ -11,6 +12,19 @@ nl:
         title: Titel
         user_group_id: Maak een debat als
   decidim:
+    components:
+      debates:
+        actions:
+          create: creëren
+        name: debatten
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Debatcreatie door gebruikers ingeschakeld
     debates:
       actions:
         confirm_destroy: Weet je het zeker?
@@ -39,6 +53,10 @@ nl:
         models:
           debate:
             name: Debat
+      admin_log:
+        debate:
+          create: "%{user_name} heeft het %{resource_name} -debat gemaakt over de ruimte %{space_name}"
+          update: "%{user_name} heeft het %{resource_name} -debat bijgewerkt op de %{space_name} spatie"
       debates:
         count:
           debates_count:
@@ -101,14 +119,13 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-    features:
-      debates:
-        actions:
-          create: creëren
-        name: debatten
-        settings:
-          global:
-            comments_enabled: Reacties ingeschakeld
-          step:
-            comments_blocked: Reacties geblokkeerd
-            creation_enabled: Debatcreatie door gebruikers ingeschakeld
+        creation_disabled:
+          email_intro: 'Debatcreatie is niet langer actief in %{participatory_space_title}. Je kunt nog steeds deelnemen aan geopende debatten vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Debatcreatie uitgeschakeld in %{participatory_space_title}
+          notification_title: Debatten maken is nu uitgeschakeld in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Je kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin met deelname aan deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Debatten nu beschikbaar in %{participatory_space_title}
+          notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>

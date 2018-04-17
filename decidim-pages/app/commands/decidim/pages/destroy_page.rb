@@ -2,15 +2,15 @@
 
 module Decidim
   module Pages
-    # Command that gets called when the page of this feature needs to be
-    # destroyed. It usually happens as a callback when the feature is removed.
+    # Command that gets called when the page of this component needs to be
+    # destroyed. It usually happens as a callback when the component is removed.
     class DestroyPage < Rectify::Command
-      def initialize(feature)
-        @feature = feature
+      def initialize(component)
+        @component = component
       end
 
       def call
-        Page.where(feature: @feature).destroy_all
+        Page.where(component: @component).destroy_all
         broadcast(:ok)
       end
     end

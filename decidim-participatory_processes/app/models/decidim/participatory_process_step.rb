@@ -2,7 +2,7 @@
 
 module Decidim
   # A ParticipatoryProcess is composed of many steps that hold different
-  # features that will show up in the depending on what step is currently
+  # components that will show up in the depending on what step is currently
   # active.
   class ParticipatoryProcessStep < ApplicationRecord
     include Traceable

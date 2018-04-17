@@ -3,22 +3,41 @@ en:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
+        assembly_type: Assembly type
+        assembly_type_other: Assembly type other
         banner_image: Banner image
+        closing_date: Closing date
+        closing_date_reason: Closing date reason
+        composition: Composition
         copy_categories: Copy categories
+        copy_components: Copy components
         copy_features: Copy features
+        created_by: Created by
+        created_by_other: Created by other
+        creation_date: Date created
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
         developer_group: Developer group
         domain: Domain
+        duration: Duration
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Home image
+        included_at: Included at
+        instagram: Instagram
+        internal_organisation: Internal organisation
+        is_transparent: Is transparent
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
         published_at: Published at
+        purpose_of_action: Purpose of action
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
@@ -27,6 +46,12 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+        twitter: Twitter
+        youtube: YouTube
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Role
   decidim:
     admin:
       assemblies:
@@ -41,6 +66,8 @@ en:
           title: General Information
         index:
           not_published: Not published
+          private: Private
+          public: Public
           published: Published
         new:
           create: Create
@@ -89,13 +116,15 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
+          private_users: Private Users
       models:
         assembly:
           fields:
             created_at: Created at
+            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -126,11 +155,26 @@ en:
       admin:
         assemblies:
           form:
+            select_a_created_by: Select a created by
             select_an_area: Select an Area
+            select_an_assembly_type: Select an assembly type
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      assembly_types:
+        commission: Comission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        others: Others
+        participatory: Participatory
+        working_group: Working group
+      created_by:
+        city_council: City Council
+        others: Others
+        public: Public
       index:
         title: Assemblies
       pages:
@@ -140,16 +184,37 @@ en:
             see_all_assemblies: See all assemblies
       show:
         area: Area
+        assembly_type: Assembly type
+        children: Assemblies
+        closing_date: Closing date
+        composition: Composition
+        created_by: Created by
+        creation_date: Date created
         developer_group: Developer group
+        duration: Duration
+        included_at: Included at
+        indefinite_duration: Indefinite
+        internal_organisation: Internal organisation
+        is_transparent:
+          'false': opaque
+          'true': transparent
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: This is a private assembly
+        purpose_of_action: Purpose of action
+        read_less: Read less
+        read_more: Read more
+        related_participatory_processes: Related participatory processes
         scope: Scope
+        social_networks: Social Networks
         target: Target
       statistics:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes
@@ -160,8 +225,15 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
+  errors:
+    messages:
+      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:

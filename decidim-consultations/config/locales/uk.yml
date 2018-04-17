@@ -1,0 +1,5 @@
+uk:
+  activemodel:
+    attributes:
+      consultation:
+        title: Заголовок

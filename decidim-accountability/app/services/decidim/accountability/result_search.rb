@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     # This class handles search and filtering of results. Needs a
-    # `current_feature` param with a `Decidim::Feature` in order to
+    # `current_component` param with a `Decidim::Component` in order to
     # find the results.
     class ResultSearch < ResourceSearch
       # Public: Initializes the service.
@@ -11,7 +11,7 @@ module Decidim
       # options - A hash of options to modify the search. These options will be
       #          converted to methods by SearchLight so they can be used on filter
       #          methods. (Default {})
-      #          * feature - A Decidim::Feature to get the results from.
+      #          * component - A Decidim::Component to get the results from.
       #          * organization - A Decidim::Organization object.
       #          * parent_id - The parent ID of the result. The value is forced to false to force
       #                        the filter execution when the value is nil

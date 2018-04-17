@@ -2,9 +2,12 @@ it:
   activemodel:
     attributes:
       assembly:
+        area_id: La zona
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
-        copy_features: Copia le caratteristiche
+        copy_components: Copia componenti
+        decidim_area_id: La zona
+        decidim_scope_id: Scopo
         description: Descrizione
         developer_group: Gruppo sviluppatori
         domain: Dominio
@@ -12,16 +15,23 @@ it:
         hero_image: Immagine della Home
         local_area: Municipi
         meta_scope: Metadati di ambito
+        participatory_processes_ids: Processi partecipativi correlati
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
         promoted: Promosso
+        published_at: Pubblicato a
         scope_id: Scopi
         scopes_enabled: Scopi abilitati
         short_description: Breve descrizione
+        show_statistics: Mostra statistiche
         slug: URL slug
         subtitle: Sottotitolo
         target: Target
         title: Titolo
+      assembly_user_role:
+        email: E-mail
+        name: Nome
+        role: Ruolo
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ it:
           title: Informazioni generali
         index:
           not_published: Non pubblicato
+          private: Privato
+          public: Pubblico
           published: Pubblicato
         new:
           create: Crea
@@ -80,15 +92,19 @@ it:
         assemblies: assemblee
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
+          attachment_collections: collezioni
+          attachment_files: File
           attachments: Allegati
           categories: Categorie
-          features: Funzionalità (features)
+          components: componenti
           info: Informazioni
           moderations: Moderazione
+          private_users: Utenti privati
       models:
         assembly:
           fields:
             created_at: Data/ora di creazione
+            private: Privato
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
@@ -105,10 +121,21 @@ it:
             moderator: Moderatore
       titles:
         assemblies: assemblee
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creato l'assemblaggio %{resource_name}"
+        publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
+        unpublish: "%{user_name} non pubblicato l'assembly %{resource_name}"
+        update: "%{user_name} ha aggiornato l'assembly %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
+        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleziona un'area
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ it:
             active_assemblies: Assemblee attive
             see_all_assemblies: Vedere tutti gli assiemi
       show:
+        area: La zona
+        children: assemblee
         developer_group: Gruppo promotore
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
+        private_space: Questo è un assemblaggio privato
+        related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         target: A chi è destinato il processo?
       statistics:
         answers_count: risposte
         assemblies_count: assemblee
         comments_count: Commenti
+        debates_count: dibattiti
+        endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
         orders_count: Voti
@@ -141,6 +174,10 @@ it:
         surveys_count: indagini
         users_count: Partecipanti
         votes_count: Voti
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
   layouts:

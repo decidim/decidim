@@ -18,8 +18,8 @@ end; p 1
 Run the following script to make all resource authors follow the resource:
 
 ```ruby
-Decidim.feature_manifests.each do |feature_manifest|
-  feature_manifest.resource_manifests.each do |resource_manifest|
+Decidim.component_manifests.each do |component_manifest|
+  component_manifest.resource_manifests.each do |resource_manifest|
     klass = resource_manifest.model_class_name.constantize
     next unless klass.included_modules.include? Decidim::Authorable
 

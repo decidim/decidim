@@ -6,11 +6,13 @@ fi:
       report:
         details: Lisätiedot
       user:
+        about: Noin
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Oma lyhyt ja yksilöllinen tunniste decidimissä
+        nickname: Lyhyt, ainutkertainen tunniste
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
+        personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
@@ -53,8 +55,55 @@ fi:
         error: Tilisi päivityksessä tapahtui virhe.
         success: Tilisi on onnistuneesti päivitetty.
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    admin_log:
+      area:
+        create: "%{user_name} luonut %{resource_name} -alueen"
+        delete: "%{user_name} poistanut %{resource_name} -alueen"
+        update: "%{user_name} päivitti %{resource_name} -alueen"
+      component:
+        create: "%{user_name} lisäsi %{resource_name} -osion %{space_name} -tilaan"
+        delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
+        publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
+        unpublish: "%{user_name} julkaisematon %{resource_name} -komponentti %{space_name} -tilasta"
+      moderation:
+        hide: "%{user_name} kätki tyypin %{resource_type} resurssin %{space_name} -tilaan"
+        unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
+      newsletter:
+        create: "%{user_name} luonut %{resource_name} tiedote"
+        delete: "%{user_name} poistettu %{resource_name} tiedote"
+        deliver: "%{user_name} toimitti %{resource_name} tiedote"
+        update: "%{user_name} päivitti %{resource_name} tiedote"
+      oauth_application:
+        create: "%{user_name} loi %{resource_name} OAuth-sovelluksen"
+        delete: "%{user_name} poistanut %{resource_name} OAuth-sovelluksen"
+        update: "%{user_name} päivitti %{resource_name} OAuth-sovelluksen"
+      organization:
+        update: "%{user_name} päivitti organisaation asetukset"
+      scope:
+        create: "%{user_name} loi %{resource_name} soveltamisalaa"
+        create_with_parent: "%{user_name} loi %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
+        delete: "%{user_name} poistanut %{resource_name} soveltamisalaa"
+        delete_with_parent: "%{user_name} poistanut %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
+        update: "%{user_name} päivitti %{resource_name} soveltamisalaa"
+        update_with_parent: "%{user_name} päivitti %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
+      static_page:
+        create: "%{user_name} luonut %{resource_name} staattinen sivu"
+        delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
+        update: "%{user_name} päivitti %{resource_name} staattinen sivu"
+      user:
+        invite: "%{user_name} kutsui käyttäjää %{resource_name} roolilla: %{role}"
+        officialize: "%{user_name} virallistettu käyttäjä %{resource_name}"
+        remove_from_admin: "%{user_name} poistanut käyttäjän %{resource_name} roolilla: %{role}"
+        unofficialize: "%{user_name} epävirallinen käyttäjä %{resource_name}"
+      user_group:
+        reject: "%{user_name} hylkäsi %{resource_name} käyttäjäryhmän vahvistaminen"
+        verify: "%{user_name} vahvistanut %{resource_name} käyttäjäryhmä"
     anonymous_user: Anonyymi
     application:
+      collection:
+        documents:
+          one: Asiakirja
+          other: asiakirjat
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -79,6 +128,21 @@ fi:
         name: Foo-tunnistautuminen
       granted_at: Myönnetty %{timestamp}
       started_at: Aloitettu %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Baari
+          foo: foo
+        name: Dummy komponentti
+        settings:
+          global:
+            comments_enabled: Kommentit ovat käytössä
+            dummy_global_attribute_1: Dummy-ominaisuus 1
+            dummy_global_attribute_2: Dummy-ominaisuus 2
+          step:
+            comments_blocked: Kommentit on estetty
+            dummy_step_attribute_1: Dummy Step -ominaisuus 1
+            dummy_step_attribute_2: Dummy Step -ominaisuus 2
     contact: Ota yhteyttä
     core:
       actions:
@@ -89,7 +153,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
+          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -97,7 +161,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
-          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
+          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -115,6 +179,21 @@ fi:
       shared:
         omniauth_buttons:
           or: Tai
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Hyväksy hakemus
+          by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
+          cancel: Peruuttaa
+          connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
+          publish_content: Julkaise sisältöä sinulle
+          see_email: Katso sähköpostiosoitteesi
+          see_name: Katso nimesi
+          see_username: Näe käyttäjätunnuksesi
+          this_application_will_be_able_to: 'Tämä sovellus pystyy:'
+          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
+          update_profile: Päivitä profiili
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -130,23 +209,19 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Päivitys %{participatory_space_title}
+          notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hei %{user_name},
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
-      feature_published_event:
-        email_intro: '%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-        email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: Päivitys kohteeseen %{participatory_space_title}
-        notification_title: '%{resource_title} -komponentti on nyt aktiivinen osallistumistilassa <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
-      participatory_process_step_activated_event:
-        email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-        email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: Päivitys kohteeseen %{participatory_space_title}
-        notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
@@ -157,21 +232,6 @@ fi:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Esimerkkiominaisuus
-        settings:
-          global:
-            comments_enabled: Kommentointi sallittu
-            dummy_global_attribute_1: Esimerkkitietue 1
-            dummy_global_attribute_2: Esimerkkitietue 2
-          step:
-            comments_blocked: Kommentointi estetty
-            dummy_step_attribute_1: Esimerkkivaihetietue 1
-            dummy_step_attribute_2: Esimerkkivaihetietue 2
     filters:
       linked_classes:
         all: Kaikki
@@ -194,6 +254,25 @@ fi:
       errors:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
+    log:
+      base_presenter:
+        create: "%{user_name} luotu %{resource_name}"
+        create_with_space: "%{user_name} luotu %{resource_name} vuonna %{space_name}"
+        delete: "%{user_name} poistettu %{resource_name}"
+        delete_with_space: "%{user_name} poistettu %{resource_name} vuonna %{space_name}"
+        unknown_action: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name}"
+        unknown_action_with_space: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name} vuonna %{space_name}"
+        update: "%{user_name} päivitetty %{resource_name}"
+        update_with_space: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Aluetyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        scope_presenter:
+          not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Soveltamis tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     menu:
@@ -255,6 +334,10 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    participatory_space_private_users:
+      not_allowed: Et voi katsoa tätä sisältöä
+    profile:
+      deleted: Poistettu käyttäjä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
@@ -342,7 +425,7 @@ fi:
     invitations:
       edit:
         header: Aseta salasanasi
-        nickname_help: Yksilöllinen tunnisteesi decidimissä.
+        nickname_help: Ainutlaatuinen tunniste %{organization}.
         submit_button: Tallenna
     mailer:
       invitation_instructions:
@@ -353,18 +436,25 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
+        someone_invited_you_as_private_user: Joku on kutsunut sinut %{application}-palveluntarjoajaksi, voit hyväksyä sen alla olevan linkin kautta.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
+      invite_private_user:
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+  doorkeeper:
+    scopes:
+      public: Julkiset tiedot.
   errors:
     messages:
       content_type_whitelist_error: Tiedostotyyppi on virheellinen
@@ -444,6 +534,8 @@ fi:
         answers_count: Valmistuneet kyselyt
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
+        debates_count: keskustelut
+        endorsements_count: merkintöjen
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
         orders_count: Äänet
@@ -483,6 +575,7 @@ fi:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   views:

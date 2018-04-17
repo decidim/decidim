@@ -1,31 +1,49 @@
 sv:
   activemodel:
     attributes:
+      area:
+        area_type: Typ av område
+        name: Namn
+        organization: Organisation
+      area_type:
+        name: Namn
+        organization: Organisation
+        plural: Flertal
       attachment:
+        attachment_collection_id: Samling
         description: Beskrivning
         file: Fil
         title: Titel
+      attachment_collection:
+        description: Beskrivning
+        name: Namn
       category:
         description: Beskrivning
-        name: namn
+        name: Namn
         parent_id: Förälder
-      feature:
-        name: namn
+      component:
+        name: Namn
+        published_at: Publicerad på
         weight: Vikt
       id: ID
       newsletter:
-        body: Kropp
+        body: Innehåll
         subject: Ämne
-      organization:
-        default_locale: Standard locale
+      oauth_application:
         name: namn
-        reference_prefix: Referensprefix
-      organization_appearance:
+        organization_logo: Organisationslogotypen (kvadrat)
+        organization_name: Organisations namn
+        organization_url: Organisationsadress
+        redirect_uri: Omdirigera URI
+      organization:
         cta_button_path: Call to Action-knappsökväg
         cta_button_text: Ring till handlingsknapptext
+        default_locale: Standard locale
         description: Beskrivning
         enable_omnipresent_banner: Visa omnipresent banner
+        facebook_handler: Facebook-hanterare
         favicon: Ikon
+        github_handler: GitHub-hanterare
         header_snippets: Rubrikrubriker
         highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
         highlighted_content_banner_action_title: Åtgärdsknappens titel
@@ -35,22 +53,29 @@ sv:
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
         homepage_image: Hemsida bild
-        logo: Logotyp
+        instagram_handler: Instagram-hanterare
+        logo: Logo
+        name: Namn
         official_img_footer: Officiell logo footer
         official_img_header: Officiell logotyphuvud
-        official_url: Officiell organisationsadress
+        official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        reference_prefix: Referensprefix
         show_statistics: Visa statistik
-        welcome_text: Välkommen text
+        twitter_handler: Twitter-hanterare
+        welcome_text: Välkomsttext
+        youtube_handler: YouTube-hanterare
       scope:
-        code: Koda
-        name: namn
+        code: Kod
+        name: Namn
         organization: Organisation
+        parent_id: Förälder
         scope_type: Omfattningstyp
+        scope_type_id: Omfattningstyp
       scope_type:
-        name: namn
+        name: Namn
         organization: Organisation
         plural: Flertal
       static_page:
@@ -58,15 +83,21 @@ sv:
         organization: Organisation
         slug: URL slug
         title: Titel
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings-URI måste vara en SSL URI
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Banner image
+        banner_image: Bannerbild
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
         end_date: Slutdatum
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -76,25 +107,33 @@ sv:
         scope: Omfattning
         short_description: Kort beskrivning
         slug: URL slug
-        start_date: Start datum
-        subtitle: Texta
+        start_date: Startdatum
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       decidim/participatory_process_group:
         description: Beskrivning
         hero_image: Hembild
-        name: namn
+        name: Namn
         participatory_processes: Deltagande processer
       decidim/participatory_process_step:
         end_date: Slutdatum
-        start_date: Start datum
+        start_date: Startdatum
       decidim/static_page:
         content: Innehåll
         slug: URL slug
         title: Titel
+      doorkeeper/application:
+        authorize_url: Godkänn webbadress
+        client_id: Klient ID
+        client_secret: Kundhemlighet
+        organization_name: Organisations namn
+        organization_url: Organisationsadress
+        redirect_uri: Omdirigera URI
+        site: Webbplats
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -105,6 +144,55 @@ sv:
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
+      area_types:
+        create:
+          error: Ett fel uppstod med att skapa en ny områdes typ.
+          success: Områdetypen skapades framgångsrikt.
+        destroy:
+          success: Typ av område framgångsrikt förstört
+        edit:
+          title: Redigera områdets typ
+          update: Uppdatera
+        new:
+          create: Skapa områdets typ
+          title: Ny typ av område
+        update:
+          error: Det uppstod ett fel vid uppdatering av denna typ av område.
+          success: Områdetypen uppdateras framgångsrikt
+      areas:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt område.
+          success: Område skapades framgångsrikt.
+        destroy:
+          success: Området framgångsrikt förstörs
+        edit:
+          title: Redigera område
+          update: Uppdatera
+        new:
+          create: Skapa område
+          title: Nytt område
+        no_areas: Inga områden
+        update:
+          error: Det uppstod ett fel vid uppdateringen av det här området.
+          success: Området uppdateras framgångsrikt
+      attachment_collections:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny samling.
+          success: Samlingen skapades framgångsrikt.
+        destroy:
+          success: Samlingen förstördes framgångsrikt.
+        edit:
+          title: Redigera samling
+          update: Uppdatera
+        index:
+          attachment_collection_used: Denna samling kan inte tas bort eftersom den är i bruk.
+          attachment_collections_title: Bilagor
+        new:
+          create: Skapa
+          title: Ny samling
+        update:
+          error: Det uppstod ett fel vid uppdateringen av denna samling.
+          success: Samlingen uppdaterades framgångsrikt.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
@@ -112,13 +200,13 @@ sv:
         destroy:
           success: Bilagan förstördes framgångsrikt.
         edit:
-          title: Redigera bilagan
-          update: Uppdatering
+          title: Redigera bifogade fil
+          update: Uppdatera
         index:
-          attachments_title: bilagor
+          attachments_title: Bifogade filer
         new:
           create: Skapa bifogad fil
-          title: Ny bilaga
+          title: Ny bifogad fil
         update:
           error: Det uppstod ett fel vid uppdateringen av den här bilagan.
           success: Bilagan uppdaterades framgångsrikt.
@@ -131,9 +219,9 @@ sv:
           success: Kategori raderas framgångsrikt.
         edit:
           title: Redigera kategori
-          update: Uppdatering
+          update: Uppdatera
         index:
-          categories_title: kategorier
+          categories_title: Kategorier
           category_used: Den här kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
@@ -141,50 +229,54 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här kategorin.
           success: Kategori uppdaterad framgångsrikt.
-      dashboard:
-        show:
-          welcome: Välkommen till Decidim Admin Panel.
-      exports:
-        export_as: "%{name} som %{export_format}"
-        notice: Din export är pågående. Du får ett mail när det är klart.
-      feature_permissions:
+      component_permissions:
         edit:
           everyone: Alla
           submit: Spara behörigheter
           title: Redigera behörigheter
         update:
           success: Tillstånd uppdaterade framgångsrikt.
-      features:
+      components:
         create:
-          error: Det uppstod ett fel vid skapandet av den här funktionen.
-          success: Funktionen skapades framgångsrikt.
+          error: Det uppstod ett fel vid skapandet av den här komponenten.
+          success: Komponent skapad framgångsrikt.
         destroy:
-          error: Det har inträffat ett fel som förstörde den här funktionen.
-          success: Funktionen raderas framgångsrikt.
+          error: Det har inträffat ett fel som förstörde denna komponent.
+          success: Komponenten har tagits bort.
         edit:
-          title: Redigera funktionen
-          update: Uppdatering
+          title: Redigera komponent
+          update: Uppdatera
         form:
           default_step_settings: Standard steginställningar
           global_settings: Globala inställningar
           step_settings: Steginställningar
         index:
-          add: Lägg till funktion
+          add: Lägg till komponent
           headers:
             actions: Handlingar
-            name: Funktionsnamn
-            type: Funktionstyp
+            name: Komponentnamn
+            type: Komponenttyp
         new:
-          add: Lägg till funktion
-          title: 'Lägg till funktion: %{name}'
+          add: Lägg till komponent
+          title: 'Lägg till komponent: %{name}'
         publish:
-          success: Funktionen har publicerats med framgång.
-        title: Funktioner
+          success: Komponenten har publicerats framgångsrikt.
+        title: Komponenter
         unpublish:
-          success: Funktionen har blivit framgångsrikt opublicerad.
+          success: Komponenten har blivit framgångsrikt opublicerad.
         update:
-          error: Det har uppstått ett fel vid uppdateringen av den här funktionen.
-          success: Funktionen uppdaterades framgångsrikt.
+          error: Det har uppstått ett fel vid uppdateringen av den här komponenten.
+          success: Komponenten uppdaterades framgångsrikt.
+      dashboard:
+        show:
+          view_more_logs: Visa fler loggar
+          welcome: Välkommen till Decidim Admin Panel.
+      exports:
+        export_as: "%{name} som %{export_format}"
+        notice: Din export är pågående. Du får ett mail när det är klart.
+      logs:
+        logs_list:
+          no_logs_yet: Det finns inga loggar än
       managed_users:
         close_session:
           error: Det har uppstått ett fel att stänga den aktuella efterföljande sessionen.
@@ -193,7 +285,7 @@ sv:
           error: Det har uppstått ett fel med att skapa den hanterade användaren.
           success: Den hanterade användaren har skapats.
         form:
-          name: namn
+          name: Namn
         impersonate:
           error: Det har inträffat ett fel för att ersätta den hanterade användaren.
         impersonations:
@@ -220,36 +312,52 @@ sv:
             new_managed_user_promotion: Ny hanterad användarpromotion
             promote: Främja
       menu:
-        admins: admins
+        admin_log: Adminaktivitetslogg
+        admins: Administratörer
         appearance: Utseende
+        area_types: Typer av område
+        areas: Områden
         configuration: Konfiguration
-        dashboard: instrumentbräda
-        managed_users: Administrerade användare
-        newsletters: nyhetsbrev
+        dashboard: Kontrollpanel
+        managed_users: Hanterade användare
+        newsletters: Nyhetsbrev
+        oauth_applications: OAuth applikationer
         officializations: Officializations
         scope_types: Omfattningstyper
-        scopes: Scopes
+        scopes: Omfattningar
         settings: inställningar
-        static_pages: sidor
+        static_pages: Sidor
         user_groups: Användargrupper
-        users: användare
+        users: Användare
       models:
+        area:
+          fields:
+            area_type: Typ av område
+            name: Namn
+        area_type:
+          fields:
+            name: Namn
+            plural: Flertal
         attachment:
           fields:
+            collection: Samling
             content_type: Typ
+            file_size: Storlek
             title: Titel
-          name: Bilaga
+          name: Bifogad fil
+        attachment_collection:
+          name: Samling
         category:
           name: Kategori
         impersonation_log:
           fields:
-            admin: Administration
+            admin: Admin
             ended_at: Avslutad vid
             expired_at: Förfallit ut vid
             started_at: Börjat vid
             user: Användare
         managed_user:
-          name: Administrerad användare
+          name: Hanterad användare
         newsletter:
           fields:
             created_at: Skapad vid
@@ -257,13 +365,20 @@ sv:
             sent_at: Skickat på
             subject: Ämne
           name: Nyhetsbrev
+        oauth_application:
+          fields:
+            created_at: Skapad vid
+            name: namn
+          name: OAuth ansökan
+        participatory_space_private_user:
+          name: Deltagande utrymme privat användare
         scope:
           fields:
-            name: namn
+            name: Namn
             scope_type: Omfattningstyp
         scope_type:
           fields:
-            name: namn
+            name: Namn
             plural: Flertal
         static_page:
           fields:
@@ -274,10 +389,10 @@ sv:
             created_at: Skapelsedagen
             email: E-post
             last_sign_in_at: Senast inloggningsdatum
-            name: namn
+            name: Namn
             role: Roll
             roles:
-              admin: Administration
+              admin: Admin
               user_manager: Användarhanteraren
           name: Användare
         user_group:
@@ -285,18 +400,18 @@ sv:
             actions: Handlingar
             created_at: Skapad vid
             document_number: Dokumentnummer
-            name: namn
+            name: Namn
             phone: Telefon
-            state: stat
-            users_count: Användare räknas
+            state: Status
+            users_count: Antal användare
       moderations:
         index:
-          title: modere
+          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
-            spam: spam
+            spam: Spam
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -308,13 +423,13 @@ sv:
           error_already_sent: 'Kan inte förstöra nyhetsbrev: Det har redan skickats.'
           success: Nyhetsbrevet förstördes framgångsrikt.
         edit:
-          save_and_preview: Spara och förhandsgranska
+          save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
         form:
           interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
           confirm_delete: Är du säker på att du vill radera detta nyhetsbrev?
-          title: nyhetsbrev
+          title: Nyhetsbrev
         new:
           save: Spara
           title: Nytt nyhetsbrev
@@ -326,6 +441,25 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      oauth_applications:
+        create:
+          error: Det har uppstått ett fel vid skapandet av den här applikationen.
+          success: Programmet skapades framgångsrikt.
+        destroy:
+          error: Det har inträffat ett fel som förstörde den här applikationen.
+          success: Programmet förstördes framgångsrikt.
+        edit:
+          save: Spara
+          title: Redigera program
+        index:
+          confirm_delete: Är du säker på att du vill ta bort den här applikationen?
+          title: OAuth applikationer
+        new:
+          save: Spara
+          title: Ny ansökan
+        update:
+          error: Det har uppstått ett fel vid uppdateringen av den här applikationen.
+          success: Applikationen uppdaterades framgångsrikt.
       officializations:
         create:
           success: Användaren officiellt godkändes
@@ -333,15 +467,15 @@ sv:
           success: Användaren inofficiellt framgångsrikt
         index:
           actions: Handlingar
-          badge: Bricka
+          badge: Emblem
           created_at: Skapad vid
           filter:
-            all: Allt
+            all: Alla
             not_officialized: Ej officiellt
             officialized: Officialized
           filter_by: Filtrera efter
-          name: namn
-          nickname: smeknamn
+          name: Namn
+          nickname: Smeknamn
           not_officialized: Ej officiellt
           officialize: Officialize
           officialized: Officialized
@@ -356,21 +490,21 @@ sv:
       organization:
         edit:
           title: Redigera organisation
-          update: Uppdatering
+          update: Uppdatera
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
-          url: url
+          url: URL
           youtube: Youtube
         update:
           error: Det uppstod ett fel vid uppdateringen av den här organisationen.
           success: Organisationen uppdateras framgångsrikt.
       organization_appearance:
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
@@ -379,6 +513,17 @@ sv:
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
           omnipresent_banner_appearance_title: Ändra allmänt
+      participatory_space_private_users:
+        create:
+          error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
+          success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
+        destroy:
+          success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
+        index:
+          title: Deltagande utrymme privat användare
+        new:
+          create: Skapa
+          title: Ny deltagande utrymme privat användare.
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
@@ -387,10 +532,10 @@ sv:
           success: Omfattningstypen förstörs framgångsrikt
         edit:
           title: Redigera omfattningstyp
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa omfattningstyp
-          title: Nytt räckvidd
+          title: Ny omfattning
         update:
           error: Ett fel uppstod vid uppdatering av denna räckviddstyp.
           success: Omfattningstypen uppdateras framgångsrikt
@@ -401,11 +546,11 @@ sv:
         destroy:
           success: Omfattning framgångsrikt förstörs
         edit:
-          title: Redigera räckvidd
-          update: Uppdatering
+          title: Redigera omfattning
+          update: Uppdatera
         new:
           create: Skapa omfattning
-          title: Nytt räckvidd
+          title: Ny omfattning
         no_scopes: Inga omfattningar på denna nivå.
         update:
           error: Ett fel uppstod vid uppdatering av detta räckvidd.
@@ -420,7 +565,7 @@ sv:
           success: Sidan förstördes framgångsrikt
         edit:
           title: Redigera sida
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny sida
@@ -428,16 +573,19 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
           success: Sidan uppdaterad framgångsrikt
       titles:
+        admin_log: Admin logg
+        area_types: Typer av område
+        areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: instrumentbräda
+        dashboard: Kontrollpanel
         impersonations: impersonations
-        managed_users: Administrerade användare
+        managed_users: Hanterade användare
         officializations: Officializations
         scope_types: Omfattningstyper
-        scopes: Scopes
-        static_pages: sidor
+        scopes: Omfattningar
+        static_pages: Sidor
         user_groups: Användargrupper
-        users: användare
+        users: Användare
       user_group:
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.
@@ -448,7 +596,7 @@ sv:
       user_groups:
         index:
           filter:
-            all: Allt
+            all: Alla
             pending: Avvaktan
             rejected: avvisade
             verified: Verifierad
@@ -467,16 +615,16 @@ sv:
           success: Användaren är inte längre en administratör.
         form:
           email: E-post
-          name: namn
+          name: Namn
           role: Roll
         new:
-          create: Inbjudan
+          create: Bjud in
           title: Bjud in användaren som administratör
     moderations:
       actions:
         hidden: Dold
         hide: Dölj
-        not_hidden: inte gömd
+        not_hidden: Inte dolt
         title: Handlingar
         unreport: Unreport
       admin:
@@ -491,7 +639,7 @@ sv:
         moderation:
           fields:
             hidden_at: Dold vid
-            report_count: Räkna
+            report_count: Antal
             reportable: rapporter
             reported_content_url: Rapporterad innehållsadress
             reports: rapporter
@@ -503,12 +651,12 @@ sv:
     decidim:
       admin:
         newsletters:
-          title: nyhetsbrev
+          title: Nyhetsbrev
         settings:
           title: inställningar
         users:
-          title: användare
+          title: Användare
   time:
     formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"
+      datepicker: "%d/%m/%Y"
+      timepicker: "%d/%m/%Y %H:%M"

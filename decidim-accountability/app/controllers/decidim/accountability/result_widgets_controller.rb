@@ -8,7 +8,7 @@ module Decidim
       private
 
       def model
-        @model ||= Result.where(feature: params[:feature_id]).find(params[:result_id])
+        @model ||= Result.where(component: params[:component_id]).find(params[:result_id])
       end
 
       def iframe_url

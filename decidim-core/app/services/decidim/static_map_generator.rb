@@ -42,7 +42,7 @@ module Decidim
     end
 
     def organization
-      @organization ||= @resource.feature.organization
+      @organization ||= @resource.component.organization
     end
   end
 end

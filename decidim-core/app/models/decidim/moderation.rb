@@ -10,7 +10,7 @@ module Decidim
     belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true
     has_many :reports, foreign_key: "decidim_moderation_id", class_name: "Decidim::Report", dependent: :destroy
 
-    delegate :feature, :organization, to: :reportable
+    delegate :component, :organization, to: :reportable
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ModerationPresenter

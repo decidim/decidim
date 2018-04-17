@@ -6,14 +6,16 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
-        email: Din email
+        about: Handla om
+        email: Din e-post
         name: Ditt namn
-        nickname: Din korta, unika identifierare i decidim
+        nickname: Din korta, unika identifierare
         password: Nytt lösenord
         password_confirmation: Bekräfta ditt nya lösenord
+        personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisations namn
+        user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
   activerecord:
     attributes:
@@ -22,10 +24,10 @@ sv:
         email: E-post
         name: Användarnamn
         password: Lösenord
-        password_confirmation: lösenordsbekräftelse
+        password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
         user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisations namn
+        user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
   booleans:
     'false': 'Nej'
@@ -40,21 +42,68 @@ sv:
         confirm:
           close: Stäng fönstret
           ok: Ja, jag vill ta bort mitt konto
-          question: Är du säker på att du vill radera ditt konto?
+          question: Är du säker på att du vill ta bort ditt konto?
           title: Ta bort mitt konto
         explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
       destroy:
         error: Det har varit ett fel att radera ditt konto.
         success: Ditt konto har tagits bort.
       show:
-        change_password: ändra lösenord
+        change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
         error: Det har uppstått ett fel när du uppdaterade ditt konto.
-        success: Ditt konto har uppdaterats framgångsrikt.
-        success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
+        success: Ditt konto har uppdaterats.
+        success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-postmeddelande för att bekräfta din nya e-postadress.
+    admin_log:
+      area:
+        create: "%{user_name} skapade området %{resource_name}"
+        delete: "%{user_name} raderade området %{resource_name}"
+        update: "%{user_name} uppdaterade området %{resource_name}"
+      component:
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} utrymmet"
+        delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
+        publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
+        unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
+      moderation:
+        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
+        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
+      newsletter:
+        create: "%{user_name} skapade %{resource_name} nyhetsbrev"
+        delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
+        deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
+        update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
+      oauth_application:
+        create: "%{user_name} skapade OAuth-applikationen %{resource_name}"
+        delete: "%{user_name} raderade OAuth-applikationen %{resource_name}"
+        update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
+      organization:
+        update: "%{user_name} uppdaterade organisationsinställningarna"
+      scope:
+        create: "%{user_name} skapade området %{resource_name}"
+        create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
+        delete: "%{user_name} raderade området %{resource_name}"
+        delete_with_parent: "%{user_name} raderade området %{resource_name} inom ramen för %{parent_scope}"
+        update: "%{user_name} uppdaterade %{resource_name} -räckvidden"
+        update_with_parent: "%{user_name} uppdaterade området %{resource_name} inom ramen för %{parent_scope}"
+      static_page:
+        create: "%{user_name} skapade %{resource_name} statisk sida"
+        delete: "%{user_name} raderade %{resource_name} statisk sida"
+        update: "%{user_name} uppdaterade %{resource_name} statisk sida"
+      user:
+        invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
+        officialize: "%{user_name} publicerade användaren %{resource_name}"
+        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
+        unofficialize: "%{user_name} oofficiserad användaren %{resource_name}"
+      user_group:
+        reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
+        verify: "%{user_name} verifierade %{resource_name} användargrupp"
     anonymous_user: Anonym
     application:
+      collection:
+        documents:
+          one: Dokument
+          other: Dokument
       documents:
         related_documents: Relaterade dokument
       photos:
@@ -79,7 +128,22 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
-    contact: Kontakta
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy Komponent
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiverade
+            dummy_global_attribute_1: Dummy Attribut 1
+            dummy_global_attribute_2: Dummy Attribut 2
+          step:
+            comments_blocked: Kommentarer blockerade
+            dummy_step_attribute_1: Dummy Step Attribut 1
+            dummy_step_attribute_2: Dummy Step Attribut 2
+    contact: Kontakt
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
@@ -89,7 +153,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplett profil
-          nickname_help: Din korta, unika identifierare i decidim
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
@@ -97,24 +161,39 @@ sv:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
-          nickname_help: Din korta, unika identifierare i decidim
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
-          sign_up: Bli Medlem
+          sign_up: Registrera
           sign_up_as:
             legend: Registrera dig som
-            user: Enskild
-            user_group: Organisation / Kollektiv
-          subtitle: Anmäl dig för att delta i diskussioner och supportförslag.
+            user: Privatperson
+            user_group: Organisation/Kollektiv
+          subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
-          tos_agreement: Genom att registrera dig godkänner du %{link}.
+          tos_agreement: Genom att registrera dig godkänner du till %{link}.
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
       sessions:
         new:
-          are_you_new?: Nytt på plattformen?
+          are_you_new?: Ny på plattformen?
           register: Skapa ett konto
       shared:
         omniauth_buttons:
           or: Eller
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Godkänn ansökan
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
+          cancel: Avbryt
+          connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
+          publish_content: Publicera innehåll för dig
+          see_email: Se din email
+          see_name: Se ditt namn
+          see_username: Se ditt användarnamn
+          this_application_will_be_able_to: 'Denna ansökan kommer att kunna:'
+          this_application_will_not_be_able_to: 'Den här applikationen kommer inte att kunna:'
+          update_profile: Uppdatera din profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     errors:
       internal_server_error:
         title: Det uppstod ett problem med vår server
@@ -130,55 +209,36 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: '%{resource_title} komponenten är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
         email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
-      feature_published_event:
-        email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-        email_subject: En uppdatering till %{participatory_space_title}
-        notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-        email_subject: En uppdatering till %{participatory_space_title}
-        notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
           email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: "%{nickname} updated deras profile"
+          email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       export:
         ready: Vänligen se bifogad en zippad version av din export.
       subject: Din export "%{name}" är klar
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: foo
-        name: Dummy-funktionen
-        settings:
-          global:
-            comments_enabled: Kommentarer aktiverade
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
-          step:
-            comments_blocked: Kommentarer blockerad
-            dummy_step_attribute_1: Dummy Step Attribut 1
-            dummy_step_attribute_2: Dummy Step Attribut 2
     filters:
       linked_classes:
-        all: Allt
+        all: Alla
         dummyresource: Dummy resurser
-        meeting: möten
-        project: projekt
-        proposal: förslag
+        meeting: Möten
+        project: Projekt
+        proposal: Förslag
         result: Resultat
     follows:
       create:
@@ -194,6 +254,25 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    log:
+      base_presenter:
+        create: "%{user_name} skapad %{resource_name}"
+        create_with_space: "%{user_name} skapad %{resource_name} i %{space_name}"
+        delete: "%{user_name} borttagen %{resource_name}"
+        delete_with_space: "%{user_name} borttagen %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utfört en viss åtgärd på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utfört en viss åtgärd på %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterad %{resource_name}"
+        update_with_space: "%{user_name} uppdaterad %{resource_name} i %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Området hittades inte i databasen (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Områdetypen hittades inte i databasen (ID: %{id})'
+        scope_presenter:
+          not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     menu:
@@ -205,7 +284,7 @@ sv:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se det:"
           outro: Njut av decidim!
-          subject: "%{sender} har börjat samtala med dig"
+          subject: "%{sender} har startat en konversation med dig"
         new_message:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i din konversation. Klicka här för att se dem:"
@@ -215,18 +294,18 @@ sv:
         create:
           error: Samtalet startade inte. Försök igen senare
         index:
-          no_conversations: Du har inga samtal ännu
-          title: samtal
+          no_conversations: Du har inga konversationer än
+          title: Konversationer
         reply:
           send: Skicka
-          title: Svar
+          title: Svara
         show:
           title: Samtal med %{usernames}
         start:
           send: Skicka
           title: Starta en konversation
         update:
-          error: Meddelandet är inte skickat. Försök igen senare
+          error: Meddelandet har inte skickats. Försök igen senare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
@@ -236,12 +315,12 @@ sv:
       unsubscribe:
         check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan <a href="%{link}" target="_blank">konfiguration</a>
         error: Ett fel har avbrutits
-        success: Du är avstängd med framgång.
+        success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
-        unsubscribe: Säga upp
+        unsubscribe: Avprenumerera
     notifications_settings:
       show:
-        email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
+        email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
         newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
@@ -255,11 +334,15 @@ sv:
     pages:
       index:
         title: Mer information
+    participatory_space_private_users:
+      not_allowed: Du får inte se det här innehållet
+    profile:
+      deleted: Ta bort användare
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         about_me: Om mig
-        personal_url: Personlig hemsida
+        personal_url: Personlig webbplats
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -269,7 +352,7 @@ sv:
       report:
         hello: Hej %{name},
         manage_moderations: Hantera moderationer
-        report_html: <p>Följande <a href="%{url}">content</a> har rapporterats.</p>
+        report_html: <p>Följande <a href="%{url}">-innehåll</a> har rapporterats.</p>
         subject: En resurs har rapporterats
     reports:
       create:
@@ -278,11 +361,11 @@ sv:
     scopes:
       global: Global omfattning
       picker:
-        cancel: Annullera
+        cancel: Avbryt
         choose: Välj
         title: Välj %{field}
-      prompt: Välj ett räckvidd
-      scopes: Scopes
+      prompt: Välj en omfattning
+      scopes: Omfattningar
     shared:
       action_authorization_modal:
         expired:
@@ -290,7 +373,7 @@ sv:
           explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
           title: Godkännandet har löpt ut
         incomplete:
-          cancel: Annullera
+          cancel: Avbryt
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
           invalid_field: "%{field}"
           reauthorize: reauthorize
@@ -306,17 +389,17 @@ sv:
         unauthorized:
           explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
           invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Ok
+          ok: Okej
           title: Inte behörig
       author:
-        deleted: Ta bort användare
+        deleted: Raderad användare
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
         embed_link: Bädda in
       flag_modal:
         already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
-        close: Stänga
+        close: Stäng
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
@@ -326,7 +409,7 @@ sv:
       follow_button:
         sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
       login_modal:
-        please_sign_in: Var god logga in
+        please_sign_in: Vänligen logga in
         sign_up: Bli Medlem
       reference:
         reference: 'Referens: %{reference}'
@@ -334,15 +417,15 @@ sv:
         label: 'Resultat per sida:'
       share_modal:
         close_window: Stäng fönstret
-        share: Dela med sig
+        share: Dela
         share_link: Dela länk
       version_author:
-        deleted: Ta bort användare
+        deleted: Raderad användare
   devise:
     invitations:
       edit:
         header: Ange ditt lösenord
-        nickname_help: Din unika identifierare i decidim.
+        nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
     mailer:
       invitation_instructions:
@@ -352,18 +435,25 @@ sv:
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
+        someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_private_user:
+        subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
-        subject: lösenordet ändrat
+        subject: Lösenord ändrat
+  doorkeeper:
+    scopes:
+      public: Din offentliga information.
   errors:
     messages:
       content_type_whitelist_error: Filtypen är inte giltig
@@ -385,52 +475,52 @@ sv:
   layouts:
     decidim:
       cookie_warning:
-        description_html: Den här sidan använder cookies. Genom att fortsätta att bläddra på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
+        description_html: Denna webbplats använder cookies. Genom att fortsätta att surfa på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
         link_label: här
-        ok: jag håller med
+        ok: Jag godkänner
       footer:
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
-        close_menu: Stäng menyn
+        close_menu: Stäng meny
         navigation: Navigering
         sign_in: Logga in
-        sign_up: Bli Medlem
+        sign_up: Registrera
       impersonation_warning:
-        close_session: Stäng sessionen
+        close_session: Stäng session
         description_html: Du utmärker användaren <b>%{user_name}</b>.
         expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
-        mark_all_as_read: Markera allt som läst
-        no_notifications: Inga meddelanden ännu.
-        title: anmälningar
+        mark_all_as_read: Markera alla som lästa
+        no_notifications: Inga notiser ännu.
+        title: Notiser
       user_menu:
-        admin_dashboard: Admin-instrumentpanelen
-        conversations: samtal
-        notifications: anmälningar
+        admin_dashboard: Admin kontrollpanel
+        conversations: Konversationer
+        notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
-        account: konto
+        account: Konto
         authorizations: Tillstånd
         delete_my_account: Ta bort mitt konto
-        notifications_settings: Anmälningsinställningar
+        notifications_settings: Notisinställningar
         title: Användarinställningar
-        user_groups: organisationer
+        user_groups: Organisationer
       widget:
         see_more: Se mer
   locale:
-    name: engelsk
+    name: Svenska
   pages:
     home:
       extended:
-        debates: debatter
+        debates: Debatter
         debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
-        how_to_participate: Hur tar jag del i en process?
-        meetings: möten
+        how_to_participate: Hur deltar jag i en process?
+        meetings: Möten
         meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
         more_info: Mer information
-        proposals: förslag
+        proposals: Förslag
         proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
       footer_sub_hero:
         footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
@@ -440,37 +530,39 @@ sv:
         participate: Delta
         welcome: Välkommen till %{organization}!
       statistics:
-        answers_count: Avslutade undersökningar
+        answers_count: Avslutade Undersökningar
         assemblies_count: Assemblies
-        comments_count: kommentarer
+        comments_count: Kommentarer
+        debates_count: Debatter
+        endorsements_count: påskrifter
         headline: Aktuellt tillstånd %{organization}
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
-        processes_count: processer
-        projects_count: projekt
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
+        processes_count: Processer
+        projects_count: Projekt
         proposals_accepted: Godkända förslag
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
       sub_hero:
         register: Registrera
   social_share_button:
-    delicious: Utsökt
+    delicious: Delicious
     douban: Douban
     email: E-post
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
-    linkedin: edin
+    linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
     share_to: Dela till %{name}
-    tumblr: tumblr
+    tumblr: Tumblr
     twitter: Twitter
     vkontakte: VKontakte
     wechat: WeChat
@@ -482,12 +574,13 @@ sv:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Första"
-      last: Senaste &raquo;
+      last: Sista &raquo;
       next: Nästa &rsaquo;
-      previous: "&lsaquo; Föreg"
+      previous: "&lsaquo; Föregående"
       truncate: "&hellip;"

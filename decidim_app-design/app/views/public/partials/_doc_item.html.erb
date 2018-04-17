@@ -1,11 +1,11 @@
 <div class="card--list__item">
   <div class="card--list__text">
     <div>
-      <a href="<%= file %>" class="card__link" target="_blank">
+      <%= link_to file, class: "card__link", target: "_blank" do %>
         <h6 class="card--list__heading heading6">
           <%= title %> <small><%= type %></small>
         </h6>
-      </a>
+      <% end %>
     </div>
   </div>
   <div class="card--list__data">
@@ -14,4 +14,3 @@
     </a>
   </div>
 </div>
-

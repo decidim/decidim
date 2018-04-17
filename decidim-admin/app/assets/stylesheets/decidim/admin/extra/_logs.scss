@@ -1,7 +1,11 @@
-ul.logs{
+.logs{
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
+
+  p.logs--no-logs{
+    margin: rem-calc(16);
+  }
 
   li{
     .logs__log__content,

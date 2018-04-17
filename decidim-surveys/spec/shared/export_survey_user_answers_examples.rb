@@ -9,7 +9,7 @@ shared_examples "export survey user answers" do
   end
 
   it "exports a CSV" do
-    visit_feature_admin
+    visit_component_admin
 
     find(".exports.dropdown").click
     perform_enqueued_jobs { click_link "CSV" }
@@ -24,7 +24,7 @@ shared_examples "export survey user answers" do
   end
 
   it "exports a JSON" do
-    visit_feature_admin
+    visit_component_admin
 
     find(".exports.dropdown").click
     perform_enqueued_jobs { click_link "JSON" }

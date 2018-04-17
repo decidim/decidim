@@ -5,15 +5,15 @@
  */
 $(() => {
   // Event launched by foundation
-  $('[data-tabs]').on('change.zf.tabs', (event) => {
-    const $container = $(event.target).next('.tabs-content .tabs-panel.is-active');
+  $("[data-tabs]").on("change.zf.tabs", (event) => {
+    const $container = $(event.target).next(".tabs-content .tabs-panel.is-active");
     // Detect quilljs editor inside the tabs-panel
-    let $content = $container.find('.editor .ql-editor');
+    let $content = $container.find(".editor .ql-editor");
     if ($content.length > 0) {
       $content.focus();
     // Detect if inside the tabs-panel have an input
     } else {
-      $content = $container.find('input:first');
+      $content = $container.find("input:first");
       if ($content.length > 0) {
         $content.focus();
       }

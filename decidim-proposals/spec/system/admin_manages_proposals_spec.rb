@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Admin manages proposals", type: :system do
   let(:manifest_name) { "proposals" }
-  let!(:proposal) { create :proposal, feature: current_feature }
-  let!(:reportables) { create_list(:proposal, 3, feature: current_feature) }
+  let!(:proposal) { create :proposal, component: current_component }
+  let!(:reportables) { create_list(:proposal, 3, component: current_component) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
 
-  include_context "when managing a feature as an admin"
+  include_context "when managing a component as an admin"
 
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"

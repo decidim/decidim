@@ -64,7 +64,7 @@ module Decidim
         private
 
         def query
-          @query ||= Proposal.where(feature: current_feature).published.ransack(params[:q])
+          @query ||= Proposal.where(component: current_component).published.ransack(params[:q])
         end
 
         def proposals
@@ -72,7 +72,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= Proposal.where(feature: current_feature).find(params[:id])
+          @proposal ||= Proposal.where(component: current_component).find(params[:id])
         end
 
         def update_proposals_category_response_successful(response)

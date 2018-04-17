@@ -15,7 +15,12 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
+
+# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
+# with a patched version of rectify
 require "rectify"
+require "decidim/rectify_ext"
+
 require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
@@ -32,10 +37,12 @@ require "invisible_captcha"
 require "premailer/rails"
 require "geocoder"
 require "paper_trail"
+require "cells/rails"
+require "cells-erb"
+require "doorkeeper"
+require "doorkeeper-i18n"
 
 require "decidim/api"
-
-require "decidim/query_extensions"
 
 module Decidim
   module Core
@@ -58,8 +65,8 @@ module Decidim
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
-        Decidim.feature_manifests.each do |feature|
-          app.config.assets.precompile += [feature.icon]
+        Decidim.component_manifests.each do |component|
+          app.config.assets.precompile += [component.icon]
         end
 
         app.config.assets.debug = true if Rails.env.test?
@@ -94,10 +101,13 @@ module Decidim
         app.config.i18n.fallbacks = true
       end
 
-      initializer "decidim.query_extensions" do
+      initializer "decidim.graphql_api" do
         Decidim::Api::QueryType.define do
           Decidim::QueryExtensions.define(self)
         end
+
+        Decidim::Api.add_orphan_type Decidim::Core::UserType
+        Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
       initializer "decidim.i18n_exceptions" do
@@ -208,6 +218,67 @@ module Decidim
 
       initializer "paper_trail" do
         PaperTrail.config.track_associations = false
+      end
+
+      initializer "add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
+      end
+
+      initializer "doorkeeper" do
+        Doorkeeper.configure do
+          orm :active_record
+
+          # This block will be called to check whether the resource owner is authenticated or not.
+          resource_owner_authenticator do
+            current_user || redirect_to(new_user_session_path)
+          end
+
+          # The controller Doorkeeper::ApplicationController inherits from.
+          # Defaults to ActionController::Base.
+          # https://github.com/doorkeeper-gem/doorkeeper#custom-base-controller
+          base_controller "Decidim::ApplicationController"
+
+          # Provide support for an owner to be assigned to each registered application (disabled by default)
+          # Optional parameter confirmation: true (default false) if you want to enforce ownership of
+          # a registered application
+          # Note: you must also run the rails g doorkeeper:application_owner generator to provide the necessary support
+          enable_application_owner confirmation: false
+
+          # Define access token scopes for your provider
+          # For more information go to
+          # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
+          default_scopes :public
+          optional_scopes []
+
+          # Change the native redirect uri for client apps
+          # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
+          # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
+          # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
+          #
+          native_redirect_uri "urn:ietf:wg:oauth:2.0:oob"
+
+          # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
+          # by default in non-development environments). OAuth2 delegates security in
+          # communication to the HTTPS protocol so it is wise to keep this enabled.
+          #
+          # Callable objects such as proc, lambda, block or any object that responds to
+          # #call can be used in order to allow conditional checks (to allow non-SSL
+          # redirects to localhost for example).
+          #
+          # force_ssl_in_redirect_uri !Rails.env.development?
+          #
+          force_ssl_in_redirect_uri false
+
+          # WWW-Authenticate Realm (default "Doorkeeper").
+          realm "Decidim"
+        end
+      end
+
+      initializer "OAuth inflections" do
+        ActiveSupport::Inflector.inflections do |inflect|
+          inflect.acronym "OAuth"
+        end
       end
     end
   end

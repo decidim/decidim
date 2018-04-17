@@ -25,7 +25,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.where(feature: current_feature).find(params[:id])
+        @meeting ||= Meeting.where(component: current_component).find(params[:id])
       end
 
       def meetings
@@ -50,7 +50,7 @@ module Decidim
       end
 
       def context_params
-        { feature: current_feature, organization: current_organization }
+        { component: current_component, organization: current_organization }
       end
     end
   end

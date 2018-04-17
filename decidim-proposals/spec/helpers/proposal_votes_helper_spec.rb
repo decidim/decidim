@@ -8,14 +8,14 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:limit) { 10 }
       let(:votes_enabled) { true }
-      let(:proposal_feature) { create(:proposal_feature, organization: organization) }
+      let(:proposal_component) { create(:proposal_component, organization: organization) }
       let(:user) { create(:user, organization: organization) }
 
       before do
         allow(helper).to receive(:current_user).and_return(user)
-        allow(helper).to receive(:current_feature).and_return(proposal_feature)
+        allow(helper).to receive(:current_component).and_return(proposal_component)
         allow(helper).to receive(:current_settings).and_return(double(votes_enabled?: votes_enabled))
-        allow(helper).to receive(:feature_settings).and_return(double(vote_limit: limit))
+        allow(helper).to receive(:component_settings).and_return(double(vote_limit: limit))
       end
 
       describe "#vote_button_classes" do
@@ -55,8 +55,8 @@ module Decidim
       end
 
       describe "#remaining_votes_count_for" do
-        it "returns the remaining votes for a user based on the feature votes limit" do
-          proposal = create(:proposal, feature: proposal_feature)
+        it "returns the remaining votes for a user based on the component votes limit" do
+          proposal = create(:proposal, component: proposal_component)
           create(:proposal_vote, author: user, proposal: proposal)
 
           expect(helper.remaining_votes_count_for(user)).to eq(9)

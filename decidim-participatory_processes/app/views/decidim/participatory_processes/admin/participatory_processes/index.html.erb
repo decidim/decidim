@@ -1,7 +1,7 @@
 <div class="card" id="processes">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.participatory_processes" %><%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'button tiny button--title' if can? :create, Decidim::ParticipatoryProcess %>
+      <%= t "decidim.admin.titles.participatory_processes" %><%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ["new", "participatory_process"], class: "button tiny button--title" if can? :create, Decidim::ParticipatoryProcess %>
     </h2>
   </div>
   <div class="card-section">
@@ -11,6 +11,7 @@
           <tr>
             <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.participatory_process.fields.private", scope: "decidim.admin") %></th>
             <th class="table-list__actions"><%= t("models.participatory_process.fields.published", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -38,10 +39,17 @@
                 <%= l process.created_at, format: :short %>
               </td>
               <td class="table-list__state">
-                <% if process.published? %>
-                  <strong class="text-success"><%= t('participatory_processes.index.published', scope: "decidim.admin") %></strong>
+                <% if process.private_space? %>
+                  <strong class="text-alert"><%= t("participatory_processes.index.private", scope: "decidim.admin") %></strong>
                 <% else %>
-                  <strong class="text-alert"><%= t('participatory_processes.index.not_published', scope: "decidim.admin") %></strong>
+                  <strong class="text-success"><%= t("participatory_processes.index.public", scope: "decidim.admin") %></strong>
+                <% end %>
+              </td>
+              <td class="table-list__state">
+                <% if process.published? %>
+                  <strong class="text-success"><%= t("participatory_processes.index.published", scope: "decidim.admin") %></strong>
+                <% else %>
+                  <strong class="text-alert"><%= t("participatory_processes.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
               </td>
               <td class="table-list__actions">

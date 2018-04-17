@@ -58,6 +58,11 @@ AllCops:
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 2.3
 
+  RSpec:
+    Patterns:
+      - "(?:^|/)spec/"
+      - "(?:^|/)test/"
+
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -601,6 +606,7 @@ Style/Lambda:
     - literal
   Exclude:
     - "**/types/**/*"
+    - "**/*_interface.rb"
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -974,7 +980,14 @@ Style/TrailingCommaInArguments:
   # for all parenthesized method calls with arguments.
   EnforcedStyleForMultiline: no_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInHashLiteral:
   # If `comma`, the cop requires a comma after the last item in an array or
   # hash, but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
@@ -1114,7 +1127,7 @@ Lint/AssignmentInCondition:
   AllowSafeAssignment: true
 
 # checks whether the end keywords are aligned properly for `do` `end` blocks.
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   # The value `start_of_block` means that the `end` should be aligned with line
   # where the `do` keyword appears.
   # The value `start_of_line` means it should be aligned with the whole
@@ -1123,7 +1136,7 @@ Lint/BlockAlignment:
   EnforcedStyleAlignWith: either
 
 # Align ends correctly.
-Lint/EndAlignment:
+Layout/EndAlignment:
   # The value `keyword` means that `end` should be aligned with the matching
   # keyword (if, while, etc.).
   # The value `variable` means that in assignments, `end` should be aligned
@@ -1134,7 +1147,7 @@ Lint/EndAlignment:
   EnforcedStyleAlignWith: keyword
   AutoCorrect: false
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
@@ -1166,6 +1179,9 @@ Performance/RedundantMerge:
   MaxKeyValuePairs: 2
 
 Metrics/BlockLength:
+  Enabled: false
+
+FactoryBot/StaticAttributeDefinedDynamically:
   Enabled: false
 
 RSpec/BeforeAfterAll:
@@ -1216,3 +1232,5 @@ RSpec/NamedSubject:
 
 RSpec/VerifiedDoubles:
   Enabled: false
+
+inherit_from: .rubocop_rails.yml

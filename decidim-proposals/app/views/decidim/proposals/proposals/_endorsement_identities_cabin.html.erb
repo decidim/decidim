@@ -1,7 +1,7 @@
-<%= javascript_include_tag 'decidim/proposals/identity_selector_dialog' %>
+<%= javascript_include_tag "decidim/proposals/identity_selector_dialog" %>
 <% if current_user && current_user.user_groups.verified.any? %>
-  <button id="select-identity-button" type="button" name="button" class="button small compact light button--sc <%= fully_endorsed ? 'success': 'secondary' %>">
-    <%= t('.endorse') %>
+  <button id="select-identity-button" type="button" name="button" class="button small compact light button--sc <%= fully_endorsed ? "success": "secondary" %>">
+    <%= t(".endorse") %>
   </button>
 
   <div class="reveal collapse"

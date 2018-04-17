@@ -14,7 +14,7 @@ module Decidim
       def latest_action_logs
         @latest_action_logs ||= Decidim::ActionLog
                                 .where(organization: current_organization)
-                                .includes(:participatory_space, :user, :resource, :feature, :version)
+                                .includes(:participatory_space, :user, :resource, :component, :version)
                                 .order(created_at: :desc)
                                 .first(20)
       end

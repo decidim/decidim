@@ -8,21 +8,21 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <%= render partial: 'layouts/decidim/admin/header' %>
+    <%= render partial: "layouts/decidim/admin/header" %>
     <%= foundation_datepicker_locale_tag %>
   </head>
   <body>
-    <%= render partial: 'layouts/decidim/admin/template_top' %>
+    <%= render partial: "layouts/decidim/admin/template_top" %>
     <div class="layout-nav">
       <%= main_menu.render %>
       <%= yield :secondary_nav if content_for? :secondary_nav %>
     </div>
     <div class="layout-content">
-      <%= render partial: 'layouts/decidim/admin/callouts_full' %>
+      <%= render partial: "layouts/decidim/admin/callouts_full" %>
       <div class="container">
         <%= yield %>
       </div>
     </div>
-    <%= render partial: 'layouts/decidim/admin/template_bottom' %>
+    <%= render partial: "layouts/decidim/admin/template_bottom" %>
   </body>
 </html>

@@ -3,15 +3,15 @@
 module Decidim
   # Helpers related to icons
   module IconHelper
-    # Public: Returns an icon given an instance of a Feature. It defaults to
+    # Public: Returns an icon given an instance of a Component. It defaults to
     # a question mark when no icon is found.
     #
-    # feature - The feature to generate the icon for.
+    # component - The component to generate the icon for.
     # options - a Hash with options
     #
     # Returns an HTML tag with the icon.
-    def feature_icon(feature, options = {})
-      manifest_icon(feature.manifest, options)
+    def component_icon(component, options = {})
+      manifest_icon(component.manifest, options)
     end
 
     # Public: Returns an icon given an instance of a Manifest. It defaults to
@@ -30,7 +30,7 @@ module Decidim
     end
 
     # Public: Finds the correct icon for the given resource. If the resource has a
-    # Feature then it uses it to find the icon, otherwise checks for the resource
+    # Component then it uses it to find the icon, otherwise checks for the resource
     # manifest to find the icon.
     #
     # resource - The resource to generate the icon for.
@@ -38,8 +38,8 @@ module Decidim
     #
     # Returns an HTML tag with the icon.
     def resource_icon(resource, options = {})
-      if resource.respond_to?(:feature)
-        feature_icon(resource.feature, options)
+      if resource.respond_to?(:component)
+        component_icon(resource.component, options)
       elsif resource.respond_to?(:manifest)
         manifest_icon(resource.manifest, options)
       elsif resource.is_a?(Decidim::User)

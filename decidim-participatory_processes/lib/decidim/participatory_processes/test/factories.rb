@@ -27,8 +27,9 @@ FactoryBot.define do
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     show_statistics true
+    private_space false
     start_date { Time.current }
-    end_date 2.months.from_now.at_midnight
+    end_date { 2.months.from_now.at_midnight }
 
     trait :promoted do
       promoted true
@@ -82,8 +83,8 @@ FactoryBot.define do
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    start_date 1.month.ago.at_midnight
-    end_date 2.months.from_now.at_midnight
+    start_date { 1.month.ago.at_midnight }
+    end_date { 2.months.from_now.at_midnight }
     position nil
     participatory_process
 

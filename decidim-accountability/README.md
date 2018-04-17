@@ -4,7 +4,7 @@ The Accountability module adds results to any participatory process. It adds a C
 
 ## Usage
 
-Accountability will be available as a Feature for a Participatory Process.
+Accountability will be available as a Component for a Participatory Process.
 
 ## Installation
 

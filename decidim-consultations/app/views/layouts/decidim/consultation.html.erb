@@ -1,0 +1,17 @@
+<%= render "layouts/decidim/application" do %>
+  <div class="wrapper">
+    <%= render partial: "layouts/decidim/consultation_header" %>
+    <%= yield %>
+  </div>
+  <% if content_for? :expanded %>
+    <div class="expanded">
+      <div class="wrapper wrapper--inner">
+        <div class="row">
+          <%= yield :expanded %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= stylesheet_link_tag "decidim/consultations/consultations", media: :all %>
+<% end %>

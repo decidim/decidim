@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe "Proposal embeds", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposal) { create(:proposal, feature: feature) }
+  let!(:proposal) { create(:proposal, component: component) }
 
   context "when visiting the embed page for a proposal" do
     before do

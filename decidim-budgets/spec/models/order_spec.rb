@@ -6,7 +6,7 @@ module Decidim::Budgets
   describe Order do
     subject { order }
 
-    let!(:order) { create :order, feature: create(:budget_feature) }
+    let!(:order) { create :order, component: create(:budget_component) }
 
     describe "validations" do
       it "is valid" do
@@ -18,25 +18,25 @@ module Decidim::Budgets
         expect(subject).to be_invalid
       end
 
-      it "is invalid when feature is not present" do
-        subject.feature = nil
+      it "is invalid when component is not present" do
+        subject.component = nil
         expect(subject).to be_invalid
       end
 
-      it "is unique for each user and feature" do
+      it "is unique for each user and component" do
         subject.save
-        new_order = build :order, user: subject.user, feature: subject.feature
+        new_order = build :order, user: subject.user, component: subject.component
         expect(new_order).to be_invalid
       end
 
       it "can't exceed a maximum order value" do
-        project1 = create(:project, feature: subject.feature, budget: 100)
-        project2 = create(:project, feature: subject.feature, budget: 20)
+        project1 = create(:project, component: subject.component, budget: 100)
+        project2 = create(:project, component: subject.component, budget: 20)
 
         subject.projects << project1
         subject.projects << project2
 
-        subject.feature.settings = {
+        subject.component.settings = {
           "total_budget" => 100, "vote_threshold" => 50
         }
 
@@ -44,11 +44,11 @@ module Decidim::Budgets
       end
 
       it "can't be lower than a minimum order value when checked out" do
-        project1 = create(:project, feature: subject.feature, budget: 20)
+        project1 = create(:project, component: subject.component, budget: 20)
 
         subject.projects << project1
 
-        subject.feature.settings = {
+        subject.component.settings = {
           "total_budget" => 100, "vote_threshold" => 50
         }
 
@@ -60,7 +60,7 @@ module Decidim::Budgets
 
     describe "#total_budget" do
       it "returns the sum of project budgets" do
-        subject.projects << build(:project, feature: subject.feature)
+        subject.projects << build(:project, component: subject.component)
 
         expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
       end

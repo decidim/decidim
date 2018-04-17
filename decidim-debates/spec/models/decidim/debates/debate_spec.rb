@@ -8,8 +8,9 @@ describe Decidim::Debates::Debate do
   let(:debate) { build :debate }
 
   it { is_expected.to be_valid }
+  it { is_expected.to be_versioned }
 
-  include_examples "has feature"
+  include_examples "has component"
   include_examples "has category"
 
   context "without a title" do

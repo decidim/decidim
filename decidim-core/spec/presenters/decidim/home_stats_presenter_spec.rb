@@ -11,8 +11,8 @@ module Decidim
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, :published, organization: organization) }
     let!(:assembly) { create(:assembly, :published, organization: organization) }
-    let!(:process_feature) { create :feature, participatory_space: process }
-    let!(:assembly_feature) { create :feature, participatory_space: assembly }
+    let!(:process_component) { create :component, participatory_space: process }
+    let!(:assembly_component) { create :component, participatory_space: assembly }
 
     around do |example|
       Decidim.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
@@ -27,8 +27,8 @@ module Decidim
     end
 
     before do
-      manifests = Decidim.feature_manifests.select { |manifest| manifest.name == :dummy }
-      allow(Decidim).to receive(:feature_manifests).and_return(manifests)
+      manifests = Decidim.component_manifests.select { |manifest| manifest.name == :dummy }
+      allow(Decidim).to receive(:component_manifests).and_return(manifests)
     end
 
     describe "#highlighted" do

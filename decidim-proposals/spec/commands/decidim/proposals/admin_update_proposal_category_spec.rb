@@ -10,9 +10,9 @@ module Decidim
           let(:organization) { create(:organization) }
 
           let!(:proposal) { create :proposal }
-          let!(:proposals) { create_list(:proposal, 3, feature: proposal.feature) }
-          let!(:category_one) { create :category, participatory_space: proposal.feature.participatory_space }
-          let!(:category) { create :category, participatory_space: proposal.feature.participatory_space }
+          let!(:proposals) { create_list(:proposal, 3, component: proposal.component) }
+          let!(:category_one) { create :category, participatory_space: proposal.component.participatory_space }
+          let!(:category) { create :category, participatory_space: proposal.component.participatory_space }
 
           context "with no category" do
             it "broadcasts invalid_category" do
@@ -29,18 +29,18 @@ module Decidim
           describe "with a category and proposals" do
             context "when the category is the same as the proposal's category" do
               before do
-                proposal.update_attributes!(category: category)
+                proposal.update!(category: category)
               end
 
               it "doesn't update the proposal" do
-                described_class.call(proposal.category.id, proposal.id).call
-                expect(proposal).not_to receive(:update_attributes!)
+                expect(proposal).not_to receive(:update!)
+                described_class.call(proposal.category.id, proposal.id)
               end
             end
 
             context "when the category is diferent from the proposal's category" do
               before do
-                proposals.each { |p| p.update_attributes!(category: category_one) }
+                proposals.each { |p| p.update!(category: category_one) }
               end
               it "broadcasts update_proposals_category" do
                 expect { described_class.call(category.id, proposals.pluck(:id)) }.to broadcast(:update_proposals_category)

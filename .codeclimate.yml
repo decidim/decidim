@@ -94,13 +94,15 @@ plugins:
     exclude_patterns:
       - "decidim_app-design/**/*"
 
+
   markdownlint:
     enabled: true
 
     exclude_patterns:
-      - docs/*
       - .github/*
-      - CHANGELOG.md
+
+    issue_override:
+      severity: minor
 
   stylelint:
     enabled: true
@@ -116,4 +118,3 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
-  - "yarn-error.log"

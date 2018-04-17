@@ -13,7 +13,7 @@ module Decidim
       # and unless we remove these params they are added again as query string :(
       default_params = {
         participatory_process_id: nil,
-        feature_id: nil
+        component_id: nil
       }
 
       paginate collection, theme: "decidim", params: paginate_params.merge(default_params)

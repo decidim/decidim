@@ -19,7 +19,7 @@ module Decidim
             end
 
             can [:unreport, :hide], Reportable do |reportable|
-              can_manage_assembly?(reportable.feature.participatory_space)
+              can_manage_assembly?(reportable.component.participatory_space)
             end
           end
 

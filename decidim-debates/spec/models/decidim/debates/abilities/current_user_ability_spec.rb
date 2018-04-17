@@ -6,16 +6,16 @@ describe Decidim::Debates::Abilities::CurrentUserAbility do
   subject { described_class.new(user, context) }
 
   let(:user) { build(:user) }
-  let(:debates_feature) { create :debates_feature }
+  let(:debates_component) { create :debates_component }
   let(:extra_context) do
     {
       current_settings: current_settings,
-      feature_settings: feature_settings
+      component_settings: component_settings
     }
   end
   let(:context) do
     {
-      current_feature: debates_feature
+      current_component: debates_component
     }.merge(extra_context)
   end
   let(:settings) do
@@ -24,7 +24,7 @@ describe Decidim::Debates::Abilities::CurrentUserAbility do
     }
   end
   let(:extra_settings) { {} }
-  let(:feature_settings) { {} }
+  let(:component_settings) { {} }
   let(:current_settings) { double(settings.merge(extra_settings)) }
 
   describe "proposal creation" do

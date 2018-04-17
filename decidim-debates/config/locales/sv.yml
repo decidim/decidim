@@ -3,6 +3,7 @@ sv:
     attributes:
       debate:
         category_id: Kategori
+        decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
@@ -11,6 +12,19 @@ sv:
         title: Titel
         user_group_id: Skapa debatt som
   decidim:
+    components:
+      debates:
+        actions:
+          create: Skapa
+        name: debatter
+        settings:
+          global:
+            announcement: Meddelande
+            comments_enabled: Kommentarer aktiverade
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerade
+            creation_enabled: Debatt skapande av användare aktiverat
     debates:
       actions:
         confirm_destroy: Är du säker?
@@ -29,7 +43,7 @@ sv:
             title: Redigera debatt
             update: Uppdatera debatt
           index:
-            title: debatter
+            title: Debatter
           new:
             create: Skapa debatt
             title: Ny debatt
@@ -39,6 +53,10 @@ sv:
         models:
           debate:
             name: Debatt
+      admin_log:
+        debate:
+          create: "%{user_name} skapade debatten %{resource_name} på %{space_name} -platsen"
+          update: "%{user_name} uppdaterade debatten %{resource_name} på %{space_name} -platsen"
       debates:
         count:
           debates_count:
@@ -50,18 +68,18 @@ sv:
         debate:
           comments:
             one: Kommentar
-            other: kommentarer
+            other: Kommentarer
           participate: Delta
         filters:
-          all: Allt
+          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: medborgare
+          citizens: Medborgare
           official: Officiell
           origin: Ursprung
           search: Sök
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -70,21 +88,21 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           title: Ny debatt
         share:
           close_window: Stäng fönstret
-          share: Dela med sig
+          share: Dela
           share_link: Dela länk
         show:
-          comments: kommentarer
+          comments: Kommentarer
           report: Rapportera
       models:
         debate:
           fields:
             end_time: Slutdatum
             official_debate: Officiell debatt
-            start_time: Start datum
+            start_time: Startdatum
             title: Titel
     events:
       debates:
@@ -94,21 +112,20 @@ sv:
               Hej, En ny debatt har skapats på %{space_title} deltagande rymden, kolla in det och bidra:
             email_outro: Du har fått den här meddelandet eftersom du följer %{space_title} deltagande rymden. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt om %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades på <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hej, %{author_name} %{author_nickname}, vem du följer har skapat en ny debatt, kolla in den och bidra med:
             email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt av %{author_nickname}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-    features:
-      debates:
-        actions:
-          create: Skapa
-        name: debatter
-        settings:
-          global:
-            comments_enabled: Kommentarer aktiverade
-          step:
-            comments_blocked: Kommentarer blockerad
-            creation_enabled: Debatt skapande av användare aktiverat
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'Debatt skapande är inte längre aktiv i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Debatt skapades inaktiverat i %{participatory_space_title}
+          notification_title: Debatt skapande är nu inaktiverad i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja delta på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Debatter finns nu i %{participatory_space_title}
+          notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>

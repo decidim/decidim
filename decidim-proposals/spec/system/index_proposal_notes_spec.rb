@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Index Proposal Notes", type: :system do
-  let(:feature) { create(:proposal_feature) }
-  let(:organization) { feature.organization }
+  let(:component) { create(:proposal_component) }
+  let(:organization) { component.organization }
 
   let(:manifest_name) { "proposals" }
-  let(:proposal) { create(:proposal, feature: feature) }
-  let(:participatory_space) { feature.participatory_space }
+  let(:proposal) { create(:proposal, component: component) }
+  let(:participatory_space) { component.participatory_space }
 
   let(:body) { "New awesome body" }
   let(:proposal_notes_count) { 5 }
@@ -21,7 +21,7 @@ describe "Index Proposal Notes", type: :system do
     )
   end
 
-  include_context "when managing a feature as an admin"
+  include_context "when managing a component as an admin"
 
   before do
     visit current_path + "proposals/#{proposal.id}/proposal_notes"

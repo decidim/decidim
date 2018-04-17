@@ -30,7 +30,7 @@ module Decidim
           comments: @proposal.comments.count,
           created_at: @proposal.created_at,
           url: url,
-          feature: { id: feature.id },
+          component: { id: component.id },
           meeting_urls: meetings
         }
       end
@@ -39,8 +39,8 @@ module Decidim
 
       attr_reader :proposal
 
-      def feature
-        proposal.feature
+      def component
+        proposal.component
       end
 
       def meetings

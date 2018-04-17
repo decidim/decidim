@@ -4,8 +4,8 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
-  factory :proposal_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
+  factory :proposal_component, parent: :component do
+    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
@@ -119,10 +119,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_maximum_votes_per_proposal do
+    trait :with_threshold_per_proposal do
       settings do
         {
-          maximum_votes_per_proposal: 1
+          threshold_per_proposal: 1
         }
       end
     end
@@ -139,12 +139,12 @@ FactoryBot.define do
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
-    feature { create(:proposal_feature) }
+    component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     author do
-      create(:user, organization: feature.organization) if feature
+      create(:user, organization: component.organization) if component
     end
 
     trait :official do
@@ -179,6 +179,12 @@ FactoryBot.define do
       published_at nil
     end
 
+    trait :hidden do
+      moderation do
+        create(:moderation, hidden_at: Time.current)
+      end
+    end
+
     trait :with_votes do
       after :create do |proposal|
         create_list(:proposal_vote, 5, proposal: proposal)
@@ -205,10 +211,7 @@ FactoryBot.define do
   factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group) }
-    after(:create) do |support|
-      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
-    end
+    user_group { create(:user_group, verified_at: Time.zone.now, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

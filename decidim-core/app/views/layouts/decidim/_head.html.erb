@@ -18,8 +18,8 @@
 <meta property="og:image" content="<%= decidim_meta_image_url %>" />
 
 <%= favicon %>
-<%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
 
-<%= render partial: 'layouts/decidim/head_extra' %>
+<%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>

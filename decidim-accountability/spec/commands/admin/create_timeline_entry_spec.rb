@@ -8,8 +8,8 @@ module Decidim::Accountability
 
     let(:organization) { create :organization, available_locales: [:en] }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-    let(:result) { create :result, feature: current_feature }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:result) { create :result, component: current_component }
 
     let(:date) { "2017-8-23" }
     let(:description) { "description" }

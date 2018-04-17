@@ -10,15 +10,15 @@ module Decidim
       create(:participatory_process, slug: "my-process", organization: organization)
     end
 
-    let(:feature) do
-      create(:feature, id: 1, participatory_space: participatory_process)
+    let(:component) do
+      create(:component, id: 1, participatory_space: participatory_process)
     end
 
     let(:resource) do
-      create(:dummy_resource, id: 1, feature: feature)
+      create(:dummy_resource, id: 1, component: component)
     end
 
-    context "with a feature resource" do
+    context "with a component resource" do
       describe "#url" do
         subject { described_class.new(resource).url }
 

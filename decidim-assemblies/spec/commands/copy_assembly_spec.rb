@@ -10,7 +10,7 @@ module Decidim::Assemblies
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
     let!(:assembly) { create :assembly }
-    let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: assembly }
+    let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
     let(:form) do
       instance_double(
         Admin::AssemblyCopyForm,
@@ -18,7 +18,7 @@ module Decidim::Assemblies
         title: { en: "title" },
         slug: "copied-slug",
         copy_categories?: copy_categories,
-        copy_features?: copy_features
+        copy_components?: copy_components
       )
     end
     let!(:category) do
@@ -30,7 +30,7 @@ module Decidim::Assemblies
 
     let(:invalid) { false }
     let(:copy_categories) { false }
-    let(:copy_features) { false }
+    let(:copy_components) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -84,24 +84,24 @@ module Decidim::Assemblies
       end
     end
 
-    context "when copy_features exists" do
-      let(:copy_features) { true }
+    context "when copy_components exists" do
+      let(:copy_components) { true }
 
-      it "duplicates an assembly and the features" do
+      it "duplicates an assembly and the components" do
         dummy_hook = proc {}
-        feature.manifest.on :copy, &dummy_hook
-        expect(dummy_hook).to receive(:call).with(new_feature: an_instance_of(Decidim::Feature), old_feature: feature)
+        component.manifest.on :copy, &dummy_hook
+        expect(dummy_hook).to receive(:call).with(new_component: an_instance_of(Decidim::Component), old_component: component)
 
-        expect { subject.call }.to change { Decidim::Feature.count }.by(1)
+        expect { subject.call }.to change { Decidim::Component.count }.by(1)
 
         last_assembly = Decidim::Assembly.last
-        last_feature = Decidim::Feature.all.reorder(:id).last
+        last_component = Decidim::Component.all.reorder(:id).last
 
-        expect(last_feature.participatory_space).to eq(last_assembly)
-        expect(last_feature.name).to eq(feature.name)
-        expect(last_feature.settings.attributes).to eq(feature.settings.attributes)
-        expect(last_feature.step_settings.keys).to eq(feature.step_settings.keys)
-        expect(last_feature.step_settings.values).to eq(feature.step_settings.values)
+        expect(last_component.participatory_space).to eq(last_assembly)
+        expect(last_component.name).to eq(component.name)
+        expect(last_component.settings.attributes).to eq(component.settings.attributes)
+        expect(last_component.step_settings.keys).to eq(component.step_settings.keys)
+        expect(last_component.step_settings.values).to eq(component.step_settings.values)
       end
     end
   end

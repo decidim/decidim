@@ -17,16 +17,18 @@ module Decidim
 
         it "renders the default main menu" do
           expect(default_main_menu).to \
-            have_selector("li", count: 9) &
+            have_selector("li", count: 11) &
             have_link("Dashboard", href: "/admin/") &
             have_link("Processes", href: "/admin/participatory_processes") &
             have_link("Process groups", href: "/admin/participatory_process_groups") &
             have_link("Assemblies", href: "/admin/assemblies") &
+            have_link("Consultations", href: "/admin/consultations") &
             have_link("Pages", href: "/admin/static_pages") &
             have_link("Users", href: "/admin/users") &
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
-            have_link("Admin activity log", href: "/admin/logs")
+            have_link("Admin activity log", href: "/admin/logs") &
+            have_link("OAuth applications", href: "/admin/oauth_applications")
         end
 
         it "selects the correct default active option" do

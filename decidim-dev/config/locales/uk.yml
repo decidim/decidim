@@ -1,4 +1,12 @@
 uk:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Створено:'
+        field: Моє поле
+        start_date: Дата початку
+        title: Заголовок
+        updated_at: 'Оновлено:'
   decidim:
     dummy:
       admin:

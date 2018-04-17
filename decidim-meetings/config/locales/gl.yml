@@ -21,6 +21,28 @@ gl:
         start_time: Hora de inicio
         title: Título
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Produciuse un erro ao duplicar esta reunión.
+          success: Reunión duplicada con éxito.
+        new:
+          copy: Copiar
+          select: Seleccione os datos que desexa duplicar
+          title: Reunión duplicada
+    components:
+      meetings:
+        actions:
+          join: Únete
+        name: Reunións
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+            default_registration_terms: Términos de rexistro por defecto
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
     events:
       meetings:
         meeting_closed:
@@ -28,6 +50,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A reunión "%{resource_title}" pechouse
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
+        meeting_created:
+          email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: Nova reunión engadida a %{participatory_space_title}
+          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: As xuntas ocupadas con "%{resource_title}" ocupan máis de %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da reunión.
@@ -48,20 +75,9 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A reunión "%{resource_title}" comezará en menos de 48 horas.
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de 48 horas.
-    features:
-      meetings:
-        actions:
-          join: Únete
-        name: Reunións
-        settings:
-          global:
-            announcement: Anuncio
-            comments_enabled: Comentarios habilitados
-          step:
-            announcement: Anuncio
-            comments_blocked: Comentarios bloqueados
     meetings:
       actions:
+        attachment_collections: Coleccións
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
@@ -121,9 +137,18 @@ gl:
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
+            reserved_slots_help: Déixao a 0 se non tes slots reservados
+            reserved_slots_less_than: Debe ser inferior ou igual a %{count}
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
+      admin_log:
+        meeting:
+          close: "%{user_name} pechou a %{resource_name} reunión no espazo %{space_name}"
+          create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"
+          delete: "%{user_name} eliminou a %{resource_name} reunión no espazo %{space_name}"
+          export_registrations: "%{user_name} exportou os rexistros da %{resource_name} reunión no espazo %{space_name}"
+          update: "%{user_name} actualizou a %{resource_name} reunión no espazo %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +208,16 @@ gl:
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reunións pasadas
+          upcoming_meetings: Próximas reunións
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Reunións pasadas
+        see_all_meetings: Ver todas as reunións
+        upcoming_meetings: Próximas reunións
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

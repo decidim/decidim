@@ -2,26 +2,36 @@ sv:
   activemodel:
     attributes:
       assembly:
-        banner_image: Banner image
+        area_id: Område
+        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
-        copy_features: Kopiera funktioner
+        copy_components: Kopiera komponenter
+        decidim_area_id: Område
+        decidim_scope_id: Omfattning
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
+        participatory_processes_ids: Relaterade deltagande processer
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
+        published_at: Publicerad på
         scope_id: Omfattning
-        scopes_enabled: Scopes aktiverade
+        scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
+        show_statistics: Visa statistik
         slug: URL slug
-        subtitle: Texta
+        subtitle: Underrubrik
         target: Mål
         title: Titel
+      assembly_user_role:
+        email: E-post
+        name: Namn
+        role: Roll
   decidim:
     admin:
       assemblies:
@@ -31,11 +41,13 @@ sv:
         destroy:
           success: Församlingen förstördes framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
           not_published: Ej publicerad
+          private: Privat
+          public: Offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -67,7 +79,7 @@ sv:
           success: Användaren förstördes framgångsrikt för denna montering.
         edit:
           title: Uppdatera monteringsanvändaren.
-          update: Uppdatering
+          update: Uppdatera
         index:
           assembly_admins_title: Monteringsanvändare
         new:
@@ -80,15 +92,19 @@ sv:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
-          attachments: bilagor
-          categories: kategorier
-          features: Funktioner
+          attachment_collections: Samlingar
+          attachment_files: Filer
+          attachments: Bifogade filer
+          categories: Kategorier
+          components: Komponenter
           info: Info
-          moderations: modere
+          moderations: Moderering
+          private_users: Privata användare
       models:
         assembly:
           fields:
             created_at: Skapad vid
+            private: Privat
             promoted: Markerad
             published: Publicerad
             title: Titel
@@ -96,19 +112,30 @@ sv:
         assembly_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Monteringsanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} skapade %{resource_name} -enheten"
+        publish: "%{user_name} publicerade %{resource_name} -enheten"
+        unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
+        update: "%{user_name} uppdaterade %{resource_name} -enheten"
+      assembly_user_role:
+        create: "%{user_name} inbjudna %{resource_name} till sammansättningen %{space_name}"
+        delete: "%{user_name} tog bort användaren %{resource_name} från enheten %{space_name}"
+        update: "%{user_name} ändrade rollen som %{resource_name} i sammansättningen %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Välj ett område
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
         assembly_copies:
           form:
@@ -121,33 +148,43 @@ sv:
             active_assemblies: Aktiva aggregat
             see_all_assemblies: Se alla församlingar
       show:
+        area: Område
+        children: Assemblies
         developer_group: Utvecklargrupp
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        private_space: Detta är en privat sammansättning
+        related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         target: Mål
       statistics:
-        answers_count: svar
+        answers_count: Svar
         assemblies_count: Assemblies
-        comments_count: kommentarer
+        comments_count: Kommentarer
+        debates_count: Debatter
+        endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
-        projects_count: projekt
-        proposals_count: förslag
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
+        projects_count: Projekt
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Samlingen hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Assemblies
   layouts:
     decidim:
       assemblies:
         assembly:
-          take_part: Ta del
+          take_part: Delta
         index:
           promoted_assemblies: Utrustade församlingar
         order_by_assemblies:
@@ -156,10 +193,10 @@ sv:
             other: "%{count} sammansättningar"
         promoted_assembly:
           more_info: Mer information
-          take_part: Ta del
+          take_part: Delta
       assembly_header:
         assembly_menu_item: Sammansättningen
         unfold: Veckla ut
       assembly_widgets:
         show:
-          take_part: Ta del
+          take_part: Delta

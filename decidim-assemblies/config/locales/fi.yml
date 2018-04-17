@@ -2,9 +2,12 @@ fi:
   activemodel:
     attributes:
       assembly:
+        area_id: alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi ominaisuudet
+        copy_components: Kopioi komponentit
+        decidim_area_id: alue
+        decidim_scope_id: laajuus
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -12,16 +15,23 @@ fi:
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
+        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
+        published_at: Julkaistu osoitteessa
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
+        show_statistics: Näytä tilastot
         slug: URL-tunniste
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      assembly_user_role:
+        email: Sähköposti
+        name: Nimi
+        role: Rooli
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ fi:
           title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
+          private: yksityinen
+          public: Julkinen
           published: Julkaistu
         new:
           create: Luo
@@ -80,15 +92,19 @@ fi:
         assemblies: Kehitysryhmät
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
+          attachment_collections: kokoelmat
+          attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          features: Ominaisuudet
+          components: komponentit
           info: Tiedot
           moderations: Moderoinnit
+          private_users: Yksityiset käyttäjät
       models:
         assembly:
           fields:
             created_at: Luonnin ajankohta
+            private: yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -105,10 +121,21 @@ fi:
             moderator: Moderaattori
       titles:
         assemblies: Kehitysryhmät
+    admin_log:
+      assembly:
+        create: "%{user_name} loi %{resource_name} kokoonpanon"
+        publish: "%{user_name} julkaisi %{resource_name} kokoonpanon"
+        unpublish: "%{user_name} julkaisematon %{resource_name} kokoonpano"
+        update: "%{user_name} päivitti %{resource_name} kokoonpanon"
+      assembly_user_role:
+        create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
+        delete: "%{user_name} poistanut käyttäjän %{resource_name} %{space_name} kokoonpanosta"
+        update: "%{user_name} muutti %{resource_name} : n roolia %{space_name} kokoonpanossa"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Valitse alue
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ fi:
             active_assemblies: Aktiiviset kehitysryhmät
             see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
+        area: alue
+        children: osat
         developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        private_space: Tämä on yksityinen kokoonpano
+        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
         target: Kohde
       statistics:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
+        debates_count: keskustelut
+        endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Äänet
@@ -141,6 +174,10 @@ fi:
         surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Kokoonpanoa ei löytynyt tietokannasta (ID: %{id})'
     menu:
       assemblies: Kehitysryhmät
   layouts:

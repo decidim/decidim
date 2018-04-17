@@ -30,7 +30,7 @@ module Decidim
         private
 
         def meeting
-          @meeting ||= Meeting.where(feature: current_feature).find(params[:id])
+          @meeting ||= Meeting.where(component: current_component).find(params[:id])
         end
       end
     end

@@ -19,8 +19,8 @@ module Decidim
           can_manage_process?(process)
         end
 
-        can :read, Feature do |feature|
-          can_manage_process?(feature.participatory_space)
+        can :read, Component do |component|
+          can_manage_process?(component.participatory_space)
         end
       end
     end

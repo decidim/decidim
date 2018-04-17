@@ -4,25 +4,25 @@ require "spec_helper"
 
 module Decidim
   describe IconHelper do
-    describe "#feature_icon" do
-      let(:feature) do
-        create(:feature, manifest_name: :dummy)
+    describe "#component_icon" do
+      let(:component) do
+        create(:component, manifest_name: :dummy)
       end
 
-      describe "when the feature has no icon" do
+      describe "when the component has no icon" do
         before do
-          allow(feature.manifest).to receive(:icon).and_return(nil)
+          allow(component.manifest).to receive(:icon).and_return(nil)
         end
 
         it "returns a fallback" do
-          result = helper.feature_icon(feature)
+          result = helper.component_icon(component)
           expect(result).to include("question-mark")
         end
       end
 
-      describe "when the feature has icon" do
+      describe "when the component has icon" do
         it "returns the icon" do
-          result = helper.feature_icon(feature)
+          result = helper.component_icon(component)
           expect(result).to eq <<~SVG
             <svg class="icon external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02">
               <circle cx="18.01" cy="18.01" r="15.75" stroke="#2ecc71" stroke-width="4" fill="none"></circle>
@@ -35,18 +35,18 @@ module Decidim
       describe "resource_icon" do
         let(:result) { helper.resource_icon(resource) }
 
-        context "when it has a feature" do
+        context "when it has a component" do
           let(:resource) { build :dummy_resource }
 
-          it "renders the feature icon" do
-            expect(helper).to receive(:feature_icon).with(resource.feature, {})
+          it "renders the component icon" do
+            expect(helper).to receive(:component_icon).with(resource.component, {})
 
             result
           end
         end
 
         context "when it has a manifest" do
-          let(:resource) { build(:feature, manifest_name: :dummy) }
+          let(:resource) { build(:component, manifest_name: :dummy) }
 
           it "renders the manifest icon" do
             expect(helper).to receive(:manifest_icon).with(resource.manifest, {})

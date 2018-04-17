@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to have a category.
+  # A concern with the components needed when you want a model to have a category.
   module HasCategory
     extend ActiveSupport::Concern
 
@@ -22,7 +22,7 @@ module Decidim
 
       def category_belongs_to_organization
         return unless category
-        errors.add(:category, :invalid) unless feature.categories.where(id: category.id).exists?
+        errors.add(:category, :invalid) unless component.categories.where(id: category.id).exists?
       end
     end
   end

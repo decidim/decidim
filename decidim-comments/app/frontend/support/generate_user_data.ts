@@ -7,7 +7,7 @@ import { name } from "faker/locale/en";
 const generateUserData = () => {
   return {
     name: `${name.firstName()} ${name.lastName()}`,
-    nickname: `@${name.findName()}`,
+    nickname: `@${name.findName()}`
   };
 };
 

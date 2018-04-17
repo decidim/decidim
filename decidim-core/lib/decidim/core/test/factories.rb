@@ -4,6 +4,7 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
+require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
 FactoryBot.define do
@@ -113,6 +114,16 @@ FactoryBot.define do
     end
   end
 
+  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :participatory_process, organization: user.organization }
+  end
+
+  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :assembly, organization: user.organization }
+  end
+
   factory :user_group, class: "Decidim::UserGroup" do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
@@ -208,7 +219,7 @@ FactoryBot.define do
     end
   end
 
-  factory :feature, class: "Decidim::Feature" do
+  factory :component, class: "Decidim::Component" do
     transient do
       organization { create(:organization) }
     end
@@ -261,21 +272,24 @@ FactoryBot.define do
 
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
-    feature { create(:feature, manifest_name: "dummy") }
-    author { create(:user, :confirmed, organization: feature.organization) }
+    component { create(:component, manifest_name: "dummy") }
+    author { create(:user, :confirmed, organization: component.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
-    from { build(:dummy_resource, feature: to.feature) }
+    from { build(:dummy_resource, component: to.component) }
   end
 
   factory :newsletter, class: "Decidim::Newsletter" do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
+    # rubocop:disable RSpec/EmptyLineAfterSubject
+    # Bug in rubocop-rspec
     subject { Decidim::Faker::Localized.sentence(3) }
+    # rubocop:enable RSpec/EmptyLineAfterSubject
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
 
     trait :sent do
@@ -285,7 +299,7 @@ FactoryBot.define do
 
   factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
-    participatory_space { reportable.feature.participatory_space }
+    participatory_space { reportable.component.participatory_space }
 
     trait :hidden do
       hidden_at { 1.day.ago }
@@ -339,14 +353,14 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: organization }
-    feature { build :feature, participatory_space: participatory_space }
-    resource { build(:dummy_resource, feature: feature) }
+    component { build :component, participatory_space: participatory_space }
+    resource { build(:dummy_resource, component: component) }
     action { "create" }
     extra do
       {
-        feature: {
-          manifest_name: feature.try(:manifest_name),
-          title: feature.try(:name) || feature.try(:title)
+        component: {
+          manifest_name: component.try(:manifest_name),
+          title: component.try(:name) || component.try(:title)
         }.compact,
         participatory_space: {
           manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
@@ -362,5 +376,24 @@ FactoryBot.define do
         }.compact
       }.deep_merge(extra_data)
     end
+  end
+
+  factory :oauth_application, class: "Decidim::OAuthApplication" do
+    organization
+    sequence(:name) { |n| "OAuth application #{n}" }
+    sequence(:organization_name) { |n| "OAuth application owner #{n}" }
+    organization_url { "http://example.org" }
+    organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    redirect_uri { "https://app.example.org/oauth" }
+    scopes { "public" }
+  end
+
+  factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
+    resource_owner_id { create(:user, organization: application.organization).id }
+    application { build(:oauth_application) }
+    token { SecureRandom.hex(32) }
+    expires_in { 1.month.from_now }
+    created_at { Time.zone.now }
+    scopes { "public" }
   end
 end

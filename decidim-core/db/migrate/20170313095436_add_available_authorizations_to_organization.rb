@@ -10,7 +10,7 @@ class AddAvailableAuthorizationsToOrganization < ActiveRecord::Migration[5.0]
 
     workflows = Decidim::Verifications.workflows.map(&:name)
     Organization.find_each do |org|
-      org.update_attributes!(available_authorizations: workflows)
+      org.update!(available_authorizations: workflows)
     end
   end
 end

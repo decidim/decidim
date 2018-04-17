@@ -4,14 +4,14 @@
 @activepage = "process-steps"
 %>
 
-<%= partial 'template_top' %>
+<%= partial "template_top" %>
 
 <div class="layout-nav">
-  <%= partial 'process_sub_nav' %>
+  <%= partial "process_sub_nav" %>
 </div>
 <div class="layout-content has-process-title">
   <div class="container">
-    <%= partial 'process_title' %>
+    <%= partial "process_title" %>
     <form class="form">
       <div class="card">
         <div class="card-divider">
@@ -111,11 +111,11 @@
             <div class="row">
               <div class="column xlarge-6">
                 <label for="process-date">Fecha de inicio</label>
-                <input type="date" name="process-date" placeholder="dd/mm/aaaa" id="process-date">
+                <input type="date" name="process-date" placeholder="dd/mm/aaaa" id="process-date" />
               </div>
               <div class="column xlarge-6">
                 <label for="process-date">Fecha de cierre</label>
-                <input type="date" name="process-date" placeholder="dd/mm/aaaa" id="process-date">
+                <input type="date" name="process-date" placeholder="dd/mm/aaaa" id="process-date" />
               </div>
             </div>
         </div>
@@ -127,4 +127,4 @@
     </div>
   </form>
 </div>
-<%= partial 'template_bottom' %>
+<%= partial "template_bottom" %>

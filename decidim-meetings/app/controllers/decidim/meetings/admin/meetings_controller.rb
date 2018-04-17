@@ -10,7 +10,7 @@ module Decidim
         end
 
         def create
-          @form = form(MeetingForm).from_params(params, current_feature: current_feature)
+          @form = form(MeetingForm).from_params(params, current_component: current_component)
 
           CreateMeeting.call(@form) do
             on(:ok) do
@@ -30,7 +30,7 @@ module Decidim
         end
 
         def update
-          @form = form(MeetingForm).from_params(params, current_feature: current_feature)
+          @form = form(MeetingForm).from_params(params, current_component: current_component)
 
           UpdateMeeting.call(@form, meeting) do
             on(:ok) do
@@ -46,11 +46,13 @@ module Decidim
         end
 
         def destroy
-          meeting.destroy!
+          DestroyMeeting.call(meeting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
 
-          flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
-
-          redirect_to meetings_path
+              redirect_to meetings_path
+            end
+          end
         end
       end
     end

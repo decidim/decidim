@@ -2,8 +2,8 @@ $(() => {
   window.DecidimProposals = window.DecidimProposals || {};
 
   window.DecidimProposals.bindProposalAddress = () => {
-    const $checkbox = $('#proposal_has_address');
-    const $addressInput = $('#address_input');
+    const $checkbox = $("#proposal_has_address");
+    const $addressInput = $("#address_input");
 
     if ($checkbox.length > 0) {
       const toggleInput = () => {
@@ -14,7 +14,7 @@ $(() => {
         }
       }
       toggleInput();
-      $checkbox.on('change', toggleInput);
+      $checkbox.on("change", toggleInput);
     }
   };
 

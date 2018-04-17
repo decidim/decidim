@@ -6,11 +6,13 @@ es:
       report:
         details: Comentarios adicionales
       user:
+        about: Acerca de
         email: Tu correo electrónico
         name: Tu nombre
         nickname: Su identificador corto y único
         password: Contraseña
         password_confirmation: Confirma tu contraseña
+        personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
@@ -53,8 +55,55 @@ es:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin_log:
+      area:
+        create: "%{user_name} creó el área %{resource_name}"
+        delete: "%{user_name} borró el área %{resource_name}"
+        update: "%{user_name} actualizó el área %{resource_name}"
+      component:
+        create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
+        delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
+        publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
+        unpublish: "%{user_name} no publicado el componente %{resource_name} del espacio %{space_name}"
+      moderation:
+        hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
+        unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
+      newsletter:
+        create: "%{user_name} creó el newsletter %{resource_name}"
+        delete: "%{user_name} eliminó el newsletter %{resource_name}"
+        deliver: "%{user_name} envió el newsletter %{resource_name}"
+        update: "%{user_name} actualizó el newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creó la aplicación %{resource_name} OAuth"
+        delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
+      organization:
+        update: "%{user_name} actualizó la configuración de la organización"
+      scope:
+        create: "%{user_name} creó el ámbito %{resource_name}"
+        create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+        delete: "%{user_name} eliminó el ámbito %{resource_name}"
+        delete_with_parent: "%{user_name} eliminó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+        update: "%{user_name} actualizó el ámbito %{resource_name}"
+        update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+      static_page:
+        create: "%{user_name} creó la página estática %{resource_name}"
+        delete: "%{user_name} eliminó la página estática %{resource_name}"
+        update: "%{user_name} actualizó la página estática %{resource_name}"
+      user:
+        invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
+        officialize: "%{user_name} oficializó al usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
+      user_group:
+        reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
     anonymous_user: Anónimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
       documents:
         related_documents: Documentos relacionados
       photos:
@@ -79,6 +128,21 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Componente ficticio
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comentarios bloqueados
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacto
     core:
       actions:
@@ -89,7 +153,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador corto y único
+          nickname_help: Su identificador corto y único en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -97,7 +161,7 @@ es:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiro recibir un boletín ocasional con información relevante
-          nickname_help: Su identificador corto y único
+          nickname_help: Su identificador corto y único en %{organization}
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -115,6 +179,21 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorice la aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publique contenido para usted
+          see_email: Mira tu correo electrónico
+          see_name: Mira tu nombre
+          see_username: Ver tu nombre de usuario
+          this_application_will_be_able_to: 'Esta aplicación podrá:'
+          this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
+          update_profile: Actualiza tu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar su cuenta"
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -130,23 +209,19 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Un evento ha ocurrido en %{resource_title}
           notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
-      feature_published_event:
-        email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: Una actualización de %{participatory_space_title}
-        notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'La fase %{resource_title} ahora está activa para %{participatory_space_title}. Puedes verla desde esta página:'
-        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: Un evento ha ocurrido en %{participatory_space_title}
-        notification_title: La fase %{resource_title} ahora está activa para <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -157,21 +232,6 @@ es:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Funcionalidad de prueba
-        settings:
-          global:
-            comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
-          step:
-            comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
     filters:
       linked_classes:
         all: Todas
@@ -194,6 +254,25 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    log:
+      base_presenter:
+        create: "%{user_name} creó %{resource_name}"
+        create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
+        delete: "%{user_name} eliminó %{resource_name}"
+        delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizó una acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizó %{resource_name}"
+        update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'No se encontró el área en la base de datos (ID: %{id})'
+        area_type_presenter:
+          not_found: 'El tipo de área no se encontró en la base de datos (ID: %{id})'
+        scope_presenter:
+          not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     menu:
@@ -255,6 +334,10 @@ es:
     pages:
       index:
         title: Más información
+    participatory_space_private_users:
+      not_allowed: No puedes ver este contenido
+    profile:
+      deleted: Usuario eliminado
     profiles:
       default_officialization_text: Esta persona participante está verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
@@ -342,7 +425,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        nickname_help: Su identificador único.
+        nickname_help: Su identificador único en %{organization}.
         submit_button: Guardar
     mailer:
       invitation_instructions:
@@ -353,18 +436,25 @@ es:
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_private_user: "%{invited_by} lo ha invitado como usuario privado de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
+        someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
+      invite_private_user:
+        subject: Has sido invitado a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+  doorkeeper:
+    scopes:
+      public: Tu información pública
   errors:
     messages:
       content_type_whitelist_error: El tipo de archivo no es válido
@@ -410,7 +500,7 @@ es:
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Sal
+        sign_out: Cerrar sesión
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
@@ -444,6 +534,8 @@ es:
         answers_count: Encuestas completadas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        debates_count: Debates
+        endorsements_count: Respaldos
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
         orders_count: Votos
@@ -483,6 +575,7 @@ es:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d/%m/%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

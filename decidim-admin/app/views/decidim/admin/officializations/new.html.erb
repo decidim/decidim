@@ -1,5 +1,5 @@
 <h2 class="process-title-summary">
-  <%= t('.title', name: user.name) %>
+  <%= t(".title", name: user.name) %>
 </h2>
 
 <%= decidim_form_for(@form, html: { class: "form new_officialization" }, url: officializations_path, method: :post) do |f| %>
@@ -7,7 +7,7 @@
     <div class="card-section">
       <div class="row column">
         <%= f.hidden_field :user_id %>
-        <%= f.translated :text_field, :officialized_as, label: t('.badge') %>
+        <%= f.translated :text_field, :officialized_as, label: t(".badge") %>
       </div>
     </div>
   </div>

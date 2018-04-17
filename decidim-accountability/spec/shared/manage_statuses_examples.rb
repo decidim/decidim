@@ -61,7 +61,7 @@ RSpec.shared_examples "manage statuses" do
   end
 
   describe "deleting a result" do
-    let!(:status2) { create(:status, feature: current_feature) }
+    let!(:status2) { create(:status, component: current_component) }
 
     before do
       visit current_path

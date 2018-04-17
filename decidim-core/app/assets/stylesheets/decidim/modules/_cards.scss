@@ -17,6 +17,7 @@ $card-proposal: $proposals;
 $card-action: $actions;
 $card-debate: $debates;
 $card-meeting: $meetings;
+$card-spaces: $card-meeting;
 
 $datetime-bg: $primary;
 
@@ -66,8 +67,6 @@ $datetime-bg: $primary;
 }
 
 .card__title{
-  @include ellipsis(2);
-
   @extend .heading5;
 }
 
@@ -78,6 +77,10 @@ $datetime-bg: $primary;
 
 .card__header{
   margin-bottom: $card-padding / 2;
+
+  &.collapse{
+    margin-bottom: 0;
+  }
 }
 
 .card__button{
@@ -107,10 +110,6 @@ $datetime-bg: $primary;
 }
 
 .card__text{
-  .card__text--paragraph{
-    @include ellipsis();
-  }
-
   .card__text--status{
     font-weight: bold;
     text-transform: uppercase;
@@ -125,6 +124,16 @@ $datetime-bg: $primary;
   .card__text--category{
     display: block;
     margin-top: $global-margin / 2;
+  }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin / 2;
+  }
+
+  &.card--picture-offset{
+    // _author-avatar.scss:58 (.author-data--big .author__avatar img)
+    // _author-avatar.scss:133 padding (.author__avatar)
+    margin-left: calc(#{rem-calc(54)} + .5rem);
   }
 }
 
@@ -173,6 +182,12 @@ $datetime-bg: $primary;
 
   .card__content{
     display: flex;
+  }
+
+  &.card__footer--spaces{
+    background: rgba($card-spaces, .2);
+    border-top-color: rgba($card-spaces, .6);
+    border-top-width: .25rem;
   }
 }
 
@@ -247,6 +262,10 @@ $datetime-bg: $primary;
   margin-right: -1px;
   border-top: $border;
   margin-top: -1px;
+
+  .card-data__item--centerblock{
+    margin: 0 auto;
+  }
 }
 
 .card-data__item__number{
@@ -308,6 +327,23 @@ $datetime-bg: $primary;
   line-height: 1;
   margin-bottom: .2rem;
   color: $muted;
+}
+
+.card__support__data--left{
+  @extend .card__support__data;
+
+  text-align: left;
+  text-transform: none;
+  margin-bottom: 0;
+  color: $muted;
+  max-width: 60%;
+
+  strong{
+    font-size: rem-calc(16);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .card__support__number{
@@ -509,7 +545,6 @@ $datetime-bg: $primary;
 }
 
 /* Card full width variant */
-
 .card--full{
   margin-bottom: $card-margin-bottom*2;
 
@@ -613,8 +648,7 @@ $datetime-bg: $primary;
   }
 }
 
-/* Card mini */
-
+// card mini
 .card--mini{
   .card__content{
     padding: $card-padding $card-padding-small;
@@ -718,5 +752,93 @@ $datetime-bg: $primary;
         }
       }
     }
+  }
+}
+
+.card__block{
+  @extend .card__icondata;
+
+  margin-bottom: $global-margin / 2;
+
+  ul{
+    border: $border;
+
+    li{
+      padding: .25em;
+    }
+  }
+}
+
+// card stack
+.card--stack{
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+
+  &,
+  &::after,
+  &::before{
+    /* Add shadow to distinguish sheets from one another */
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+  }
+
+  &::after,
+  &::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: $card-border-radius;
+  }
+
+  /* Second sheet of paper */
+  &::before{
+    left: 3px;
+    top: 3px;
+    z-index: -1;
+  }
+
+  /* Third sheet of paper */
+  &::after{
+    left: 5px;
+    top: 5px;
+    z-index: -2;
+  }
+}
+
+.card--widget{
+  .card-data{
+    flex-wrap: inherit;
+
+    .card-data__item{
+      color: $body-font-color;
+      text-transform: none;
+
+      strong{
+        display: block;
+        text-transform: uppercase;
+        font-size: rem-calc(16);
+
+        &:not(:first-child){
+          margin-top: $global-margin;
+        }
+      }
+
+      span{
+        color: $muted;
+        font-size: 90%;
+      }
+
+      @include modifiers(color);
+
+      &:first-child{
+        flex: 0;
+        background-color: $card-secondary-bg;
+      }
+    }
+  }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin;
   }
 }

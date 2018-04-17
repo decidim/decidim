@@ -2,7 +2,7 @@
 
 module Decidim
   module DummyResources
-    class DummyResourcesController < Decidim::Features::BaseController
+    class DummyResourcesController < Decidim::Components::BaseController
       helper Decidim::Comments::CommentsHelper
 
       skip_authorization_check

@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(current_feature.name)) if try(:current_feature) %>
+<% add_decidim_page_title(translated_attribute(current_component.name)) if try(:current_component) %>
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 <% add_decidim_meta_tags(
   image_url: current_participatory_space.banner_image.url,
@@ -20,7 +20,7 @@
     </div>
   <% end %>
 
-  <%= render "layouts/decidim/feature_authorization_modals" %>
+  <%= render "layouts/decidim/component_authorization_modals" %>
 <% end %>
 
 <% provide :meta_image_url, current_participatory_space.banner_image.url %>

@@ -22,6 +22,28 @@ en:
         start_time: Start Time
         title: Title
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: There was en error duplicating this meeting.
+          success: Duplicated meeting successfully.
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate meeting
+    components:
+      meetings:
+        actions:
+          join: Join
+        name: Meetings
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            default_registration_terms: Default registration terms
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       meetings:
         meeting_closed:
@@ -54,18 +76,6 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
-    features:
-      meetings:
-        actions:
-          join: Join
-        name: Meetings
-        settings:
-          global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-          step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
     meetings:
       actions:
         attachment_collections: Collections
@@ -129,9 +139,18 @@ en:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
               zero: There has not been registrations yet.
+            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_less_than: Must be less than or equal to %{count}
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+      admin_log:
+        meeting:
+          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:

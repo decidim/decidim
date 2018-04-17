@@ -36,6 +36,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :participatory_process_group_id, Integer
         attribute :show_statistics, Boolean
+        attribute :private_space, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
@@ -52,11 +53,11 @@ module Decidim
         end
 
         def scope
-          @scope ||= current_organization.scopes.where(id: scope_id).first
+          @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
         def participatory_process_group
-          Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
+          Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
         end
 
         private

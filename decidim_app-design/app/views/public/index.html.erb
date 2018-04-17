@@ -9,11 +9,11 @@
   <div class="row collapse">
     <div class="columns large-12">
       <h1>Decidim Barcelona</h1>
-      <div class="section">
+      <div class="section" style="columns:2">
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
-          <li><%= link_to "Home", page_path('home') %></li>
-          <li><%= link_to 'Listado de procesos', page_path('processes') %></li>
+          <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
           <li><%= link_to "Más información", page_path("more-information") %></li>
         </ul>
         <h2 class="section-heading">Proceso</h2>
@@ -83,6 +83,11 @@
             </ul>
           </li>
         </ul>
+        <h2 class="section-heading">Asambleas</h2>
+        <ul>
+          <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
+          <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
+        </ul>
         <h2 class="section-heading">Usuario</h2>
         <ul>
           <li><%= link_to "Usuario - registro", page_path("user-register") %></li>
@@ -137,7 +142,7 @@
       <div class="section">
         <h2 class="section-heading">Librería de patrones</h2>
         <ul>
-          <li><%= link_to "Librería de patrones de la interfaz", page_path("pattern-library") %></li>
+          <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
           <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
           <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
           <li><%= link_to "User stories", page_path("user-stories") %></li>

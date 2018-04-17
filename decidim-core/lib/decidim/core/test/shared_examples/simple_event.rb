@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_context "simple event" do
+shared_context "when a simple event" do
   subject do
     described_class.new(
       resource: resource,

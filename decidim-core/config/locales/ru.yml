@@ -131,21 +131,6 @@ ru:
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
-    features:
-      dummy:
-        actions:
-          bar: Пример переменной 1
-          foo: Пример переменной 2
-        name: Пример составляющей
-        settings:
-          global:
-            comments_enabled: Комментарии включены
-            dummy_global_attribute_1: Пример свойства 1
-            dummy_global_attribute_2: Пример свойства 2
-          step:
-            comments_blocked: Комментарии выключены
-            dummy_step_attribute_1: Пример 1 свойства шага
-            dummy_step_attribute_2: Пример 2 свойства шага
     filters:
       linked_classes:
         all: Все
@@ -301,7 +286,6 @@ ru:
     invitations:
       edit:
         header: Установите свой пароль
-        nickname_help: Ваш уникальный псевдоним в Десидим.
         submit_button: Сохранить
     mailer:
       invitation_instructions:

@@ -11,16 +11,16 @@
   <div class="author-data">
     <%= render partial: "decidim/shared/author_reference", locals: { author: Decidim::Debates::DebatePresenter.new(debate).author } %>
     <div class="author-data__extra">
-      <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
-        <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
+      <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
       </button>
       <% unless debate.official? %>
         <%= link_to_current_or_new_conversation_with(debate.author) %>
       <% end %>
     </div>
     <% if debate.commentable? %>
-      <a href="#comments" title="<%= t('.comments') %>">
-        <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
+      <a href="#comments" title="<%= t(".comments") %>">
+        <%= icon "comment-square", aria_label: t(".comments"), role: "img" %> <%= debate.comments.count %>
       </a>
     <% end %>
   </div>

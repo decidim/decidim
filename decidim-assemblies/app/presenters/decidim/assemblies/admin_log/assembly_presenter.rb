@@ -35,7 +35,26 @@ module Decidim
             slug: :default,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n
+            title: :i18n,
+            purpose_of_action: :i18n,
+            assembly_type: :string,
+            assembly_type_other: :i8n,
+            creation_date: :date,
+            created_by: :string,
+            created_by_other: :i18n,
+            duration: :date,
+            included_at: :date,
+            closing_date: :date,
+            closing_date_reason: :i18n,
+            internal_organisation: :i18n,
+            is_transparent: :boolean,
+            special_features: :i18n,
+            twitter_handler: :string,
+            facebook_handler: :string,
+            instagram_handler: :string,
+            youtube_handler: :string,
+            github_handler: :string,
+            parent_id: :assembly
           }
         end
 

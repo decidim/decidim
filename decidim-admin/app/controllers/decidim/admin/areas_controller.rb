@@ -58,11 +58,13 @@ module Decidim
 
       def destroy
         authorize! :destroy, area
-        area.destroy!
 
-        flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
-
-        redirect_to areas_path
+        DestroyArea.call(area, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
+            redirect_to areas_path
+          end
+        end
       end
 
       private

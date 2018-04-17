@@ -5,17 +5,17 @@
       <div class="button-group button-group--collapse button--nomargin small">
         <%= render partial: "endorsements_count", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% if current_settings.endorsements_blocked? %>
-          <%= content_tag :span, t('.endorse'), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t('.endorse') %>
+          <%= content_tag :span, t(".endorse"), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t(".endorse") %>
         <% elsif current_user %>
           <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% else %>
-          <%= action_authorized_button_to :endorse, t('.endorse'), '', class: "card__button button #{endorsement_button_classes(false)} secondary" %>
+          <%= action_authorized_button_to :endorse, t(".endorse"), "", class: "card__button button #{endorsement_button_classes(false)} secondary" %>
         <% end %>
       </div>
     </div>
   <% end %>
-  <div class="column collapse <%= endorsements_enabled? ? 'small-3' : '' %>">
-    <%= link_to '#comments', class: "button small compact hollow secondary button--nomargin expanded" do %>
+  <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+    <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> <%= @proposal.comments.count %>
     <% end %>
   </div>

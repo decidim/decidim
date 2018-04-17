@@ -23,11 +23,11 @@
     <%= form_tag "", method: :get do %>
       <div class="filters__search">
         <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t('.search') %>
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
             <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t('.search') %>
+              <%= icon "magnifying-glass", aria_label: t(".search") %>
             </button>
           </div>
         </div>
@@ -69,7 +69,7 @@
               <% if user_group.rejected? %>
                 <%= t(".state.rejected") %>
               <% end %>
-              <% if user_group.pending?%>
+              <% if user_group.pending? %>
                 <%= t(".state.pending") %>
               <% end %>
               </td>

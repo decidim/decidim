@@ -28,7 +28,9 @@ module Decidim
         private
 
         def create_meeting!
-          @meeting = Meeting.create!(
+          @meeting = Decidim.traceability.create!(
+            Meeting,
+            @form.current_user,
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -40,7 +42,8 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
-            feature: @form.current_feature
+            registration_terms: @form.current_component.settings.default_registration_terms,
+            component: @form.current_component
           )
         end
 

@@ -4,68 +4,74 @@ Rails:
   Enabled: true
 
 Rails/ActionFilter:
-  EnforcedStyle: action
-  SupportedStyles:
-    - action
-    - filter
-
-Rails/Date:
-  # The value `strict` disallows usage of `Date.today`, `Date.current`,
-  # `Date#to_time` etc.
-  # The value `flexible` allows usage of `Date.current`, `Date.yesterday`, etc
-  # (but not `Date.today`) which are overridden by ActiveSupport to handle current
-  # time zone.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/Exit:
   Include:
-    - config/**/*.rb
-    - lib/**/*.rb
-
-Rails/NotNullColumn:
-  Enabled: false
-
-Rails/OutputSafety:
-  Enabled: false
-
-Rails/RequestReferer:
-  EnforcedStyle: referer
-  SupportedStyles:
-    - referer
-    - referrer
-
-Rails/SafeNavigation:
-  # This will convert usages of `try` to use safe navigation as well as `try!`.
-  # `try` and `try!` work slighly differently. `try!` and safe navigation will
-  # both raise a `NoMethodError` if the receiver of the method call does not
-  # implement the intended method. `try` will not raise an exception for this.
-  ConvertTry: false
-
-Rails/TimeZone:
-  # The value `strict` means that `Time` should be used with `zone`.
-  # The value `flexible` allows usage of `in_time_zone` instead of `zone`.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/UniqBeforePluck:
-  EnforcedStyle: conservative
-  AutoCorrect: false
-
-Rails/InverseOf:
-  Enabled: false
-
-Rails/ReversibleMigration:
-  Enabled: false
+    - decidim-*/app/controllers/**/*.rb
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
 
-# No idea why we need to explicitly set this cop but otherwise we get
-# `Lint/UnneededDisable` false positives for this cop
+Rails/EnumUniqueness:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
+Rails/Exit:
+  Include:
+    - decidim-*/app/**/*.rb
+    - decidim-*/config/**/*.rb
+    - decidim-*/lib/**/*.rb
+  Exclude:
+    - decidim-*/lib/**/*.rake
+
+Rails/FindBy:
+  Include:
+    - "**/*.rb"
+
+Rails/FindEach:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
+Rails/HasAndBelongsToMany:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
+Rails/HasManyOrHasOneDependent:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Include:
+    - decidim-*/app/controllers/**/*.rb
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/Output:
+  Include:
+    - decidim-*/app/**/*.rb
+    - decidim-*/config/**/*.rb
+    - decidim-*/db/**/*.rb
+    - decidim-*/lib/**/*.rb
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/ReadWriteAttribute:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/ScopeArgs:
+  Include:
+    - decidim-*/app/models/**/*.rb
+
 Rails/SkipsModelValidations:
   Enabled: true
+
+Rails/Validation:
+  Include:
+    - decidim-*/app/models/**/*.rb

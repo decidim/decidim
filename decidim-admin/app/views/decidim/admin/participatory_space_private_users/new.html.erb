@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: participatory_space_private_users_path(current_participatory_space), html: { class: "form new_participatory_space_private_user" }) do |f| %>
+  <%= render partial: "decidim/admin/participatory_space_private_users/form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>

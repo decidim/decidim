@@ -31,7 +31,7 @@
 
   <%= f.fields_for :locales do |fields| %>
     <div class="field">
-      <%= f.label :organization_locales, '', class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
+      <%= f.label :organization_locales, "", class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
       <table>
         <thead>
           <tr>

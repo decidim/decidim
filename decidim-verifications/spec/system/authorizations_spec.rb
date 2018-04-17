@@ -64,7 +64,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
   context "when existing user from her account" do
     let(:organization) { create :organization, available_authorizations: authorizations }
-    let(:user) { create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
 
     before do
       login_as user, scope: :user

@@ -18,8 +18,8 @@ describe GeocodingValidator do
 
       validates :address, geocoding: true
 
-      def feature
-        FactoryBot.create(:feature)
+      def component
+        FactoryBot.create(:component)
       end
     end
   end

@@ -7,9 +7,9 @@ module Decidim::Meetings
     subject { described_class.new(form, meeting) }
 
     let(:meeting) { create(:meeting) }
-    let(:organization) { meeting.feature.organization }
+    let(:organization) { meeting.component.organization }
     let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: meeting.feature.participatory_space }
+    let(:category) { create :category, participatory_space: meeting.component.participatory_space }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -61,6 +61,17 @@ module Decidim::Meetings
         subject.call
         expect(meeting.latitude).to eq(latitude)
         expect(meeting.longitude).to eq(longitude)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(meeting, user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       describe "events" do

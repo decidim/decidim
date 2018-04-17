@@ -2,15 +2,17 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
+        about: A propos
         email: Votre email
         name: Votre nom
-        nickname: Votre identifiant court et unique pour Decidim
-        password: Nouveau mot de passe
-        password_confirmation: Confirmez votre nouveau mot de passe
+        nickname: Votre pseudonyme
+        password: Votre mot de passe
+        password_confirmation: Confirmez votre mot de passe
+        personal_url: URL personnelle
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -53,10 +55,57 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+    admin_log:
+      area:
+        create: "%{user_name} a créé la zone d'application %{resource_name}"
+        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
+        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+      component:
+        create: "%{user_name} a ajouté le module %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé le module %{resource_name} de l'espace %{space_name}"
+        publish: "%{user_name} a publié le module %{resource_name} dans l'espace %{space_name}"
+        unpublish: "%{user_name} a dépublié le module %{resource_name} de l'espace %{space_name}"
+      moderation:
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
+      newsletter:
+        create: "%{user_name} a créé la newsletter %{resource_name}"
+        delete: "%{user_name} a supprimé la newsletter %{resource_name}"
+        deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
+        update: "%{user_name} a mis à jour la newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} a créé l'application %{resource_name} OAuth"
+        delete: "%{user_name} a supprimé l'application %{resource_name} OAuth"
+        update: "%{user_name} a mis à jour l'application %{resource_name} OAuth"
+      organization:
+        update: "%{user_name} a mis à jour les paramètres de l'organisation"
+      scope:
+        create: "%{user_name} a créé le périmètre %{resource_name}"
+        create_with_parent: "%{user_name} a créé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        delete: "%{user_name} a supprimé le périmètre %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        update: "%{user_name} a mis à jour le périmètre %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+      static_page:
+        create: "%{user_name} a créé la page statique %{resource_name}"
+        delete: "%{user_name} a supprimé la page statique %{resource_name}"
+        update: "%{user_name} a mis à jour la page statique %{resource_name}"
+      user:
+        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle: %{role}"
+        officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} a retiré le rôle: %{role} de l'utilisateur %{resource_name}"
+        unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
+      user_group:
+        reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
     anonymous_user: Anonyme
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
@@ -79,6 +128,21 @@ fr:
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
       started_at: Commencé à %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Composant factice
+        settings:
+          global:
+            comments_enabled: Activer le module de commentaire
+            dummy_global_attribute_1: Attribut factice 1
+            dummy_global_attribute_2: Attribut fictif 2
+          step:
+            comments_blocked: Bloquer la création de nouveaux commentaires
+            dummy_step_attribute_1: Attribut d'étape factice 1
+            dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
     core:
       actions:
@@ -89,7 +153,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant court et unique pour Decidim
+          nickname_help: Votre identifiant unique et court dans %{organization}
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -97,7 +161,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte?
           newsletter: Recevoir une newsletter occasionnelle avec des informations pertinentes
-          nickname_help: Votre identifiant court et unique pour Decidim
+          nickname_help: Votre identifiant unique et court dans %{organization}
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -110,11 +174,26 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plate-forme?
+          are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
         omniauth_buttons:
           or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoriser l'application
+          by_organization_link_html: <small class="heading-small">par %{link}</small>
+          cancel: Annuler
+          connect_your_account_html: Connectez-vous à votre compte en signant sur <strong>%{organization}</strong>
+          publish_content: Publier du contenu pour vous
+          see_email: Voir votre email
+          see_name: Voir votre nom
+          see_username: Voir votre nom d'utilisateur
+          this_application_will_be_able_to: 'Cette application sera capable de:'
+          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de:'
+          update_profile: Mettre à jour votre profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -130,23 +209,19 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{resource_title}
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
-      feature_published_event:
-        email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-        email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-        email_subject: Une mise à jour de %{participatory_space_title}
-        notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
-        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-        email_subject: Une mise à jour de %{participatory_space_title}
-        notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -157,21 +232,6 @@ fr:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
       subject: Votre export "%{name}" est prêt
-    features:
-      dummy:
-        actions:
-          bar: Machin
-          foo: Truc
-        name: Fonctionnalité exemple
-        settings:
-          global:
-            comments_enabled: Commentaires activés
-            dummy_global_attribute_1: Exemple d'attribut 1
-            dummy_global_attribute_2: Exemple d'attribut 2
-          step:
-            comments_blocked: Commentaires bloqués
-            dummy_step_attribute_1: Exemple d'attribut pour une étape 1
-            dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
       linked_classes:
         all: Tout
@@ -194,6 +254,25 @@ fr:
       errors:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
+    log:
+      base_presenter:
+        create: "%{user_name} a créé %{resource_name}"
+        create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
+        delete: "%{user_name} a supprimé %{resource_name}"
+        delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour %{resource_name}"
+        update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'La zone d''application n''a pas été trouvée sur la base de données (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Le type de zone d''application n''a pas été trouvé sur la base de données (ID: %{id})'
+        scope_presenter:
+          not_found: 'Le périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -250,11 +329,15 @@ fr:
     own_user_groups:
       index:
         pending: En attente
-        rejected: Refusée
+        rejected: Non retenue
         verified: Vérifié
     pages:
       index:
         title: Plus d'information
+    participatory_space_private_users:
+      not_allowed: Vous n'êtes pas autorisé à voir ce contenu
+    profile:
+      deleted: Utilisateur supprimé
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
@@ -282,7 +365,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
@@ -342,7 +425,7 @@ fr:
     invitations:
       edit:
         header: Définir votre mot de passe
-        nickname_help: Votre identifiant unique pour Decidim.
+        nickname_help: Votre identifiant unique dans %{organization}.
         submit_button: sauvegarder
     mailer:
       invitation_instructions:
@@ -352,18 +435,25 @@ fr:
         ignore: |-
           Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
+        invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Quelqu'un vous a invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
+        someone_invited_you_as_private_user: Quelqu'un vous a invité en tant que private_user de %{application}, vous pouvez l'accepter via le lien ci-dessous.
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
+      invite_private_user:
+        subject: Vous avez été invité à un processus participatif privé sur %{organization}
       organization_admin_invitation_instructions:
         subject: Vous avez été invité à gérer %{organization}
       password_change:
         greeting: Bonjour %{recipient}!
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
+  doorkeeper:
+    scopes:
+      public: Votre information publique
   errors:
     messages:
       content_type_whitelist_error: Le type de fichier n'est pas valide
@@ -443,9 +533,11 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
+        debates_count: Débats
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -454,7 +546,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:
@@ -482,6 +574,7 @@ fr:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

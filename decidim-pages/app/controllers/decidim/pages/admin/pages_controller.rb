@@ -28,7 +28,7 @@ module Decidim
         private
 
         def page
-          @page ||= Pages::Page.find_by(feature: current_feature)
+          @page ||= Pages::Page.find_by(component: current_component)
         end
       end
     end

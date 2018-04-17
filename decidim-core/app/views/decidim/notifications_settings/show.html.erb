@@ -4,14 +4,14 @@
       <label>
         <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
         <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t('.email_on_notification') %></span>
+        <span class="switch-label"><%= t(".email_on_notification") %></span>
       </label>
     </div>
     <div class="switch tiny switch-with-label newsletter_notifications">
       <label>
         <%= f.check_box :newsletter_notifications, label: false, class: "switch-input" %>
         <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t('.newsletter_notifications') %></span>
+        <span class="switch-label"><%= t(".newsletter_notifications") %></span>
       </label>
     </div>
     <%= f.submit t(".update_notifications_settings"), disable_with: true %>

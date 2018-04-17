@@ -18,7 +18,6 @@ module Decidim
             serialized_name: @resource.name
           }
         end
-        # rubocop:enable RSpec/InstanceVariable
       end
     end
 

@@ -1,6 +1,9 @@
 pl:
   decidim:
-    features:
+    admin_log:
+      page:
+        update: "%{user_name} zaktualizował stronę %{resource_name} w %{space_name}"
+    components:
       pages:
         name: Strona
         settings:

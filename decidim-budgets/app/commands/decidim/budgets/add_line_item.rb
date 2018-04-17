@@ -32,7 +32,7 @@ module Decidim
       private
 
       def order
-        @order ||= Order.create!(user: @current_user, feature: @project.feature)
+        @order ||= Order.create!(user: @current_user, component: @project.component)
       end
 
       def add_line_item
@@ -42,12 +42,12 @@ module Decidim
         end
       end
 
-      def feature
-        @project.feature
+      def component
+        @project.component
       end
 
       def votes_disabled?
-        !feature.current_settings.votes_enabled?
+        !component.current_settings.votes_enabled?
       end
     end
   end

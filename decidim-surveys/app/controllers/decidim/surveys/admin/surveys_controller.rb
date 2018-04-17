@@ -33,15 +33,15 @@ module Decidim
         private
 
         def survey
-          @survey ||= Survey.find_by(feature: current_feature)
+          @survey ||= Survey.find_by(component: current_component)
         end
 
         def blank_question
-          @blank_question ||= survey.questions.build(body: {}, answer_options: [])
+          @blank_question ||= Admin::SurveyQuestionForm.new
         end
 
         def blank_answer_option
-          @blank_answer_option ||= OpenStruct.new(body: {})
+          @blank_answer_option ||= Admin::SurveyAnswerOptionForm.new
         end
 
         def question_types

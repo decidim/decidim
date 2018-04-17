@@ -53,6 +53,10 @@ input{
 
 hr{
   width: 50%;
+
+  &.reset{
+    width: 100%;
+  }
 }
 
 /* New typographic styles */
@@ -73,6 +77,10 @@ hr{
     background-color: $primary;
     margin-right: .5rem;
     margin-bottom: -.1rem;
+  }
+
+  &.collapse{
+    margin: 0;
   }
 }
 
@@ -133,6 +141,10 @@ hr{
 
 .text-uppercase{
   text-transform: uppercase;
+}
+
+.text-ellipsis{
+  @include ellipsis();
 }
 
 .word-wrapper{

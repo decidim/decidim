@@ -2,10 +2,10 @@
 
 (() => {
   $("#vote_button").mouseover(function () {
-    $(this).text($(this).data('replace'));
+    $(this).text($(this).data("replace"));
   });
 
   $("#vote_button").mouseout(function () {
-    $(this).text($(this).data('original'));
+    $(this).text($(this).data("original"));
   });
 })(this);

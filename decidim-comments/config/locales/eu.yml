@@ -50,24 +50,26 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
-      featured_comment:
-        title: Iruzkin nabarmendua
     events:
       comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} iruzkin bat utzi du %{resource_title}helbidean. Orri honetan irakur dezakezu:"
+          email_outro: Jakinarazpena jaso duzu %{author_name}jarraituz gero. Erabiltzaile hau bere profileko orrialdetik jarrai dezakezu.
+          email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
         comment_created:
-          comment:
-            email_intro: '"%{resource_title}" iruzkindu da. Orri honetan iruzkina irakur dezakezu:'
-            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: '%{author_name} helbidean %{resource_title} iruzkin berri bat dago'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>-en iruzkin berri bat dago.
-          reply:
-            email_intro: '"%{resource_title}" iruzkindu da'
-            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Zure iruzkina erantzun berria da %{author_name} <a href="%{resource_url}">%{resource_title}</a>-n.
-            notification_title: Zure iruzkinaren erantzun berria dago <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '%{author_name} (r) en %{resource_title} iruzkin berri bat dago'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago
+        reply_created:
+          email_intro: "%{author_name} zure iruzkina erantzun du %{resource_title}zenbakian. Orri honetan irakur dezakezu:"
+          email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
+          email_subject: "%{author_name} zure iruzkina erantzun du %{resource_title} zenbakian"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Esan zaizu
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" aipatu duzulako.
+          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
           email_subject: '%{resource_title} aipatu zaituzte'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
   errors:

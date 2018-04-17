@@ -1,0 +1,8 @@
+<div id="sortition-<%= sortition.id %>-results-count" class="card__support__data">
+  <span class="extra__suport-number">
+    <%= sortition.selected_proposals.count %>
+  </span>
+  <span class="extra__suport-text">
+    <%= t(".count", count: sortition.selected_proposals.count) %>
+  </span>
+</div>

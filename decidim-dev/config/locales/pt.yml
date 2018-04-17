@@ -1,4 +1,12 @@
 pt:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Criado em
+        field: Meu campo
+        start_date: Data de início
+        title: Título
+        updated_at: Atualizado em
   decidim:
     dummy:
       admin:

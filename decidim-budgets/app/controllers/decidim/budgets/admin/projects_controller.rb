@@ -48,21 +48,22 @@ module Decidim
         end
 
         def destroy
-          project.destroy!
-
-          flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
-
-          redirect_to projects_path
+          DestroyProject.call(project, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
+              redirect_to projects_path
+            end
+          end
         end
 
         private
 
         def projects
-          @projects ||= Project.where(feature: current_feature).page(params[:page]).per(15)
+          @projects ||= Project.where(component: current_component).page(params[:page]).per(15)
         end
 
         def orders
-          @orders ||= Order.where(feature: current_feature)
+          @orders ||= Order.where(component: current_component)
         end
 
         def pending_orders

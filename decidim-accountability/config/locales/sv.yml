@@ -2,20 +2,21 @@ sv:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategori
         decidim_scope_id: Omfattning
         description: Beskrivning
         end_date: Slutdatum
         progress: Framsteg
         project_ids: Inkluderade projekt
-        proposal_ids: Ingår förslag
-        start_date: Start datum
+        proposals: Ingår förslag
+        start_date: Startdatum
         title: Titel
+        updated_at: Uppdaterad på
       status:
         description: Beskrivning
         key: Nyckel
-        name: namn
+        name: Namn
         progress: Framsteg
       timeline_entry:
         description: Beskrivning
@@ -27,7 +28,7 @@ sv:
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
-        preview: Förhandsvisning
+        preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Handlingar
       admin:
@@ -47,19 +48,25 @@ sv:
           destroy:
             success: Resultatet har tagits bort
           edit:
-            title: Ändra resultat
-            update: Uppdateringsresultat
+            title: Redigera resultat
+            update: Uppdatera resultat
+          form:
+            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
+          proposals:
+            close: Stäng
+            current_selection: Aktuellt urval
+            select: Välj
           update:
             invalid: Det har varit ett problem att uppdatera resultatet
             success: Resultatet uppdaterades med framgång
         shared:
           subnav:
-            statuses: status
+            statuses: Statusar
         statuses:
           create:
             invalid: Det har varit ett problem att skapa denna status
@@ -70,7 +77,7 @@ sv:
             title: Redigera status
             update: Uppdatera status
           index:
-            title: status
+            title: Statusar
           new:
             create: Skapa status
             title: Ny status
@@ -89,24 +96,32 @@ sv:
           index:
             title: Projekt tidslinje poster
           new:
-            create: Skapa inmatning
+            create: Skapa post
             title: Ny ingång
           update:
             invalid: Det har varit ett problem att uppdatera den här posten
             success: Inmatning uppdaterad
+      admin_log:
+        result:
+          create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Föräldern hittades inte i databasen (ID: %{id})'
       models:
         result:
           fields:
             end_date: Slutdatum
             progress: Framsteg
-            start_date: Start datum
+            start_date: Startdatum
             status: Status
             title: Titel
         status:
           fields:
             description: Beskrivning
             key: Nyckel
-            name: namn
+            name: Namn
             progress: Framsteg
         timeline_entry:
           fields:
@@ -118,11 +133,11 @@ sv:
             one: 1 resultat
             other: "%{count} resultat"
         filters:
-          all: Allt
-          scopes: Scopes
+          all: Alla
+          scopes: Omfattningar
         home:
-          categories_label: kategorier
-          subcategories_label: kategorier
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
         home_header:
           global_status: Global exekveringsstatus
         nav_breadcrumb:
@@ -133,13 +148,13 @@ sv:
           stats:
             attendees: Deltagare
             back_to_result: Gå tillbaka till resultatet
-            comments: kommentarer
+            comments: Kommentarer
             contributions: Bidrag
             last_edited_by: Senast ändrad av
             last_updated_at: Senast uppdaterad den
-            meetings: möten
-            number_of_versions: versioner
-            proposals: förslag
+            meetings: Möten
+            number_of_versions: Versioner
+            proposals: Förslag
             show_all_versions: Visa alla versioner
             version_author: Version författare
             version_created_at: Version skapad på
@@ -151,24 +166,40 @@ sv:
       versions:
         index:
           changes_at_title: Ändringar vid "%{title}"
-          title: versioner
+          title: Versioner
         show:
           changes_at_title: Ändringar vid "%{title}"
         version:
           version_index: Version %{index}
-    features:
+    components:
       accountability:
         name: Ansvarighet
         settings:
           global:
-            categories_label: Namn för "kategorier"
+            categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer aktiverade
+            display_progress_enabled: Visa framsteg
             heading_leaf_level_results: Namn på "Projekt"
             heading_parent_level_results: Namn på "Resultat"
             intro: Intro
             subcategories_label: Namn på "Underkategorier"
           step:
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{proposal_title}
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultat
+    participatory_spaces:
+      highlighted_results:
+        results: Resultat
+        see_all_results: Se alla resultat
     resource_links:
       included_projects:
         result_projects: Projekt som ingår i detta resultat

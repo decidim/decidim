@@ -5,19 +5,43 @@ fi:
         body: Vastaa
       survey_question:
         mandatory: Pakollinen
+        max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: eivät ole täydellisiä
+              too_many: ovat liian monta
   decidim:
-    features:
+    components:
       surveys:
         actions:
-          answer: Vastaa
-        name: Kysely
+          answer: Vastaus
+        name: tutkimus
         settings:
           global:
             announcement: Ilmoitus
           step:
-            allow_answers: Salli vastaukset
+            allow_answers: Anna vastauksia
             announcement: Ilmoitus
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Kysely %{resource_title} %{participatory_space_title} on suljettu.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Kysely on päättynyt %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
+        survey_opened:
+          email_intro: 'Kysely %{resource_title} %{participatory_space_title} on nyt auki. Voit osallistua siihen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: 'Uusi tutkimus %{participatory_space_title}: ssa'
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    forms:
+      errors:
+        survey_answer:
+          body: Runko ei voi olla tyhjä
     surveys:
       admin:
         exports:
@@ -29,7 +53,8 @@ fi:
         surveys:
           answer_option:
             answer_option: Vastausvaihtoehto
-            remove_answer_option: Poista vastausvaihtoehto
+            free_text: Ilmainen teksti
+            remove: Poistaa
             statement: Kysymysasettelu
           edit:
             save: Tallenna
@@ -39,9 +64,13 @@ fi:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselyyn, minkä takia et voi muokata sen kysymyksiä.
           question:
             add_answer_option: Lisää vastausvaihtoehto
+            any: Minkä tahansa
+            description: Kuvaus
+            down: Alas
             question: Kysymys
-            remove_question: Poista kysymys
+            remove: Poistaa
             statement: Kysymysasettelu
+            up: ylös
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
@@ -50,10 +79,13 @@ fi:
         multiple_option: Useita vaihtoehtoja
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
+        sorting: lajittelu
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
           success: Kyselyyn vastattu onnistuneesti.
+        question:
+          max_choices: 'Max valinnat: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.

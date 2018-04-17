@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.users" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.user.name", scope: "decidim.admin")), ['new', 'user'], class: 'button tiny button--title' %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.user.name", scope: "decidim.admin")), ["new", "user"], class: "button tiny button--title" %>
     </h2>
   </div>
   <div class="card-section">
@@ -44,7 +44,7 @@
               <td><%= l user.created_at, format: :short %></td>
               <td class="table-list__actions">
                 <% if can?(:invite, user) && user.invited_to_sign_up? %>
-                  <%= icon_link_to "reload", ['resend_invitation', user], t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                  <%= icon_link_to "reload", ["resend_invitation", user], t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
                 <% end %>
 
                 <% if can? :destroy, user %>

@@ -17,9 +17,9 @@ module Decidim
       let(:unmanaged_assembly) { create :assembly, organization: user.organization }
       let(:user_assembly_attachment) { create :attachment, attached_to: user_assembly }
       let(:unmanaged_assembly_attachment) { create :attachment, attached_to: unmanaged_assembly }
-      let(:feature) { create(:feature, participatory_space: user_assembly) }
-      let(:unmanaged_feature) { create(:feature, participatory_space: unmanaged_assembly) }
-      let(:dummy_resource) { create(:dummy_resource, feature: feature) }
+      let(:component) { create(:component, participatory_space: user_assembly) }
+      let(:unmanaged_component) { create(:component, participatory_space: unmanaged_assembly) }
+      let(:dummy_resource) { create(:dummy_resource, component: component) }
       let(:user_assembly_moderation) { create(:moderation, reportable: dummy_resource) }
       let(:unmanaged_assembly_moderation) { create(:moderation) }
       let(:user_assembly_category) { create(:category, participatory_space: user_assembly) }
@@ -38,8 +38,8 @@ module Decidim
       it { is_expected.not_to be_able_to(:create, Decidim::Assembly) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_assembly) }
 
-      it { is_expected.to be_able_to(:manage, feature) }
-      it { is_expected.not_to be_able_to(:manage, unmanaged_feature) }
+      it { is_expected.to be_able_to(:manage, component) }
+      it { is_expected.not_to be_able_to(:manage, unmanaged_component) }
 
       it { is_expected.to be_able_to(:manage, user_assembly_attachment) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_assembly_attachment) }

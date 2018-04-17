@@ -1,0 +1,12 @@
+ru:
+  activemodel:
+    attributes:
+      sortition:
+        title: Название
+  decidim:
+    sortitions:
+      admin:
+        models:
+          sortition:
+            fields:
+              title: Название

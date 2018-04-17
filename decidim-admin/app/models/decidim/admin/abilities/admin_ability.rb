@@ -24,7 +24,7 @@ module Decidim
             organization == user.organization
           end
 
-          can :manage, Feature
+          can :manage, Component
           can :manage, :admin_users
 
           can :manage, :managed_users
@@ -47,6 +47,8 @@ module Decidim
           can :manage, Area
           can :manage, AreaType
           can :manage, Newsletter
+          can :manage, :oauth_applications
+          can :manage, OAuthApplication
 
           can [:create, :index, :new, :read, :invite], User
 

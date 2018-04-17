@@ -36,6 +36,7 @@ module Decidim
 
           if form.registrations_enabled
             meeting.available_slots = form.available_slots
+            meeting.reserved_slots = form.reserved_slots
             meeting.registration_terms = form.registration_terms
           end
 

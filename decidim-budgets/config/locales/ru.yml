@@ -105,22 +105,6 @@ ru:
         show:
           budget: Бюджет
           view_all_projects: Просмотреть все проекты
-    features:
-      budgets:
-        actions:
-          vote: Голосовать
-        name: Бюджеты
-        settings:
-          global:
-            announcement: Объявление
-            comments_enabled: Комментарии включены
-            total_budget: Общий бюджет
-            vote_threshold_percent: Мінімальний відсоток бюджету для голосування
-          step:
-            announcement: Объявление
-            comments_blocked: Комментарии выключены
-            show_votes: Показать голоса
-            votes_enabled: Голосование включено
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка

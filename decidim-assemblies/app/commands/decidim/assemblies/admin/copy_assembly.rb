@@ -27,7 +27,7 @@ module Decidim
           Assembly.transaction do
             copy_assembly
             copy_assembly_categories if @form.copy_categories?
-            copy_assembly_features if @form.copy_features?
+            copy_assembly_components if @form.copy_components?
           end
 
           broadcast(:ok, @copied_assembly)
@@ -70,16 +70,16 @@ module Decidim
           end
         end
 
-        def copy_assembly_features
-          @assembly.features.each do |feature|
-            new_feature = Feature.create!(
-              manifest_name: feature.manifest_name,
-              name: feature.name,
+        def copy_assembly_components
+          @assembly.components.each do |component|
+            new_component = Component.create!(
+              manifest_name: component.manifest_name,
+              name: component.name,
               participatory_space: @copied_assembly,
-              settings: feature.settings,
-              step_settings: feature.step_settings
+              settings: component.settings,
+              step_settings: component.step_settings
             )
-            feature.manifest.run_hooks(:copy, new_feature: new_feature, old_feature: feature)
+            component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
           end
         end
       end

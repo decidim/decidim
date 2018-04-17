@@ -2,7 +2,7 @@
 
 shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization: organization) }
-  let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: assembly }
+  let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
   let!(:category) do
     create(
       :category,
@@ -70,18 +70,18 @@ shared_examples "copy assemblies" do
       end
     end
 
-    it "copies the assembly with features" do
-      page.check("assembly[copy_features]")
+    it "copies the assembly with components" do
+      page.check("assembly[copy_components]")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
 
       click_link "Copy assembly"
-      click_link "Features"
+      click_link "Components"
 
       within ".table-list" do
-        assembly.features.each do |feature|
-          expect(page).to have_content(translated(feature.name))
+        assembly.components.each do |component|
+          expect(page).to have_content(translated(component.name))
         end
       end
     end

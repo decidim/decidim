@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Admin::ApplicationController
-        helper_method :current_assembly, :current_participatory_space
+        helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
         layout "decidim/admin/assemblies"
 
         def index
@@ -17,6 +17,7 @@ module Decidim
         def new
           authorize! :new, Decidim::Assembly
           @form = form(AssemblyForm).instance
+          @form.parent_id = params[:parent_id]
         end
 
         def create
@@ -24,9 +25,9 @@ module Decidim
           @form = form(AssemblyForm).from_params(params)
 
           CreateAssembly.call(@form) do
-            on(:ok) do
+            on(:ok) do |assembly|
               flash[:notice] = I18n.t("assemblies.create.success", scope: "decidim.admin")
-              redirect_to assemblies_path
+              redirect_to assemblies_path(parent_id: assembly.parent_id)
             end
 
             on(:invalid) do
@@ -78,15 +79,25 @@ module Decidim
         private
 
         def current_assembly
-          @current_assembly ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          scope = OrganizationAssemblies.new(current_user.organization).query
+          @current_assembly ||= scope.where(slug: params[:slug]).or(
+            scope.where(id: params[:slug])
           ).first
         end
 
         alias current_participatory_space current_assembly
 
+        def parent_assembly
+          @parent_assembly ||= OrganizationAssemblies.new(current_organization).query.find_by(id: params[:parent_id])
+        end
+
+        def parent_assemblies
+          @parent_assemblies ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: nil)
+        end
+
         def collection
-          @collection ||= OrganizationAssemblies.new(current_user.organization).query
+          parent_id = params[:parent_id].presence
+          @collection ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: parent_id)
         end
 
         def ability_context

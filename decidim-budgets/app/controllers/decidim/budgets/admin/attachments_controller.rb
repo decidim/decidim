@@ -22,7 +22,7 @@ module Decidim
         end
 
         def authorization_object
-          project.feature
+          project.component
         end
       end
     end

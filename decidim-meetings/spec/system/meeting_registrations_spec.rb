@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Meeting registrations", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, feature: feature)
+    create_list(:meeting, meetings_count, component: component)
   end
   let(:meeting) { meetings.first }
   let!(:user) { create :user, :confirmed, organization: organization }
@@ -28,7 +28,7 @@ describe "Meeting registrations", type: :system do
   end
 
   before do
-    meeting.update_attributes!(
+    meeting.update!(
       registrations_enabled: registrations_enabled,
       available_slots: available_slots,
       registration_terms: registration_terms

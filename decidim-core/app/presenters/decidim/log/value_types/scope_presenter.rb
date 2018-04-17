@@ -20,7 +20,7 @@ module Decidim
         private
 
         def scope
-          @scope ||= Decidim::Scope.where(id: value).first
+          @scope ||= Decidim::Scope.find_by(id: value)
         end
       end
     end

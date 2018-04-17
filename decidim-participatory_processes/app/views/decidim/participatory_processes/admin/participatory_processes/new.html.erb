@@ -3,7 +3,7 @@
 </h2>
 
 <%= decidim_form_for(@form, html: { class: "form new_participatory_process" }) do |f| %>
-  <%= render partial: 'form', object: f %>
+  <%= render partial: "form", object: f %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t("participatory_processes.new.create", scope: "decidim.admin") %>

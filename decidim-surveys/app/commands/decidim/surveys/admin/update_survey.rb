@@ -33,31 +33,52 @@ module Decidim
 
         def update_survey_questions
           @form.questions.each do |form_question|
-            question_attributes = {
-              body: form_question.body,
-              position: form_question.position,
-              mandatory: form_question.mandatory,
-              question_type: form_question.question_type,
-              answer_options: form_question.answer_options.map { |answer| { "body" => answer.body } }
-            }
+            update_survey_question(form_question)
+          end
+        end
 
-            if form_question.id.present?
-              question = @survey.questions.where(id: form_question.id).first
-              if form_question.deleted?
-                question.destroy!
-              else
-                question.update_attributes!(question_attributes)
-              end
-            else
-              @survey.questions.create!(question_attributes)
+        def update_survey_question(form_question)
+          question_attributes = {
+            body: form_question.body,
+            description: form_question.description,
+            position: form_question.position,
+            mandatory: form_question.mandatory,
+            question_type: form_question.question_type,
+            max_choices: form_question.max_choices
+          }
+
+          update_nested_model(form_question, question_attributes, @survey.questions) do |question|
+            form_question.answer_options.each do |form_answer_option|
+              answer_option_attributes = {
+                body: form_answer_option.body,
+                free_text: form_answer_option.free_text
+              }
+
+              update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
             end
           end
         end
 
+        def update_nested_model(form, attributes, parent_association)
+          record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
+
+          yield record if block_given?
+
+          if record.persisted?
+            if form.deleted?
+              record.destroy!
+            else
+              record.update!(attributes)
+            end
+          else
+            record.save!
+          end
+        end
+
         def update_survey
-          @survey.update_attributes!(title: @form.title,
-                                     description: @form.description,
-                                     tos: @form.tos)
+          @survey.update!(title: @form.title,
+                          description: @form.description,
+                          tos: @form.tos)
         end
       end
     end

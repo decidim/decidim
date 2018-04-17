@@ -22,54 +22,50 @@
       <article class="card card--debate">
         <div class="card__content">
           <div class="card__header">
-            <%= link_to "debate-view-AMA", class: "card__link" do %>
-              <h5 class="card__title">Decidim amb Janet Sanz una Barcelona més
-                humana i en transició ecològica</h5>
+            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+              <h5 class="card__title">
+                <%= Faker::StarWars.quote[0..75] %>
+              </h5>
             <% end %>
-            <div class="card__author author-data author-data--small">
-              <div class="author-data__main">
-                <div class="author author--inline">
-                  <a href="#" class="author__avatar author__avatar--small">
-                    <%= image_tag "demo-avatar.jpg", alt: "" %>
-                  </a>
-                  <a href="#" class="author__name">
-                    Janet Sanz
-                    <span class="label label--small label--basic">
-                      Regidora</span>
-                  </a>
-                  01/08/2016
-                </div>
-              </div>
+            <div class="card__author">
+              <%= partial "author_data", { nick: false } %>
             </div>
           </div>
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              20 <span class="card__datetime__month">Agosto</span>
-            </div>
-            <div class="card__datetime__time">
-              16:00 - 18:00
+          <div class="card__text">
+            <div class="card__text--paragraph">
+              <%= Faker::Hipster.paragraph[0..140] %>
             </div>
           </div>
-          <p>
-            Una Barcelona més humana i en transició ecològica” és un
-            dels eixos estratègics que proposem al Programa d’actuació
-            municipal, doncs construir una Barcelona més sostenible és
-            construir una Barcelona per viure-hi; per viure-hi millor.
-            Una ciutat que garanteixi el “dret a la ciutat”, a viure
-            de forma digna, saludable, cívica i plena. I tenim la
-            coresponsabilitat de fer-ho possible, ja que la ciutat la
-            fem col·lectivament.Volem qualitat de vida, i això vol dir
-            qualitat del medi ambient i de l’espai públic.
-          </p>
-          <ul class="tags tags--debate">
-            <li><a href="">transició ecológica</a></li>
+        </div>
+        <div class="card__status">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
           </ul>
         </div>
         <div class="card__footer">
           <div class="card__support">
-            <div class="card__support__data"></div>
-            <a href="#" class="button small secondary card__button">
-              Participa</a>
+            <button class="card__button button secondary button--sc small light">
+              Participar
+            </button>
           </div>
         </div>
       </article>
@@ -78,54 +74,62 @@
       <article class="card card--debate">
         <div class="card__content">
           <div class="card__header">
-            <%= link_to "debate-view-AMA", class: "card__link" do %>
-              <h5 class="card__title">Decidim amb Janet Sanz una Barcelona mé
-                humana i en transició ecològica</h5>
+            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+              <h5 class="card__title">
+                <%= Faker::StarWars.quote[0..75] %>
+              </h5>
             <% end %>
-            <div class="card__author author-data author-data--small">
-              <div class="author-data__main">
-                <div class="author author--inline">
-                  <a href="#" class="author__avatar author__avatar--small">
-                    <%= image_tag "demo-avatar.jpg", alt: "" %>
-                  </a>
-                  <a href="#" class="author__name">
-                    Janet Sanz
-                    <span class="label label--small label--basic">
-                      Regidora</span>
-                  </a>
-                  01/08/2016
-                </div>
+            <div class="card__author">
+              <%= partial "author_data", { nick: false } %>
+            </div>
+          </div>
+          <div class="card__text">
+            <div class="card__text--paragraph">
+              <%= Faker::Hipster.paragraph[0..140] %>
+            </div>
+          </div>
+        </div>
+        <div class="card__icondata">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <%= icon "clock", class: "icon--big" %>
+            </li>
+            <li class="card-data__item">
+              <div>
+                <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
               </div>
-            </div>
-          </div>
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              20 <span class="card__datetime__month">Agosto</span>
-            </div>
-            <div class="card__datetime__time">
-              16:00 - 18:00
-            </div>
-          </div>
-          <p class="card__desc">
-            Una Barcelona més humana i en transició ecològica” és un
-            dels eixos estratègics que proposem al Programa d’actuació
-            municipal, doncs construir una Barcelona més sostenible és
-            construir una Barcelona per viure-hi; per viure-hi millor.
-            Una ciutat que garanteixi el “dret a la ciutat”, a viure
-            de forma digna, saludable, cívica i plena. I tenim la
-            coresponsabilitat de fer-ho possible, ja que la ciutat la
-            fem col·lectivament.Volem qualitat de vida, i això vol dir
-            qualitat del medi ambient i de l’espai públic.
-          </p>
-          <ul class="tags tags--debate">
-            <li><a href="">transició ecológica</a></li>
+            </li>
+          </ul>
+        </div>
+        <div class="card__status">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
           </ul>
         </div>
         <div class="card__footer">
           <div class="card__support">
-            <div class="card__support__data"></div>
-            <a href="#" class="button small secondary card__button">
-              Participa</a>
+            <button class="card__button button secondary button--sc small light">
+              Participar
+            </button>
           </div>
         </div>
       </article>
@@ -134,45 +138,62 @@
       <article class="card card--debate">
         <div class="card__content">
           <div class="card__header">
-            <%= link_to "debate-view", class: "card__link" do %>
-              <h5 class="card__title">La proposta inicial del Pla Municipal
-                elaborat per l'Ajuntament de Barcelona</h5>
+            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+              <h5 class="card__title">
+                <%= Faker::StarWars.quote[0..75] %>
+              </h5>
             <% end %>
-            <div class="card__author author-data author-data--small">
-              <div class="author-data__main">
-                <div class="author author--inline">
-                  <a href="#" class="author__avatar author__avatar--small">
-                    <%= image_tag "demo-avatar.jpg", alt: "" %>
-                  </a>
-                  <a href="#" class="author__name">
-                    Ajuntament de Barcelona
-                  </a>
-                  01/08/2016
-                </div>
-              </div>
+            <div class="card__author">
+              <%= partial "author_data", { nick: false } %>
             </div>
           </div>
-          <p class="card__desc">
-            Una Barcelona més humana i en transició ecològica” és un
-            dels eixos estratègics que proposem al Programa d’actuació
-            municipal, doncs construir una Barcelona més sostenible és
-            construir una Barcelona per viure-hi; per viure-hi millor.
-            Una ciutat que garanteixi el “dret a la ciutat”, a viure
-            de forma digna, saludable, cívica i plena. I tenim la
-            coresponsabilitat de fer-ho possible, ja que la ciutat la
-            fem col·lectivament.Volem qualitat de vida, i això vol dir
-            qualitat del medi ambient i de l’espai públic.
-          </p>
-          <ul class="tags tags--debate">
-            <li><a href="">PAM</a></li>
-            <li><a href="">transició ecológica</a></li>
+          <div class="card__text">
+            <div class="card__text--paragraph">
+              <%= Faker::Hipster.paragraph[0..140] %>
+            </div>
+          </div>
+        </div>
+        <div class="card__icondata">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <%= icon "clock", class: "icon--big" %>
+            </li>
+            <li class="card-data__item">
+              <div>
+                <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card__status">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="">
+                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
+            <li class="card-data__item">
+              <a href="" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                <%= Faker::Number.between(0, 100) %>
+              </a>
+            </li>
           </ul>
         </div>
         <div class="card__footer">
           <div class="card__support">
-            <div class="card__support__data"></div>
-            <a href="#" class="button small secondary card__button">
-              Participa</a>
+            <button class="card__button button secondary button--sc small light">
+              Participar
+            </button>
           </div>
         </div>
       </article>
@@ -181,4 +202,3 @@
 </main>
 
 <%= partial "template_bottom" %>
-

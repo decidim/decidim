@@ -50,24 +50,26 @@ es:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
-      featured_comment:
-        title: Comentario destacado
     events:
       comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ha dejado un comentario en %{resource_title}. Puedes leerlo en esta página:"
+          email_outro: Recibió esta notificación porque está siguiendo %{author_name}. Puede dejar de seguir a este usuario desde su página de perfil.
+          email_subject: Hay un nuevo comentario por %{author_name} en %{resource_title}
+          notification_title: Hay un nuevo comentario por <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          comment:
-            email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-            notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: Se ha comentado en "%{resource_title}"
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}" o su autor/a. Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay una nueva respuesta de tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{resource_title} ha sido comentado. Puedes leer el comentario en esta página:"
+          email_outro: Ha recibido esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
+          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} ha respondido su comentario en %{resource_title}. Puedes leerlo en esta página:"
+          email_outro: Recibió esta notificación porque su comentario fue respondido.
+          email_subject: "%{author_name} ha respondido tu comentario en %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido su comentario en <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has sido mencionado
-          email_outro: Has recibido esta notificación porque has sido mencionado en "%{resource_title}".
+          email_outro: Has recibido esta notificación porque has sido mencionado en %{resource_title}.
           email_subject: Has sido mencionado en %{resource_title}
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:

@@ -10,11 +10,11 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature
+        current_component: current_component
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
+    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "accountability" }
     let(:name) do
       Decidim::Faker::Localized.word
     end

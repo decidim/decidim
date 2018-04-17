@@ -1,7 +1,7 @@
-<%= decidim_form_for(@form, html: { class: "form edit_assembly" }) do |f| %>
-  <%= render partial: 'form', object: f %>
+<%= decidim_form_for(@form, html: { class: "form edit_assembly assembly_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button"  %>
+    <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
 
     <% if can? :publish, current_assembly %>
       <% if current_assembly.published? %>
@@ -16,4 +16,3 @@
     <% end %>
   </div>
 <% end %>
-

@@ -8,11 +8,11 @@ module Decidim
 
     let(:organization) { create :organization }
     let(:user) { create(:user, organization: organization) }
-    let(:feature) { create(:feature, permissions: permissions) }
+    let(:component) { create(:component, permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
     let(:name) { "dummy_authorization_handler" }
-    let(:authorizer) { described_class.new(user, feature, action) }
+    let(:authorizer) { described_class.new(user, component, action) }
 
     let!(:authorization) do
       create(:authorization, :granted, name: name, metadata: metadata)
@@ -52,8 +52,8 @@ module Decidim
           end
         end
 
-        context "when no feature is provided" do
-          let(:feature) { nil }
+        context "when no component is provided" do
+          let(:component) { nil }
 
           it "raises an exception" do
             expect { subject.authorize }.to raise_error(ActionAuthorizer::AuthorizationError)

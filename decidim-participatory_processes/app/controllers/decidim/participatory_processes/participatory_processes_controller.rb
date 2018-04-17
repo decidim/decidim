@@ -25,7 +25,9 @@ module Decidim
         authorize! :read, ParticipatoryProcessGroup
       end
 
-      def show; end
+      def show
+        check_current_user_can_visit_space
+      end
 
       private
 
@@ -42,7 +44,7 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
       end
 
       def collection
@@ -50,7 +52,7 @@ module Decidim
       end
 
       def filtered_participatory_processes(filter = default_filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, current_user)
       end
 
       def participatory_processes
@@ -58,11 +60,11 @@ module Decidim
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
-        @process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
+        @participatory_process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
       end
 
       def stats

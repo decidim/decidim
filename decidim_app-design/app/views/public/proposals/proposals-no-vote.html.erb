@@ -27,92 +27,63 @@
     <div class="columns mediumlarge-8 large-9">
       <%= partial "order_by" %>
       <div class="row small-up-1 medium-up-2 card-grid">
+        <% 3.times do %>
         <div class="column">
-          <article class="card card--proposal">
+          <article class="card card--proposal success">
             <div class="card__content">
               <div class="card__header">
                 <%= link_to page_path("proposal-view"), class: "card__link" do %>
                   <h5 class="card__title">
-                    Creació d'aules ambientals al Parc del Clot
+                    <%= Faker::StarWars.quote[0..75] %>
                   </h5>
                 <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Ajuntament de Barcelona
-                      </a>
-                      01/08/2016
-                    </div>
-                  </div>
+                <div class="card__author">
+                  <%= partial "author_data" %>
                 </div>
               </div>
-              <p>
-                Implementar la instal·lació d’àrees
-                estratègiques de càrrega i descàrrega per garantir uns
-                 fluxos de mobilitat sostenibles i respectuosos.</p>
-              <ul class="tags tags--proposal">
-                <li><a href="">transició ecológica</a></li>
-                <li><a href="">mobilitat sostenible</a></li>
+              <div class="card__text">
+                <div class="card__text--paragraph">
+                  <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
+                </div>
+                <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+              </div>
+            </div>
+            <div class="card__status">
+              <ul class="card-data">
+                <li class="card-data__item">
+                  <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                </li>
+                <li class="card-data__item">
+                  <a href="">
+                    <%= icon "check", class: "icon--small" %>&nbsp;Following
+                  </a>
+                </li>
+                <li class="card-data__item">
+                  <a href="">
+                    <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                    <%= Faker::Number.between(0, 100) %>
+                  </a>
+                </li>
+                <li class="card-data__item">
+                  <a href="" title="Comentarios">
+                    <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                    <%= Faker::Number.between(0, 100) %>
+                  </a>
+                </li>
               </ul>
             </div>
             <div class="card__footer">
               <div class="card__support">
-                <div class="card__support__data"></div>
-                <button class="card__button button small secondary">
-                  Ver propuesta
+                <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
+
+                <button class="card__button button button--sc small">
+                  Apoyar
                 </button>
               </div>
             </div>
           </article>
         </div>
-        <div class="column">
-          <article class="card card--proposal">
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                  <h5 class="card__title">
-                    Creació d'aules ambientals i d'estudi al Parc del Clot
-                  </h5>
-                <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Ajuntament de Barcelona
-                      </a>
-                      01/08/2016
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                Implementar la instal·lació d’àrees
-                estratègiques de càrrega i descàrrega per garantir uns
-                 fluxos de mobilitat sostenibles i respectuosos i descàrrega
-                per garantir uns fluxos de mobilitat sostenibles i
-                respectuosos.</p>
-              <ul class="tags tags--proposal">
-                <li><a href="">transició ecológica</a></li>
-                <li><a href="">mobilitat sostenible</a></li>
-              </ul>
-            </div>
-            <div class="card__footer">
-              <div class="card__support">
-                <div class="card__support__data"></div>
-                <button class="card__button button small secondary">
-                  Ver propuesta
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -120,4 +91,3 @@
 </main>
 
 <%= partial "template_bottom" %>
-

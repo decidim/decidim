@@ -25,6 +25,7 @@ module Decidim
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
     # params - a Hash with the attributes of the new resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns an instance of `klass`.
     def create(klass, author, params, extra_log_info = {})
@@ -38,6 +39,7 @@ module Decidim
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
     # params - a Hash with the attributes of the new resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns an instance of `klass`.
     def create!(klass, author, params, extra_log_info = {})
@@ -70,7 +72,7 @@ module Decidim
       end
     end
 
-    # Updates the `resource` with `update_attributes!` and sets the author of the version.
+    # Updates the `resource` with `update!` and sets the author of the version.
     #
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
@@ -80,7 +82,7 @@ module Decidim
     # Returns the updated `resource`.
     def update!(resource, author, params, extra_log_info = {})
       perform_action!(:update, resource, author, extra_log_info) do
-        resource.update_attributes!(params)
+        resource.update!(params)
         resource
       end
     end

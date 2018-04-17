@@ -5,19 +5,43 @@ es:
         body: Respuesta
       survey_question:
         mandatory: Obligatorio
+        max_choices: Número máximo de opciones
         question_type: Tipo
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: no están completos
+              too_many: son demasiados
   decidim:
-    features:
+    components:
       surveys:
         actions:
-          answer: Respuesta
+          answer: Responder
         name: Encuesta
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
-            announcement: Aviso
+            announcement: Anuncio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Se ha cerrado la encuesta %{resource_title} en %{participatory_space_title}.
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones desde el enlace anterior.
+          email_subject: Ha terminado una encuesta en %{participatory_space_title}
+          notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha terminado.
+        survey_opened:
+          email_intro: 'Ya está abierta la encuesta %{resource_title} en %{participatory_space_title}. Puedes participar desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Nueva encuesta en %{participatory_space_title}
+          notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    forms:
+      errors:
+        survey_answer:
+          body: El cuerpo no puede estar en blanco
     surveys:
       admin:
         exports:
@@ -29,7 +53,8 @@ es:
         surveys:
           answer_option:
             answer_option: Opción de respuesta
-            remove_answer_option: Eliminar opción de respuesta
+            free_text: Texto libre
+            remove: retirar
             statement: Enunciado
           edit:
             save: Guardar
@@ -39,9 +64,13 @@ es:
             already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
           question:
             add_answer_option: Agregar opción de respuesta
+            any: Alguna
+            description: Descripción
+            down: Abajo
             question: Pregunta
-            remove_question: Eliminar pregunta
+            remove: retirar
             statement: Enunciado
+            up: Arriba
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.
@@ -50,10 +79,13 @@ es:
         multiple_option: Opción múltiple
         short_answer: Respuesta corta
         single_option: Opción individual
+        sorting: Clasificación
       surveys:
         answer:
           invalid: Se han producido errores al responder a la encuesta.
           success: La encuesta ha sido respondida con éxito.
+        question:
+          max_choices: 'Opciones máximas: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder a la encuesta.

@@ -1,4 +1,12 @@
 sv:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Skapad vid
+        field: Mitt fält
+        start_date: Startdatum
+        title: Titel
+        updated_at: Uppdaterad på
   decidim:
     dummy:
       admin:
@@ -17,4 +25,4 @@ sv:
         bar: Bar
         dummies_count_high: Dummies höga
         dummies_count_medium: Dummies medium
-        foo: foo
+        foo: Foo

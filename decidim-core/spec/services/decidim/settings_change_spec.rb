@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe SettingsChange do
-    let(:feature) do
+    let(:component) do
       instance_double(
-        Decidim::Feature,
+        Decidim::Component,
         id: 1,
         manifest_name: "dummy"
       )
@@ -24,13 +24,13 @@ module Decidim
           .to receive(:publish)
           .with(
             "decidim.settings_change.dummy",
-            feature_id: 1,
+            component_id: 1,
             previous_settings: { allow_something: false },
             current_settings: { allow_something: true }
           )
 
         described_class.publish(
-          feature,
+          component,
           previous_settings,
           current_settings
         )

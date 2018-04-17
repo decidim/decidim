@@ -44,7 +44,7 @@ module Decidim
       private
 
       def project
-        @project ||= Project.where(id: params[:project_id], feature: current_feature).first
+        @project ||= Project.find_by(id: params[:project_id], component: current_component)
       end
     end
   end

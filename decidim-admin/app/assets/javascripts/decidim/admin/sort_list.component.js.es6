@@ -16,7 +16,7 @@
      */
     constructor(sortListSelector, options) {
       if ($(sortListSelector).length > 0) {
-        exports.sortable(sortListSelector, options)[0].addEventListener('sortupdate', (event) => {
+        exports.sortable(sortListSelector, options)[0].addEventListener("sortupdate", (event) => {
           const $children = $(event.target).children();
 
           if (options.onSortUpdate) {

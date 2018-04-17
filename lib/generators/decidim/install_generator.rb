@@ -14,11 +14,16 @@ module Decidim
       desc "Install decidim"
       source_root File.expand_path("templates", __dir__)
 
-      class_option :app_name, type: :string, default: nil,
+      class_option :app_name, type: :string,
+                              default: nil,
                               desc: "The name of the app"
-      class_option :recreate_db, type: :boolean, default: false,
+
+      class_option :recreate_db, type: :boolean,
+                                 default: false,
                                  desc: "Recreate db after installing decidim"
-      class_option :seed_db, type: :boolean, default: false,
+
+      class_option :seed_db, type: :boolean,
+                             default: false,
                              desc: "Seed db after installing decidim"
 
       def install
@@ -55,6 +60,19 @@ module Decidim
         end
 
         template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
+      end
+
+      def disable_precompilation_on_demand
+        %w(development test).each do |environment|
+          inject_into_file "config/environments/#{environment}.rb",
+                           before: /^end$/ do
+            cut <<~RUBY, strip: false
+              |
+              |  # No precompilation on demand on first request
+              |  config.assets.check_precompiled_asset = false
+            RUBY
+          end
+        end
       end
 
       def configure_js_compressor
@@ -110,8 +128,19 @@ module Decidim
       def recreate_db
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
-        rails "db:migrate"
-        rails "db:seed" if options[:seed_db]
+
+        # In order to ensure that migrations don't eager load models with not
+        # yet fully populated schemas (which could break commands which load
+        # migrations and seeds in the same process, such as `rails db:migrate
+        # db:seed`), we make sure to run them in the same process if seeds are
+        # requested so that we can catch these situations earlier than end
+        # users.
+        if options[:seed_db]
+          rails "db:migrate", "db:seed"
+        else
+          rails "db:migrate"
+        end
+
         rails "db:test:prepare"
       end
 
@@ -130,8 +159,11 @@ module Decidim
         File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
       end
 
-      def cut(text)
-        text.gsub(/^ *\|/, "").rstrip
+      def cut(text, strip: true)
+        cutted = text.gsub(/^ *\|/, "")
+        return cutted unless strip
+
+        cutted.rstrip
       end
     end
   end

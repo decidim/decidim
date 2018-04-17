@@ -1,16 +1,28 @@
-<div class="card survey-question" id="survey-question-<%= question.id %>-field">
+<% question = form.object %>
+
+<div class="card survey-question" id="<%= id %>-field">
   <div class="card-divider question-divider">
     <h2 class="card-title">
     <span>
-      <% if survey.questions_editable? %>
+      <% if editable %>
         <%== "#{icon("move")} #{t(".question")}" %>
       <% else %>
         <%= t(".question") %>
       <% end %>
     </span>
 
-    <% if survey.questions_editable? %>
-      <button class="button small alert hollow remove-question button--title"><%= t('.remove_question') %></button>
+    <% if editable %>
+      <button class="button small alert hollow move-up-question button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-question button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
+      <button class="button small alert hollow remove-question button--title">
+        <%= t(".remove") %>
+      </button>
     <% end %>
     </h2>
   </div>
@@ -18,55 +30,86 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag(
-          :text_field_tag,
-          "survey[questions][]",
-          "body",
-          question.body.with_indifferent_access,
-          object: question,
-          tabs_id: tabs_id_for_question(question),
-          label: t('.statement'),
-          disabled: disabled_for_question(survey, question),
-          enable_tabs: question.persisted?
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: id,
+          label: t(".statement"),
+          disabled: !editable
         )
       %>
     </div>
 
     <div class="row column">
       <%=
-        check_box_tag(
-          "survey[questions][][mandatory]",
-          "1",
-          question.mandatory,
-          id: mandatory_id_for_question(question),
-          disabled: disabled_for_question(survey, question)
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !editable
         )
       %>
-      <%= label_tag "", t('activemodel.attributes.survey_question.mandatory'), for: mandatory_id_for_question(question) %>
     </div>
 
     <div class="row column">
-      <%= label_tag "", t('activemodel.attributes.survey_question.question_type'), for: question_type_id_for_question(question) %>
-      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: question_type_id_for_question(question), disabled: disabled_for_question(survey, question) %>
+      <%=
+        form.check_box(
+          :mandatory,
+          disabled: !editable,
+          label: t("activemodel.attributes.survey_question.mandatory")
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.select(
+          :question_type,
+          options_from_collection_for_select(question_types, :first, :last, question.question_type),
+          {},
+          disabled: !editable
+        )
+      %>
     </div>
 
     <% if question.persisted? %>
-      <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+      <%= form.hidden_field :id, disabled: !editable %>
     <% end %>
 
-    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: disabled_for_question(survey, question) %>
-    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: disabled_for_question(survey, question) %>
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+    <%= form.hidden_field :deleted, disabled: !editable %>
 
     <div class="survey-question-answer-options">
-      <% if survey.questions_editable? %>
-        <button class="button add-answer-option"><%= t('.add_answer_option') %></button>
-      <% end %>
+      <template>
+        <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
+          <%= render "answer_option", form: answer_option_form, question: question, editable: editable %>
+        <% end %>
+      </template>
 
       <div class="survey-question-answer-options-list">
-        <% question.answer_options.each_with_index do |answer_option, idx| %>
-          <%= render "answer_option", question: question, answer_option: answer_option, idx: idx %>
+        <% question.answer_options.each do |answer_option| %>
+          <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
+            <%= render "answer_option", form: answer_option_form, question: question, editable: editable %>
+          <% end %>
         <% end %>
       </div>
+
+      <% if editable %>
+        <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
+      <% end %>
+    </div>
+
+    <div class="row column survey-question-max-choices">
+      <%=
+        form.select(
+          :max_choices,
+          (2..question.number_of_options),
+          { prompt: t(".any") },
+          disabled: !editable
+        )
+      %>
     </div>
   </div>
 </div>

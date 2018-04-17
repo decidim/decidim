@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Show a page", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "pages" }
 
   let(:body) do
@@ -14,11 +14,11 @@ describe "Show a page", type: :system do
     }
   end
 
-  let!(:page_feature) { create(:page, feature: feature, body: body) }
+  let!(:page_component) { create(:page, component: component, body: body) }
 
   describe "page show" do
     before do
-      visit_feature
+      visit_component
     end
 
     it "renders the content of the page" do

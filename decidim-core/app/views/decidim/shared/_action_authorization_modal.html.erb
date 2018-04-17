@@ -1,7 +1,7 @@
 <% if current_user %>
   <% status = action_authorization(action) %>
   <% if !status.ok? %>
-    <div class="reveal" id="<%= action.underscore%>AuthorizationModal" data-reveal>
+    <div class="reveal" id="<%= action.underscore %>AuthorizationModal" data-reveal>
       <button class="close-button" data-close aria-label="Close modal"
               type="button">
         <span aria-hidden="true">&times;</span>

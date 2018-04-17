@@ -7,24 +7,57 @@ module Decidim
     describe ProposalsController, type: :controller do
       routes { Decidim::Proposals::Engine.routes }
 
-      let(:user) { create(:user, :confirmed, organization: feature.organization) }
+      let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:params) do
         {
-          feature_id: feature.id
+          component_id: component.id
         }
       end
 
       before do
-        request.env["decidim.current_organization"] = feature.organization
-        request.env["decidim.current_participatory_space"] = feature.participatory_space
-        request.env["decidim.current_feature"] = feature
+        request.env["decidim.current_organization"] = component.organization
+        request.env["decidim.current_participatory_space"] = component.participatory_space
+        request.env["decidim.current_component"] = component
         sign_in user
+      end
+
+      describe "GET new" do
+        let(:component) { create(:proposal_component, :with_creation_enabled) }
+
+        context "when NO draft proposals exist" do
+          it "renders the empty form" do
+            get :new, params: params
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:new)
+          end
+        end
+
+        context "when draft proposals exist from other users" do
+          let!(:others_draft) { create(:proposal, :draft, component: component) }
+
+          it "renders the empty form" do
+            get :new, params: params
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:new)
+          end
+        end
+
+        context "when draft proposals exist from current users" do
+          let!(:draft) { create(:proposal, :draft, component: component, author: user) }
+
+          it "redirects to edit draft" do
+            get :new, params: params
+            expect(response).to have_http_status(:found)
+            path = edit_draft_proposal_path(draft, component_id: component.id, question_slug: component.participatory_space.slug)
+            expect(response).to redirect_to(path)
+          end
+        end
       end
 
       describe "POST create" do
         context "when creation is not enabled" do
-          let(:feature) { create(:proposal_feature) }
+          let(:component) { create(:proposal_component) }
 
           it "raises an error" do
             post :create, params: params
@@ -34,7 +67,7 @@ module Decidim
         end
 
         context "when creation is enabled" do
-          let(:feature) { create(:proposal_feature, :with_creation_enabled) }
+          let(:component) { create(:proposal_component, :with_creation_enabled) }
 
           it "creates a proposal" do
             post :create, params: params.merge(
@@ -49,10 +82,10 @@ module Decidim
       end
 
       describe "withdraw a proposal" do
-        let(:feature) { create(:proposal_feature, :with_creation_enabled) }
+        let(:component) { create(:proposal_component, :with_creation_enabled) }
 
         context "when an authorized user is withdrawing a proposal" do
-          let(:proposal) { create(:proposal, feature: feature, author: user) }
+          let(:proposal) { create(:proposal, component: component, author: user) }
 
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
@@ -63,8 +96,8 @@ module Decidim
         end
 
         describe "when current user is NOT the author of the proposal" do
-          let(:current_user) { create(:user, organization: feature.organization) }
-          let(:proposal) { create(:proposal, feature: feature, author: current_user) }
+          let(:current_user) { create(:user, organization: component.organization) }
+          let(:proposal) { create(:proposal, component: component, author: current_user) }
 
           context "and the proposal has no supports" do
             it "is not able to withdraw the proposal" do

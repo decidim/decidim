@@ -1,6 +1,9 @@
 fi:
   decidim:
-    features:
+    admin_log:
+      page:
+        update: "%{user_name} päivitti %{resource_name} -sivun %{space_name}"
+    components:
       pages:
         name: Sivu
         settings:

@@ -13,13 +13,14 @@ module Decidim
                foreign_key: :decidim_user_id,
                class_name: "Decidim::User"
 
-    belongs_to :feature,
-               foreign_key: :decidim_feature_id,
+    belongs_to :component,
+               foreign_key: :decidim_component_id,
                optional: true,
-               class_name: "Decidim::Feature"
+               class_name: "Decidim::Component"
 
     belongs_to :resource,
-               polymorphic: true
+               polymorphic: true,
+               optional: true
 
     belongs_to :participatory_space,
                optional: true,
@@ -29,7 +30,8 @@ module Decidim
                optional: true,
                class_name: "PaperTrail::Version"
 
-    validates :organization, :user, :action, :resource, presence: true
+    validates :organization, :user, :action, presence: true
+    validates :resource, presence: true, if: ->(log) { log.action != "delete" }
 
     # To ensure records can't be deleted
     before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }

@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe "Edit a page", type: :system do
-  include_context "when managing a feature as an admin"
-  let(:feature) { create(:feature, manifest_name: "pages", participatory_space: participatory_process) }
+  include_context "when managing a component as an admin"
+  let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
   let(:manifest_name) { "pages" }
 
   describe "admin page" do
     before do
-      create(:page, feature: feature, body: body)
-      visit_feature_admin
+      create(:page, component: component, body: body)
+      visit_component_admin
     end
 
     let(:body) do
@@ -35,7 +35,7 @@ describe "Edit a page", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_feature
+      visit_component
 
       expect(page).to have_content("New body")
     end
@@ -43,8 +43,8 @@ describe "Edit a page", type: :system do
 
   describe "announcements" do
     before do
-      create(:page, feature: feature, body: body)
-      visit_feature_admin
+      create(:page, component: component, body: body)
+      visit_component_admin
     end
     it_behaves_like "manage announcements"
   end

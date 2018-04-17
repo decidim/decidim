@@ -19,6 +19,7 @@ require "decidim/budgets"
 require "decidim/surveys"
 require "decidim/accountability"
 require "decidim/debates"
+require "decidim/sortitions"
 
 # Module declaration.
 module Decidim

@@ -2,9 +2,12 @@ pt:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
-        copy_features: Recursos de cópia
+        copy_components: Copiar componentes
+        decidim_area_id: Área
+        decidim_scope_id: Escopo
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
@@ -12,16 +15,23 @@ pt:
         hero_image: Imagem inicial
         local_area: Área Local
         meta_scope: Metadados do âmbito
+        participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
+        published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
+        show_statistics: Mostre estatisticas
         slug: Slug de URL
         subtitle: Subtítulo
         target: Alvo
         title: Título
+      assembly_user_role:
+        email: O email
+        name: Nome
+        role: Função
   decidim:
     admin:
       assemblies:
@@ -36,6 +46,8 @@ pt:
           title: Informação geral
         index:
           not_published: Não publicado
+          private: Privado
+          public: Público
           published: Publicados
         new:
           create: Criar
@@ -80,15 +92,19 @@ pt:
         assemblies: Assembléias
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
+          attachment_collections: Coleções
+          attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
-          features: Características
+          components: Componentes
           info: Info
           moderations: Moderação
+          private_users: Usuários privados
       models:
         assembly:
           fields:
             created_at: Criado em
+            private: Privado
             promoted: Em destaque
             published: Publicados
             title: Título
@@ -105,10 +121,21 @@ pt:
             moderator: Moderador
       titles:
         assemblies: Assembléias
+    admin_log:
+      assembly:
+        create: "%{user_name} criou o conjunto %{resource_name}"
+        publish: "%{user_name} publicou o conjunto %{resource_name}"
+        unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
+        update: "%{user_name} atualizou a montagem %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
+        delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
+        update: "%{user_name} alterou a função de %{resource_name} na montagem %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Selecione uma Área
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -121,16 +148,22 @@ pt:
             active_assemblies: Conjuntos ativos
             see_all_assemblies: Veja todas as assembléias
       show:
+        area: Área
+        children: Assemblies
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
+        private_space: Esta é uma assembléia privada
+        related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         target: Alvo
       statistics:
         answers_count: Respostas
         assemblies_count: Assembléias
         comments_count: Comentários
+        debates_count: Debates
+        endorsements_count: Endossos
         headline: Atividade
         meetings_count: Reuniões
         orders_count: Votos
@@ -141,6 +174,10 @@ pt:
         surveys_count: pesquisas
         users_count: Participantes
         votes_count: Votos
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembléias
   layouts:

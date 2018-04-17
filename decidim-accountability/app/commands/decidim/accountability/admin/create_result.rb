@@ -35,7 +35,7 @@ module Decidim
           @result = Decidim.traceability.create!(
             Result,
             @form.current_user,
-            feature: @form.current_feature,
+            component: @form.current_component,
             scope: @form.scope,
             category: @form.category,
             parent_id: @form.parent_id,
