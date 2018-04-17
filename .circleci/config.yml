@@ -667,6 +667,9 @@ workflows:
       - sortitions:
           requires:
             - build_test_app
+      - blogs:
+          requires:
+            - build_test_app
       - consultations:
           requires:
             - build_test_app
@@ -714,3 +717,4 @@ workflows:
             - debates
             - sortitions
             - consultations
+            - blogs
