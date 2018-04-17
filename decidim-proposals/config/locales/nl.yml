@@ -14,19 +14,19 @@ nl:
       proposal_answer:
         answer: Antwoord
       proposals_copy:
-        copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal importeren naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
+        copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_feature_id: Component om de voorstellen van te kopiëren
   decidim:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'U kunt nu nieuwe voorstellen maken in %{participatory_space_title}! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door het volgen van de vorige link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'U kunt voorstellen in %{participatory_space_title}goedkeuren! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Je kan voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: Het steunen van voorstellen is gestart voor %{participatory_space_title}
           notification_title: U kunt nu <a href="%{resource_path}">endorsievoorstellen</a> starten in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
@@ -50,8 +50,8 @@ nl:
           email_subject: Nieuw voorstel van %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat u volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
@@ -65,10 +65,10 @@ nl:
           email_subject: De voorstelcategorie van %{resource_title} is bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> voorstelcategorie is bijgewerkt door een beheerder.
         voting_enabled:
-          email_intro: 'Je kunt voorstellen in %{participatory_space_title}stemmen! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Voorstellen stemmen is gestart voor %{participatory_space_title}
-          notification_title: U kunt nu beginnen met <a href="%{resource_path}">stemvoorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Je kan op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_subject: Je kan nu stemmen op de voorstellen van %{participatory_space_title}
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">stemmen op</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -81,10 +81,10 @@ nl:
           global:
             announcement: Aankondiging
             attachments_allowed: Bijlagen toestaan
-            can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
+            can_accumulate_supports_beyond_threshold: Kan stemmen verzamelen die de drempel overschrijden
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
-            new_proposal_help_text: Nieuwe helptekst van het voorstel
+            new_proposal_help_text: Nieuwe voorgestelde hulptekst
             official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
             proposal_answering_enabled: Voorstelantwoord ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
@@ -184,7 +184,7 @@ nl:
             create: Voorstellen importeren
             no_features: Er zijn geen andere voorstelfuncties in deze participatieruimte om de voorstellen van te importeren.
             select_feature: Selecteer een component
-            select_states: Controleer de toestanden van de voorstellen om te importeren
+            select_states: Controleer de status van de voorstellen om te importeren
         shared:
           info_proposal:
             body: Lichaam
@@ -319,7 +319,7 @@ nl:
           sign_in: Aanmelden
           sign_in_or_up: "%{in} of %{up} om deel te nemen"
           sign_up: aanmelden
-          withdraw_btn_hint: U kunt uw voorstel intrekken als u van gedachten verandert, zolang u geen ondersteuning hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
+          withdraw_btn_hint: Je kan je voorstel intrekken als je van gedachten verandert, zolang je geen ondersteuning hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Weet je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
         vote_button:
@@ -341,7 +341,7 @@ nl:
           proposal_limit:
             description: U kunt maximaal %{limit} voorstellen maken.
           threshold_per_proposal:
-            description: Om te worden geaccepteerd, moeten voorstellen %{limit} steunen bereiken
+            description: Om te worden geaccepteerd, moeten voorstellen %{limit} stemmen ontvangen
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
