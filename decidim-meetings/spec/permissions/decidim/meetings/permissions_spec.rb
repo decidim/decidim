@@ -48,7 +48,8 @@ describe Decidim::Meetings::Permissions do
 
     before do
       allow(meeting)
-        .to receive(:can_be_joined?)
+        .to receive(:can_be_joined_by?)
+        .with(user)
         .and_return(can_be_joined)
     end
 

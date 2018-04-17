@@ -29,7 +29,7 @@ module Decidim
       end
 
       def can_join_meeting?
-        meeting.can_be_joined? &&
+        meeting.can_be_joined_by?(user) &&
           authorized?(:join)
       end
 

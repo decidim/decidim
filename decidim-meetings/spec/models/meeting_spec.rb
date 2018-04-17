@@ -53,8 +53,10 @@ module Decidim::Meetings
       end
     end
 
-    describe "#can_be_joined?" do
-      subject { meeting.can_be_joined? }
+    describe "#can_be_joined_by?" do
+      subject { meeting.can_be_joined_by?(user) }
+
+      let(:user) { build :user, organization: meeting.component.organization }
 
       context "when registrations are disabled" do
         let(:meeting) { build :meeting, registrations_enabled: false }
@@ -64,6 +66,16 @@ module Decidim::Meetings
 
       context "when meeting is closed" do
         let(:meeting) { build :meeting, :closed }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when the user cannot participate to the meeting" do
+        let(:meeting) { build :meeting, :closed }
+
+        before do
+          allow(meeting).to receive(:can_participate?).and_return(false)
+        end
 
         it { is_expected.to eq false }
       end
