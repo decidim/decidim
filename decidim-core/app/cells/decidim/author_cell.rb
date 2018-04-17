@@ -43,12 +43,14 @@ module Decidim
     end
 
     def withdrawable?
+      return unless from_context
       return unless proposals_controller?
       return if index_action?
       from_context.withdrawable_by?(current_user)
     end
 
     def flagable?
+      return unless from_context
       return unless proposals_controller?
       return if index_action?
       return if from_context.official?
