@@ -125,7 +125,7 @@ nl:
           email_subject: Debatcreatie uitgeschakeld in %{participatory_space_title}
           notification_title: Debatten maken is nu uitgeschakeld in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Je kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin met deelname aan deze pagina:'
+          email_intro: 'Je kunt nu nieuwe debatten starten in %{participatory_space_title}! Start jouw deelname aan deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Debatten nu beschikbaar in %{participatory_space_title}
           notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
