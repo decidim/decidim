@@ -227,7 +227,7 @@ nl:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
