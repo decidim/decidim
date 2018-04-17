@@ -54,7 +54,7 @@ module Decidim
                 presence: true,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                 file_content_type: { allow: ["image/jpeg", "image/png"] },
-                if: :highlighted_content_banner_enabled?
+                if: :highlighted_content_banner_image_is_changed?
 
       validates :highlighted_content_banner_title,
                 translatable_presence: true,
@@ -80,6 +80,11 @@ module Decidim
 
       def enable_omnipresent_banner?
         enable_omnipresent_banner
+      end
+
+      def highlighted_content_banner_image_is_changed?
+        highlighted_content_banner_enabled? &&
+          current_organization.highlighted_content_banner_image.blank?
       end
     end
   end
