@@ -88,5 +88,6 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Max choices selector not disabled when survey has already been answered [\#3133](https://github.com/decidim/decidim/pull/3133)
 - **decidim-surveys**: Translated fields not disabled when survey has already been answered [\#3133](https://github.com/decidim/decidim/pull/3133)
 - **decidim-admin**: Default managed user form displaying two buttons [\#3211](https://github.com/decidim/decidim/pull/3211)
+- **decidim-proposals**: Keep the user group (if set) as default value of author field on forms [\#3247](https://github.com/decidim/decidim/pull/3247)
 
 Please check [0.10-stable](https://github.com/decidim/decidim/blob/0.10-stable/CHANGELOG.md) for previous changes.
