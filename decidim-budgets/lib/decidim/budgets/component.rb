@@ -36,6 +36,7 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
+    settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :comments_enabled, type: :boolean, default: true

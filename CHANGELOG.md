@@ -46,6 +46,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Client side survey errors are now displayed [\#3133](https://github.com/decidim/decidim/pull/3133)
 - **decidim-surveys**: Allow multiple choice questions to have "free text options" where the user can customize the selected answer [\#3134](https://github.com/decidim/decidim/pull/3134)
 - **decidim-surveys**: New question type to sort different options [\#3148](https://github.com/decidim/decidim/pull/3148)
+- **decidim-budgets**: Setting to control the number of projects per page to be listed [\#3239](https://github.com/decidim/decidim/pull/3239)
 
 **Changed**:
 
@@ -61,6 +62,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Fixed**:
 
+- **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3185](https://github.com/decidim/decidim/pull/3185)
 - **decidim-proposals**: Fix when I create a proposal I see the draft proposal from someone else! [\#3170](https://github.com/decidim/decidim/pull/3083)
 - **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3175](https://github.com/decidim/decidim/pull/3175)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)

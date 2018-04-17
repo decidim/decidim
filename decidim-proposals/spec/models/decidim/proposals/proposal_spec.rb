@@ -53,8 +53,10 @@ module Decidim
         end
 
         context "with Organization endorsement" do
-          let(:user_group) { create(:user_group, verified_at: DateTime.current) }
-          let(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+          let!(:user_group) { create(:user_group, verified_at: DateTime.current, organization: user.organization) }
+          let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
+          before { user_group.reload }
 
           it "returns false if the proposal is not endorsed by the given organization" do
             expect(subject).not_to be_endorsed_by(user, user_group)
