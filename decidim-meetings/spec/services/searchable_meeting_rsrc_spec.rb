@@ -95,8 +95,8 @@ module Decidim
     def expected_searchable_rsrc_attrs(meeting, locale)
       {
         "content_a" => meeting.title[locale],
-        "content_b" => nil,
-        "content_c" => nil,
+        "content_b" => '',
+        "content_c" => '',
         "content_d" => [meeting.description[locale], meeting.address].join(" "),
         "locale" => locale,
 
