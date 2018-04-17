@@ -20,12 +20,6 @@
         <ul>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
-          <li>
-            <%= link_to "Encuentros - Lista", page_path("meetings") %>
-            <ul>
-              <li><%= link_to "Encuentros pasados", page_path("meetings-callout") %></li>
-            </ul>
-          </li>
           <li><%= link_to "Debates - Lista", page_path("debates") %></li>
           <li><%= link_to "Resultados - Lista", page_path("results") %></li>
           <li><%= link_to "Gestor de documentos", page_path("documents") %></li>
@@ -79,9 +73,18 @@
           <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
           <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
         </ul>
+        <h2 class="section-heading">Encuentros</h2>
+        <ul>
+          <li><%= link_to "Encuentro", page_path("meetings/meeting-view") %></li>
+          <li>
+            <%= link_to "Encuentros - Lista", page_path("meetings/meetings") %>
+            <ul>
+              <li><%= link_to "Encuentros pasados", page_path("meetings/meetings-callout") %></li>
+            </ul>
+          </li>
+        </ul>
         <h2 class="section-heading">Vistas de componente</h2>
         <ul>
-          <li><%= link_to "Encuentro", page_path("meeting-view") %></li>
           <li>
             <%= link_to "Debate", page_path("debate-view") %>
             <ul>
