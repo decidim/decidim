@@ -11,18 +11,6 @@ module Decidim
       helper Decidim::Messaging::ConversationHelper
       helper_method :proposal_limit_reached?
 
-      include NeedsPermission
-
-      private
-
-      def permission_class
-        Decidim::Proposals::Permissions
-      end
-
-      def permission_scope
-        :public
-      end
-
       def proposal_limit
         return nil if component_settings.proposal_limit.zero?
         component_settings.proposal_limit

@@ -8,17 +8,6 @@ module Decidim
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
-      include NeedsPermission
-
-      private
-
-      def permission_class
-        Decidim::Budgets::Permissions
-      end
-
-      def permission_scope
-        :public
-      end
     end
   end
 end

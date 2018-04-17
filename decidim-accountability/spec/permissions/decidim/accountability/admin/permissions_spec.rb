@@ -3,10 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { build :user }
-  let(:space_allows) { true }
   let(:context) do
     {
       current_component: accountability_component
@@ -15,13 +14,6 @@ describe Decidim::Accountability::Admin::Permissions do
   let(:extra_context) { {} }
   let(:accountability_component) { create :accountability_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
-  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
-
-  before do
-    allow(Decidim::ParticipatoryProcesses::Permissions)
-      .to receive(:new)
-      .and_return(space_permissions)
-  end
 
   shared_examples "crud permissions" do
     describe "create" do
@@ -44,7 +36,7 @@ describe Decidim::Accountability::Admin::Permissions do
       context "when the resource is not present" do
         let(:resource) { nil }
 
-        it { is_expected.to eq false }
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -60,7 +52,7 @@ describe Decidim::Accountability::Admin::Permissions do
       context "when the resource is not present" do
         let(:resource) { nil }
 
-        it { is_expected.to eq false }
+        it_behaves_like "permission is not set"
       end
     end
 
@@ -69,7 +61,7 @@ describe Decidim::Accountability::Admin::Permissions do
         { scope: :admin, action: :foo, subject: :action_subject }
       end
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
   end
 
@@ -103,6 +95,6 @@ describe Decidim::Accountability::Admin::Permissions do
       { scope: :admin, action: :foo, subject: :foo }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 end

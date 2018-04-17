@@ -16,8 +16,8 @@ module Decidim
       # action_name - The action to authorize against.
       #
       # Returns an AuthorizationStatus
-      def action_authorization(action_name)
-        return AuthorizationStatus.new(:ok) if can?(action_name.to_sym, Question)
+      def action_authorization(action_name, question = current_question)
+        return AuthorizationStatus.new(:ok) if allowed_to?(action_name.to_sym, :question, question: question)
 
         AuthorizationStatus.new(:denied)
       end

@@ -142,7 +142,7 @@ module Decidim
       end
 
       def destroy_draft
-        authorize! :edit, Proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         DestroyProposal.call(@proposal, current_user) do
           on(:ok) do

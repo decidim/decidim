@@ -3,10 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { build :user }
-  let(:space_allows) { true }
   let(:context) do
     {
       current_component: budget_component,
@@ -16,29 +15,13 @@ describe Decidim::Budgets::Admin::Permissions do
   let(:project) { create :project, component: budget_component }
   let(:budget_component) { create :budget_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
-  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
-
-  before do
-    allow(Decidim::ParticipatoryProcesses::Permissions)
-      .to receive(:new)
-      .and_return(space_permissions)
-  end
-
-  context "when space does not allow the user to perform the action" do
-    let(:space_allows) { false }
-    let(:action) do
-      { scope: :admin, action: :foo, subject: :project }
-    end
-
-    it { is_expected.to eq false }
-  end
 
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :vote, subject: :project }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   describe "project creation" do
@@ -59,7 +42,7 @@ describe Decidim::Budgets::Admin::Permissions do
     context "when project is not present" do
       let(:project) { nil }
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
   end
 
@@ -73,7 +56,7 @@ describe Decidim::Budgets::Admin::Permissions do
     context "when project is not present" do
       let(:project) { nil }
 
-      it { is_expected.to eq false }
+      it_behaves_like "permission is not set"
     end
   end
 end

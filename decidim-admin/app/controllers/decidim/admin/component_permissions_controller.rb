@@ -8,14 +8,14 @@ module Decidim
       helper_method :authorizations, :other_authorizations_for, :component
 
       def edit
-        authorize! :update, component
+        enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.new(
           permissions: permission_forms
         )
       end
 
       def update
-        authorize! :update, component
+        enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.from_params(params)
 
         UpdateComponentPermissions.call(@permissions_form, component) do

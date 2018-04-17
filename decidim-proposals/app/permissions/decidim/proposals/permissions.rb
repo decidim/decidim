@@ -3,40 +3,35 @@
 module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        # Stop checks if the user is not authorized to perform the
-        # permission_action for this space
-        return false unless spaces_allows_user?
-        return false unless user
+      def permissions
+        return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
-        return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
-        return false if permission_action.scope != :public
+        return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+        return permission_action if permission_action.scope != :public
 
-        return false if permission_action.subject != :proposal
+        return permission_action if permission_action.subject != :proposal
 
-        return true if case permission_action.action
-                       when :create
-                         can_create_proposal?
-                       when :edit
-                         can_edit_proposal?
-                       when :withdraw
-                         can_withdraw_proposal?
-                       when :endorse
-                         can_endorse_proposal?
-                       when :unendorse
-                         can_unendorse_proposal?
-                       when :vote
-                         can_vote_proposal?
-                       when :unvote
-                         can_unvote_proposal?
-                       when :report
-                         true
-                       else
-                         false
-                       end
+        case permission_action.action
+        when :create
+          can_create_proposal?
+        when :edit
+          can_edit_proposal?
+        when :withdraw
+          can_withdraw_proposal?
+        when :endorse
+          can_endorse_proposal?
+        when :unendorse
+          can_unendorse_proposal?
+        when :vote
+          can_vote_proposal?
+        when :unvote
+          can_unvote_proposal?
+        when :report
+          true
+        end
 
-        false
+        permission_action
       end
 
       private
@@ -64,44 +59,49 @@ module Decidim
       end
 
       def can_create_proposal?
-        authorized?(:create) &&
-          current_settings&.creation_enabled?
+        toggle_allow(authorized?(:create) && current_settings&.creation_enabled?)
       end
 
       def can_edit_proposal?
-        proposal &&
-          proposal.editable_by?(user)
+        toggle_allow(proposal && proposal.editable_by?(user))
       end
 
       def can_withdraw_proposal?
-        proposal &&
-          proposal.author == user
+        toggle_allow(proposal && proposal.author == user)
       end
 
       def can_endorse_proposal?
-        proposal &&
-          authorized?(:endorse) &&
-          current_settings&.endorsements_enabled? &&
-          !current_settings&.endorsements_blocked?
+        is_allowed = proposal &&
+                     authorized?(:endorse) &&
+                     current_settings&.endorsements_enabled? &&
+                     !current_settings&.endorsements_blocked?
+
+        toggle_allow(is_allowed)
       end
 
       def can_unendorse_proposal?
-        proposal &&
-          authorized?(:endorse) &&
-          current_settings&.endorsements_enabled?
+        is_allowed = proposal &&
+                     authorized?(:endorse) &&
+                     current_settings&.endorsements_enabled?
+
+        toggle_allow(is_allowed)
       end
 
       def can_vote_proposal?
-        proposal &&
-          authorized?(:vote) &&
-          voting_enabled? &&
-          remaining_votes.positive?
+        is_allowed = proposal &&
+                     authorized?(:vote) &&
+                     voting_enabled? &&
+                     remaining_votes.positive?
+
+        toggle_allow(is_allowed)
       end
 
       def can_unvote_proposal?
-        proposal &&
-          authorized?(:vote) &&
-          voting_enabled?
+        is_allowed = proposal &&
+                     authorized?(:vote) &&
+                     voting_enabled?
+
+        toggle_allow(is_allowed)
       end
     end
   end

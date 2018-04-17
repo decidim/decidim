@@ -4,18 +4,14 @@ module Decidim
   module Accountability
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        def allowed?
-          # Stop checks if the user is not authorized to perform the
-          # permission_action for this space
-          return false unless spaces_allows_user?
+        def permissions
+          return permission_action if permission_action.scope != :admin
 
-          return false if permission_action.scope != :admin
+          permission_action.allow! if can_perform_actions_on?(:result, result)
+          permission_action.allow! if can_perform_actions_on?(:status, status)
+          permission_action.allow! if can_perform_actions_on?(:timeline_entry, timeline_entry)
 
-          return true if can_perform_actions_on?(:result, result)
-          return true if can_perform_actions_on?(:status, status)
-          return true if can_perform_actions_on?(:timeline_entry, timeline_entry)
-
-          false
+          permission_action
         end
 
         private

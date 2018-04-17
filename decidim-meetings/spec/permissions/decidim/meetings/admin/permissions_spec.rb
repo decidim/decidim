@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: meeting_component.organization }
   let(:space_allows) { true }
@@ -16,18 +16,11 @@ describe Decidim::Meetings::Admin::Permissions do
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
-  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: :meeting }
   end
   let(:action_name) { :foo }
-
-  before do
-    allow(Decidim::ParticipatoryProcesses::Permissions)
-      .to receive(:new)
-      .and_return(space_permissions)
-  end
 
   shared_examples "action requiring a meeting" do
     context "when meeting is present" do
@@ -41,21 +34,12 @@ describe Decidim::Meetings::Admin::Permissions do
     end
   end
 
-  context "when space does not allow the user to perform the action" do
-    let(:space_allows) { false }
-    let(:action) do
-      { scope: :admin, action: :foo, subject: :meeting }
-    end
-
-    it { is_expected.to eq false }
-  end
-
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :vote, subject: :meeting }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when subject is not a meeting" do
@@ -63,13 +47,13 @@ describe Decidim::Meetings::Admin::Permissions do
       { scope: :admin, action: :vote, subject: :foo }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when action is a random one" do
     let(:action_name) { :foo }
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when creating a meeting" do

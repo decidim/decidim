@@ -3,16 +3,13 @@
 module Decidim
   module Accountability
     class Permissions < Decidim::DefaultPermissions
-      def allowed?
-        # Stop checks if the user is not authorized to perform the
-        # permission_action for this space
-        return false unless spaces_allows_user?
-        return false unless user
+      def permissions
+        return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
-        return Decidim::Accountability::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
+        return Decidim::Accountability::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
-        false
+        permission_action
       end
     end
   end

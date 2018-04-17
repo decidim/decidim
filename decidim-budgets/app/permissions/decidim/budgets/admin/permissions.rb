@@ -4,26 +4,20 @@ module Decidim
   module Budgets
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        def allowed?
-          # Stop checks if the user is not authorized to perform the
-          # permission_action for this space
-          return false unless spaces_allows_user?
-
+        def permissions
           # The public part needs to be implemented yet
-          return false if permission_action.scope != :admin
+          return permission_action if permission_action.scope != :admin
 
-          return false if permission_action.subject != :project
+          return permission_action if permission_action.subject != :project
 
-          return true if case permission_action.action
-                         when :create
-                           true
-                         when :update, :destroy
-                           project.present?
-                         else
-                           false
-                         end
+          case permission_action.action
+          when :create
+            permission_action.allow!
+          when :update, :destroy
+            permission_action.allow! if project.present?
+          end
 
-          false
+          permission_action
         end
 
         private

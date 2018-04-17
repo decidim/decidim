@@ -7,7 +7,7 @@
                  class: "button",
                  data: { disable_with: true } %>
 
-    <% if can? :destroy, current_response %>
+    <% if allowed_to? :destroy, :response, response: current_response %>
       <%= link_to t("decidim.admin.actions.destroy"),
                   response_path(current_question, current_response),
                   method: :delete,

@@ -11,9 +11,7 @@ module Decidim
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       include ImpersonateUsers
-      include NeedsAuthorization
-
-      skip_authorization_check
+      include NeedsPermission
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
@@ -32,10 +30,12 @@ module Decidim
       before_action :store_current_location
     end
 
-    # Overwrites `cancancan`'s method to point to the correct ability class,
-    # since the gem expects the ability class to be in the root namespace.
-    def current_ability_klass
-      Decidim::Abilities::BaseAbility
+    def permission_class_chain
+      [Decidim::Permissions]
+    end
+
+    def permission_scope
+      :public
     end
 
     def store_current_location

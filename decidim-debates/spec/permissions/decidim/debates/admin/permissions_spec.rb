@@ -3,10 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Debates::Admin::Permissions do
-  subject { described_class.new(user, permission_action, context).allowed? }
+  subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: debates_component.organization }
-  let(:space_allows) { true }
   let(:context) do
     {
       current_component: debates_component,
@@ -16,29 +15,13 @@ describe Decidim::Debates::Admin::Permissions do
   let(:debates_component) { create :debates_component }
   let(:debate) { create :debate, component: debates_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
-  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
-
-  before do
-    allow(Decidim::ParticipatoryProcesses::Permissions)
-      .to receive(:new)
-      .and_return(space_permissions)
-  end
-
-  context "when space does not allow the user to perform the action" do
-    let(:space_allows) { false }
-    let(:action) do
-      { scope: :admin, action: :foo, subject: :debate }
-    end
-
-    it { is_expected.to eq false }
-  end
 
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :debate }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when subject is not debate" do
@@ -46,7 +29,7 @@ describe Decidim::Debates::Admin::Permissions do
       { scope: :admin, action: :bar, subject: :foo }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   context "when action is a random one" do
@@ -54,7 +37,7 @@ describe Decidim::Debates::Admin::Permissions do
       { scope: :admin, action: :bar, subject: :debate }
     end
 
-    it { is_expected.to eq false }
+    it_behaves_like "permission is not set"
   end
 
   describe "debate creation" do

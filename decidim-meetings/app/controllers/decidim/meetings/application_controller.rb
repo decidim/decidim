@@ -9,18 +9,6 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       helper Decidim::Meetings::ApplicationHelper
-
-      include NeedsPermission
-
-      private
-
-      def permission_class
-        Decidim::Meetings::Permissions
-      end
-
-      def permission_scope
-        :public
-      end
     end
   end
 end

@@ -4,11 +4,11 @@ module Decidim
   module Consultations
     module Admin
       # Controller that allows managing question publications.
-      class QuestionPublicationsController < Decidim::Admin::ApplicationController
+      class QuestionPublicationsController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
         def create
-          authorize! :publish, current_question
+          enforce_permission_to :publish, :question, question: current_question
 
           PublishQuestion.call(current_question) do
             on(:ok) do
@@ -24,7 +24,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :publish, current_question
+          enforce_permission_to :publish, :question, question: current_question
 
           UnpublishConsultation.call(current_question) do
             on(:ok) do
