@@ -313,7 +313,7 @@ nl:
         unsubscribe: Om u af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Als u uw voorkeuren wilt wijzigen, kunt u dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
+        check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
         error: Er is een fout opgetreden bij het afmelden
         success: Je bent succesvol afgemeld.
         token_error: De link is verlopen.
@@ -534,7 +534,7 @@ nl:
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
         debates_count: debatten
-        endorsements_count: Endorsements
+        endorsements_count: Stemmen
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
