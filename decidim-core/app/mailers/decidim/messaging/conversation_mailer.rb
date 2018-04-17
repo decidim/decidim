@@ -42,8 +42,8 @@ module Decidim
 
           mail(to: to.email, subject: subject)
         end
+        # rubocop:enable Naming/UncommunicativeMethodParamName
       end
-      # rubocop:enable Naming/UncommunicativeMethodParamName
     end
   end
 end

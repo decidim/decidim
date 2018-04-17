@@ -15,8 +15,8 @@ module Decidim
       end
 
       it "has a value for each locale" do
-        expect(subject[:en]).to be
-        expect(subject[:ca]).to be
+        expect(subject[:en]).to be_truthy
+        expect(subject[:ca]).to be_truthy
       end
     end
 

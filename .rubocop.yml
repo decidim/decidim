@@ -1167,6 +1167,9 @@ Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: false
   IgnoreEmptyMethods: true
 
+Lint/UnneededDisable:
+  Enabled: false
+
 ##################### Performance ############################
 
 Performance/RedundantMerge:

@@ -42,11 +42,11 @@ module Decidim
       subject { build(:attachment, :with_image) }
 
       it "has a thumbnail" do
-        expect(subject.thumbnail_url).to be
+        expect(subject.thumbnail_url).to be_truthy
       end
 
       it "has a big version" do
-        expect(subject.big_url).to be
+        expect(subject.big_url).to be_truthy
       end
 
       describe "photo?" do
