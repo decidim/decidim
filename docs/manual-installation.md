@@ -59,7 +59,7 @@ git commit -m "Initial commit. Generated with Decidim 0.X https://decidim.org"
 
 ### Configure the database
 
-You need to modify your secrets (see `config/database.yml`). For this you can use [figaro](), [dotenv](https://github.com/bkeepers/dotenv) or [rbenv-vars](https://github.com/rbenv/rbenv-vars). You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.  
+You need to modify your secrets (see `config/database.yml`). For this you can use [figaro](https://github.com/laserlemon/figaro), [dotenv](https://github.com/bkeepers/dotenv) or [rbenv-vars](https://github.com/rbenv/rbenv-vars). You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
 For instance, for working with figaro, add this to your `Gemfile`:
 
