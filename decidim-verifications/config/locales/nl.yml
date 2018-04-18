@@ -12,10 +12,10 @@ nl:
       postal_letter_address:
         full_address: Volledig adres
       postal_letter_confirmation:
-        verification_code: Verificatie code
+        verification_code: Verificatiecode
       postal_letter_postage:
         full_address: Volledig adres
-        verification_code: Verificatie code
+        verification_code: Verificatiecode
   decidim:
     admin:
       menu:
