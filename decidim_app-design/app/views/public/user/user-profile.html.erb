@@ -8,10 +8,24 @@
 <main class="wrapper">
   <div class="row">
     <div class="columns medium-3">
-      <%= render partial: page_path("user") + "/user-profile" %>
+      <%= render partial: page_path("user") + "/user-card" %>
+      <div class="text-center">
+        <button class="button">Edit profile</button>
+      </div>
     </div>
     <div class="columns medium-9">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex alias, distinctio nisi voluptas dolorem veritatis. Odio repudiandae quae commodi culpa veniam assumenda nam minima et, provident. Maxime dolor harum ea!
+      <ul class="tabs" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+        <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Tab 2</a></li>
+      </ul>
+      <div class="tabs-content" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="panel1">
+          <h1>Motherfucking TIMELINE, biaaatch!</h1>
+        </div>
+        <div class="tabs-panel" id="panel2">
+          <h1>Supernafamacho, yo! NOTIFICATIONS, nigga!</h1>
+        </div>
+      </div>
     </div>
   </div>
 </main>
