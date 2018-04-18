@@ -140,7 +140,17 @@ $datetime-bg: $primary;
 .card__image{
   width: 100%;
   max-height: 10rem;
+  min-height: 5rem;
   object-fit: cover;
+
+  &.card__image--smaller{
+    max-height: 5rem;
+  }
+
+  &.card__image--larger{
+    max-height: 20rem;
+    min-height: 10rem;
+  }
 }
 
 /* Card datetime */
