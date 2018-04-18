@@ -90,7 +90,7 @@ module Decidim
       end
 
       def can_view_meeting?(current_user)
-        return true unless try(:is_private?)
+        return true unless is_private?
         return true if is_private? && registrations.exists?(decidim_user_id: current_user.try(:id))
         return false if is_private? && is_transparent?
       end
