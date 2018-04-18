@@ -27,6 +27,11 @@ describe "Proposals", type: :system do
     match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
   end
 
+  matcher :have_creation_date do |date|
+    match { |node| node.has_selector?(".author-data__extra", text: date) }
+    match_when_negated { |node| node.has_no_selector?(".author-data__extra", text: date) }
+  end
+
   context "when viewing a single proposal" do
     let!(:component) do
       create(:proposal_component,
@@ -47,6 +52,7 @@ describe "Proposals", type: :system do
       expect(page).to have_content(proposal.body)
       expect(page).to have_author(proposal.author.name)
       expect(page).to have_content(proposal.reference)
+      expect(page).to have_creation_date(l(proposal.created_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do
