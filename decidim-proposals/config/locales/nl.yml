@@ -363,7 +363,7 @@ nl:
           see_steps: zie stappen
           step_1: Maak je voorstel
           step_2: Vergelijken
-          step_3: Publiceer uw voorstel
+          step_3: Publiceer je voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
       publish:
         error: Er zijn fouten opgetreden bij het publiceren van het voorstel.
@@ -372,8 +372,8 @@ nl:
         error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
       update_draft:
-        error: Er zijn fouten opgetreden bij het opslaan van de conceptopmaak.
-        success: Voorstel concept succesvol bijgewerkt.
+        error: Er zijn fouten opgetreden bij het opslaan van je concept.
+        success: Concept succesvol bijgewerkt.
     resource_links:
       copied_from_component:
         proposal_proposals: Gerelateerde voorstellen
