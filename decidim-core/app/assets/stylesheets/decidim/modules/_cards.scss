@@ -57,6 +57,14 @@ $datetime-bg: $primary;
   }
 }
 
+.card__content--multiple{
+  @extend .card__content;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .card__content--center{
   text-align: center;
 }

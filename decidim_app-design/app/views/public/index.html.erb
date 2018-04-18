@@ -75,7 +75,14 @@
         </ul>
         <h2 class="section-heading">Encuentros</h2>
         <ul>
-          <li><%= link_to "Encuentro", page_path("meetings/meeting-view") %></li>
+          <li>
+            <%= link_to "Encuentro (abierto)", page_path("meetings/meeting-view") %>
+            <ul>
+              <li><%= link_to "Encuentro (cerrado)", page_path("meetings/meeting-view-closed") %></li>
+              <li><%= link_to "Encuentro (personalizado)", page_path("meetings/meeting-view-custom-status") %></li>
+              <li><%= link_to "Encuentro (varios días)", page_path("meetings/meeting-view-longer") %></li>
+            </ul>
+          </li>
           <li>
             <%= link_to "Encuentros - Lista", page_path("meetings/meetings") %>
             <ul>

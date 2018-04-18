@@ -8,7 +8,7 @@ $icon-size-xl: rem-calc(30);
   height: $icon-size;
   fill: currentColor;
 
-  @include modifiers(color);
+  @include modifiers(color, (muted: $muted));
 }
 
 .icon--small{
