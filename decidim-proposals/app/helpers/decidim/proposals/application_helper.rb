@@ -104,15 +104,8 @@ module Decidim
       def identities_xxs(identities)
         identities.collect do |identity|
           author = select_authorship_identity(identity)
-          render partial: "identity_xxs", locals: { identity: author }
+          render partial: "identity_xxs", locals: { identity: identity.normalized_author }
         end.join(", ").html_safe
-      end
-
-      # Public - Selects if the identity for this multi-identity model is a user_group
-      #   or a user author.
-      # @return The authorship for this model, either a user_group or a user.
-      def select_authorship_identity(multiidentity)
-        multiidentity.user_group ? multiidentity.user_group : multiidentity.author
       end
     end
   end
