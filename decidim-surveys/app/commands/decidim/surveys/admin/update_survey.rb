@@ -68,11 +68,11 @@ module Decidim
             if form.deleted?
               record.destroy!
             else
-              record.assign_attributes(attributes)
+              record.update!(attributes)
             end
+          else
+            record.save!
           end
-
-          record.save!
         end
 
         def update_survey
