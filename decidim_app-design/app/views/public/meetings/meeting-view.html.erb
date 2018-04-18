@@ -14,31 +14,19 @@
         <div class="section">
           <%= partial "followme" %>
         </div>
-        <div class="card extra">
+        <div class="card text-center">
           <div class="card__content">
-            <div class="extra__date">
-              20 <span class="extra__month">Agosto</span>
+            <div class="extra__date">20 <span class="extra__month text-small">Agosto</span></div>
+            <div class="extra__time text-small"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></div>
+          </div>
+          <div class="card__footer p-s">
+            <div class="flex--fsc">
+              <%= icon "meetings", class: "icon--large alert" %>
+              <div class="text-left text-compact ml-s">
+                <strong><%= Faker::Address.community %></strong><br />
+                <span class="text-small"><%= Faker::Address.street_address %>&nbsp;(<a href=""><u>map</u></a>)</span>
+              </div>
             </div>
-            <div class="extra__time">
-              16:00 - 18:00
-            </div>
-            <button class="button expanded button--sc" data-open="debate-info">
-              Voy a ir</button>
-          </div>
-        </div>
-        <div class="card card--secondary extra definition-data">
-          <div class="definition-data__item definition-data__item--double">
-            <span class="definition-data__title">Assistents</span>
-            <span class="definition-data__number">8</span>
-          </div>
-          <div class="definition-data__item definition-data__item--double">
-            <span class="definition-data__title">Intervencions</span>
-            <span class="definition-data__number">25</span>
-          </div>
-          <div class="definition-data__item">
-            <span class="definition-data__title">Organitzacions participants</span>
-            <span class="definition-data__text">Arcàdia, La Col, Impuls,
-              Comissionat d'Economia cooperativa, social i solidària.</span>
           </div>
         </div>
         <%= partial "share" %>
