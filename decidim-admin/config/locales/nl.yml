@@ -124,8 +124,8 @@ nl:
         slug: URL slug
         title: Titel
       doorkeeper/application:
-        authorize_url: Autoriseer URL
-        client_id: Client ID
+        authorize_url: Autorisatie URL
+        client_id: Klant-ID
         client_secret: Client Secret
         organization_name: Organisatie naam
         organization_url: Organisatie-URL
