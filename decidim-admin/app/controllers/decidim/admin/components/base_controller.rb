@@ -19,7 +19,7 @@ module Decidim
         helper_method :current_component,
                       :current_participatory_space,
                       :parent_path
-                      
+
         helper_method :current_participatory_space_manifest
 
         before_action except: [:index, :show] do
@@ -42,9 +42,7 @@ module Decidim
           @parent_path ||= EngineRouter.admin_proxy(current_participatory_space).components_path
         end
 
-        def current_participatory_space_manifest
-          current_participatory_space.manifest
-        end
+        delegate :manifest, to: :current_participatory_space, prefix: true
       end
     end
   end

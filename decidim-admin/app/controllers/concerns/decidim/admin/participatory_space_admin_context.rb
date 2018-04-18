@@ -39,7 +39,7 @@ module Decidim
         end
 
         def current_participatory_space_manifest
-          @current_participatory_space_manifest ||= 
+          @current_participatory_space_manifest ||=
             Decidim.find_participatory_space_manifest(current_participatory_space_manifest_name)
         end
 
@@ -68,7 +68,7 @@ module Decidim
         def space_is_active?
           return true if current_participatory_space_manifest.space_for(current_organization).active?
 
-          raise ActionController::RoutingError.new("Space is not active")
+          raise ActionController::RoutingError, "Space is not active"
         end
       end
     end
