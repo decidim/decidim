@@ -133,7 +133,7 @@ nl:
         actions:
           bar: Bar
           foo: Foo
-        name: Dummy component
+        name: Dummy onderdeel
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
