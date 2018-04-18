@@ -534,7 +534,7 @@ nl:
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
         debates_count: debatten
-        endorsements_count: Stemmen
+        endorsements_count: Goedkeuringen
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
