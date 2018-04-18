@@ -161,7 +161,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       areas:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw thema.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina met succes aangemaakt.
         destroy:
           success: Pagina met succes verwijderd
