@@ -23,7 +23,7 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
 
   ```rb
   s.add_dependency "cells-erb", "~> 0.1.0"
-  s.add_dependency "cells-rails", "~> 0.0.8"
+  s.add_dependency "cells-rails", "~> 0.0.9"
   ```
 
 - **autoload** view_model to module `decidim-<module>/lib/decidim/<module>.rb`
