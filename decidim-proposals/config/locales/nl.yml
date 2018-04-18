@@ -8,20 +8,20 @@ nl:
         category_id: Categorie
         has_address: Heeft adres
         scope_id: Reikwijdte
-        state: Staat
+        state: Status
         title: Titel
         user_group_id: Maak een voorstel als
       proposal_answer:
         answer: Antwoord
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
-        origin_component_id: Component om de voorstellen van te kopiëren
+        origin_component_id: Onderdeel om de voorstellen te kopiëren van
   decidim:
     components:
       proposals:
         actions:
           create: creëren
-          endorse: Onderschrijven
+          endorse: Steunen
           vote: Stemmen
           withdraw: terugtrekken
         name: voorstellen
@@ -33,8 +33,8 @@ nl:
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
             new_proposal_help_text: Nieuwe voorgestelde hulptekst
-            official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
-            proposal_answering_enabled: Voorstelantwoord ingeschakeld
+            official_proposals_enabled: Officiële voorstellen zijn toegestaan
+            proposal_answering_enabled: Voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
             proposal_length: Maximale lengte van het voorstel
             proposal_limit: Voorstellimiet per gebruiker
