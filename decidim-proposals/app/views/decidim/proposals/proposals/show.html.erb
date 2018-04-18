@@ -8,6 +8,7 @@
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <%= cell "decidim/author_box", present(@proposal).author, extra: (capture do %>
+      <span><%= l @proposal.created_at, format: :decidim_short %></span>
       <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
         <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
       </button>
