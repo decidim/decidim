@@ -367,7 +367,7 @@ nl:
           name: Nieuwsbrief
         oauth_application:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
@@ -462,13 +462,13 @@ nl:
           success: Applicatie succesvol bijgewerkt.
       officializations:
         create:
-          success: Gebruiker officieel gelukt
+          success: Gebruiker officieel goedgekeurd
         destroy:
-          success: Gebruiker nietofficieel succesvol
+          success: Gebruiker nietofficieel goedgekeurd
         index:
           actions: acties
           badge: insigne
-          created_at: Gemaakt bij
+          created_at: Aangemaakt op
           filter:
             all: Alle
             not_officialized: Niet officieel
@@ -479,14 +479,14 @@ nl:
           not_officialized: Niet officieel
           officialize: officialiseren
           officialized: geofficialiseerd
-          reofficialize: Reofficialize
+          reofficialize: Herofficialiseren
           search: Zoeken
-          status: staat
-          unofficialize: Unofficialize
+          status: status
+          unofficialize: Onofficieel
         new:
-          badge: Officificatiebadge
+          badge: Officiële badge
           officialize: officialiseren
-          title: Officiëren gebruiker "%{name}"
+          title: Officialiseren gebruiker "%{name}"
       organization:
         edit:
           title: Organisatie bewerken
@@ -510,7 +510,7 @@ nl:
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
-          homepage_highlighted_content_banner_title: Highligted inhoudsbanner
+          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerken alomtegenwoordig
       participatory_space_private_users:
