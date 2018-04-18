@@ -7,7 +7,6 @@ describe "Orders", type: :system do
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -18,6 +17,8 @@ describe "Orders", type: :system do
   end
 
   context "when the user is not logged in" do
+    let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
+
     it "is given the option to sign in" do
       visit_component
 
@@ -30,6 +31,8 @@ describe "Orders", type: :system do
   end
 
   context "when the user is logged in" do
+    let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
+
     before do
       login_as user, scope: :user
     end
@@ -216,6 +219,38 @@ describe "Orders", type: :system do
           expect(page).to have_content("1 SUPPORT")
         end
       end
+    end
+  end
+
+  describe "index" do
+    it "respects the projects_per_page setting when under total projects" do
+      component.update!(settings: { projects_per_page: 1 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 1)
+    end
+
+    it "respects the projects_per_page setting when it matches total projects" do
+      component.update!(settings: { projects_per_page: 2 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
+    end
+
+    it "respects the projects_per_page setting when over total projects" do
+      component.update!(settings: { projects_per_page: 3 })
+
+      create_list(:project, 2, component: component)
+
+      visit_component
+
+      expect(page).to have_selector("[id^=project-]", count: 2)
     end
   end
 
