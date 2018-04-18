@@ -24,6 +24,14 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "creating a managed user" do
+    before do
+      navigate_to_impersonations_page
+
+      click_link "Impersonate new managed user"
+
+      fill_in_the_impersonation_form(document_number, name: "Rigoberto")
+    end
+
     it "shows a success message" do
       expect(page).to have_content("successfully")
     end
@@ -41,6 +49,30 @@ shared_examples "manage impersonations examples" do
     end
   end
 
+  shared_context "with multiple authorization handlers" do
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler another_dummy_authorization_handler)
+    end
+
+    let(:another_dummy_authorization_handler) do
+      Class.new(Decidim::AuthorizationHandler) do
+        attribute :passport_number, String
+      end
+    end
+
+    before do
+      stub_const("Decidim::AnotherDummyAuthorizationHandler", another_dummy_authorization_handler)
+
+      Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
+        workflow.form = "Decidim::AnotherDummyAuthorizationHandler"
+      end
+    end
+
+    after do
+      Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
+    end
+  end
+
   shared_examples_for "impersonating a user" do
     it "can impersonate the user filling in the correct authorization" do
       expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
@@ -48,6 +80,8 @@ shared_examples "manage impersonations examples" do
     end
 
     context "when performing an authorized action" do
+      include_context "with multiple authorization handlers"
+
       let(:participatory_space) do
         create(:participatory_process, organization: organization)
       end
@@ -118,63 +152,26 @@ shared_examples "manage impersonations examples" do
   end
 
   context "when a single authorization handler enabled" do
-    before do
-      navigate_to_impersonations_page
-
-      click_link "Impersonate new managed user"
-    end
-
-    context "and submitting the form" do
-      before do
-        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
-      end
-
-      it_behaves_like "creating a managed user"
-    end
+    it_behaves_like "creating a managed user"
 
     it "does not offer authorization handler selection" do
+      navigate_to_impersonations_page
+      click_link "Impersonate new managed user"
+
       expect(page).not_to have_select("Authorization method")
     end
   end
 
   context "when more than one authorization handler enabled" do
-    let(:available_authorizations) do
-      %w(dummy_authorization_handler another_dummy_authorization_handler)
-    end
+    include_context "with multiple authorization handlers"
 
-    let(:another_dummy_authorization_handler) do
-      Class.new(Decidim::AuthorizationHandler) do
-        attribute :passport_number, String
-      end
-    end
+    it_behaves_like "creating a managed user"
 
-    before do
-      stub_const("Decidim::AnotherDummyAuthorizationHandler", another_dummy_authorization_handler)
-
-      Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
-        workflow.form = "Decidim::AnotherDummyAuthorizationHandler"
-      end
-
+    it "allows selecting the preferred authorization handler" do
       navigate_to_impersonations_page
 
       click_link "Impersonate new managed user"
-    end
-
-    after do
-      Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
-    end
-
-    context "and submitting the form" do
-      before do
-        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
-      end
-
-      it_behaves_like "creating a managed user"
-    end
-
-    it "allows selecting the preferred authorization handler" do
       expect(page).to have_select("Authorization method")
-
       expect(page).to have_field("Document number").and have_no_field("Passport number")
 
       select "Another example authorization", from: "Authorization method"
@@ -242,17 +239,7 @@ shared_examples "manage impersonations examples" do
     let!(:managed_user) { create(:user, :managed, name: "Rigoberto", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
-    context "when using the create managed user form" do
-      before do
-        navigate_to_impersonations_page
-
-        click_link "Impersonate new managed user"
-
-        fill_in_the_impersonation_form(document_number, name: "Rigoberto")
-      end
-
-      it_behaves_like "creating a managed user"
-    end
+    it_behaves_like "creating a managed user"
 
     it "can promote users inviting them to the application" do
       navigate_to_impersonations_page
