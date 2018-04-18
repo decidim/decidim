@@ -24,7 +24,7 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Debatcreatie door gebruikers ingeschakeld
+            creation_enabled: Het is niet mogelijk voor gebruikers om een debat aan te maken
     debates:
       actions:
         confirm_destroy: Weet je het zeker?
@@ -102,7 +102,7 @@ nl:
           fields:
             end_time: Einddatum
             official_debate: Officieel debat
-            start_time: Begin datum
+            start_time: Begindatum
             title: Titel
     events:
       debates:
@@ -111,22 +111,22 @@ nl:
             email_intro: |-
               Hallo, 
               Er is een nieuw debat gestart in de %{space_title} participatieve ruimte, bekijk het en neem deel:
-            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
             email_subject: Nieuw debat in %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hallo, %{author_name} %{author_nickname}, iemand wie je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:
-            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de vorige link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
           email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: Het aanmaken van een debat is gedeactiveerd %{participatory_space_title}
           notification_title: Je kan niet langer een debat aanmaken in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Je kan nu nieuwe debatten aanmaken in %{participatory_space_title}! Start jouw deelname op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
           notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
