@@ -1,7 +1,3 @@
-// = require ./auto_label_by_position.component
-// = require ./auto_buttons_by_position.component
-// = require ./dynamic_fields.component
-
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
@@ -49,13 +45,13 @@
     removeFieldButtonSelector: ".remove-service",
     moveUpFieldButtonSelector: ".move-up-service",
     moveDownFieldButtonSelector: ".move-down-service",
-    onAddField: ($field) => {
+    onAddField: () => {
       createSortableList();
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
     },
-    onRemoveField: ($field) => {
+    onRemoveField: () => {
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
     },
