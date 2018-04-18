@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Thema
+        area_type: Pagina
         name: Naam
         organization: Organisatie
       area_type:
@@ -146,35 +146,35 @@ nl:
         verify: Verifiëren
       area_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw thema.
-          success: Thema met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes gemaakt.
         destroy:
-          success: Thema met succes verwijderd
+          success: Pagina met succes verwijderd
         edit:
           title: Gebiedstype bewerken
           update: Bijwerken
         new:
-          create: Maak een thema
-          title: Nieuw thema
+          create: Maak een pagina
+          title: Nieuwe pagina
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit thema.
-          success: Gebiedstype is succesvol bijgewerkt
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina is succesvol bijgewerkt
       areas:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw thema.
-          success: Gebied met succes gemaakt.
+          success: Pagina met succes aangemaakt.
         destroy:
-          success: Thema met succes verwijderd
+          success: Pagina met succes verwijderd
         edit:
-          title: Thema bewerken
+          title: Pagina bewerken
           update: Bijwerken
         new:
-          create: Maak een thema
-          title: Nieuw thema
-        no_areas: Geen thema's
+          create: Maak een pagina
+          title: Nieuwe pagina
+        no_areas: Geen pagina's
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit gebied.
-          success: Thema met succes bijgewerkt
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
