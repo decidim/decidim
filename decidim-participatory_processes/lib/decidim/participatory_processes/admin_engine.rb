@@ -89,14 +89,14 @@ module Decidim
                     icon_name: "target",
                     position: 2,
                     active: :inclusive,
-                    if: can?(:read, Decidim::ParticipatoryProcess)
+                    if: can?(:read, Decidim::ParticipatoryProcess) && Decidim.find_participatory_space_manifest(:participatory_processes).space_for(current_organization).active?
 
           menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
                     decidim_admin_participatory_processes.participatory_process_groups_path,
                     icon_name: "layers",
                     position: 3,
                     active: :inclusive,
-                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
+                    if: can?(:read, Decidim::ParticipatoryProcessGroup)  && Decidim.find_participatory_space_manifest(:participatory_processes).space_for(current_organization).active?
         end
       end
     end
