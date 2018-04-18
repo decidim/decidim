@@ -19,15 +19,28 @@
             <div class="extra__date">20 <span class="extra__month text-small">Agosto</span></div>
             <div class="extra__time text-small"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></div>
           </div>
-          <div class="card__footer p-s">
-            <div class="flex--fsc">
-              <%= icon "meetings", class: "icon--large alert" %>
-              <div class="text-left text-compact ml-s">
-                <strong><%= Faker::Address.community %></strong><br />
-                <span class="text-small"><%= Faker::Address.street_address %>&nbsp;(<a href=""><u>map</u></a>)</span>
+          <div class="card__footer">
+            <div class="card--widget card--widget__list">
+              <div class="card--list__item p-s">
+                <%= icon "meetings", class: "icon--large alert" %>
+                <div class="text-left text-compact ml-s">
+                  <strong><%= Faker::Address.community %></strong><br />
+                  <span class="text-small"><%= Faker::Address.street_address %>&nbsp;(<a href=""><u>map</u></a>)</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div class="card card--widget card--widget__list">
+          <% 3.times do %>
+            <div class="card--list__item p-s">
+              <%= icon "actions", class: "icon--large success" %>
+              <div class="text-left text-compact ml-s">
+                <strong class="text-uppercase"><%= Faker::Company.buzzword %></strong><br />
+                <span class="text-small"><%= Faker::Company.catch_phrase %></span>
+              </div>
+            </div>
+          <% end %>
         </div>
         <%= partial "share" %>
       </div>

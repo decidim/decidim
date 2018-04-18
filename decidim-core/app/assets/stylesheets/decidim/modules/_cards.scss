@@ -838,6 +838,19 @@ $datetime-bg: $primary;
     }
   }
 
+  &.card--widget__list{
+    @extend .card--list;
+
+    .card--list__item{
+      padding-left: $global-padding;
+
+      > :first-child{
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+    }
+  }
+
   &:not(:last-child){
     margin-bottom: $global-margin;
   }
