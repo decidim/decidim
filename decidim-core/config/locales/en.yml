@@ -376,6 +376,11 @@ en:
     searches:
       filters:
         search: Search
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
     shared:
       action_authorization_modal:
         expired:
