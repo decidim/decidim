@@ -9,7 +9,7 @@ nl:
         about: Over
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Uw korte unieke ID
+        nickname: Jouw korte unieke ID
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         personal_url: Persoonlijke URL
@@ -57,22 +57,22 @@ nl:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       area:
-        create: "%{user_name} heeft het gebied %{resource_name} gemaakt"
-        delete: "%{user_name} heeft het gebied %{resource_name} verwijderd"
-        update: "%{user_name} heeft het gebied %{resource_name} bijgewerkt"
+        create: "%{user_name} heeft de ruimte %{resource_name} gemaakt"
+        delete: "%{user_name} heeft de ruimte %{resource_name} verwijderd"
+        update: "%{user_name} heeft de ruimte %{resource_name} bijgewerkt"
       component:
-        create: "%{user_name} voegde de %{resource_name} component toe aan de %{space_name} spatie"
-        delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} spatie verwijderd"
-        publish: "%{user_name} heeft de %{resource_name} component in de %{space_name} spatie gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} component uit de %{space_name} spatie"
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
+        delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
+        publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
+        unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
-        unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+        unreport: "%{user_name} heeft een hulpbron van het type %{resource_type} in de %{space_name} ruimte niet gerapporteerd"
       newsletter:
         create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
-        delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
-        deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
-        update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+        delete: "%{user_name} heeft de %{resource_name} nieuwsbrief verwijderd"
+        deliver: "%{user_name} de %{resource_name} nieuwsbrief geleverd"
+        update: "%{user_name} heeft de %{resource_name} nieuwsbrief bijgewerkt"
       oauth_application:
         create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
         delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
@@ -82,7 +82,7 @@ nl:
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
-        delete: "%{user_name} heeft de bereik %{resource_name} verwijderd"
+        delete: "%{user_name} heeft het bereik %{resource_name} verwijderd"
         delete_with_parent: "%{user_name} verwijderde het bereik %{resource_name} binnen de scope bereik %{parent_scope}"
         update: "%{user_name} heeft het bereik %{resource_name} bijgewerkt"
         update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen de bereikbereik %{parent_scope} bijgewerkt"
