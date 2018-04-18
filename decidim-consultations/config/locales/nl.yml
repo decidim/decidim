@@ -30,7 +30,7 @@ nl:
         subtitle: subtitel
         title: Titel
         vote: Extern stemsysteem
-        what_is_decided: Wat wordt besloten
+        what_is_decided: Wat is besloten
     errors:
       vote:
         decidim_consultations_response_id:
@@ -39,14 +39,14 @@ nl:
     admin:
       actions:
         publish_results: Publiceer resultaten
-        unpublish_results: Publicatie van publicatie ongedaan maken
+        unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit consult.
+          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomst.
           success: Overleg succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van dit consult.
-          success: Overleg ongepubliceerd.
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze consult.
+          success: Publicatie van de consult succesvol ongedaan gemaakt.
       consultation_results_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit consult.
@@ -80,7 +80,7 @@ nl:
           info: Informatie
           questions: vragen
         questions_submenu:
-          components: Components
+          components: Onderdelen
           consultation: Overleg
           info: Informatie
           responses: Antwoorden
@@ -95,7 +95,7 @@ nl:
             other: overleg
         question:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             published: Gepubliceerd
             title: Titel
           name:
@@ -103,7 +103,7 @@ nl:
             other: vragen
         response:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             title: Titel
           name:
             one: antwoord
@@ -113,8 +113,8 @@ nl:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
           success: Vraag met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van deze vraag.
-          success: Vraag ongepubliceerd met succes.
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze vraag.
+          success: Publicatie van de vraag succesvol ongedaan gemaakt.
       questions:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe vraag.
