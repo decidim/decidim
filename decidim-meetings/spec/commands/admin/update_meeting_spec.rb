@@ -14,6 +14,21 @@ module Decidim::Meetings
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
+    let(:services) do
+      [
+        {
+          "title" => { "en" => "First service" },
+          "description" => { "en" => "First description" }
+        },
+        {
+          "title" => { "en" => "Second service" },
+          "description" => { "en" => "Second description" }
+        }
+      ]
+    end
+    let(:services_to_persist) do
+      services.map { |service| Admin::MeetingServiceForm.from_params(service) }
+    end
     let(:user) { create :user, :admin }
     let(:form) do
       double(
@@ -29,6 +44,7 @@ module Decidim::Meetings
         address: address,
         latitude: latitude,
         longitude: longitude,
+        services_to_persist: services_to_persist,
         current_user: user
       )
     end
@@ -63,6 +79,11 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
+      it "sets the services" do
+        subject.call
+        expect(meeting.services).to eq(services)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
@@ -94,6 +115,7 @@ module Decidim::Meetings
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
+            services_to_persist: services_to_persist,
             current_user: user
           )
         end
