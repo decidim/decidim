@@ -8,7 +8,6 @@ PATH
       decidim-assemblies (= 0.11.0.pre)
       decidim-budgets (= 0.11.0.pre)
       decidim-comments (= 0.11.0.pre)
-      decidim-consultations (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       decidim-debates (= 0.11.0.pre)
       decidim-meetings (= 0.11.0.pre)
@@ -47,10 +46,6 @@ PATH
     decidim-comments (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       jquery-rails (~> 4.0)
-    decidim-consultations (0.11.0.pre)
-      decidim-admin (= 0.11.0.pre)
-      decidim-comments (= 0.11.0.pre)
-      decidim-core (= 0.11.0.pre)
     decidim-core (0.11.0.pre)
       active_link_to (~> 1.0)
       autoprefixer-rails (~> 8.0)
@@ -165,6 +160,14 @@ PATH
     decidim-verifications (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
 
+PATH
+  remote: decidim-consultations
+  specs:
+    decidim-consultations (0.11.0.pre)
+      decidim-admin (= 0.11.0.pre)
+      decidim-comments (= 0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,7 +215,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.2.0)
+    autoprefixer-rails (8.3.0)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -233,8 +236,8 @@ GEM
       smart_properties
     bindex (0.5.0)
     builder (3.2.3)
-    byebug (10.0.0)
-    cancancan (2.1.4)
+    byebug (10.0.2)
+    cancancan (2.2.0)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -292,7 +295,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.6.1)
+    devise-i18n (1.6.2)
       devise (>= 4.4)
     devise_invitable (1.7.4)
       actionmailer (>= 4.1.0)
@@ -395,7 +398,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.6.0)
       launchy (~> 2.2)
-    letter_opener_web (1.3.3)
+    letter_opener_web (1.3.4)
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
@@ -452,7 +455,7 @@ GEM
       activerecord (>= 4.2, < 5.2)
       request_store (~> 1.1)
     parallel (1.12.1)
-    parser (2.5.0.5)
+    parser (2.5.1.0)
       ast (~> 2.4.0)
     pg (1.0.0)
     polyamorous (1.3.3)
@@ -466,7 +469,7 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.2)
-    puma (3.11.3)
+    puma (3.11.4)
     rack (2.0.4)
     rack-cors (1.0.2)
     rack-test (1.0.0)
@@ -560,7 +563,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    rubocop-rspec (1.25.0)
+    rubocop-rspec (1.25.1)
       rubocop (>= 0.53.0)
     ruby-ole (1.2.12.1)
     ruby-progressbar (1.9.0)
@@ -622,10 +625,10 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.1.7)
+    uglifier (4.1.9)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
-    valid_email2 (2.2.2)
+    valid_email2 (2.2.3)
       activemodel (>= 3.2)
       mail (~> 2.5)
     virtus (1.0.5)
@@ -635,7 +638,7 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.5.1)
+    web-console (3.6.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -660,6 +663,7 @@ PLATFORMS
 DEPENDENCIES
   byebug (~> 10.0)
   decidim!
+  decidim-consultations!
   decidim-dev!
   decidim-initiatives!
   faker (~> 1.8)

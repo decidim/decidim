@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "a proposal form" do
+shared_examples "a proposal form" do |options|
   subject { form }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
@@ -9,6 +9,7 @@ shared_examples "a proposal form" do
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }
   let(:author) { create(:user, organization: organization) }
+  let(:user_group_id) { create(:user_group, :verified, users: [author], organization: organization).id }
   let(:category) { create(:category, participatory_space: participatory_space) }
   let(:scope) { create(:scope, organization: organization) }
   let(:category_id) { category.try(:id) }
@@ -172,6 +173,14 @@ shared_examples "a proposal form" do
     proposal = create(:proposal, component: component, category: category)
 
     expect(described_class.from_model(proposal).category_id).to eq(category_id)
+  end
+
+  if options && options[:user_group_check]
+    it "properly maps user group id from model" do
+      proposal = create(:proposal, component: component, author: author, decidim_user_group_id: user_group_id)
+
+      expect(described_class.from_model(proposal).user_group_id).to eq(user_group_id)
+    end
   end
 
   context "when the attachment is present" do

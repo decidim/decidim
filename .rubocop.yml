@@ -1197,6 +1197,7 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
+    - spec/bundle_spec.rb
     - spec/i18n_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb
@@ -1232,3 +1233,5 @@ RSpec/NamedSubject:
 
 RSpec/VerifiedDoubles:
   Enabled: false
+
+inherit_from: .rubocop_rails.yml
