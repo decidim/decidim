@@ -117,6 +117,20 @@ module Decidim
         end
       end
 
+      describe "ordering" do
+        context "when searchables are from the future"
+        context "when searchables are from the past"
+        context "when searchables are from the future and the past" do
+          it "returns matches sorted by date descendently" do
+            expect(true).to be(false)
+# To be able to sort results temporarily I'm adding a new date attribute to components.
+# I propose:
+#   Proposals date: published_at
+#   Meetings date: start_time
+          end
+        end
+        
+      end
       describe "when filtering" do
         let(:term) { "king nothing" }
         let(:scope) { create(:scope, organization: current_organization) }
