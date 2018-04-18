@@ -26,6 +26,13 @@ FactoryBot.define do
     decidim_highlighted_scope_id { create(:scope, organization: organization).id }
     results_published_at nil
 
+    after(:create) do |consultation, evaluator|
+      space = Decidim::ParticipatorySpace
+        .find_or_create_by(organization: consultation.organization, manifest_name: :consultations)
+      space.activate!
+      space.publish!
+    end
+
     trait :unpublished do
       published_at nil
     end

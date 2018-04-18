@@ -31,6 +31,13 @@ FactoryBot.define do
     start_date { Time.current }
     end_date { 2.months.from_now.at_midnight }
 
+    after(:create) do |participatory_process, evaluator|
+      space = Decidim::ParticipatorySpace
+        .find_or_create_by(organization: participatory_process.organization, manifest_name: :participatory_processes)
+      space.activate!
+      space.publish!
+    end
+
     trait :promoted do
       promoted true
     end
