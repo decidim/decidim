@@ -61,3 +61,8 @@
   @include flex;
   @include flex-align($x: justify, $y: bottom);
 }
+
+.scroll{
+  max-height: 50vh;
+  overflow-y: scroll;
+}
