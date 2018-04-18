@@ -63,15 +63,15 @@ nl:
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
-          email_intro: "%{author_name} heeft je reactie gereageerd in %{resource_title}. Je kan het lezen op deze pagina:"
-          email_outro: U hebt deze melding ontvangen omdat uw reactie is beantwoord.
-          email_subject: "%{author_name} heeft je reactie gereageerd in %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft je reactie gereageerd in <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} heeft gereageerd op jouw opmerking in %{resource_title}. Lees het via deze link:"
+          email_outro: Je hebt deze melding ontvangen omdat je reactie is beantwoord.
+          email_subject: "%{author_name} heeft op je comment gereageerd in %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je opmerking in <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
-          email_intro: Je bent genoemd
-          email_outro: Je hebt deze melding ontvangen omdat je bent genoemd in %{resource_title}.
-          email_subject: U bent genoemd in %{resource_title}
-          notification_title: Je bent genoemd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Iemand heeft je getagd
+          email_outro: Je hebt deze melding ontvangen omdat je bent getagd in %{resource_title}.
+          email_subject: Je bent getagd in %{resource_title}
+          notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: Kan geen reacties hebben
