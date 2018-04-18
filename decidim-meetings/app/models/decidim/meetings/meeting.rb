@@ -89,7 +89,7 @@ module Decidim
         return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
       end
 
-      def can_view_meeting?(current_user)
+      def can_participate_meeting?(current_user)
         return true unless is_private?
         return true if is_private? && registrations.exists?(decidim_user_id: current_user.try(:id))
         return false if is_private? && is_transparent?

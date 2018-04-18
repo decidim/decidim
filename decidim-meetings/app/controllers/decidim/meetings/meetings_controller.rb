@@ -57,8 +57,16 @@ module Decidim
         { component: current_component, organization: current_organization }
       end
 
+      def current_user_can_visit_meeting?
+        (meeting.try(:is_private?) &&
+         meeting.registrations.exists?(decidim_user_id: current_user.try(:id))) ||
+          !meeting.try(:is_private?) ||
+          (meeting.try(:is_private?) &&
+          meeting.try(:is_transparent?))
+      end
+
       def check_current_user_can_visit_meeting
-        return if meeting.can_view_meeting?(current_user)
+        return if current_user_can_visit_meeting?
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
         redirect_to action: "index"
       end
