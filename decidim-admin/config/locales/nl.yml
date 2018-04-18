@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Pagina
+        area_type: Pagina soort
         name: Naam
         organization: Organisatie
       area_type:
@@ -315,8 +315,8 @@ nl:
         admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Thema
-        areas: Thema's
+        area_types: Pagina soorten
+        areas: Pagina's
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -332,7 +332,7 @@ nl:
       models:
         area:
           fields:
-            area_type: Soort gebied
+            area_type: Pagina soort
             name: Naam
         area_type:
           fields:
@@ -574,8 +574,8 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Beheerderslog
-        area_types: Thema's
-        areas: gebieden
+        area_types: Pagina soorten
+        areas: Pagina's
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
