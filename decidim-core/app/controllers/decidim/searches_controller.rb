@@ -36,7 +36,7 @@ module Decidim
     end
 
     def term
-      @term ||= params[:term]
+      @term ||= filter_params[:term]
     end
 
     def filters
