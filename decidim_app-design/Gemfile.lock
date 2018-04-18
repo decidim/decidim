@@ -1,4 +1,12 @@
 PATH
+  remote: ../decidim-consultations
+  specs:
+    decidim-consultations (0.11.0.pre)
+      decidim-admin (= 0.11.0.pre)
+      decidim-comments (= 0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
+
+PATH
   remote: ..
   specs:
     decidim (0.11.0.pre)
@@ -197,7 +205,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.2.0)
+    autoprefixer-rails (8.3.0)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -216,9 +224,10 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
+    bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.0)
-    cancancan (2.1.4)
+    cancancan (2.2.0)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -276,7 +285,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.6.1)
+    devise-i18n (1.6.2)
       devise (>= 4.4)
     devise_invitable (1.7.4)
       actionmailer (>= 4.1.0)
@@ -375,6 +384,14 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.6.0)
+      launchy (~> 2.2)
+    letter_opener_web (1.3.4)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -601,7 +618,7 @@ GEM
     uglifier (4.1.7)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
-    valid_email2 (2.2.2)
+    valid_email2 (2.2.3)
       activemodel (>= 3.2)
       mail (~> 2.5)
     virtus (1.0.5)
@@ -611,6 +628,11 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
+    web-console (3.6.0)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
     webmock (3.3.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -627,14 +649,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  byebug (~> 10.0)
   decidim!
+  decidim-consultations!
   decidim-dev!
-  faker
-  listen (>= 3.0.5, < 3.2)
-  puma (~> 3.7)
-  spring-watcher-listen (~> 2.0.0)
-  uglifier (>= 1.3.0)
+  faker (~> 1.8)
+  letter_opener_web (~> 1.3)
+  listen (~> 3.1)
+  puma (~> 3.0)
+  spring (~> 2.0)
+  spring-watcher-listen (~> 2.0)
+  uglifier (~> 4.1)
+  web-console (~> 3.5)
+
+RUBY VERSION
+   ruby 2.5.0p0
 
 BUNDLED WITH
    1.16.1
