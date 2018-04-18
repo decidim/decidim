@@ -82,7 +82,7 @@ nl:
           close_modal: Modal sluiten
           filter: Filter
           filter_by: Filteren op
-          unfold: Ontvouwen
+          unfold: Uitvouwen
         index:
           new_debate: Nieuw debat
         new:
@@ -96,7 +96,7 @@ nl:
           share_link: Deel link
         show:
           comments: Comments
-          report: Verslag doen van
+          report: Rapporteren
       models:
         debate:
           fields:
