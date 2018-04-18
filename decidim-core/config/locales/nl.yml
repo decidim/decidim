@@ -186,10 +186,10 @@ nl:
           by_organization_link_html: <small class="heading-small">door %{link}</small>
           cancel: Annuleer
           connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
-          publish_content: Publiceer inhoud voor u
-          see_email: Zie uw e-mail
-          see_name: Zie je naam
-          see_username: Zie je gebruikersnaam
+          publish_content: Publiceer inhoud voor jou
+          see_email: Bekijk jouw e-mail
+          see_name: Bekijk jouw naam
+          see_username: Bekijk je gebruikersnaam
           this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
           this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
           update_profile: update je profiel
@@ -206,15 +206,15 @@ nl:
       attachments:
         attachment_created:
           email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kan het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: Een update voor %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt de meldingen uitschakelen door het volgen van de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door het volgen van de vorige link.
           email_subject: Een update van %{participatory_space_title}
-          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Het %{resource_title} onderdeel is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
@@ -225,8 +225,8 @@ nl:
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
+          email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       export:
@@ -258,21 +258,21 @@ nl:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
         create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
-        delete: "%{user_name} verwijderd %{resource_name}"
-        delete_with_space: "%{user_name} verwijderd %{resource_name} in %{space_name}"
-        unknown_action: "%{user_name} voerde wat actie uit op %{resource_name}"
-        unknown_action_with_space: "%{user_name} voerde wat actie uit op %{resource_name} in %{space_name}"
-        update: "%{user_name} bijgewerkt %{resource_name}"
-        update_with_space: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
+        delete: "%{user_name} heeft %{resource_name} verwijderd"
+        delete_with_space: "%{user_name} heeft %{resource_name}  verwijderd in %{space_name}"
+        unknown_action: "%{user_name} voerde eeb actie uit op %{resource_name}"
+        unknown_action_with_space: "%{user_name} voerde een actie uit op %{resource_name} in %{space_name}"
+        update: "%{user_name} heeft %{resource_name} bijgewerkt"
+        update_with_space: "%{user_name} heeft %{resource_name} bijgewerkt in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+          not_found: 'De pagina is niet gevonden in de database (ID: %{id})'
         area_type_presenter:
-          not_found: 'Het gebiedstype is niet gevonden in de database (ID: %{id})'
+          not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
+          not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
     menu:
@@ -339,7 +339,7 @@ nl:
     profile:
       deleted: Verwijderde gebruiker
     profiles:
-      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
+      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         about_me: Over mij
         personal_url: Persoonlijke website
@@ -425,7 +425,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
-        nickname_help: Uw unieke ID in %{organization}.
+        nickname_help: Jouw unieke ID in %{organization}.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -435,10 +435,10 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Je kunt het accepteren via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via de onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-gebruiker van %{application}, je kunt het accepteren via de onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan het accepteren via de onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
