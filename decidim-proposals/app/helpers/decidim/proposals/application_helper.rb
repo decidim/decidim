@@ -103,7 +103,6 @@ module Decidim
 
       def identities_xxs(identities)
         identities.collect do |identity|
-          author = select_authorship_identity(identity)
           render partial: "identity_xxs", locals: { identity: identity.normalized_author }
         end.join(", ").html_safe
       end
