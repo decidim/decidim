@@ -12,20 +12,20 @@ nl:
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Loting
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
     events:
       sortitions:
         sortition_created:
-          email_intro: De sortering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die u volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: De sortering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: Nieuwe sortering toegevoegd aan %{participatory_space_title}
           notification_title: De sortering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Lotingen
     sortitions:
       admin:
         actions:
@@ -41,7 +41,7 @@ nl:
               decidim_proposals_component: Voorstellen component
               dice: Dobbelsteen
               reference: Referentie
-              request_timestamp: Teken tijd
+              request_timestamp: Tekentijd
               seed: Zaad
               target_items: Te selecteren items
               title: Titel
@@ -57,7 +57,7 @@ nl:
             error: Er is een fout opgetreden bij het maken van een nieuwe sortering.
             success: Sortering succesvol aangemaakt
           destroy:
-            error: Kan de sortering niet annuleren.
+            error: De sortering kan niet worden geannuleerd.
             success: Sortering succesvol geannuleerd
           edit:
             title: Update de informatie over de sortering
