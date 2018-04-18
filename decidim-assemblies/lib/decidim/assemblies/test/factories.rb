@@ -46,9 +46,9 @@ FactoryBot.define do
     youtube_handler { "others" }
     github_handler { "others" }
 
-    after(:create) do |assembly, evaluator|
+    after(:create) do |assembly, _evaluator|
       space = Decidim::ParticipatorySpace
-        .find_or_create_by(organization: assembly.organization, manifest_name: :assemblies)
+              .find_or_create_by(organization: assembly.organization, manifest_name: :assemblies)
       space.activate!
       space.publish!
     end
