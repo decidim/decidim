@@ -118,9 +118,6 @@ en:
             success: Meeting successfully deleted
           edit:
             update: Update
-          form:
-            add_service: Add service
-            services: Services
           index:
             title: Meetings
           new:
@@ -133,6 +130,9 @@ en:
             service: Service
             title: Title
             up: Up
+          services:
+            add_service: Add service
+            services: Services
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated
