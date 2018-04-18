@@ -55,15 +55,15 @@ nl:
             name: Debat
       admin_log:
         debate:
-          create: "%{user_name} heeft het %{resource_name} -debat gemaakt over de ruimte %{space_name}"
-          update: "%{user_name} heeft het %{resource_name} -debat bijgewerkt op de %{space_name} spatie"
+          create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
+          update: "%{user_name} heeft het %{resource_name} debat bijgewerkt in de %{space_name} ruimte"
       debates:
         count:
           debates_count:
             one: "%{count} debat"
             other: "%{count} debatten"
         create:
-          invalid: Er is een probleem geweest tijdens het maken van het debat.
+          invalid: Er is een probleem opgetreden tijdens het maken van het debat.
           success: Debat succesvol aangemaakt.
         debate:
           comments:
