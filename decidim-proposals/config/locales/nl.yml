@@ -101,9 +101,9 @@ nl:
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
           email_intro: 'Een beheerder heeft de categorie van je voorstel "%{resource_title}" bijgewerkt, bekijk het eens:'
-          email_outro: U hebt deze melding ontvangen omdat u de auteur van het voorstel bent.
-          email_subject: De voorstelcategorie van %{resource_title} is bijgewerkt
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> voorstelcategorie is bijgewerkt door een beheerder.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
+          email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
+          notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
         voting_enabled:
           email_intro: 'Je kan op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
@@ -128,7 +128,7 @@ nl:
         answer: Antwoord
         import: Importeren vanuit een ander onderdeel
         new: nieuwe
-        private_notes: Privé notities
+        private_notes: Privé-opmerkingen
         title: Acties
       admin:
         actions:
@@ -148,13 +148,13 @@ nl:
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
-            error: Er is een probleem opgetreden bij het maken van deze voorstelnotitie
-            success: Voorstelnotitie succesvol aangemaakt
+            error: Er is een probleem opgetreden bij het maken van dit voorstel
+            success: De opmerking op het voorsteld werd succesvol aangemaakt
           form:
-            note: Notitie
+            note: Opmerking
             submit: voorleggen
-          leave_your_note: Laat je briefje achter
-          title: Privé notities
+          leave_your_note: Laat je opmerking achter
+          title: Privé-opmerkingen
         proposals:
           answer:
             invalid: Er is een probleem opgetreden bij het beantwoorden van dit voorstel
@@ -186,12 +186,12 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Voorstellen importeren
-            no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om de voorstellen in te voeren.
+            no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om in te voeren.
             select_component: Selecteer een component
             select_states: Controleer de status van de voorstellen om te importeren
         shared:
           info_proposal:
-            body: Lichaam
+            body: Broodtekst
             created_at: Aanmaakdatum
             proposal_votes_count: Stemmen tellen
             proposals: voorstellen
@@ -211,16 +211,16 @@ nl:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als een concept.
       destroy_draft:
-        error: Er zijn fouten opgetreden bij het verwijderen van de conceptopmaak.
+        error: Er zijn fouten opgetreden bij het verwijderen van het concept.
         success: Voorstel concept is succesvol vernietigd.
       models:
         proposal:
           fields:
             category: Categorie
             comments: Comments
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             id: ID
-            notes: Notes
+            notes: Opmerkingen
             official_proposal: Officieel voorstel
             scope: Scope
             state: Staat
@@ -257,9 +257,9 @@ nl:
           title: Bewerk voorstel
         edit_draft:
           discard: Gooi dit concept weg
-          discard_confirmation: Weet u zeker dat u deze voorstelopmaak wilt verwijderen?
-          send: Voorbeeld
-          title: Bewerk voorstel concept
+          discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
+          send: Preview
+          title: Bewerk voorstel
         endorsement_identities_cabin:
           endorse: Goedkeuren
         endorsements_card_row:
@@ -309,7 +309,7 @@ nl:
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
-            one: U kunt dit voorstel bewerken in de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+            one: Je kan dit voorstel bewerken in de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kan je het voorstel niet meer bewerken.
             other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
           publish: Publiceren
           title: Publiceer uw voorstel
@@ -358,10 +358,10 @@ nl:
             votes: Stemmen
         wizard_aside:
           back: Terug
-          info: U maakt een <strong>voorstel</strong>.
+          info: Je maakt een <strong>voorstel</strong>.
         wizard_steps:
           see_steps: zie stappen
-          step_1: Maak uw voorstel
+          step_1: Maak je voorstel
           step_2: Vergelijken
           step_3: Publiceer uw voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
