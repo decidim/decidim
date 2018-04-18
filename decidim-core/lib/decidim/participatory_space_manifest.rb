@@ -85,5 +85,15 @@ module Decidim
     def participatory_spaces(&block)
       @participatory_spaces ||= block
     end
+
+    # Public: Finds the space for the current manifest name and the given
+    # organization.
+    #
+    # organization - a Decidim::Organization
+    #
+    # Returns a Decidim::ParticipatorySpace.
+    def space_for(organization)
+      Decidim::ParticipatorySpace.find_or_create_by(organization: organization, manifest_name: name)
+    end
   end
 end

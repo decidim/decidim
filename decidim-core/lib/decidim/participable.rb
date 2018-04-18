@@ -64,6 +64,10 @@ module Decidim
       def manifest
         self.class.participatory_space_manifest
       end
+
+      def space
+        manifest.space_for(organization)
+      end
     end
 
     class_methods do

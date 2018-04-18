@@ -20,6 +20,7 @@ module Decidim
   autoload :Authorable, "decidim/authorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Activable, "decidim/activable"
   autoload :Scopable, "decidim/scopable"
   autoload :ScopableComponent, "decidim/scopable_component"
   autoload :ContentParsers, "decidim/content_parsers"
