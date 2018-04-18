@@ -16,7 +16,7 @@ nl:
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
-        registration_terms: Registratie voorwaarden
+        registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties ingeschakeld
         start_time: Starttijd
         title: Titel
@@ -25,28 +25,28 @@ nl:
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
-          success: Gedupliceerde vergadering met succes.
+          success: Vergadering succesvol gedupliceerd.
         new:
           copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele vergadering
+          select: Selecteer welke gegevens je wilt dupliceren
+          title: Vergadering dupliceren
     components:
       meetings:
         actions:
-          join: word lid
+          join: Word lid
         name: vergaderingen
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-            default_registration_terms: Standaardregistratiebepalingen
+            default_registration_terms: Standaard registratievoorwaarden
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
     events:
       meetings:
         meeting_closed:
-          email_intro: 'De vergadering "%{resource_title}" is gesloten. Je kan het besluiten hier lezen:'
+          email_intro: 'De vergadering "%{resource_title}" is gesloten. Je kan het besluit hier lezen:'
           email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: De vergadering "%{resource_title}" is gesloten
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
@@ -56,9 +56,9 @@ nl:
           email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
           notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
+          email_intro: De "%{resource_title}" vergadering bezet slots meer dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor de vergadering van de burgerinspraak.
-          email_subject: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%
+          email_subject: De "%{resource_title}" vergadering bezet slots meer dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergaderingen over bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
           email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
@@ -67,7 +67,7 @@ nl:
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering is bijgewerkt.
         registrations_enabled:
           email_intro: 'De vergadering ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
-          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Je kunt het ontvolgen door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: De vergadering '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering heeft registraties ingeschakeld.
         upcoming_meeting:
@@ -144,11 +144,11 @@ nl:
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       admin_log:
         meeting:
-          close: "%{user_name} sloot de %{resource_name} vergadering op de %{space_name} ruimte"
-          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt op de %{space_name} -ruimte"
-          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd op de %{space_name} ruimte"
+          close: "%{user_name} sloot de %{resource_name} vergadering in de %{space_name} ruimte"
+          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt in de %{space_name} ruimte"
+          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd in de %{space_name} ruimte"
           export_registrations: "%{user_name} exporteerde de registraties van de %{resource_name} vergadering op de %{space_name} ruimte"
-          update: "%{user_name} heeft de %{resource_name} -vergadering bijgewerkt op de %{space_name} -spatie"
+          update: "%{user_name} heeft de %{resource_name} vergadering bijgewerkt in de %{space_name} ruimte"
       mailer:
         invite_join_meeting_mailer:
           invite:
