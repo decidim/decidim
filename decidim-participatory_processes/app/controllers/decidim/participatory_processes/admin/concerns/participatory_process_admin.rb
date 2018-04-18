@@ -26,6 +26,10 @@ module Decidim
                 organization_processes.find_by!(slug: params[:participatory_process_slug] || params[:slug])
             end
 
+            def current_participatory_space_manifest_name
+              :participatory_processes
+            end
+
             alias_method :current_participatory_process, :current_participatory_space
           end
         end

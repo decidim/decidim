@@ -30,10 +30,19 @@ module Decidim
         helper_method :current_participatory_space_manifest
         helper_method :current_participatory_space_context
 
-        delegate :manifest, to: :current_participatory_space, prefix: true
+        before_action :space_is_active?
+
+        def current_participatory_space_manifest_name
+          nil
+        end
       end
 
       private
+
+      def current_participatory_space_manifest
+        @current_participatory_space_manifest ||= 
+          Decidim.find_participatory_space_manifest(current_participatory_space_manifest_name)
+      end
 
       def current_participatory_space_context
         :admin
@@ -55,6 +64,12 @@ module Decidim
 
       def layout
         current_participatory_space_manifest.context(current_participatory_space_context).layout
+      end
+
+      def space_is_active?
+        return true if current_participatory_space_manifest.space_for(current_organization).active?
+
+        raise ActionController::RoutingError.new("Space is not active")
       end
     end
   end
