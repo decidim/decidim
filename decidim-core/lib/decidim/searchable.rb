@@ -8,9 +8,10 @@ module Decidim
   module Searchable
     extend ActiveSupport::Concern
 
-    @searchable_resources = []
+    @searchable_resources = {}
 
-    # Public: an Array of searchable resources
+    # Public: a Hash of searchable resources where keys are class names, and values
+    #   are the class instance for the resources.
     def self.searchable_resources
       @searchable_resources
     end
@@ -79,7 +80,7 @@ module Decidim
       # }
       def searchable_fields(declared_fields)
         @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        Decidim::Searchable.searchable_resources << self unless Decidim::Searchable.searchable_resources.include? self
+        Decidim::Searchable.searchable_resources[self.name]= self unless Decidim::Searchable.searchable_resources.key?(self.name)
       end
     end
   end

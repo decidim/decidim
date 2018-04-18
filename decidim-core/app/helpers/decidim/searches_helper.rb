@@ -16,7 +16,7 @@ module Decidim
     end
 
     def searchable_resources_as_options(all_label)
-      [["", all_label]] + Decidim::Searchable.searchable_resources.collect do |r|
+      [["", all_label]] + Decidim::Searchable.searchable_resources.values.collect do |r|
         [r.name, searchable_resource_human_name(r)]
       end.sort
     end
