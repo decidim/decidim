@@ -22,7 +22,8 @@ module Decidim
         decidim_scope_id: read_field(resource, @declared_fields, :scope_id),
         decidim_participatory_space_id: participatory_space.id,
         decidim_participatory_space_type: participatory_space.class.name,
-        decidim_organization_id: @organization.id
+        decidim_organization_id: @organization.id,
+        datetime: read_field(resource, @declared_fields, :datetime)
       }
     end
 

@@ -81,10 +81,11 @@ module Decidim
     #--------------------------------------------------------------------
 
     def expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
-      attrs = searchable.attributes
+      attrs = searchable.attributes.clone
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
+      expect(attrs.delete('datetime').to_s(:short)).to eq(proposal.published_at.to_s(:short))
       expect(attrs).to eq(expected_searchable_rsrc_attrs(proposal, locale))
     end
 

@@ -99,6 +99,7 @@ module Decidim
         "content_c" => '',
         "content_d" => [meeting.description[locale], meeting.address].join(" "),
         "locale" => locale,
+        "datetime" => meeting.start_time,
 
         "decidim_organization_id" => meeting.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

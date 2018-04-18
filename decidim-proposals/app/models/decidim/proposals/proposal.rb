@@ -39,7 +39,8 @@ module Decidim
         scope_id: :decidim_scope_id,
         participatory_space: { component: :participatory_space },
         A: :title,
-        D: :body
+        D: :body,
+        datetime: :published_at
       )
 
       def self.order_randomly(seed)

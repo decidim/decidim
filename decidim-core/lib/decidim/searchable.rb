@@ -46,13 +46,14 @@ module Decidim
       #------------------------------------------------------------------
       def contents_to_searchable_rsrc_attrs(fields, locale)
         contents = fields[:i18n][locale]
-        content_a = I18n.transliterate(contents[:A] || '')
-        content_b = I18n.transliterate(contents[:B] || '')
-        content_c = I18n.transliterate(contents[:C] || '')
-        content_d = I18n.transliterate(contents[:D] || '')
+        content_a = I18n.transliterate(contents[:A] || "")
+        content_b = I18n.transliterate(contents[:B] || "")
+        content_c = I18n.transliterate(contents[:C] || "")
+        content_d = I18n.transliterate(contents[:D] || "")
         {
           content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
           locale: locale,
+          datetime: fields[:datetime],
           decidim_scope_id: fields[:decidim_scope_id],
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],
           decidim_participatory_space_type: fields[:decidim_participatory_space_type],
@@ -80,7 +81,7 @@ module Decidim
       # }
       def searchable_fields(declared_fields)
         @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        Decidim::Searchable.searchable_resources[self.name]= self unless Decidim::Searchable.searchable_resources.key?(self.name)
+        Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
       end
     end
   end

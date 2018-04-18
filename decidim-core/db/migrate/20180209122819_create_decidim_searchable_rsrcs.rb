@@ -7,7 +7,8 @@ class CreateDecidimSearchableRsrcs < ActiveRecord::Migration[5.1]
       t.text :content_b
       t.text :content_c
       t.text :content_d
-      t.string :locale
+      t.string :locale, null: false
+      t.datetime :datetime
 
       t.belongs_to :decidim_scope
       t.belongs_to :decidim_participatory_space, polymorphic: true, index: { name: "idx_decidim_schbl_rsrcs_on_ptcptry_spc_type_and_ptcptry_spc_id" }

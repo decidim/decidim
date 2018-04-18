@@ -19,6 +19,8 @@ module Decidim
 
     validates :locale, uniqueness: { scope: :resource }
 
-    pg_search_scope :global_search, against: { content_a: "A", content_b: "B", content_c: "C", content_d: "D" }
+    pg_search_scope :global_search,
+                    against: { content_a: "A", content_b: "B", content_c: "C", content_d: "D" },
+                    order_within_rank: "datetime DESC"
   end
 end

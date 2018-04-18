@@ -33,7 +33,7 @@ module Decidim
                    query.all
                  end
 
-      broadcast(:ok, @results)
+      broadcast(:ok, @results.order('datetime DESC'))
     end
 
     #---------------------------------------------------------------------

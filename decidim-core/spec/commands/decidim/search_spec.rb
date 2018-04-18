@@ -87,8 +87,8 @@ module Decidim
 
       describe "when search term has imperfections" do
         # NOTE: when indexing searchables accents are removed
-        let!(:searchable1) { create(:searchable_rsrc, organization: current_organization, locale: :en, content_a: "Sangtrait és un gran grup") }
-        let!(:searchable2) { create(:searchable_rsrc, organization: current_organization, locale: :en, content_a: "A mi m'agrada Sangtrait") }
+        let!(:searchable1) { create(:searchable_rsrc, organization: current_organization, locale: I18n.locale, content_a: "Sangtrait és un gran grup") }
+        let!(:searchable2) { create(:searchable_rsrc, organization: current_organization, locale: I18n.locale, content_a: "A mi m'agrada Sangtrait") }
 
         context "with accents in the term" do
           let(:term) { "sangtraït" }
@@ -118,19 +118,59 @@ module Decidim
       end
 
       describe "ordering" do
-        context "when searchables are from the future"
-        context "when searchables are from the past"
-        context "when searchables are from the future and the past" do
+        let!(:searchable1) { create(:searchable_rsrc, organization: current_organization, locale: I18n.locale, content_a: "Black Sabbat yeah", datetime: datetime1) }
+        let!(:searchable2) { create(:searchable_rsrc, organization: current_organization, locale: I18n.locale, content_a: "Back in black també yeah", datetime: datetime2) }
+        let(:term) { "black" }
+
+        context "when searchables are from the future" do
+          let(:datetime1) { DateTime.current + 10.seconds }
+          let(:datetime2) { DateTime.current + 20.seconds }
+
           it "returns matches sorted by date descendently" do
-            expect(true).to be(false)
-# To be able to sort results temporarily I'm adding a new date attribute to components.
-# I propose:
-#   Proposals date: published_at
-#   Meetings date: start_time
+            described_class.call(term, current_organization) do
+              on(:ok) do |results|
+                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
+                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
+                end
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
           end
         end
-        
+
+        context "when searchables are from the past" do
+          let(:datetime1) { DateTime.current - 1.day }
+          let(:datetime2) { DateTime.current - 2.days }
+
+          it "returns matches sorted by date descendently" do
+            described_class.call(term, current_organization) do
+              on(:ok) do |results|
+                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
+                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
+                end
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
+          end
+        end
+
+        context "when searchables are from the future and the past" do
+          let(:datetime1) { DateTime.current + 1.day }
+          let(:datetime2) { DateTime.current - 1.day }
+
+          it "returns matches sorted by date descendently" do
+            described_class.call(term, current_organization) do
+              on(:ok) do |results|
+                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
+                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
+                end
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
+          end
+        end
       end
+
       describe "when filtering" do
         let(:term) { "king nothing" }
         let(:scope) { create(:scope, organization: current_organization) }

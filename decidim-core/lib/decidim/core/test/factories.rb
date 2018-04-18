@@ -407,5 +407,6 @@ FactoryBot.define do
     locale { I18n.locale }
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
+    datetime { DateTime.current }
   end
 end
