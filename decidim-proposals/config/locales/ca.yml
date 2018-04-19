@@ -264,10 +264,6 @@ ca:
           endorse: Adherir-se
         endorsements_card_row:
           endorse: Adherir-se
-        endorsements_listing:
-          see_all: Veure tot
-          see_less: Veure menys
-          title: Llista d'adhesions
         filters:
           accepted: Acceptades
           activity: Activitat
@@ -288,6 +284,10 @@ ca:
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
+        identities_listing:
+          see_all: Veure tot
+          see_less: Veure menys
+          title: Llista d'adhesions
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
