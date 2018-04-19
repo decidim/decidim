@@ -7,6 +7,21 @@
 
 <main class="wrapper">
   <div class="row">
+    <div class="columns medium-9 medium-offset-3">
+      <ul class="tabs" data-tabs id="profile-tabs">
+        <li class="tabs-title is-active">
+          <!-- Provide a title attribute to the anchor with the same content as the text shown, to avoid a bold effect -->
+          <a href="#timeline" aria-selected="true" title="Timeline">Timeline</a>
+        </li>
+        <li class="tabs-title"><a href="#notifications" title="Notifications">Notifications</a></li>
+        <li class="tabs-title"><a href="#conversations" title="Conversations">Conversations</a></li>
+        <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
+        <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
+        <li class="tabs-title"><a href="#badges" title="Badges">Badges</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
     <div class="columns medium-3">
       <%= render partial: page_path("user") + "/user-card" %>
       <div class="text-center">
@@ -14,16 +29,24 @@
       </div>
     </div>
     <div class="columns medium-9">
-      <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-        <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Tab 2</a></li>
-      </ul>
-      <div class="tabs-content" data-tabs-content="example-tabs">
-        <div class="tabs-panel is-active" id="panel1">
-          <h1>Motherfucking TIMELINE, biaaatch!</h1>
+      <div class="tabs-content" data-tabs-content="profile-tabs">
+        <div class="tabs-panel is-active" id="timeline">
+          <h1>1</h1>
         </div>
-        <div class="tabs-panel" id="panel2">
-          <h1>Supernafamacho, yo! NOTIFICATIONS, nigga!</h1>
+        <div class="tabs-panel" id="notifications">
+          <h1>2</h1>
+        </div>
+        <div class="tabs-panel" id="conversations">
+          <h1>3</h1>
+        </div>
+        <div class="tabs-panel" id="following">
+          <h1>4</h1>
+        </div>
+        <div class="tabs-panel" id="followers">
+          <h1>5</h1>
+        </div>
+        <div class="tabs-panel" id="badges">
+          <h1>6</h1>
         </div>
       </div>
     </div>
