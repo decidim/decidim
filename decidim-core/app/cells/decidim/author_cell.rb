@@ -57,7 +57,14 @@ module Decidim
       true
     end
 
-    def author_box_classes
+    def creation_date?
+      return unless from_context
+      return unless proposals_controller?
+      return unless show_action?
+      true
+    end
+
+    def author_classes
       (["author-data"] + options[:extra_classes].to_a).join(" ")
     end
 
@@ -77,6 +84,10 @@ module Decidim
 
     def index_action?
       context[:controller].action_name == "index"
+    end
+
+    def show_action?
+      context[:controller].action_name == "show"
     end
 
     def current_component
