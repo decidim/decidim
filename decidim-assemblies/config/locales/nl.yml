@@ -66,21 +66,21 @@ nl:
           success: Bijeenkomt succesvol ongepubliceerd.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol gemaakt voor deze assembly.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze vergadering.
+          success: Gebruiker is succesvol gemaakt voor deze vergadering.
         destroy:
-          success: Gebruiker met succes vernietigd voor deze assembly.
+          success: Gebruiker met succes vernietigd voor deze vergadering.
         edit:
-          title: Update assembly-gebruiker.
+          title: Update vergaderinggebruiker.
           update: Bijwerken
         index:
           assembly_admins_title: Assemblage gebruikers
         new:
           create: creëren
-          title: Nieuwe assembly-gebruiker.
+          title: Nieuwe vergaderinggebruiker.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol bijgewerkt voor deze assembly.
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
+          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Bijeenkomsten
         assemblies_submenu:
@@ -105,7 +105,7 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Assemblage gebruiker
+          name: Vergaderinggebruiker
           roles:
             admin: Beheerder
             collaborator: Medewerker
@@ -115,13 +115,13 @@ nl:
     admin_log:
       assembly:
         create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
-        publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
-        update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+        publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
+        update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
-        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
+        create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
     assemblies:
       admin:
         assemblies:
