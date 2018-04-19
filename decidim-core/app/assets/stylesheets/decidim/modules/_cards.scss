@@ -827,12 +827,11 @@ $datetime-bg: $primary;
       text-align: left;
       padding: $card-padding-small;
 
+      @include modifiers(color);
+
       @include breakpoint(medium){
         padding: $card-padding;
       }
-
-      @include flexgap($global-padding, column);
-      @include modifiers(color);
 
       &:first-child{
         flex-grow: 0;

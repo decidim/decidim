@@ -1,0 +1,25 @@
+<% 8.times do %>
+  <div class="card card--widget">
+    <ul class="card-data">
+      <li class="card-data__item">
+        <div class="card__link text-center">
+          <%= icon "profile", class: "icon--large" %>
+          <span class="text-medium mt-xs"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
+        </div>
+      </li>
+      <li class="card-data__item">
+        <div>
+          <span class="text-small">Proposal</span>
+          <%= link_to page_path("proposal/proposal-view"), class: "card__link" do %>
+          <h5 class="card--list__heading">
+            <strong><%= Faker::ChuckNorris.fact %></strong>
+          </h5>
+          <% end %>
+          <span><%= Faker::Lovecraft.paragraph %></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<%= partial "pagination" %>
