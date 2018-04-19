@@ -294,7 +294,7 @@ ca:
             new_managed_user_impersonation: Nova suplantació d'usuaris gestionats
         index:
           impersonate: Suplantar
-          needs_authoriation_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
+          needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
           promote: Promocionar
           view_logs: Veure registres
         new:

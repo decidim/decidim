@@ -22,6 +22,12 @@ FactoryBot.define do
     end_time { start_time.advance(hours: 2) }
     is_private false
     is_transparent true
+    services do
+      [
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
+      ]
+    end
     component { build(:component, manifest_name: "meetings") }
 
     organizer do

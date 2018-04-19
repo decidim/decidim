@@ -21,6 +21,21 @@ module Decidim::Meetings
     let(:is_private) { false }
     let(:is_transparent) { true }
     let(:transparent_type) { "transparent" }
+    let(:services) do
+      [
+        {
+          "title" => { "en" => "First service" },
+          "description" => { "en" => "First description" }
+        },
+        {
+          "title" => { "en" => "Second service" },
+          "description" => { "en" => "Second description" }
+        }
+      ]
+    end
+    let(:services_to_persist) do
+      services.map { |service| Admin::MeetingServiceForm.from_params(service) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -38,8 +53,9 @@ module Decidim::Meetings
         organizer: organizer,
         is_private: is_private,
         is_transparent: is_transparent,
-        current_component: current_component,
-        current_user: current_user
+        services_to_persist: services_to_persist,
+        current_user: current_user,
+        current_component: current_component
       )
     end
 
@@ -83,6 +99,11 @@ module Decidim::Meetings
         last_meeting = Meeting.last
         expect(last_meeting.latitude).to eq(latitude)
         expect(last_meeting.longitude).to eq(longitude)
+      end
+
+      it "sets the services" do
+        subject.call
+        expect(meeting.services).to eq(services)
       end
 
       it "traces the action", versioning: true do

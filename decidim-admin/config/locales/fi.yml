@@ -294,7 +294,7 @@ fi:
             new_managed_user_impersonation: Uusi hallittuna käyttäjänä esiintyminen
         index:
           impersonate: Esiinny käyttäjänä
-          needs_authoriation_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
           promote: Korota oikeudet
           view_logs: Näytä lokitiedot
         new:

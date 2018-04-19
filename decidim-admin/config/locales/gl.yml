@@ -294,7 +294,7 @@ gl:
             new_managed_user_impersonation: Nova suplantación de usuario xestionado
         index:
           impersonate: Suplantar
-          needs_authoriation_warning: Precisa polo menos unha autorización habilitada para esta organización.
+          needs_authorization_warning: Precisa polo menos unha autorización habilitada para esta organización.
           promote: Promover
           view_logs: Ver rexistros
         new:

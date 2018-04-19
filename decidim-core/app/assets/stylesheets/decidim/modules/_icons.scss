@@ -1,21 +1,29 @@
 $icon-size: rem-calc(14);
-$icon-size-small: rem-calc(10);
-$icon-size-big: rem-calc(24);
+$icon-size-sm: rem-calc(10);
+$icon-size-l: rem-calc(24);
+$icon-size-xl: rem-calc(30);
 
 .icon{
   width: $icon-size;
   height: $icon-size;
   fill: currentColor;
+
+  @include modifiers(color, (muted: $muted));
 }
 
 .icon--small{
-  width: $icon-size-small;
-  height: $icon-size-small;
+  width: $icon-size-sm;
+  height: $icon-size-sm;
 }
 
 .icon--big{
-  width: $icon-size-big;
-  height: $icon-size-big;
+  width: $icon-size-l;
+  height: $icon-size-l;
+}
+
+.icon--large{
+  width: $icon-size-xl;
+  height: $icon-size-xl;
 }
 
 .icon--action{

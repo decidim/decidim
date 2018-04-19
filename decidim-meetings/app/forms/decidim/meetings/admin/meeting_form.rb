@@ -17,6 +17,7 @@ module Decidim
         attribute :longitude, Float
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
+        attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :is_private, Boolean
@@ -41,9 +42,19 @@ module Decidim
         delegate :categories, to: :current_component
 
         def map_model(model)
-          return unless model.categorization
+          self.services = model.services.map do |service|
+            MeetingServiceForm.new(service)
+          end
 
-          self.decidim_category_id = model.categorization.decidim_category_id
+          self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
+        end
+
+        def services_to_persist
+          services.reject(&:deleted)
+        end
+
+        def number_of_services
+          services.size
         end
 
         def organizer

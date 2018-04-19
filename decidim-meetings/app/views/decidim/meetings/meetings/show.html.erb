@@ -59,6 +59,23 @@
         </div>
       <% end %>
     </div>
+
+    <% if meeting.services.any? %>
+      <div class="card card--list">
+        <% meeting.services.each do |service| %>
+          <div class="card--list__item">
+            <div class="card--list__text card--list__text--top">
+              <%= icon "actions", class: "card--list__icon alert" %>
+              <div>
+                <h5 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h5>
+                <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <%= resource_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>

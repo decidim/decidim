@@ -22,6 +22,7 @@ module Decidim
         attribute :is_private, Boolean
         attribute :is_transparent, Boolean
         attribute :organizer_id, Integer
+        attribute :services, Array[MeetingServiceForm]
 
         mimic :meeting
 
@@ -35,6 +36,20 @@ module Decidim
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
         validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
+
+        def map_model(model)
+          self.services = model.services.map do |service|
+            MeetingServiceForm.new(service)
+          end
+        end
+
+        def services_to_persist
+          services.reject(&:deleted)
+        end
+
+        def number_of_services
+          services.size
+        end
 
         alias component current_component
 

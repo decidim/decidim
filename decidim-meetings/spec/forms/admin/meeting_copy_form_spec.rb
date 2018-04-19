@@ -28,6 +28,12 @@ module Decidim::Meetings
     let(:location_hints) do
       Decidim::Faker::Localized.sentence(3)
     end
+    let(:services) do
+      [
+        { title: { en: "First service" }, description: { en: "First description" } },
+        { title: { en: "Third service" }, description: { en: "Third description" } }
+      ]
+    end
     let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -48,7 +54,8 @@ module Decidim::Meetings
         end_time: end_time,
         is_private: is_private,
         is_transparent: is_transparent,
-        organizer_id: organizer_id
+        organizer_id: organizer_id,
+        services: services
       }
     end
 
@@ -119,6 +126,37 @@ module Decidim::Meetings
       expect(subject).to be_valid
       expect(subject.latitude).to eq(latitude)
       expect(subject.longitude).to eq(longitude)
+    end
+
+    it "properly maps services from model" do
+      meeting = create(:meeting, services: services)
+
+      services = described_class.from_model(meeting).services
+      expect(services).to all be_an(Admin::MeetingServiceForm)
+      expect(services.map(&:title_en)).to eq(services.map(&:title_en))
+    end
+
+    describe "services_to_persist" do
+      subject { form.services_to_persist }
+
+      let(:services) do
+        [
+          { title: { en: "First service" }, description: { en: "First description" } },
+          { title: { en: "Second service" }, description: { en: "Second description" }, deleted: true },
+          { title: { en: "Third service" }, description: { en: "Third description" } }
+        ]
+      end
+
+      it "only returns non deleted services" do
+        expect(subject.size).to eq(2)
+        expect(subject.map(&:title_en)).to eq(["First service", "Third service"])
+      end
+    end
+
+    describe "number_of_services" do
+      subject { form.number_of_services }
+
+      it { is_expected.to eq(services.size) }
     end
   end
 end
