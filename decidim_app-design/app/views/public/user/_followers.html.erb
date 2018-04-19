@@ -1,25 +1,19 @@
-<% 8.times do %>
-  <div class="card card--widget">
-    <ul class="card-data">
-      <li class="card-data__item">
-        <div class="card__link text-center">
-          <%= icon "profile", class: "icon--large" %>
-          <span class="text-medium mt-xs"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
+<div class="row small-up-1 medium-up-2 card-grid">
+  <% 8.times do %>
+    <div class="column">
+      <article class="card card--member">
+        <div class="card__content">
+          <div class="card__header collapse">
+            <%= partial "author_data", { big: true, verified: false } %>
+          </div>
+          <div class="card__text card--picture-offset">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit... <a href="#">&nbsp;<u>read more</u></a></p>
+            <a href="#" class="text-uppercase"><%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;<small>Follow</small></a>
+          </div>
         </div>
-      </li>
-      <li class="card-data__item">
-        <div>
-          <span class="text-small">Proposal</span>
-          <%= link_to page_path("proposal/proposal-view"), class: "card__link" do %>
-          <h5 class="card--list__heading">
-            <strong><%= Faker::ChuckNorris.fact %></strong>
-          </h5>
-          <% end %>
-          <span><%= Faker::Lovecraft.paragraph %></span>
-        </div>
-      </li>
-    </ul>
-  </div>
-<% end %>
+      </article>
+    </div>
+  <% end %>
+</div>
 
 <%= partial "pagination" %>

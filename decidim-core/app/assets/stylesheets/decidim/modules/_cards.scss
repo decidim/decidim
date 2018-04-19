@@ -276,6 +276,10 @@ $datetime-bg: $primary;
   .card-data__item--centerblock{
     margin: 0 auto;
   }
+
+  &.card-data__item--expand{
+    line-height: $global-lineheight;
+  }
 }
 
 .card-data__item__number{

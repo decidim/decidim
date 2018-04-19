@@ -7,7 +7,7 @@
           <span class="text-medium mt-xs"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
         </div>
       </li>
-      <li class="card-data__item">
+      <li class="card-data__item card-data__item--expand">
         <div>
           <span class="text-small">Proposal</span>
           <%= link_to page_path("proposal/proposal-view"), class: "card__link" do %>
