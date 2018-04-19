@@ -403,6 +403,10 @@ $datetime-bg: $primary;
   *:not(:last-of-type) .card--list__item{
     border-bottom: $border;
   }
+
+  &:not(:last-of-type){
+    margin-bottom: $global-margin;
+  }
 }
 
 .card--list__item{
