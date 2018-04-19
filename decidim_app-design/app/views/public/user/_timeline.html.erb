@@ -2,8 +2,10 @@
   <div class="card card--widget">
     <ul class="card-data">
       <li class="card-data__item">
-        <%= icon "profile", removeIconClass: true, class: "icon--large" %>
-        <span class="text-small"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
+        <div class="card__link text-center">
+          <%= icon "profile", class: "icon--large" %>
+          <span class="text-medium mt-s"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
+        </div>
       </li>
       <li class="card-data__item">
         <div>

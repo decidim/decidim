@@ -26,11 +26,11 @@
               </li>
               <li class="card-data__item">
                 <div>
-                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
+                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong><br />
                   <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
                 </div>
                 <div>
-                  <strong class="text-uppercase"><%= Faker::Address.community %></strong>
+                  <strong class="text-uppercase"><%= Faker::Address.community %></strong><br />
                   <span class="text-medium"><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
                 </div>
               </li>
@@ -42,7 +42,7 @@
                 <%= icon "meetings", class: "icon--big" %>
               </li>
               <li class="card-data__item">
-                <div>                  
+                <div>
                   <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
                   <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
                 </div>
