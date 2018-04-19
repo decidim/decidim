@@ -122,6 +122,16 @@ es:
           new:
             create: Crear
             title: Crear encuentro
+          service:
+            description: Descripción
+            down: Abajo
+            remove: retirar
+            service: Servicio
+            title: Título
+            up: Arriba
+          services:
+            add_service: Añadir servicio
+            services: Servicios
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
