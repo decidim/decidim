@@ -8,12 +8,12 @@
         </div>
       </li>
       <li class="card-data__item absolutes">
-        <div>
+        <div class="mr-s">
           <span class="text-small">Comment</span>
           <br />
           <span><%= Faker::Number.digit %> nous comentaris a <a href="#" class="card__link"><strong><%= Faker::ChuckNorris.fact %></strong></a></span>
         </div>
-        <div class="right"><%= icon "circle-x" %></div>
+        <div class="right center mr-s"><%= icon "circle-x", class: "card__link" %></div>
       </li>
     </ul>
   </div>
