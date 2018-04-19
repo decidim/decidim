@@ -20,6 +20,8 @@ module Decidim
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
+    validate :uniqueness
+
     # A unique ID to be implemented by the authorization handler that ensures
     # no duplicates are created. This uniqueness check will be skipped if
     # unique_id returns nil.
@@ -107,6 +109,24 @@ module Decidim
       return unless manifest
 
       manifest.form.constantize.from_params(params || {})
+    end
+
+    private
+
+    def duplicates
+      Authorization.where(
+        user: User.where.not(id: user.id).where(organization: user.organization),
+        name: handler_name,
+        unique_id: unique_id
+      )
+    end
+
+    def uniqueness
+      return true if unique_id.nil? || duplicates.none?
+
+      errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
+
+      false
     end
   end
 end

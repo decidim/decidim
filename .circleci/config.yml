@@ -73,6 +73,30 @@ jobs:
           command: bundle exec erblint --lint-all
       - store_test_results:
           path: ~/rspec
+  generators:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - checkout
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install ruby dependencies
+          command: bundle install
+      - save_cache:
+          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /usr/local/bundle/
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - run:
+          name: Run generators RSpec
+          command: mkdir ~/rspec && cd decidim-generators && rake
+      - store_test_results:
+          path: ~/rspec
   core:
     <<: *defaults
     steps:
@@ -628,19 +652,25 @@ workflows:
       - build_design_app:
           filters:
             branches:
-              ignore: 
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - build_test_app:
           filters:
             branches:
-              ignore:  
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - main:
           filters:
             branches:
-              ignore:  
+              ignore:
+                - l10n_master
+                - l10n_0.10-stable
+      - generators:
+          filters:
+            branches:
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - core:
@@ -700,6 +730,7 @@ workflows:
       - upload-coverage:
           requires:
             - main
+            - generators
             - core
             - assemblies
             - initiatives
