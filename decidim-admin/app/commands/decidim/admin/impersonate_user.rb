@@ -3,14 +3,13 @@
 module Decidim
   module Admin
     # A command with all the business logic to impersonate a managed user.
-    class ImpersonateManagedUser < Rectify::Command
+    class ImpersonateUser < Rectify::Command
       # Public: Initializes the command.
       #
       # form         - The form with the authorization info
       # user         - The user to impersonate
-      def initialize(form, user)
+      def initialize(form)
         @form = form
-        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -20,9 +19,16 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless user.managed? && authorization_valid?
+        return broadcast(:invalid) unless form.valid?
 
-        create_impersonation_log
+        transaction do
+          user.save! unless user.persisted?
+
+          create_authorization
+
+          create_impersonation_log
+        end
+
         enqueue_expire_job
 
         broadcast(:ok)
@@ -30,21 +36,21 @@ module Decidim
 
       private
 
-      attr_reader :user, :form
+      attr_reader :form
 
-      def authorization_valid?
-        return false unless form.valid?
-        Decidim::Authorization.where(
-          user: user,
-          name: form.authorization.handler_name,
-          unique_id: form.authorization.unique_id
-        ).any?
+      def user
+        form.user
+      end
+
+      def create_authorization
+        Authorization.create_or_update_from(form.authorization)
       end
 
       def create_impersonation_log
         Decidim::ImpersonationLog.create!(
           admin: form.current_user,
           user: user,
+          reason: form.reason,
           started_at: Time.current
         )
       end

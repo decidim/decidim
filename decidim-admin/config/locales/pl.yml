@@ -294,7 +294,7 @@ pl:
             new_managed_user_impersonation: Nowa udana personifikacja użytkowników
         index:
           impersonate: Podszywać się
-          needs_authoriation_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
+          needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           promote: Promować
           view_logs: Wyświetl dzienniki
         new:

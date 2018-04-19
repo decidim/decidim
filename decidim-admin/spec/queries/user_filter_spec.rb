@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe UsersOfficialization do
-    subject { described_class.new(organization, search, filter) }
+  describe UserFilter do
+    subject { described_class.new(organization.users, search, filter) }
 
     let(:organization) { create :organization }
     let(:search) { nil }
@@ -21,7 +21,7 @@ module Decidim::Admin
     end
 
     describe "when the list is filtered" do
-      context "and recieves a search param" do
+      context "and receives a search param" do
         let!(:users) do
           %w(Walter Fargo Phargo).map do |name|
             create(:user, name: name, organization: organization)
@@ -45,11 +45,15 @@ module Decidim::Admin
         end
       end
 
-      context "and recieves a filter param" do
-        let!(:not_officialized_users) { create_list(:user, 2, organization: organization) }
+      context "and receives a filter param" do
+        let!(:regular_users) { create_list(:user, 2, organization: organization) }
+        let!(:not_officialized_users) { regular_users + managed_users }
         let!(:officialized_users) { create_list(:user, 2, :officialized, organization: organization) }
+        let!(:not_managed_users) { regular_users + officialized_users }
+        let!(:managed_users) { create_list(:user, 2, :managed, organization: organization) }
+        let(:all_users) { regular_users + officialized_users + managed_users }
 
-        context 'when the user filters by "Officialized"' do
+        context 'when filtering by "Officialized"' do
           let(:filter) { "officialized" }
 
           it "returns all the officialized users" do
@@ -57,16 +61,40 @@ module Decidim::Admin
           end
         end
 
-        context 'when the user filters by "Non Officialized"' do
+        context 'when filtering by "Non Officialized"' do
           let(:filter) { "not_officialized" }
 
-          it "returns all the verified users" do
+          it "returns all the non officialized users" do
             expect(subject.query).to match_array(not_officialized_users)
+          end
+        end
+
+        context 'when filtering by "Managed"' do
+          let(:filter) { "managed" }
+
+          it "returns all the officialized users" do
+            expect(subject.query).to match_array(managed_users)
+          end
+        end
+
+        context 'when filtering by "Non Managed"' do
+          let(:filter) { "not_managed" }
+
+          it "returns all the non managed users" do
+            expect(subject.query).to match_array(not_managed_users)
+          end
+        end
+
+        context "when using an arbitrary filter" do
+          let(:filter) { "destroy_all" }
+
+          it "is ignored" do
+            expect(subject.query).to match_array(all_users)
           end
         end
       end
 
-      context "and recieves a search and a filter param" do
+      context "and receives a search and a filter param" do
         let(:officialized_users) do
           %w(Lorem Ipsum Dolor).map do |name|
             create(:user, :officialized, name: name, organization: organization)
