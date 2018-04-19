@@ -41,6 +41,19 @@ references:
   store_test_results: &store_test_results
     store_test_results:
       path: ~/rspec
+  run_rspec: &run_rspec
+    run:
+      name: Run RSpec
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && rake
+  format_test_coverage: &format_test_coverage
+    run:
+      name: Format CodeClimate test coverage
+      command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json coverage/.resultset.json
+  persist_coverage_to_workspace: &persist_coverage_to_workspace
+    persist_to_workspace:
+      root: coverage
+      paths:
+        - codeclimate.{{ .Environment.CIRCLE_JOB }}.json
 
 jobs:
   build_test_app:
@@ -98,9 +111,7 @@ jobs:
           paths:
             - /usr/local/bundle/
       - *wait_for_db
-      - run:
-          name: Run generators RSpec
-          command: mkdir ~/rspec && cd decidim-generators && rake
+      - *run_rspec
       - *store_test_results
   core:
     <<: *defaults
@@ -109,18 +120,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run core RSpec
-          command: mkdir ~/rspec && cd decidim-core && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.core.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.core.json
+      - *persist_coverage_to_workspace
   assemblies:
     <<: *defaults
     steps:
@@ -128,46 +132,23 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run assemblies RSpec
-          command: mkdir ~/rspec && cd decidim-assemblies && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.assemblies.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.assemblies.json
+      - *persist_coverage_to_workspace
   initiatives:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run initiatives RSpec
-          command: mkdir ~/rspec && cd decidim-initiatives && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.initiatives.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.initiatives.json
+      - *attach_workspace
+      - *restore_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *store_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   api:
     <<: *defaults
     steps:
@@ -175,18 +156,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run api RSpec
-          command: mkdir ~/rspec && cd decidim-api && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.api.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.api.json
+      - *persist_coverage_to_workspace
   processes:
     <<: *defaults
     steps:
@@ -194,18 +168,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run participatory_processes RSpec
-          command: mkdir ~/rspec && cd decidim-participatory_processes && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.processes.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.processes.json
+      - *persist_coverage_to_workspace
   admin:
     <<: *defaults
     steps:
@@ -213,18 +180,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run admin RSpec
-          command: mkdir ~/rspec && cd decidim-admin && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.admin.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.admin.json
+      - *persist_coverage_to_workspace
   system:
     <<: *defaults
     steps:
@@ -232,18 +192,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run system RSpec
-          command: mkdir ~/rspec && cd decidim-system && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.system.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.system.json
+      - *persist_coverage_to_workspace
   proposals:
     <<: *defaults
     steps:
@@ -251,18 +204,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run proposals RSpec
-          command: mkdir ~/rspec && cd decidim-proposals && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.proposals.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.proposals.json
+      - *persist_coverage_to_workspace
   comments:
     <<: *defaults
     steps:
@@ -283,18 +229,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run comments RSpec
-          command: mkdir ~/rspec && cd decidim-comments && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.comments.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.comments.json
+      - *persist_coverage_to_workspace
   meetings:
     <<: *defaults
     steps:
@@ -302,18 +241,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run meetings RSpec
-          command: mkdir ~/rspec && cd decidim-meetings && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.meetings.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.meetings.json
+      - *persist_coverage_to_workspace
   pages:
     <<: *defaults
     steps:
@@ -321,18 +253,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run pages RSpec
-          command: mkdir ~/rspec && cd decidim-pages && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.pages.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.pages.json
+      - *persist_coverage_to_workspace
   accountability:
     <<: *defaults
     steps:
@@ -340,18 +265,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run accountability RSpec
-          command: mkdir ~/rspec && cd decidim-accountability && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.accountability.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.accountability.json
+      - *persist_coverage_to_workspace
   budgets:
     <<: *defaults
     steps:
@@ -359,18 +277,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run budgets RSpec
-          command: mkdir ~/rspec && cd decidim-budgets && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.budgets.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.budgets.json
+      - *persist_coverage_to_workspace
   surveys:
     <<: *defaults
     steps:
@@ -378,18 +289,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run surveys RSpec
-          command: mkdir ~/rspec && cd decidim-surveys && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.surveys.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.surveys.json
+      - *persist_coverage_to_workspace
   verifications:
     <<: *defaults
     steps:
@@ -397,18 +301,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run verifications RSpec
-          command: mkdir ~/rspec && cd decidim-verifications && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.verifications.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.verifications.json
+      - *persist_coverage_to_workspace
   debates:
     <<: *defaults
     steps:
@@ -416,18 +313,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run debates RSpec
-          command: mkdir ~/rspec && cd decidim-debates && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.debates.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.debates.json
+      - *persist_coverage_to_workspace
   sortitions:
     <<: *defaults
     steps:
@@ -435,46 +325,23 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run sortitions RSpec
-          command: mkdir ~/rspec && cd decidim-sortitions && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.sortitions.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.sortitions.json
+      - *persist_coverage_to_workspace
   blogs:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run blogs RSpec
-          command: mkdir ~/rspec && cd decidim-blogs && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.blogs.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.blogs.json
+      - *attach_workspace
+      - *restore_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *store_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   consultations:
     <<: *defaults
     steps:
@@ -482,18 +349,11 @@ jobs:
       - *restore_cache
       - *wait_for_db
       - *create_test_db
-      - run:
-          name: Run consultations RSpec
-          command: mkdir ~/rspec && cd decidim-consultations && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.consultations.json coverage/.resultset.json
+      - *run_rspec
+      - *format_test_coverage
       - *store_artifacts
       - *store_test_results
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.consultations.json
+      - *persist_coverage_to_workspace
   build_design_app:
     working_directory: /app
     docker:
