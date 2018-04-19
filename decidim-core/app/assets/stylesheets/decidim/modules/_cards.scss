@@ -835,8 +835,15 @@ $datetime-bg: $primary;
       @include modifiers(color);
 
       &:first-child{
-        flex: 0;
+        flex-grow: 0;
+        flex-basis: 12%;
         background-color: $card-secondary-bg;
+
+        > div{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
       }
     }
   }
