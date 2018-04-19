@@ -122,6 +122,16 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
+          service:
+            description: Beschrijving
+            down: naar beneden
+            remove: Verwijderen
+            service: Service
+            title: Titel
+            up: omhoog
+          services:
+            add_service: Service toevoegen
+            services: Diensten
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
