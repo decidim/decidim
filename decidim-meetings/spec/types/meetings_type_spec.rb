@@ -13,7 +13,7 @@ module Decidim
       it_behaves_like "a component query type"
 
       describe "meetings" do
-        let!(:meetings) { create_list(:meeting, 2, :draft, component: model) }
+        let!(:meetings) { create_list(:meeting, 2, component: model) }
         let!(:other_meetings) { create_list(:meeting, 2) }
 
         let(:query) { "{ meetings { edges { node { id } } } }" }
