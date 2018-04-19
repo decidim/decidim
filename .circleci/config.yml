@@ -53,7 +53,7 @@ references:
     persist_to_workspace:
       root: coverage
       paths:
-        - codeclimate.{{ .Environment.CIRCLE_JOB }}.json
+        - codeclimate.*.json
 
 jobs:
   build_test_app:
