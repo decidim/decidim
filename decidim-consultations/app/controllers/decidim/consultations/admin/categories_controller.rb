@@ -7,6 +7,10 @@ module Decidim
       #
       class CategoriesController < Decidim::Admin::CategoriesController
         include QuestionAdmin
+
+        def current_participatory_space_manifest_name
+          :consultations
+        end
       end
     end
   end
