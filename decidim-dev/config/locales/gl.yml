@@ -8,6 +8,9 @@ gl:
         title: Título
         updated_at: Actualizado en
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Outra autorización de exemplo
     dummy:
       admin:
         exports:
