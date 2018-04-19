@@ -264,10 +264,6 @@ es:
           endorse: Adherirse
         endorsements_card_row:
           endorse: Adherirse
-        endorsements_listing:
-          see_all: Ver todo
-          see_less: Ver menos
-          title: Lista de Reivindicaciones
         filters:
           accepted: Aceptadas
           activity: Actividad
@@ -288,6 +284,10 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        identities_listing:
+          see_all: Ver todo
+          see_less: Ver menos
+          title: Lista de adhesiones
         index:
           new_proposal: Nueva propuesta
           see_all_withdrawn: Ver todas las propuestas retiradas
