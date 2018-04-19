@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        broadcast(:invalid) unless participatory_space.published?
+        broadcast(:invalid) unless @participatory_space.published?
         unpublish_participatory_space
         broadcast(:ok)
       end
