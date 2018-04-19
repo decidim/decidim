@@ -16,13 +16,14 @@ module Decidim
 
       def diff_fields_mapping
         {
-          activated_at: :date
+          activated_at: :date,
+          published_at: :date
         }
       end
 
       def action_string
         case action
-        when "activate"
+        when "activate", "deactivate", "publish", "unpublished"
           "decidim.admin_log.participatory_space.#{action}"
         else
           super
@@ -43,7 +44,7 @@ module Decidim
       end
 
       def has_diff?
-        ["activate"].include? action
+        ["activate", "deactivate"].include? action
       end
     end
   end

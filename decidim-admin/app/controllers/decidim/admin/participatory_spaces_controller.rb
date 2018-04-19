@@ -27,6 +27,54 @@ module Decidim
         end
       end
 
+      def deactivate
+        authorize! :deactivate, participatory_space
+        
+        DeactivateParticipatorySpace.call(participatory_space, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("participatory_spaces.deactivate.success", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("participatory_spaces.deactivate.error", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+        end
+      end
+
+      def publish
+        authorize! :publish, participatory_space
+        
+        PublishParticipatorySpace.call(participatory_space, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("participatory_spaces.publish.success", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("participatory_spaces.publish.error", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+        end
+      end
+
+      def unpublish
+        authorize! :unpublish, participatory_space
+        
+        UnpublishParticipatorySpace.call(participatory_space, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("participatory_spaces.unpublish.success", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("participatory_spaces.unpublish.error", scope: "decidim.admin")
+            redirect_to participatory_spaces_path
+          end
+        end
+      end
+
       private
 
       def participatory_space

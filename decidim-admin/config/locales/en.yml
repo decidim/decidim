@@ -545,8 +545,20 @@ en:
         activate:
           error: There was an error activating this participatory space.
           success: Participatory space activated successfully.
+        deactivate:
+          error: There was an error deactivating this participatory space.
+          success: Participatory space deactivated successfully.
         index:
           activate: Activate
+          deactivate: Deactivate
+          publish: Publish
+          unpublish: Unpublish
+        publish:
+          error: There was an error publishing this participatory space.
+          success: Participatory space published successfully.
+        unpublish:
+          error: There was an error unpublishing this participatory space.
+          success: Participatory space unpublished successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.

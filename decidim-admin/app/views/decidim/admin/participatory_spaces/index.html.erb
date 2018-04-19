@@ -23,9 +23,10 @@
               </td>
               <td class="table-list__actions">
                 <% if participatory_space.published? %>
-                  <span>Unpublish</span>
+                  <%= link_to t(".unpublish"), unpublish_participatory_space_path(participatory_space.manifest_name), class: "button small", method: :put %>
                 <% elsif participatory_space.active? %>
-                  <span>Deactivate</span> <span>Publish</span>
+                  <%= link_to t(".deactivate"), deactivate_participatory_space_path(participatory_space.manifest_name), class: "button small", method: :put %>
+                  <%= link_to t(".publish"), publish_participatory_space_path(participatory_space.manifest_name), class: "button small", method: :put %>
                 <% else %>
                   <%= link_to t(".activate"), activate_participatory_space_path(participatory_space.manifest_name), class: "button small", method: :put %>
                 <% end %>

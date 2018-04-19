@@ -84,6 +84,9 @@ en:
         update: "%{user_name} updated the organization settings"
       participatory_space:
         activate: "%{user_name} activated the %{resource_name} participatory space"
+        deactivate: "%{user_name} deactivated the %{resource_name} participatory space"
+        publish: "%{user_name} published the %{resource_name} participatory space"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory space"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
