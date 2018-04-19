@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     module ManagedUsers
       # Controller that allows promoting managed users at the admin panel.
       #
-      class PromotionsController < Admin::ApplicationController
+      class PromotionsController < Decidim::Admin::ApplicationController
         layout "decidim/admin/users"
 
         def new
@@ -22,7 +20,7 @@ module Decidim
           PromoteManagedUser.call(@form, user, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.promotion.success", scope: "decidim.admin")
-              redirect_to managed_users_path
+              redirect_to impersonatable_users_path
             end
 
             on(:invalid) do
@@ -35,7 +33,7 @@ module Decidim
         private
 
         def user
-          @user ||= current_organization.users.managed.find(params[:managed_user_id])
+          @user ||= current_organization.users.managed.find(params[:impersonatable_user_id])
         end
       end
     end

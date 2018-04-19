@@ -11,6 +11,7 @@ controller or added a new module you need to rename `feature` to `component`.
 **Added**:
 
 - **decidim-blogs**: Decidim Blogs gem has been integrated into the main repository. [\#3221](https://github.com/decidim/decidim/pull/3221)
+- **decidim-meetings** Add services offered in the meeting. [\#3150](https://github.com/decidim/decidim/pull/3150)
 - **decidim-assemblies**: Adding news fields into assembly in terms of database [\#2942](https://github.com/decidim/decidim/pull/2942)
 - **decidim-proposals**: Add configuration for set the number of proposals to be highlighted [\#3175](https://github.com/decidim/decidim/pull/3175)
 - **decidim-meetings**: Add new fields to meetings registrations [\#3123](https://github.com/decidim/decidim/pull/3123)
@@ -47,9 +48,13 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Allow multiple choice questions to have "free text options" where the user can customize the selected answer [\#3134](https://github.com/decidim/decidim/pull/3134)
 - **decidim-surveys**: New question type to sort different options [\#3148](https://github.com/decidim/decidim/pull/3148)
 - **decidim-budgets**: Setting to control the number of projects per page to be listed [\#3239](https://github.com/decidim/decidim/pull/3239)
+- **decidim-admin**: Regular users can now be impersonated [\#3226](https://github.com/decidim/decidim/pull/3226)
+- **decidim-admin**: All available authorization handlers can always be chosen for impersonation even after the first impersonation [\#3226](https://github.com/decidim/decidim/pull/3226)
+- **decidim-generators**: New gem where all of decidim generators live, both to generate final application and decidim components (plugins).
 
 **Changed**:
 
+- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. (https://github.com/decidim/decidim/pull/3238)
 - **decidim-admin**: Moved the following reusable javascript components from `decidim-surveys` component [\#3194](https://github.com/decidim/decidim/pull/3194)
   - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
   - Dependent inputs (field_dependent_inputs.component.js.es6)
@@ -64,6 +69,8 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Fixed**:
 
+- **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. \#2894](https://github.com/decidim/decidim/pull/3238)
+- **decidim-proposals**: Restore creation date in proposal detail page. [\#3249](https://github.com/decidim/decidim/pull/3249)
 - **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3185](https://github.com/decidim/decidim/pull/3185)
 - **decidim-proposals**: Fix when I create a proposal I see the draft proposal from someone else! [\#3170](https://github.com/decidim/decidim/pull/3083)
 - **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3175](https://github.com/decidim/decidim/pull/3175)
@@ -91,8 +98,13 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Max choices selector not disabled when survey has already been answered [\#3133](https://github.com/decidim/decidim/pull/3133)
 - **decidim-surveys**: Translated fields not disabled when survey has already been answered [\#3133](https://github.com/decidim/decidim/pull/3133)
 - **decidim-admin**: Default managed user form displaying two buttons [\#3211](https://github.com/decidim/decidim/pull/3211)
+- **decidim-admin**: Dropdown menus appearance on hover [\#3241](https://github.com/decidim/decidim/pull/3241)
 - **decidim-admin**: Ability to select leaf categories from Admin change-category bulk action [\#3243](https://github.com/decidim/decidim/pull/3243)
 - **decidim-admin**: Highlighted banner image is not required if already present in the organization [\#3244](https://github.com/decidim/decidim/pull/3244)
 - **decidim-proposals**: Keep the user group (if set) as default value of author field on forms [\#3247](https://github.com/decidim/decidim/pull/3247)
+
+**Removed**:
+
+- **decidim**: Decidim executable has been moved to the `decidim-generators` gem.
 
 Please check [0.10-stable](https://github.com/decidim/decidim/blob/0.10-stable/CHANGELOG.md) for previous changes.

@@ -294,7 +294,7 @@ nl:
             new_managed_user_impersonation: Nieuwe beheerde gebruiker nabootsen
         index:
           impersonate: Boots na
-          needs_authoriation_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
+          needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
         new:

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages meetings", type: :system, serves_map: true do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, scope: scope, component: current_component }
+  let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
 
   include_context "when managing a component as an admin"
 

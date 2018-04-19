@@ -22,6 +22,20 @@ module Decidim
 
     validate :active_handler?
 
+    def self.create_or_update_from(handler)
+      authorization = find_or_initialize_by(
+        user: handler.user,
+        name: handler.handler_name
+      )
+
+      authorization.attributes = {
+        unique_id: handler.unique_id,
+        metadata: handler.metadata
+      }
+
+      authorization.grant!
+    end
+
     def grant!
       remove_verification_attachment!
 

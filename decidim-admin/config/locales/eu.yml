@@ -294,7 +294,7 @@ eu:
             new_managed_user_impersonation: Kudeatutako erabiltzailearen ordezte berria
         index:
           impersonate: Ordeztu
-          needs_authoriation_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
+          needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           promote: Goratu
           view_logs: Ikusi erregistroak
         new:
