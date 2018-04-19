@@ -7,6 +7,10 @@ module Decidim
       #
       class CategoriesController < Decidim::Admin::CategoriesController
         include Concerns::AssemblyAdmin
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end

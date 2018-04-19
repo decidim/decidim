@@ -70,6 +70,10 @@ module Decidim
           current_user: current_user
         }
       end
+
+      def current_participatory_space_manifest_name
+        :consultations
+      end
     end
   end
 end

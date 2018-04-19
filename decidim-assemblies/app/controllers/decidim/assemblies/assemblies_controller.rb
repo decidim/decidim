@@ -57,6 +57,10 @@ module Decidim
       def assembly_participatory_processes
         @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
       end
+
+      def current_participatory_space_manifest_name
+        :assemblies
+      end
     end
   end
 end

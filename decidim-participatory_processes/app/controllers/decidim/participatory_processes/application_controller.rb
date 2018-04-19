@@ -6,6 +6,10 @@ module Decidim
     # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ParticipatoryProcesses::ApplicationHelper
+
+      def current_participatory_space_manifest_name
+        :participatory_processes
+      end
     end
   end
 end

@@ -28,6 +28,10 @@ module Decidim
       end
 
       attr_reader :group
+
+      def current_participatory_space_manifest_name
+        :participatory_processes
+      end
     end
   end
 end
