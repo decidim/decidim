@@ -57,6 +57,14 @@ $datetime-bg: $primary;
   }
 }
 
+.card__content--multiple{
+  @extend .card__content;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .card__content--center{
   text-align: center;
 }
@@ -427,6 +435,10 @@ $datetime-bg: $primary;
   display: none;
   fill: $anchor-color;
 
+  &.alert{
+    fill: $alert;
+  }
+
   @include breakpoint(medium){
     margin-right: 1rem;
     display: block;
@@ -452,6 +464,10 @@ $datetime-bg: $primary;
     margin-top: .3rem;
     margin-right: 1rem;
   }
+}
+
+.card--list__text--top{
+  align-items: start;
 }
 
 .card--list__heading{
@@ -848,6 +864,19 @@ $datetime-bg: $primary;
       &:first-child{
         flex: 0;
         background-color: $card-secondary-bg;
+      }
+    }
+  }
+
+  &.card--widget__list{
+    @extend .card--list;
+
+    .card--list__item{
+      padding-left: $global-padding;
+
+      > :first-child{
+        flex-grow: 0;
+        flex-shrink: 0;
       }
     }
   }

@@ -1,0 +1,40 @@
+<div class="row column">
+  <% unless form.object.user.managed? %>
+    <%= form.text_field :reason, label: t(".reason") %>
+  <% end %>
+
+  <% if creating_managed_user? %>
+    <%= form.text_field :name, label: t(".name") %>
+  <% end %>
+
+  <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
+    <% if other_available_authorizations.any? %>
+      <%= f.collection_select :handler_name,
+                              available_authorization_handlers,
+                              :name,
+                              :fullname,
+                              { label: t(".authorization_method") } %>
+    <% else %>
+      <%= f.hidden_field :handler_name %>
+    <% end %>
+
+    <div id="authorization-handler-<%= f.object.handler_name %>"
+           class="authorization-handler">
+      <%= render "handler_form", handler_form: f %>
+    </div>
+  <% end %>
+
+  <% other_available_authorizations.each do |authorization| %>
+    <%= form.fields_for :authorization, authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
+      <div id="authorization-handler-<%= authorization.handler_name %>"
+           class="authorization-handler"
+           style="display:none">
+        <%= render "handler_form", handler_form: f %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<% if other_available_authorizations.any? %>
+  <%= javascript_include_tag "decidim/admin/managed_users" %>
+<% end %>

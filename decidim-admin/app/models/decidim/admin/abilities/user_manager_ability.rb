@@ -9,12 +9,13 @@ module Decidim
         def define_abilities
           super
 
-          can :manage, :managed_users
-
-          cannot [:new, :create], :managed_users if empty_available_authorizations?
+          can :read, :impersonatable_users
 
           can :impersonate, Decidim::User do |user_to_impersonate|
-            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
+            available_authorization_handlers? &&
+              !user_to_impersonate.admin? &&
+              user_to_impersonate.roles.empty? &&
+              Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
 
           can :promote, Decidim::User do |user_to_promote|
@@ -24,8 +25,8 @@ module Decidim
 
         private
 
-        def empty_available_authorizations?
-          user.organization.available_authorizations.empty?
+        def available_authorization_handlers?
+          user.organization.available_authorization_handlers.any?
         end
       end
     end

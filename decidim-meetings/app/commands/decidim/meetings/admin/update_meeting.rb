@@ -42,6 +42,7 @@ module Decidim
             category: form.category,
             title: form.title,
             description: form.description,
+            services: form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             end_time: form.end_time,
             start_time: form.start_time,
             address: form.address,

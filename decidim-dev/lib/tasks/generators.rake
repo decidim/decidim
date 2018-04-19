@@ -1,49 +1,41 @@
 # frozen_string_literal: true
 
-require "generators/decidim/app_generator"
+require "decidim/generators/app_generator"
 
 namespace :decidim do
-  desc "Generates a dummy app for testing in external installations"
-  task :generate_external_test_app do
-    dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
+  def generate_decidim_app(*options)
+    app_path = File.expand_path(options.first, Dir.pwd)
 
-    sh "rm -fR spec/decidim_dummy_app", verbose: false
+    sh "rm -fR #{app_path}", verbose: false
 
     original_folder = Dir.pwd
 
-    Decidim::Generators::AppGenerator.start(
-      [
-        dummy_app_path,
-        "--path",
-        "../..",
-        "--recreate_db",
-        "--skip_gemfile",
-        "--demo"
-      ]
-    )
+    Decidim::Generators::AppGenerator.start(options)
 
     Dir.chdir(original_folder)
   end
 
+  desc "Generates a dummy app for testing in external installations"
+  task :generate_external_test_app do
+    generate_decidim_app(
+      "spec/decidim_dummy_app",
+      "--path",
+      "../..",
+      "--recreate_db",
+      "--skip_gemfile",
+      "--demo"
+    )
+  end
+
   desc "Generates a dummy app for trying out external modules"
   task :generate_external_development_app do
-    dummy_app_path = File.expand_path(File.join(Dir.pwd, "development_app"))
-
-    sh "rm -fR development_app", verbose: false
-
-    original_folder = Dir.pwd
-
-    Decidim::Generators::AppGenerator.start(
-      [
-        dummy_app_path,
-        "--path",
-        "..",
-        "--recreate_db",
-        "--seed_db",
-        "--demo"
-      ]
+    generate_decidim_app(
+      "development_app",
+      "--path",
+      "..",
+      "--recreate_db",
+      "--seed_db",
+      "--demo"
     )
-
-    Dir.chdir(original_folder)
   end
 end

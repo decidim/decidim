@@ -23,6 +23,10 @@ textarea{
   .input-field,
   .data-picker{
     margin-bottom: $input-margin;
+
+    &.nomargin{
+      margin-bottom: 0;
+    }
   }
 
   .check-radio-group{

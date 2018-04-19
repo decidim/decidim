@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing meetings.
       #
       class MeetingCopiesController < Admin::ApplicationController
-        helper_method :meeting
+        helper_method :meeting, :blank_service
 
         def new
           @form = form(MeetingCopyForm).from_model(meeting)
@@ -29,6 +29,10 @@ module Decidim
         end
 
         private
+
+        def blank_service
+          @blank_service ||= Admin::MeetingServiceForm.new
+        end
 
         def meeting
           @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])

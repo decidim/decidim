@@ -294,7 +294,7 @@ it:
             new_managed_user_impersonation: Nuova rappresentazione utente gestita
         index:
           impersonate: Impersonare
-          needs_authoriation_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
+          needs_authorization_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
           promote: Promuovere
           view_logs: Visualizza i registri
         new:

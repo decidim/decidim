@@ -56,8 +56,13 @@
 
 // flex--sbe:
 // justify-content: space-between;
-// align-items: center;
+// align-items: flex-end;
 .flex--sbe{
   @include flex;
   @include flex-align($x: justify, $y: bottom);
+}
+
+.scroll{
+  max-height: 50vh;
+  overflow-y: scroll;
 }
