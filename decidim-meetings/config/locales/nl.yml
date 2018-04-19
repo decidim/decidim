@@ -34,7 +34,7 @@ nl:
       meetings:
         actions:
           join: Word lid
-        name: vergaderingen
+        name: event
         settings:
           global:
             announcement: Aankondiging
@@ -46,19 +46,19 @@ nl:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'De vergadering "%{resource_title}" is gesloten. Je kan het besluit hier lezen:'
-          email_outro: Je ontvangt deze melding omdat je de vergadering "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
-          email_subject: De vergadering "%{resource_title}" is gesloten
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
+          email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
+          email_subject: Het event "%{resource_title}" is afgelopen
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
-          email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
+          email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de vorige link.
-          email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
-          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+          email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
+          notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: De "%{resource_title}" vergadering bezet slots meer dan %{percentage}%.
-          email_outro: Je ontvangt deze melding omdat je beheerder bent voor de vergadering van de burgerinspraak.
-          email_subject: De "%{resource_title}" vergadering bezet slots meer dan %{percentage}%
+          email_intro: Het "%{resource_title}" event bezet slots meer dan %{percentage}%.
+          email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
+          email_subject: Het "%{resource_title}" event bezet meer slots dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergaderingen over bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
           email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
