@@ -260,10 +260,6 @@ pl:
           endorse: Podpisać się
         endorsements_card_row:
           endorse: Podpisać się
-        endorsements_listing:
-          see_all: Widzieć wszystko
-          see_less: Zobacz mniej
-          title: Lista rekomendacji
         filters:
           accepted: Przyjęty
           activity: Czynność
@@ -284,6 +280,10 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
+        identities_listing:
+          see_all: Widzieć wszystko
+          see_less: Zobacz mniej
+          title: Lista rekomendacji
         index:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
