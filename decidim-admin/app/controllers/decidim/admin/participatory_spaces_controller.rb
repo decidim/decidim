@@ -13,7 +13,7 @@ module Decidim
 
       def activate
         authorize! :activate, participatory_space
-        
+
         ActivateParticipatorySpace.call(participatory_space, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_spaces.activate.success", scope: "decidim.admin")
@@ -29,7 +29,7 @@ module Decidim
 
       def deactivate
         authorize! :deactivate, participatory_space
-        
+
         DeactivateParticipatorySpace.call(participatory_space, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_spaces.deactivate.success", scope: "decidim.admin")
@@ -45,7 +45,7 @@ module Decidim
 
       def publish
         authorize! :publish, participatory_space
-        
+
         PublishParticipatorySpace.call(participatory_space, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_spaces.publish.success", scope: "decidim.admin")
@@ -61,7 +61,7 @@ module Decidim
 
       def unpublish
         authorize! :unpublish, participatory_space
-        
+
         UnpublishParticipatorySpace.call(participatory_space, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_spaces.unpublish.success", scope: "decidim.admin")
@@ -79,13 +79,13 @@ module Decidim
 
       def participatory_space
         @participatory_space ||= participatory_spaces
-          .find { |space| space.manifest_name == params[:id] }
+                                 .find { |space| space.manifest_name == params[:id] }
       end
 
       def participatory_spaces
         @participatory_spaces ||= Decidim.participatory_space_manifests
-          .map { |manifest| manifest.space_for(current_organization) }
-          .sort_by(&:manifest_name)
+                                         .map { |manifest| manifest.space_for(current_organization) }
+                                         .sort_by(&:manifest_name)
       end
     end
   end

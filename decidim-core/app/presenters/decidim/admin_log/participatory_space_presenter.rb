@@ -44,7 +44,7 @@ module Decidim
       end
 
       def has_diff?
-        ["activate", "deactivate"].include? action
+        %w(activate deactivate publish unpublish).include? action
       end
     end
   end

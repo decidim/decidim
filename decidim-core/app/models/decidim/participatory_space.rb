@@ -27,7 +27,7 @@ module Decidim
     def state
       return :published if published?
       return :active if active?
-      return :inactive
+      :inactive
     end
   end
 end
