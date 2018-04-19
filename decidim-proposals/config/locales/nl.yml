@@ -264,10 +264,6 @@ nl:
           endorse: Goedkeuren
         endorsements_card_row:
           endorse: Goedkeuren
-        endorsements_listing:
-          see_all: Alles zien
-          see_less: Zie minder
-          title: Lijst met goedkeuringen
         filters:
           accepted: Aanvaard
           activity: Activiteit
@@ -288,6 +284,10 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Uitvouwen
+        identities_listing:
+          see_all: Alles zien
+          see_less: Zie minder
+          title: Lijst met goedkeuringen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
