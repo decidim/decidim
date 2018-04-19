@@ -47,6 +47,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Allow multiple choice questions to have "free text options" where the user can customize the selected answer [\#3134](https://github.com/decidim/decidim/pull/3134)
 - **decidim-surveys**: New question type to sort different options [\#3148](https://github.com/decidim/decidim/pull/3148)
 - **decidim-budgets**: Setting to control the number of projects per page to be listed [\#3239](https://github.com/decidim/decidim/pull/3239)
+- **decidim-generators**: New gem where all of decidim generators live, both to generate final application and decidim components (plugins).
 
 **Changed**:
 
@@ -96,5 +97,9 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-admin**: Ability to select leaf categories from Admin change-category bulk action [\#3243](https://github.com/decidim/decidim/pull/3243)
 - **decidim-admin**: Highlighted banner image is not required if already present in the organization [\#3244](https://github.com/decidim/decidim/pull/3244)
 - **decidim-proposals**: Keep the user group (if set) as default value of author field on forms [\#3247](https://github.com/decidim/decidim/pull/3247)
+
+**Removed**:
+
+- **decidim**: Decidim executable has been moved to the `decidim-generators` gem.
 
 Please check [0.10-stable](https://github.com/decidim/decidim/blob/0.10-stable/CHANGELOG.md) for previous changes.

@@ -3,7 +3,7 @@
 require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require "decidim/version"
+require "decidim/generators/version"
 require_relative "install_generator"
 
 module Decidim
@@ -18,12 +18,12 @@ module Decidim
 
       def source_paths
         [
-          File.expand_path("templates", __dir__),
+          self.class.source_root,
           Rails::Generators::AppGenerator.source_root
         ]
       end
 
-      source_root File.expand_path("templates", __dir__)
+      source_root File.expand_path("app_templates", __dir__)
 
       class_option :path, type: :string,
                           default: nil,
@@ -81,8 +81,8 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        template target_gemfile, "Gemfile", force: true
-        template "#{target_gemfile}.lock", "Gemfile.lock", force: true
+        copy_file target_gemfile, "Gemfile", force: true
+        copy_file "#{target_gemfile}.lock", "Gemfile.lock", force: true
 
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
@@ -91,7 +91,7 @@ module Decidim
                        elsif options[:branch]
                          "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                        else
-                         "\"#{Decidim.version}\""
+                         "\"#{Decidim::Generators.version}\""
                        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
@@ -111,9 +111,9 @@ module Decidim
       end
 
       def authorization_handler
-        template "initializer.rb", "config/initializers/decidim.rb"
+        copy_file "initializer.rb", "config/initializers/decidim.rb"
 
-        template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
+        copy_file "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
       end
 
       def install
@@ -142,7 +142,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                else
-                 decidim_root
+                 root_path
                end
 
         File.join(root, "Gemfile")
@@ -152,7 +152,7 @@ module Decidim
         File.expand_path(options[:path])
       end
 
-      def decidim_root
+      def root_path
         File.expand_path(File.join("..", "..", ".."), __dir__)
       end
     end
