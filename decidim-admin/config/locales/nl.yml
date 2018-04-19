@@ -31,7 +31,7 @@ nl:
         subject: Onderwerp
       oauth_application:
         name: Naam
-        organization_logo: Logo van de organisatie (vierkant)
+        organization_logo: Logo organisatie (vierkant)
         organization_name: Naam van de organisatie
         organization_url: URL van de organisatie
         redirect_uri: URI omleiden
