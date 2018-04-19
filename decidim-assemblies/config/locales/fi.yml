@@ -3,16 +3,32 @@ fi:
     attributes:
       assembly:
         area_id: alue
+        assembly_type: Asennustyyppi
+        assembly_type_other: Kokoonpanotyyppi muu
         banner_image: Bannerikuva
+        closing_date: Sulkemispäivä
+        closing_date_reason: Sulkemispäivämäärä
+        composition: Sävellys
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
+        copy_features: Kopioi ominaisuudet
+        created_by: Luonut
+        created_by_other: Luotu muilta
+        creation_date: Päivämäärä luotu
         decidim_area_id: alue
         decidim_scope_id: laajuus
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
+        duration: Kesto
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Etusivun kuva
+        included_at: Mukana osoitteessa
+        instagram: Instagram
+        internal_organisation: Sisäinen organisaatio
+        is_transparent: On läpinäkyvä
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
         participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
@@ -20,6 +36,7 @@ fi:
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
+        purpose_of_action: Toimen tarkoitus
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -28,6 +45,8 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+        twitter: Viserrys
+        youtube: YouTube
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -135,11 +154,26 @@ fi:
       admin:
         assemblies:
           form:
+            select_a_created_by: Valitse luoma
             select_an_area: Valitse alue
+            select_an_assembly_type: Valitse kokoonpanotyyppi
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            social_handlers: sosiaalinen
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+      assembly_types:
+        commission: poisjättäminen
+        consultative_advisory: Neuvoa / Advisory
+        executive: Johtaja
+        government: Hallitus
+        others: toiset
+        participatory: osallistava
+        working_group: Työryhmä
+      created_by:
+        city_council: Kaupunginvaltuusto
+        others: toiset
+        public: Julkinen
       index:
         title: Kehitysryhmät
       pages:
@@ -149,14 +183,30 @@ fi:
             see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
         area: alue
+        assembly_type: Asennustyyppi
         children: osat
+        closing_date: Sulkemispäivä
+        composition: Sävellys
+        created_by: Luonut
+        creation_date: Päivämäärä luotu
         developer_group: Kehittäjäryhmä
+        duration: Kesto
+        included_at: Mukana osoitteessa
+        indefinite_duration: epämääräinen
+        internal_organisation: Sisäinen organisaatio
+        is_transparent:
+          'false': himmeä
+          'true': läpinäkyvä
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         private_space: Tämä on yksityinen kokoonpano
+        purpose_of_action: Toimen tarkoitus
+        read_less: Lue vähemmän
+        read_more: Lue lisää
         related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
+        social_networks: Sosiaaliset verkostot
         target: Kohde
       statistics:
         answers_count: Vastaukset
@@ -180,6 +230,9 @@ fi:
           not_found: 'Kokoonpanoa ei löytynyt tietokannasta (ID: %{id})'
     menu:
       assemblies: Kehitysryhmät
+  errors:
+    messages:
+      cannot_be_blank: ei voi olla tyhjä
   layouts:
     decidim:
       assemblies:

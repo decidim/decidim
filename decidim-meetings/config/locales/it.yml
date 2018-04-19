@@ -122,6 +122,16 @@ it:
           new:
             create: Crea
             title: Crea meeting
+          service:
+            description: Descrizione
+            down: Giù
+            remove: Rimuovere
+            service: Servizio
+            title: Titolo
+            up: Su
+          services:
+            add_service: Aggiungi servizio
+            services: Servizi
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.

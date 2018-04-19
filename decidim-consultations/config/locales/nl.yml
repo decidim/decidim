@@ -3,7 +3,7 @@ nl:
     attributes:
       consultation:
         banner_image: Banner afbeelding
-        decidim_highlighted_scope_id: Gemarkeerde scope
+        decidim_highlighted_scope_id: Opvallend bereik
         description: Beschrijving
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
@@ -14,23 +14,23 @@ nl:
         title: Titel
       question:
         banner_image: Banner afbeelding
-        decidim_scope_id: Gemeentelijk gebied
+        decidim_scope_id: Gemeentelijk thema
         hashtag: Hashtag
         hero_image: Home afbeelding
         i_frame_url: URL van het externe stemsysteem
-        origin_scope: strekking
+        origin_scope: Bereik
         origin_title: Oorsprong
         origin_url: Origin URL
-        participatory_scope: Participatieve reikwijdte
+        participatory_scope: Doelstelling
         promoter_group: Promotergroep
         question_context: Context
         reference: Referentie
-        scope: Gemeentelijk gebied
+        scope: Gemeentelijk thema
         slug: URL-slug
         subtitle: subtitel
         title: Titel
         vote: Extern stemsysteem
-        what_is_decided: Wat wordt besloten
+        what_is_decided: Wat is besloten
     errors:
       vote:
         decidim_consultations_response_id:
@@ -39,14 +39,14 @@ nl:
     admin:
       actions:
         publish_results: Publiceer resultaten
-        unpublish_results: Publicatie van publicatie ongedaan maken
+        unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit consult.
+          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomst.
           success: Overleg succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van dit consult.
-          success: Overleg ongepubliceerd.
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze consult.
+          success: Publicatie van de consult succesvol ongedaan gemaakt.
       consultation_results_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit consult.
@@ -80,7 +80,7 @@ nl:
           info: Informatie
           questions: vragen
         questions_submenu:
-          components: Components
+          components: Onderdelen
           consultation: Overleg
           info: Informatie
           responses: Antwoorden
@@ -95,7 +95,7 @@ nl:
             other: overleg
         question:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             published: Gepubliceerd
             title: Titel
           name:
@@ -103,7 +103,7 @@ nl:
             other: vragen
         response:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             title: Titel
           name:
             one: antwoord
@@ -113,8 +113,8 @@ nl:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
           success: Vraag met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van deze vraag.
-          success: Vraag ongepubliceerd met succes.
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze vraag.
+          success: Publicatie van de vraag succesvol ongedaan gemaakt.
       questions:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe vraag.
@@ -193,7 +193,7 @@ nl:
         take_part: Deelnemen
         view_results: Bekijk resultaten
         votes_out_of:
-          one: stem uit
+          one: stem vanuit
           other: stemmen uit
       question_votes:
         create:
@@ -218,11 +218,11 @@ nl:
         technical_data: Technische data
       vote_button:
         already_voted: Reeds gestemd
-        already_voted_hover: Ondersteuning intrekken
+        already_voted_hover: Steun intrekken
         starting_from: Te beginnen met %{date}
         vote: Stemmen
       vote_modal:
-        contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je ondersteuning niet kan worden gewijzigd.
+        contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je je stem niet meer kan wijzigen.
         title: 'Overleg: vraagondersteuning'
       vote_modal_confirm:
         change: Verandering

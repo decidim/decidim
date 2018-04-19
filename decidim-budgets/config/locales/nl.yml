@@ -45,7 +45,7 @@ nl:
       admin_log:
         project:
           create: "%{user_name} heeft het project %{resource_name} gemaakt in de ruimte %{space_name}"
-          delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} spatie"
+          delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} ruimte"
           update: "%{user_name} heeft het project %{resource_name} bijgewerkt in de ruimte %{space_name}"
       models:
         project:
@@ -109,11 +109,12 @@ nl:
       budgets:
         actions:
           vote: Stemmen
-        name: begrotingen
+        name: Budgetten
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            projects_per_page: Projecten per pagina
             total_budget: Totale budget
             vote_threshold_percent: Stemdrempel procent
           step:

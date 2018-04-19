@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Soort gebied
+        area_type: Pagina soort
         name: Naam
         organization: Organisatie
       area_type:
@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: Verzameling
+        attachment_collection_id: collection
         description: Beschrijving
         file: Bestand
         title: Titel
@@ -31,9 +31,9 @@ nl:
         subject: Onderwerp
       oauth_application:
         name: Naam
-        organization_logo: Organisatie logo (vierkant)
-        organization_name: Organisatie naam
-        organization_url: Organisatie-URL
+        organization_logo: Logo van de organisatie (vierkant)
+        organization_name: Naam van de organisatie
+        organization_url: URL van de organisatie
         redirect_uri: URI omleiden
       organization:
         cta_button_path: Oproep naar actieknop pad
@@ -42,7 +42,7 @@ nl:
         description: Beschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
         facebook_handler: Facebook handler
-        favicon: Icoon
+        favicon: Favicon
         github_handler: GitHub-handler
         header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Actieknop ondertitel
@@ -71,9 +71,9 @@ nl:
         code: Code
         name: Naam
         organization: Organisatie
-        parent_id: Ouder
+        parent_id: Parent
         scope_type: Scope type
-        scope_type_id: Scope type
+        scope_type_id: Bereiktype
       scope_type:
         name: Naam
         organization: Organisatie
@@ -124,8 +124,8 @@ nl:
         slug: URL slug
         title: Titel
       doorkeeper/application:
-        authorize_url: Autoriseer URL
-        client_id: klant identificatie
+        authorize_url: Autorisatie URL
+        client_id: Klant-ID
         client_secret: Client Secret
         organization_name: Organisatie naam
         organization_url: Organisatie-URL
@@ -146,41 +146,41 @@ nl:
         verify: Verifiëren
       area_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw gebiedstype.
-          success: Gebiedstype met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes gemaakt.
         destroy:
-          success: Gebiedstype met succes vernietigd
+          success: Pagina met succes verwijderd
         edit:
           title: Gebiedstype bewerken
           update: Bijwerken
         new:
-          create: Maak een gebiedstype
-          title: Nieuw gebiedstype
+          create: Maak een pagina
+          title: Nieuwe pagina
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit gebiedstype.
-          success: Gebiedstype is succesvol bijgewerkt
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina is succesvol bijgewerkt
       areas:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw gebied.
-          success: Gebied met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes aangemaakt.
         destroy:
-          success: Gebied met succes vernietigd
+          success: Pagina met succes verwijderd
         edit:
-          title: Gebied bewerken
+          title: Pagina bewerken
           update: Bijwerken
         new:
-          create: Maak een gebied
-          title: Nieuw gebied
-        no_areas: Geen gebieden
+          create: Maak een pagina
+          title: Nieuwe pagina
+        no_areas: Geen pagina's
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit gebied.
-          success: Gebied met succes bijgewerkt
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
           success: Verzameling succesvol gemaakt.
         destroy:
-          success: Collectie succesvol vernietigd.
+          success: Verzameling succesvol vernietigd.
         edit:
           title: Bewerk verzameling
           update: Bijwerken
@@ -235,48 +235,48 @@ nl:
           submit: Bewaar rechten
           title: Bewerk rechten
         update:
-          success: Machtigingen succesvol bijgewerkt.
+          success: Rechten succesvol bijgewerkt.
       components:
         create:
           error: Er is een fout opgetreden bij het maken van dit onderdeel.
-          success: Component met succes gemaakt.
+          success: Onderdeel met succes gemaakt.
         destroy:
           error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
-          success: Component succesvol verwijderd.
+          success: Onderdeel succesvol verwijderd.
         edit:
-          title: Bewerk component
+          title: Bewerk onderdeel
           update: Bijwerken
         form:
-          default_step_settings: Standaard step-instellingen
+          default_step_settings: Standaard stappenplan
           global_settings: Algemene instellingen
           step_settings: Stapinstellingen
         index:
-          add: Voeg component toe
+          add: Voeg onderdeel toe
           headers:
             actions: acties
-            name: Naam van component
-            type: Component type
+            name: Naam van onderdeel
+            type: Onderdeel type
         new:
-          add: Voeg component toe
-          title: 'Voeg component toe: %{name}'
+          add: Voeg onderdeel toe
+          title: 'Voeg onderdeel toe: %{name}'
         publish:
           success: Het onderdeel is met succes gepubliceerd.
-        title: Components
+        title: Onderdelen
         unpublish:
-          success: Het onderdeel is met succes ongepubliceerd.
+          success: Het onderdeel is met succes verwijderd.
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
       dashboard:
         show:
-          view_more_logs: Bekijk meer logs
+          view_more_logs: Bekijk meer verslagen
           welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       logs:
         logs_list:
-          no_logs_yet: Er zijn nog geen logs
+          no_logs_yet: Er zijn nog geen verslagen
       managed_users:
         close_session:
           error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
@@ -300,7 +300,7 @@ nl:
         new:
           create: creëren
           new_managed_user: Nieuwe beheerde gebruiker
-          no_authorization_handlers: Er zijn geen beschikbare autorisatiehandlers om gebruikers te beheren. Neem contact op met uw systeembeheerder.
+          no_authorization_handlers: Er is niemand geautoriseerd om gebruikers te beheren. Neem contact op met je systeembeheerder.
           select_authorization_method: Selecteer een autorisatie methode
           step: Stap %{current} van %{total}
         promotion:
@@ -312,11 +312,11 @@ nl:
             new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
-        admin_log: Admin-activiteitenlogboek
+        admin_log: Admin activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Gebiedstypen
-        areas: gebieden
+        area_types: Pagina soorten
+        areas: Pagina's
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -332,7 +332,7 @@ nl:
       models:
         area:
           fields:
-            area_type: Soort gebied
+            area_type: Pagina soort
             name: Naam
         area_type:
           fields:
@@ -367,11 +367,11 @@ nl:
           name: Nieuwsbrief
         oauth_application:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
-          name: Participator private gebruiker
+          name: Privégebruiker burgerinspraak
         scope:
           fields:
             name: Naam
@@ -462,13 +462,13 @@ nl:
           success: Applicatie succesvol bijgewerkt.
       officializations:
         create:
-          success: Gebruiker officieel gelukt
+          success: Gebruiker officieel goedgekeurd
         destroy:
-          success: Gebruiker nietofficieel succesvol
+          success: Gebruiker nietofficieel goedgekeurd
         index:
           actions: acties
           badge: insigne
-          created_at: Gemaakt bij
+          created_at: Aangemaakt op
           filter:
             all: Alle
             not_officialized: Niet officieel
@@ -479,14 +479,14 @@ nl:
           not_officialized: Niet officieel
           officialize: officialiseren
           officialized: geofficialiseerd
-          reofficialize: Reofficialize
+          reofficialize: Herofficialiseren
           search: Zoeken
-          status: staat
-          unofficialize: Unofficialize
+          status: status
+          unofficialize: Onofficieel
         new:
-          badge: Officificatiebadge
+          badge: Officiële badge
           officialize: officialiseren
-          title: Officiëren gebruiker "%{name}"
+          title: Officialiseren gebruiker "%{name}"
       organization:
         edit:
           title: Organisatie bewerken
@@ -510,20 +510,20 @@ nl:
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
-          homepage_highlighted_content_banner_title: Highligted inhoudsbanner
+          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerken alomtegenwoordig
       participatory_space_private_users:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze deelruimte.
-          success: Particuliere gebruikerstoegang voor privéruimte die met succes is gemaakt.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze burgerinspraak.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes aangemaakt.
         destroy:
-          success: Particuliere toegang voor privégebruik met succes vernietigd.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
-          title: Participator private gebruiker
+          title: Privégebruiker van de burgerinspraak
         new:
           create: creëren
-          title: Nieuwe privéparticipatiepartner.
+          title: Nieuwe privégebruiker van de deelruimte.
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
@@ -574,8 +574,8 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Beheerderslog
-        area_types: Gebiedstypen
-        areas: gebieden
+        area_types: Pagina soorten
+        areas: Pagina's
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
