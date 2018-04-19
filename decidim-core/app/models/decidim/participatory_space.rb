@@ -9,6 +9,8 @@ module Decidim
   # component to be related to that component (eg all `Proposals` belong to
   # their `component`), while for spaces this is not necessary.
   class ParticipatorySpace < ApplicationRecord
+    include Loggable
+    include Traceable
     include Publicable
     include Activable
 
@@ -17,5 +19,15 @@ module Decidim
                class_name: "Decidim::Organization"
 
     validates :published_at, absence: true, if: proc { |space| !space.active? }
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ParticipatorySpacePresenter
+    end
+
+    def state
+      return :published if published?
+      return :active if active?
+      return :inactive
+    end
   end
 end

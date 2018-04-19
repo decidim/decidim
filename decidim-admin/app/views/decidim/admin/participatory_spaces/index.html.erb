@@ -1,0 +1,39 @@
+<div class="card" id="area-types">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t "decidim.admin.titles.participatory_spaces" %></h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+        <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.participatory_space.fields.manifest_name", scope: "decidim.admin") %></th>
+            <th><%= t("models.participatory_space.fields.state", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% participatory_spaces.each do |participatory_space| %>
+            <tr>
+              <td>
+                <%= t(participatory_space.manifest_name, scope: "decidim.admin.menu") %>
+              </td>
+              <td>
+                <%= t(participatory_space.state, scope: "decidim.admin.models.participatory_space.fields.state_values") %>
+              </td>
+              <td class="table-list__actions">
+                <% if participatory_space.published? %>
+                  <span>Unpublish</span>
+                <% elsif participatory_space.active? %>
+                  <span>Deactivate</span> <span>Publish</span>
+                <% else %>
+                  <%= link_to t(".activate"), activate_participatory_space_path(participatory_space.manifest_name), class: "button small", method: :put %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
