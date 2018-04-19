@@ -20,6 +20,10 @@ module Decidim
         def authorization_object
           @attachment_collection || AttachmentCollection
         end
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end

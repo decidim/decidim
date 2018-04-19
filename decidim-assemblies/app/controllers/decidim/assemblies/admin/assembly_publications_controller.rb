@@ -39,6 +39,10 @@ module Decidim
             redirect_back(fallback_location: assemblies_path)
           end
         end
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end

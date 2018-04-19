@@ -95,6 +95,10 @@ module Decidim
                           .where(assembly: current_assembly)
                           .order(:role, "decidim_users.name")
         end
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end
