@@ -12,7 +12,7 @@ module Decidim
     # definition order of the public methods.
     class InstallGenerator < Rails::Generators::Base
       desc "Install decidim"
-      source_root File.expand_path("templates", __dir__)
+      source_root File.expand_path("app_templates", __dir__)
 
       class_option :app_name, type: :string,
                               default: nil,
@@ -38,8 +38,8 @@ module Decidim
       end
 
       def copy_initializer
-        template "carrierwave.rb", "config/initializers/carrierwave.rb"
-        template "social_share_button.rb", "config/initializers/social_share_button.rb"
+        copy_file "carrierwave.rb", "config/initializers/carrierwave.rb"
+        copy_file "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
       def secrets
