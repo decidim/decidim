@@ -122,6 +122,16 @@ ca:
           new:
             create: Crear
             title: Crear trobada
+          service:
+            description: Descripció
+            down: Avall
+            remove: Elimina
+            service: Servei
+            title: Títol
+            up: Pujar
+          services:
+            add_service: Afegeix servei
+            services: Serveis
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
