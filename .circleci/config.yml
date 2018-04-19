@@ -161,7 +161,7 @@ jobs:
       - *store_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
-  processes:
+  participatory_processes:
     <<: *defaults
     steps:
       - *attach_workspace
@@ -424,7 +424,7 @@ workflows:
       - api:
           requires:
             - build_test_app
-      - processes:
+      - participatory_processes:
           requires:
             - build_test_app
       - admin:
@@ -477,7 +477,7 @@ workflows:
             - assemblies
             - initiatives
             - api
-            - processes
+            - participatory_processes
             - admin
             - system
             - proposals
