@@ -264,10 +264,6 @@ fr:
           endorse: Recommander
         endorsements_card_row:
           endorse: Recommander
-        endorsements_listing:
-          see_all: Tout voir
-          see_less: Voir moins
-          title: Liste des recommandations
         filters:
           accepted: Retenue
           activity: Activité
@@ -288,6 +284,10 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
+        identities_listing:
+          see_all: Tout voir
+          see_less: Voir moins
+          title: Liste des promoteurs
         index:
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
