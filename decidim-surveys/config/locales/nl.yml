@@ -11,12 +11,12 @@ nl:
       surveys:
         survey_closed:
           email_intro: De enquête %{resource_title} in %{participatory_space_title} is gesloten.
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de vorige link te volgen.
           email_subject: Een enquête is voltooid in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is voltooid.
         survey_opened:
-          email_intro: 'De enquête %{resource_title} in %{participatory_space_title} is nu geopend. U kunt vanaf deze pagina deelnemen:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'De enquête %{resource_title} in %{participatory_space_title} is nu gestart. Je kan deelnemen op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de vorige link te volgen.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
     features:
