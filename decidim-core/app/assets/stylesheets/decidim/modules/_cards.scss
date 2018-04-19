@@ -838,11 +838,14 @@ $datetime-bg: $primary;
         flex-grow: 0;
         flex-basis: 12%;
         background-color: $card-secondary-bg;
+        position: relative;
 
         > div{
           display: flex;
           flex-direction: column;
           align-items: center;
+
+          @include absolute-center;
         }
       }
     }

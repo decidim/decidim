@@ -1,7 +1,8 @@
-$margin-s: 1rem;
-$margin-sm: 2rem;
-$margin-m: 3rem;
-$margin-l: 5rem;
+$margin-xs: $global-margin * .5;
+$margin-s: $global-margin * 1;
+$margin-sm: $global-margin * 2;
+$margin-m: $global-margin * 3;
+$margin-l: $global-margin * 5;
 
 //Sections
 .section{
@@ -19,6 +20,7 @@ $margin-l: 5rem;
 // helpers
 $size:(
   none: 0,
+  xs: $margin-xs,
   s: $margin-s,
   sm: $margin-sm,
   m: $margin-m,
