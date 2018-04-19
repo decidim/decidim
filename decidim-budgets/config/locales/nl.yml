@@ -104,7 +104,7 @@ nl:
       budgets:
         actions:
           vote: Stem
-        name: begrotingen
+        name: Budgetten
         settings:
           global:
             announcement: Aankondiging
