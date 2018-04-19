@@ -20,6 +20,12 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    services do
+      [
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
+      ]
+    end
     component { build(:component, manifest_name: "meetings") }
 
     trait :closed do

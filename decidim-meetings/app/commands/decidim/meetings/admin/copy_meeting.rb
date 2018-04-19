@@ -52,6 +52,7 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
+            services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             component: @meeting.component,
             registrations_enabled: @meeting.registrations_enabled,
             available_slots: @meeting.available_slots,
