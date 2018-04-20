@@ -396,7 +396,7 @@ nl:
       embed_modal:
         close_window: Sluit dit scherm
         embed: Plak deze code alstublieft in uw pagina
-        embed_link: insluiten
+        embed_link: Insluiten
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
