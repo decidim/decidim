@@ -6,7 +6,32 @@ module Decidim::Admin
   describe Abilities::AdminAbility do
     subject { described_class.new(user, {}) }
 
-    let(:user) { build(:user, :admin) }
+    let(:organization) { create(:organization, available_authorizations: available_authorizations) }
+    let(:available_authorizations) { ["dummy_authorization_handler"] }
+    let(:user) { build(:user, :admin, organization: organization) }
+    let(:impersonated_user) { create(:user, organization: organization) }
+
+    context "when the organization has authorization handlers" do
+      it "can impersonate" do
+        expect(subject).to be_able_to(:impersonate, impersonated_user)
+      end
+    end
+
+    context "when the organization doesn't have authorizations" do
+      let(:available_authorizations) { [] }
+
+      it "can't impersonate" do
+        expect(subject).not_to be_able_to(:impersonate, impersonated_user)
+      end
+    end
+
+    context "when the organization has only authorization workflows" do
+      let(:available_authorizations) { ["dummy_authorization_workflow"] }
+
+      it "can't impersonate" do
+        expect(subject).not_to be_able_to(:impersonate, impersonated_user)
+      end
+    end
 
     context "when the user is not an admin" do
       let(:user) { build(:user) }
@@ -17,13 +42,50 @@ module Decidim::Admin
       end
     end
 
+    context "when the user doesn't have an impersonation log" do
+      before do
+        create(:impersonation_log, admin: create(:user, organization: organization))
+      end
+
+      it { is_expected.to be_able_to(:impersonate, impersonated_user) }
+    end
+
+    context "when the user doesn't have an active impersonation log" do
+      before do
+        create(:impersonation_log, admin: user, started_at: 2.days.ago, ended_at: 1.day.ago)
+      end
+
+      it { is_expected.to be_able_to(:impersonate, impersonated_user) }
+    end
+
+    context "when the user has an active impersonation log" do
+      before do
+        create(:impersonation_log, admin: user, started_at: 10.minutes.ago)
+      end
+
+      it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
+    end
+
+    context "when the impersonated user is an admin" do
+      let(:impersonated_user) { create(:user, :admin, organization: organization) }
+
+      it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
+    end
+
+    context "when the impersonated user is a user manager" do
+      let(:impersonated_user) { create(:user, :user_manager, organization: organization) }
+
+      it { is_expected.not_to be_able_to(:impersonate, impersonated_user) }
+    end
+
     it { is_expected.to be_able_to(:read, :admin_log) }
+    it { is_expected.to be_able_to(:read, :impersonatable_users) }
 
     it { is_expected.to be_able_to(:manage, Decidim::Moderation) }
     it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
     it { is_expected.to be_able_to(:manage, Decidim::Scope) }
     it { is_expected.to be_able_to(:manage, :admin_users) }
-    it { is_expected.to be_able_to(:manage, :managed_users) }
+
     it { is_expected.to be_able_to(:manage, :oauth_applications) }
     it { is_expected.to be_able_to(:manage, Decidim::OAuthApplication) }
 
@@ -63,17 +125,15 @@ module Decidim::Admin
     end
 
     context "when the organization is the one they belong to" do
-      let(:organization) { user.organization }
-
       it { is_expected.to be_able_to(:update, organization) }
       it { is_expected.to be_able_to(:read, organization) }
     end
 
     context "when the organization is different form the one they belong to" do
-      let(:organization) { build(:organization) }
+      let(:other_organization) { build(:organization) }
 
-      it { is_expected.not_to be_able_to(:update, organization) }
-      it { is_expected.not_to be_able_to(:read, organization) }
+      it { is_expected.not_to be_able_to(:update, other_organization) }
+      it { is_expected.not_to be_able_to(:read, other_organization) }
     end
 
     context "when destroying a user" do

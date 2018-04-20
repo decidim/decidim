@@ -261,10 +261,6 @@ en:
           endorse: Endorse
         endorsements_card_row:
           endorse: Endorse
-        endorsements_listing:
-          see_all: See all
-          see_less: See less
-          title: List of Endorsements
         filters:
           accepted: Accepted
           activity: Activity
@@ -285,6 +281,10 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        identities_listing:
+          see_all: See all
+          see_less: See less
+          title: List of Endorsements
         index:
           new_proposal: New proposal
           see_all_withdrawn: See all withdrawn proposals
