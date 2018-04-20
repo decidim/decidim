@@ -8,7 +8,7 @@ nl:
       user:
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Jouw korte unieke Id in decidim
+        nickname: Jouw korte unieke ID in decidim
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         remove_avatar: Verwijder avatar
@@ -55,9 +55,9 @@ nl:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       feature:
-        create: "%{user_name} heeft de %{resource_name} functie toegevoegd aan de %{space_name} ruimte"
-        delete: "%{user_name} heeft de functie %{resource_name} verwijderd van de %{space_name} ruimte"
-        publish: "%{user_name} heeft de functie %{resource_name} in de ruimte %{space_name} gepubliceerd"
+        create: "%{user_name} heeft de functionaliteit %{resource_name} toegevoegd aan de %{space_name} ruimte"
+        delete: "%{user_name} heeft de functionaliteit %{resource_name} verwijderd van de %{space_name} ruimte"
+        publish: "%{user_name} heeft de functionaliteit %{resource_name} in de ruimte %{space_name} gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van de functie %{resource_name} ongedaan gemaakt in de %{space_name} ruimte"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
@@ -197,7 +197,7 @@ nl:
         actions:
           bar: Bar
           foo: Foo
-        name: Dummy functie
+        name: Dummy functionaliteit
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
