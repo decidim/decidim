@@ -285,9 +285,9 @@ nl:
           filter_by: Filteren op
           unfold: Uitvouwen
         identities_listing:
-          see_all: Alles zien
-          see_less: Zie minder
-          title: Lijst met goedkeuringen
+          see_all: Alles bekijken
+          see_less: Minder bekijken
+          title: Lijst met stemmen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
