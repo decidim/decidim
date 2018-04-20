@@ -531,7 +531,7 @@ nl:
         welcome: Welkom bij %{organization}!
       statistics:
         answers_count: Voltooide enquêtes
-        assemblies_count: Bijeenkomsten
+        assemblies_count: Events
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Aanbevelen
