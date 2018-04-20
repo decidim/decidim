@@ -153,7 +153,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Jouw korte, unieke ID in %{organization}
+          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -161,7 +161,7 @@ nl:
         new:
           already_have_an_account?: U heeft al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
-          nickname_help: Jouw korte, unieke ID in %{organization}
+          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -182,7 +182,7 @@ nl:
     doorkeeper:
       authorizations:
         new:
-          authorize: Aanvraag autoriseren
+          authorize: Aanvraag toestaan
           by_organization_link_html: <small class="heading-small">door %{link}</small>
           cancel: Annuleer
           connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
