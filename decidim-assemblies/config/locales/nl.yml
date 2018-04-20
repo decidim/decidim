@@ -239,7 +239,7 @@ nl:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Gemarkeerde events
+          promoted_assemblies: Uitgelichte events
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"
