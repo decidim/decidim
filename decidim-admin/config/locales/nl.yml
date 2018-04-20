@@ -42,12 +42,12 @@ nl:
         description: Omschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
         facebook_handler: Facebook naam
-        favicon: Favicon
+        favicon: Pictogram
         github_handler: GitHub-gebruikersnaam
         header_snippets: Header-fragmenten
-        highlighted_content_banner_action_subtitle: Actieknop ondertitel
-        highlighted_content_banner_action_title: Actieknop titel
-        highlighted_content_banner_action_url: Actieknop URL
+        highlighted_content_banner_action_subtitle: Ondertitel actieknop
+        highlighted_content_banner_action_title: Titel actieknop
+        highlighted_content_banner_action_url: URL actieknop
         highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
         highlighted_content_banner_image: Beeld
         highlighted_content_banner_short_description: Korte omschrijving
