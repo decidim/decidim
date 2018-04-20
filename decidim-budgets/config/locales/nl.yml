@@ -116,7 +116,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             projects_per_page: Projecten per pagina
             total_budget: Totale budget
-            vote_threshold_percent: Stemdrempel procent
+            vote_threshold_percent: Stemdrempelpercentage
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
