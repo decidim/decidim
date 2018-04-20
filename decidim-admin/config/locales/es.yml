@@ -282,7 +282,7 @@ es:
             not_managed: No gestionado
           filter_by: Filtrado por
           impersonate: Suplantar
-          impersonate_new_managed_user: Suplantar a un nuevo usuario administrado
+          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
           managed: Administrado
           name: Nombre
           needs_authorization_warning: Necesita al menos una autorización habilitada para esta organización.
@@ -296,7 +296,7 @@ es:
           error: Se ha producido un error al cerrar la sesión de suplantación actual.
           success: Se ha finalizado con éxito la sesión de suplantación actual.
         create:
-          error: Ha habido un error al suplantar al usuario.
+          error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha creado correctamente.
         form:
           authorization_method: Método de autorización
@@ -304,9 +304,9 @@ es:
           reason: Razón
         new:
           impersonate: Suplantar
-          impersonate_existing_managed_user: Suplantar al usuario administrado "%{name}"
-          impersonate_existing_user: Suplantar usuario "%{name}"
-          impersonate_new_managed_user: Suplantar a un nuevo usuario administrado
+          impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
+          impersonate_existing_user: Impersonar usuario "%{name}"
+          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
@@ -327,7 +327,7 @@ es:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
-        impersonations: Suplantaciones
+        impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         officializations: Oficializaciones
@@ -630,7 +630,7 @@ es:
     forms:
       errors:
         impersonate_user:
-          reason: Debe proporcionar una razón para suplantar a un usuario no administrado
+          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
     moderations:
       actions:
         hidden: Ocultas
