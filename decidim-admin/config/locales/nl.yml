@@ -43,7 +43,7 @@ nl:
         enable_omnipresent_banner: Toon alomtegenwoordige banner
         facebook_handler: Facebook naam
         favicon: Pictogram
-        github_handler: GitHub-gebruikersnaam
+        github_handler: GitHub gebruikersnaam
         header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
@@ -53,20 +53,20 @@ nl:
         highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
         homepage_image: Homepage afbeelding
-        instagram_handler: Instagram handler
+        instagram_handler: Instagram gebruikersnaam
         logo: Logo
         name: Naam
-        official_img_footer: Officiële logo voettekst
-        official_img_header: Officiële logo-header
+        official_img_footer: Officieel logo voettekst
+        official_img_header: Officieel logo header
         official_url: Officiële organisatie-URL
         omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         reference_prefix: Referentievoorvoegsel
         show_statistics: Toon statistieken
-        twitter_handler: Twitter-handler
+        twitter_handler: Twitter gebruikersnaam
         welcome_text: Welkomsttekst
-        youtube_handler: YouTube-handler
+        youtube_handler: YouTube gebruikersnaam
       scope:
         code: Code
         name: Naam
