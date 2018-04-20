@@ -1,7 +1,10 @@
 # frozen_string_literal: true
+require_relative 'capybara_data_picker'
 
 module Capybara
   module ScopesPicker
+    include DataPicker
+
     def scopes_picker_find(id, multiple: nil, global_value: "")
       Struct.new(:data_picker, :global_value).new(data_picker_find(id, multiple: multiple), global_value)
     end
@@ -64,15 +67,6 @@ module Capybara
     end
 
     private
-
-    def data_picker_find(id, multiple: nil)
-      if multiple.nil?
-        expect(page).to have_selector("div.data-picker##{id}")
-      else
-        expect(page).to have_selector("div.data-picker.picker-#{multiple ? "multiple" : "single"}##{id}")
-      end
-      find("div.data-picker##{id}")
-    end
 
     def scope_picker_browse_scopes(scopes)
       scopes.each do |scope|
