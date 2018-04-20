@@ -491,7 +491,7 @@ nl:
           status: status
           unofficialize: Onofficieel
         new:
-          badge: Officiële badge
+          badge: Bevestigings badge
           officialize: Bevestigen
           title: Gebruiker bevestigen "%{name}"
       organization:
@@ -522,8 +522,8 @@ nl:
           omnipresent_banner_appearance_title: Header bewerken
       participatory_space_private_users:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze burgerinspraak.
-          success: De toegang van de privégebruiker voor burgerinspraak is met succes aangemaakt.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
           success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
@@ -587,7 +587,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Onmiskenbare gebruikers
         impersonations: Nabootsingingen
-        officializations: Officializations
+        officializations: Bevestigen gebruikers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
