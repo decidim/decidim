@@ -10,6 +10,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
 
+- **decidim-blogs**: Decidim Blogs gem has been integrated into the main repository. [\#3221](https://github.com/decidim/decidim/pull/3221)
 - **decidim-meetings** Add services offered in the meeting. [\#3150](https://github.com/decidim/decidim/pull/3150)
 - **decidim-assemblies**: Adding news fields into assembly in terms of database [\#2942](https://github.com/decidim/decidim/pull/2942)
 - **decidim-proposals**: Add configuration for set the number of proposals to be highlighted [\#3175](https://github.com/decidim/decidim/pull/3175)
@@ -50,23 +51,9 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-admin**: Regular users can now be impersonated [\#3226](https://github.com/decidim/decidim/pull/3226)
 - **decidim-admin**: All available authorization handlers can always be chosen for impersonation even after the first impersonation [\#3226](https://github.com/decidim/decidim/pull/3226)
 - **decidim-generators**: New gem where all of decidim generators live, both to generate final application and decidim components (plugins).
-- **decidim-core**: Add context to content parsers [\#2749](https://github.com/decidim/decidim/pull/2749)
-- **decidim-assemblies**: Assemblies now have a reference [\#2557](https://github.com/decidim/decidim/pull/2557)
-- **decidim-core**: Let participatory spaces have reference [\#2557](https://github.com/decidim/decidim/pull/2557)
-- **decidim-meetings**: Add simple formatting to debates fields to improve readability [\#2670](https://github.com/decidim/decidim/issues/2670)
-- **decidim-meetings**: Notify participatory space followers when a meeting is created. [\#2646](https://github.com/decidim/decidim/pull/2646)
-- **decidim-participatory_processes**: Processes now have a reference [\#2557](https://github.com/decidim/decidim/pull/2557)
-- **decidim-proposals**: Notify participatory space followers when a proposal is created. [\#2646](https://github.com/decidim/decidim/pull/2646)
-- **decidim-proposals**: Copy proposals to another component [\#2619](https://github.com/decidim/decidim/issues/2619).
-- **decidim-proposals**: Users and user_groups can now endorse proposals. [\#2287](https://github.com/decidim/decidim/pull/2287)
-- **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
-- **decidim-core**: Add collections to group attachments [\#2394](https://github.com/decidim/decidim/pull/2394).
-- **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
-- **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
-- **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
-- **decidim-admin**: Log all actions on newsletters [\#2763](https://github.com/decidim/decidim/pull/2763)
 - **decidim-meetings**: Add WYSIWYG editor for meeting closing notes [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#3265](https://github.com/decidim/decidim/pull/3265)
+- **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
 
 **Changed**:
 
@@ -85,6 +72,9 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Fixed**:
 
+- **decidim-proposals**: Ignore already imported proposals when importing them [\#3257](https://github.com/decidim/decidim/pull/3257)
+- **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. [\#3238](https://github.com/decidim/decidim/pull/3238)
+- **decidim-core**: Add missing locales in Freanch fot the datepicker [\#3260](https://github.com/decidim/decidim/pull/3260)
 - **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. \#2894](https://github.com/decidim/decidim/pull/3238)
 - **decidim-proposals**: Restore creation date in proposal detail page. [\#3249](https://github.com/decidim/decidim/pull/3249)
 - **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3185](https://github.com/decidim/decidim/pull/3185)
