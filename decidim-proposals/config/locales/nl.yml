@@ -112,9 +112,9 @@ nl:
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: voorstellen
+          proposals: Voorstellen
         proposal:
-          creation_date: 'Aanmaak: %{date}'
+          creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
     participatory_spaces:
       highlighted_proposals:
