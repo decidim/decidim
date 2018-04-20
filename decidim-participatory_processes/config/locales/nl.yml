@@ -260,7 +260,7 @@ nl:
       order_by_processes:
         active: Actief
         all: Alle
-        past: Verleden
+        past: Archief
         upcoming: Aankomende
       pages:
         home:
