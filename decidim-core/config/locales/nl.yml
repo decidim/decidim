@@ -314,14 +314,14 @@ nl:
     newsletters:
       unsubscribe:
         check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een fout opgetreden bij het afmelden
-        success: Je bent succesvol afgemeld.
+        error: Er is een fout opgetreden tijdens het uitschrijven.
+        success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
-        unsubscribe: Afmelden
+        unsubscribe: Uitschrijven
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
-        newsletter_notifications: Ik wil nieuwsbrieven ontvangen
+        newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
@@ -425,7 +425,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
-        nickname_help: Jouw unieke ID in %{organization}.
+        nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -533,8 +533,8 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
-        debates_count: debatten
-        endorsements_count: Goedkeuringen
+        debates_count: Debatten
+        endorsements_count: Aanbevelen
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
