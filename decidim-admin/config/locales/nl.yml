@@ -40,7 +40,7 @@ nl:
         cta_button_text: actieknop tekst
         default_locale: Standaard taal
         description: Omschrijving
-        enable_omnipresent_banner: Toon alomtegenwoordige banner
+        enable_omnipresent_banner: Toon header
         facebook_handler: Facebook naam
         favicon: Pictogram
         github_handler: GitHub gebruikersnaam
