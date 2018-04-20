@@ -55,7 +55,7 @@ nl:
     admin:
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe bijeenkomt.
+          error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         destroy:
           success: Bijeenkomst is succesvol vernietigd.
@@ -108,7 +108,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
           success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Bijeenkomsten
+        assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
           attachment_collections: collecties
@@ -139,7 +139,7 @@ nl:
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Bijeenkomsten
+        assemblies: Events
     admin_log:
       assembly:
         create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
@@ -175,16 +175,16 @@ nl:
         others: anderen
         public: Openbaar
       index:
-        title: Bijeenkomsten
+        title: Events
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle bijeenkomsten
+            active_assemblies: Huidige events
+            see_all_assemblies: Bekijk alle events
       show:
         area: onderwerp
         assembly_type: Montage type
-        children: Assemblies
+        children: Events
         closing_date: Einddatum
         composition: Samenstelling
         created_by: Gemaakt door
@@ -229,7 +229,7 @@ nl:
         assembly_presenter:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
-      assemblies: Bijeenkomsten
+      assemblies: Events
   errors:
     messages:
       cannot_be_blank: kan niet leeg zijn
@@ -239,7 +239,7 @@ nl:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Gemarkeerde bijenkomsten
+          promoted_assemblies: Gemarkeerde events
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"
