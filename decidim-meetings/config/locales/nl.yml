@@ -56,7 +56,7 @@ nl:
           email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
           notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: Het "%{resource_title}" event bezet slots meer dan %{percentage}%.
+          email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
           email_subject: Het "%{resource_title}" event bezet meer slots dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette slots zijn over %{percentage}%.
@@ -147,8 +147,8 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Laat het op 0 staan ​​als je geen gereserveerde slots hebt
-            reserved_slots_less_than: Moet kleiner zijn dan of gelijk aan %{count}
+            reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
+            reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
