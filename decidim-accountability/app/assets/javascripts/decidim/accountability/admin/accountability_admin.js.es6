@@ -19,7 +19,7 @@ $(function() {
           xhr.abort();
         } catch (exception) { xhr = null}
 
-        let url= $('#proposal-picker-choose').attr('href')
+        let url = $("#proposal-picker-choose").attr("href")
         xhr = $.getJSON(
           url,
           { term: term },
