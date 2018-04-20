@@ -182,7 +182,7 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Voorstellen importeren
-            no_features: Er zijn geen andere voorstelfuncties in deze participatieruimte om de voorstellen van te importeren.
+            no_features: In deze participatieruimte zijn geen andere functionaliteiten van het voorstel te vinden waaruit de voorstellen kunnen worden geïmporteerd.
             select_feature: Selecteer een component
             select_states: Controleer de status van de voorstellen om te importeren
         shared:
@@ -259,9 +259,9 @@ nl:
         endorsements_card_row:
           endorse: Goedkeuren
         endorsements_listing:
-          see_all: Alles zien
-          see_less: Zie minder
-          title: Lijst met goedkeuringen
+          see_all: Alles bekijken
+          see_less: Minder bekijken
+          title: Lijst met stemmen
         filters:
           accepted: Aanvaard
           activity: Activiteit
