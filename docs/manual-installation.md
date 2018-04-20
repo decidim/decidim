@@ -72,7 +72,7 @@ You need to modify your secrets (see `config/database.yml`). For this you can us
 
 For instance, for working with figaro, add this to your `Gemfile`:
 
-```
+```ruby
 gem "figaro"
 ```
 
@@ -85,7 +85,7 @@ bundle exec figaro install
 
 Next add this to your `config/application.yml`, using the setup the PostgreSQL database name, user and password that you configure before.
 
-```
+```yaml
 DATABASE_HOST: localhost
 DATABASE_USERNAME: decidim_app
 DATABASE_PASSWORD: your_password
