@@ -51,6 +51,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-admin**: Regular users can now be impersonated [\#3226](https://github.com/decidim/decidim/pull/3226)
 - **decidim-admin**: All available authorization handlers can always be chosen for impersonation even after the first impersonation [\#3226](https://github.com/decidim/decidim/pull/3226)
 - **decidim-generators**: New gem where all of decidim generators live, both to generate final application and decidim components (plugins).
+- **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
 
 **Changed**:
 

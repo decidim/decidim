@@ -12,7 +12,7 @@ module Decidim
 
     belongs_to :participatory_space, polymorphic: true
 
-    default_scope { order(arel_table[:weight].asc) }
+    default_scope { order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
     delegate :organization, :categories, to: :participatory_space
 
