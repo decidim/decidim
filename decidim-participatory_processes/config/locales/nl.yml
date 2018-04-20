@@ -5,7 +5,7 @@ nl:
         announcement: Aankondiging
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
+        copy_features: Functionaliteiten kopiëren
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -229,7 +229,7 @@ nl:
           notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
@@ -281,7 +281,7 @@ nl:
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties
-        endorsements_count: Endorsements
+        endorsements_count: Goedkeuringen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
