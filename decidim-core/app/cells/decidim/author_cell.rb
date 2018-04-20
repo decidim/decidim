@@ -6,8 +6,8 @@ module Decidim
   # for resources that have a single author.
   class AuthorCell < Decidim::ViewModel
     include LayoutHelper
-    include Devise::Controllers::Helpers
-    include Devise::Controllers::UrlHelpers
+    include ::Devise::Controllers::Helpers
+    include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
 
     property :profile_path
