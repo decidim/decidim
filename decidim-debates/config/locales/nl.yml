@@ -20,11 +20,11 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
+            comments_enabled: Reacties geactiveerd
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Het is niet mogelijk voor gebruikers om een debat aan te maken
+            creation_enabled: Gebruikers kunnen geen debat aanmaken
     debates:
       actions:
         confirm_destroy: Weet je het zeker?
