@@ -36,8 +36,8 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI omleiden
       organization:
-        cta_button_path: Oproep naar actieknop pad
-        cta_button_text: Call To Action-knoptekst
+        cta_button_path: actieknop pad
+        cta_button_text: actieknop tekst
         default_locale: Standaard taal
         description: Omschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
@@ -58,7 +58,7 @@ nl:
         name: Naam
         official_img_footer: Officieel logo voettekst
         official_img_header: Officieel logo header
-        official_url: Officiële organisatie-URL
+        official_url: Officiële URL van de organisatie
         omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
@@ -127,7 +127,7 @@ nl:
         authorize_url: Autorisatie URL
         client_id: Klant-ID
         client_secret: Client Secret
-        organization_name: Organisatie naam
+        organization_name: Naam organisatie
         organization_url: Organisatie-URL
         redirect_uri: URI omleiden
         site: plaats
@@ -151,7 +151,7 @@ nl:
         destroy:
           success: Pagina met succes verwijderd
         edit:
-          title: Gebiedstype bewerken
+          title: Onderwerp bewerken
           update: Bijwerken
         new:
           create: Maak een pagina
@@ -247,7 +247,7 @@ nl:
           title: Bewerk onderdeel
           update: Bijwerken
         form:
-          default_step_settings: Standaard stappenplan
+          default_step_settings: Standaard instellingen stappen
           global_settings: Algemene instellingen
           step_settings: Stapinstellingen
         index:
@@ -278,7 +278,7 @@ nl:
         index:
           filter:
             all: Alle
-            managed: managed
+            managed: Beheerd
             not_managed: Niet beheerd
           filter_by: Filteren op
           impersonate: Nabootsen
