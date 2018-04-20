@@ -39,11 +39,11 @@ nl:
         cta_button_path: Oproep naar actieknop pad
         cta_button_text: Call To Action-knoptekst
         default_locale: Standaard taal
-        description: Beschrijving
+        description: Omschrijving
         enable_omnipresent_banner: Toon alomtegenwoordige banner
-        facebook_handler: Facebook handler
+        facebook_handler: Facebook naam
         favicon: Favicon
-        github_handler: GitHub-handler
+        github_handler: GitHub-gebruikersnaam
         header_snippets: Header-fragmenten
         highlighted_content_banner_action_subtitle: Actieknop ondertitel
         highlighted_content_banner_action_title: Actieknop titel
@@ -71,7 +71,7 @@ nl:
         code: Code
         name: Naam
         organization: Organisatie
-        parent_id: Parent
+        parent_id: Hoofdcategorie
         scope_type: Scope type
         scope_type_id: Bereiktype
       scope_type:
