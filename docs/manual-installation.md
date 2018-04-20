@@ -17,7 +17,7 @@ On this tutorial we'll see how to install rbenv, PostgreSQL and Decidim, and how
 
 ### Installing rbenv
 
-First we're going to install rbenv, for managing various ruby versions. We're following the guide from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04). You could also use [rvm](https://rvm.io/) as an alternative on this step. 
+First we're going to install rbenv, for managing various ruby versions. We're following the guide from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04). You could also use [rvm](https://rvm.io/) as an alternative on this step.
 
 ```bash
 sudo apt-get update
