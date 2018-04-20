@@ -5,7 +5,7 @@ nl:
         announcement: Aankondiging
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_components: Kopieer componenten
+        copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -66,7 +66,7 @@ nl:
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          components: Components
+          components: Onderdelen
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
@@ -233,7 +233,7 @@ nl:
           notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
@@ -279,7 +279,7 @@ nl:
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten
         participatory_structure: Hoe is het besloten
-        private_space: Dit is een privéproces
+        private_space: Dit is een privéthema
         scope: Scope
         start_date: Begindatum
         target: Wie neemt deel
