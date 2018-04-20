@@ -119,3 +119,6 @@ exclude_patterns:
   - "coverage/"
   - "webpack.report.html"
   - "**/*.md"
+  - "docs/*"
+  - "**/docs/*"
+
