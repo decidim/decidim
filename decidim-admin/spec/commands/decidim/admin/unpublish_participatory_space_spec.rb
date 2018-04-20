@@ -13,7 +13,7 @@ module Decidim::Admin
     it "activates the area" do
       subject.call
       participatory_space.reload
-      expect(participatory_space).to be_published
+      expect(participatory_space).to be_active
     end
 
     it "broadcasts ok" do
