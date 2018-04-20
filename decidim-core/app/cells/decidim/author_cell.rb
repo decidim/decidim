@@ -24,8 +24,6 @@ module Decidim
       render
     end
 
-    # delegate :user_signed_in?, :current_user, to: :parent_controller
-
     private
 
     def from_context
@@ -69,7 +67,6 @@ module Decidim
     end
 
     def actionable?
-      # true if proposals_controller? && index_action? && @options[:extra]
       true if user_author? && proposals_controller? && index_action?
       true if withdrawable? || flagable?
     end

@@ -4,9 +4,7 @@
       <%= render :header %>
 
         <div class="card__author">
-          <!-- AUTHOR-CEL!!! -->
           <%= card_for present(model).author, context: {extra_classes: ["author-data--small"], from: from_context } %>
-          <% #= cell "decidim/author_box", present(model).author, context: {extra_classes: ["author-data--small"]} %>
         </div>
 
         <div class="tech-info tech-info--text-left">
