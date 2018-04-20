@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Pagina soort
+        area_type: Onderwerp
         name: Naam
         organization: Organisatie
       area_type:
@@ -50,7 +50,7 @@ nl:
         highlighted_content_banner_action_url: Actieknop URL
         highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
         highlighted_content_banner_image: Beeld
-        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
         homepage_image: Homepage afbeelding
         instagram_handler: Instagram handler
@@ -59,7 +59,7 @@ nl:
         official_img_footer: Officiële logo voettekst
         official_img_header: Officiële logo-header
         official_url: Officiële organisatie-URL
-        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         reference_prefix: Referentievoorvoegsel
