@@ -421,9 +421,7 @@ $datetime-bg: $primary;
   display: none;
   fill: $anchor-color;
 
-  &.alert{
-    fill: $alert;
-  }
+  @include modifiers(fill);
 
   @include breakpoint(medium){
     margin-right: 1rem;
@@ -442,6 +440,10 @@ $datetime-bg: $primary;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
 
+  &.card--list__text--top{
+    align-items: start;
+  }
+
   .card--list--mini &{
     padding: .5rem .5rem .5rem 0;
   }
@@ -450,10 +452,6 @@ $datetime-bg: $primary;
     margin-top: .3rem;
     margin-right: 1rem;
   }
-}
-
-.card--list__text--top{
-  align-items: start;
 }
 
 .card--list__heading{
