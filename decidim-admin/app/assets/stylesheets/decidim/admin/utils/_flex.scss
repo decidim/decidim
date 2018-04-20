@@ -51,10 +51,10 @@ $spaces: $space ($space * 2);
   @include flex-align($x: center, $y: middle);
 }
 
-// flex--cc:
+// flex--sbc:
 // justify-content: space-between;
 // align-items: center;
 .flex--sbc{
   @include flex;
-  @include flex-align($x: spaced, $y: middle);
+  @include flex-align($x: justify, $y: middle);
 }
