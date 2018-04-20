@@ -69,14 +69,14 @@ nl:
           components: Onderdelen
           info: Info
           moderations: Moderaties
-          private_users: Particuliere gebruikers
+          private_users: Privégebruikers
           process_admins: Gebruikers verwerken
           steps: Stappen
       models:
         participatory_process:
           fields:
             created_at: Aangemaakt op
-            private: Privaat
+            private: Privé
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
@@ -158,7 +158,7 @@ nl:
           success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze burgerinspraak.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
           success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
         destroy:
           success: Gebruiker met succes vernietigd voor dit participatieproces.
@@ -185,7 +185,7 @@ nl:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Privaat
+          private: Privé
           public: Openbaar
           published: Gepubliceerd
         new:
@@ -211,7 +211,7 @@ nl:
           success: Uitnodiging opnieuw verzonden met succes.
     admin_log:
       participatory_process:
-        create: "%{user_name} creëerde de %{resource_name} burgerinspraak"
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
         publish: "%{user_name} publiceerde de %{resource_name} burgerinspraak"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} burgerinspraak"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
