@@ -31,6 +31,8 @@ module Decidim
 
         def import_proposals
           proposals.map do |original_proposal|
+            next if proposal_already_copied?(original_proposal, target_component)
+
             origin_attributes = original_proposal.attributes.except(
               "id",
               "created_at",
@@ -50,7 +52,7 @@ module Decidim
             proposal.save!
 
             proposal.link_resources([original_proposal], "copied_from_component")
-          end
+          end.compact
         end
 
         def proposals
@@ -76,6 +78,12 @@ module Decidim
 
         def target_component
           @form.current_component
+        end
+
+        def proposal_already_copied?(original_proposal, target_component)
+          original_proposal.linked_resources(:proposals, "copied_from_component").any? do |proposal|
+            proposal.component == target_component
+          end
         end
       end
     end
