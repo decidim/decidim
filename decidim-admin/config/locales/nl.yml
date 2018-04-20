@@ -115,7 +115,7 @@ nl:
         description: Beschrijving
         hero_image: Afbeelding van de startpagina
         name: Naam
-        participatory_processes: Participatieve processen
+        participatory_processes: Participatieve thema's
       decidim/participatory_process_step:
         end_date: Einddatum
         start_date: Begin datum
