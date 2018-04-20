@@ -64,7 +64,7 @@ nl:
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} heeft gereageerd op jouw opmerking in %{resource_title}. Lees het via deze link:"
-          email_outro: Je hebt deze melding ontvangen omdat je reactie is beantwoord.
+          email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.
           email_subject: "%{author_name} heeft op je comment gereageerd in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je opmerking in <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
