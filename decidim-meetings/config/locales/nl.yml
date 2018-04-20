@@ -171,7 +171,7 @@ nl:
           category: Categorie
           category_prompt: Kies een categorie
           date: Datum
-          past: Verleden
+          past: Archief
           search: Zoeken
           upcoming: Aankomend
         filters_small_view:
