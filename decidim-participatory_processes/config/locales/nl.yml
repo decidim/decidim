@@ -310,7 +310,7 @@ nl:
           take_part: Deelnemen
       participatory_processes:
         index:
-          promoted_processes: Gemarkeerde processen
+          promoted_processes: Uitgelichte thema’s
         order_by_processes:
           processes:
             one: "%{count} proces"
