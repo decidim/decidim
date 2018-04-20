@@ -212,7 +212,7 @@ nl:
     admin_log:
       participatory_process:
         create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
-        publish: "%{user_name} publiceerde de %{resource_name} burgerinspraak"
+        publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} burgerinspraak"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
       participatory_process_step:
