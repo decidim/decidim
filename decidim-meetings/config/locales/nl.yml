@@ -118,7 +118,7 @@ nl:
           edit:
             update: Bijwerken
           index:
-            title: Vergaderingen
+            title: Events
           new:
             create: Creëren
             title: Creëer vergadering
