@@ -299,7 +299,7 @@ nl:
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           select_a_category: Selecteer een categorie
-          send: Doorgaan met
+          send: Doorgaan
           title: Maak uw voorstel
         orders:
           label: 'Bestelling sorteren op:'
@@ -309,10 +309,10 @@ nl:
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
-            one: Je kan dit voorstel bewerken in de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kan je het voorstel niet meer bewerken.
-            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+            one: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
+            other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceren
-          title: Publiceer uw voorstel
+          title: Publiceer je voorstel
         proposal:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
