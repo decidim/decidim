@@ -305,7 +305,7 @@ nl:
           label: 'Bestelling sorteren op:'
           most_voted: Meeste stemmen
           random: Willekeurig
-          recent: Recentelijk
+          recent: Meest recent
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
@@ -348,7 +348,7 @@ nl:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} ondersteuningen verzamelen
           proposal_limit:
-            description: U kunt maximaal %{limit} voorstellen maken.
+            description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:
             description: Om te worden geaccepteerd, moeten voorstellen %{limit} stemmen ontvangen
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
