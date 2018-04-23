@@ -58,9 +58,9 @@ nl:
             create: Maak resultaat
             title: Nieuw resultaat
           proposals:
-            close: Dichtbij
+            close: Sluit
             current_selection: Huidige selectie
-            select: kiezen
+            select: Selecteer
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
