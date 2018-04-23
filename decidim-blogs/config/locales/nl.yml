@@ -28,7 +28,7 @@ nl:
             title: Maak bericht
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
-            success: Plaats succesvol opgeslagen
+            success: Bericht succesvol opgeslagen
       models:
         post:
           fields:
