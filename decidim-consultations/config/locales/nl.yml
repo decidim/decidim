@@ -8,9 +8,9 @@ nl:
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
         introductory_video_url: Inleidende video-URL
-        slug: URL-slug
+        slug: URL pad
         start_voting_date: Startdatum
-        subtitle: subtitel
+        subtitle: Ondertitel
         title: Titel
       question:
         banner_image: Banner afbeelding
@@ -26,11 +26,11 @@ nl:
         question_context: Context
         reference: Referentie
         scope: Gemeentelijk thema
-        slug: URL-slug
-        subtitle: subtitel
+        slug: URL pad
+        subtitle: Ondertitel
         title: Titel
         vote: Extern stemsysteem
-        what_is_decided: Wat is besloten
+        what_is_decided: Wat besloten werd
     errors:
       vote:
         decidim_consultations_response_id:
@@ -69,7 +69,7 @@ nl:
           not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuw overleg
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit consult.
@@ -81,13 +81,13 @@ nl:
           questions: vragen
         questions_submenu:
           components: Onderdelen
-          consultation: Overleg
+          consultation: Raadpleging
           info: Informatie
           responses: Antwoorden
       models:
         consultation:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             published: Gepubliceerd
             title: Titel
           name:
@@ -107,7 +107,7 @@ nl:
             title: Titel
           name:
             one: antwoord
-            other: Antwoorden
+            other: antwoorden
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
@@ -129,7 +129,7 @@ nl:
           not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuwe vraag
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze vraag.
