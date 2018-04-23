@@ -167,12 +167,12 @@ nl:
         consultative_advisory: Consultative / Advisory
         executive: uitvoerend
         government: Regering
-        others: anderen
+        others: Overige
         participatory: deelnemend
         working_group: Werkgroep
       created_by:
         city_council: Gemeenteraad
-        others: anderen
+        others: Overige
         public: Openbaar
       index:
         title: Events
@@ -187,7 +187,7 @@ nl:
         children: Events
         closing_date: Einddatum
         composition: Samenstelling
-        created_by: Gemaakt door
+        created_by: Aangemaakt door
         creation_date: Datum gecreeërd
         developer_group: Ontwikkelaarsgroep
         duration: Looptijd
@@ -196,11 +196,11 @@ nl:
         internal_organisation: Interne organisatie
         is_transparent:
           'false': ondoorzichtig
-          'true': transparant
+          'true': Transparant
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
-        private_space: Dit is een privévergadering
+        private_space: Dit is een privé event
         purpose_of_action: Doel van actie
         read_less: Minder lezen 
         read_more: Lees verder
