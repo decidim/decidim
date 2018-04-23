@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-blogs"
-  s.summary = "A Blog component for decidim's participatory spaces."
-  s.description = s.summary
+  s.summary = "Decidim blogs module"
+  s.description = "A Blog component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
