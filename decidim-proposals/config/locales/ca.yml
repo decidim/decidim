@@ -90,8 +90,8 @@ ca:
           email_subject: Nova proposta per %{author_nickname}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}" que seguiu.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
@@ -212,7 +212,7 @@ ca:
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: El projecte de proposta s'ha destruït amb èxit.
+        success: L'esborrany de proposta s'ha eliminat amb èxit.
       models:
         proposal:
           fields:
@@ -236,7 +236,7 @@ ca:
           select_identity: Selecciona identitat
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Aprovat
+          already_endorsed: Adherit/da
           endorse: Adherir-se
       proposal_votes:
         create:
