@@ -7,8 +7,6 @@ module Decidim
       class MinutesForm < Decidim::Form
         include TranslatableAttributes
 
-        mimic :meeting
-
         translatable_attribute :description, String
 
         attribute :video_url, String
