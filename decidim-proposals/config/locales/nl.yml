@@ -121,7 +121,7 @@ nl:
         proposals: Voorstellen
         see_all_proposals: Bekijk alle voorstellen
       proposal:
-        creation_date: 'Aanmaak: %{date}'
+        creation_date: 'Aangemaakt op: %{date}'
         view_proposal: Bekijk voorstel
     proposals:
       actions:
@@ -300,7 +300,7 @@ nl:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           select_a_category: Selecteer een categorie
           send: Doorgaan
-          title: Maak uw voorstel
+          title: Maak voorstel aan 
         orders:
           label: 'Bestelling sorteren op:'
           most_voted: Meeste stemmen
@@ -311,7 +311,7 @@ nl:
           proposal_edit_before_minutes:
             one: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
-          publish: Publiceren
+          publish: Publiceer
           title: Publiceer je voorstel
         proposal:
           creation_date: 'Aangemaakt op: %{date}'
@@ -322,9 +322,9 @@ nl:
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
-          sign_in: Aanmelden
+          sign_in: Log in
           sign_in_or_up: "%{in} of %{up} om deel te nemen"
-          sign_up: aanmelden
+          sign_up: registreren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
