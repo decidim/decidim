@@ -225,7 +225,7 @@ ca:
         contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
         title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
-        change: Canviar
+        change: Canvia
         confirm: Confirma
         contextual_help: Confirmeu l'opció seleccionada.
         title: 'Consulta: confirma el suport'
