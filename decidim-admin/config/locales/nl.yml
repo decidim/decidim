@@ -107,7 +107,7 @@ nl:
         scope: Reikwijdte
         short_description: Korte beschrijving
         slug: URL slak
-        start_date: Begindatum
+        start_date: Startdatum
         subtitle: Ondertiteling
         target: Doel
         title: Titel
@@ -118,7 +118,7 @@ nl:
         participatory_processes: Participatieve thema's
       decidim/participatory_process_step:
         end_date: Einddatum
-        start_date: Begin datum
+        start_date: Startdatum
       decidim/static_page:
         content: Inhoud
         slug: URL slug
