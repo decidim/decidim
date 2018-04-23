@@ -196,7 +196,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     border-radius: 4px;
 
     li{
-      padding: $global-padding;
+      padding: $global-padding  / 2;
 
       a{
         padding: 0;
@@ -231,7 +231,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
-.topbar__notifications,
 .topbar__conversations{
   margin-right: 1rem;
   vertical-align: -4px;
@@ -245,6 +244,42 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     fill: $warning;
     opacity: 1;
   }
+}
+
+.topbar__notifications{
+  .icon{
+    fill: $white;
+    opacity: .3;
+  }
+}
+
+.topbar__notifications__item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $muted;
+  width: 250px;
+
+  @include flexgap(1rem);
+
+  strong{
+    color: $anchor-color;
+  }
+
+  :last-child{
+    flex: 1;
+
+    > *{
+      display: block;
+    }
+  }
+}
+
+.topbar__notifications__item--more{
+  text-align: center;
+  background-color: $light-gray-dark;
+  color: $anchor-color;
+  font-size: 90%;
 }
 
 .topbar__user__login{

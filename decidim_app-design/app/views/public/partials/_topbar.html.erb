@@ -34,11 +34,29 @@
     <%# TODO: QUITAR EL SIGNO != %>
     <% if @activeuser != "logged" %>
       <div class="topbar__dropmenu topbar__user__logged">
-        <!-- No new notifications? Remove is-active class -->
-        <a href="#" class="topbar__notifications"
-           title="Notificaciones">
-          <%= icon "bell" %>
-        </a>
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="is-dropdown-submenu-parent show-for-medium">
+            <!-- No new notifications? Remove is-active class -->
+            <a href="#" class="topbar__notifications" title="Notificaciones">
+              <%= icon "bell" %>
+            </a>
+            <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+              <% 3.times do %>
+                <li>
+                  <div class="topbar__notifications__item">
+                    <div><%= icon "profile", class: "icon--large" %></div>
+                    <div>
+                      <small class="text-small">Accepted proposal</small>
+                      <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+              <li class="topbar__notifications__item--more">Ver más notificaciones</li>
+            </ul>
+          </li>
+        </ul>
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
             <%= link_to page_path("user/user-profile") do %>
