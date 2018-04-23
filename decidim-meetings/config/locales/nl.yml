@@ -58,8 +58,8 @@ nl:
         meeting_registrations_over_percentage:
           email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
           email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
-          email_subject: Het "%{resource_title}" event bezet meer slots dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette slots zijn over %{percentage}%.
+          email_subject: Het "%{resource_title}" event bezet meer plaatsen dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette plaatsen zijn over %{percentage}%.
         meeting_updated:
           email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
           email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
