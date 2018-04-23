@@ -31,18 +31,19 @@
         <%= icon "menu", aria_label: "Navegación", role: "img" %>
       </button>
     </div>
-    <% if @activeuser == "logged" %>
+    <%# TODO: QUITAR EL SIGNO != %>
+    <% if @activeuser != "logged" %>
       <div class="topbar__dropmenu topbar__user__logged">
         <!-- No new notifications? Remove is-active class -->
-        <a href="/user-notifications" class="topbar__notifications is-active"
+        <a href="#" class="topbar__notifications"
            title="Notificaciones">
           <%= icon "bell" %>
         </a>
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
-              <a href="#">
-                  María Martínez
-              </a>
+            <%= link_to page_path("user/user-profile") do %>
+              <%= image_tag "demo-avatar.jpg", class: "topbar__user__logged__picture" %>
+            <% end %>
             <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
               <li><a href="#">Notificaciones (35)</a></li>
               <li><a href="#">Siguiendo (12)</a></li>

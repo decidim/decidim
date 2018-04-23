@@ -184,6 +184,19 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   @media (min-width: (1300 / 16) + em){
     padding-right: 0;
   }
+
+  // hide caret down
+  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+    display: none;
+  }
+}
+
+.topbar__user__logged__picture{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: $border;
+  object-fit: cover;
 }
 
 .topbar__notifications,
