@@ -92,9 +92,9 @@ nl:
         update: "%{user_name} heeft de %{resource_name} statische pagina bijgewerkt"
       user:
         invite: "%{user_name} nodigde de gebruiker %{resource_name} uit met rol: %{role}"
-        officialize: "%{user_name} heeft de gebruiker %{resource_name} geofficialiseerd"
+        officialize: "%{user_name} heeft de gebruiker %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de gebruiker %{resource_name} verwijderd met rol: %{role}"
-        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} geonofficialiseerd"
+        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
@@ -190,10 +190,10 @@ nl:
           see_email: Bekijk jouw e-mail
           see_name: Bekijk jouw naam
           see_username: Bekijk je gebruikersnaam
-          this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
-          this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
+          this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil je account gebruiken"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -206,8 +206,8 @@ nl:
       attachments:
         attachment_created:
           email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kan het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
-          email_subject: Een update voor %{resource_title}
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op deze link.
+          email_subject: Een update van %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
@@ -435,10 +435,10 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan het accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
