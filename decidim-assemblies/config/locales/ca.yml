@@ -3,11 +3,11 @@ ca:
     attributes:
       assembly:
         area_id: Àrea
-        assembly_type: Tipus de muntatge
-        assembly_type_other: Tipus de muntatge altre
+        assembly_type: Tipus d'assemblea
+        assembly_type_other: Altre tipus d'assemblea
         banner_image: Imatge de bàner
         closing_date: Data de finalització
-        closing_date_reason: Data de tancament raó
+        closing_date_reason: Raó de la data de tancament
         composition: Composició
         copy_categories: Copiar categories
         copy_components: Copiar components
@@ -227,7 +227,7 @@ ca:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assemblea no s''ha trobat a la base de dades (ID: %{id})'
+          not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
   errors:
