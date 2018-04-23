@@ -34,15 +34,15 @@ nl:
             geocoding_enabled: Geolocatie ingeschakeld
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
-            proposal_answering_enabled: Voorstellen ingeschakeld
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
-            proposal_length: Maximale lengte van het voorstel
-            proposal_limit: Voorstellimiet per gebruiker
-            proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
-            proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
-            proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
-            threshold_per_proposal: Drempel per voorstel
-            vote_limit: Stemlimiet per gebruiker
+            proposal_answering_enabled: Reacties op voorstellen ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
+            proposal_length: Maximum aantal tekens voor een voorstel
+            proposal_limit: Beperking van het aantal voorstellen per gebruiker
+            proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
+            proposal_wizard_step_2_help_text: Helptekst "Vergelijk" bij het maken van een nieuw voorstel
+            proposal_wizard_step_3_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
+            threshold_per_proposal: Limiet per voorstel
+            vote_limit: Limiet van het aantal stemmen per gebruiker
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -81,7 +81,7 @@ nl:
           email_subject: Een voorstel dat je volgt, wordt geëvalueerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
-          email_intro: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van de <a href="%{resource_path}"> de ruimte </a> vernoemd.
+          email_intro: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> de ruimte </a> vernoemd.
           email_subject: Jouw voorstel "%{mentioned_proposal_title}" is vernoemd
           notification_title: Je voorstel '%{mentioned_proposal_title}' werd in de reacties van <a href="%{resource_path}"> deze </a> vernoemd.
         proposal_published:
@@ -217,7 +217,7 @@ nl:
         proposal:
           fields:
             category: Categorie
-            comments: Comments
+            comments: Reacties
             created_at: Aangemaakt op
             id: ID
             notes: Opmerkingen
@@ -346,11 +346,11 @@ nl:
           need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Elk voorstel kan meer dan %{limit} ondersteuningen verzamelen
+            description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:
-            description: Om te worden geaccepteerd, moeten voorstellen %{limit} stemmen ontvangen
+            description: Je voorstel moet minimum %{limit} stemmen ontvangen voordat het aanvaard wordt. 
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
