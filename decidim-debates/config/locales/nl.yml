@@ -15,7 +15,7 @@ nl:
     components:
       debates:
         actions:
-          create: creëren
+          create: Aanmaken
         name: Debatten
         settings:
           global:
