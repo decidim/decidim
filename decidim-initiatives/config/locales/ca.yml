@@ -196,20 +196,20 @@ ca:
           invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè de promoció
         show_similar_initiatives:
           back: Enrere
-          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats.
+          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer-se.
           continue: La meva iniciativa és diferent
           more_information: "(Més informació)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a qui sigueu, ha creat una nova iniciativa, revisa-la i contribueix:"
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova iniciativa per %{author_nickname}
-          notification_title: La <a href="%{resource_path}">%{resource_title}</a> iniciativa va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Revisa-la i contribueix:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova iniciativa de %{author_nickname}
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a qui sigueu, ha donat suport a la següent iniciativa, potser voleu contribuir a la conversa:"
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha donat suport a la següent iniciativa. Potser vols contribuir a la conversa:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Iniciativa aprovada per %{author_nickname}
-          notification_title: La <a href="%{resource_path}">%{resource_title}</a> iniciativa va ser aprovada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser aprovada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciatives
       initiative_votes:
@@ -220,18 +220,18 @@ ca:
           deleted: S'ha suprimit
         count:
           title:
-            one: "Iniciativa %{count}"
+            one: "%{count} iniciativa"
             other: "%{count} iniciatives"
         filters:
-          any: Cap
+          any: Qualsevol
           author: Autor
           closed: Tancat
           myself: Les meves iniciatives
-          open: Obert
+          open: Obertes
           search: Cerca
           state: Estat
-          type: Escriviu
-          type_prompt: Seleccioneu un tipus
+          type: Tipus
+          type_prompt: Selecciona un tipus
         filters_small_view:
           close_modal: Tanca la finestra
           filter: Filtre
