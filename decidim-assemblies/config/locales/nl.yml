@@ -111,7 +111,7 @@ nl:
         assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
-          attachment_collections: collecties
+          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
