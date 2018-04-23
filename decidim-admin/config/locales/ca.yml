@@ -34,7 +34,7 @@ ca:
         organization_logo: Logotip de l'organització (quadrat)
         organization_name: Nom de l'organització
         organization_url: URL de l'organització
-        redirect_uri: Redirigir URI
+        redirect_uri: URL de redirecció
       organization:
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
@@ -88,7 +88,7 @@ ca:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+              must_be_ssl: L'URL de redirecció ha de ser SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -124,13 +124,13 @@ ca:
         slug: Nom curt d'URL
         title: Títol
       doorkeeper/application:
-        authorize_url: Autoritza l'URL
+        authorize_url: URL d'autorització
         client_id: Identificador de client
         client_secret: Secret del client
         organization_name: Nom de l'organització
         organization_url: URL de l'organització
-        redirect_uri: Redirigir URI
-        site: Lloc
+        redirect_uri: URL de redirecció
+        site: Lloc web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -374,11 +374,11 @@ ca:
           name: Butlletí
         oauth_application:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Usuari privat de l'espai participatiu
+          name: Usuari privat de l'espai de participació
         scope:
           fields:
             name: Nom
@@ -459,7 +459,7 @@ ca:
           save: Desa
           title: Edita l'aplicació
         index:
-          confirm_delete: Esteu segur que voleu suprimir aquesta aplicació?
+          confirm_delete: Estàs segur de que vols suprimir aquesta aplicació?
           title: Aplicacions OAuth
         new:
           save: Desa
@@ -522,10 +522,10 @@ ca:
           omnipresent_banner_appearance_title: Edita bàner omnipresent
       participatory_space_private_users:
         create:
-          error: S'ha produït un error en afegir un usuari privat a aquest espai participatiu.
-          success: S'ha creat l'espai d'accés privat de l'espai participatiu.
+          error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
+          success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
         destroy:
-          success: L'accés a usuaris privats de l'espai participatiu s'ha destruït amb èxit.
+          success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
         index:
           title: Usuari privat de l'espai participatiu
         new:
