@@ -6,8 +6,8 @@ nl:
         description: Beschrijving
         offline_votes: Face-to-face-ondersteuning
         scope_id: strekking
-        signature_end_time: Einde van de handtekening verzamelperiode
-        signature_start_time: Begin van de handtekening verzamelperiode
+        signature_end_time: Einde van de periode om handtekeningen te verzamelen
+        signature_start_time: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekeningstype
         signature_type_values:
           any: Gemengd
@@ -184,7 +184,7 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Burgerinitiatieven vereisen een Promotingscommissie bestaande uit ten minste drie personen (attestors). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          individual_help_text: Burgerinspraken vereisen een promotie groep bestaande uit ten minste drie personen (verklaringen). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer je contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
