@@ -304,8 +304,6 @@ en:
             one: vote
             other: votes
         new:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Continue
           title: Create Your Proposal
         orders:
