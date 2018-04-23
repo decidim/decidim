@@ -204,7 +204,7 @@ nl:
             closed: Gesloten
             end_time: Einddatum
             map: Kaart
-            start_time: Begindatum
+            start_time: Startdatum
             title: Titel
       read_more: "(Lees meer)"
       registration_mailer:
