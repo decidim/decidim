@@ -14,7 +14,7 @@ module Decidim
       skip_authorization_check only: [:close_session]
 
       def new
-        authorize! :impersonate, user
+        enforce_permission_to :impersonate, :impersonatable_user, subject_user: user
 
         @form = form(ImpersonateUserForm).from_params(
           user: user,
@@ -27,7 +27,7 @@ module Decidim
       end
 
       def create
-        authorize! :impersonate, user
+        enforce_permission_to :impersonate, :impersonatable_user, subject_user: user
 
         @form = form(ImpersonateUserForm).from_params(
           user: user,
