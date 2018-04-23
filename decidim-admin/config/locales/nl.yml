@@ -580,12 +580,12 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
-        admin_log: Beheerderslog
-        area_types: Pagina soorten
-        areas: Pagina's
+        admin_log: log van de beheerder
+        area_types: Thema's
+        areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonatable_users: Onmiskenbare gebruikers
+        impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Nabootsingingen
         officializations: Bevestigen gebruikers
         scope_types: Scope types
@@ -630,7 +630,7 @@ nl:
     forms:
       errors:
         impersonate_user:
-          reason: U moet een reden opgeven voor het imiteren van een niet-beheerde gebruiker
+          reason: Je moet een reden opgeven waarom je je uitgeeft als een niet beheerde gebruiker
     moderations:
       actions:
         hidden: Verborgen
