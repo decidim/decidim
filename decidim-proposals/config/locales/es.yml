@@ -21,8 +21,8 @@ es:
       proposals:
         actions:
           create: Crear
-          endorse: Endosar
-          vote: Votar
+          endorse: Adherirse
+          vote: Apoyar
           withdraw: Retirar
         name: Propuestas
         settings:
@@ -34,10 +34,10 @@ es:
             geocoding_enabled: Geocodificación habilitada
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
-            proposal_answering_enabled: Contestación de propuesta habilitada
+            proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
-            proposal_limit: Límite de propuesta por usuario
+            proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
             proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
             proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
