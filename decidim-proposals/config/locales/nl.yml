@@ -72,7 +72,7 @@ nl:
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist een voorstel goedgekeurd dat interessant voor je kan zijn, bekijk het en draag bij:"
-          email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op deze link.
           email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
@@ -362,12 +362,12 @@ nl:
         wizard_steps:
           see_steps: Bekijk stappen
           step_1: Maak je voorstel
-          step_2: Vergelijken
+          step_2: Vergelijk
           step_3: Publiceer je voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
       publish:
         error: Er zijn fouten opgetreden bij het publiceren van het voorstel.
-        success: Voorstel met succes gepubliceerd.
+        success: Voorstel succesvol gepubliceerd.
       update:
         error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
@@ -376,7 +376,7 @@ nl:
         success: Concept succesvol bijgewerkt.
     resource_links:
       copied_from_component:
-        proposal_proposals: Gerelateerde voorstellen
+        proposal_proposals: Verwante voorstellen
       included_projects:
         project_results: 'Resultaten die in dit project verschijnen:'
       included_proposals:
