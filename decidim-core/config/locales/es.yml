@@ -535,7 +535,7 @@ es:
         assemblies_count: Asambleas
         comments_count: Comentarios
         debates_count: Debates
-        endorsements_count: Respaldos
+        endorsements_count: Adhesiones
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
         orders_count: Votos
