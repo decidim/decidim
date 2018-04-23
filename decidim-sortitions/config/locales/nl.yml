@@ -92,14 +92,14 @@ nl:
           all: Alle
           cancelled: Geannuleerd
           category: Categorie
-          category_prompt: Kies een categorie
+          category_prompt: Selecteer een categorie
           search: Zoeken
           state: Staat
         filters_small_view:
-          close_modal: Modal sluiten
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Ontvouwen
+          close_modal: Venster sluiten 
+          filter: Sorteer
+          filter_by: Sorteren op
+          unfold: Uitvouwen
         linked_sortitions:
           selected_proposals: Geselecteerde voorstellen
         orders:
