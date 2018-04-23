@@ -84,12 +84,12 @@ nl:
             filter:
               accepted: Aanvaard
               all: Alle
-              created: gemaakt
-              discarded: afgedankte
+              created: Aangemaakt
+              discarded: verworpen
               published: Gepubliceerd
               rejected: Verworpen
               validating: Technische validatie
-            filter_by: Filteren op
+            filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
             search: Busca
@@ -223,7 +223,7 @@ nl:
             one: "%{count} initiatief"
             other: "%{count} initiatieven"
         filters:
-          any: Ieder
+          any: Alle
           author: Auteur
           closed: Gesloten
           myself: Mijn initiatieven
@@ -233,9 +233,9 @@ nl:
           type: Type
           type_prompt: Selecteer een type
         filters_small_view:
-          close_modal: Venster sluiten
-          filter: Filter
-          filter_by: Filteren op
+          close_modal: Sluit venster
+          filter: Sorteer
+          filter_by: Sorteer op
           unfold: Ontvouwen
         index_header:
           new_initiative: Nieuw initiatief
