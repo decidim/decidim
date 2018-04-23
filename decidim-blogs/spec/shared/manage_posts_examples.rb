@@ -63,7 +63,6 @@ shared_examples "manage posts" do
   end
 
   describe "deleting a post" do
-
     let(:title) do
       {
         en: "This is the title of deleted post",
