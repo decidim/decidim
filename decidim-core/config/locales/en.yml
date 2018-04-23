@@ -109,6 +109,10 @@ en:
         related_documents: Related documents
       photos:
         related_photos: Related photos
+    author:
+      comments:
+        one: comment
+        other: comments
     authorization_handlers:
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"

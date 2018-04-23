@@ -56,9 +56,14 @@ module Decidim
     end
 
     def creation_date?
+      return true if posts_controller?
       return unless from_context
       return unless proposals_controller?
       return unless show_action?
+    end
+
+    def commentable?
+      return unless posts_controller?
       true
     end
 
@@ -67,7 +72,8 @@ module Decidim
     end
 
     def actionable?
-      true if user_author? && proposals_controller? && index_action?
+      return true if user_author? && posts_controller?
+      true if user_author? && proposals_controller? && posts_controller? && index_action?
       true if withdrawable? || flagable?
     end
 
@@ -77,6 +83,10 @@ module Decidim
 
     def proposals_controller?
       context[:controller].class.to_s == "Decidim::Proposals::ProposalsController"
+    end
+
+    def posts_controller?
+      context[:controller].class.to_s == "Decidim::Blogs::PostsController"
     end
 
     def index_action?
