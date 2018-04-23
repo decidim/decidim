@@ -45,12 +45,12 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
-        twitter: Gorjeo
+        twitter: Twitter
         youtube: Youtube
       assembly_user_role:
         email: Email
         name: Nombre
-        role: Papel
+        role: Rol de usuario
   decidim:
     admin:
       assemblies:
@@ -123,7 +123,7 @@ es:
         assembly:
           fields:
             created_at: Fecha de creación
-            private: Privado
+            private: Privada
             promoted: Destacado
             published: Publicada
             title: Título
@@ -154,9 +154,9 @@ es:
       admin:
         assemblies:
           form:
-            select_a_created_by: Seleccione un creado por
+            select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
-            select_an_assembly_type: Seleccione un tipo de montaje
+            select_an_assembly_type: Selecciona tipo de asamblea
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -183,12 +183,12 @@ es:
             see_all_assemblies: Ver todas las asambleas
       show:
         area: Área
-        assembly_type: Tipo de montaje
+        assembly_type: Tipo de asambleas
         children: Asambleas
         closing_date: Fecha de cierre
         composition: Composición
         created_by: Creado por
-        creation_date: Fecha de creacion
+        creation_date: Fecha de creación
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
@@ -203,7 +203,7 @@ es:
         private_space: Esta es una asamblea privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
-        read_more: Lee mas
+        read_more: Lee más
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
@@ -227,7 +227,7 @@ es:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'El ensamblado no se encontró en la base de datos (ID: %{id})'
+          not_found: 'La asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
   errors:
