@@ -56,7 +56,7 @@ nl:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze pagina:'
+          email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door het volgen van de vorige link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
           notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -149,7 +149,7 @@ nl:
         proposal_notes:
           create:
             error: Er is een probleem opgetreden bij het maken van dit voorstel
-            success: De opmerking op het voorsteld werd succesvol aangemaakt
+            success: De opmerking op het voorstel werd succesvol aangemaakt
           form:
             note: Opmerking
             submit: voorleggen
@@ -169,7 +169,7 @@ nl:
             actions: acties
             cancel: Annuleer
             change_category: Verander van categorie
-            selected: gekozen
+            selected: Geselecteerd
             title: Voorstellen
             update: Bijwerken
           new:
