@@ -47,7 +47,7 @@ module Decidim
                     if: allowed_to?(:read, :static_page)
 
           menu.item I18n.t("menu.users", scope: "decidim.admin"),
-                    allowed_to?(:read, :admin_user) ? decidim_admin.users_path : decidim_admin.managed_users_path,
+                    allowed_to?(:read, :admin_user) ? decidim_admin.users_path : decidim_admin.impersonatable_users_path,
                     icon_name: "person",
                     position: 5,
                     active: [%w(user_groups users managed_users impersonatable_users authorization_workflows).map { |segment| "/decidim/admin/#{segment}" }, []],

@@ -39,7 +39,7 @@ module Decidim
       end
 
       def user_action?
-        return unless permission_action.subject == :user
+        return unless [:user, :impersonatable_user].include?(permission_action.subject)
         subject_user = context.fetch(:user, nil)
 
         case permission_action.action

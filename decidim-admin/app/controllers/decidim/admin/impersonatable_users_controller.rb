@@ -9,7 +9,7 @@ module Decidim
       layout "decidim/admin/users"
 
       def index
-        authorize! :index, :impersonatable_users
+        enforce_permission_to :index, :impersonatable_users
 
         @query = params[:q]
         @state = params[:state]
