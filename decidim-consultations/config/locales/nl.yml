@@ -70,12 +70,12 @@ nl:
           published: Gepubliceerd
         new:
           create: Aanmaken
-          title: Nieuw overleg
+          title: Nieuwe burgerinspraak
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit consult.
           success: Raadpleging succesvol geactualiseerd.
       menu:
-        consultations: overleg
+        consultations: burgerinspraak
         consultations_submenu:
           info: Informatie
           questions: vragen
@@ -91,8 +91,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Overleg
-            other: overleg
+            one: Burgerinspraak 
+            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op
@@ -146,13 +146,13 @@ nl:
         form:
           title: Algemene informatie
         new:
-          create: creëren
-          title: Nieuw antwoord
+          create: Aanmaken
+          title: Nieuwe reactie
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
           success: Reactie is bijgewerkt.
       titles:
-        consultations: overleg
+        consultations: Burgerinspraak 
         questions: vragen
         responses: Antwoorden
     consultations:
@@ -163,9 +163,9 @@ nl:
         view_results: Bekijk resultaten
       consultations:
         orders:
-          label: 'Sorteeroverleg door:'
+          label: 'Sorteer door:'
           random: Willekeurig
-          recent: Meest recente
+          recent: Meest recent
       count:
         title:
           one: "%{count} consultatie"
@@ -173,24 +173,24 @@ nl:
       filters:
         active: Actief
         all: Alle
-        finished: Afgewerkt
+        finished: Voltooid
         search: Zoeken
         state: Staat
-        upcoming: Aankomende
+        upcoming: Toekomstige
       filters_small_view:
         close_modal: Sluit venster
         filter: Sorteer
         filter_by: Sorteren op
         unfold: Ontvouwen
       finished:
-        active_consultations: Actief overleg
-        past_consultations: Afgelopen consultaties
+        active_consultations: Huidige burgerinspraak
+        past_consultations: Afgelopen burgerinspraken 
       highlighted_questions:
-        title: Overleg van %{scope_name}
+        title: Burgerinspraak over %{scope_name}
       index:
-        title: overleg
+        title: Burgerinspraak 
       question:
-        take_part: Deelnemen
+        take_part: Neem deel
         view_results: Bekijk resultaten
         votes_out_of:
           one: stem vanuit
@@ -199,14 +199,14 @@ nl:
         create:
           error: Er zijn fouten opgetreden bij het stemmen van de vraag
       regular_questions:
-        title: Andere raadplegingen
+        title: Andere burgerinspraken
       show:
-        see_finished_consultations: Zie eerdere raadplegingen
+        see_finished_consultations: Bekijk vorige burgerinspraken
     menu:
-      consultations: overleg
+      consultations: Burgerinspraak 
     questions:
       results:
-        title: resultaten
+        title: Resultaten
       show:
         read_more: Lees verder
       statistics:
@@ -220,13 +220,13 @@ nl:
         already_voted: Reeds gestemd
         already_voted_hover: Steun intrekken
         starting_from: Te beginnen op %{date}
-        vote: Stemmen
+        vote: Stem
       vote_modal:
         contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je je stem niet meer kan wijzigen.
         title: 'Overleg: vraagondersteuning'
       vote_modal_confirm:
-        change: Verandering
-        confirm: Bevestigen
+        change: Wijzigen
+        confirm: Bevestig
         contextual_help: Bevestig de geselecteerde optie.
         title: 'Raadpleging: steun bevestigen'
   layouts:
@@ -241,8 +241,8 @@ nl:
         question_menu_item: De vraag
         unfold: Ontvouwen
       question_header:
-        back_to_consultation: Zie alle raadplegingen
+        back_to_consultation: Bekijk alle burgerinspraken
   pages:
     home:
       statistics:
-        consultations_count: overleg
+        consultations_count: Burgerinspraak 
