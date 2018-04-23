@@ -378,7 +378,7 @@ nl:
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
-          name: Privégebruiker burgerinspraak
+          name: Gebruiker van de burgerinspraak
         scope:
           fields:
             name: Naam
@@ -450,11 +450,11 @@ nl:
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       oauth_applications:
         create:
-          error: Er is een fout opgetreden bij het maken van deze app.
+          error: Er is een fout opgetreden bij het maken van deze toepassing.
           success: Applicatie succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van deze app.
-          success: Applicatie succesvol vernietigd.
+          error: Er is een fout opgetreden tijdens het vernietigen van deze toepassing.
+          success: Toepassing succesvol vernietigd.
         edit:
           save: Opslaan
           title: Bewerk applicatie
@@ -463,33 +463,33 @@ nl:
           title: OAuth-toepassingen
         new:
           save: Opslaan
-          title: Nieuwe applicatie
+          title: Nieuwe toepassing
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze app.
-          success: Applicatie succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze toepassing.
+          success: Toepassing succesvol bijgewerkt.
       officializations:
         create:
-          success: Gebruiker officieel goedgekeurd
+          success: Gebruiker officieel gevalideerd
         destroy:
-          success: Gebruiker nietofficieel goedgekeurd
+          success: Gebruiker niet gevalideerd
         index:
           actions: acties
-          badge: insigne
+          badge: badge
           created_at: Aangemaakt op
           filter:
             all: Alle
-            not_officialized: Niet officieel
-            officialized: geofficialiseerd
+            not_officialized: Niet gevalideerd
+            officialized: Gevalideerd
           filter_by: Sorteer op
           name: Naam
           nickname: Gebruikersnaam
-          not_officialized: Niet officieel
-          officialize: officialiseren
-          officialized: geofficialiseerd
-          reofficialize: Herofficialiseren
+          not_officialized: Niet gevalideerd
+          officialize: "Valideren\n"
+          officialized: Gevalideerd
+          reofficialize: Hervalideren
           search: Zoeken
           status: status
-          unofficialize: Onofficieel
+          unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
