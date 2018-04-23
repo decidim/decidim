@@ -36,7 +36,7 @@ fr:
           email_intro: 'Vous pouvez approuver des propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Les propositions entérinées ont commencé pour %{participatory_space_title}
-          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">promouvoir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">recommander les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
@@ -53,7 +53,7 @@ fr:
           email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de promouvoir une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
+          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de recommander une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: "%{endorser_nickname} a approuvé une nouvelle proposition"
           notification_title: Le <a href="%{resource_path}">%{resource_title}</a> proposition a été approuvée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -110,8 +110,8 @@ fr:
             announcement: Message d'annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
-            endorsements_blocked: Empêcher les utilisateurs de promouvoir une proposition
-            endorsements_enabled: Autoriser les utilisateurs à promouvoir une proposition
+            endorsements_blocked: Empêcher les utilisateurs de recommander une proposition
+            endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Empêcher les utilisateurs de soutenir une proposition
             votes_enabled: Autoriser les utilisateurs à soutenir une proposition
@@ -244,7 +244,7 @@ fr:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
         create:
-          error: Des erreurs sont survenues au moment de promouvoir la proposition.
+          error: Des erreurs sont survenues au moment de recommander la proposition.
         identities:
           done: Terminé
           select_identity: Sélectionnez l'utilisateur
@@ -279,7 +279,7 @@ fr:
           title: Modifier le projet de proposition
         endorsement_button:
           already_endorsed: Déjà recommandé
-          already_endorsed_hover: Ne plus promouvoir
+          already_endorsed_hover: Ne plus recommander
         endorsement_identities_cabin:
           endorse: Recommander
         endorsements_card_row:
@@ -287,7 +287,7 @@ fr:
         endorsements_listing:
           see_all: Voir tout
           see_less: Voir moins
-          title: Liste des promoteurs
+          title: Liste des recommandations
         filters:
           accepted: Retenue
           activity: Activité
