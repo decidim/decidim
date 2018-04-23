@@ -51,7 +51,7 @@ nl:
             endorsements_enabled: Goedkeuringen ingeschakeld
             proposal_answering_enabled: Voorstelantwoord ingeschakeld
             votes_blocked: Stemmen geblokkeerd
-            votes_enabled: Stemmen ingeschakeld
+            votes_enabled: Stemmen actief
             votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
@@ -193,7 +193,7 @@ nl:
           info_proposal:
             body: Broodtekst
             created_at: Aanmaakdatum
-            proposal_votes_count: Stemmen tellen
+            proposal_votes_count: Aantal stemmen
             proposals: voorstellen
       admin_log:
         proposal:
