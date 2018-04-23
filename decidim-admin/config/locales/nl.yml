@@ -48,7 +48,7 @@ nl:
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
-        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_enabled: Toon de uitgelichte inhoudsbanner
         highlighted_content_banner_image: Beeld
         highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
@@ -126,10 +126,10 @@ nl:
       doorkeeper/application:
         authorize_url: Autorisatie URL
         client_id: Klant-ID
-        client_secret: Client Secret
+        client_secret: Geheim van de klant
         organization_name: Naam organisatie
-        organization_url: Organisatie-URL
-        redirect_uri: URI omleiden
+        organization_url: URL van de organisatie
+        redirect_uri: URI doorsturen
         site: plaats
   date:
     formats:
@@ -162,9 +162,9 @@ nl:
       areas:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
-          success: Pagina met succes aangemaakt.
+          success: Pagina succesvol aangemaakt.
         destroy:
-          success: Pagina met succes verwijderd
+          success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
           update: Bijwerken
@@ -177,22 +177,22 @@ nl:
           success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
-          success: Verzameling succesvol gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe collectie.
+          success: Collectie succesvol gemaakt.
         destroy:
           success: Verzameling succesvol vernietigd.
         edit:
-          title: Bewerk verzameling
+          title: Bewerk collectie
           update: Bijwerken
         index:
-          attachment_collection_used: Deze verzameling kan niet worden verwijderd omdat deze in gebruik is.
-          attachment_collections_title: Attachment collecties
+          attachment_collection_used: Deze collectie kan niet worden verwijderd omdat deze in gebruik is.
+          attachment_collections_title: Bijgevoegde collecties
         new:
           create: creëren
-          title: Nieuwe collectie
+          title: Nieuwe Collectie
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze verzameling.
-          success: Verzameling succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze collectie.
+          success: Collectie succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -232,13 +232,13 @@ nl:
       component_permissions:
         edit:
           everyone: Iedereen
-          submit: Bewaar rechten
-          title: Bewerk rechten
+          submit: Bewaar de toelatingen
+          title: Bewerk toelatingen
         update:
-          success: Rechten succesvol bijgewerkt.
+          success: Toelatingen succesvol bijgewerkt.
       components:
         create:
-          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          error: Er is een fout opgetreden bij het aanmaken van dit onderdeel.
           success: Onderdeel met succes gemaakt.
         destroy:
           error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
