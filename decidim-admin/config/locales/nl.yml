@@ -249,7 +249,7 @@ nl:
         form:
           default_step_settings: Standaard instellingen stappen
           global_settings: Algemene instellingen
-          step_settings: Stapinstellingen
+          step_settings: Instellingen van de stappen
         index:
           add: Voeg onderdeel toe
           headers:
@@ -296,7 +296,7 @@ nl:
           error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
           success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
-          error: Er is een fout opgetreden bij het imiteren van de gebruiker.
+          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
           success: De beheerde gebruiker is succesvol aangemaakt.
         form:
           authorization_method: Autorisatiemethode
@@ -305,7 +305,7 @@ nl:
         new:
           impersonate: Nabootsen
           impersonate_existing_managed_user: Zich voordoen als beheerde gebruiker "%{name}"
-          impersonate_existing_user: Zich voordoen als gebruiker "%{name}"
+          impersonate_existing_user: Zich voordoen als "%{name}"
           impersonate_new_managed_user: Zich voordoen als nieuwe beheerde gebruiker
       logs:
         logs_list:
@@ -323,14 +323,14 @@ nl:
         admin_log: Admin activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Pagina soorten
-        areas: Pagina's
+        area_types: Pagina types
+        areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
-        impersonations: imitaties
+        impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
-        officializations: Officializations
+        officializations: Bevestigde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -340,7 +340,7 @@ nl:
       models:
         area:
           fields:
-            area_type: Pagina soort
+            area_type: Thema's
             name: Naam
         area_type:
           fields:
@@ -348,13 +348,13 @@ nl:
             plural: Meervoud
         attachment:
           fields:
-            collection: Verzameling
+            collection: Collectie
             content_type: Type
             file_size: Grootte
             title: Titel
           name: Bijlage
         attachment_collection:
-          name: Verzameling
+          name: Collectie
         category:
           name: Categorie
         impersonation_log:
@@ -480,9 +480,9 @@ nl:
             all: Alle
             not_officialized: Niet officieel
             officialized: geofficialiseerd
-          filter_by: Filteren op
+          filter_by: Sorteer op
           name: Naam
-          nickname: Bijnaam
+          nickname: Gebruikersnaam
           not_officialized: Niet officieel
           officialize: officialiseren
           officialized: geofficialiseerd
