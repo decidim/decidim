@@ -202,7 +202,7 @@ nl:
         participatory_structure: Participatieve structuur
         private_space: Dit is een privévergadering
         purpose_of_action: Doel van actie
-        read_less: Lees minder
+        read_less: Minder lezen 
         read_more: Lees verder
         related_participatory_processes: Verwante burgerinspraken
         scope: Scope
@@ -232,7 +232,7 @@ nl:
       assemblies: Events
   errors:
     messages:
-      cannot_be_blank: kan niet leeg zijn
+      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
