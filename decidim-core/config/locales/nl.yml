@@ -205,7 +205,7 @@ nl:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kan het vanaf deze pagina bekijken:'
+          email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op deze link.
           email_subject: Een update van %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
@@ -257,7 +257,7 @@ nl:
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
-        create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
+        create_with_space: "%{user_name} heeft %{resource_name} aangemaakt in %{space_name}"
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         delete_with_space: "%{user_name} heeft %{resource_name}  verwijderd in %{space_name}"
         unknown_action: "%{user_name} voerde eeb actie uit op %{resource_name}"
@@ -266,7 +266,7 @@ nl:
         update_with_space: "%{user_name} heeft %{resource_name} bijgewerkt in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'De pagina is niet gevonden in de database (ID: %{id})'
+          not_found: 'Dit onderwerp is niet gevonden in de database (ID: %{id})'
         area_type_presenter:
           not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
         scope_presenter:
