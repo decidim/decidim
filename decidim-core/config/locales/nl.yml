@@ -40,7 +40,7 @@ nl:
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
-          close: Sluit dit scherm
+          close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
           question: Weet u zeker dat u uw account wilt verwijderen?
           title: Verwijder mijn account
@@ -394,7 +394,7 @@ nl:
       author:
         deleted: Verwijderde gebruiker
       embed_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
         embed_link: Insluiten
       flag_modal:
@@ -416,7 +416,7 @@ nl:
       results_per_page:
         label: 'Resultaten per pagina:'
       share_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         share: Deel
         share_link: Link delen
       version_author:
