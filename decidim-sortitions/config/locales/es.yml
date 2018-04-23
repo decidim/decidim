@@ -5,7 +5,7 @@ es:
         additional_info: Información de clasificación
         decidim_category_id: Categorías del conjunto de propuestas en las que desea aplicar el sorteo
         decidim_proposals_component_id: Propuestas
-        dice: Resultado de la tirada del dado (rodar un dado de 6 caras (o buscar otra forma aleatoria para generar un número del 1 al 6) e ingresar aquí, en lugar de atestiguar el número resultante, esto contribuye a la calidad y garantías de la aleatoriedad de el resultado
+        dice: Resultado de la tirada del dado (rodar un dado de 6 caras o buscar otra forma aleatoria para generar un número del 1 al 6) e introducirlo aquí, en lugar de atestiguar el número resultante, esto contribuye a la calidad y garantías de la aleatoriedad del resultado
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
@@ -19,9 +19,9 @@ es:
     events:
       sortitions:
         sortition_created:
-          email_intro: La clasificación "%{resource_title}" se ha agregado a "%{participatory_space_title}" que está siguiendo.
-          email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: Nueva clasificación agregada a %{participatory_space_title}
+          email_intro: La clasificación "%{resource_title}" se ha agregado a "%{participatory_space_title}" que estás siguiendo.
+          email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Nueva clasificación añadida a %{participatory_space_title}
           notification_title: La ordenación <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
     participatory_processes:
       statistics:
