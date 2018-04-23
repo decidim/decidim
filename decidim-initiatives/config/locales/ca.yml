@@ -29,7 +29,7 @@ ca:
         description: Descripció
         title: Títol
       organization_data:
-        address: adreça
+        address: Adreça
         id_document: CIF
         name: Nom complet
   decidim:
@@ -48,7 +48,7 @@ ca:
           fields:
             scope: Abast
             supports_required: Suports requerits
-          name: Àmbit de tipus d'iniciativa
+          name: Àmbit del tipus d'iniciativa
         initiatives_types:
           fields:
             created_at: Creat a
@@ -171,32 +171,32 @@ ca:
           go_to_my_initiatives: Vés a les meves iniciatives
           more_information: "(Més informació)"
         finish_help:
-          access_reminder: Recordeu que sempre podreu accedir a les vostres iniciatives a través del menú de l'usuari.
-          help_for_organizations: Si és una associació haurà de carregar les actes del consell d'administració de totes les organitzacions que conformen la Comissió Promotora
-          help_in_person_signatures: Si heu triat cobrar les signatures presencials o combinar-les en línia, haureu de carregar la informació requerida.
-          help_text: Recordeu que per processar correctament la iniciativa, heu d'accedir al panell d'administració on trobareu el menú d'usuari, carregar la informació requerida i enviar-la al procediment.
+          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de l'usuari.
+          help_for_organizations: Si ets una associació hauràs de carregar les actes del consell d'administració de totes les organitzacions que conformen la Comissió Promotora
+          help_in_person_signatures: Si has triat cobrar les signatures presencials o combinar-les en línia, hauràs de carregar la informació requerida.
+          help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú d'usuari, carregar la informació requerida i enviar-la al procediment.
           initiatives_page_link: Podeu consultar tota aquesta informació al %{link} dedicada a informar sobre iniciatives.
           page: pàgina
         previous_form:
-          back: esquena
+          back: Enrere
           continue: Continua
-          help: Què consisteix la iniciativa? Escrigui el títol i la descripció. Recomanem un títol breu i conciso i una descripció centrada en la solució proposada.
+          help: Què consisteix la iniciativa? Escriu el títol i la descripció. Recomanem un títol breu i concís i una descripció centrada en la solució proposada.
           more_information: "(Més informació)"
         promotal_committee:
-          back: esquena
-          individual_help_text: Les iniciatives ciutadanes requereixen una Comissió Promotora composta per almenys tres persones (testimonis). Heu de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç hauran de seguir els passos indicats.
+          back: Enrere
+          individual_help_text: Les iniciatives ciutadanes requereixen una Comissió Promotora composta per almenys tres persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els contactes rebin aquest enllaç, hauran de seguir els passos indicats.
           more_information: "(Més informació)"
         select_initiative_type:
-          back: esquena
+          back: Enrere
           more_information: "(Més informació)"
-          select: Trieu
+          select: Tria
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè de promoció
         show_similar_initiatives:
-          back: esquena
-          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer.
+          back: Enrere
+          compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats.
           continue: La meva iniciativa és diferent
           more_information: "(Més informació)"
       events:
