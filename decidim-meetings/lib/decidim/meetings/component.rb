@@ -8,6 +8,8 @@ Decidim.register_component(:meetings) do |component|
   component.icon = "decidim/meetings/icon.svg"
   component.card = "decidim/meetings/meeting"
 
+  component.query_type = "Decidim::Meetings::MeetingsType"
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
   end
