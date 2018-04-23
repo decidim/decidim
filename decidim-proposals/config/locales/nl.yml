@@ -309,7 +309,7 @@ nl:
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
-            one: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
+            one: Je kan dit voorstel bewerken in de eerste %{count} minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceer
           title: Publiceer je voorstel
@@ -330,7 +330,7 @@ nl:
           withdraw_proposal: Voorstel intrekken
         tags:
           changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
-          filed_as: Opgeslagen als
+          filed_as: Gemarkeerd als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
@@ -342,7 +342,7 @@ nl:
           count:
             one: STEM
             other: STEMMEN
-          most_popular_proposal: Meest populaire voorstel
+          most_popular_proposal: Populairste voorstel
           need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
