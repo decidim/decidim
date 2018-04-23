@@ -45,16 +45,24 @@
               <%= image_tag "demo-avatar.jpg", class: "topbar__user__logged__picture" %>
             <% end %>
             <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
-              <li><a href="#">Notificaciones (35)</a></li>
-              <li><a href="#">Siguiendo (12)</a></li>
-              <li><a href="#">Tu cuenta</a></li>
-              <li><a href="#">Salir</a></li>
+              <li>
+                <div class="topbar__user__logged__name">
+                  <strong><%= Faker::Name.name %></strong>
+                  <small>@<%= Faker::Twitter.screen_name %></small>
+                </div>
+              </li>
+              <li><a href="#" class="">Tu cuenta</a></li>
+              <li><a href="#" class="">Salir</a></li>
             </ul>
             <span data-set="nav-login-holder" class="show-for-medium">
               <!-- Repeated due to dropdown limitations -->
               <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
-                <li><a href="#">Notificaciones (35)</a></li>
-                <li><a href="#">Siguiendo (12)</a></li>
+                <li class="show-for-medium">
+                  <div class="topbar__user__logged__name">
+                    <strong><%= Faker::Name.name %></strong>
+                    <small>@<%= Faker::Twitter.screen_name %></small>
+                  </div>
+                </li>
                 <li><a href="#">Tu cuenta</a></li>
                 <li><a href="#">Salir</a></li>
               </ul>

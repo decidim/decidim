@@ -189,6 +189,30 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
     display: none;
   }
+
+  .is-dropdown-submenu{
+    padding: 0;
+    background-color: $white;
+    border-radius: 4px;
+
+    li{
+      padding: $global-padding;
+
+      a{
+        padding: 0;
+        color: $anchor-color;
+      }
+
+      &:not(:last-child){
+        border-bottom: $border;
+      }
+
+      &:hover{
+        cursor: pointer;
+        background-color: rgba($secondary, .05);
+      }
+    }
+  }
 }
 
 .topbar__user__logged__picture{
@@ -199,9 +223,17 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   object-fit: cover;
 }
 
+.topbar__user__logged__name{
+  color: $body-font-color;
+
+  > *{
+    display: block;
+  }
+}
+
 .topbar__notifications,
 .topbar__conversations{
-  margin-right: .5rem;
+  margin-right: 1rem;
   vertical-align: -4px;
 
   .icon{
