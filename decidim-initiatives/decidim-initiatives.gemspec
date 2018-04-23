@@ -23,9 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Initiatives.version
   s.add_dependency "decidim-verifications", Decidim::Initiatives.version
   s.add_dependency "kaminari", "~> 1.0"
-  s.add_dependency "rectify"
   s.add_dependency "social-share-button", "~> 1.0"
-  s.add_dependency "truncato"
   s.add_dependency "wicked"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
