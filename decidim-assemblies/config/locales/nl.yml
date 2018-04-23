@@ -12,9 +12,9 @@ nl:
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
-        created_by: Gemaakt door
-        created_by_other: Gemaakt door een ander
-        creation_date: Datum gecreeërd
+        created_by: Aangemaakt door
+        created_by_other: Aangemaakt door iemand anders
+        creation_date: Gemaakt op
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
@@ -65,7 +65,7 @@ nl:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Privaat
+          private: Privé
           public: Openbaar
           published: Gepubliceerd
         new:
@@ -102,7 +102,7 @@ nl:
         index:
           assembly_admins_title: Assemblage gebruikers
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuwe vergaderinggebruiker.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
