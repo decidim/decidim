@@ -102,7 +102,7 @@ nl:
           fields:
             end_time: Einddatum
             official_debate: Officieel debat
-            start_time: Begindatum
+            start_time: Startdatum
             title: Titel
     events:
       debates:
