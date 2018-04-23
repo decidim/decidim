@@ -255,7 +255,7 @@ nl:
           select_identity: Selecteer gebruikersidentiteit
         statistics:
           assistants_count_title: assistenten
-          comments_count_title: Comments
+          comments_count_title: Reacties
           meetings_count_title: vergaderingen
           supports_count_title: verklevingen
         supports:
