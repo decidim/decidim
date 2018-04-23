@@ -178,7 +178,7 @@ nl:
         state: Staat
         upcoming: Aankomende
       filters_small_view:
-        close_modal: Venster sluiten
+        close_modal: Sluit venster
         filter: Sorteer
         filter_by: Sorteren op
         unfold: Ontvouwen
