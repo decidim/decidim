@@ -32,7 +32,7 @@ es:
       oauth_application:
         name: Nombre
         organization_logo: Logotipo de la organización (cuadrado)
-        organization_name: Nombre de la Organización
+        organization_name: Nombre de la organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
@@ -127,10 +127,10 @@ es:
         authorize_url: Autorizar URL
         client_id: Identificación del cliente
         client_secret: Secreto del cliente
-        organization_name: Nombre de la Organización
+        organization_name: Nombre de la organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
-        site: Sitio
+        site: Sitio Web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -241,8 +241,8 @@ es:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
         destroy:
-          error: Ha habido un error al destruir este componente.
-          success: Componente eliminado con éxito.
+          error: Ha habido un error al eliminar este componente.
+          success: Componente borrado con éxito.
         edit:
           title: Editar componente
           update: Actualizar
@@ -260,12 +260,12 @@ es:
           add: Agregar componente
           title: 'Agregar componente: %{name}'
         publish:
-          success: El componente ha sido publicado con éxito.
+          success: El componente se ha publicado con éxito.
         title: Componentes
         unpublish:
-          success: El componente se ha publicado sin éxito.
+          success: El componente se ha despublicado sin éxito.
         update:
-          error: Ha habido un error al actualizar este componente.
+          error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
       dashboard:
         show:
