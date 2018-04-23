@@ -45,7 +45,7 @@ nl:
           index:
             title: Debatten
           new:
-            create: Maak een debat
+            create: Maak een debat aan
             title: Nieuw debat
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
@@ -63,7 +63,7 @@ nl:
             one: "%{count} debat"
             other: "%{count} debatten"
         create:
-          invalid: Er is een probleem opgetreden tijdens het maken van het debat.
+          invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
           success: Debat succesvol aangemaakt.
         debate:
           comments:
@@ -87,11 +87,11 @@ nl:
           new_debate: Nieuw debat
         new:
           back: Terug
-          create: creëren
+          create: Aanmaken
           select_a_category: Selecteer een categorie
           title: Nieuw debat
         share:
-          close_window: Venster sluiten
+          close_window: Sluit venster
           share: Delen
           share_link: Deel link
         show:
