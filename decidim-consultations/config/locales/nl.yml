@@ -179,8 +179,8 @@ nl:
         upcoming: Aankomende
       filters_small_view:
         close_modal: Venster sluiten
-        filter: Filter
-        filter_by: Filteren op
+        filter: Sorteer
+        filter_by: Sorteren op
         unfold: Ontvouwen
       finished:
         active_consultations: Actief overleg
