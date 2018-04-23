@@ -25,7 +25,7 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        start_date: Begindatum
+        start_date: Startdatum
         subtitle: Ondertiteling
         target: Doel
         title: Titel
@@ -38,7 +38,7 @@ nl:
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
-        start_date: Begin datum
+        start_date: Startdatum
         title: Titel
       participatory_process_user_role:
         email: E-mail
@@ -88,7 +88,7 @@ nl:
         participatory_process_step:
           fields:
             end_date: Einddatum
-            start_date: Begindatum
+            start_date: Startdatum
             title: Titel
           name: Participatieve processtap
         participatory_process_user_role:
@@ -281,7 +281,7 @@ nl:
         participatory_structure: Hoe is het besloten
         private_space: Dit is een privéthema
         scope: Scope
-        start_date: Begindatum
+        start_date: Startdatum
         target: Wie neemt deel
       statistics:
         answers_count: Antwoorden
