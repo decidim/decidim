@@ -57,9 +57,9 @@ nl:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       area:
-        create: "%{user_name} heeft de ruimte %{resource_name} gemaakt"
-        delete: "%{user_name} heeft de ruimte %{resource_name} verwijderd"
-        update: "%{user_name} heeft de ruimte %{resource_name} bijgewerkt"
+        create: "%{user_name} heeft %{resource_name} aangemaakt"
+        delete: "%{user_name} heeft %{resource_name} verwijderd"
+        update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
         create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
         delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
@@ -133,16 +133,16 @@ nl:
         actions:
           bar: Balk
           foo: Foo
-        name: Dummy onderdeel
+        name: Voorbeeld onderdeel
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy-kenmerk 1
-            dummy_global_attribute_2: Dummy-kenmerk 2
+            dummy_global_attribute_1: Voorbeeld-kenmerk 1
+            dummy_global_attribute_2: Voorbeeld-kenmerk 2
           step:
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy stapkenmerk 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Voorbeeld-kenmerk 1
+            dummy_step_attribute_2: Voorbeeld-kenmerk 2
     contact: Contact
     core:
       actions:
