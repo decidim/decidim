@@ -212,9 +212,9 @@ es:
       components:
         component_published:
           email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización de %{participatory_space_title}
-          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización en %{participatory_space_title}
+          notification_title: El componente %{resource_title} está activo ahora en <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
@@ -425,7 +425,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        nickname_help: Su identificador único en %{organization}.
+        nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
     mailer:
       invitation_instructions:
@@ -436,7 +436,7 @@ es:
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_private_user: "%{invited_by} lo ha invitado como usuario privado de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
