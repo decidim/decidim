@@ -332,6 +332,7 @@ en:
         newsletters: Newsletters
         oauth_applications: OAuth applications
         officializations: Officializations
+        participatory_spaces: Participatory spaces
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -378,6 +379,14 @@ en:
             created_at: Created at
             name: Name
           name: OAuth application
+        participatory_space:
+          fields:
+            manifest_name: Manifest name
+            state: State
+            state_values:
+              active: Active
+              inactive: Inactive
+              published: Published
         participatory_space_private_user:
           name: Participatory space private user
         scope:
@@ -532,6 +541,24 @@ en:
         new:
           create: Create
           title: New Participatory Space private user.
+      participatory_spaces:
+        activate:
+          error: There was an error activating this participatory space.
+          success: Participatory space activated successfully.
+        deactivate:
+          error: There was an error deactivating this participatory space.
+          success: Participatory space deactivated successfully.
+        index:
+          activate: Activate
+          deactivate: Deactivate
+          publish: Publish
+          unpublish: Unpublish
+        publish:
+          error: There was an error publishing this participatory space.
+          success: Participatory space published successfully.
+        unpublish:
+          error: There was an error unpublishing this participatory space.
+          success: Participatory space unpublished successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.
@@ -589,6 +616,7 @@ en:
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
         officializations: Officializations
+        participatory_spaces: Participatory spaces
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages

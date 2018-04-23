@@ -94,6 +94,10 @@ module Decidim
         def consultation_form
           form(ConsultationForm)
         end
+
+        def current_participatory_space_manifest_name
+          :consultations
+        end
       end
     end
   end

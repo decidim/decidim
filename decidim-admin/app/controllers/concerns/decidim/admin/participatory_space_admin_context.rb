@@ -30,31 +30,46 @@ module Decidim
         helper_method :current_participatory_space_manifest
         helper_method :current_participatory_space_context
 
-        delegate :manifest, to: :current_participatory_space, prefix: true
-      end
+        before_action :space_is_active?
 
-      private
+        private
 
-      def current_participatory_space_context
-        :admin
-      end
+        def current_participatory_space_manifest_name
+          nil
+        end
 
-      def current_participatory_space
-        raise NotImplementedError
-      end
+        def current_participatory_space_manifest
+          @current_participatory_space_manifest ||=
+            Decidim.find_participatory_space_manifest(current_participatory_space_manifest_name)
+        end
 
-      def authorize_participatory_space
-        authorize! :read, current_participatory_space
-      end
+        def current_participatory_space_context
+          :admin
+        end
 
-      def ability_context
-        super.merge(
-          current_participatory_space: current_participatory_space
-        )
-      end
+        def current_participatory_space
+          raise NotImplementedError
+        end
 
-      def layout
-        current_participatory_space_manifest.context(current_participatory_space_context).layout
+        def authorize_participatory_space
+          authorize! :read, current_participatory_space
+        end
+
+        def ability_context
+          super.merge(
+            current_participatory_space: current_participatory_space
+          )
+        end
+
+        def layout
+          current_participatory_space_manifest.context(current_participatory_space_context).layout
+        end
+
+        def space_is_active?
+          return true if current_participatory_space_manifest.space_for(current_organization).active?
+
+          raise ActionController::RoutingError, "Space is not active"
+        end
       end
     end
   end

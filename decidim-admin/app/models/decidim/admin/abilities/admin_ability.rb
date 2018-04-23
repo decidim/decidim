@@ -50,6 +50,7 @@ module Decidim
           can :manage, Newsletter
           can :manage, :oauth_applications
           can :manage, OAuthApplication
+          can :manage, ParticipatorySpace
 
           can [:create, :index, :new, :read, :invite], User
 

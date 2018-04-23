@@ -34,6 +34,8 @@ module Decidim
       end
       before_action :redirect_unless_feature_private
 
+      delegate :manifest, to: :current_participatory_space, prefix: true
+
       def current_participatory_space
         request.env["decidim.current_participatory_space"]
       end

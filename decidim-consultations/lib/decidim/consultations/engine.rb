@@ -74,7 +74,8 @@ module Decidim
           menu.item I18n.t("menu.consultations", scope: "decidim"),
                     decidim_consultations.consultations_path,
                     position: 2.7,
-                    if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                    if: Decidim::Consultation.where(organization: current_organization).published.any? &&
+                        Decidim.find_participatory_space_manifest(:consultations).space_for(current_organization).published?,
                     active: :inclusive
         end
       end

@@ -8,6 +8,10 @@ module Decidim
       #
       class ComponentPermissionsController < Decidim::Admin::ComponentPermissionsController
         include Concerns::AssemblyAdmin
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end

@@ -78,6 +78,10 @@ module Decidim
       def default_filter
         "active"
       end
+
+      def current_participatory_space_manifest_name
+        :participatory_processes
+      end
     end
   end
 end

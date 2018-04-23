@@ -23,6 +23,10 @@ module Decidim
           organization_participatory_processes.where(id: params[:participatory_process_slug])
         ).first!
       end
+
+      def current_participatory_space_manifest_name
+        :participatory_processes
+      end
     end
   end
 end

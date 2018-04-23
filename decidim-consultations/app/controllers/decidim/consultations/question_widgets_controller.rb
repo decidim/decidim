@@ -21,6 +21,10 @@ module Decidim
       def iframe_url
         @iframe_url ||= question_question_widget_url(model)
       end
+
+      def current_participatory_space_manifest_name
+        :consultations
+      end
     end
   end
 end

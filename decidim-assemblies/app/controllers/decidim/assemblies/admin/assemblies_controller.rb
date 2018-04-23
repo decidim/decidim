@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssembliesController < Decidim::Admin::ApplicationController
+      class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
         layout "decidim/admin/assemblies"
 
@@ -110,6 +110,10 @@ module Decidim
             hero_image: current_assembly.hero_image,
             banner_image: current_assembly.banner_image
           }.merge(params[:assembly].to_unsafe_h)
+        end
+
+        def current_participatory_space_manifest_name
+          :assemblies
         end
       end
     end

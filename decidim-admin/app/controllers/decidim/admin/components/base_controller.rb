@@ -20,6 +20,8 @@ module Decidim
                       :current_participatory_space,
                       :parent_path
 
+        helper_method :current_participatory_space_manifest
+
         before_action except: [:index, :show] do
           authorize! :manage, current_component
         end
@@ -39,6 +41,8 @@ module Decidim
         def parent_path
           @parent_path ||= EngineRouter.admin_proxy(current_participatory_space).components_path
         end
+
+        delegate :manifest, to: :current_participatory_space, prefix: true
       end
     end
   end

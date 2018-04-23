@@ -7,6 +7,10 @@ module Decidim
       # permissions in the admin panel.
       class ComponentPermissionsController < Decidim::Admin::ComponentPermissionsController
         include QuestionAdmin
+
+        def current_participatory_space_manifest_name
+          :consultations
+        end
       end
     end
   end

@@ -2,6 +2,7 @@
 
 require "decidim/core/test/shared_examples/authorable"
 require "decidim/core/test/shared_examples/publicable"
+require "decidim/core/test/shared_examples/activable"
 require "decidim/core/test/shared_examples/localised_email"
 require "decidim/core/test/shared_examples/has_attachments"
 require "decidim/core/test/shared_examples/has_attachment_collections"

@@ -18,6 +18,10 @@ module Decidim
       def iframe_url
         @iframe_url ||= assembly_assembly_widget_url(model)
       end
+
+      def current_participatory_space_manifest_name
+        :assemblies
+      end
     end
   end
 end

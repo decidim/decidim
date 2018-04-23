@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing participatory processes.
       #
-      class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
 
@@ -105,6 +105,10 @@ module Decidim
             hero_image: current_participatory_process.hero_image,
             banner_image: current_participatory_process.banner_image
           }.merge(params[:participatory_process].to_unsafe_h)
+        end
+
+        def current_participatory_space_manifest_name
+          :participatory_processes
         end
       end
     end

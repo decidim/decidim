@@ -30,13 +30,22 @@ module Decidim
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
 
-      delegate :manifest, to: :current_participatory_space, prefix: true
+      before_action :space_is_published?
     end
 
     private
 
+    def current_participatory_space_manifest_name
+      nil
+    end
+
     def current_participatory_space_context
       :public
+    end
+
+    def current_participatory_space_manifest
+      @current_participatory_space_manifest ||=
+        Decidim.find_participatory_space_manifest(current_participatory_space_manifest_name)
     end
 
     def current_participatory_space
@@ -70,6 +79,12 @@ module Decidim
       return if current_user_can_visit_space?
       flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
       redirect_to action: "index"
+    end
+
+    def space_is_published?
+      return true if current_participatory_space_manifest.space_for(current_organization).published?
+
+      raise ActionController::RoutingError, "Space is not published"
     end
   end
 end

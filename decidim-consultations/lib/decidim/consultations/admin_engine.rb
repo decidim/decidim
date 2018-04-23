@@ -64,7 +64,8 @@ module Decidim
                     icon_name: "comment-square",
                     position: 3.8,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Consultation)
+                    if: can?(:index, Decidim::Consultation) &&
+                        Decidim.find_participatory_space_manifest(:consultations).space_for(current_organization).active?
         end
       end
     end

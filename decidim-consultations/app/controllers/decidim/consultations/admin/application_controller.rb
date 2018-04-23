@@ -8,6 +8,10 @@ module Decidim
         layout "decidim/admin/consultations"
 
         helper Decidim::SanitizeHelper
+
+        def current_participatory_space_manifest_name
+          :consultations
+        end
       end
     end
   end

@@ -29,6 +29,10 @@ module Decidim
           def organization_assemblies
             @organization_assemblies ||= OrganizationAssemblies.new(current_organization).query
           end
+
+          def current_participatory_space_manifest_name
+            :assemblies
+          end
         end
       end
     end

@@ -54,6 +54,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-meetings**: Add WYSIWYG editor for meeting closing notes [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
+- **decidim**: Spaces need to be activated and published before they appear publicly [\#3251](https://github.com/decidim/decidim/pull/3251)
 
 **Changed**:
 

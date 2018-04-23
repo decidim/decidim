@@ -8,6 +8,10 @@ module Decidim
       # an assembly.
       class ExportsController < Decidim::Admin::ExportsController
         include Concerns::AssemblyAdmin
+
+        def current_participatory_space_manifest_name
+          :assemblies
+        end
       end
     end
   end

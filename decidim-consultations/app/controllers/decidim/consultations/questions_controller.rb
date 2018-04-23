@@ -18,6 +18,10 @@ module Decidim
       def show
         authorize! :read, current_question
       end
+
+      def current_participatory_space_manifest_name
+        :consultations
+      end
     end
   end
 end

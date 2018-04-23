@@ -87,7 +87,8 @@ module Decidim
                     icon_name: "dial",
                     position: 3.5,
                     active: :inclusive,
-                    if: can?(:read, Decidim::Assembly)
+                    if: can?(:read, Decidim::Assembly) &&
+                        Decidim.find_participatory_space_manifest(:assemblies).space_for(current_organization).active?
         end
       end
     end

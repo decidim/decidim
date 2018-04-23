@@ -238,6 +238,20 @@ FactoryBot.define do
     end
   end
 
+  factory :participatory_space, class: "Decidim::ParticipatorySpace" do
+    manifest_name { :my_space }
+    organization
+
+    trait :active do
+      activated_at { Time.current }
+    end
+
+    trait :published do
+      activated_at { Time.current }
+      published_at { Time.current }
+    end
+  end
+
   factory :scope_type, class: "Decidim::ScopeType" do
     name { Decidim::Faker::Localized.word }
     plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }

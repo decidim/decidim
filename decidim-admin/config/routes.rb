@@ -57,6 +57,15 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
+    resources :participatory_spaces, only: [:index] do
+      member do
+        put :activate
+        put :deactivate
+        put :publish
+        put :unpublish
+      end
+    end
+
     resources :oauth_applications
 
     root to: "dashboard#show"
