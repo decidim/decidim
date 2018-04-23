@@ -450,22 +450,22 @@ es:
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       oauth_applications:
         create:
-          error: Ha habido un error al crear esta aplicación.
+          error: Se ha producido un error al crear esta aplicación.
           success: Aplicación creada con éxito.
         destroy:
-          error: Ha habido un error al destruir esta aplicación.
-          success: Aplicación destruida con éxito.
+          error: Se ha producido un error al destruir esta aplicación.
+          success: Aplicación eliminada con éxito.
         edit:
-          save: Salvar
+          save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
+          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
-          save: Salvar
+          save: Guardar
           title: Nueva aplicación
         update:
-          error: Ha habido un error al actualizar esta aplicación.
+          error: Se ha producido un error al actualizar esta aplicación.
           success: Aplicación actualizada con éxito.
       officializations:
         create:
@@ -523,14 +523,14 @@ es:
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
-          success: Acceso a usuarios privados de espacio participativo creado con éxito.
+          success: El acceso a usuarios privados de espacio participativo creado con éxito.
         destroy:
-          success: El acceso de usuarios privados del espacio participativo se destruyó con éxito.
+          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
-          title: Usuario privado de espacio participativo
+          title: Usuario privado de espacio participativo.
         new:
           create: Crear
-          title: Nuevo usuario privado de Participatory Space.
+          title: Nuevo usuario privado en el espacio participativo.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
