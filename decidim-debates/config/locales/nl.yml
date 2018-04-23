@@ -4,7 +4,7 @@ nl:
       debate:
         category_id: Categorie
         decidim_category_id: Categorie
-        description: Beschrijving
+        description: Omschrijving
         end_time: Eindigt op
         information_updates: Informatie updates
         instructions: Instructies om deel te nemen
@@ -27,7 +27,7 @@ nl:
             creation_enabled: Gebruikers kunnen geen debat aanmaken
     debates:
       actions:
-        confirm_destroy: Weet je het zeker?
+        confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
         new: Nieuwe %{name}
@@ -93,7 +93,7 @@ nl:
         share:
           close_window: Sluit venster
           share: Delen
-          share_link: Deel link
+          share_link: Link delen
         show:
           comments: Reacties
           report: Rapporteren
@@ -112,7 +112,7 @@ nl:
               Hallo, 
               Er is een nieuw debat gestart in de %{space_title} participatieve ruimte, bekijk het en neem deel:
             email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
-            email_subject: Nieuw debat in %{space_title}
+            email_subject: Nieuw debat op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
