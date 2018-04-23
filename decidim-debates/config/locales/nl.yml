@@ -67,21 +67,21 @@ nl:
           success: Debat succesvol aangemaakt.
         debate:
           comments:
-            one: Commentaar
-            other: Comments
+            one: Reactie
+            other: Reacties
           participate: Deelnemen
         filters:
           all: Alle
           category: Categorie
-          category_prompt: Kies een categorie
+          category_prompt: Selecteer een categorie
           citizens: Burgers
           official: Officieel
           origin: Oorsprong
           search: Zoeken
         filters_small_view:
-          close_modal: Modal sluiten
-          filter: Filter
-          filter_by: Filteren op
+          close_modal: Sluit venster
+          filter: Sorteren
+          filter_by: Sorteren op
           unfold: Uitvouwen
         index:
           new_debate: Nieuw debat
