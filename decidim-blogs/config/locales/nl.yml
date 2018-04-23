@@ -38,9 +38,9 @@ nl:
             title: titel
       posts:
         author_data:
-          comments: opmerkingen
+          comments: reacties
         sidebar_blog:
-          comments: opmerkingen
+          comments: reacties
           most_commented_posts: Meest besproken berichten
       read_more: Lees verder
     components:
@@ -49,7 +49,7 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            comments_enabled: Opmerkingen ingeschakeld
+            comments_enabled: Reacties ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
