@@ -129,6 +129,16 @@ en:
           new:
             create: Create
             title: Create meeting
+          service:
+            description: Description
+            down: Down
+            remove: Remove
+            service: Service
+            title: Title
+            up: Up
+          services:
+            add_service: Add service
+            services: Services
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated

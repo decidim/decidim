@@ -7,6 +7,10 @@ module Decidim
       #
       module ApplicationHelper
         include Decidim::MapHelper
+
+        def tabs_id_for_service(service)
+          "meeting_service_#{service.to_param}"
+        end
       end
     end
   end

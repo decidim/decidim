@@ -2,7 +2,6 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-require "generators/decidim/app_generator"
 require "decidim/gem_manager"
 
 RSpec::Core::RakeTask.new(:spec)
@@ -25,29 +24,6 @@ end
 desc "Update version in all gems to the one set in the `.decidim-version` file"
 task :update_versions do
   Decidim::GemManager.replace_versions
-end
-
-desc "Installs all gems locally."
-task :install_all do
-  Decidim::GemManager.run_all(
-    "gem build %name && mv %name-%version.gem ..",
-    include_root: false
-  )
-
-  Decidim::GemManager.new(__dir__).run(
-    "gem build %name && gem install *.gem"
-  )
-end
-
-desc "Uninstalls all gems locally."
-task :uninstall_all do
-  Decidim::GemManager.run_all(
-    "gem uninstall %name -v %version --executables --force"
-  )
-
-  Decidim::GemManager.new(__dir__).run(
-    "rm decidim-*.gem"
-  )
 end
 
 Decidim::GemManager.all_dirs(include_root: false) do |dir|

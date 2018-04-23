@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    image: decidim/decidim:<%= Decidim::Generators.version %>
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+    environment:
+      - PORT=3000
+      - DATABASE_HOST=pg
+      - DATABASE_USERNAME=postgres
+      - RAILS_ENV=development
+    ports:
+      - 3000:3000
+    links:
+      - pg
+    command: bundle exec puma
+  pg:
+    image: postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+volumes:
+  node_modules: {}
+  bundle: {}
+  pg-data: {}

@@ -35,6 +35,10 @@ module Decidim
       Decidim::AdminLog::OrganizationPresenter
     end
 
+    def available_authorization_handlers
+      available_authorizations & Decidim.authorization_handlers.map(&:name)
+    end
+
     # Returns top level scopes for this organization.
     #
     # Returns an ActiveRecord::Relation.

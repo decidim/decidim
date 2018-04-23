@@ -294,7 +294,7 @@ sv:
             new_managed_user_impersonation: Ny hanterad användarimitering
         index:
           impersonate: Imitera
-          needs_authoriation_warning: Du behöver minst en behörighet aktiverad för den här organisationen.
+          needs_authorization_warning: Du behöver minst en behörighet aktiverad för den här organisationen.
           promote: Främja
           view_logs: Visa loggar
         new:

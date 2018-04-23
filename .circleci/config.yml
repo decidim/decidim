@@ -73,6 +73,30 @@ jobs:
           command: bundle exec erblint --lint-all
       - store_test_results:
           path: ~/rspec
+  generators:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - checkout
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install ruby dependencies
+          command: bundle install
+      - save_cache:
+          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /usr/local/bundle/
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - run:
+          name: Run generators RSpec
+          command: mkdir ~/rspec && cd decidim-generators && rake
+      - store_test_results:
+          path: ~/rspec
   core:
     <<: *defaults
     steps:
@@ -534,6 +558,34 @@ jobs:
           root: coverage
           paths:
             - codeclimate.sortitions.json
+  blogs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - run:
+          name: Create test DB
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
+      - run:
+          name: Run blogs RSpec
+          command: mkdir ~/rspec && cd decidim-blogs && rake
+      - run:
+          name: Format CodeClimate test coverage
+          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.blogs.json coverage/.resultset.json
+      - store_artifacts:
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
+      - persist_to_workspace:
+          root: coverage
+          paths:
+            - codeclimate.blogs.json
   consultations:
     <<: *defaults
     steps:
@@ -590,7 +642,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 17 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 18 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -600,19 +652,25 @@ workflows:
       - build_design_app:
           filters:
             branches:
-              ignore: 
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - build_test_app:
           filters:
             branches:
-              ignore:  
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - main:
           filters:
             branches:
-              ignore:  
+              ignore:
+                - l10n_master
+                - l10n_0.10-stable
+      - generators:
+          filters:
+            branches:
+              ignore:
                 - l10n_master
                 - l10n_0.10-stable
       - core:
@@ -637,6 +695,9 @@ workflows:
           requires:
             - build_test_app
       - sortitions:
+          requires:
+            - build_test_app
+      - blogs:
           requires:
             - build_test_app
       - consultations:
@@ -669,6 +730,7 @@ workflows:
       - upload-coverage:
           requires:
             - main
+            - generators
             - core
             - assemblies
             - api
@@ -686,3 +748,4 @@ workflows:
             - debates
             - sortitions
             - consultations
+            - blogs

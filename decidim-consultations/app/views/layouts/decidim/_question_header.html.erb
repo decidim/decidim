@@ -24,7 +24,7 @@
   <h1 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h1>
   <% unless question.hashtag.blank? %>
     <div class="text-center">
-      <%= link_to "##{question.hashtag}", "https://twitter.com/hashtag/#{question.hashtag}" %>
+      <%= link_to "##{question.hashtag}", "https://twitter.com/hashtag/#{question.hashtag}", target: "_blank" %>
     </div>
   <% end %>
 

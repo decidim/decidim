@@ -18,6 +18,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :logs, only: [:index]
     resources :area_types, except: [:show]
     resources :areas, except: [:show]
+
     resources :authorization_workflows, only: :index
 
     Decidim.authorization_admin_engines.each do |manifest|
@@ -32,9 +33,10 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id
 
-    resources :managed_users, controller: "managed_users", except: [:edit, :update] do
+    resources :impersonatable_users, only: [:index] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]
-      resources :impersonations, controller: "managed_users/impersonations", only: [:index, :new, :create] do
+      resources :impersonation_logs, controller: "managed_users/impersonation_logs", only: [:index]
+      resources :impersonations, controller: "managed_users/impersonations", only: [:new, :create] do
         collection do
           post :close_session
         end
