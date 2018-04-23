@@ -31,13 +31,13 @@ nl:
         actions:
           destroy: Annuleer de sortering
           edit: Bewerk
-          new: nieuwe
+          new: Nieuw
           show: Sorteringsdetails
         models:
           sortition:
             fields:
               category: Categorie
-              created_at: Aanmaakdatum
+              created_at: Aangemaakt op
               decidim_proposals_component: Voorstellen component
               dice: Dobbelsteen
               reference: Referentie
@@ -70,7 +70,7 @@ nl:
             title: Sortitions
           new:
             confirm: Door op de volgende knop te drukken, legt Decidim de datum en tijd vast (met een nauwkeurigheid van seconden) en samen met de dobbelsteenworp wordt deze informatie gebruikt om een ​​willekeurige selectie te genereren. De actie is onomkeerbaar, zodra op de knop is geklikt, wordt het resultaat van deze trekking gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd. Bekijk de inhoud zorgvuldig
-            create: creëren
+            create: Aanmaken
             title: Nieuwe sortering
           show:
             selected_proposals: Voorstellen geselecteerd voor trekking
