@@ -18,7 +18,7 @@ nl:
     components:
       surveys:
         actions:
-          answer: Antwoord
+          answer: Antwoorden
         name: Enquête
         settings:
           global:
@@ -64,11 +64,11 @@ nl:
             already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
           question:
             add_answer_option: Voeg antwoord optie toe
-            any: Ieder
-            description: Beschrijving
-            down: naar beneden
+            any: Elk
+            description: Omschrijving
+            down: Omlaag
             question: Vraag
-            remove: Verwijderen
+            remove: Verwijder
             statement: Stelling
             up: omhoog
           update:
