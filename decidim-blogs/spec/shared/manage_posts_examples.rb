@@ -63,7 +63,15 @@ shared_examples "manage posts" do
   end
 
   describe "deleting a post" do
-    let!(:post2) { create(:post, component: current_component) }
+    let(:title) do
+      {
+        en: "This is the title of deleted post",
+        es: "Este es el título del post eliminado",
+        ca: "Aquest és el títol del post eliminat"
+      }
+    end
+
+    let!(:post2) { create(:post, component: current_component, title: title) }
 
     before do
       visit current_path
