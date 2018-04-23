@@ -48,7 +48,7 @@ FactoryBot.define do
 
     after(:create) do |assembly, _evaluator|
       space = Decidim::ParticipatorySpace
-              .find_or_create_by(organization: assembly.organization, manifest_name: :assemblies)
+              .find_or_initialize_by(organization: assembly.organization, manifest_name: :assemblies)
       space.activate!
       space.publish!
     end

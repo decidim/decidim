@@ -93,7 +93,7 @@ module Decidim
     #
     # Returns a Decidim::ParticipatorySpace.
     def space_for(organization)
-      Decidim::ParticipatorySpace.find_or_create_by(organization: organization, manifest_name: name)
+      Decidim::ParticipatorySpace.find_or_initialize_by(organization: organization, manifest_name: name)
     end
   end
 end

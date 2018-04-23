@@ -28,7 +28,7 @@ FactoryBot.define do
 
     after(:create) do |consultation, _evaluator|
       space = Decidim::ParticipatorySpace
-              .find_or_create_by(organization: consultation.organization, manifest_name: :consultations)
+              .find_or_initialize_by(organization: consultation.organization, manifest_name: :consultations)
       space.activate!
       space.publish!
     end

@@ -12,7 +12,7 @@ class PublishParticipatorySpaces < ActiveRecord::Migration[5.1]
   def up
     %w(participatory_processes assemblies).each do |space_name|
       Organization.find_each do |organization|
-        space = ParticipatorySpace.find_or_create_by(
+        space = ParticipatorySpace.find_or_initialize_by(
           decidim_organization_id: organization.id,
           manifest_name: space_name
         )
