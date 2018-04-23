@@ -118,7 +118,7 @@ nl:
           view_proposal: Bekijk voorstel
     participatory_spaces:
       highlighted_proposals:
-        proposals: voorstellen
+        proposals: Voorstellen
         see_all_proposals: Bekijk alle voorstellen
       proposal:
         creation_date: 'Aanmaak: %{date}'
