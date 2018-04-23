@@ -89,10 +89,56 @@ module Decidim
 
       context "with registrations open" do
         let(:model) { create(:meeting, :with_registrations_enabled, component: component) }
-        let(:query) { "{ registrationsEnabled }" }
 
-        it "registrationsEnabled" do
-          expect(response["registrationsEnabled"]).to be true
+        describe "registrationsEnabled" do
+          let(:query) { "{ registrationsEnabled }" }
+
+          it "returns true" do
+            expect(response["registrationsEnabled"]).to be true
+          end
+        end
+
+        describe "remainingSlots" do
+          let(:query) { "{ remainingSlots }" }
+
+          it "returns the amount of remaining slots" do
+            expect(response["remainingSlots"]).to eq(model.remaining_slots)
+          end
+        end
+
+        describe "attendeeCount" do
+          let(:query) { "{ attendeeCount }" }
+
+          it "returns the amount of attendees" do
+            expect(response["attendeeCount"]).to eq(model.attendees_count)
+          end
+        end
+      end
+
+      describe "contributionCount" do
+        let(:query) { "{ contributionCount }" }
+
+        it "returns the amount of contributions" do
+          expect(response["contributionCount"]).to eq(model.contributions_count)
+        end
+      end
+
+      describe "address" do
+        let(:query) { "{ address }" }
+
+        it "returns the meeting's address" do
+          expect(response["address"]).to eq(model.address)
+        end
+      end
+
+      describe "coordinates" do
+        let(:query) { "{ coordinates { latitude longitude } }" }
+
+        it "returns the meeting's address" do
+          expect(response["coordinates"]).to include(
+            "latitude" => model.latitude,
+            "longitude" => model.longitude
+          )
         end
       end
     end
