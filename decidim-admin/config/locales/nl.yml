@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: collection
+        attachment_collection_id: Collectie
         description: Beschrijving
         file: Bestand
         title: Titel
@@ -34,7 +34,7 @@ nl:
         organization_logo: Logo organisatie (vierkant)
         organization_name: Naam van de organisatie
         organization_url: URL van de organisatie
-        redirect_uri: URI omleiden
+        redirect_uri: URI doorsturen
       organization:
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
@@ -44,7 +44,7 @@ nl:
         facebook_handler: Facebook naam
         favicon: Pictogram
         github_handler: GitHub gebruikersnaam
-        header_snippets: Header-fragmenten
+        header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
