@@ -67,7 +67,7 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de link.
           email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
         upcoming_meeting:
