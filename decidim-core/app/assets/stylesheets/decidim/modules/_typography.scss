@@ -147,6 +147,10 @@ hr{
   @include ellipsis();
 }
 
+.text-compact{
+  line-height: 1;
+}
+
 .word-wrapper{
   display: inline-block;
 }
