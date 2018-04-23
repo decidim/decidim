@@ -20,7 +20,7 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            comments_enabled: Reacties geactiveerd
+            comments_enabled: Reacties ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -95,7 +95,7 @@ nl:
           share: Delen
           share_link: Deel link
         show:
-          comments: Comments
+          comments: Reacties
           report: Rapporteren
       models:
         debate:
