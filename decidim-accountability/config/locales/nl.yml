@@ -12,7 +12,7 @@ nl:
         proposals: Inbegrepen voorstellen
         start_date: Begin datum
         title: Titel
-        updated_at: Bijgewerkt om
+        updated_at: Bijgewerkt op
       status:
         description: Beschrijving
         key: sleutel
