@@ -60,6 +60,7 @@ module Decidim
       return unless from_context
       return unless proposals_controller?
       return unless show_action?
+      true
     end
 
     def commentable?
