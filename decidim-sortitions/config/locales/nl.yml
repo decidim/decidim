@@ -132,13 +132,13 @@ nl:
             other: "%{count} voorstellen geselecteerd"
           view_sortition: Bekijk sortering
         sortition_author:
-          deleted: Verwijderde gebruiker
+          deleted: Verwijder gebruiker
         sortition_cancel_author:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
             one: 1 sortering
-            other: "%{count} sorteringen"
+            other: "%{count} sorteringen "
   pages:
     home:
       statistics:
