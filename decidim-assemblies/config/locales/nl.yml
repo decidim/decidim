@@ -6,11 +6,11 @@ nl:
         assembly_type: Montage type
         assembly_type_other: Montagetype anders
         banner_image: Bannerafbeelding
-        closing_date: Sluitingsdatum
+        closing_date: Einddatum
         closing_date_reason: Sluitingsdatum reden
         composition: Samenstelling
         copy_categories: Categorieën kopiëren
-        copy_components: Kopieer componenten
+        copy_components: Onderdelen tekst
         copy_features: Functies kopiëren
         created_by: Aangemaakt door
         created_by_other: Aangemaakt door iemand anders
