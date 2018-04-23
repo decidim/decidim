@@ -147,7 +147,7 @@ ca:
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
-            reserved_slots_help: Deixa'l a 0 si no tens ranures reservades
+            reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
