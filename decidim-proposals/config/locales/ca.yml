@@ -257,7 +257,7 @@ ca:
           title: Editar proposta
         edit_draft:
           discard: Descarta aquest esborrany
-          discard_confirmation: Segur que vols descartar l'esborrany d'aquesta proposta?
+          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
         endorsement_identities_cabin:
