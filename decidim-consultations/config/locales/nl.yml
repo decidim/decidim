@@ -4,12 +4,12 @@ nl:
       consultation:
         banner_image: Banner afbeelding
         decidim_highlighted_scope_id: Opvallend bereik
-        description: Beschrijving
+        description: Omschrijving
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
         introductory_video_url: Inleidende video-URL
         slug: URL-slug
-        start_voting_date: Begin datum
+        start_voting_date: Startdatum
         subtitle: subtitel
         title: Titel
       question:
@@ -157,7 +157,7 @@ nl:
         responses: Antwoorden
     consultations:
       consultation:
-        start_voting_date: Stemmen vanuit
+        start_voting_date: Stemmen vanaf
         view_results: Bekijk resultaten
       consultation_card:
         view_results: Bekijk resultaten
@@ -219,7 +219,7 @@ nl:
       vote_button:
         already_voted: Reeds gestemd
         already_voted_hover: Steun intrekken
-        starting_from: Te beginnen met %{date}
+        starting_from: Te beginnen op %{date}
         vote: Stemmen
       vote_modal:
         contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je je stem niet meer kan wijzigen.
@@ -236,7 +236,7 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
       consultation_voting_data:
-        start_voting_date: Stemmen vanuit
+        start_voting_date: Stemmen vanaf
       question_components:
         question_menu_item: De vraag
         unfold: Ontvouwen
