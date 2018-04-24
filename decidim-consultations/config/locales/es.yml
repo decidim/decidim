@@ -7,7 +7,7 @@ es:
         description: Descripción
         end_voting_date: Fecha final
         introductory_image: Imagen introductoria
-        introductory_video_url: URL de video introductoria
+        introductory_video_url: URL de vídeo introductoria
         slug: URL slug
         start_voting_date: Fecha de inicio
         subtitle: Subtitular
@@ -46,7 +46,7 @@ es:
           success: Consulta publicada con éxito
         destroy:
           error: Hubo un error al anular la publicación de esta consulta.
-          success: Consulta no publicada con éxito.
+          success: Consulta despublicada con éxito.
       consultation_results_publications:
         create:
           error: Hubo un error al publicar los resultados de esta consulta.
