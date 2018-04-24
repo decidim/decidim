@@ -1,0 +1,69 @@
+fi:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Haluatko varmasti poistaa tämän viestin?
+        destroy: Poistaa
+        edit: Muokata
+        new: Uusi
+        title: Toimet
+      admin:
+        models:
+          components:
+            body: ruumis
+          post:
+            name: Lähettää
+        posts:
+          create:
+            invalid: Ongelma tämän viestin luomisessa
+            success: Lähetys onnistuneesti luotu
+          destroy:
+            success: Viesti onnistuneesti poistettu
+          edit:
+            save: Päivittää
+          index:
+            title: Viestejä
+          new:
+            create: Luoda
+            title: Luo viesti
+          update:
+            invalid: Virhe tallentamassa viestiä on tapahtunut.
+            success: Viestin tallennettu onnistuneesti
+      models:
+        post:
+          fields:
+            author: kirjailija
+            body: ruumis
+            created_at: Luotu osoitteessa
+            title: otsikko
+      posts:
+        author_data:
+          comments: kommentit
+        sidebar_blog:
+          comments: kommentit
+          most_commented_posts: Eniten kommentoituja viestejä
+      read_more: Lue lisää
+    components:
+      blogs:
+        name: blogi
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit käytössä
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit on estetty
+    events:
+      blogs:
+        post_created:
+          email_intro: Viesti "%{resource_title}" on julkaistu kohdassa "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Uusi viesti julkaistiin %{participatory_space_title}
+          notification_title: Viesti <a href="%{resource_path}">%{resource_title}</a> on julkaistu %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: Viestejä
+  pages:
+    home:
+      statistics:
+        posts_count: Viestejä
