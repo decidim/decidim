@@ -2,11 +2,11 @@ nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Thema
+        area_id: Onderwerp
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
-        decidim_area_id: Thema
+        copy_features: Functionaliteiten kopiëren
+        decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -31,7 +31,7 @@ nl:
     admin:
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe bijeenkomt.
+          error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         destroy:
           success: Bijeenkomst is succesvol vernietigd.
@@ -76,20 +76,20 @@ nl:
         index:
           assembly_admins_title: Assemblage gebruikers
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuwe vergaderinggebruiker.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
           success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Bijeenkomsten
+        assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
-          attachment_collections: collecties
+          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
+          features: Functionaliteiten
           info: info
           moderations: Moderaties
       models:
@@ -111,7 +111,7 @@ nl:
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Bijeenkomsten
+        assemblies: Events
     admin_log:
       assembly:
         create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
@@ -126,20 +126,20 @@ nl:
       admin:
         assemblies:
           form:
-            select_an_area: Selecteer een gebied
+            select_an_area: Selecteer een onderwerp
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
-        title: Bijeenkomsten
+        title: Events
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle bijeenkomsten
+            active_assemblies: Huidige events
+            see_all_assemblies: Bekijk alle events
       show:
-        area: Thema
+        area: onderwerp
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
@@ -150,9 +150,9 @@ nl:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
-        endorsements_count: Goedkeuringen
+        endorsements_count: Aanbevelingen
         headline: Activiteit
-        meetings_count: Vergaderingen
+        meetings_count: Events
         orders_count: Stemmen
         pages_count: Pagina's
         projects_count: Projecten
@@ -162,14 +162,14 @@ nl:
         users_count: Deelnemers
         votes_count: Stemmen
     menu:
-      assemblies: Bijeenkomsten
+      assemblies: Events
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Gemarkeerde bijenkomsten
+          promoted_assemblies: Uitgelichte events
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"
