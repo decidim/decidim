@@ -274,14 +274,14 @@ ca:
             one: SIGNATURA
             other: SIGNATURES
       initiatives_mailer:
-        creation_subject: S'ha creat la vostra iniciativa ciutadana '%{title}'
+        creation_subject: S'ha creat la teva iniciativa ciutadana '%{title}'
         initiative_link:
-          check_initiative_details: Podeu veure els detalls de la iniciativa
+          check_initiative_details: Pots veure els detalls de la iniciativa
           here: aquí
-        more_information: Aquí teniu més informació sobre el procés de creació d'iniciatives.
+        more_information: Aquí tens més informació sobre el procés de creació d'iniciatives.
         progress_report_body_for: La iniciativa %{title} ha arribat al %{percentage}% dels suports necessaris.
         progress_report_for: 'Repàs de la iniciativa: %{title}'
-        promotal_committee_help: Recordeu que heu de convidar almenys %{member_count} persones a un comitè promotor. Reenvia el següent enllaç per convidar persones al comitè de promoció
+        promotal_committee_help: Recorda que has de convidar almenys %{member_count} persones a un comitè promotor. Reenvia el següent enllaç per convidar persones al comitè de promoció
         status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat per: %{state}'
         status_change_for: La iniciativa %{title} ha canviat d'estat
         technical_validation_body_for: La iniciativa %{title} ha demanat la seva validació tècnica.
@@ -290,7 +290,7 @@ ca:
         home:
           highlighted_initiatives:
             active_initiatives: Iniciatives actives
-            see_all_initiatives: Vegeu totes les iniciatives
+            see_all_initiatives: Veure totes les iniciatives
       states:
         accepted: Acceptat
         expired: Vençut
@@ -309,7 +309,7 @@ ca:
         finish: Acaba
         previous_form: Començar
         promotal_committee: Comitè de promoció
-        select_initiative_type: Trieu
+        select_initiative_type: Tria
         show_similar_initiatives: Compara
       initiative_header:
         initiative_menu_item: Iniciativa
