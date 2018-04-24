@@ -24,18 +24,26 @@
     justify-content: space-between;
 
     > :first-child{
-      flex: 1 1 60%;
+      flex: 1 1 80%;
       min-width: 0;
-      text-align: left;
 
-      @include ellipsis();
+      div{
+        display: inline;
+
+        @include ellipsis();
+
+        .author__name{
+          // Allow the ellipsis, otherwise it's not shown
+          display: inherit;
+        }
+      }
     }
 
     > :last-child{
       flex: 1 0 40%;
     }
 
-    @include flexgap(1rem);
+    @include flexgap(.5rem);
   }
 }
 
