@@ -11,12 +11,12 @@ ca:
         signature_type: Tipus de signatura
         signature_type_values:
           any: Mixta
-          offline: Cara a cara
-          online: OnLine
+          offline: Presencial
+          online: En línia
         title: Títol
       initiative_author:
-        address: adreça
-        city: ciutat
+        address: Adreça
+        city: Ciutat
         id_document: DNI / NIE
         name: Nom i cognom
         phone_number: Número de telèfon
@@ -167,7 +167,7 @@ ca:
         finish:
           back: Enrere
           back_to_initiatives: Tornar a iniciatives
-          callout_text: Felicitacions La teva iniciativa ciutadana s'ha creat correctament.
+          callout_text: Felicitats! La teva iniciativa ciutadana s'ha creat correctament.
           go_to_my_initiatives: Vés a les meves iniciatives
           more_information: "(Més informació)"
         finish_help:
@@ -249,25 +249,25 @@ ca:
           initiative_accepted_reason: Aquesta iniciativa s'ha acceptat perquè
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per la manca de suports.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull suport tant en línia com cara a cara.
-          offline_method: Aquesta iniciativa ciutadana només recopila suports presencials.
+          any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
+          offline_method: Aquesta iniciativa ciutadana només recull suports presencials.
         signature_identities:
           select_identity: Selecciona la identitat de l'usuari
         statistics:
           assistants_count_title: Assistents
           comments_count_title: Comentaris
-          meetings_count_title: Reunions
+          meetings_count_title: Trobades
           supports_count_title: Adhesions
         supports:
           title: Llistat d'adhesions
         supports_count:
           count:
             one: " suport"
-            other: " suporta"
+            other: " suports"
         vote_cabin:
-          already_voted: Ja he votat
+          already_voted: Ja votat
           supports_required: "%{total_supports} vots obligatoris"
-          vote: Signe
+          vote: Signar
           votes_blocked: Votació inhabilitada
         votes_count:
           count:
@@ -319,4 +319,4 @@ ca:
           check: Comprova-ho
           check_and_support: Mira-ho i signa-ho
         no_initiatives_yet:
-          no_initiatives_yet: Encara no hi ha iniciatives
+          no_initiatives_yet: Encara no hi ha iniciatives!
