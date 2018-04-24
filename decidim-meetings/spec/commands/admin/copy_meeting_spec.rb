@@ -14,7 +14,7 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:private) { false }
+    let(:private_meeting) { false }
     let(:transparent) { true }
     let(:services) do
       [
@@ -43,7 +43,7 @@ module Decidim::Meetings
         services_to_persist: services_to_persist,
         current_user: current_user,
         organizer: meeting.organizer,
-        private: meeting.private,
+        private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,
         current_component: meeting.component
       )

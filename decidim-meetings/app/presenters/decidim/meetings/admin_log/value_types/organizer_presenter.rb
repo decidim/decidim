@@ -32,7 +32,7 @@ module Decidim
               present_user_name,
               user_path,
               class: "logs__log__author",
-              title: "@" + organizer.nickname,
+              title: "@" + present_user_nickname,
               target: "_blank",
               data: {
                 tooltip: true,

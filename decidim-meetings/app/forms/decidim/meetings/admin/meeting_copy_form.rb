@@ -19,7 +19,7 @@ module Decidim
         attribute :longitude, Float
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
-        attribute :private, Boolean
+        attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :organizer_id, Integer
         attribute :services, Array[MeetingServiceForm]

@@ -43,7 +43,7 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
-            private: @form.private,
+            private_meeting: @form.private_meeting,
             transparent: @form.transparent,
             organizer: @form.organizer,
             registration_terms: @form.current_component.settings.default_registration_terms,

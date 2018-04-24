@@ -7,7 +7,7 @@ describe "Private meetings", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:meeting) { create :meeting, component: component, registrations_enabled: true, available_slots: 20 }
-  let!(:private_meeting) { create :meeting, component: component, private: true, transparent: true, registrations_enabled: true, available_slots: 20 }
+  let!(:private_meeting) { create :meeting, component: component, private_meeting: true, transparent: true, registrations_enabled: true, available_slots: 20 }
 
   let!(:other_user) { create :user, :confirmed, organization: organization }
   let!(:registration) { create :registration, meeting: private_meeting, user: other_user }
@@ -57,7 +57,7 @@ describe "Private meetings", type: :system do
       end
 
       context "when the meeting is not transparent" do
-        let!(:private_meeting) { create :meeting, component: component, private: true, transparent: false, registrations_enabled: true, available_slots: 20 }
+        let!(:private_meeting) { create :meeting, component: component, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20 }
 
         context "and no user is logged in" do
           before do
@@ -124,7 +124,7 @@ describe "Private meetings", type: :system do
   describe "show" do
     context "when the meeting is private" do
       context "and is not transparent" do
-        let!(:private_meeting) { create :meeting, component: component, private: true, transparent: false, registrations_enabled: true, available_slots: 20 }
+        let!(:private_meeting) { create :meeting, component: component, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20 }
 
         before do
           switch_to_host(organization.host)

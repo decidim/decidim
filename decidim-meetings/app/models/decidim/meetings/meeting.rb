@@ -33,8 +33,8 @@ module Decidim
       scope :visible_meeting_for, lambda { |user|
                                     joins("LEFT JOIN decidim_meetings_registrations ON
                                     decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-                                      .where("(private = ? and decidim_meetings_registrations.decidim_user_id = ?)
-                                    or private = ? or (private = ? and transparent = ?)", true, user, false, true, true).distinct
+                                      .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
+                                    or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
 
       def self.log_presenter_class_for(_log)
@@ -90,9 +90,9 @@ module Decidim
       end
 
       def can_participate_meeting?(current_user)
-        return true unless private?
-        return true if private? && registrations.exists?(decidim_user_id: current_user.try(:id))
-        return false if private? && transparent?
+        return true unless private_meeting?
+        return true if private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))
+        return false if private_meeting? && transparent?
       end
 
       def organizer_belongs_to_organization
@@ -105,8 +105,8 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(current_user)
-        (private? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
-          !private? || (private? && transparent?)
+        (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
+          !private_meeting? || (private_meeting? && transparent?)
       end
     end
   end

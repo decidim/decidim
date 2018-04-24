@@ -31,7 +31,7 @@ module Decidim::Meetings
     end
     let(:user) { create :user, :admin }
     let(:organizer) { create :user, organization: organization }
-    let(:private) { false }
+    let(:private_meeting) { false }
     let(:transparent) { true }
     let(:form) do
       double(
@@ -48,7 +48,7 @@ module Decidim::Meetings
         latitude: latitude,
         longitude: longitude,
         organizer: organizer,
-        private: private,
+        private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: user
@@ -127,7 +127,7 @@ module Decidim::Meetings
             latitude: meeting.latitude,
             longitude: meeting.longitude,
             organizer: organizer,
-            private: private,
+            private_meeting: private_meeting,
             transparent: transparent,
             services_to_persist: services_to_persist,
             current_user: user

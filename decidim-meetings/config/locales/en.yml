@@ -17,7 +17,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
-        private: Private
+        private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
@@ -234,7 +234,7 @@ en:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
       types:
-        private: Private
+        private_meeting: Private meeting
         transparent: Transparent
     participatory_processes:
       participatory_process_groups:

@@ -82,12 +82,12 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <% if meeting.private? %>
+      <% if meeting.private_meeting? %>
         <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
-          <%= t("private", scope: "decidim.meetings.types") %>
+          <%= t("private_meeting", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <% if meeting.private? and meeting.transparent? %>
+      <% if meeting.private_meeting? and meeting.transparent? %>
         <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
