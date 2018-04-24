@@ -264,10 +264,6 @@ eu:
           endorse: gatoz
         endorsements_card_row:
           endorse: gatoz
-        endorsements_listing:
-          see_all: Dena ikusi
-          see_less: Ikusi gutxiago
-          title: Onarpenen zerrenda
         filters:
           accepted: Onartuta
           activity: Jarduera
@@ -288,6 +284,10 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
+        identities_listing:
+          see_all: Dena ikusi
+          see_less: Ikusi gutxiago
+          title: Onarpenen zerrenda
         index:
           new_proposal: Proposamen berria
           see_all_withdrawn: Ikusi guztiak kendutako proposamenak
