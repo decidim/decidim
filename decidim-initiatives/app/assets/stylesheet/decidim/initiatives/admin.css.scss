@@ -1,0 +1,33 @@
+.committee_link{
+  border: 1px solid lightgray;
+  float: left;
+  padding: .85em 1em;
+  width: auto;
+}
+
+.invite-users-link{
+  padding: .85em 1em;
+}
+
+#initiatives_type_remove_banner_image{
+  display: none;
+}
+
+#initiatives_type_remove_banner_image + label{
+  display: none;
+}
+
+.text-right{
+  text-align: right !important;
+}
+
+.white-button{
+  color: #599aa6;
+  background: white;
+}
+
+.white-button:hover{
+  color: #599aa6;
+  background: white;
+  font-weight: bold;
+}
