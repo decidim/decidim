@@ -2,5 +2,6 @@ ru:
   activemodel:
     attributes:
       debate:
+        category_id: Категории
         decidim_category_id: Категория
         title: Название
