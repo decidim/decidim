@@ -90,7 +90,7 @@ ca:
         filters:
           active: Actius
           all: Tots
-          cancelled: Cancel·lat
+          cancelled: Cancel·lats
           category: Categoria
           category_prompt: Selecciona una categoria
           search: Cerca
@@ -103,7 +103,7 @@ ca:
         linked_sortitions:
           selected_proposals: Propostes seleccionades
         orders:
-          label: 'Ordeneu les proves per:'
+          label: 'Ordeneu els sortejos per:'
           random: Aleatori
           recent: Recent
         proposal:
