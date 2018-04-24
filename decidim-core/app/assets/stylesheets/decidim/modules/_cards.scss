@@ -285,6 +285,19 @@ $datetime-bg: $primary;
   margin-bottom: .2rem;
 }
 
+.card-data__item--multiple{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include flexgap(1rem);
+
+  > div{
+    text-align: left;
+    display: block;
+  }
+}
+
 /* Card popularity */
 
 .card__popularity{
