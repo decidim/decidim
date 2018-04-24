@@ -79,9 +79,9 @@ es:
             success: El sorteo se ha actualizado con éxito.
       admin_log:
         sortition:
-          create: "%{user_name} creó la ordenación %{resource_name} en %{space_name}"
-          delete: "%{user_name} canceló la ordenación %{resource_name} en %{space_name}"
-          update: "%{user_name} actualizó la ordenación %{resource_name} en %{space_name}"
+          create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"
+          delete: "%{user_name} canceló el sorteo %{resource_name} en %{space_name}"
+          update: "%{user_name} actualizó el sorteo %{resource_name} en %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -103,7 +103,7 @@ es:
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
         orders:
-          label: 'Ordena las clasificaciones por:'
+          label: 'Ordena los sorteos por:'
           random: Aleatorio
           recent: Reciente
         proposal:
@@ -113,33 +113,33 @@ es:
             one: propuesta seleccionada
             other: propuestas seleccionadas
         show:
-          algorithm: Código de algoritmo de ordenación
+          algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
           candidate_proposals_info: 'La clasificación se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
           category: de la categoría %{category}
           dice_result: "(1) resultado de los dados"
-          introduction: 'Esta página contiene los resultados de la ordenación %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso de la clasificación que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo para la clasificación es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
+          introduction: 'Esta página contiene los resultados del sorteo %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso del sorteo que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo del sorteo es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propuestas seleccionadas por clasificación
-          sortition_reproducibility_details: Detalles de reproducibilidad de la clasificación
+          sortition_reproducibility_details: Detalles de reproducibilidad del sorteo
           time_seed: "(2) Tiempo de semilla"
           witnesses: Testigos
         sortition:
           selected_proposals:
             one: 1 propuesta seleccionada
             other: "%{count} propuestas seleccionadas"
-          view_sortition: Ver clasificación
+          view_sortition: Ver sorteo
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:
           deleted: Usuario eliminado
         sortitions_count:
           count:
-            one: 1 clasificación
+            one: 1 sorteo
             other: "%{count} clasificaciones"
   pages:
     home:
       statistics:
-        sortitions_count: Clases
+        sortitions_count: Sorteos
