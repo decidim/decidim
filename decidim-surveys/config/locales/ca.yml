@@ -28,7 +28,7 @@ ca:
           global:
             announcement: Anunci
           step:
-            allow_answers: Permet respostes
+            allow_answers: Permetre respostes
             announcement: Anunci
     surveys:
       admin:
