@@ -8,7 +8,7 @@
 /tmp/
 
 # rspec failure tracking
-.rspec_status
+.rspec-failures
 
 # default test application
 spec/decidim_dummy_app
