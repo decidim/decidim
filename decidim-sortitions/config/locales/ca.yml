@@ -64,7 +64,7 @@ ca:
             update: Actualitzar
           form:
             all_categories: Totes les categories
-            select_proposal_component: Seleccioneu les propostes establertes
+            select_proposal_component: Selecciona el grup de propostes
             title: Nova proposta de propostes
           index:
             title: Sortides
