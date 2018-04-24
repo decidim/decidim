@@ -71,21 +71,19 @@ shared_examples "manage posts" do
       }
     end
 
-    let!(:post2) { create(:post, component: current_component, title: title) }
-
     before do
       visit current_path
     end
 
     it "deletes a post" do
-      within find("tr", text: translated(post2.title)) do
+      within find("tr", text: translated(post.title)) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(post2.title))
+        expect(page).to have_no_content(translated(post.title))
       end
     end
   end
