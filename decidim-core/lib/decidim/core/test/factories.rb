@@ -9,7 +9,7 @@ require "decidim/comments/test/factories"
 
 FactoryBot.define do
   sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}"
+    "#{Faker::Name.unique.name} #{n}"
   end
 
   sequence(:nickname) do |n|
@@ -51,7 +51,7 @@ FactoryBot.define do
 
   factory :organization, class: "Decidim::Organization" do
     name { Faker::Company.unique.name }
-    reference_prefix { Faker::Name.suffix }
+    reference_prefix { Faker::Name.unique.suffix }
     twitter_handler { Faker::Hipster.word }
     facebook_handler { Faker::Hipster.word }
     instagram_handler { Faker::Hipster.word }

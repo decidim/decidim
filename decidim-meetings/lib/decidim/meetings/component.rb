@@ -82,7 +82,7 @@ Decidim.register_component(:meetings) do |component|
 
       2.times do |n|
         email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
-        name = "#{Faker::Name.name} #{meeting.id} #{n}"
+        name = "#{Faker::Name.unique.name} #{meeting.id} #{n}"
         user = Decidim::User.find_or_initialize_by(email: email)
 
         user.update!(

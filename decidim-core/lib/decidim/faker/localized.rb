@@ -30,7 +30,7 @@ module Decidim
       # Returns a Hash with a value for each locale.
       def self.name
         localized do
-          ::Faker::Name.name
+          ::Faker::Name.unique.name
         end
       end
 

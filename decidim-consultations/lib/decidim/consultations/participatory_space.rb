@@ -134,7 +134,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
-          name: Faker::Name.name,
+          name: Faker::Name.unique.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456",
           password_confirmation: "decidim123456",

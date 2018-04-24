@@ -20,7 +20,7 @@ if !Rails.env.production? || ENV["SEED"]
     homepage_image: File.new(File.join(seeds_root, "homepage_image.jpg")),
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
-    reference_prefix: Faker::Name.suffix,
+    reference_prefix: Faker::Name.unique.suffix,
     available_authorizations: Decidim.authorization_workflows.map(&:name)
   )
 
@@ -86,7 +86,7 @@ if !Rails.env.production? || ENV["SEED"]
   admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
 
   admin.update!(
-    name: Faker::Name.name,
+    name: Faker::Name.unique.name,
     nickname: Faker::Twitter.unique.screen_name,
     password: "decidim123456",
     password_confirmation: "decidim123456",
@@ -102,7 +102,7 @@ if !Rails.env.production? || ENV["SEED"]
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
 
   regular_user.update!(
-    name: Faker::Name.name,
+    name: Faker::Name.unique.name,
     nickname: Faker::Twitter.unique.screen_name,
     password: "decidim123456",
     password_confirmation: "decidim123456",
