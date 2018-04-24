@@ -163,7 +163,7 @@ ca:
         view_results: Veure resultats
       consultations:
         orders:
-          label: 'Ordeneu les consultes per:'
+          label: 'Ordena les consultes per:'
           random: Aleatori
           recent: Més recent
       count:
