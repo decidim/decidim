@@ -23,7 +23,7 @@ es:
         post_code: Código postal
         province: Provincia
       initiatives_committee_member:
-        user: miembro del Comité
+        user: Miembro del Comité
       initiatives_type:
         banner_image: Imagen de banner
         description: Descripción
@@ -47,7 +47,7 @@ es:
         initiatives_type_scope:
           fields:
             scope: Alcance
-            supports_required: Se requieren soportes
+            supports_required: Se requieren apoyos
           name: Alcance del tipo de iniciativa
         initiatives_types:
           fields:
@@ -153,9 +153,9 @@ es:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Está a punto de solicitar ser miembro del comité promotor de esta iniciativa
+          help_text: Estás a punto de solicitar ser miembro del comité promotor de esta iniciativa
         spawn:
-          success: Su solicitud ha sido enviada al autor de la iniciativa.
+          success: Tu solicitud ha sido enviada al autor de la iniciativa.
       create_initiative:
         fill_data:
           back: Espalda
@@ -167,11 +167,11 @@ es:
         finish:
           back: Espalda
           back_to_initiatives: Volver a iniciativas
-          callout_text: '¡Felicitaciones! Su iniciativa ciudadana ha sido creada con éxito.'
+          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
-          access_reminder: Recuerde que siempre podrá acceder a sus iniciativas a través del menú de usuario.
+          access_reminder: Recuerda que siempre podráa acceder a tus iniciativas a través del menú de usuario.
           help_for_organizations: Si usted es una asociación, tendrá que cargar las minutas del consejo de administración de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eligió recolectar las firmas en persona o combinadas en línea, tendrá que cargar la información requerida.
           help_text: Recuerde que para procesar adecuadamente la iniciativa debe acceder al panel de administración donde encontrará el menú de usuario, cargar la información requerida y enviarla al procedimiento.
