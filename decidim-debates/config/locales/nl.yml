@@ -96,7 +96,7 @@ nl:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hallo, 
+              Hallo,
               Er is een nieuw debat gestart in de %{space_title} participatieve ruimte, bekijk het en neem deel:
             email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de voorgaande link.
             email_subject: Nieuw debat op %{space_title}
