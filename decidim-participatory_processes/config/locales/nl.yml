@@ -90,13 +90,13 @@ nl:
             end_date: Einddatum
             start_date: Startdatum
             title: Titel
-          name: Participatieve processtap
+          name: Stap van de burgerinspraak
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Participatieve procesgebruiker
+          name: Rol van de gebruiker van de burgerinspraak
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -109,16 +109,16 @@ nl:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Duplicaat deelnemend proces
+          title: Burgerinspraak dupliceren
       participatory_process_groups:
         destroy:
-          success: Deelnemende procesgroep is succesvol vernietigd.
+          success: Deelnemende groep is succesvol vernietigd.
         edit:
-          title: Bewerk procesgroep
+          title: Bewerk groep
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuwe procesgroep
+          title: Nieuwe themagroep
         update:
           error: Er was een fout bij het bijwerken van deze participatief procesgroep.
           success: Participatief procesgroep is succesvol bijgewerkt.
@@ -213,7 +213,7 @@ nl:
       participatory_process:
         create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
         publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} burgerinspraak"
+        unpublish: "%{user_name}heeft de burgerinspraak %{resource_name} ongepubliceerd"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
       participatory_process_step:
         activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
@@ -237,14 +237,14 @@ nl:
           email_subject: Een update op %{participatory_space_title} werd uitgevoerd
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
-      processes: Processen
+      processes: Thema's
     participatory_process_groups:
       show:
-        group_participatory_processes: Processen voor %{group}
+        group_participatory_processes: Thema's voor %{group}
         title: Participerende procesgroepen
     participatory_process_steps:
       index:
-        process_steps: Processtappen
+        process_steps: Stappen van het thema
         title: Participatieve processtappen
     participatory_processes:
       admin:
@@ -256,7 +256,7 @@ nl:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
-        title: Participatieve processen
+        title: Burgerinspraak
       order_by_processes:
         active: Actief
         all: Alle
@@ -265,9 +265,9 @@ nl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Participations en cours
+            active_processes: Actieve thema's
             active_step: Actieve stap
-            see_all_processes: "Voir toutes les participations\n"
+            see_all_processes: Bekijk alle thema's
       participatory_process_groups:
         none: Geen
       participatory_processes:
@@ -292,7 +292,7 @@ nl:
         meetings_count: Vergaderingen
         orders_count: Stemmen
         pages_count: Pagina's
-        processes_count: Processen
+        processes_count: Thema's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
@@ -313,8 +313,8 @@ nl:
           promoted_processes: Uitgelichte thema’s
         order_by_processes:
           processes:
-            one: "%{count} proces"
-            other: "%{count} processen"
+            one: "%{count} thema"
+            other: "%{count} thema's"
         participatory_process:
           active_step: 'Huidige stap:'
           take_part: Deelnemen
@@ -323,7 +323,7 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
       process_header:
-        process_menu_item: Het proces
+        process_menu_item: Het thema
         unfold: Uitvouwen
       process_header_steps:
         step: Stap %{current} van %{total}
