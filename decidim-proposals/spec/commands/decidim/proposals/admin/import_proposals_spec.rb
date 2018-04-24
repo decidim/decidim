@@ -53,6 +53,24 @@ module Decidim
               end.to change { Proposal.where(component: current_component).count }.by(1)
             end
 
+            context "when a proposal was already imported" do
+              let(:second_proposal) { create(:proposal, :accepted, component: proposal.component) }
+
+              before do
+                command.call
+                second_proposal
+              end
+
+              it "doesn't import it again" do
+                expect do
+                  command.call
+                end.to change { Proposal.where(component: current_component).count }.by(1)
+
+                titles = Proposal.where(component: current_component).map(&:title)
+                expect(titles).to match_array([proposal.title, second_proposal.title])
+              end
+            end
+
             it "links the proposals" do
               command.call
 

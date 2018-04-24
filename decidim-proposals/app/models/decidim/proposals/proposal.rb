@@ -109,7 +109,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def maximum_votes
-        maximum_votes = component.settings.threshold_per_proposal || 0
+        maximum_votes = component.settings.threshold_per_proposal
         return nil if maximum_votes.zero?
 
         maximum_votes

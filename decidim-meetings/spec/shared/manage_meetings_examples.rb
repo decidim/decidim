@@ -314,7 +314,7 @@ shared_examples "manage meetings" do
       end
 
       within ".edit_close_meeting" do
-        fill_in_i18n(
+        fill_in_i18n_editor(
           :close_meeting_closing_report,
           "#close_meeting-closing_report-tabs",
           en: "The meeting was great!",
