@@ -80,15 +80,15 @@ ca:
       admin_log:
         sortition:
           create: "%{user_name} ha creat el sorteig %{resource_name} a %{space_name}"
-          delete: "%{user_name} va cancel·lar el sorteig %{resource_name} a %{space_name}"
-          update: "%{user_name} va actualitzar la classificació %{resource_name} a %{space_name}"
+          delete: "%{user_name} ha cancel·lat el sorteig %{resource_name} a %{space_name}"
+          update: "%{user_name} ha actualitzat el sorteig %{resource_name} a %{space_name}"
       sortitions:
         count:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostes"
         filters:
-          active: Actiu
+          active: Actius
           all: Tots
           cancelled: Cancel·lat
           category: Categoria
