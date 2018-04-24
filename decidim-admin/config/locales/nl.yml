@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: collection
+        attachment_collection_id: Collectie
         description: Beschrijving
         file: Bestand
         title: Titel
@@ -34,15 +34,15 @@ nl:
         cta_button_text: actieknop tekst
         default_locale: Standaard taal
         description: Omschrijving
-        enable_omnipresent_banner: Toon alomtegenwoordige banner
+        enable_omnipresent_banner: Toon header
         facebook_handler: Facebook naam
         favicon: Pictogram
         github_handler: GitHub gebruikersnaam
-        header_snippets: Header-fragmenten
+        header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
-        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_enabled: Toon de uitgelichte inhoudsbanner
         highlighted_content_banner_image: Beeld
         highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
@@ -95,7 +95,7 @@ nl:
         scope: Reikwijdte
         short_description: Korte beschrijving
         slug: URL slak
-        start_date: Begindatum
+        start_date: Startdatum
         subtitle: Ondertiteling
         target: Doel
         title: Titel
@@ -103,10 +103,10 @@ nl:
         description: Beschrijving
         hero_image: Afbeelding van de startpagina
         name: Naam
-        participatory_processes: Participatieve processen
+        participatory_processes: Participatieve thema's
       decidim/participatory_process_step:
         end_date: Einddatum
-        start_date: Begin datum
+        start_date: Startdatum
       decidim/static_page:
         content: Inhoud
         slug: URL slug
@@ -142,9 +142,9 @@ nl:
       areas:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
-          success: Pagina met succes aangemaakt.
+          success: Pagina succesvol aangemaakt.
         destroy:
-          success: Pagina met succes verwijderd
+          success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
           update: Bijwerken
@@ -157,22 +157,22 @@ nl:
           success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
-          success: Verzameling succesvol gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe collectie.
+          success: Collectie succesvol gemaakt.
         destroy:
           success: Verzameling succesvol vernietigd.
         edit:
-          title: Bewerk verzameling
+          title: Bewerk collectie
           update: Bijwerken
         index:
-          attachment_collection_used: Deze verzameling kan niet worden verwijderd omdat deze in gebruik is.
-          attachment_collections_title: Attachment collecties
+          attachment_collection_used: Deze collectie kan niet worden verwijderd omdat deze in gebruik is.
+          attachment_collections_title: Bijgevoegde collecties
         new:
           create: creëren
-          title: Nieuwe collectie
+          title: Nieuwe Collectie
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze verzameling.
-          success: Verzameling succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze collectie.
+          success: Collectie succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -219,10 +219,10 @@ nl:
       feature_permissions:
         edit:
           everyone: Iedereen
-          submit: Bewaar rechten
-          title: Bewerk rechten
+          submit: Bewaar de toelatingen
+          title: Bewerk toelatingen
         update:
-          success: Rechten succesvol bijgewerkt.
+          success: Toelatingen succesvol bijgewerkt.
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functionaliteit.
@@ -236,7 +236,7 @@ nl:
         form:
           default_step_settings: Standaard instellingen stappen
           global_settings: Algemene instellingen
-          step_settings: Stapinstellingen
+          step_settings: Instellingen van de stappen
         index:
           add: Functionaliteit toevoegen
           headers:
@@ -295,13 +295,13 @@ nl:
         admin_log: Admin activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
-        area_types: Pagina soorten
-        areas: Pagina's
+        area_types: Pagina types
+        areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
         newsletters: Nieuwsbrieven
-        officializations: Officializations
+        officializations: Bevestigde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -311,7 +311,7 @@ nl:
       models:
         area:
           fields:
-            area_type: Pagina soort
+            area_type: Thema's
             name: Naam
         area_type:
           fields:
@@ -319,13 +319,13 @@ nl:
             plural: Meervoud
         attachment:
           fields:
-            collection: Verzameling
+            collection: Collectie
             content_type: Type
             file_size: Grootte
             title: Titel
           name: Bijlage
         attachment_collection:
-          name: Verzameling
+          name: Collectie
         category:
           name: Categorie
         impersonation_log:
@@ -415,27 +415,27 @@ nl:
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       officializations:
         create:
-          success: Gebruiker officieel goedgekeurd
+          success: Gebruiker officieel gevalideerd
         destroy:
-          success: Gebruiker nietofficieel goedgekeurd
+          success: Gebruiker niet gevalideerd
         index:
           actions: acties
-          badge: insigne
+          badge: badge
           created_at: Aangemaakt op
           filter:
             all: Alle
-            not_officialized: Niet officieel
-            officialized: geofficialiseerd
-          filter_by: Filteren op
+            not_officialized: Niet gevalideerd
+            officialized: Gevalideerd
+          filter_by: Sorteer op
           name: Naam
-          nickname: Bijnaam
-          not_officialized: Niet officieel
-          officialize: officialiseren
-          officialized: geofficialiseerd
-          reofficialize: Herofficialiseren
+          nickname: Gebruikersnaam
+          not_officialized: Niet gevalideerd
+          officialize: "Valideren\n"
+          officialized: Gevalideerd
+          reofficialize: Hervalideren
           search: Zoeken
           status: status
-          unofficialize: Onofficieel
+          unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
@@ -515,9 +515,9 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
-        admin_log: Beheerderslog
-        area_types: Pagina soorten
-        areas: Pagina's
+        admin_log: log van de beheerder
+        area_types: Thema's
+        areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
