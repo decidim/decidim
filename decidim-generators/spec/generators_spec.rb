@@ -16,15 +16,28 @@ module Decidim
 
     # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
-      Bundler.with_original_env do
-        GemManager.run("rake install_all", out: File::NULL)
-      end
+      Decidim::GemManager.run_all(
+        "gem build %name && mv %name-%version.gem ..",
+        include_root: false,
+        out: File::NULL
+      )
+
+      Decidim::GemManager.new(repo_root).run(
+        "gem build %name && gem install *.gem",
+        out: File::NULL
+      )
     end
 
     after(:all) do
-      Bundler.with_original_env do
-        GemManager.run("rake uninstall_all", out: File::NULL)
-      end
+      Decidim::GemManager.run_all(
+        "gem uninstall %name -v %version --executables --force",
+        out: File::NULL
+      )
+
+      Decidim::GemManager.new(repo_root).run(
+        "rm decidim-*.gem",
+        out: File::NULL
+      )
     end
     # rubocop:enable RSpec/BeforeAfterAll
 
@@ -73,6 +86,12 @@ module Decidim
       after { FileUtils.rm_rf("decidim-module-#{test_component}") }
 
       it_behaves_like "a sane generator"
+    end
+
+    private
+
+    def repo_root
+      File.expand_path(File.join("..", ".."), __dir__)
     end
   end
 end
