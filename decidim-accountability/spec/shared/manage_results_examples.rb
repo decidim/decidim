@@ -40,36 +40,41 @@ shared_examples "manage results" do
     end
   end
 
-  it "creates a new result", :slow do
-    click_link "New Result", match: :first
+  context "when creating results" do
+    let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+    let!(:proposals) { create_list :proposal, 5, component: proposal_component }
 
-    within ".new_result" do
-      fill_in_i18n(
-        :result_title,
-        "#result-title-tabs",
-        en: "My result",
-        es: "Mi result",
-        ca: "El meu result"
-      )
-      fill_in_i18n_editor(
-        :result_description,
-        "#result-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+    it "creates a new result", :slow do
+      click_link "New Result", match: :first
 
-      # proposal_pick data_picker_find(:, multiple: multiple)
-      scope_pick scopes_picker_find(:result_decidim_scope_id), scope
-      select translated(category.name), from: :result_decidim_category_id
+      within ".new_result" do
+        fill_in_i18n(
+          :result_title,
+          "#result-title-tabs",
+          en: "My result",
+          es: "Mi result",
+          ca: "El meu result"
+        )
+        fill_in_i18n_editor(
+          :result_description,
+          "#result-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
 
-      find("*[type=submit]").click
-    end
+        proposal_pick(select_data_picker(:result_proposals, multiple: true), proposals.first)
+        scope_pick(select_data_picker(:result_decidim_scope_id), scope)
+        select translated(category.name), from: :result_decidim_category_id
 
-    expect(page).to have_admin_callout("successfully")
+        find("*[type=submit]").click
+      end
 
-    within "table" do
-      expect(page).to have_content("My result")
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content("My result")
+      end
     end
   end
 
