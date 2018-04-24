@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="topbar__dropmenu language-choose">
-      <ul class="dropdown menu" data-dropdown-menu>
+      <ul id="topbar__language-choose" class="dropdown menu" data-dropdown-menu>
         <li class="is-dropdown-submenu-parent">
           <a href="#">Català</a>
           <ul class="menu is-dropdown-submenu">
@@ -34,7 +34,7 @@
     <%# TODO: QUITAR EL SIGNO != %>
     <% if @activeuser != "logged" %>
       <div class="topbar__dropmenu topbar__user__logged">
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul id="topbar__user-notifications" class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
             <!-- No new notifications? Remove is-active class -->
             <a href="#" class="topbar__notifications" title="Notificaciones">
@@ -57,7 +57,7 @@
             </ul>
           </li>
         </ul>
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul id="topbar__user-profile" class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
             <%= link_to page_path("user/user-profile") do %>
               <%= image_tag "demo-avatar.jpg", class: "topbar__user__logged__picture" %>

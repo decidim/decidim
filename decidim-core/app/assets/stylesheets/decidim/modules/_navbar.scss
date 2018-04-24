@@ -119,20 +119,76 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   .is-dropdown-submenu{
     z-index: 2;
     text-align: left;
-    padding-left: .3rem;
+    padding: 0;
     background-color: $white;
     border: 1px solid $light-gray;
+    border-radius: 4px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     min-width: 150px;
 
-    a{
-      color: $body-font-color;
-      padding: .5rem;
+    &::after,
+    &::before{
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
     }
 
-    a:hover{
-      color: lighten($body-font-color, 20);
+    &::after{
+      border-color: rgba($light-gray, 0);
+      border-bottom-color: $white;
+      border-width: 10px;
+      margin-left: -10px;
     }
+
+    &::before{
+      border-color: rgba($light-gray, 0);
+      border-bottom-color: $white;
+      border-width: 11px;
+      margin-left: -11px;
+    }
+
+    li{
+      padding: $global-padding  / 2;
+
+      a{
+        padding: .5rem;
+        color: $anchor-color;
+
+        &:hover{
+          color: lighten($body-font-color, 20);
+        }
+      }
+
+      &:not(:last-child){
+        border-bottom: $border;
+      }
+
+      &:hover{
+        cursor: pointer;
+        background-color: rgba($secondary, .05);
+      }
+    }
+  }
+
+  // Arrow center position
+  #topbar__language-choose .is-dropdown-submenu{
+    transform: translateX(-12%);
+    top: 110%;
+  }
+
+  #topbar__user-notifications .is-dropdown-submenu{
+    transform: translateX(-47%);
+    top: 110%;
+  }
+
+  #topbar__user-profile .is-dropdown-submenu{
+    transform: translateX(-40%);
+    top: 110%;
   }
 }
 
@@ -188,30 +244,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   // hide caret down
   .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
     display: none;
-  }
-
-  .is-dropdown-submenu{
-    padding: 0;
-    background-color: $white;
-    border-radius: 4px;
-
-    li{
-      padding: $global-padding  / 2;
-
-      a{
-        padding: 0;
-        color: $anchor-color;
-      }
-
-      &:not(:last-child){
-        border-bottom: $border;
-      }
-
-      &:hover{
-        cursor: pointer;
-        background-color: rgba($secondary, .05);
-      }
-    }
   }
 }
 
