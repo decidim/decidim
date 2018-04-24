@@ -18,6 +18,25 @@
       display: block;
     }
   }
+
+  &.expanded{
+    display: flex;
+    justify-content: space-between;
+
+    > :first-child{
+      flex: 1 1 60%;
+      min-width: 0;
+      text-align: left;
+
+      @include ellipsis();
+    }
+
+    > :last-child{
+      flex: 1 0 40%;
+    }
+
+    @include flexgap(1rem);
+  }
 }
 
 .definition-data__item--double{
