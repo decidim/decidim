@@ -144,28 +144,28 @@ ca:
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
       admin_states:
-        accepted: Acceptat
-        created: Creat
-        discarded: Rebutjat
-        published: Publicat
+        accepted: Acceptada
+        created: Creada
+        discarded: Rebutjada
+        published: Publicada
         rejected: Rebutjada
         validating: Validació tècnica
       committee_requests:
         new:
           continue: Continua
-          help_text: Esteu a punt de sol·licitar ser membre del comitè promotor d'aquesta iniciativa
+          help_text: Estàs a punt de sol·licitar ser membre del comitè promotor d'aquesta iniciativa
         spawn:
-          success: La vostra sol·licitud s'ha enviat a l'autor de la iniciativa.
+          success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
       create_initiative:
         fill_data:
-          back: esquena
+          back: Enrere
           continue: Continua
-          fill_data_help: "<ul> <li>Reviseu el contingut de la vostra iniciativa. El teu títol és fàcil d'entendre? L'objectiu de la vostra iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de tots dos</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
+          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. En persona, en línia o una combinació de tots dos.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
-          select_scope: Seleccioneu un àmbit d'aplicació
+          select_scope: Selecciona un àmbit d'aplicació
         finish:
-          back: esquena
+          back: Enrere
           back_to_initiatives: Tornar a iniciatives
           callout_text: Felicitacions La teva iniciativa ciutadana s'ha creat correctament.
           go_to_my_initiatives: Vés a les meves iniciatives
