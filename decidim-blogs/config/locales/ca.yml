@@ -18,9 +18,9 @@ ca:
             invalid: S'ha produït un problema en crear aquesta publicació
             success: S'ha creat correctament la publicació
           destroy:
-            success: La publicació s'ha suprimit correctament
+            success: La publicació s'ha eliminat correctament
           edit:
-            save: Actualització
+            save: Actualitza
           index:
             title: Publicacions
           new:
@@ -34,14 +34,14 @@ ca:
           fields:
             author: Autor
             body: Cos
-            created_at: Creat a
+            created_at: Creat el
             title: títol
       posts:
         author_data:
           comments: comentaris
         sidebar_blog:
           comments: comentaris
-          most_commented_posts: La majoria de les publicacions comentades
+          most_commented_posts: Publicacions més comentades
       read_more: Llegeix més
     components:
       blogs:
@@ -56,8 +56,8 @@ ca:
     events:
       blogs:
         post_created:
-          email_intro: La publicació "%{resource_title}" s'ha publicat a "%{participatory_space_title}" que seguiu.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: La publicació "%{resource_title}" s'ha publicat al "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova publicació publicada a %{participatory_space_title}
           notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
     participatory_processes:
