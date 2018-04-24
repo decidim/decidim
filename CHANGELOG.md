@@ -59,7 +59,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Changed**:
 
-- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. (https://github.com/decidim/decidim/pull/3238)
+- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. [\#3238](https://github.com/decidim/decidim/pull/3238)
 - **decidim-admin**: Moved the following reusable javascript components from `decidim-surveys` component [\#3194](https://github.com/decidim/decidim/pull/3194)
   - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
   - Dependent inputs (field_dependent_inputs.component.js.es6)
@@ -71,6 +71,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-accountability**: Include children information in main column [\#3217](https://github.com/decidim/decidim/pull/3217)
 - **decidim-core**: Open attachments in new tab [\#3245](https://github.com/decidim/decidim/pull/3245)
 - **decidim-core**: Open space hashtags in new tab [\#3246](https://github.com/decidim/decidim/pull/3246)
+- **decidim-proposals**: Withdrawn proposals are excluded from count limit and stats. [\#3275](https://github.com/decidim/decidim/pull/3238)
 
 **Fixed**:
 
