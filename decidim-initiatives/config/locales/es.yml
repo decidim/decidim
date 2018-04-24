@@ -202,19 +202,19 @@ es:
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva iniciativa, compruébalo y contribuye:"
-          email_outro: Recibió esta notificación porque está siguiendo %{author_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva iniciativa por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha respaldado la siguiente iniciativa, tal vez quieras contribuir a la conversación:"
-          email_outro: Recibió esta notificación porque está siguiendo %{author_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Iniciativa respaldada por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue respaldada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativas
       initiative_votes:
         create:
-          error: Ha habido errores al votar la iniciativa.
+          error: Ha habido errores al apoyar la iniciativa.
       initiatives:
         author:
           deleted: Eliminado
@@ -231,7 +231,7 @@ es:
           search: Buscar
           state: Estado
           type: Tipo
-          type_prompt: Seleccione un tipo
+          type_prompt: Selecciona un tipo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -240,24 +240,24 @@ es:
         index_header:
           new_initiative: Nueva iniciativa
         orders:
-          label: 'Clasificar iniciativas por:'
+          label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
           most_voted: Los más votados
           random: Aleatorio
           recent: Más reciente
         result:
           initiative_accepted_reason: Esta iniciativa ha sido aceptada porque
-          initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a su falta de apoyo.
+          initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
-          any_vote_method: Esta iniciativa ciudadana recopila apoyo en línea y cara a cara.
-          offline_method: Esta iniciativa ciudadana solo recolecta apoyos cara a cara.
+          any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
+          offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
         signature_identities:
           select_identity: Seleccionar identidad de usuario
         statistics:
           assistants_count_title: Asistentes
           comments_count_title: Comentarios
           meetings_count_title: Reuniones
-          supports_count_title: Adherencias
+          supports_count_title: Adhesiones
         supports:
           title: Listado de adhesiones
         supports_count:
