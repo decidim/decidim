@@ -7,7 +7,7 @@ nl:
         description: Omschrijving
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
-        introductory_video_url: Inleidende video-URL
+        introductory_video_url: Introductievideo-URL
         slug: URL pad
         start_voting_date: Startdatum
         subtitle: Ondertitel
@@ -42,14 +42,14 @@ nl:
         unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomst.
+          error: Er is een fout opgetreden bij het publiceren van dit overleg.
           success: Overleg succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze consult.
-          success: Publicatie van de consult succesvol ongedaan gemaakt.
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van dit overleg.
+          success: Publicatie van overleg succesvol ongedaan gemaakt.
       consultation_results_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit consult.
+          error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit overleg.
           success: Consultatieresultaten met succes gepubliceerd.
         destroy:
           error: Er is een fout opgetreden bij het ongedaan maken van publicatie van de resultaten voor dit consult.
