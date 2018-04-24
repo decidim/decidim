@@ -10,10 +10,23 @@
           "><%= link_to "Inici", page_path("home") %></li>
         <li class="main-nav__link
           <% if @activesection == "consultations" %>
-           main-nav__link--active
+           main-nav__link--active _has_childs
           <% end %>
           "><%= link_to "Multiconsulta", page_path("consultations") %>
+          <% if @activesection == "consultations" %>
+            <nav class="_sub_nav">
+              <ul>
+                <li class="sub-nav__link sub-nav__link--active"><a href="#" class="active">Lorem Ipsum</a> </li>
+                <li class="sub-nav__link "><a href="#">Lorem Ispum Dolor</a> </li>
+                <li class="sub-nav__link "><a href="#">Lorem Ipsum Dolor</a> </li>
+                <li class="sub-nav__link "><a href="#">Lorem Ipsum Dolor</a> </li>
+                <li class="sub-nav__link "><a href="#">Lorem Ipsum Dolor</a> </li>
+                <li class="sub-nav__link "><a href="#">Lorem Ipsum Dolor</a> </li>
+              </ul>
+             </nav>
+          <% end %>
         </li>
+
         <li class="main-nav__link
           <% if @activesection == "processes" %>
            main-nav__link--active

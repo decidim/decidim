@@ -315,3 +315,142 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     box-shadow: $navbar-active-shadow-medium;
   }
 }
+
+// submenu for navbar
+// WIP: this needs a huge cleanup, it's only a POC
+
+$title-color: #dbe7e4;
+$link-color: #e5e5e5;
+
+$navbar-height: 119px;
+
+$sub-nav-position:49px;
+$sub-nav-color: #3a363e;
+$sub-nav-hover-focus: #403b44;
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+
+/*._main-title {
+font-size: 22px;
+font-weight: 600;
+line-height: 20px;
+color: $title-color;
+
+span {
+display: block;
+font-weight: normal;
+}
+}
+
+.off-canvas {
+.close-button {
+z-index: 1;
+}
+}*/
+
+.navbar{
+
+  position: relative;
+  min-height: $navbar-height;
+
+  .main-nav__link {
+
+    &._has_childs {
+      a {
+        position: relative;
+      }
+    }
+
+    .active {
+      color: white;
+    }
+  }
+
+  ._sub_nav {
+
+    @media print, screen and (min-width: 40em) {
+      position: absolute;
+      left: 0;
+      top: $sub-nav-position;
+      width: 100%;
+
+      min-height: calc(#{$navbar-height} - #{$sub-nav-position});
+      background-color: $sub-nav-color;
+    }
+
+    @media print, screen and (max-width: 767px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-right: 0.625rem;
+      padding-left: 0.625rem;
+      background-color: #2c2930;
+      transition: all ease .6s;
+      will-change: transform;
+      @include transform(translate(100%, 0));
+      &._visible {
+        @include transform(translate(0, 0));
+      }
+    }
+
+    ul {
+
+      max-width: 75rem;
+      margin: 0 auto;
+
+      @media print, screen and (min-width: 40em) {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem;
+        padding-top: 20px;
+      }
+
+      .sub-nav__link {
+
+        &:hover, &:focus {
+          @media print, screen and (min-width: 40em) {
+            background-color: $sub-nav-hover-focus;
+          }
+        }
+
+        &.sub-nav__link--active {
+          a {
+            @media print, screen and (max-width: 767px) {
+              -webkit-box-shadow: inset 4px 0 0 0 #ef604d;
+              box-shadow: inset 4px 0 0 0 #ef604d;
+              color: #fff;
+              background: rgba(255,255,255,0.02);
+            }
+          }
+        }
+
+        a {
+          font-size: 16px;
+          color: rgba(#FFFFFF, 0.5);
+          box-shadow: none;
+          background:none;
+          @media print, screen and (min-width: 40em) {
+            font-size: 14px;
+            padding: 1em 2em;
+            color: $link-color;
+          }
+        }
+      }
+
+      ._back {
+        a {
+          box-shadow: none;
+          background: none;
+        }
+      }
+    }
+  }
+}
