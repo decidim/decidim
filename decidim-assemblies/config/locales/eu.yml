@@ -3,16 +3,32 @@ eu:
     attributes:
       assembly:
         area_id: Area
+        assembly_type: Muntatze-mota
+        assembly_type_other: Batzar mota beste
         banner_image: Bannerra
+        closing_date: Amaiera data
+        closing_date_reason: Amaiera data arrazoia
+        composition: Konposizio
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
+        copy_features: Kopiatu funtzionalitateak
+        created_by: Sortuta
+        created_by_other: Beste batek sortua
+        creation_date: Data sortu da
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
+        duration: Iraupena
+        facebook: Facebook
+        github: GitHub
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        included_at: Barruan sartzen da
+        instagram: Instagram
+        internal_organisation: Barneko antolaketa
+        is_transparent: Gardena da
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
@@ -20,6 +36,7 @@ eu:
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         published_at: Argitaratu at
+        purpose_of_action: Ekintza xedea
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
@@ -28,6 +45,8 @@ eu:
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Prozesu partizipatiboen multzoak
+        twitter: Twitter
+        youtube: YouTube
       assembly_user_role:
         email: Emaila
         name: izena
@@ -135,11 +154,26 @@ eu:
       admin:
         assemblies:
           form:
+            select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
+            select_an_assembly_type: Hautatu muntatze mota bat
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+            social_handlers: Gizarte
         assembly_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+      assembly_types:
+        commission: Batzordeak
+        consultative_advisory: Aholku / Aholku
+        executive: exekutiboa
+        government: Gobernu
+        others: Beste batzuk
+        participatory: partehartzailea
+        working_group: Lan taldea
+      created_by:
+        city_council: Udaletxea
+        others: Beste batzuk
+        public: Publiko
       index:
         title: Biltzarrak
       pages:
@@ -149,14 +183,30 @@ eu:
             see_all_assemblies: Ikusi muntaia guztiak
       show:
         area: Area
+        assembly_type: Muntatze-mota
         children: Batzar
+        closing_date: Amaiera data
+        composition: Konposizio
+        created_by: Sortuta
+        creation_date: Data sortu da
         developer_group: Talde sustatzailea
+        duration: Iraupena
+        included_at: Barruan sartzen da
+        indefinite_duration: mugagabeak
+        internal_organisation: Barneko antolaketa
+        is_transparent:
+          'false': opakua
+          'true': gardena
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
         private_space: Hau muntaia pribatua da
+        purpose_of_action: Ekintza xedea
+        read_less: Irakurri gutxiago
+        read_more: Irakurri gehiago
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
+        social_networks: Sare sozialak
         target: Nori zuzentzen zaio?
       statistics:
         answers_count: Erantzunak
@@ -180,6 +230,9 @@ eu:
           not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
     menu:
       assemblies: Biltzarrak
+  errors:
+    messages:
+      cannot_be_blank: ezin da hutsik egon
   layouts:
     decidim:
       assemblies:
