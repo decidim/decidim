@@ -8,10 +8,12 @@ This version has breaking changes, `Decidim::Feature` has been renamed to `Decid
 and also everything related to it (controllers, views, etc.). If you have customised some
 controller or added a new module you need to rename `feature` to `component`.
 
-With the addition of the new step "Complete" to the proposal creation wizard, administrators should keep in mind updating the help texts for each step.
+With the addition of the new step "Complete" to the proposal creation wizard, 
+administrators should keep in mind updating the help texts for each step.
 
 **Added**:
 
+- **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
 - **decidim-blogs**: Decidim Blogs gem has been integrated into the main repository. [\#3221](https://github.com/decidim/decidim/pull/3221)
 - **decidim-meetings** Add services offered in the meeting. [\#3150](https://github.com/decidim/decidim/pull/3150)
 - **decidim-assemblies**: Adding news fields into assembly in terms of database [\#2942](https://github.com/decidim/decidim/pull/2942)
@@ -21,7 +23,7 @@ With the addition of the new step "Complete" to the proposal creation wizard, ad
 - **decidim-core**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-consultations**: Decidim Consultations Gem has been  integrated into the  main  repository. [\#3106](https://github.com/decidim/decidim/pull/3106)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)
-- **decidim-sortitions**: Decidim Sortitions Gem has been  integrated into the  main  repository. [\#3077](https://github.com/decidim/decidim/pull/3077)
+- **decidim-sortitions**: Decidim Sortitions Gem has been integrated into the main repository. [\#3077](https://github.com/decidim/decidim/pull/3077)
 - **decidim-meetings**: Allows admins to duplicate or copy face-to-face meetings. [\#3051](https://github.com/decidim/decidim/pull/3051)
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
 - **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)
@@ -56,7 +58,9 @@ With the addition of the new step "Complete" to the proposal creation wizard, ad
 - **decidim-meetings**: Add WYSIWYG editor for meeting closing notes [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
+- **decidim-meetings**: Add a meetings API. [\#3255](https://github.com/decidim/decidim/pull/3255)
 - **decidim-proposals**: Add "complete" step to the proposal creation wizard [\#3274](https://github.com/decidim/decidim/pull/3274)
+
 
 **Changed**:
 
@@ -81,6 +85,7 @@ With the addition of the new step "Complete" to the proposal creation wizard, ad
 - **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. \#2894](https://github.com/decidim/decidim/pull/3238)
 - **decidim-proposals**: Restore creation date in proposal detail page. [\#3249](https://github.com/decidim/decidim/pull/3249)
 - **decidim-proposals**: Fix threshold_per_proposal method positive? for nil:NilClass when threshold is null or not defined. [\#3185](https://github.com/decidim/decidim/pull/3185)
+- **decidim-proposals**: Make sure threshold per proposal has the right value in existing components [\#3235](https://github.com/decidim/decidim/pull/3235)
 - **decidim-proposals**: Fix when I create a proposal I see the draft proposal from someone else! [\#3170](https://github.com/decidim/decidim/pull/3083)
 - **decidim-proposals**: Fix view hooks returning proposals that should not be shown [\#3175](https://github.com/decidim/decidim/pull/3175)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)
