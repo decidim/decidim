@@ -10,6 +10,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
 
+- **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
 - **decidim-blogs**: Decidim Blogs gem has been integrated into the main repository. [\#3221](https://github.com/decidim/decidim/pull/3221)
 - **decidim-meetings** Add services offered in the meeting. [\#3150](https://github.com/decidim/decidim/pull/3150)
 - **decidim-assemblies**: Adding news fields into assembly in terms of database [\#2942](https://github.com/decidim/decidim/pull/2942)
@@ -19,7 +20,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-core**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-consultations**: Decidim Consultations Gem has been  integrated into the  main  repository. [\#3106](https://github.com/decidim/decidim/pull/3106)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)
-- **decidim-sortitions**: Decidim Sortitions Gem has been  integrated into the  main  repository. [\#3077](https://github.com/decidim/decidim/pull/3077)
+- **decidim-sortitions**: Decidim Sortitions Gem has been integrated into the main repository. [\#3077](https://github.com/decidim/decidim/pull/3077)
 - **decidim-meetings**: Allows admins to duplicate or copy face-to-face meetings. [\#3051](https://github.com/decidim/decidim/pull/3051)
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
 - **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)

@@ -153,6 +153,34 @@ jobs:
           root: coverage
           paths:
             - codeclimate.assemblies.json
+  initiatives:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - run:
+          name: Create test DB
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
+      - run:
+          name: Run initiatives RSpec
+          command: mkdir ~/rspec && cd decidim-initiatives && rake
+      - run:
+          name: Format CodeClimate test coverage
+          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.initiatives.json coverage/.resultset.json
+      - store_artifacts:
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
+      - persist_to_workspace:
+          root: coverage
+          paths:
+            - codeclimate.initiatives.json
   api:
     <<: *defaults
     steps:
@@ -642,7 +670,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 18 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 19 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -677,6 +705,9 @@ workflows:
           requires:
             - build_test_app
       - assemblies:
+          requires:
+            - build_test_app
+      - initiatives:
           requires:
             - build_test_app
       - api:
@@ -733,6 +764,7 @@ workflows:
             - generators
             - core
             - assemblies
+            - initiatives
             - api
             - processes
             - admin
