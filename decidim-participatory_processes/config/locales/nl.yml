@@ -15,7 +15,7 @@ nl:
         hero_image: Afbeelding van de startpagina
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
-        participatory_process_group_id: Processen groep
+        participatory_process_group_id: Groep thema's
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
         promoted: Gepromoveerd
@@ -33,7 +33,7 @@ nl:
         description: Beschrijving
         hero_image: Afbeelding
         name: Naam
-        participatory_process_ids: Gerelateerde processen
+        participatory_process_ids: Verwante thema's
       participatory_process_step:
         description: Beschrijving
         end_date: Einddatum
@@ -59,8 +59,8 @@ nl:
         resend_invitation: Uitnodiging verzenden
         unpublish: Publicatie ongedaan maken
       menu:
-        participatory_process_groups: Procesgroepen
-        participatory_processes: Processen
+        participatory_process_groups: Thema groep
+        participatory_processes: Thema's
         participatory_processes_submenu:
           attachment_collections: Verzamelingen
           attachment_files: bestanden
@@ -80,11 +80,11 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Participatief proces
+          name: Burgerinspraak
         participatory_process_group:
           fields:
             name: Naam
-          name: Procesgroep
+          name: Themagroep
         participatory_process_step:
           fields:
             end_date: Einddatum
