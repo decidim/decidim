@@ -154,9 +154,9 @@ ca:
       admin:
         assemblies:
           form:
-            select_a_created_by: Seleccioneu una opció creada per
+            select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
-            select_an_assembly_type: Seleccioneu un tipus de ensamblat
+            select_an_assembly_type: Seleccioneu un tipus d'assemblea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -165,10 +165,10 @@ ca:
       assembly_types:
         commission: Comissió
         consultative_advisory: Consultiva / assessora
-        executive: Executiu
+        executive: Executiva
         government: Govern
         others: Altres
-        participatory: Participatiu
+        participatory: Participativa
         working_group: Grup de treball
       created_by:
         city_council: Ajuntament
