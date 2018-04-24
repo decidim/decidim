@@ -122,6 +122,16 @@ sv:
           new:
             create: Skapa
             title: Skapa möte
+          service:
+            description: Beskrivning
+            down: Ner
+            remove: Avlägsna
+            service: Service
+            title: Titel
+            up: Upp
+          services:
+            add_service: Lägg till service
+            services: tjänster
           update:
             invalid: Det har varit ett problem att uppdatera det här mötet
             success: Mötet har blivit uppdaterat
