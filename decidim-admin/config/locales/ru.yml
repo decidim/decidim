@@ -170,7 +170,6 @@ ru:
           promote: Повысить
           view_logs: Просмотреть журналы
         new:
-          create: Создать
           new_managed_user: Новый управляемый участник
           select_authorization_method: Выберите способ подтверждения личности
           step: Шаг %{current} из %{total}
