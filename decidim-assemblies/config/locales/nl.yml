@@ -92,12 +92,12 @@ nl:
           success: Bijeenkomt succesvol ongepubliceerd.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze vergadering.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
           success: Gebruiker is succesvol gemaakt voor deze vergadering.
         destroy:
-          success: Gebruiker met succes vernietigd voor deze vergadering.
+          success: Gebruiker met succes vernietigd voor dit event.
         edit:
-          title: Update vergaderinggebruiker.
+          title: Update event gebruiker.
           update: Bijwerken
         index:
           assembly_admins_title: Assemblage gebruikers
