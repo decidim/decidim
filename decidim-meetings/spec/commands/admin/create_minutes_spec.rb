@@ -14,7 +14,7 @@ module Decidim::Meetings
     let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
-    let(:is_visible) { true }
+    let(:visible) { true }
     let(:invalid) { false }
 
     let(:form) do
@@ -23,7 +23,7 @@ module Decidim::Meetings
         description: description,
         video_url: video_url,
         audio_url: audio_url,
-        is_visible: is_visible,
+        visible: visible,
         current_user: current_user
       )
     end

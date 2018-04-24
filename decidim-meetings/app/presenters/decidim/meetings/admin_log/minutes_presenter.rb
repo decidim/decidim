@@ -20,7 +20,7 @@ module Decidim
             description: :i18n,
             video_url: :string,
             audio_url: :string,
-            is_visible: :boolean
+            visible: :boolean
           }
         end
 

@@ -12,7 +12,7 @@ shared_examples "manage minutes" do
       end
 
       within ".edit_minutes" do
-        check :minutes_is_visible
+        check :minutes_visible
         fill_in :minutes_video_url, with: Faker::Internet.url
         fill_in :minutes_audio_url, with: Faker::Internet.url
         fill_in_i18n_editor(

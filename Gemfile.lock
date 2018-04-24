@@ -121,16 +121,6 @@ PATH
       simplecov (~> 0.13)
       webmock (~> 3.0)
       wisper-rspec (~> 1.0)
-    decidim-initiatives (0.11.0.pre)
-      decidim-admin (= 0.11.0.pre)
-      decidim-comments (= 0.11.0.pre)
-      decidim-core (= 0.11.0.pre)
-      decidim-verifications (= 0.11.0.pre)
-      kaminari (~> 1.0)
-      rectify
-      social-share-button (~> 1.0)
-      truncato
-      wicked
     decidim-generators (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
     decidim-meetings (0.11.0.pre)
@@ -178,6 +168,20 @@ PATH
       decidim-admin (= 0.11.0.pre)
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
+
+PATH
+  remote: decidim-initiatives
+  specs:
+    decidim-initiatives (0.11.0.pre)
+      decidim-admin (= 0.11.0.pre)
+      decidim-comments (= 0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
+      decidim-verifications (= 0.11.0.pre)
+      kaminari (~> 1.0)
+      rectify
+      social-share-button (~> 1.0)
+      truncato
+      wicked
 
 GEM
   remote: https://rubygems.org/

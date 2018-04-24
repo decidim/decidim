@@ -84,7 +84,7 @@
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
 
-    <% if meeting.minutes.present? && meeting.minutes.is_visible? %>
+    <% if meeting.minutes.present? && meeting.minutes.visible? %>
       <div class="section minutes-section">
         <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
         <% if translated_attribute(meeting.minutes.description).present? %>

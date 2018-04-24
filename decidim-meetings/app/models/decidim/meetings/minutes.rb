@@ -3,7 +3,6 @@
 module Decidim
   module Meetings
     # The data store for a Minutes in the Decidim::Meetings component.
-
     class Minutes < Meetings::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
@@ -14,9 +13,7 @@ module Decidim
         Decidim::Meetings::AdminLog::MinutesPresenter
       end
 
-      def component
-        meeting.component if meeting.respond_to?(:component)
-      end
+      delegate :component, to: :meeting
     end
   end
 end

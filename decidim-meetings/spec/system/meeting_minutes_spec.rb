@@ -8,7 +8,7 @@ describe "Meeting minutes", type: :system do
 
   let(:meeting) { create(:meeting, component: component) }
 
-  let(:is_visible) { true }
+  let(:visible) { true }
 
   def visit_meeting
     visit resource_locator(meeting).path
@@ -16,7 +16,7 @@ describe "Meeting minutes", type: :system do
 
   context "when meeting minutes is not visible" do
     before do
-      create(:minutes, meeting: meeting, is_visible: false)
+      create(:minutes, meeting: meeting, visible: false)
     end
 
     it "the section minutes is not visible" do
@@ -28,7 +28,7 @@ describe "Meeting minutes", type: :system do
   end
 
   context "when meeting minutes is visible" do
-    let!(:minutes) { create(:minutes, meeting: meeting, is_visible: true) }
+    let!(:minutes) { create(:minutes, meeting: meeting, visible: true) }
 
     it "shows the minutes section" do
       visit_meeting

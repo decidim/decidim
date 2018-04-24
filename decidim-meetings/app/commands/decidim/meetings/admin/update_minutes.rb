@@ -50,7 +50,7 @@ module Decidim
               description: form.description,
               video_url: form.video_url,
               audio_url: form.audio_url,
-              is_visible: form.is_visible,
+              visible: form.visible,
               meeting: current_meeting
             },
             log_info

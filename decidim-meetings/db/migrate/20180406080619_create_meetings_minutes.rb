@@ -7,7 +7,7 @@ class CreateMeetingsMinutes < ActiveRecord::Migration[5.1]
       t.jsonb :description
       t.string :video_url
       t.string :audio_url
-      t.boolean :is_visible
+      t.boolean :visible
 
       t.timestamps
     end

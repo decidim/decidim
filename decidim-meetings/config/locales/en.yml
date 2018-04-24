@@ -24,7 +24,7 @@ en:
       minutes:
         audio_url: Audio url
         description: Description
-        is_visible: Is visible
+        visible: Is visible
         video_url: Video url
   decidim:
     admin:

@@ -11,7 +11,7 @@ module Decidim
 
         attribute :video_url, String
         attribute :audio_url, String
-        attribute :is_visible, Boolean
+        attribute :visible, Boolean
 
         validates :description, translatable_presence: true
       end

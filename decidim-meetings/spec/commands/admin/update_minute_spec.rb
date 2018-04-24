@@ -11,7 +11,7 @@ module Decidim::Meetings
     let(:user) { create :user, :admin }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
-    let(:is_visible) { true }
+    let(:visible) { true }
     let(:invalid) { false }
     let(:form) do
       double(
@@ -19,7 +19,7 @@ module Decidim::Meetings
         description: { en: "description" },
         video_url: video_url,
         audio_url: audio_url,
-        is_visible: is_visible,
+        visible: visible,
         current_user: user
       )
     end
@@ -52,7 +52,7 @@ module Decidim::Meetings
               description: form.description,
               video_url: form.video_url,
               audio_url: form.audio_url,
-              is_visible: form.is_visible,
+              visible: form.visible,
               meeting: meeting
             },
             resource: {

@@ -28,14 +28,14 @@ module Decidim::Meetings
     let(:audio_url) do
       Faker::Internet.url
     end
-    let(:is_visible) { true }
+    let(:visible) { true }
 
     let(:attributes) do
       {
         description_en: description[:en],
         video_url: video_url,
         audio_url: audio_url,
-        is_visible: is_visible
+        visible: visible
       }
     end
 
