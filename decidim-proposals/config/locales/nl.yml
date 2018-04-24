@@ -98,9 +98,9 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Voorstelcreatie ingeschakeld
-            endorsements_blocked: Goedkeuringen geblokkeerd
-            endorsements_enabled: Goedkeuringen ingeschakeld
+            creation_enabled: Creatie nieuw voorstel toegestaan
+            endorsements_blocked: Aanbevelingen geblokkeerd
+            endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen actief
@@ -223,7 +223,7 @@ nl:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       proposal_endorsements:
         create:
-          error: Er zijn fouten opgetreden bij het goedkeuren van het voorstel.
+          error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
         identities:
           done: Klaar
           select_identity: Selecteer gebruiker
