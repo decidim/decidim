@@ -10,9 +10,9 @@ nl:
         progress: Vooruitgang
         project_ids: Opgenomen projecten
         proposals: Inbegrepen voorstellen
-        start_date: Begin datum
+        start_date: Startdatum
         title: Titel
-        updated_at: Bijgewerkt om
+        updated_at: Bijgewerkt op
       status:
         description: Beschrijving
         key: sleutel
@@ -58,9 +58,9 @@ nl:
             create: Maak resultaat
             title: Nieuw resultaat
           proposals:
-            close: Dichtbij
+            close: Sluit
             current_selection: Huidige selectie
-            select: kiezen
+            select: Selecteer
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
@@ -110,7 +110,7 @@ nl:
           fields:
             end_date: Einddatum
             progress: Vooruitgang
-            start_date: Begin datum
+            start_date: Startdatum
             status: Status
             title: Titel
         status:
@@ -148,7 +148,7 @@ nl:
             contributions: Bijdrage
             last_edited_by: Laatst bewerkt door
             last_updated_at: Laatst bijgewerkt om
-            meetings: Vergaderingen
+            meetings: Events
             number_of_versions: versies
             proposals: Voorstellen
             show_all_versions: Toon alle versies
