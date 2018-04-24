@@ -66,4 +66,4 @@ system user to login in as an organization admin.
 
 ## License
 
-The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).
+See [Decidim](https://github.com/decidim/decidim).
