@@ -55,7 +55,7 @@ ca:
         comment_by_followed_user:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
           email_outro: Hasrebut aquesta notificació perquè estàs seguint %{author_name}. Pots deixar de seguir aquest usuari des de la seva pàgina de perfil.
-          email_subject: Hi ha un nou comentari per %{author_name} en %{resource_title}
+          email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "S'ha comentat %{resource_title} . Podeu llegir el comentari d'aquesta pàgina:"
