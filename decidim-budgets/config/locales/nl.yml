@@ -110,7 +110,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             total_budget: Totale begroting
-            vote_threshold_percent: Stemdrempel procent
+            vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
