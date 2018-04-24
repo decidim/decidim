@@ -228,7 +228,7 @@ ca:
           error: S'ha produït un error en afegir aquesta funcionalitat.
           success: Funcionalitat creada correctament.
         destroy:
-          error: S'ha produït un error destruir aquesta funcionalitat.
+          error: S'ha produït un error en destruir aquesta funcionalitat.
           success: Funcionalitat eliminada correctament.
         edit:
           title: Editar funcionalitat
