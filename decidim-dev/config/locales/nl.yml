@@ -10,7 +10,7 @@ nl:
   decidim:
     authorization_handlers:
       another_dummy_authorization_handler:
-        name: Een ander voorbeeld toestemming
+        name: Een ander voorbeeld van goedkeuring
     dummy:
       admin:
         exports:
