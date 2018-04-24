@@ -24,8 +24,8 @@ en:
       minutes:
         audio_url: Audio url
         description: Description
-        visible: Is visible
         video_url: Video url
+        visible: Is visible
   decidim:
     admin:
       meeting_copies:
