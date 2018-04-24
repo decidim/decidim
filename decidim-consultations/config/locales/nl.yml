@@ -152,7 +152,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
           success: Reactie is bijgewerkt.
       titles:
-        consultations: Burgerinspraak 
+        consultations: Burgerinspraak
         questions: vragen
         responses: Antwoorden
     consultations:
@@ -184,11 +184,11 @@ nl:
         unfold: Uitklappen
       finished:
         active_consultations: Huidige burgerinspraak
-        past_consultations: Afgelopen burgerinspraken 
+        past_consultations: Afgelopen burgerinspraken
       highlighted_questions:
         title: Burgerinspraak over %{scope_name}
       index:
-        title: Burgerinspraak 
+        title: Burgerinspraak
       question:
         take_part: Neem deel
         view_results: Bekijk resultaten
@@ -203,7 +203,7 @@ nl:
       show:
         see_finished_consultations: Bekijk vorige burgerinspraken
     menu:
-      consultations: Burgerinspraak 
+      consultations: Burgerinspraak
     questions:
       results:
         title: Resultaten
@@ -245,4 +245,4 @@ nl:
   pages:
     home:
       statistics:
-        consultations_count: Burgerinspraak 
+        consultations_count: Burgerinspraak
