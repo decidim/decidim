@@ -135,7 +135,7 @@ nl:
             create: creëren
             title: Nieuw initiatiefstype
           update:
-            error: er is een fout opgetreden
+            error: Er is een fout opgetreden
             success: Het gegeven initiatief is met succes bijgewerkt
       admin_log:
         initiative:
@@ -153,28 +153,28 @@ nl:
       committee_requests:
         new:
           continue: Doorgaan met
-          help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
+          help_text: Je staat op het punt lid te worden van de promotieraad van dit initiatief
         spawn:
-          success: Uw verzoek is verzonden aan de auteur van het initiatief.
+          success: Je verzoek is verzonden aan de auteur van het initiatief.
       create_initiative:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herzie de inhoud van uw initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
+          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol gemaakt.
+          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol aangemaakt.
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
-          help_for_organizations: Als u een vereniging bent, moet u de notulen van de raad van bestuur van alle organisaties die conform de Promotcommissie zijn, uploaden
-          help_in_person_signatures: Als u ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet u de vereiste informatie uploaden.
-          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en het naar de procedure kunt sturen.
+          help_for_organizations: Als je een vereniging bent, moet je de notulen van de raad van bestuur van alle organisaties die conform de Promotcommissie zijn, uploaden
+          help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
+          help_text: Vergeet niet dat om het initiatief goed te verwerken, je toegang moet hebben tot het administratiepaneel waar je het gebruikersmenu kan vinden, de vereiste informatie kan uploaden en het naar de procedure kan sturen.
           initiatives_page_link: Je kunt al deze informatie op de %{link} opzoeken om je te informeren over initiatieven.
           page: pagina
         previous_form:
