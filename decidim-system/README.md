@@ -64,6 +64,10 @@ following the form instructions. After creating it, a new admin user will be cre
 Remember that System admins and regular Admins are completely different users (they don't even share the same database table), so you can't use your
 system user to login in as an organization admin.
 
+## Contributing
+
+See [Decidim](https://github.com/decidim/decidim).
+
 ## License
 
 See [Decidim](https://github.com/decidim/decidim).
