@@ -4,21 +4,21 @@ nl:
       initiative:
         decidim_user_group_id: Auteur
         description: Beschrijving
-        offline_votes: Face-to-face-ondersteuning
-        scope_id: strekking
+        offline_votes: Face-to-face ondersteuning
+        scope_id: Bereik
         signature_end_time: Einde van de periode om handtekeningen te verzamelen
         signature_start_time: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekeningstype
         signature_type_values:
           any: Gemengd
-          offline: Oog in oog
+          offline: Face to face
           online: Online
         title: Titel
       initiative_author:
         address: Adres
         city: stad
         id_document: DNI / NIE
-        name: Naam en achternaam
+        name: Naam en familienaam
         phone_number: Telefoonnummer
         post_code: Postcode
         province: Provincie
@@ -40,18 +40,18 @@ nl:
       models:
         initiatives:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             state: Staat
             supports_count: steunen
             title: initiatieven
         initiatives_type_scope:
           fields:
-            scope: strekking
-            supports_required: Ondersteunt vereist
+            scope: Bereik
+            supports_required: Ondersteuning vereist
           name: Type initiatief
         initiatives_types:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             title: Initiatieftypen
           name: Initiatieftype
       titles:
