@@ -10,7 +10,7 @@ nl:
       admin:
         models:
           components:
-            body: Lichaam
+            body: Tekstgedeelte
           post:
             name: Post
         posts:
@@ -18,7 +18,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het maken van dit bericht
             success: Post succesvol aangemaakt
           destroy:
-            success: Plaats succesvol verwijderd
+            success: Post succesvol verwijderd
           edit:
             save: Bijwerken
           index:
@@ -33,8 +33,8 @@ nl:
         post:
           fields:
             author: Auteur
-            body: Lichaam
-            created_at: Gemaakt bij
+            body: Tekstgedeelte
+            created_at: Aangemaakt op
             title: titel
       posts:
         author_data:
@@ -42,7 +42,7 @@ nl:
         sidebar_blog:
           comments: reacties
           most_commented_posts: Bericht met meeste reacties
-      read_more: Lees verder
+      read_more: Lees meer
     components:
       blogs:
         name: blog
@@ -56,10 +56,10 @@ nl:
     events:
       blogs:
         post_created:
-          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: Nieuwe post gepubliceerd in %{participatory_space_title}
-          notification_title: De post <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
     participatory_processes:
       statistics:
         posts_count: berichten
