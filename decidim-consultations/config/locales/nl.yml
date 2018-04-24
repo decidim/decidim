@@ -73,7 +73,7 @@ nl:
           title: Nieuwe burgerinspraak
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
-          success: Overleg succesvol geactualiseerd.
+          success: Overleg succesvol bijgewerkt.
       menu:
         consultations: burgerinspraak
         consultations_submenu:
@@ -168,8 +168,8 @@ nl:
           recent: Meest recent
       count:
         title:
-          one: "%{count} consultatie"
-          other: "%{count} consulten"
+          one: "%{count} overleg"
+          other: "%{count} overleg"
       filters:
         active: Actief
         all: Alle
@@ -194,10 +194,10 @@ nl:
         view_results: Bekijk resultaten
         votes_out_of:
           one: Stemmen over
-          other: stemmen uit
+          other: Stemmen over
       question_votes:
         create:
-          error: Er zijn fouten opgetreden bij het stemmen van de vraag
+          error: Er zijn fouten opgetreden bij het stemmen op de vraag
       regular_questions:
         title: Andere burgerinspraken
       show:
@@ -239,7 +239,7 @@ nl:
         start_voting_date: Stemmen vanaf
       question_components:
         question_menu_item: De vraag
-        unfold: Ontvouwen
+        unfold: Uitklappen
       question_header:
         back_to_consultation: Bekijk alle burgerinspraken
   pages:
