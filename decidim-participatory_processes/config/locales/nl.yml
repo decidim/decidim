@@ -25,7 +25,7 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        start_date: Begindatum
+        start_date: Startdatum
         subtitle: Ondertiteling
         target: Doel
         title: Titel
@@ -38,7 +38,7 @@ nl:
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
-        start_date: Begin datum
+        start_date: Startdatum
         title: Titel
       participatory_process_user_role:
         email: E-mail
@@ -62,7 +62,7 @@ nl:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
-          attachment_collections: collecties
+          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
@@ -86,7 +86,7 @@ nl:
         participatory_process_step:
           fields:
             end_date: Einddatum
-            start_date: Begindatum
+            start_date: Startdatum
             title: Titel
           name: Participatieve processtap
         participatory_process_user_role:
@@ -156,7 +156,7 @@ nl:
           success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze burgerinspraak.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
           success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
         destroy:
           success: Gebruiker met succes vernietigd voor dit participatieproces.
@@ -207,12 +207,12 @@ nl:
           success: Uitnodiging opnieuw verzonden met succes.
     admin_log:
       participatory_process:
-        create: "%{user_name} creëerde de %{resource_name} burgerinspraak"
-        publish: "%{user_name} publiceerde de %{resource_name} burgerinspraak"
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} burgerinspraak"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
       participatory_process_step:
-        activate: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
+        activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
         create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
         delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
         update: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak bijgewerkt"
@@ -226,11 +226,11 @@ nl:
           email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
-          notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update naar %{participatory_space_title}
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
+          email_subject: Een update op %{participatory_space_title} werd uitgevoerd
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
       processes: Processen
@@ -256,14 +256,14 @@ nl:
       order_by_processes:
         active: Actief
         all: Alle
-        past: Verleden
+        past: Archief
         upcoming: Aankomende
       pages:
         home:
           highlighted_processes:
-            active_processes: Actieve processen
+            active_processes: Participations en cours
             active_step: Actieve stap
-            see_all_processes: Bekijk alle processen
+            see_all_processes: "Voir toutes les participations\n"
       participatory_process_groups:
         none: Geen
       participatory_processes:
@@ -276,7 +276,7 @@ nl:
         participatory_scope: Wat is besloten
         participatory_structure: Hoe is het besloten
         scope: Scope
-        start_date: Begindatum
+        start_date: Startdatum
         target: Wie neemt deel
       statistics:
         answers_count: Antwoorden
@@ -304,7 +304,7 @@ nl:
           take_part: Deelnemen
       participatory_processes:
         index:
-          promoted_processes: Gemarkeerde processen
+          promoted_processes: Uitgelichte thema’s
         order_by_processes:
           processes:
             one: "%{count} proces"
