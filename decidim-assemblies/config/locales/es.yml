@@ -227,7 +227,7 @@ es:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'La asamblea no se encontró en la base de datos (ID: %{id})'
+          not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
   errors:
