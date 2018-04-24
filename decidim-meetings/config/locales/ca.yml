@@ -24,12 +24,12 @@ ca:
     admin:
       meeting_copies:
         create:
-          error: S'ha produït un error en duplicar aquesta reunió.
-          success: Reunió duplicada amb èxit.
+          error: S'ha produït un error en duplicar aquesta trobada.
+          success: Trobada duplicada amb èxit.
         new:
           copy: Copia
           select: Selecciona quines dades vols duplicar
-          title: Reunió duplicada
+          title: Duplicar trobada
     components:
       meetings:
         actions:
@@ -122,6 +122,16 @@ ca:
           new:
             create: Crear
             title: Crear trobada
+          service:
+            description: Descripció
+            down: Avall
+            remove: Elimina
+            service: Servei
+            title: Títol
+            up: Pujar
+          services:
+            add_service: Afegeix servei
+            services: Serveis
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
@@ -137,7 +147,7 @@ ca:
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
-            reserved_slots_help: Deixa'l a 0 si no tens ranures reservades
+            reserved_slots_help: Deixa'l a 0 si no tens espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
