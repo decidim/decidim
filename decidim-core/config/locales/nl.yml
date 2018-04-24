@@ -8,7 +8,7 @@ nl:
       user:
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Jouw korte unieke ID in decidim
+        nickname: Jouw korte unieke ID
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         remove_avatar: Verwijder avatar
@@ -38,7 +38,7 @@ nl:
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
-          close: Sluit dit scherm
+          close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
           question: Weet u zeker dat u uw account wilt verwijderen?
           title: Verwijder mijn account
@@ -82,9 +82,9 @@ nl:
         update: "%{user_name} heeft de %{resource_name} statische pagina bijgewerkt"
       user:
         invite: "%{user_name} nodigde de gebruiker %{resource_name} uit met rol: %{role}"
-        officialize: "%{user_name} heeft de gebruiker %{resource_name} geofficialiseerd"
+        officialize: "%{user_name} heeft de gebruiker %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de gebruiker %{resource_name} verwijderd met rol: %{role}"
-        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} geonofficialiseerd"
+        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
@@ -165,19 +165,19 @@ nl:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kan het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
-          email_subject: Een update voor %{resource_title}
+          email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Een update van %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
       features:
         feature_published:
           email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door het volgen van de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update van %{participatory_space_title}
           notification_title: Het %{resource_title} onderdeel is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
@@ -185,9 +185,9 @@ nl:
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
-          notification_title: De <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
+          notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -201,12 +201,12 @@ nl:
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy-kenmerk 1
-            dummy_global_attribute_2: Dummy-kenmerk 2
+            dummy_global_attribute_1: Voorbeeld-kenmerk 1
+            dummy_global_attribute_2: Voorbeeld-kenmerk 2
           step:
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy stapkenmerk 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Voorbeeld-kenmerk 1
+            dummy_step_attribute_2: Voorbeeld-kenmerk 2
     filters:
       linked_classes:
         all: Alle
@@ -232,7 +232,7 @@ nl:
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
-        create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
+        create_with_space: "%{user_name} heeft %{resource_name} aangemaakt in %{space_name}"
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         delete_with_space: "%{user_name} heeft %{resource_name}  verwijderd in %{space_name}"
         unknown_action: "%{user_name} voerde eeb actie uit op %{resource_name}"
@@ -241,7 +241,7 @@ nl:
         update_with_space: "%{user_name} heeft %{resource_name} bijgewerkt in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'De pagina is niet gevonden in de database (ID: %{id})'
+          not_found: 'Dit onderwerp is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
@@ -282,19 +282,19 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Kan deze e-mail niet correct worden weergegeven? Bekijk het op de <a href="%{link}" target="_blank">website</a>.
-        unsubscribe: Om je af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletters:
       unsubscribe:
         check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een fout opgetreden bij het afmelden
-        success: Je bent succesvol afgemeld.
+        error: Er is een fout opgetreden tijdens het uitschrijven.
+        success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
-        unsubscribe: Afmelden
+        unsubscribe: Uitschrijven
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
-        newsletter_notifications: Ik wil nieuwsbrieven ontvangen
+        newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
@@ -363,9 +363,9 @@ nl:
       author:
         deleted: Verwijderde gebruiker
       embed_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
-        embed_link: insluiten
+        embed_link: Insluiten
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -385,7 +385,7 @@ nl:
       results_per_page:
         label: 'Resultaten per pagina:'
       share_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         share: Deel
         share_link: Link delen
       version_author:
@@ -479,28 +479,28 @@ nl:
         debates: Debatten
         debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
         how_to_participate: Hoe neem ik deel in een proces?
-        meetings: Vergaderingen
-        meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
+        meetings: Events
+        meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
         more_info: Meer informatie
         proposals: Voorstellen
         proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
       footer_sub_hero:
-        footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
+        footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
         footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
         register: Registreren
       hero:
         participate: Deelnemen
-        welcome: Welkom bij %{organization}!
+        welcome: Bienvenue sur le portail de la consultation citoyenne %{organization} !
       statistics:
         answers_count: Voltooide enquêtes
-        assemblies_count: Bijeenkomsten
+        assemblies_count: Events
         comments_count: Reacties
-        endorsements_count: Goedkeuringen
+        endorsements_count: Aanbevelen
         headline: Huidige stand van %{organization}
-        meetings_count: Vergaderingen
+        meetings_count: Events
         orders_count: stemmen
         pages_count: Pages
-        processes_count: Processen
+        processes_count: Thema's
         projects_count: Projecten
         proposals_accepted: Aanvaarde voorstellen
         proposals_count: Voorstellen
