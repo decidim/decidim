@@ -65,22 +65,22 @@ ca:
           form:
             all_categories: Totes les categories
             select_proposal_component: Selecciona el grup de propostes
-            title: Nova proposta de propostes
+            title: Nou sorteig per propostes
           index:
-            title: Sortides
+            title: Sortejos
           new:
-            confirm: Pressionant el botó següent, Decidim registrarà la data i l'hora (amb precisió de segons) i, juntament amb el rotlle de daus, aquesta informació s'utilitzarà per generar una selecció aleatòria. L'acció serà irreversible, una vegada que es faci clic al botó, es publicarà el resultat d'aquest sorteig, juntament amb les dades introduïdes en aquest formulari i que no es poden modificar, comproveu el contingut acuradament
+            confirm: Pressionant el botó següent, Decidim registrarà la data i l'hora (amb precisió de segons) i, juntament amb la tirada de daus, aquesta informació s'utilitzarà per generar una selecció aleatòria. L'acció serà irreversible, una vegada que es faci clic al botó, es publicarà el resultat d'aquest sorteig, juntament amb les dades introduïdes en aquest formulari i que no es poden modificar. Si us plau, comprova el contingut acuradament
             create: Crear
-            title: Nova sortició
+            title: Nou sorteig
           show:
             selected_proposals: Propostes seleccionades per al sorteig
           update:
-            error: S'ha produït un error en actualitzar l'assaig.
-            success: La classificació s'actualitza amb èxit
+            error: S'ha produït un error en actualitzar el sorteig.
+            success: El sorteig s'ha actualitzat amb èxit
       admin_log:
         sortition:
-          create: "%{user_name} ha creat la classificació %{resource_name} al %{space_name}"
-          delete: "%{user_name} va cancel·lar la classificació %{resource_name} a %{space_name}"
+          create: "%{user_name} ha creat el sorteig %{resource_name} a %{space_name}"
+          delete: "%{user_name} va cancel·lar el sorteig %{resource_name} a %{space_name}"
           update: "%{user_name} va actualitzar la classificació %{resource_name} a %{space_name}"
       sortitions:
         count:
