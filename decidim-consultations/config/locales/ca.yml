@@ -142,11 +142,11 @@ ca:
           error: S'ha produït un error en eliminar la resposta.
           success: La resposta s'ha destruït amb èxit.
         edit:
-          update: Actualització
+          update: Actualitza
         form:
           title: Informació general
         new:
-          create: Crear
+          create: Crea
           title: Nova resposta
         update:
           error: S'ha produït un error en actualitzar aquesta resposta.
@@ -157,7 +157,7 @@ ca:
         responses: Respostes
     consultations:
       consultation:
-        start_voting_date: Votació des de
+        start_voting_date: Votant des de
         view_results: Veure resultats
       consultation_card:
         view_results: Veure resultats
