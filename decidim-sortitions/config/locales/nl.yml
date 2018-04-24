@@ -96,7 +96,7 @@ nl:
           search: Zoeken
           state: Staat
         filters_small_view:
-          close_modal: Venster sluiten 
+          close_modal: Venster sluiten
           filter: Sorteer
           filter_by: Sorteren op
           unfold: Uitvouwen
