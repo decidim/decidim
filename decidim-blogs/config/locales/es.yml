@@ -32,7 +32,7 @@ es:
       models:
         post:
           fields:
-            author: Autor
+            author: Autoría
             body: Cuerpo
             created_at: Creado en
             title: título
@@ -42,7 +42,7 @@ es:
         sidebar_blog:
           comments: comentarios
           most_commented_posts: Publicaciones más comentadas
-      read_more: Lee mas
+      read_more: Leer más
     components:
       blogs:
         name: Blog
