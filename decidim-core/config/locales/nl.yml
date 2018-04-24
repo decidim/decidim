@@ -206,26 +206,26 @@ nl:
       attachments:
         attachment_created:
           email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op deze link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update van %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door het volgen van de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update van %{participatory_space_title}
           notification_title: Het %{resource_title} onderdeel is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
