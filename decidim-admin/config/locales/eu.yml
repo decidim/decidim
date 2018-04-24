@@ -274,35 +274,43 @@ eu:
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
-      logs:
-        logs_list:
-          no_logs_yet: Ez dago oraindik erregistroik
-      managed_users:
+      impersonatable_users:
+        index:
+          filter:
+            all: guztiak
+            managed: Kudeatutako
+            not_managed: Ez da kudeatzen
+          filter_by: Iragazi arabera
+          impersonate: Ordeztu
+          impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
+          managed: Kudeatutako
+          name: izena
+          needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
+          not_managed: Ez da kudeatzen
+          promote: sustatu
+          search: Search
+          status: Egoera
+          view_logs: Ikusi erregistroak
+      impersonations:
         close_session:
           error: Errore bat gertatu da egungo suplifikaziorako saioa ixtean.
           success: Uneko sinplifikazioa saioa amaitu da.
         create:
-          error: Errore bat gertatu da kudeatutako erabiltzailea sortzean.
+          error: Errore bat gertatu da erabiltzailea imitatzen.
           success: Erabiltzaile kudeatua arrakastaz sortu da.
         form:
-          name: Izena
-        impersonate:
-          error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
-        impersonations:
-          new:
-            impersonate: Ordeztu
-            new_managed_user_impersonation: Kudeatutako erabiltzailearen ordezte berria
-        index:
-          impersonate: Ordeztu
-          needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
-          promote: Goratu
-          view_logs: Ikusi erregistroak
+          authorization_method: Baimenaren metodoa
+          name: izena
+          reason: Arrazoia
         new:
-          create: Sortu
-          new_managed_user: Erabiltzaile kudeatu berria
-          no_authorization_handlers: Ez dago baimendutako baimendun erabilgarririk erabiltzaileak kudeatzeko. Mesedez, jarri harremanetan sistemaren administratzailearekin.
-          select_authorization_method: Hautatu autorizazio metodoa
-          step: '%{total} fasetatik %{current}.a'
+          impersonate: Ordeztu
+          impersonate_existing_managed_user: Ordezkatu "%{name}" erabiltzaile kudeatua
+          impersonate_existing_user: '"%{name}" erabiltzailea ordezkatzen du'
+          impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
+      logs:
+        logs_list:
+          no_logs_yet: Ez dago oraindik erregistroik
+      managed_users:
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
           success: Kudeatutako erabiltzailea zuzen igo da mailaz.
@@ -319,7 +327,7 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
-        managed_users: Kudeatutako erabiltzaileak
+        impersonations: impersonations
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
         officializations: Officializations
@@ -354,10 +362,9 @@ eu:
             admin: Administratzailea
             ended_at: 'Bukaera-data:'
             expired_at: 'Iraungitze-data:'
+            reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Erabiltzailea
-        managed_user:
-          name: Erabiltzaile kudeatua
         newsletter:
           fields:
             created_at: Sortze-data
@@ -578,8 +585,8 @@ eu:
         areas: Arloak
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
+        impersonatable_users: Erabiltzaile ustekabekoak
         impersonations: Ordezteak
-        managed_users: Kudeatutako erabiltzaileak
         officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
@@ -620,6 +627,10 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
+    forms:
+      errors:
+        impersonate_user:
+          reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
         hidden: ' Ezkutatuta'
