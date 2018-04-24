@@ -73,7 +73,7 @@ module Decidim
                     icon_name: "chat",
                     position: 3.7,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Initiative)
+                    if: allowed_to?(:enter, :space_area, space_name: :initiatives)
         end
       end
     end
