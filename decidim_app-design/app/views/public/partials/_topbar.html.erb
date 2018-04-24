@@ -31,8 +31,7 @@
         <%= icon "menu", aria_label: "Navegación", role: "img" %>
       </button>
     </div>
-    <%# TODO: QUITAR EL SIGNO != %>
-    <% if @activeuser != "logged" %>
+    <% if @activeuser == "logged" %>
       <div class="topbar__dropmenu topbar__user__logged">
         <ul id="topbar__user-notifications" class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
