@@ -1,0 +1,322 @@
+pt:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Descrição
+        offline_votes: Suporte face a face
+        scope_id: Escopo
+        signature_end_time: Fim do período de coleta de assinaturas
+        signature_start_time: Início do período de coleta de assinaturas
+        signature_type: Tipo de assinatura
+        signature_type_values:
+          any: Misturado
+          offline: Cara a cara
+          online: Conectados
+        title: Título
+      initiative_author:
+        address: Endereço
+        city: Cidade
+        id_document: DNI / NIE
+        name: Nome e sobrenome
+        phone_number: Número de telefone
+        post_code: Código postal
+        province: Província
+      initiatives_committee_member:
+        user: membro do Comitê
+      initiatives_type:
+        banner_image: Imagem de banner
+        description: Descrição
+        title: Título
+      organization_data:
+        address: Endereço
+        id_document: CIF
+        name: Nome completo
+  decidim:
+    admin:
+      menu:
+        initiatives: Iniciativas
+        initiatives_types: Tipos de iniciativa
+      models:
+        initiatives:
+          fields:
+            created_at: Criado em
+            state: Estado
+            supports_count: Suporta
+            title: Iniciativas
+        initiatives_type_scope:
+          fields:
+            scope: Escopo
+            supports_required: Suporta requerido
+          name: Escopo do tipo de iniciativa
+        initiatives_types:
+          fields:
+            created_at: Criado em
+            title: Tipos de iniciativa
+          name: Tipo de iniciativa
+      titles:
+        initiatives: Iniciativas
+        initiatives_types: Tipos de iniciativa
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Aprovar
+            confirm_revoke: Você tem certeza?
+            invite_to_committee_help: Compartilhe este link para convidar outros usuários para o comitê de promoção
+            no_members_yet: Não há membros no comitê de promotores
+            revoke: Revogar
+            title: membros do Comitê
+        initiatives:
+          edit:
+            accept: Aceitar iniciativa
+            confirm: Você tem certeza?
+            discard: Descartar a iniciativa
+            export_votes: Suporta Exportação
+            reject: Rejeitar iniciativa
+            send_to_technical_validation: Enviar para validação técnica
+            success: A iniciativa foi enviada para validação técnica
+            update: Atualizar
+          form:
+            title: Informação geral
+          index:
+            actions_title: Açao
+            filter:
+              accepted: Aceitaram
+              all: Todos
+              created: Criada
+              discarded: Descartado
+              published: Publicados
+              rejected: Rejeitado
+              validating: Validação técnica
+            filter_by: Filtrar por
+            preview: Visualizar
+            print: Impressão
+            search: Busca
+          show:
+            print: Impressão
+          update:
+            error: ocorreu um erro
+            success: A iniciativa do cidadão foi atualizada com sucesso
+        initiatives_type_scopes:
+          create:
+            error: ocorreu um erro
+            success: Um novo escopo para o tipo de iniciativa determinado foi criado
+          destroy:
+            success: O escopo foi removido com sucesso
+          edit:
+            back: Costas
+            confirm_destroy: Você tem certeza?
+            destroy: Destruir
+            title: Editar o escopo do tipo de iniciativa
+            update: Atualizar
+          new:
+            back: Costas
+            create: Crio
+            title: Criar escopo de tipo de iniciativa
+          update:
+            error: ocorreu um erro
+            success: O escopo foi atualizado com sucesso
+        initiatives_types:
+          create:
+            error: ocorreu um erro
+            success: Um novo tipo de iniciativa foi criado com sucesso
+          destroy:
+            success: O tipo de iniciativa foi removido com sucesso
+          edit:
+            confirm_destroy: Você tem certeza?
+            destroy: Destruir
+            update: Atualizar
+          form:
+            title: Informação geral
+          initiative_type_scopes:
+            title: Escopos para o tipo de iniciativa
+          new:
+            create: Crio
+            title: Novo tipo de iniciativa
+          update:
+            error: ocorreu um erro
+            success: A iniciativa dada foi atualizada com sucesso
+      admin_log:
+        initiative:
+          publish: "%{user_name} publicou a iniciativa %{resource_name}"
+          send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} para validação técnica"
+          unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
+          update: "%{user_name} atualizou a iniciativa %{resource_name}"
+      admin_states:
+        accepted: Aceitaram
+        created: Criada
+        discarded: Descartado
+        published: Publicados
+        rejected: Rejeitado
+        validating: Validação técnica
+      committee_requests:
+        new:
+          continue: Continuar
+          help_text: Você está prestes a solicitar ser membro do comitê de promotores desta iniciativa
+        spawn:
+          success: Sua solicitação foi enviada ao autor da iniciativa.
+      create_initiative:
+        fill_data:
+          back: Costas
+          continue: Continuar
+          fill_data_help: "<ul> <li>Revise o conteúdo da sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Distrito da cidade?</li> </ul>"
+          initiative_type: Tipo de iniciativa
+          more_information: "(Mais Informações)"
+          select_scope: Selecione um escopo
+        finish:
+          back: Costas
+          back_to_initiatives: De volta às iniciativas
+          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
+          go_to_my_initiatives: Vá para minhas iniciativas
+          more_information: "(Mais Informações)"
+        finish_help:
+          access_reminder: Lembre-se de que você sempre poderá acessar suas iniciativas através do menu do usuário.
+          help_for_organizations: Se você é uma associação, você terá que enviar as atas do conselho de administração de todas as organizações que conformam a Comissão Promotora.
+          help_in_person_signatures: Se você optou por coletar as assinaturas pessoalmente ou combinadas com on-line, será necessário fazer o upload das informações necessárias.
+          help_text: Lembre-se de que, para processar adequadamente a iniciativa, você deve acessar o painel de administração, onde encontrará o menu do usuário, carregar as informações necessárias e enviá-las para o procedimento.
+          initiatives_page_link: Você pode procurar todas essas informações no %{link} dedicado a informar sobre iniciativas.
+          page: página
+        previous_form:
+          back: Costas
+          continue: Continuar
+          help: Em que consiste a iniciativa? Anote o título e a descrição. Recomendamos um título curto e conciso e uma descrição focada na solução proposta.
+          more_information: "(Mais Informações)"
+        promotal_committee:
+          back: Costas
+          individual_help_text: Iniciativas cidadãs requerem uma Comissão Promotora composta por pelo menos três pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
+          more_information: "(Mais Informações)"
+        select_initiative_type:
+          back: Costas
+          more_information: "(Mais Informações)"
+          select: Escolher
+          select_initiative_type_help: As iniciativas cidadãs são um meio pelo qual a cidadania pode intervir para que a Câmara Municipal possa empreender ações em defesa do interesse geral que se encontram dentro dos campos de jurisdição municipal. Qual iniciativa você quer lançar?
+        share_committee_link:
+          continue: Continuar
+          invite_to_committee_help: Link para convidar pessoas que farão parte do comitê promocional
+        show_similar_initiatives:
+          back: Costas
+          compare_help: Se alguma das seguintes iniciativas for semelhante à sua, incentivamos você a apoiá-la. Sua proposta terá mais possibilidades de ser feita.
+          continue: Minha iniciativa é diferente
+          more_information: "(Mais Informações)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, que você está seguindo, criou uma nova iniciativa, confira e contribua:"
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Nova iniciativa de %{author_nickname}
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, que você está seguindo, endossou a seguinte iniciativa, talvez você queira contribuir para a conversa:"
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Iniciativa endossada por %{author_nickname}
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Iniciativas
+      initiative_votes:
+        create:
+          error: Houve erros ao votar a iniciativa.
+      initiatives:
+        author:
+          deleted: Excluído
+        count:
+          title:
+            one: "%{count} iniciativa"
+            other: "%{count} iniciativas"
+        filters:
+          any: Qualquer
+          author: Autor
+          closed: Fechadas
+          myself: Minhas iniciativas
+          open: Aberto
+          search: Pesquisa
+          state: Estado
+          type: Tipo
+          type_prompt: Selecione um tipo
+        filters_small_view:
+          close_modal: Janela fechada
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        index_header:
+          new_initiative: Nova iniciativa
+        orders:
+          label: 'Ordenar iniciativas por:'
+          most_commented: Mais comentado
+          most_voted: Mais votado
+          random: Aleatória
+          recent: Mais recente
+        result:
+          initiative_accepted_reason: Esta iniciativa foi aceita porque
+          initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
+        show:
+          any_vote_method: Essa iniciativa cidadã coleta suporte on-line e também presencial.
+          offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
+        signature_identities:
+          select_identity: Selecione a identidade do usuário
+        statistics:
+          assistants_count_title: Assistentes
+          comments_count_title: Comentários
+          meetings_count_title: Reuniões
+          supports_count_title: Adesões
+        supports:
+          title: Listagem de aderências
+        supports_count:
+          count:
+            one: " Apoio, suporte"
+            other: " suporta"
+        vote_cabin:
+          already_voted: Já votei
+          supports_required: "São necessários %{total_supports} votos"
+          vote: Placa
+          votes_blocked: Votação desativada
+        votes_count:
+          count:
+            one: ASSINATURA
+            other: ASSINATURAS
+      initiatives_mailer:
+        creation_subject: Sua iniciativa cidadã '%{title}' foi criada
+        initiative_link:
+          check_initiative_details: Você pode ver os detalhes da iniciativa
+          here: Aqui
+        more_information: Aqui você tem mais informações sobre o processo de criação da iniciativa.
+        progress_report_body_for: A iniciativa %{title} atingiu os %{percentage}% de suporte necessários.
+        progress_report_for: 'Retomar sobre a iniciativa: %{title}'
+        promotal_committee_help: Lembre-se de que você deve convidar pelo menos %{member_count} pessoas para o comitê promocional. Encaminhe o seguinte link para convidar pessoas para o comitê promo-
+        status_change_body_for: 'A iniciativa %{title} mudou seu estado para: %{state}'
+        status_change_for: A iniciativa %{title} mudou seu estado
+        technical_validation_body_for: A iniciativa %{title} solicitou sua validação técnica.
+        technical_validation_for: A iniciativa %{title} solicitou sua validação técnica.
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Iniciativas ativas
+            see_all_initiatives: Veja todas as iniciativas
+      states:
+        accepted: Aceitaram
+        expired: Expirado
+    menu:
+      initiatives: Iniciativas
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Anexos
+          committee_members: membros do Comitê
+          components: Componentes
+          information: Em formação
+      initiative_creation_header:
+        fill_data: Crio
+        finish: Terminar
+        previous_form: Começar
+        promotal_committee: Comitê Promocional
+        select_initiative_type: Escolher
+        show_similar_initiatives: Comparar
+      initiative_header:
+        initiative_menu_item: Iniciativa
+        unfold: Desdobrar
+      initiatives:
+        initiative:
+          check: Confira
+          check_and_support: Confira e assine
+        no_initiatives_yet:
+          no_initiatives_yet: Nenhuma iniciativa ainda!
