@@ -165,10 +165,10 @@ nl:
       assembly_types:
         commission: Comissie
         consultative_advisory: Consultative / Advisory
-        executive: uitvoerend
+        executive: Uitvoerend
         government: Regering
         others: Overige
-        participatory: deelnemend
+        participatory: deelnemende
         working_group: Werkgroep
       created_by:
         city_council: Gemeenteraad
