@@ -58,7 +58,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :proposals_count }
 
       it "only counts published (except withdrawn) and not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 3
+        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 4
         expect(subject).to eq 1
       end
     end
