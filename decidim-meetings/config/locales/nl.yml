@@ -47,12 +47,12 @@ nl:
       meetings:
         meeting_closed:
           email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het event "%{resource_title}" is afgelopen
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
-          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
           email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
           notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
@@ -62,17 +62,17 @@ nl:
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette plaatsen zijn over %{percentage}%.
         meeting_updated:
           email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
-          email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
+          email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
           email_subject: Het event "%{resource_title}" is bijgewerkt
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de link.
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
         upcoming_meeting:
           email_intro: Het "%{resource_title}"event start in minder dan 48 uur.
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de vorige link.
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
     meetings:
