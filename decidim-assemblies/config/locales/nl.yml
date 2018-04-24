@@ -142,7 +142,7 @@ nl:
         assemblies: Events
     admin_log:
       assembly:
-        create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
+        create: "%{user_name} heeft de vergadering %{resource_name} gemaakt"
         publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
         update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
@@ -154,7 +154,7 @@ nl:
       admin:
         assemblies:
           form:
-            select_a_created_by: Selecteer een gemaakt door
+            select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
