@@ -21,6 +21,12 @@ module Decidim
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
 
+      # Public: The css class applied based on the meeting type to
+      #         the css class.
+      #
+      # type - The String type of the meeting.
+      #
+      # Returns a String.
       def meeting_type_badge_css_class(type)
         case type
         when "private"

@@ -48,8 +48,8 @@ module Decidim::Meetings
     let(:category_id) { category.id }
     let(:organizer) { create :user, organization: organization }
     let(:organizer_id) { organizer.id }
-    let(:is_private) { false }
-    let(:is_transparent) { true }
+    let(:private) { false }
+    let(:transparent) { true }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -62,8 +62,8 @@ module Decidim::Meetings
         address: address,
         start_time: start_time,
         end_time: end_time,
-        is_private: is_private,
-        is_transparent: is_transparent,
+        private: private,
+        transparent: transparent,
         organizer_id: organizer_id,
         services: services
       }

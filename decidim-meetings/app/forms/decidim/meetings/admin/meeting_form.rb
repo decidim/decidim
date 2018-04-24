@@ -20,8 +20,8 @@ module Decidim
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
-        attribute :is_private, Boolean
-        attribute :is_transparent, Boolean
+        attribute :private, Boolean
+        attribute :transparent, Boolean
         attribute :organizer_id, Integer
 
         validates :title, translatable_presence: true

@@ -15,14 +15,14 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
-        is_private: Is private
-        is_transparent: Is transparent
         location: Location
         location_hints: Location hints
+        private: Private
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
+        transparent: Transparent
   decidim:
     admin:
       meeting_copies:
@@ -168,6 +168,9 @@ en:
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          value_types:
+            organizer_presenter:
+              not_found: 'The organizer was not found on the database (ID: %{id})'
       mailer:
         invite_join_meeting_mailer:
           invite:

@@ -60,7 +60,7 @@ module Decidim
         def organizers
           respond_to do |format|
             format.json do
-              query = current_organization.users&.order(name: :asc)
+              query = current_organization.users.order(name: :asc)
               term = params[:term]
               if term&.start_with?("@")
                 term.delete!("@")
@@ -68,7 +68,7 @@ module Decidim
               else
                 query = query.where("name ILIKE ?", "%#{params[:term]}%")
               end
-              render json: query.all.collect { |p| [p.id, p.name, p.nickname] }
+              render json: query.pluck(:id, :name, :nickname)
             end
           end
         end

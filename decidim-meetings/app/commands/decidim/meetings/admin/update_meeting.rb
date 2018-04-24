@@ -50,8 +50,8 @@ module Decidim
             longitude: form.longitude,
             location: form.location,
             location_hints: form.location_hints,
-            is_private: form.is_private,
-            is_transparent: form.is_transparent,
+            private: form.private,
+            transparent: form.transparent,
             organizer: form.organizer
           )
         end

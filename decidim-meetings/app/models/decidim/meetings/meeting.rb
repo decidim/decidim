@@ -33,8 +33,8 @@ module Decidim
       scope :visible_meeting_for, lambda { |user|
                                     joins("LEFT JOIN decidim_meetings_registrations ON
                                     decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-                                      .where("(is_private = ? and decidim_meetings_registrations.decidim_user_id = ?)
-                                    or is_private = ? or (is_private = ? and is_transparent = ?)", true, user, false, true, true).distinct
+                                      .where("(private = ? and decidim_meetings_registrations.decidim_user_id = ?)
+                                    or private = ? or (private = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
 
       def self.log_presenter_class_for(_log)
@@ -86,13 +86,13 @@ module Decidim
       def can_participate?(user)
         return true unless participatory_space.try(:private_space?)
         return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
-        return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
+        return false if participatory_space.try(:private_space?) && participatory_space.try(:transparent?)
       end
 
       def can_participate_meeting?(current_user)
-        return true unless is_private?
-        return true if is_private? && registrations.exists?(decidim_user_id: current_user.try(:id))
-        return false if is_private? && is_transparent?
+        return true unless private?
+        return true if private? && registrations.exists?(decidim_user_id: current_user.try(:id))
+        return false if private? && transparent?
       end
 
       def organizer_belongs_to_organization
@@ -102,6 +102,11 @@ module Decidim
 
       def official?
         organizer.nil?
+      end
+
+      def current_user_can_visit_meeting?(current_user)
+        (private? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
+          !private? || (private? && transparent?)
       end
     end
   end

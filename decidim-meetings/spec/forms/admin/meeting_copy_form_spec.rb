@@ -41,8 +41,8 @@ module Decidim::Meetings
     let(:end_time) { 2.days.from_now + 4.hours }
     let(:organizer) { create :user, organization: organization }
     let(:organizer_id) { organizer.id }
-    let(:is_private) { false }
-    let(:is_transparent) { true }
+    let(:private) { false }
+    let(:transparent) { true }
     let(:attributes) do
       {
         title_en: title[:en],
@@ -52,8 +52,8 @@ module Decidim::Meetings
         address: address,
         start_time: start_time,
         end_time: end_time,
-        is_private: is_private,
-        is_transparent: is_transparent,
+        private: private,
+        transparent: transparent,
         organizer_id: organizer_id,
         services: services
       }

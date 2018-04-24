@@ -18,8 +18,8 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:organizer) { create :user, organization: organization }
-    let(:is_private) { false }
-    let(:is_transparent) { true }
+    let(:private) { false }
+    let(:transparent) { true }
     let(:transparent_type) { "transparent" }
     let(:services) do
       [
@@ -51,8 +51,8 @@ module Decidim::Meetings
         scope: scope,
         category: category,
         organizer: organizer,
-        is_private: is_private,
-        is_transparent: is_transparent,
+        private: private,
+        transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: current_user,
         current_component: current_component

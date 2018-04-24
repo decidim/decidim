@@ -79,19 +79,19 @@
   const $form = $(".edit_meeting, .new_meeting, .copy_meetings");
 
   if ($form.length > 0) {
-    const $isPrivate = $form.find("#is_private");
-    const $isTransparent = $form.find("#is_transparent");
+    const $private = $form.find("#private");
+    const $transparent = $form.find("#transparent");
 
     const toggleDisabledHiddenFields = () => {
-      const enabledPrivateSpace = $isPrivate.find("input[type='checkbox']").prop("checked");
-      $isTransparent.find("input[type='checkbox']").attr("disabled", "disabled");
+      const enabledPrivateSpace = $private.find("input[type='checkbox']").prop("checked");
+      $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
 
       if (enabledPrivateSpace) {
-        $isTransparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+        $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
       }
     };
 
-    $isPrivate.on("change", toggleDisabledHiddenFields);
+    $private.on("change", toggleDisabledHiddenFields);
     toggleDisabledHiddenFields();
 
     let xhr = null;
