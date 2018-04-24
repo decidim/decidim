@@ -278,10 +278,10 @@ es:
         initiative_link:
           check_initiative_details: Puedes ver los detalles de la iniciativa
           here: aquí
-        more_information: Aquí tiene más información sobre el proceso de creación de la iniciativa.
-        progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los soportes necesarios.
-        progress_report_for: 'Curriculum sobre la iniciativa: %{title}'
-        promotal_committee_help: Recuerde que debe invitar al menos a %{member_count} personas al comité promonal. Reenviar el siguiente enlace para invitar a las personas al comité de promoción
+        more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
+        progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
+        progress_report_for: 'Currículum sobre la iniciativa: %{title}'
+        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la comisión promotora. Reenviar el siguiente enlace para invitar a las personas a la comisión promotora.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
@@ -293,7 +293,7 @@ es:
             see_all_initiatives: Ver todas las iniciativas
       states:
         accepted: Aceptado
-        expired: Muerto
+        expired: Caducado
     menu:
       initiatives: Iniciativas
   layouts:
@@ -301,14 +301,14 @@ es:
       admin:
         initiative:
           attachments: Archivos adjuntos
-          committee_members: Miembros del comité
+          committee_members: Miembros del comisión
           components: Componentes
           information: Información
       initiative_creation_header:
         fill_data: Crear
         finish: Terminar
-        previous_form: comienzo
-        promotal_committee: Comité Promotal
+        previous_form: Iniciar
+        promotal_committee: Comisión promotora
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
       initiative_header:
@@ -316,7 +316,7 @@ es:
         unfold: Desplegar
       initiatives:
         initiative:
-          check: Echale un vistazo
+          check: Échale un vistazo
           check_and_support: Compruébalo y firma
         no_initiatives_yet:
           no_initiatives_yet: '¡No hay iniciativas todavía!'
