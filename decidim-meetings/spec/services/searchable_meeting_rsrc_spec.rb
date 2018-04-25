@@ -89,6 +89,8 @@ module Decidim
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
+      expect(attrs["datetime"].to_s).to eq(meeting.start_time.to_s)
+      attrs.delete("datetime")
       expect(attrs).to eq(expected_searchable_rsrc_attrs(meeting, locale))
     end
 
@@ -99,7 +101,6 @@ module Decidim
         "content_c" => '',
         "content_d" => [meeting.description[locale], meeting.address].join(" "),
         "locale" => locale,
-        "datetime" => meeting.start_time,
 
         "decidim_organization_id" => meeting.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

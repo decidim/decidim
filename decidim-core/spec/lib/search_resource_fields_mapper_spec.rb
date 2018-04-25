@@ -9,13 +9,14 @@ module Decidim
     let(:component) { create(:component, manifest_name: "dummy") }
     let(:scope) { create(:scope, organization: component.organization) }
     let(:resource) do
-      dbl = Struct.new(:title, :description, :address, :scope, :component).new
+      dbl = Struct.new(:title, :description, :address, :scope, :component, :datetime).new
       allow(dbl.class).to receive_messages(has_many: 1, after_create: 1, after_update: 1)
       dbl.scope = scope
       dbl.component = component
       dbl.title = "The resource title"
       dbl.description = "The resource description."
       dbl.address = "The resource address."
+      dbl.datetime= DateTime.current
       dbl
     end
 
@@ -28,7 +29,8 @@ module Decidim
               scope_id: { scope: :id },
               participatory_space: { component: :participatory_space },
               A: [:title],
-              D: [:description, :address]
+              D: [:description, :address],
+              datetime: :datetime
             )
           end
 
@@ -40,6 +42,7 @@ module Decidim
               decidim_participatory_space_id: resource.component.participatory_space_id,
               decidim_participatory_space_type: resource.component.participatory_space_type,
               decidim_organization_id: resource.component.organization.id,
+              datetime: resource.datetime,
               i18n: {}
             }
             i18n = expected_fields[:i18n]
@@ -58,7 +61,8 @@ module Decidim
               scope_id: { scope: :id },
               participatory_space: { component: :participatory_space },
               A: [:title],
-              D: [:description, :address]
+              D: [:description, :address],
+              datetime: :datetime
             )
           end
 
@@ -69,6 +73,7 @@ module Decidim
               decidim_participatory_space_id: resource.component.participatory_space_id,
               decidim_participatory_space_type: resource.component.participatory_space_type,
               decidim_organization_id: resource.component.organization.id,
+              datetime: resource.datetime,
               i18n: {}
             }
             i18n = expected_fields[:i18n]
