@@ -7,8 +7,6 @@ module Decidim
       include Decidim::Proposals::Engine.routes.url_helpers
       include Decidim::LayoutHelper
       include Decidim::ApplicationHelper
-      include ActionController::Helpers
-      include Decidim::ActionAuthorizationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceReferenceHelper
       include Decidim::TranslatableAttributes
