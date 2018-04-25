@@ -91,7 +91,7 @@ fr:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
           new:
-            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
+            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
             new_invite: Inviter un utilisateur
         meeting_closes:

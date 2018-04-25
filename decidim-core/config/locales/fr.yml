@@ -253,14 +253,14 @@ fr:
       remove_this_file: Supprimer ce fichier
     log:
       base_presenter:
-        create: "%{user_name} créé %{resource_name}"
-        create_with_space: "%{user_name} créé %{resource_name} dans %{space_name}"
+        create: "%{user_name} a créé %{resource_name}"
+        create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} supprimé %{resource_name}"
-        delete_with_space: "%{user_name} supprimé %{resource_name} dans %{space_name}"
-        unknown_action: "%{user_name} effectué une action sur %{resource_name}"
-        unknown_action_with_space: "%{user_name} effectué une action sur %{resource_name} dans %{space_name}"
-        update: "%{user_name} mis à jour %{resource_name}"
-        update_with_space: "%{user_name} mis à jour %{resource_name} dans %{space_name}"
+        delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour %{resource_name}"
+        update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
           not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
@@ -517,7 +517,7 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Liste des recommandations
+        endorsements_count: Recommandations
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Soutiens

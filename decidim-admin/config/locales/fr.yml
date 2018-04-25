@@ -295,7 +295,7 @@ fr:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zones d'application
+        area_types: Types de zone d'application
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
@@ -321,7 +321,7 @@ fr:
         attachment:
           fields:
             collection: Dossier
-            content_type: Type de contenus
+            content_type: Type de contenu
             file_size: Taille
             title: Titre
           name: Document lié

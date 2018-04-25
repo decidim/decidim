@@ -265,8 +265,8 @@ fr:
         home:
           highlighted_processes:
             active_processes: Concertations actives
-            active_step: Étape active
-            see_all_processes: Voir toutes les concertation
+            active_step: 'Étape actuelle :'
+            see_all_processes: Voir toutes les concertations
       participatory_process_groups:
         none: Aucun
       participatory_processes:
@@ -284,7 +284,7 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
-        endorsements_count: Liste des recommandations
+        endorsements_count: Recommandations
         headline: Activité
         meetings_count: Réunions
         orders_count: Soutiens
@@ -307,7 +307,7 @@ fr:
           take_part: Participer
       participatory_processes:
         index:
-          promoted_processes: Concertation mise en avant
+          promoted_processes: Concertations mises en avant
         order_by_processes:
           processes:
             one: "%{count} concertation"
