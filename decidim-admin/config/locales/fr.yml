@@ -82,7 +82,7 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Initiateurs
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -158,7 +158,7 @@ fr:
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
-          success: Dossier crée avec succès.
+          success: Dossier créé avec succès.
         destroy:
           success: Dossier détruit avec succès.
         edit:
@@ -495,7 +495,7 @@ fr:
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle périmètre d’application.
-          success: Périmètre d'application crée avec succès.
+          success: Périmètre d'application créé avec succès.
         destroy:
           success: Périmètre d'application supprimé avec succès
         edit:
@@ -575,27 +575,28 @@ fr:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
       navbar_links:
-        no_links: Vous n'avez pas créé de lien
-        form:
-          title: Titre
-          link: Lien
-          weight: Rang d'affichage
-          new_tab: Ouvrir sur un nouvel onglet
-          same_tab: Ouvrir dans le même onglet
-        new:
-          title: Nouveau lien de navigation
-          create: Créer
-        edit:
-          title: Modifier le lien
-          update: Modifier
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau lien.
           success: Lien créé avec succès.
+        destroy:
+          success: Lien supprimé avec succès
+        edit:
+          title: Modifier le lien
+          update: Modifier
+        form:
+          link: Lien
+          new_tab: Ouvrir sur un nouvel onglet
+          same_tab: Ouvrir dans le même onglet
+          title: Titre
+          weight: Rang d'affichage
+        new:
+          create: Créer
+          title: Nouveau lien de navigation
+        no_links: Vous n'avez pas créé de lien
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien.
           success: Lien mis à jour avec succès
-        destroy:
-          success: Lien supprimé avec succès
+
     moderations:
       actions:
         hidden: Masqués
