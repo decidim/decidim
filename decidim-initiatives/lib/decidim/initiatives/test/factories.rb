@@ -68,6 +68,14 @@ FactoryBot.define do
       state "rejected"
     end
 
+    trait :online do
+      signature_type "online"
+    end
+
+    trait :offline do
+      signature_type "offline"
+    end
+
     trait :acceptable do
       signature_start_time { Time.now.utc - 3.months }
       signature_end_time { Time.now.utc - 2.months }
@@ -107,6 +115,10 @@ FactoryBot.define do
     initiative { create(:initiative) }
     user { create(:user, :confirmed, organization: initiative.organization) }
     state "accepted"
+
+    trait :accepted do
+      state "accepted"
+    end
 
     trait :requested do
       state "requested"
