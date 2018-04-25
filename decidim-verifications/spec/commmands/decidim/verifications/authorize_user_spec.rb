@@ -9,7 +9,7 @@ module Decidim::Verifications
     let(:user) { create(:user) }
     let(:document_number) { "12345678X" }
     let(:handler) do
-      Decidim::DummyAuthorizationHandler.new(
+      DummyAuthorizationHandler.new(
         document_number: document_number,
         user: user
       )
