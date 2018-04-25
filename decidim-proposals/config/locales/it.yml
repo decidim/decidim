@@ -292,7 +292,7 @@ it:
             other: voti
         new:
           attachment_legend: "(Opzionale) Aggiungere un allegato"
-          select_a_category: Scegli una categoria
+          select_a_category: Seleziona una categoria
           send: Continua
           title: Crea la tua proposta
         orders:
