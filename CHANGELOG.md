@@ -8,6 +8,9 @@ This version has breaking changes, `Decidim::Feature` has been renamed to `Decid
 and also everything related to it (controllers, views, etc.). If you have customised some
 controller or added a new module you need to rename `feature` to `component`.
 
+With the addition of the new step "Complete" to the proposal creation wizard,
+administrators should keep in mind updating the help texts for each step.
+
 **Added**:
 
 - **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
@@ -56,6 +59,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
 - **decidim-meetings**: Add a meetings API. [\#3255](https://github.com/decidim/decidim/pull/3255)
+- **decidim-proposals**: Add "complete" step to the proposal creation wizard [\#3274](https://github.com/decidim/decidim/pull/3274)
 
 **Changed**:
 
