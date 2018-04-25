@@ -5,7 +5,6 @@ module Decidim
   # delegated to the components' cell if specified in the manifest
   # otherwise a primary cell wil be shown.
   class CardCell < Decidim::ViewModel
-    # include Devise::Controllers::Helpers
 
     def show
       if resource_cell?
@@ -22,7 +21,7 @@ module Decidim
     end
 
     def resource_cell
-      if model.class.method_defined? :component
+      if model.respond_to? :component
         @resource_cell ||= model.component.manifest.card
       elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
         @resource_cell ||= "decidim/author"
@@ -32,12 +31,12 @@ module Decidim
     end
 
     def title
-      return if model.class.method_defined? :title
+      return if model.respond_to? :title
       model.name
     end
 
     def body
-      return if model.class.method_defined? :body
+      return if model.respond_to? :body
       model.about
     end
   end
