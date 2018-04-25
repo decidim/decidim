@@ -121,7 +121,7 @@ shared_examples "manage meetings" do
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-    scope_pick scopes_picker_find(:meeting_decidim_scope_id), scope
+    scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -287,7 +287,7 @@ shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-      scope_pick scopes_picker_find(:meeting_decidim_scope_id), scope
+      scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do
