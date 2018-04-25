@@ -16,7 +16,7 @@ module Decidim
       dbl.title = "The resource title"
       dbl.description = "The resource description."
       dbl.address = "The resource address."
-      dbl.datetime= DateTime.current
+      dbl.datetime = DateTime.current
       dbl
     end
 
