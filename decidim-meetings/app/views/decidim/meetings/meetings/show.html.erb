@@ -81,7 +81,6 @@
     <div class="section">
       <p><%= decidim_sanitize translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
-      <% #= cell "decidim/tags", meeting, context: {extra_classes: ["tags--meeting"]} %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
     <% if meeting.closed? %>

@@ -3,7 +3,7 @@
 module Decidim
   # This cell renders the category of a resource
   # shown with the translated name and links to
-  # the resource parent `feature` and `parcticipatory space` index.
+  # the resource parent `component` and `participatory space` index.
   # The context `resource` must be present
   # example use inside another `cell`:
   #   <%= cell("decidim/category", model.category, context: {resource: model}) %>
