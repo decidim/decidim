@@ -9,7 +9,7 @@ ca:
         about: Quant a
         email: El teu email
         name: El teu nom
-        nickname: El vostre identificador curt i únic
+        nickname: El teu identificador curt i únic
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
@@ -74,9 +74,9 @@ ca:
         deliver: "%{user_name} ha enviat el butlletí %{resource_name}"
         update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
       oauth_application:
-        create: "%{user_name} ha creat la %{resource_name} aplicació OAuth"
-        delete: "%{user_name} ha eliminat la %{resource_name} aplicació OAuth"
-        update: "%{user_name} ha actualitzat la %{resource_name} aplicació OAuth"
+        create: "%{user_name} ha creat l'aplicació d'OAuth %{resource_name}"
+        delete: "%{user_name} ha eliminat la aplicació d'OAuth %{resource_name}"
+        update: "%{user_name} ha actualitzat la aplicació d'OAuth %{resource_name}"
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       scope:
@@ -184,16 +184,16 @@ ca:
         new:
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
-          cancel: Cancel · lar
-          connect_your_account_html: Connecteu el vostre compte iniciant la sessió a <strong>%{organization}</strong>
-          publish_content: Publiqueu contingut per a vosaltres
-          see_email: Consulteu el vostre correu electrònic
-          see_name: Mira el teu nom
-          see_username: Consulta el teu nom d'usuari
+          cancel: Cancel·lar
+          connect_your_account_html: Connecta el teu compte iniciant la sessió a <strong>%{organization}</strong>
+          publish_content: Publica el contingut per a vosaltres
+          see_email: Consultar el teu correu electrònic
+          see_name: Veure el teu nom
+          see_username: Consultar el teu nom d'usuari
           this_application_will_be_able_to: 'Aquesta aplicació podrà:'
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
-          update_profile: Actualitzeu el vostre perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el vostre compte"
+          update_profile: Actualitza el teu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -425,7 +425,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
-        nickname_help: El vostre identificador únic a %{organization}.
+        nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
     mailer:
       invitation_instructions:
@@ -439,13 +439,13 @@ ca:
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
-        someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}, pots acceptar-ho a través del següent enllaç.
+        someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}. Pots acceptar-ho a través del següent enllaç.
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: Has estat convidat a un procés participatiu privat en %{organization}
+        subject: Has estat convidat a un procés participatiu privat a %{organization}
       organization_admin_invitation_instructions:
         subject: Has estat convidat a gestionar %{organization}
       password_change:
@@ -454,7 +454,7 @@ ca:
         subject: Contrasenya modificada
   doorkeeper:
     scopes:
-      public: La vostra informació pública.
+      public: La teva informació pública.
   errors:
     messages:
       content_type_whitelist_error: El tipus de fitxer no és vàlid

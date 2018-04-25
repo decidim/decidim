@@ -264,10 +264,6 @@ gl:
           endorse: Endosar
         endorsements_card_row:
           endorse: Endosar
-        endorsements_listing:
-          see_all: Ver todo
-          see_less: Vexa menos
-          title: Lista de avales
         filters:
           accepted: Aceptada
           activity: Actividade
@@ -288,6 +284,10 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        identities_listing:
+          see_all: Ver todo
+          see_less: Vexa menos
+          title: Lista de avales
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas

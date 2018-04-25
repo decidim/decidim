@@ -274,35 +274,43 @@ fi:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
-      logs:
-        logs_list:
-          no_logs_yet: Ei vielä lokeja
-      managed_users:
+      impersonatable_users:
+        index:
+          filter:
+            all: Kaikki
+            managed: Ylläpito
+            not_managed: Ei onnistunut
+          filter_by: Suodata
+          impersonate: Esiinny käyttäjänä
+          impersonate_new_managed_user: Käyttäkää uutta hallinnoitavaa käyttäjää
+          managed: Ylläpito
+          name: Nimi
+          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          not_managed: Ei onnistunut
+          promote: Edistää
+          search: Hae
+          status: Status
+          view_logs: Näytä lokitiedot
+      impersonations:
         close_session:
           error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.
           success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
         create:
-          error: Hallitun käyttäjän luonnissa tapahtui virhe.
+          error: Käyttäjä on esiintynyt virheessä.
           success: Hallittu käyttäjä on luotu onnistuneesti.
         form:
+          authorization_method: Lupamenettely
           name: Nimi
-        impersonate:
-          error: Hallittuna käyttäjänä esiintymisessä tapahtui virhe.
-        impersonations:
-          new:
-            impersonate: Esiinny käyttäjänä
-            new_managed_user_impersonation: Uusi hallittuna käyttäjänä esiintyminen
-        index:
-          impersonate: Esiinny käyttäjänä
-          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
-          promote: Korota oikeudet
-          view_logs: Näytä lokitiedot
+          reason: Syy
         new:
-          create: Luo
-          new_managed_user: Uusi hallittu käyttäjä
-          no_authorization_handlers: Käyttäjien hallintaan ei ole käytettävissä valtuutusten käsittelijöitä. Ota yhteyttä järjestelmänvalvojaan.
-          select_authorization_method: Valitse tunnistautumistapa
-          step: Vaihe %{current} / %{total}
+          impersonate: Esiinny käyttäjänä
+          impersonate_existing_managed_user: Käyttäkää hallinnoitettu käyttäjä "%{name}"
+          impersonate_existing_user: Käyttäjäkäyttäjä "%{name}"
+          impersonate_new_managed_user: Käyttäkää uutta hallinnoitavaa käyttäjää
+      logs:
+        logs_list:
+          no_logs_yet: Ei vielä lokeja
+      managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
           success: Hallitun käyttäjän taso on onnistuneesti korotettu.
@@ -319,7 +327,7 @@ fi:
         areas: alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
-        managed_users: Hallinnoitavat käyttäjät
+        impersonations: huumorinsa
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
@@ -354,10 +362,9 @@ fi:
             admin: Ylläpitäjä
             ended_at: Päättynyt
             expired_at: Vanhentunut
+            reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
-        managed_user:
-          name: Hallittu käyttäjä
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -578,8 +585,8 @@ fi:
         areas: alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
+        impersonatable_users: Epäilyttävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
-        managed_users: Hallinnoitavat käyttäjät
         officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
@@ -620,6 +627,10 @@ fi:
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sinun on annettava syy epäonnistuneelle käyttäjälle
     moderations:
       actions:
         hidden: Piilotettu

@@ -3,16 +3,32 @@ it:
     attributes:
       assembly:
         area_id: La zona
+        assembly_type: Tipo di assieme
+        assembly_type_other: Tipo di assemblaggio altro
         banner_image: Immagine del banner
+        closing_date: Data di chiusura
+        closing_date_reason: Motivo della data di chiusura
+        composition: Composizione
         copy_categories: Copia le categorie
         copy_components: Copia componenti
+        copy_features: Copia le caratteristiche
+        created_by: Creato da
+        created_by_other: Creato da altri
+        creation_date: Data di creazione
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
         developer_group: Gruppo sviluppatori
         domain: Dominio
+        duration: Durata
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Immagine della Home
+        included_at: Incluso a
+        instagram: Instagram
+        internal_organisation: Organizzazione interna
+        is_transparent: È trasparente
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_processes_ids: Processi partecipativi correlati
@@ -20,6 +36,7 @@ it:
         participatory_structure: Struttura partecipativa
         promoted: Promosso
         published_at: Pubblicato a
+        purpose_of_action: Scopo dell'azione
         scope_id: Scopi
         scopes_enabled: Scopi abilitati
         short_description: Breve descrizione
@@ -28,6 +45,8 @@ it:
         subtitle: Sottotitolo
         target: Target
         title: Titolo
+        twitter: cinguettio
+        youtube: Youtube
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -135,11 +154,26 @@ it:
       admin:
         assemblies:
           form:
+            select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
+            select_an_assembly_type: Seleziona un tipo di assieme
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+            social_handlers: Sociale
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+      assembly_types:
+        commission: comission
+        consultative_advisory: Consultivo / Advisory
+        executive: Esecutivo
+        government: Governo
+        others: Altri
+        participatory: Participatory
+        working_group: Gruppo di lavoro
+      created_by:
+        city_council: Consiglio comunale
+        others: Altri
+        public: Pubblico
       index:
         title: assemblee
       pages:
@@ -149,14 +183,30 @@ it:
             see_all_assemblies: Vedere tutti gli assiemi
       show:
         area: La zona
+        assembly_type: Tipo di assieme
         children: assemblee
+        closing_date: Data di chiusura
+        composition: Composizione
+        created_by: Creato da
+        creation_date: Data di creazione
         developer_group: Gruppo promotore
+        duration: Durata
+        included_at: Incluso a
+        indefinite_duration: Indefinito
+        internal_organisation: Organizzazione interna
+        is_transparent:
+          'false': opaco
+          'true': trasparente
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
         private_space: Questo è un assemblaggio privato
+        purpose_of_action: Scopo dell'azione
+        read_less: Leggi di meno
+        read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
+        social_networks: Social networks
         target: A chi è destinato il processo?
       statistics:
         answers_count: risposte
@@ -180,6 +230,9 @@ it:
           not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
+  errors:
+    messages:
+      cannot_be_blank: non può essere vuoto
   layouts:
     decidim:
       assemblies:

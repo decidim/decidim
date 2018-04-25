@@ -24,7 +24,7 @@ ca:
           global:
             announcement: Anunci
           step:
-            allow_answers: Permet respostes
+            allow_answers: Permetre respostes
             announcement: Anunci
     events:
       surveys:
@@ -53,8 +53,8 @@ ca:
         surveys:
           answer_option:
             answer_option: Opció de resposta
-            free_text: Text gratuït
-            remove: Elimina
+            free_text: Text lliure
+            remove: Eliminar
             statement: Enunciat
           edit:
             save: Desar
@@ -64,7 +64,7 @@ ca:
             already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
           question:
             add_answer_option: Afegir opció de resposta
-            any: Cap
+            any: Qualsevol
             description: Descripció
             down: Avall
             question: Pregunta
@@ -79,7 +79,7 @@ ca:
         multiple_option: Opció múltiple
         short_answer: Resposta curta
         single_option: Única opció
-        sorting: Classificació
+        sorting: Ordenació
       surveys:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.

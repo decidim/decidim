@@ -264,10 +264,6 @@ sv:
           endorse: Stödja
         endorsements_card_row:
           endorse: Stödja
-        endorsements_listing:
-          see_all: Se alla
-          see_less: Se mindre
-          title: Förteckning över godkännanden
         filters:
           accepted: Accepterad
           activity: Aktivitet
@@ -288,6 +284,10 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        identities_listing:
+          see_all: Se alla
+          see_less: Se mindre
+          title: Förteckning över godkännanden
         index:
           new_proposal: Nytt förslag
           see_all_withdrawn: Se alla återtagna förslag

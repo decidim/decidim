@@ -2,6 +2,7 @@ uk:
   activemodel:
     attributes:
       sortition:
+        additional_info: Жеребкування інформації
         title: Заголовок
   decidim:
     sortitions:
