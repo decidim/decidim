@@ -9,7 +9,17 @@
 <main class="wrapper">
   <%= partial "process_header" %>
   <div class="row columns">
-    <h2 class="section-heading">168 propuestas abiertas</h2>
+    <div class="title-action">
+      <h2 class="title-action__title section-heading"><%= Faker::Number.between(0, 300) %> propuestas abiertas</h2>
+      <%= link_to page_path("proposals/proposals-wizard-step-1"), class: "title-action__action button small hollow" do %>
+        Nueva propuesta
+        <%= icon "plus" %>
+      <% end %>
+      <%= link_to page_path("drafts/draft-view"), class: "title-action__action button small hollow ml-s" do %>
+      <!-- This link actually goes to drafts list -->
+        Ver borradores
+      <% end %>
+    </div>
   </div>
   <div class="row">
     <div class="columns mediumlarge-4 large-3">
