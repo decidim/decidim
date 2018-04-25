@@ -478,7 +478,7 @@ nl:
       extended:
         debates: Debatten
         debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel in een proces?
+        how_to_participate: Hoe neem ik deel aan een thema?
         meetings: Events
         meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
         more_info: Meer informatie
@@ -490,7 +490,7 @@ nl:
         register: Registreren
       hero:
         participate: Deelnemen
-        welcome: Bienvenue sur le portail de la consultation citoyenne %{organization} !
+        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
       statistics:
         answers_count: Voltooide enquêtes
         assemblies_count: Events
