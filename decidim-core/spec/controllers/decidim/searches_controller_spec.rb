@@ -18,8 +18,9 @@ module Decidim
     describe "GET /search" do
       context "when having resources with the term 'Great' in their content" do
         let!(:results) do
-          [create(:searchable_rsrc, organization: organization, content_a: "Great proposal of mine"),
-           create(:searchable_rsrc, organization: organization, content_a: "The great-est place of the world")]
+          now= DateTime.current
+          [create(:searchable_rsrc, organization: organization, content_a: "Great proposal of mine", datetime: now+1.second),
+           create(:searchable_rsrc, organization: organization, content_a: "The great-est place of the world", datetime: now)]
         end
 
         before do
@@ -40,7 +41,7 @@ module Decidim
         allow(Decidim::Search).to receive(:call)
       end
       it "takes the resource_type filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, "resource_type" => resource_type)
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(resource_type: resource_type))
 
         get :index, params: { term: "Blues", "filter[resource_type]" => resource_type }
       end
@@ -54,7 +55,7 @@ module Decidim
         allow(Decidim::Search).to receive(:call)
       end
       it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, "scope_id" => scope_id)
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(scope_id: scope_id))
 
         get :index, params: { term: "Blues", "filter[scope_id]" => scope_id }
       end
