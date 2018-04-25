@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-admin", Decidim.version
   s.add_dependency "decidim-api", Decidim.version
   s.add_dependency "decidim-assemblies", Decidim.version
+  s.add_dependency "decidim-blogs", Decidim.version
   s.add_dependency "decidim-budgets", Decidim.version
   s.add_dependency "decidim-comments", Decidim.version
   s.add_dependency "decidim-core", Decidim.version

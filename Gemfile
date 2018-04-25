@@ -6,6 +6,7 @@ ruby RUBY_VERSION
 
 gem "decidim", path: "."
 gem "decidim-consultations", path: "decidim-consultations"
+gem "decidim-initiatives", path: "decidim-initiatives"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
