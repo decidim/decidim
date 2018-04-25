@@ -292,7 +292,7 @@ ca:
             other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          select_a_category: Si us plau, seleccioni una categoria
+          select_a_category: Si us plau, selecciona una categoria
           send: Continua
           title: Crea la teva proposta
         orders:
