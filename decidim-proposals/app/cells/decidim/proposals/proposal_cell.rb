@@ -21,18 +21,6 @@ module Decidim
         cell card_size, model, @options
       end
 
-      def footer
-        render
-      end
-
-      def header
-        render
-      end
-
-      def badge
-        render
-      end
-
       private
 
       def card_size
@@ -40,7 +28,7 @@ module Decidim
       end
 
       def actionable?
-        true if proposals_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
+        proposals_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
       end
 
       def proposals_controller?
