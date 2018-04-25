@@ -137,6 +137,10 @@ $datetime-bg: $primary;
   }
 }
 
+.card__text--separated-mid-dot{
+  @include inline-separator(' · ');
+}
+
 .card__image{
   width: 100%;
   max-height: 10rem;

@@ -9,6 +9,16 @@
     <a href=""><strong><%= Faker::Internet.url %></strong></a>
   </div>
   <div class="card__footer card__footer--transparent">
+    <div class="card__support">
+      <div><strong>Member of:</strong></div>
+      <div class="card__text--separated-mid-dot js-read-more">
+        <% 5.times do %>
+          <a href="#"><%= Faker::Beer.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card__footer card__footer--transparent">
     <div class="flex--cc p-s text-center">
       <div class="mr-s">
         <%= link_to page_path("user/user-followers") do %>
