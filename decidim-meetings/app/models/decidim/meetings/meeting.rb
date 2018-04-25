@@ -33,7 +33,8 @@ module Decidim
         scope_id: :decidim_scope_id,
         participatory_space: { component: :participatory_space },
         A: :title,
-        D: [:description, :address]
+        D: [:description, :address],
+        datetime: :start_time
       )
 
       def self.log_presenter_class_for(_log)
