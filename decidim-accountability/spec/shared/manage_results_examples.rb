@@ -3,46 +3,35 @@
 shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
-  it "updates a result" do
-    within find("tr", text: translated(result.title)) do
-      click_link "Edit"
-    end
-
-    within ".edit_result" do
-      fill_in_i18n(
-        :result_title,
-        "#result-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
-
-      find("*[type=submit]").click
-    end
-
-    expect(page).to have_admin_callout("successfully")
-
-    within "table" do
-      expect(page).to have_content("My new title")
-    end
-  end
-
-  it "allows the user to preview the result" do
-    within find("tr", text: translated(result.title)) do
-      klass = "action-icon--preview"
-      href = resource_locator(result).path
-      target = "blank"
-
-      expect(page).to have_selector(
-        :xpath,
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-      )
-    end
-  end
-
-  context "when creating results" do
+  context "having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component }
+
+    it "updates a result" do
+      within find("tr", text: translated(result.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_result" do
+        fill_in_i18n(
+          :result_title,
+          "#result-title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+
+        proposal_pick(select_data_picker(:result_proposals, multiple: true), proposals.last)
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content("My new title")
+      end
+    end
 
     it "creates a new result", :slow do
       click_link "New Result", match: :first
@@ -75,6 +64,19 @@ shared_examples "manage results" do
       within "table" do
         expect(page).to have_content("My result")
       end
+    end
+  end
+
+  it "allows the user to preview the result" do
+    within find("tr", text: translated(result.title)) do
+      klass = "action-icon--preview"
+      href = resource_locator(result).path
+      target = "blank"
+
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+      )
     end
   end
 
