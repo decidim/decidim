@@ -52,6 +52,10 @@ FactoryBot.define do
       signature_end_time nil
     end
 
+    trait :published do
+      state "published"
+    end
+
     trait :accepted do
       state "accepted"
     end
