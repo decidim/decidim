@@ -1,0 +1,69 @@
+it:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Sei sicuro di voler eliminare questo post?
+        destroy: Elimina
+        edit: modificare
+        new: Nuovo
+        title: Azioni
+      admin:
+        models:
+          components:
+            body: Corpo
+          post:
+            name: Inviare
+        posts:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo post
+            success: Post creato con successo
+          destroy:
+            success: Posta cancellata con successo
+          edit:
+            save: Aggiornare
+          index:
+            title: Messaggi
+          new:
+            create: Creare
+            title: Crea un post
+          update:
+            invalid: Si sono verificati errori durante il salvataggio del post.
+            success: Post salvato correttamente
+      models:
+        post:
+          fields:
+            author: Autore
+            body: Corpo
+            created_at: Creato a
+            title: titolo
+      posts:
+        author_data:
+          comments: Commenti
+        sidebar_blog:
+          comments: Commenti
+          most_commented_posts: La maggior parte dei post commentati
+      read_more: Leggi di più
+    components:
+      blogs:
+        name: blog
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+    events:
+      blogs:
+        post_created:
+          email_intro: Il post "%{resource_title}" è stato pubblicato in "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuovo post pubblicato su %{participatory_space_title}
+          notification_title: Il post <a href="%{resource_path}">%{resource_title}</a> è stato pubblicato su %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: Messaggi
+  pages:
+    home:
+      statistics:
+        posts_count: Messaggi

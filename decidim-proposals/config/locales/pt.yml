@@ -264,10 +264,6 @@ pt:
           endorse: Endossar
         endorsements_card_row:
           endorse: Endossar
-        endorsements_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de endossos
         filters:
           accepted: Aceitaram
           activity: Atividade
@@ -288,6 +284,10 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        identities_listing:
+          see_all: Veja tudo
+          see_less: Veja menos
+          title: Lista de endossos
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas

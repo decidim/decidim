@@ -3,16 +3,32 @@ es:
     attributes:
       assembly:
         area_id: Área
+        assembly_type: Tipo de montaje
+        assembly_type_other: Tipo de montaje otro
         banner_image: Imagen de banner
+        closing_date: Fecha de cierre
+        closing_date_reason: Razón de la fecha de cierre
+        composition: Composición
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
+        copy_features: Copiar funcionalidades
+        created_by: Creado por
+        created_by_other: Creado por otro
+        creation_date: Fecha de creacion
         decidim_area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
+        duration: Duración
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Imagen de portada
+        included_at: Incluido en
+        instagram: Instagram
+        internal_organisation: Organización interna
+        is_transparent: Es transparente
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
         participatory_processes_ids: Procesos participativos relacionados
@@ -20,6 +36,7 @@ es:
         participatory_structure: Estructura participativa
         promoted: Destacado
         published_at: Publicado
+        purpose_of_action: Propósito de la acción
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -28,10 +45,12 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+        twitter: Twitter
+        youtube: Youtube
       assembly_user_role:
         email: Email
         name: Nombre
-        role: Papel
+        role: Rol de usuario
   decidim:
     admin:
       assemblies:
@@ -104,7 +123,7 @@ es:
         assembly:
           fields:
             created_at: Fecha de creación
-            private: Privado
+            private: Privada
             promoted: Destacado
             published: Publicada
             title: Título
@@ -135,11 +154,26 @@ es:
       admin:
         assemblies:
           form:
+            select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
+            select_an_assembly_type: Selecciona tipo de asamblea
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+      assembly_types:
+        commission: Comisión
+        consultative_advisory: Consultivo / Asesor
+        executive: Ejecutivo
+        government: Gobierno
+        others: Otros
+        participatory: Participativo
+        working_group: Grupo de trabajo
+      created_by:
+        city_council: Ayuntamiento
+        others: Otros
+        public: Público
       index:
         title: Asambleas
       pages:
@@ -149,21 +183,37 @@ es:
             see_all_assemblies: Ver todas las asambleas
       show:
         area: Área
+        assembly_type: Tipo de asambleas
         children: Asambleas
+        closing_date: Fecha de cierre
+        composition: Composición
+        created_by: Creado por
+        creation_date: Fecha de creación
         developer_group: Grupo promotor
+        duration: Duración
+        included_at: Incluido en
+        indefinite_duration: Indefinido
+        internal_organisation: Organización interna
+        is_transparent:
+          'false': opaco
+          'true': transparente
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         private_space: Esta es una asamblea privada
+        purpose_of_action: Propósito de la acción
+        read_less: Leer menos
+        read_more: Lee más
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
+        social_networks: Redes sociales
         target: '¿A quién va dirigida?'
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
         debates_count: Debates
-        endorsements_count: Respaldos
+        endorsements_count: Adhesiones
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos
@@ -177,9 +227,12 @@ es:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'El ensamblado no se encontró en la base de datos (ID: %{id})'
+          not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
+  errors:
+    messages:
+      cannot_be_blank: no puede estar en blanco
   layouts:
     decidim:
       assemblies:

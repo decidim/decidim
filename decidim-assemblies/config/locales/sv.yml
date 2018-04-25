@@ -3,16 +3,32 @@ sv:
     attributes:
       assembly:
         area_id: Område
+        assembly_type: Monteringstyp
+        assembly_type_other: Monteringstyp annat
         banner_image: Bannerbild
+        closing_date: Slutdatum
+        closing_date_reason: Slutdatum årsskäl
+        composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
+        copy_features: Kopiera funktioner
+        created_by: Skapad av
+        created_by_other: Skapat av andra
+        creation_date: Skapat datum
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
+        duration: Varaktighet
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Hembild
+        included_at: Ingår på
+        instagram: Instagram
+        internal_organisation: Intern organisation
+        is_transparent: Är transparent
         local_area: Lokalt område
         meta_scope: Omfattning metadata
         participatory_processes_ids: Relaterade deltagande processer
@@ -20,6 +36,7 @@ sv:
         participatory_structure: Deltagande struktur
         promoted: främjas
         published_at: Publicerad på
+        purpose_of_action: Syftet med åtgärden
         scope_id: Omfattning
         scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
@@ -28,6 +45,8 @@ sv:
         subtitle: Underrubrik
         target: Mål
         title: Titel
+        twitter: Twitter
+        youtube: Youtube
       assembly_user_role:
         email: E-post
         name: Namn
@@ -135,11 +154,26 @@ sv:
       admin:
         assemblies:
           form:
+            select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
+            select_an_assembly_type: Välj en monterings typ
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+      assembly_types:
+        commission: Comission
+        consultative_advisory: Rådgivande / rådgivande
+        executive: Verkställande
+        government: Regering
+        others: Övriga
+        participatory: Deltagande
+        working_group: Arbetsgrupp
+      created_by:
+        city_council: Statsråd
+        others: Övriga
+        public: offentlig
       index:
         title: Assemblies
       pages:
@@ -149,14 +183,30 @@ sv:
             see_all_assemblies: Se alla församlingar
       show:
         area: Område
+        assembly_type: Monteringstyp
         children: Assemblies
+        closing_date: Slutdatum
+        composition: Sammansättning
+        created_by: Skapad av
+        creation_date: Skapat datum
         developer_group: Utvecklargrupp
+        duration: Varaktighet
+        included_at: Ingår på
+        indefinite_duration: Obestämd
+        internal_organisation: Intern organisation
+        is_transparent:
+          'false': ogenomskinlig
+          'true': transparent
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         private_space: Detta är en privat sammansättning
+        purpose_of_action: Syftet med åtgärden
+        read_less: Läs mindre
+        read_more: Läs mer
         related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
+        social_networks: Sociala nätverk
         target: Mål
       statistics:
         answers_count: Svar
@@ -180,6 +230,9 @@ sv:
           not_found: 'Samlingen hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Assemblies
+  errors:
+    messages:
+      cannot_be_blank: kan inte vara tom
   layouts:
     decidim:
       assemblies:

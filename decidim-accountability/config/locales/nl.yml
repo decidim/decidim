@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: staat
+        decidim_accountability_status_id: Status
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         description: Beschrijving
@@ -10,9 +10,9 @@ nl:
         progress: Vooruitgang
         project_ids: Opgenomen projecten
         proposals: Inbegrepen voorstellen
-        start_date: Begin datum
+        start_date: Startdatum
         title: Titel
-        updated_at: Bijgewerkt om
+        updated_at: Bijgewerkt op
       status:
         description: Beschrijving
         key: sleutel
@@ -58,9 +58,9 @@ nl:
             create: Maak resultaat
             title: Nieuw resultaat
           proposals:
-            close: Dichtbij
+            close: Sluit
             current_selection: Huidige selectie
-            select: kiezen
+            select: Selecteer
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
@@ -103,8 +103,8 @@ nl:
             success: Item succesvol bijgewerkt
       admin_log:
         result:
-          create: "%{user_name} gemaakt resultaat %{resource_name} in %{space_name}"
-          delete: "%{user_name} verwijderde het %{resource_name} resultaat in %{space_name}"
+          create: "%{user_name} heeft het resultaat %{resource_name} gemaakt in %{space_name}"
+          delete: "%{user_name} verwijderde het resultaat %{resource_name} in %{space_name}"
           update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
         value_types:
           parent_presenter:
@@ -114,7 +114,7 @@ nl:
           fields:
             end_date: Einddatum
             progress: Vooruitgang
-            start_date: Begin datum
+            start_date: Startdatum
             status: Status
             title: Titel
         status:
@@ -152,7 +152,7 @@ nl:
             contributions: Bijdrage
             last_edited_by: Laatst bewerkt door
             last_updated_at: Laatst bijgewerkt om
-            meetings: Vergaderingen
+            meetings: Events
             number_of_versions: versies
             proposals: Voorstellen
             show_all_versions: Toon alle versies
@@ -173,7 +173,7 @@ nl:
           version_index: Versie %{index}
     components:
       accountability:
-        name: Verantwoording
+        name: Verantwoordelijkheid
         settings:
           global:
             categories_label: Naam voor "Categorieën"
@@ -181,15 +181,15 @@ nl:
             display_progress_enabled: Geef de voortgang weer
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
-            intro: Intro
+            intro: Inleiding
             subcategories_label: Naam voor 'Subcategorieën'
           step:
             comments_blocked: Reacties geblokkeerd
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kan het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
           email_subject: Een update voor %{proposal_title}
           notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het <a href="%{resource_path}">%{resource_title}</a> resultaat.
     participatory_processes:

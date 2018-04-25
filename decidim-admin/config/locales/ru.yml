@@ -120,31 +120,20 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
-      managed_users:
+      impersonatable_users:
+        index:
+          impersonate: Олицетворить (выступить в роли участника)
+          needs_authorization_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
+          view_logs: Просмотреть журналы
+      impersonations:
         close_session:
           error: При закрытии текущего сеанса выступления в роли участника произошла ошибка.
           success: Текущий сеанс выступления в роли участника успешно завершен.
         create:
-          error: При создании управляемого участника произошла ошибка.
           success: Управляемый участник успешно создан.
-        form:
-          name: Имя
-        impersonate:
-          error: При выдавании себя за управляемого участника произошла ошибка.
-        impersonations:
-          new:
-            impersonate: Олицетворить (выступить в роли участника)
-            new_managed_user_impersonation: Новое выступление в роли управляемого участника
-        index:
-          impersonate: Выступить в роли участника
-          needs_authorization_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
-          promote: Повысить
-          view_logs: Просмотреть журналы
         new:
-          create: Создать
-          new_managed_user: Новый управляемый участник
-          select_authorization_method: Выберите способ подтверждения личности
-          step: Шаг %{current} из %{total}
+          impersonate: Олицетворить (выступить в роли участника)
+      managed_users:
         promotion:
           error: При повышении управляемого участника произошла ошибка.
           success: Управляемый участник успешно повышен.
@@ -158,7 +147,6 @@ ru:
         appearance: Внешний вид
         configuration: Конфигурация
         dashboard: Панель управления
-        managed_users: Управляемые участники
         newsletters: Рассылки новостей
         officializations: Предоставления официального статуса
         scope_types: Типы охвата
@@ -182,8 +170,6 @@ ru:
             expired_at: 'Срок действия истек:'
             started_at: 'Начато:'
             user: Участник
-        managed_user:
-          name: Управляемый участник
         newsletter:
           fields:
             created_at: 'Создано:'
@@ -362,7 +348,6 @@ ru:
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
         impersonations: Выступления в роли участника
-        managed_users: Управляемые участники
         officializations: Предоставления официального статуса
         scope_types: Типы охвата
         scopes: Охваты

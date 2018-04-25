@@ -1,0 +1,69 @@
+ca:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Estàs segur que vols eliminar aquesta publicació?
+        destroy: Suprimeix
+        edit: Edita
+        new: Nou
+        title: Accions
+      admin:
+        models:
+          components:
+            body: Cos
+          post:
+            name: Publicació
+        posts:
+          create:
+            invalid: S'ha produït un problema en crear aquesta publicació
+            success: S'ha creat correctament la publicació
+          destroy:
+            success: La publicació s'ha eliminat correctament
+          edit:
+            save: Actualitza
+          index:
+            title: Publicacions
+          new:
+            create: Crear
+            title: Crea una publicació
+          update:
+            invalid: Hi ha hagut errors en desar la publicació.
+            success: La publicació s'ha desat correctament
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Cos
+            created_at: Creat el
+            title: títol
+      posts:
+        author_data:
+          comments: comentaris
+        sidebar_blog:
+          comments: comentaris
+          most_commented_posts: Publicacions més comentades
+      read_more: Llegeix més
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Anunci
+            comments_enabled: Comentaris habilitats
+          step:
+            announcement: Anunci
+            comments_blocked: Comentaris bloquejats
+    events:
+      blogs:
+        post_created:
+          email_intro: La publicació "%{resource_title}" s'ha publicat al "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova publicació publicada a %{participatory_space_title}
+          notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: Publicacions
+  pages:
+    home:
+      statistics:
+        posts_count: Publicacions

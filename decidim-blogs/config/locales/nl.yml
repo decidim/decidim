@@ -1,0 +1,69 @@
+nl:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
+        destroy: Verwijder
+        edit: Bewerk
+        new: Nieuw
+        title: acties
+      admin:
+        models:
+          components:
+            body: Tekstgedeelte
+          post:
+            name: Post
+        posts:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van dit bericht
+            success: Post succesvol aangemaakt
+          destroy:
+            success: Post succesvol verwijderd
+          edit:
+            save: Bijwerken
+          index:
+            title: berichten
+          new:
+            create: creëren
+            title: Maak bericht
+          update:
+            invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
+            success: Bericht succesvol opgeslagen
+      models:
+        post:
+          fields:
+            author: Auteur
+            body: Tekstgedeelte
+            created_at: Aangemaakt op
+            title: titel
+      posts:
+        author_data:
+          comments: reacties
+        sidebar_blog:
+          comments: reacties
+          most_commented_posts: Bericht met meeste reacties
+      read_more: Lees meer
+    components:
+      blogs:
+        name: blog
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+    events:
+      blogs:
+        post_created:
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: berichten
+  pages:
+    home:
+      statistics:
+        posts_count: berichten

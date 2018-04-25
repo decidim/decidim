@@ -264,10 +264,6 @@ fi:
           endorse: hyväksyä
         endorsements_card_row:
           endorse: hyväksyä
-        endorsements_listing:
-          see_all: Nähdä kaikki
-          see_less: Katso vähemmän
-          title: Luettelo hyväksynnästä
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus
@@ -288,6 +284,10 @@ fi:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
+        identities_listing:
+          see_all: Nähdä kaikki
+          see_less: Katso vähemmän
+          title: Luettelo hyväksynnästä
         index:
           new_proposal: Uusi ehdotus
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset

@@ -45,7 +45,7 @@ PATH
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       httparty (~> 0.16.0)
-      jquery-tmpl-rails (~> 1.1.0)
+      jquery-tmpl-rails (~> 1.1)
       kaminari (~> 1.0)
     decidim-budgets (0.11.0.pre)
       decidim-comments (= 0.11.0.pre)
@@ -121,16 +121,6 @@ PATH
       simplecov (~> 0.13)
       webmock (~> 3.0)
       wisper-rspec (~> 1.0)
-    decidim-initiatives (0.11.0.pre)
-      decidim-admin (= 0.11.0.pre)
-      decidim-comments (= 0.11.0.pre)
-      decidim-core (= 0.11.0.pre)
-      decidim-verifications (= 0.11.0.pre)
-      kaminari (~> 1.0)
-      rectify
-      social-share-button (~> 1.0)
-      truncato
-      wicked
     decidim-generators (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
     decidim-meetings (0.11.0.pre)
@@ -178,6 +168,18 @@ PATH
       decidim-admin (= 0.11.0.pre)
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
+
+PATH
+  remote: decidim-initiatives
+  specs:
+    decidim-initiatives (0.11.0.pre)
+      decidim-admin (= 0.11.0.pre)
+      decidim-comments (= 0.11.0.pre)
+      decidim-core (= 0.11.0.pre)
+      decidim-verifications (= 0.11.0.pre)
+      kaminari (~> 1.0)
+      social-share-button (~> 1.0)
+      wicked (~> 1.3)
 
 GEM
   remote: https://rubygems.org/
