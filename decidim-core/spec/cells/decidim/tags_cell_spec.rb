@@ -8,23 +8,24 @@ describe Decidim::TagsCell, type: :cell do
   let(:component_proposals) { create(:proposal_component, participatory_space: participatory_space) }
   let(:component_meetings) { create(:meeting_component, participatory_space: participatory_space) }
 
-  #let(:component_meetings) { create(:component, manifest_name: "meetings") }
-
   let(:scope) { create(:scope, organization: organization) }
   let(:subscope) { create(:scope, organization: organization, parent: scope) }
   let(:category) { create(:category, participatory_space: participatory_space) }
   let(:subcategory) { create(:category, participatory_space: participatory_space, parent: category) }
 
   let(:proposal_no_tags) { create(:proposal, component: component_proposals) }
-  let!(:proposal_scoped) { create(:proposal, component: component_proposals, scope: scope) }
-  let!(:proposal_subscoped) { create(:proposal, component: component_proposals, scope: subscope) }
+  let(:proposal_scoped) { create(:proposal, component: component_proposals, scope: scope) }
+  let(:proposal_subscoped) { create(:proposal, component: component_proposals, scope: subscope) }
   let(:proposal_categorized) { create(:proposal, component: component_proposals, category: category) }
   let(:proposal_subcategorized) { create(:proposal, component: component_proposals, category: subcategory) }
+  let(:proposal_scoped_categorized) { create(:proposal, component: component_proposals, scope: scope, category: category) }
 
   let(:meeting_no_tags) { create(:meeting, component: component_meetings) }
-
+  let(:meeting_scoped) { create(:meeting, component: component_meetings, scope: scope) }
+  let(:meeting_subscoped) { create(:meeting, component: component_meetings, scope: subscope) }
   let(:meeting_categorized) { create(:meeting, component: component_meetings, category: category) }
   let(:meeting_subcategorized) { create(:meeting, component: component_meetings, category: subcategory) }
+  let(:meeting_scoped_categorized) { create(:meeting, component: component_meetings, scope: scope, category: category) }
 
   context "when a resource has no tags" do
     it "doesn't render the tags of a proposal" do
@@ -47,6 +48,16 @@ describe Decidim::TagsCell, type: :cell do
     it "renders the subscope of a proposal" do
       html = cell("decidim/tags", proposal_subscoped, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_content(translated(subscope.name))
+    end
+    it "renders the scope of a meeting" do
+      html = cell("decidim/tags", meeting_scoped, context: { extra_classes: ["tags--meeting"] }).call
+      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_content(translated(scope.name))
+    end
+    it "renders the subscope of a meeting" do
+      html = cell("decidim/tags", meeting_subscoped, context: { extra_classes: ["tags--meeting"] }).call
+      expect(html).to have_css(".tags.tags--meeting")
       expect(html).to have_content(translated(subscope.name))
     end
   end
@@ -72,6 +83,21 @@ describe Decidim::TagsCell, type: :cell do
       html = cell("decidim/tags", meeting_subcategorized, context: { extra_classes: ["tags--meeting"] }).call
       expect(html).to have_css(".tags.tags--meeting")
       expect(html).to have_content(translated(subcategory.name))
+    end
+  end
+
+  context "when a resource has scope and category" do
+    it "renders the scope and category of a proposal" do
+      html = cell("decidim/tags", proposal_scoped_categorized, context: { extra_classes: ["tags--proposal"] }).call
+      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_content(translated(scope.name))
+      expect(html).to have_content(translated(category.name))
+    end
+    it "renders the scope and category of a meeting" do
+      html = cell("decidim/tags", meeting_scoped_categorized, context: { extra_classes: ["tags--meeting"] }).call
+      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_content(translated(scope.name))
+      expect(html).to have_content(translated(category.name))
     end
   end
 end
