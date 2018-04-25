@@ -528,7 +528,7 @@ nl:
         register: Registreren
       hero:
         participate: Deelnemen
-        welcome: Bienvenue sur le portail de la consultation citoyenne %{organization} !
+        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
       statistics:
         answers_count: Voltooide enquêtes
         assemblies_count: Events
