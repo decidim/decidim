@@ -35,6 +35,50 @@
   }
 }
 
+.hero__boxes{
+  padding: 2rem 1.5rem;
+  text-align: left;
+  border-radius: 4px;
+  background-color: rgba($black, .5);
+  color: $white;
+
+  p{
+    font-size: rem-calc(17);
+  }
+
+  .button{
+    display: block;
+    margin: 0 auto;
+  }
+
+// TODO: Modificar los estilos de aqui
+  .box__search{
+    position: relative;
+
+    input,
+    input:focus{
+      color: $navbar-color-hover;
+      border: 0;
+      padding-left: $input-padding * 4;
+      box-shadow: none;
+      background: $navbar-active-bg;
+
+      @include breakpoint(medium){
+        background: $navbar-bg;
+      }
+    }
+
+    svg{
+      color: $input-placeholder-color;
+      position: absolute;
+      top: 50%;
+      left: $input-padding;
+      transform: translateY(-50%);
+      opacity: .5;
+    }
+  }
+}
+
 .hero-heading{
   margin-bottom: 1.5rem;
   font-size: 2rem;
