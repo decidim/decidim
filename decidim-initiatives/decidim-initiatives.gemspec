@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-initiatives"
-  s.summary = "Citizen initiatives plugin for decidim"
-  s.description = s.summary
+  s.summary = "Decidim initiatives module"
+  s.description = "Citizen initiatives plugin for decidim."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
@@ -23,10 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Initiatives.version
   s.add_dependency "decidim-verifications", Decidim::Initiatives.version
   s.add_dependency "kaminari", "~> 1.0"
-  s.add_dependency "rectify"
   s.add_dependency "social-share-button", "~> 1.0"
-  s.add_dependency "truncato"
-  s.add_dependency "wicked"
+  s.add_dependency "wicked", "~> 1.3"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
 end
