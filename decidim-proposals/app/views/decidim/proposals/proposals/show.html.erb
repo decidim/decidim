@@ -7,28 +7,7 @@
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
-  <!-- AUTHOR-CEL!!! -->
   <%= card_for present(@proposal).author, from: @proposal %>
-
-  <% if false %>
-    <%= cell "decidim/author_box", present(@proposal).author, extra: (capture do %>
-      <span><%= l @proposal.created_at, format: :decidim_short %></span>
-      <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
-        <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
-      </button>
-      <% unless @proposal.official? %>
-        <p>official</p>
-        <%= link_to_current_or_new_conversation_with(@proposal.author) %>
-      <% end %>
-      <p>hola</p>
-      <% if @proposal.withdrawable_by?(current_user) %>
-        <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t(".withdraw_btn_hint"), data: {confirm: t(".withdraw_confirmation")}  do %>
-          <%= t(".withdraw_proposal") %>
-          <%= icon "x" %>
-        <% end %>
-      <% end %>
-    <% end) %>
-  <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
