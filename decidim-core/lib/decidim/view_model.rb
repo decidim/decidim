@@ -6,6 +6,5 @@ module Decidim
     include ::Cell::Translation
     include Decidim::ResourceHelper
     include Decidim::ScopesHelper
-    include Decidim::ActionAuthorizationHelper
   end
 end

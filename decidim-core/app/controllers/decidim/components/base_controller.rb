@@ -7,7 +7,7 @@ module Decidim
     # fooling the engine into thinking it's isolated.
     class BaseController < Decidim::ApplicationController
       include Settings
-      include Decidim::ActionAuthorization
+      include ActionAuthorization
 
       include ParticipatorySpaceContext
       participatory_space_layout
