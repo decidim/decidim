@@ -40,7 +40,8 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
+            proposal_wizard_step_3_help_text: Assistant d'offre de proposition "Complete" étape texte d'aide
+            proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
           step:
@@ -246,6 +247,11 @@ fr:
           mine_is_different: Ma proposition est différente
           no_similars_found: Bien joué! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
+        complete:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Complétez votre proposition
         count:
           proposals_count:
             one: 1 proposition
@@ -297,8 +303,6 @@ fr:
             one: soutien
             other: soutiens
         new:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          select_a_category: Veuillez sélectionner une catégorie
           send: Continuer
           title: Créez votre proposition
         orders:
@@ -363,7 +367,8 @@ fr:
           see_steps: voir les étapes
           step_1: Créez votre proposition
           step_2: Comparer
-          step_3: Publiez votre proposition
+          step_3: Achevée
+          step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
