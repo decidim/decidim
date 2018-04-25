@@ -134,8 +134,9 @@ shared_examples "create a proposal" do |with_author|
 
           describe "when the author is a user" do
             let(:user_group) { nil }
+
             before do
-              create(:proposal, :withdrawn, author: author, component: component )
+              create(:proposal, :withdrawn, author: author, component: component)
             end
             it "checks the user doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
@@ -148,7 +149,7 @@ shared_examples "create a proposal" do |with_author|
 
           describe "when the author is a user_group" do
             before do
-              create(:proposal, :withdrawn, author: author, decidim_user_group_id: user_group.id, component: component )
+              create(:proposal, :withdrawn, author: author, decidim_user_group_id: user_group.id, component: component)
             end
             it "checks the user_group doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
