@@ -292,7 +292,7 @@ fi:
             other: ääntä
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse aihepiiri
+          select_a_category: Valitse kategoria
           send: Jatkaa
           title: Luo ehdotuksesi
         orders:
