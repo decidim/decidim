@@ -157,7 +157,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme?
+          are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -324,7 +324,7 @@ fr:
     own_user_groups:
       index:
         pending: En attente
-        rejected: Refusée
+        rejected: Non retenue
         verified: Vérifié
     pages:
       index:
