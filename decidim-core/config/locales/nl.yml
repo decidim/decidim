@@ -9,7 +9,7 @@ nl:
         about: Over
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Uw korte unieke ID
+        nickname: Jouw korte unieke ID
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         personal_url: Persoonlijke URL
@@ -40,7 +40,7 @@ nl:
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
-          close: Sluit dit scherm
+          close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
           question: Weet u zeker dat u uw account wilt verwijderen?
           title: Verwijder mijn account
@@ -57,22 +57,22 @@ nl:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       area:
-        create: "%{user_name} heeft het gebied %{resource_name} gemaakt"
-        delete: "%{user_name} heeft het gebied %{resource_name} verwijderd"
-        update: "%{user_name} heeft het gebied %{resource_name} bijgewerkt"
+        create: "%{user_name} heeft %{resource_name} aangemaakt"
+        delete: "%{user_name} heeft %{resource_name} verwijderd"
+        update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
-        create: "%{user_name} voegde de %{resource_name} component toe aan de %{space_name} spatie"
-        delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} spatie verwijderd"
-        publish: "%{user_name} heeft de %{resource_name} component in de %{space_name} spatie gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} component uit de %{space_name} spatie"
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
+        delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
+        publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
+        unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
-        unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
+        unreport: "%{user_name} heeft een hulpbron van het type %{resource_type} in de %{space_name} ruimte niet gerapporteerd"
       newsletter:
         create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
-        delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
-        deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
-        update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+        delete: "%{user_name} heeft de %{resource_name} nieuwsbrief verwijderd"
+        deliver: "%{user_name} de %{resource_name} nieuwsbrief geleverd"
+        update: "%{user_name} heeft de %{resource_name} nieuwsbrief bijgewerkt"
       oauth_application:
         create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
         delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
@@ -82,22 +82,22 @@ nl:
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
-        delete: "%{user_name} heeft de bereik %{resource_name} verwijderd"
-        delete_with_parent: "%{user_name} verwijderde het bereik %{resource_name} binnen de scope bereik %{parent_scope}"
+        delete: "%{user_name} heeft het bereik %{resource_name} verwijderd"
+        delete_with_parent: "%{user_name} verwijderde het bereik %{resource_name} binnen het bereik %{parent_scope}"
         update: "%{user_name} heeft het bereik %{resource_name} bijgewerkt"
-        update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen de bereikbereik %{parent_scope} bijgewerkt"
+        update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen het bereik %{parent_scope} bijgewerkt"
       static_page:
         create: "%{user_name} creëerde de %{resource_name} statische pagina"
-        delete: "%{user_name} heeft de %{resource_name} verwijderd statische pagina"
-        update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
+        delete: "%{user_name} heeft de %{resource_name} statische pagina verwijderd"
+        update: "%{user_name} heeft de %{resource_name} statische pagina bijgewerkt"
       user:
-        invite: "%{user_name} nodigde de gebruiker uit %{resource_name} met rol: %{role}"
-        officialize: "%{user_name} officieel de gebruiker %{resource_name}"
-        remove_from_admin: "%{user_name} de gebruiker verwijderd %{resource_name} met rol: %{role}"
-        unofficialize: "%{user_name} de gebruiker onofficieel %{resource_name}"
+        invite: "%{user_name} nodigde de gebruiker %{resource_name} uit met rol: %{role}"
+        officialize: "%{user_name} heeft de gebruiker %{resource_name} gevalideerd"
+        remove_from_admin: "%{user_name} de gebruiker %{resource_name} verwijderd met rol: %{role}"
+        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} ingetrokken"
       user_group:
-        reject: "%{user_name} verwierp de %{resource_name} gebruikersgroep verificatie"
-        verify: "%{user_name} de %{resource_name} geverifieerd gebruikersgroep"
+        reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
+        verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
     anonymous_user: Anoniem
     application:
       collection:
@@ -131,18 +131,18 @@ nl:
     components:
       dummy:
         actions:
-          bar: Bar
+          bar: Balk
           foo: Foo
-        name: Dummy component
+        name: Voorbeeld onderdeel
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy-kenmerk 1
-            dummy_global_attribute_2: Dummy-kenmerk 2
+            dummy_global_attribute_1: Voorbeeld-kenmerk 1
+            dummy_global_attribute_2: Voorbeeld-kenmerk 2
           step:
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy stapkenmerk 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Voorbeeld-kenmerk 1
+            dummy_step_attribute_2: Voorbeeld-kenmerk 2
     contact: Contact
     core:
       actions:
@@ -153,7 +153,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw korte, unieke ID in %{organization}
+          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -161,7 +161,7 @@ nl:
         new:
           already_have_an_account?: U heeft al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
-          nickname_help: Uw korte, unieke ID in %{organization}
+          nickname_help: Jouw korte, unieke ID op %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -182,18 +182,18 @@ nl:
     doorkeeper:
       authorizations:
         new:
-          authorize: Aanvraag autoriseren
+          authorize: Aanvraag toestaan
           by_organization_link_html: <small class="heading-small">door %{link}</small>
           cancel: Annuleer
           connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
-          publish_content: Publiceer inhoud voor u
-          see_email: Zie uw e-mail
-          see_name: Zie je naam
-          see_username: Zie je gebruikersnaam
-          this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
-          this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
+          publish_content: Publiceer inhoud voor jou
+          see_email: Bekijk jouw e-mail
+          see_name: Bekijk jouw naam
+          see_username: Bekijk je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil je account gebruiken"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -205,29 +205,29 @@ nl:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update voor %{resource_title}
+          email_intro: 'Een nieuw document we’d toegevoegd aan %{resource_title}. Je kan het via deze link bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Een update van %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update naar %{participatory_space_title}
-          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Een update van %{participatory_space_title}
+          notification_title: Het %{resource_title} onderdeel is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
-          notification_title: De <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
+          email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
+          notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -257,22 +257,22 @@ nl:
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
-        create_with_space: "%{user_name} gemaakt %{resource_name} in %{space_name}"
-        delete: "%{user_name} verwijderd %{resource_name}"
-        delete_with_space: "%{user_name} verwijderd %{resource_name} in %{space_name}"
-        unknown_action: "%{user_name} voerde wat actie uit op %{resource_name}"
-        unknown_action_with_space: "%{user_name} voerde wat actie uit op %{resource_name} in %{space_name}"
-        update: "%{user_name} bijgewerkt %{resource_name}"
-        update_with_space: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
+        create_with_space: "%{user_name} heeft %{resource_name} aangemaakt in %{space_name}"
+        delete: "%{user_name} heeft %{resource_name} verwijderd"
+        delete_with_space: "%{user_name} heeft %{resource_name}  verwijderd in %{space_name}"
+        unknown_action: "%{user_name} voerde eeb actie uit op %{resource_name}"
+        unknown_action_with_space: "%{user_name} voerde een actie uit op %{resource_name} in %{space_name}"
+        update: "%{user_name} heeft %{resource_name} bijgewerkt"
+        update_with_space: "%{user_name} heeft %{resource_name} bijgewerkt in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+          not_found: 'Dit onderwerp is niet gevonden in de database (ID: %{id})'
         area_type_presenter:
-          not_found: 'Het gebiedstype is niet gevonden in de database (ID: %{id})'
+          not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
+          not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
     menu:
@@ -309,19 +309,19 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Kan deze e-mail niet correct worden weergegeven? Bekijk het op de <a href="%{link}" target="_blank">website</a>.
-        unsubscribe: Om u af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Als u uw voorkeuren wilt wijzigen, kunt u dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een fout opgetreden bij het afmelden
-        success: Je bent succesvol afgemeld.
+        check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
+        error: Er is een fout opgetreden tijdens het uitschrijven.
+        success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
-        unsubscribe: Afmelden
+        unsubscribe: Uitschrijven
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
-        newsletter_notifications: Ik wil nieuwsbrieven ontvangen
+        newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
@@ -335,11 +335,11 @@ nl:
       index:
         title: Meer informatie
     participatory_space_private_users:
-      not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+      not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
     profiles:
-      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
+      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         about_me: Over mij
         personal_url: Persoonlijke website
@@ -394,9 +394,9 @@ nl:
       author:
         deleted: Verwijderde gebruiker
       embed_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
-        embed_link: insluiten
+        embed_link: Insluiten
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -416,7 +416,7 @@ nl:
       results_per_page:
         label: 'Resultaten per pagina:'
       share_modal:
-        close_window: Sluit dit scherm
+        close_window: Sluit venster
         share: Deel
         share_link: Link delen
       version_author:
@@ -425,7 +425,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
-        nickname_help: Uw unieke ID in %{organization}.
+        nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -435,16 +435,16 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Je kunt het accepteren via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-gebruiker van %{application}, je kunt het accepteren via de onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
       invite_private_user:
-        subject: Je bent uitgenodigd voor een persoonlijk participatieproces op %{organization}
+        subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
@@ -453,7 +453,7 @@ nl:
         subject: Wachtwoord is veranderd
   doorkeeper:
     scopes:
-      public: Uw openbare informatie.
+      public: Jouw openbare informatie.
   errors:
     messages:
       content_type_whitelist_error: Het bestandstype is niet geldig
@@ -516,30 +516,30 @@ nl:
       extended:
         debates: Debatten
         debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel in een proces?
-        meetings: Vergaderingen
-        meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
+        how_to_participate: Hoe neem ik deel aan een thema?
+        meetings: Events
+        meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
         more_info: Meer informatie
         proposals: Voorstellen
         proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
       footer_sub_hero:
-        footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
+        footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
         footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
         register: Registreren
       hero:
         participate: Deelnemen
-        welcome: Welkom bij %{organization}!
+        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
       statistics:
         answers_count: Voltooide enquêtes
-        assemblies_count: Bijeenkomsten
+        assemblies_count: Events
         comments_count: Reacties
-        debates_count: debatten
-        endorsements_count: Endorsements
+        debates_count: Debatten
+        endorsements_count: Aanbevelen
         headline: Huidige stand van %{organization}
-        meetings_count: Vergaderingen
+        meetings_count: Events
         orders_count: stemmen
         pages_count: Pages
-        processes_count: Processen
+        processes_count: Thema's
         projects_count: Projecten
         proposals_accepted: Aanvaarde voorstellen
         proposals_count: Voorstellen

@@ -40,7 +40,8 @@ gl:
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
-            proposal_wizard_step_3_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
+            proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
+            proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
           step:
@@ -246,6 +247,11 @@ gl:
           mine_is_different: A miña proposta é diferente
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
+        complete:
+          attachment_legend: "(Opcional) Engada un anexo"
+          select_a_category: Selecciona unha categoría
+          send: Enviar
+          title: Completa a túa proposta
         count:
           proposals_count:
             one: 1 proposta
@@ -264,10 +270,6 @@ gl:
           endorse: Endosar
         endorsements_card_row:
           endorse: Endosar
-        endorsements_listing:
-          see_all: Ver todo
-          see_less: Vexa menos
-          title: Lista de avales
         filters:
           accepted: Aceptada
           activity: Actividade
@@ -288,6 +290,10 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        identities_listing:
+          see_all: Ver todo
+          see_less: Vexa menos
+          title: Lista de avales
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
@@ -297,8 +303,6 @@ gl:
             one: votar
             other: votos
         new:
-          attachment_legend: "(Opcional) Engada un anexo"
-          select_a_category: Selecciona unha categoría
           send: Continuar
           title: Crea a túa proposta
         orders:
@@ -363,7 +367,8 @@ gl:
           see_steps: ver pasos
           step_1: Crea a túa proposta
           step_2: Compare
-          step_3: Publica a túa proposta
+          step_3: Completa
+          step_4: Publica a túa proposta
           step_of: Paso %{current_step_num} de %{total_steps}
       publish:
         error: Houbo erros ao publicar a proposta.

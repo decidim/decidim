@@ -5,7 +5,7 @@ es:
         additional_info: Información de clasificación
         decidim_category_id: Categorías del conjunto de propuestas en las que desea aplicar el sorteo
         decidim_proposals_component_id: Propuestas
-        dice: Resultado de la tirada del dado (rodar un dado de 6 caras (o buscar otra forma aleatoria para generar un número del 1 al 6) e ingresar aquí, en lugar de atestiguar el número resultante, esto contribuye a la calidad y garantías de la aleatoriedad de el resultado
+        dice: Resultado de la tirada del dado (rodar un dado de 6 caras o buscar otra forma aleatoria para generar un número del 1 al 6) e introducirlo aquí, en lugar de atestiguar el número resultante, esto contribuye a la calidad y garantías de la aleatoriedad del resultado
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
@@ -19,17 +19,17 @@ es:
     events:
       sortitions:
         sortition_created:
-          email_intro: La clasificación "%{resource_title}" se ha agregado a "%{participatory_space_title}" que está siguiendo.
-          email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: Nueva clasificación agregada a %{participatory_space_title}
-          notification_title: La ordenación <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
+          email_intro: El sorteo "%{resource_title}" se ha agregado a "%{participatory_space_title}" que estás siguiendo.
+          email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Nuevo sorteo añadida a %{participatory_space_title}
+          notification_title: El sorteo <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
     participatory_processes:
       statistics:
-        sortitions_count: Clases
+        sortitions_count: Sorteos
     sortitions:
       admin:
         actions:
-          destroy: Cancelar la clasificación
+          destroy: Cancelar el sorteo
           edit: Editar
           new: Nuevo
           show: Detalles de la clasificación
@@ -47,41 +47,41 @@ es:
               title: Título
             name:
               one: Sorteo
-              other: Clases
+              other: Sorteos
         sortitions:
           confirm_destroy:
-            confirm_destroy: '¿Seguro que quieres cancelar esta clasificación?'
-            destroy: Cancelar la clasificación
-            title: Cancelación de la clasificación
+            confirm_destroy: '¿Seguro que quieres cancelar este sorteo?'
+            destroy: Cancelar el sorteo
+            title: Cancelar el sorteo
           create:
-            error: Se produjo un error al crear una nueva ordenación.
-            success: Orden creada con éxito
+            error: Se produjo un error al crear un nuevo sorteo.
+            success: Sorteo creado con éxito.
           destroy:
-            error: No se puede cancelar la ordenación.
+            error: No se puede cancelar el sorteo.
             success: Orden cancelada con éxito
           edit:
-            title: Actualiza la información sobre la clasificación
+            title: Actualiza la información sobre el sorteo
             update: Actualizar
           form:
             all_categories: Todas las categorias
             select_proposal_component: Seleccione el conjunto de propuestas
             title: Nueva clasificación para propuestas
           index:
-            title: Clases
+            title: Sorteos
           new:
             confirm: Al presionar el botón siguiente, Decidim registrará la fecha y la hora (con precisión de segundos) y junto con la tirada de dados, esta información se usará para generar una selección aleatoria. La acción será irreversible, una vez que se haga clic en el botón, se publicará el resultado de este sorteo, junto con los datos ingresados ​​en este formulario y no se pueden modificar, compruebe el contenido detenidamente
             create: Crear
-            title: Nueva clasificación
+            title: Nuevo sorteo
           show:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
-            error: Se produjo un error al actualizar la ordenación.
-            success: La ordenación se actualiza con éxito
+            error: Se produjo un error al actualizar el sorteo.
+            success: El sorteo se ha actualizado con éxito.
       admin_log:
         sortition:
-          create: "%{user_name} creó la ordenación %{resource_name} en %{space_name}"
-          delete: "%{user_name} canceló la ordenación %{resource_name} en %{space_name}"
-          update: "%{user_name} actualizó la ordenación %{resource_name} en %{space_name}"
+          create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"
+          delete: "%{user_name} canceló el sorteo %{resource_name} en %{space_name}"
+          update: "%{user_name} actualizó el sorteo %{resource_name} en %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -92,7 +92,7 @@ es:
           all: Todas
           cancelled: Cancelado
           category: Categoría
-          category_prompt: Seleccione una categoría
+          category_prompt: Selecciona una categoría
           search: Buscar
           state: Estado
         filters_small_view:
@@ -103,7 +103,7 @@ es:
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
         orders:
-          label: 'Ordene las clasificaciones por:'
+          label: 'Ordena los sorteos por:'
           random: Aleatorio
           recent: Reciente
         proposal:
@@ -113,33 +113,33 @@ es:
             one: propuesta seleccionada
             other: propuestas seleccionadas
         show:
-          algorithm: Código de algoritmo de ordenación
+          algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
           candidate_proposals_info: 'La clasificación se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
           category: de la categoría %{category}
           dice_result: "(1) resultado de los dados"
-          introduction: 'Esta página contiene los resultados de la ordenación %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso de la clasificación que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo para la clasificación es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
+          introduction: 'Esta página contiene los resultados del sorteo %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso del sorteo que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo del sorteo es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propuestas seleccionadas por clasificación
-          sortition_reproducibility_details: Detalles de reproducibilidad de la clasificación
+          sortition_reproducibility_details: Detalles de reproducibilidad del sorteo
           time_seed: "(2) Tiempo de semilla"
           witnesses: Testigos
         sortition:
           selected_proposals:
             one: 1 propuesta seleccionada
             other: "%{count} propuestas seleccionadas"
-          view_sortition: Ver clasificación
+          view_sortition: Ver sorteo
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:
           deleted: Usuario eliminado
         sortitions_count:
           count:
-            one: 1 clasificación
+            one: 1 sorteo
             other: "%{count} clasificaciones"
   pages:
     home:
       statistics:
-        sortitions_count: Clases
+        sortitions_count: Sorteos

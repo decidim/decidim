@@ -40,7 +40,8 @@ it:
             proposal_limit: Limite della proposta per utente
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
-            proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
+            proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
+            proposal_wizard_step_4_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
             threshold_per_proposal: Soglia per proposta
             vote_limit: Limite di voto per utente
           step:
@@ -246,6 +247,11 @@ it:
           mine_is_different: La mia proposta è diversa
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
+        complete:
+          attachment_legend: "(Opzionale) Aggiungi un allegato"
+          select_a_category: Si prega di selezionare una categoria
+          send: Inviare
+          title: Completa la tua proposta
         count:
           proposals_count:
             one: 1 proposta
@@ -264,10 +270,6 @@ it:
           endorse: Approvare
         endorsements_card_row:
           endorse: Approvare
-        endorsements_listing:
-          see_all: Vedi tutto
-          see_less: Vedi di meno
-          title: Elenco di approvazioni
         filters:
           accepted: Accettata
           activity: Attività
@@ -288,6 +290,10 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
+        identities_listing:
+          see_all: Vedi tutto
+          see_less: Vedi di meno
+          title: Elenco di approvazioni
         index:
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
@@ -297,8 +303,6 @@ it:
             one: voto
             other: voti
         new:
-          attachment_legend: "(Opzionale) Aggiungere un allegato"
-          select_a_category: Scegli una categoria
           send: Continua
           title: Crea la tua proposta
         orders:
@@ -363,7 +367,8 @@ it:
           see_steps: vedere i passaggi
           step_1: Crea la tua proposta
           step_2: Confrontare
-          step_3: Pubblica la tua proposta
+          step_3: Completare
+          step_4: Pubblica la tua proposta
           step_of: Step %{current_step_num} di %{total_steps}
       publish:
         error: Si sono verificati errori durante la pubblicazione della proposta.

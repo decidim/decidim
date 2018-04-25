@@ -40,7 +40,8 @@ fi:
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Täydellinen" vaiheen ohjeteksti
+            proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             threshold_per_proposal: Kynnys per ehdotus
             vote_limit: Äänestysraja käyttäjää kohden
           step:
@@ -246,6 +247,11 @@ fi:
           mine_is_different: Ehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
+        complete:
+          attachment_legend: "(Valinnainen) Lisää liite"
+          select_a_category: Valitse kategoria
+          send: Lähettää
+          title: Suorita ehdotuksesi
         count:
           proposals_count:
             one: 1 ehdotus
@@ -264,10 +270,6 @@ fi:
           endorse: hyväksyä
         endorsements_card_row:
           endorse: hyväksyä
-        endorsements_listing:
-          see_all: Nähdä kaikki
-          see_less: Katso vähemmän
-          title: Luettelo hyväksynnästä
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus
@@ -288,6 +290,10 @@ fi:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
+        identities_listing:
+          see_all: Nähdä kaikki
+          see_less: Katso vähemmän
+          title: Luettelo hyväksynnästä
         index:
           new_proposal: Uusi ehdotus
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
@@ -297,8 +303,6 @@ fi:
             one: ääni
             other: ääntä
         new:
-          attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse aihepiiri
           send: Jatkaa
           title: Luo ehdotuksesi
         orders:
@@ -363,7 +367,8 @@ fi:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertailla
-          step_3: Julkaise ehdotuksesi
+          step_3: Saattaa loppuun
+          step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} %{total_steps}
       publish:
         error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.

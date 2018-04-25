@@ -122,6 +122,16 @@ eu:
           new:
             create: Sortu
             title: Sortu topaketa
+          service:
+            description: deskribapena
+            down: Down
+            remove: Kendu
+            service: zerbitzua
+            title: Izenburua
+            up: up
+          services:
+            add_service: Gehitu zerbitzua
+            services: Zerbitzuak
           update:
             invalid: Arazo bat izan da topaketa hau eguneratzean.
             success: Topaketa zuzen eguneratu da.

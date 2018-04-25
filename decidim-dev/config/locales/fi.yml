@@ -8,6 +8,9 @@ fi:
         title: otsikko
         updated_at: Päivitetty klo
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Toinen esimerkki valtuutuksesta
     dummy:
       admin:
         exports:

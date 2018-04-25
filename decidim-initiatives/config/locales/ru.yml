@@ -1,0 +1,5 @@
+ru:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Автор
