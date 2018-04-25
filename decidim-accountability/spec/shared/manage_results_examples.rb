@@ -3,7 +3,7 @@
 shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
-  context "having existing proposals" do
+  context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component }
 

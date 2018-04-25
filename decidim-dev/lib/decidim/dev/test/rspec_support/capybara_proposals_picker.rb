@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require_relative 'capybara_data_picker'
+
+require_relative "capybara_data_picker"
 
 module Capybara
   module ProposalsPicker
@@ -66,9 +67,9 @@ module Capybara
 
     def proposal_picker_search_perform(term)
       body = find(:xpath, "//body")
-      input_selector= "#data_picker-modal .picker-content input#data_picker-autocomplete"
+      input_selector = "#data_picker-modal .picker-content input#data_picker-autocomplete"
       expect(body).to have_selector(input_selector)
-      body.find('#data_picker-modal .picker-content').fill_in('data_picker-autocomplete', with: term)
+      body.find("#data_picker-modal .picker-content").fill_in("data_picker-autocomplete", with: term)
     end
 
     def proposal_picker_search_choose_result(proposal_id)
@@ -76,7 +77,6 @@ module Capybara
       expect(body).to have_selector(".autocomplete-suggestions .autocomplete-suggestion")
       body.find(".autocomplete-suggestions div.autocomplete-suggestion[data-model-id='#{proposal_id}']").click
     end
-
   end
 end
 

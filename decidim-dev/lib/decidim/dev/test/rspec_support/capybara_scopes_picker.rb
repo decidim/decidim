@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require_relative 'capybara_data_picker'
+
+require_relative "capybara_data_picker"
 
 module Capybara
   module ScopesPicker

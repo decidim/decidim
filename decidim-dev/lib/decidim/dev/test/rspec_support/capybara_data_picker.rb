@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+
 module Capybara
   module DataPicker
-
     def select_data_picker(id, multiple: nil, global_value: "")
       Struct.new(:data_picker, :global_value).new(find_data_picker(id, multiple: multiple), global_value)
     end
@@ -22,6 +22,5 @@ module Capybara
       expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]")
       body.find("#data_picker-modal .picker-footer a[data-picker-choose]").click
     end
-
   end
 end
