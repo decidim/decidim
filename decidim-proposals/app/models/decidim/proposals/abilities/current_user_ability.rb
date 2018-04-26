@@ -22,6 +22,9 @@ module Decidim
           can :edit, Proposal do |proposal|
             proposal.editable_by?(user)
           end
+          can :edit, CollaborativeDraft do |draft|
+            draft.editable_by?(user)
+          end
 
           can :withdraw, Proposal do |proposal|
             can_withdraw?(proposal)

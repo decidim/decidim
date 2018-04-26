@@ -19,6 +19,14 @@ module Decidim
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }
       scope :published, -> { where(state: "published") }
+
+      # Checks whether the user can edit the given proposal.
+      #
+      # user - the user to check for authorship
+      def editable_by?(user)
+        # return true if draft?
+        authored_by?(user)
+      end
     end
   end
 end
