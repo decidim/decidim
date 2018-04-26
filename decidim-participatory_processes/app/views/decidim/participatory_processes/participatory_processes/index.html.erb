@@ -2,7 +2,7 @@
 
 <main class="wrapper">
   <% if promoted_participatory_processes.any? %>
-    <section id ="highlighted-processes" class="row section">
+    <section id="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
       <%= render partial: "promoted_process", collection: promoted_participatory_processes, as: :promoted_process %>
     </section>
