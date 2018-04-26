@@ -14,16 +14,20 @@
 // = require ./auto_buttons_by_position.component
 // = require ./dynamic_fields.component
 // = require ./field_dependent_inputs.component
+// = require ./bundle
 // = require_self
 
 window.Decidim = window.Decidim || {};
+window.DecidimAdmin = window.DecidimAdmin || {};
 
 const pageLoad = () => {
-  const { toggleNav, createSortList } = window.DecidimAdmin;
+  const { toggleNav, createSortList, renderAutocompleteSelects } = window.DecidimAdmin;
 
   $(document).foundation();
 
   toggleNav();
+
+  renderAutocompleteSelects('[data-plugin="autocomplete"]');
 
   createSortList("#steps tbody", {
     placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],
