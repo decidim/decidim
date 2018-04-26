@@ -162,9 +162,6 @@ en:
             designation_date: Designation date
             full_name: Name
             position: Position
-          genders:
-            man: Man
-            woman: Woman
           name: Member
           positions:
             other: Other
@@ -218,7 +215,6 @@ en:
               not_ceased: Not ceased
             search: Search
           form:
-            select_a_gender: Select a gender
             select_a_position: Select a position
       assembly_members:
         index:

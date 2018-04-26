@@ -143,7 +143,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim::AssemblyMember::POSITIONS.each do |position|
           Decidim::AssemblyMember.create!(
             full_name: Faker::Name.name,
-            gender: Decidim::AssemblyMember::GENDERS.sample,
+            gender: Faker::Lorem.word,
             birthday: Faker::Date.birthday(18, 65),
             birthplace: Faker::Demographic.demonym,
             designation_date: Faker::Date.between(1.year.ago, 1.month.ago),

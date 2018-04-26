@@ -10,12 +10,14 @@
       <%= form.text_field :full_name, autofocus: true %>
     </div>
 
-    <div class="row column">
-      <%= form.select :position, @form.positions_for_select, { include_blank: t(".select_a_position") }, { multiple: false } %>
-    </div>
+    <div class="position-fields">
+      <div class="row column">
+        <%= form.select :position, @form.positions_for_select, { include_blank: t(".select_a_position") }, { multiple: false } %>
+      </div>
 
-    <div class="row column">
-      <%= form.text_field :position_other %>
+      <div class="row column position-fields--position-other">
+        <%= form.text_field :position_other %>
+      </div>
     </div>
 
     <div class="row column">
@@ -35,7 +37,7 @@
     </div>
 
     <div class="row column">
-      <%= form.select :gender, @form.genders_for_select, { include_blank: t(".select_a_gender") }, { multiple: false } %>
+      <%= form.text_field :gender %>
     </div>
 
     <div class="row column">

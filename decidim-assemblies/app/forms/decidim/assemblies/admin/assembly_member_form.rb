@@ -20,19 +20,9 @@ module Decidim
         attribute :position_other, String
 
         validates :full_name, :designation_date, presence: true
-        validates :gender, inclusion: { in: Decidim::AssemblyMember::GENDERS }
         validates :position, inclusion: { in: Decidim::AssemblyMember::POSITIONS }
         validates :position_other, presence: true, if: ->(form) { form.position == "other" }
         validates :ceased_date, date: { after: :designation_date, allow_blank: true }
-
-        def genders_for_select
-          Decidim::AssemblyMember::GENDERS.map do |gender|
-            [
-              I18n.t(gender, scope: "decidim.admin.models.assembly_member.genders"),
-              gender
-            ]
-          end
-        end
 
         def positions_for_select
           Decidim::AssemblyMember::POSITIONS.map do |position|

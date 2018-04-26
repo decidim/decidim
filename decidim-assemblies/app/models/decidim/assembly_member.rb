@@ -7,7 +7,6 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
 
-    GENDERS = %w(man woman).freeze
     POSITIONS = %w(president vice_president secretary other).freeze
 
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"

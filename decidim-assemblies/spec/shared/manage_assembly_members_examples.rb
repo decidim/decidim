@@ -28,7 +28,6 @@ shared_examples "manage assembly members examples" do
         with: "Daisy O'connor"
       )
 
-      select "Woman", from: :assembly_member_gender
       select "President", from: :assembly_member_position
 
       find("*[type=submit]").click

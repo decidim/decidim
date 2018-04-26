@@ -39,21 +39,15 @@ module Decidim
       end
     end
 
-    describe "gender" do
-      subject { described_class.new(assembly_member).gender }
-
-      it { is_expected.to eq t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders") }
-    end
-
     describe "personal_information" do
       subject { described_class.new(assembly_member).personal_information }
 
-      it { is_expected.to eq "#{t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders")} / #{age}" }
+      it { is_expected.to eq "#{assembly_member.gender} / #{age}" }
 
       context "when birthplace is present" do
         let(:assembly_member) { build(:assembly_member, birthday: birthday, birthplace: "World") }
 
-        it { is_expected.to eq "#{t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders")} / #{age} / World" }
+        it { is_expected.to eq "#{assembly_member.gender} / #{age} / World" }
       end
 
       context "when gender is not present" do
@@ -65,7 +59,7 @@ module Decidim
       context "when birthday is not present" do
         let(:assembly_member) { build(:assembly_member, birthday: nil) }
 
-        it { is_expected.to eq t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders") }
+        it { is_expected.to eq assembly_member.gender }
       end
 
       context "when any property is present" do

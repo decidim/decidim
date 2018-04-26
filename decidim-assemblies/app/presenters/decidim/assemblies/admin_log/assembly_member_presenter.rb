@@ -18,7 +18,7 @@ module Decidim
         def diff_fields_mapping
           {
             full_name: :string,
-            gender: "Decidim::Assemblies::AdminLog::ValueTypes::MemberGenderPresenter",
+            gender: :string,
             birthday: :date,
             birthplace: :string,
             designation_date: :date,

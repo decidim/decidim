@@ -17,7 +17,7 @@ module Decidim
 
         let(:full_name) { "Full name" }
         let(:designation_date) { Time.current }
-        let(:gender) { Decidim::AssemblyMember::GENDERS.sample }
+        let(:gender) { ::Faker::Lorem.word }
         let(:position) { Decidim::AssemblyMember::POSITIONS.first }
 
         let(:attributes) do
@@ -46,20 +46,6 @@ module Decidim
           let(:designation_date) { nil }
 
           it { is_expected.to be_invalid }
-        end
-
-        describe "gender" do
-          context "when is missing" do
-            let(:gender) { nil }
-
-            it { is_expected.to be_invalid }
-          end
-
-          context "when not included in the list" do
-            let(:gender) { "not-included" }
-
-            it { is_expected.to be_invalid }
-          end
         end
 
         describe "position" do

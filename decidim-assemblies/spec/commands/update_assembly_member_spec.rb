@@ -18,7 +18,7 @@ module Decidim::Assemblies
         attributes: {
           weight: 0,
           full_name: "New name",
-          gender: Decidim::AssemblyMember::GENDERS.sample,
+          gender: Faker::Lorem.word,
           birthday: Faker::Date.birthday(20, 65),
           birthplace: Faker::Demographic.demonym,
           ceased_date: nil,

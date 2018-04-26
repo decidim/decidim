@@ -11,13 +11,9 @@ module Decidim
 
     delegate :profile_url, :avatar_url, to: :user, allow_nil: true
 
-    def gender
-      I18n.t(__getobj__.gender, scope: "decidim.admin.models.assembly_member.genders", default: nil)
-    end
-
     def personal_information
       [
-        gender,
+        gender.presence,
         age,
         birthplace.presence
       ].compact.join(" / ")
