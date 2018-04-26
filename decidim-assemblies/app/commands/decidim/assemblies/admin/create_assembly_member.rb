@@ -52,8 +52,8 @@ module Decidim
             form.attributes.slice(
               :full_name,
               :gender,
-              :origin,
               :birthday,
+              :birthplace,
               :ceased_date,
               :designation_date,
               :designation_mode,

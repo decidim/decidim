@@ -50,8 +50,8 @@ module Decidim
 
       it { is_expected.to eq "#{t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders")} / #{age}" }
 
-      context "when origin is present" do
-        let(:assembly_member) { build(:assembly_member, birthday: birthday, origin: "World") }
+      context "when birthplace is present" do
+        let(:assembly_member) { build(:assembly_member, birthday: birthday, birthplace: "World") }
 
         it { is_expected.to eq "#{t(assembly_member.gender, scope: "decidim.admin.models.assembly_member.genders")} / #{age} / World" }
       end
@@ -69,7 +69,7 @@ module Decidim
       end
 
       context "when any property is present" do
-        let(:assembly_member) { build(:assembly_member, gender: nil, birthday: nil, origin: nil) }
+        let(:assembly_member) { build(:assembly_member, gender: nil, birthday: nil, birthplace: nil) }
 
         it { is_expected.to eq "" }
       end

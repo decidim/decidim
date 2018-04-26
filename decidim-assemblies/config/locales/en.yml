@@ -50,12 +50,12 @@ en:
         youtube: YouTube
       assembly_member:
         birthday: Birthday
+        birthplace: Birthplace
         ceased_date: Ceased date
         designation_date: Designation date
         designation_mode: Designation mode
         full_name: Full name
         gender: Gender
-        origin: Origin
         position: Position
       assembly_user_role:
         email: Email

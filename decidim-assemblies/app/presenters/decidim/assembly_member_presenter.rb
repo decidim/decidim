@@ -19,7 +19,7 @@ module Decidim
       [
         gender,
         age,
-        origin.presence
+        birthplace.presence
       ].compact.join(" / ")
     end
 

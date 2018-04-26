@@ -11,8 +11,8 @@ module Decidim
         attribute :weight, Integer, default: 0
         attribute :full_name, String
         attribute :gender, String
-        attribute :origin, String
         attribute :birthday, Decidim::Attributes::TimeWithZone
+        attribute :birthplace, String
         attribute :ceased_date, Decidim::Attributes::TimeWithZone
         attribute :designation_date, Decidim::Attributes::TimeWithZone
         attribute :designation_mode, String

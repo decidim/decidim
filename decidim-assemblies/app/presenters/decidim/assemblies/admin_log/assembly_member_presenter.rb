@@ -19,8 +19,8 @@ module Decidim
           {
             full_name: :string,
             gender: "Decidim::Assemblies::AdminLog::ValueTypes::MemberGenderPresenter",
-            origin: :string,
             birthday: :date,
+            birthplace: :string,
             designation_date: :date,
             designation_mode: :string,
             position: "Decidim::Assemblies::AdminLog::ValueTypes::MemberPositionPresenter",
