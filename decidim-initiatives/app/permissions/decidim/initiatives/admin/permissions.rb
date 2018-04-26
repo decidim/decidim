@@ -21,6 +21,12 @@ module Decidim
             return permission_action
           end
 
+          if !user.admin? && has_initiatives?
+            read_initiative_list_action?
+
+            return permission_action
+          end
+
           return permission_action unless user.admin?
 
           initiative_type_action?
@@ -129,7 +135,7 @@ module Decidim
           when :discard
             toggle_allow(initiative.validating?)
           when :export_votes
-            toggle_allow(initiative.offline?)
+            toggle_allow(initiative.offline? || initiative.any?)
           when :accept
             allowed = initiative.published? &&
                       initiative.signature_end_time < Time.zone.today &&
@@ -145,13 +151,19 @@ module Decidim
           end
         end
 
+        def read_initiative_list_action?
+          return unless permission_action.subject == :initiative &&
+                        permission_action.action == :list
+          allow!
+        end
+
         def initiative_user_action?
           return unless permission_action.subject == :initiative
 
           case permission_action.action
           when :read
             toggle_allow(Decidim::Initiatives.print_enabled)
-          when :preview, :edit, :list
+          when :preview, :edit
             allow!
           when :update
             toggle_allow(initiative.created?)
