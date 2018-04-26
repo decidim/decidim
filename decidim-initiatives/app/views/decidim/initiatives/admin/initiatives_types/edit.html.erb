@@ -3,7 +3,7 @@
   <div class="button--double form-general-submit">
     <%= f.submit t(".update"), class: "button" %>
 
-    <% if can? :destroy, current_initiative_type %>
+    <% if allowed_to? :destroy, :initiative_type, initiative_type: current_initiative_type %>
       <%= link_to t(".destroy"), current_initiative_type,
                   method: :delete,
                   class: "alert button",
