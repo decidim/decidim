@@ -14,15 +14,6 @@ module Capybara
       end
     end
 
-    # RSpec::Matchers.define :have_scope_not_picked do |expected|
-    #   match do |scope_picker|
-    #     data_picker = scope_picker.data_picker
-    #     scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
-    #     expect(data_picker).not_to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
-    #     expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
-    #   end
-    # end
-
     def proposal_pick(proposal_picker, proposal)
       data_picker = proposal_picker.data_picker
       # use scope_repick to change single scope picker selected scope
@@ -37,31 +28,6 @@ module Capybara
 
       expect(proposal_picker).to have_data_picked(proposal, proposal.title)
     end
-
-    # def scope_repick(scope_picker, old_scope, new_scope)
-    #   data_picker = scope_picker.data_picker
-
-    #   expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: false)
-    #   data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || scope_picker.global_value}']/../a").click
-
-    #   # browse to lowest common parent between old and new scope
-    #   parent_scope = (old_scope.part_of_scopes & new_scope.part_of_scopes).last
-
-    #   scope_picker_browse_scope(parent_scope, back: true)
-    #   scope_picker_browse_scopes(new_scope.part_of_scopes - old_scope.part_of_scopes)
-    #   scope_picker_pick_current
-
-    #   expect(scope_picker).to have_scope_picked(new_scope)
-    # end
-
-    # def scope_unpick(scope_picker, scope)
-    #   data_picker = scope_picker.data_picker
-
-    #   expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']", visible: false)
-    #   data_picker.find(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']").click
-
-    #   expect(scope_picker).to have_scope_not_picked(scope)
-    # end
 
     private
 
