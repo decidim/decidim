@@ -5,7 +5,6 @@ module Decidim
   # delegated to the components' cell if specified in the manifest
   # otherwise a primary cell wil be shown.
   class CardCell < Decidim::ViewModel
-
     def show
       if resource_cell?
         cell(resource_cell, model, options)
