@@ -42,17 +42,6 @@ module Decidim
             expect(subject).to render_template(:new)
           end
         end
-
-        context "when draft proposals exist from current users" do
-          let!(:draft) { create(:proposal, :draft, component: component, author: user) }
-
-          it "redirects to edit draft" do
-            get :new, params: params
-            expect(response).to have_http_status(:found)
-            path = edit_draft_proposal_path(draft, component_id: component.id, question_slug: component.participatory_space.slug)
-            expect(response).to redirect_to(path)
-          end
-        end
       end
 
       describe "POST create" do

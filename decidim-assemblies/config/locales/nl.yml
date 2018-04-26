@@ -2,24 +2,41 @@ nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Gebied
+        area_id: Onderwerp
+        assembly_type: Montage type
+        assembly_type_other: Montagetype anders
         banner_image: Bannerafbeelding
+        closing_date: Einddatum
+        closing_date_reason: Reden sluitingsdatum
+        composition: Samenstelling
         copy_categories: Categorieën kopiëren
-        copy_components: Kopieer componenten
-        decidim_area_id: Gebied
-        decidim_scope_id: strekking
+        copy_components: Onderdelen tekst
+        copy_features: Functionaliteiten kopiëren
+        created_by: Aangemaakt door
+        created_by_other: Aangemaakt door iemand anders
+        creation_date: Gemaakt op
+        decidim_area_id: onderwerp
+        decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
+        duration: Looptijd
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
+        included_at: Inbegrepen bij
+        instagram: Instagram
+        internal_organisation: Interne organisatie
+        is_transparent: Is transparant
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
-        participatory_processes_ids: Verwante participatieve processen
+        participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
         published_at: Gepubliceerd op
+        purpose_of_action: Doel van actie
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -28,6 +45,8 @@ nl:
         subtitle: Ondertiteling
         target: Doel
         title: Titel
+        twitter: Twitter
+        youtube: YouTube
       assembly_user_role:
         email: E-mail
         name: Naam
@@ -36,7 +55,7 @@ nl:
     admin:
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe bijeenkomt.
+          error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         destroy:
           success: Bijeenkomst is succesvol vernietigd.
@@ -46,7 +65,7 @@ nl:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Privaat
+          private: Privé
           public: Openbaar
           published: Gepubliceerd
         new:
@@ -73,33 +92,33 @@ nl:
           success: Bijeenkomt succesvol ongepubliceerd.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol gemaakt voor deze assembly.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
+          success: Gebruiker is succesvol gemaakt voor deze vergadering.
         destroy:
-          success: Gebruiker met succes vernietigd voor deze assembly.
+          success: Gebruiker met succes vernietigd voor dit event.
         edit:
-          title: Update assembly-gebruiker.
+          title: Update event gebruiker.
           update: Bijwerken
         index:
           assembly_admins_title: Assemblage gebruikers
         new:
-          create: creëren
-          title: Nieuwe assembly-gebruiker.
+          create: Aanmaken
+          title: Nieuwe vergaderinggebruiker.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol bijgewerkt voor deze assembly.
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
+          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Bijeenkomsten
+        assemblies: Events
         assemblies_submenu:
-          assembly_admins: Assemblage gebruikers
-          attachment_collections: collecties
+          assembly_admins: Gebruikersbijeenkomst
+          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          components: Components
+          components: Onderdelen
           info: info
           moderations: Moderaties
-          private_users: Particuliere gebruikers
+          private_users: Privégebruikers
       models:
         assembly:
           fields:
@@ -114,58 +133,89 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Assemblage gebruiker
+          name: Vergaderinggebruiker
           roles:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Bijeenkomsten
+        assemblies: Events
     admin_log:
       assembly:
-        create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
-        publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
-        update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+        create: "%{user_name} heeft de vergadering %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
+        update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
-        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
+        create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Selecteer een gebied
+            select_a_created_by: Selecteer op 'gemaakt door'
+            select_an_area: Selecteer een onderwerp
+            select_an_assembly_type: Selecteer een vergadering type
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            social_handlers: sociaal
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      assembly_types:
+        commission: Comissie
+        consultative_advisory: Consultative / Advisory
+        executive: Uitvoerend
+        government: Regering
+        others: Overige
+        participatory: deelnemende
+        working_group: Werkgroep
+      created_by:
+        city_council: Gemeenteraad
+        others: Overige
+        public: Openbaar
       index:
-        title: Bijeenkomsten
+        title: Events
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle bijeenkomsten
+            active_assemblies: Huidige events
+            see_all_assemblies: Bekijk alle events
       show:
-        area: Gebied
-        children: Assemblies
+        area: onderwerp
+        assembly_type: Montage type
+        children: Events
+        closing_date: Einddatum
+        composition: Samenstelling
+        created_by: Aangemaakt door
+        creation_date: Gemaakt op
         developer_group: Ontwikkelaarsgroep
+        duration: Looptijd
+        included_at: Inbegrepen bij
+        indefinite_duration: onbepaald
+        internal_organisation: Interne organisatie
+        is_transparent:
+          'false': ondoorzichtig
+          'true': Transparant
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
-        private_space: Dit is een privévergadering
-        related_participatory_processes: Verwante participatieve processen
+        private_space: Dit is een privé event
+        purpose_of_action: Doel van actie
+        read_less: Minder lezen
+        read_more: Lees verder
+        related_participatory_processes: Verwante burgerinspraken
         scope: Scope
+        social_networks: Sociale netwerken
         target: Doel
       statistics:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
-        debates_count: debatten
-        endorsements_count: Endorsements
+        debates_count: Debatten
+        endorsements_count: Aanbevelingen
         headline: Activiteit
-        meetings_count: Vergaderingen
+        meetings_count: Events
         orders_count: Stemmen
         pages_count: Pagina's
         projects_count: Projecten
@@ -179,14 +229,17 @@ nl:
         assembly_presenter:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
-      assemblies: Bijeenkomsten
+      assemblies: Events
+  errors:
+    messages:
+      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Gemarkeerde bijenkomsten
+          promoted_assemblies: Uitgelichte events
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"

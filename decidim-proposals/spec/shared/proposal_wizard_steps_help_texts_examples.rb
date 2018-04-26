@@ -46,7 +46,17 @@ shared_examples "manage proposal wizard steps help texts" do
 
     click_button "Update"
 
-    visit compare_proposal_path(current_component, proposal_draft)
+    create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
+    create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
+    visit_component
+    click_link "New proposal"
+    within ".new_proposal" do
+      fill_in :proposal_title, with: "Jordi for president"
+      fill_in :proposal_body, with: "He will solve everything"
+
+      find("*[type=submit]").click
+    end
+
     within ".proposal_wizard_help_text" do
       expect(page).to have_content("This is the second step of the Proposal creation wizard.")
     end
@@ -65,9 +75,36 @@ shared_examples "manage proposal wizard steps help texts" do
 
     click_button "Update"
 
-    visit preview_proposal_path(current_component, proposal_draft)
+    visit_component
+    click_link "New proposal"
+    within ".new_proposal" do
+      fill_in :proposal_title, with: "Agusti for president"
+      fill_in :proposal_body, with: "He will solve everything"
+
+      find("*[type=submit]").click
+    end
+
     within ".proposal_wizard_help_text" do
       expect(page).to have_content("This is the third step of the Proposal creation wizard.")
+    end
+  end
+
+  it "customize the help text for step 4 of the proposal wizard" do
+    visit edit_component_path(current_component)
+
+    fill_in_i18n_editor(
+      :component_settings_proposal_wizard_step_4_help_text,
+      "#global-settings-proposal_wizard_step_4_help_text-tabs",
+      en: "This is the fourth step of the Proposal creation wizard.",
+      es: "Este es el cuarto paso del asistente de creación de propuestas.",
+      ca: "Aquest és el quart pas de l'assistent de creació de la proposta."
+    )
+
+    click_button "Update"
+
+    visit preview_proposal_path(current_component, proposal_draft)
+    within ".proposal_wizard_help_text" do
+      expect(page).to have_content("This is the fourth step of the Proposal creation wizard.")
     end
   end
 
@@ -77,11 +114,11 @@ shared_examples "manage proposal wizard steps help texts" do
     Decidim::EngineRouter.main_proxy(current_component).new_proposal_path(current_component.id)
   end
 
-  def compare_proposal_path(current_component, proposal)
-    Decidim::EngineRouter.main_proxy(current_component).compare_proposal_path(proposal)
+  def complete_proposal_path(current_component, proposal)
+    Decidim::EngineRouter.main_proxy(current_component).complete_proposal_path(proposal)
   end
 
   def preview_proposal_path(current_component, proposal)
-    Decidim::EngineRouter.main_proxy(current_component).preview_proposal_path(proposal)
+    Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal) + "/preview"
   end
 end

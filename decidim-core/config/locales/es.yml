@@ -9,7 +9,7 @@ es:
         about: Acerca de
         email: Tu correo electrónico
         name: Tu nombre
-        nickname: Su identificador corto y único
+        nickname: Su identificador, corto y único
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -64,7 +64,7 @@ es:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
-        unpublish: "%{user_name} no publicado el componente %{resource_name} del espacio %{space_name}"
+        unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
       moderation:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
@@ -153,7 +153,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador corto y único en %{organization}
+          nickname_help: Tu identificador corto y único en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -187,13 +187,13 @@ es:
           cancel: Cancelar
           connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
           publish_content: Publique contenido para usted
-          see_email: Mira tu correo electrónico
-          see_name: Mira tu nombre
+          see_email: Ver tu correo electrónico
+          see_name: Ver tu nombre
           see_username: Ver tu nombre de usuario
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar su cuenta"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -212,9 +212,9 @@ es:
       components:
         component_published:
           email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización de %{participatory_space_title}
-          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización en %{participatory_space_title}
+          notification_title: El componente %{resource_title} está activo ahora en <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
@@ -425,7 +425,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        nickname_help: Su identificador único en %{organization}.
+        nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
     mailer:
       invitation_instructions:
@@ -436,7 +436,7 @@ es:
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_private_user: "%{invited_by} lo ha invitado como usuario privado de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
@@ -535,7 +535,7 @@ es:
         assemblies_count: Asambleas
         comments_count: Comentarios
         debates_count: Debates
-        endorsements_count: Respaldos
+        endorsements_count: Adhesiones
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
         orders_count: Votos

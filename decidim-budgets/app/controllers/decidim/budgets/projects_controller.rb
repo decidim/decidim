@@ -12,7 +12,7 @@ module Decidim
       private
 
       def projects
-        @projects ||= search.results.page(params[:page]).per(12)
+        @projects ||= search.results.page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
       def random_seed

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-ENV["RAILS_ENV"] ||= "test"
-
 require "rails-controller-testing"
 require "rspec/rails"
 require "rspec/cells"

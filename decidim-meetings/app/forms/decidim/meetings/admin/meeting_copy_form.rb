@@ -19,6 +19,7 @@ module Decidim
         attribute :longitude, Float
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
+        attribute :services, Array[MeetingServiceForm]
 
         mimic :meeting
 
@@ -31,6 +32,20 @@ module Decidim
         validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
+
+        def map_model(model)
+          self.services = model.services.map do |service|
+            MeetingServiceForm.new(service)
+          end
+        end
+
+        def services_to_persist
+          services.reject(&:deleted)
+        end
+
+        def number_of_services
+          services.size
+        end
 
         alias component current_component
       end

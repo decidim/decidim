@@ -28,3 +28,11 @@ After installing the gem you must import and execute the migrations bundled with
 bundle exec rails decidim_sortitions:install:migrations
 bundle exec rails db:migrate
 ```
+
+## Contributing
+
+See [Decidim](https://github.com/decidim/decidim).
+
+## License
+
+See [Decidim](https://github.com/decidim/decidim).

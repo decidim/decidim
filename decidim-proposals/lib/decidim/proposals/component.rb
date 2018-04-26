@@ -32,6 +32,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_3_help_text, type: :text, translated: true, editor: true
+    settings.attribute :proposal_wizard_step_4_help_text, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|
@@ -52,7 +53,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.count
+    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.except_withdrawn.not_hidden.count
   end
 
   component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

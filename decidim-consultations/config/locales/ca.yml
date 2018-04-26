@@ -8,7 +8,7 @@ ca:
         end_voting_date: Data de finalització
         introductory_image: Imatge introductòria
         introductory_video_url: URL de vídeo introductori
-        slug: URL slug
+        slug: Nom curt d'URL
         start_voting_date: Data d'inici
         subtitle: Subtítol
         title: Títol
@@ -39,7 +39,7 @@ ca:
     admin:
       actions:
         publish_results: Publica els resultats
-        unpublish_results: No publiques resultats
+        unpublish_results: Despublicar resultats
       consultation_publications:
         create:
           error: S'ha produït un error en publicar aquesta consulta.
@@ -63,7 +63,7 @@ ca:
         edit:
           update: Actualització
         form:
-          slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta consulta. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+          slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta consulta. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
           title: Informació general
         index:
           not_published: No s'ha publicat
@@ -87,7 +87,7 @@ ca:
       models:
         consultation:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             published: Publicat
             title: Títol
           name:
@@ -95,7 +95,7 @@ ca:
             other: Consultes
         question:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             published: Publicat
             title: Títol
           name:
@@ -103,7 +103,7 @@ ca:
             other: Preguntes
         response:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             title: Títol
           name:
             one: Resposta
@@ -114,7 +114,7 @@ ca:
           success: La pregunta s'ha publicat correctament.
         destroy:
           error: S'ha produït un error en publicar aquesta pregunta.
-          success: Pregunta inèdita amb èxit.
+          success: Pregunta despublicada amb èxit.
       questions:
         create:
           error: S'ha produït un error en crear una pregunta nova.
@@ -122,7 +122,7 @@ ca:
         destroy:
           success: S'ha destruït la pregunta amb èxit.
         edit:
-          update: Actualització
+          update: Actualitzar
         form:
           title: Informació general
         index:
@@ -142,11 +142,11 @@ ca:
           error: S'ha produït un error en eliminar la resposta.
           success: La resposta s'ha destruït amb èxit.
         edit:
-          update: Actualització
+          update: Actualitza
         form:
           title: Informació general
         new:
-          create: Crear
+          create: Crea
           title: Nova resposta
         update:
           error: S'ha produït un error en actualitzar aquesta resposta.
@@ -157,18 +157,18 @@ ca:
         responses: Respostes
     consultations:
       consultation:
-        start_voting_date: Votació des de
+        start_voting_date: Votant des de
         view_results: Veure resultats
       consultation_card:
         view_results: Veure resultats
       consultations:
         orders:
-          label: 'Ordeneu les consultes per:'
+          label: 'Ordena les consultes per:'
           random: Aleatori
           recent: Més recent
       count:
         title:
-          one: "Consulta %{count}"
+          one: "%{count} consulta"
           other: "%{count} consultes"
       filters:
         active: Actiu
@@ -186,22 +186,22 @@ ca:
         active_consultations: Consultes actives
         past_consultations: Consultes passades
       highlighted_questions:
-        title: Consultes des de %{scope_name}
+        title: Consultes de %{scope_name}
       index:
         title: Consultes
       question:
         take_part: Formar part
         view_results: Veure resultats
         votes_out_of:
-          one: vot de fora
-          other: vots fora de
+          one: vot d'un total de
+          other: vots d'un total de
       question_votes:
         create:
           error: Hi ha hagut errors en votar la pregunta
       regular_questions:
         title: Altres consultes
       show:
-        see_finished_consultations: Consultar consultes prèvies
+        see_finished_consultations: Veure consultes prèvies
     menu:
       consultations: Consultes
     questions:
@@ -223,7 +223,7 @@ ca:
         vote: Votació
       vote_modal:
         contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
-        title: 'Consulta: suport de preguntes'
+        title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
         confirm: Confirma
