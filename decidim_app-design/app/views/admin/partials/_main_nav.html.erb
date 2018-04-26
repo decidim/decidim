@@ -2,7 +2,7 @@
   <ul>
     <li <% if @activesection == "home" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("home") do %>
         <%= icon "dashboard" %>
         Inicio
@@ -10,7 +10,7 @@
     </li>
     <li <% if @activesection == "processes" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("processes") do %>
         <%= icon "target" %>
         Procesos
@@ -18,7 +18,7 @@
     </li>
     <li <% if @activesection == "pages" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("pages") do %>
         <%= icon "book" %>
         Páginas
@@ -27,7 +27,7 @@
     <li
     <% if @activesection == "users" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("users") do %>
         <%= icon "person" %>
         Usuarios
@@ -35,7 +35,7 @@
     </li>
     <li <% if @activesection == "settings" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("settings") do %>
         <%= icon "wrench" %>
         Configuración
@@ -43,7 +43,7 @@
     </li>
     <li <% if @activesection == "logs" %>
      class="is-active"
-    <% end %> >
+    <% end %>>
       <%= link_to page_path("logs") do %>
         <%= icon "list" %>
         Logs
