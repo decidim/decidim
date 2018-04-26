@@ -1,0 +1,30 @@
+<div class="reveal__header">
+  <h1 class="reveal__title"><%= t ".select_identity" %></h1>
+</div>
+
+<%= render partial: "decidim/initiatives/initiatives/vote_button",
+           locals: {
+               initiative: current_initiative,
+               vote_label: current_user.name,
+               unvote_label: current_user.name
+           } unless current_initiative.offline? %>
+
+<% current_user.user_groups.verified.each do |g| %>
+  <br />
+  <% if @voted_groups.include? g.id %>
+      <%= action_authorized_button_to :vote,
+                                      g.name,
+                                      initiative_initiative_vote_path(initiative_slug: current_initiative.slug, group_id: g.id),
+                                      method: :delete,
+                                      remote: true,
+                                      data: { disable: true },
+                                      class: "card__button button expanded button--sc success" %>
+  <% else %>
+    <%= action_authorized_button_to :vote,
+                                    g.name,
+                                    initiative_initiative_vote_path(initiative_slug: current_initiative.slug, group_id: g.id),
+                                    remote: true,
+                                    data: { disable: true },
+                                    class: "card__button button expanded button--sc" %>
+  <% end %>
+<% end %>

@@ -13,5 +13,11 @@
        <%= body %>
       </p>
     <% end %>
+
+    <% if id.present? && Rails.env.development? %>
+      <p>
+        <code><%= model.class.name %>#<%= id %></code>
+      </p>
+    <% end %>
   </div>
 </article>

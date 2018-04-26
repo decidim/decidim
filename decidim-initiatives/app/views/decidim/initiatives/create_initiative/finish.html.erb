@@ -1,0 +1,30 @@
+<% content_for :back_link do %>
+  <%= link_to :back, class: "muted-link" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+<% end %>
+
+<div class="row column">
+  <div class="column large-6 medium-centered">
+    <div class="callout secondary">
+      <%= t ".callout_text" %>
+      <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>
+    </div>
+  </div>
+</div>
+<br />
+<div class="row">
+    <div class="columns large-6 small-12 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= render partial: "finish_help" %>
+        </div>
+
+        <div class="column actions">
+          <%= link_to t(".go_to_my_initiatives"), decidim_admin_initiatives.initiatives_path, class: "button expanded" %>
+          <%= link_to t(".back_to_initiatives"), initiatives_path, class: "button white-button expanded" %>
+        </div>
+      </div>
+    </div>
+  </div>

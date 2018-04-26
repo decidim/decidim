@@ -3,16 +3,32 @@ ca:
     attributes:
       assembly:
         area_id: Àrea
+        assembly_type: Tipus d'assemblea
+        assembly_type_other: Altre tipus d'assemblea
         banner_image: Imatge de bàner
+        closing_date: Data de finalització
+        closing_date_reason: Raó de la data de tancament
+        composition: Composició
         copy_categories: Copiar categories
         copy_components: Copiar components
+        copy_features: Copiar funcionalitats
+        created_by: Creat per
+        created_by_other: Creat per un altre
+        creation_date: Data de creació
         decidim_area_id: Àrea
         decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
+        duration: Durada
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Imatge de portada
+        included_at: Inclòs a
+        instagram: Instagram
+        internal_organisation: Organització interna
+        is_transparent: És transparent
         local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
         participatory_processes_ids: Processos participatius relacionats
@@ -20,6 +36,7 @@ ca:
         participatory_structure: Estructura participativa
         promoted: Destacat
         published_at: Publicat el
+        purpose_of_action: Propòsit de l'acció
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
@@ -28,6 +45,8 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+        twitter: Twitter
+        youtube: YouTube
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -135,11 +154,26 @@ ca:
       admin:
         assemblies:
           form:
+            select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
+            select_an_assembly_type: Seleccioneu un tipus d'assemblea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      assembly_types:
+        commission: Comissió
+        consultative_advisory: Consultiva / assessora
+        executive: Executiva
+        government: Govern
+        others: Altres
+        participatory: Participativa
+        working_group: Grup de treball
+      created_by:
+        city_council: Ajuntament
+        others: Altres
+        public: Públic
       index:
         title: Assemblees
       pages:
@@ -149,14 +183,30 @@ ca:
             see_all_assemblies: Veure totes les assemblees
       show:
         area: Àrea
+        assembly_type: Tipus d'assemblea
         children: Assemblees
+        closing_date: Data de finalització
+        composition: Composició
+        created_by: Creat per
+        creation_date: Data de creació
         developer_group: Grup promotor
+        duration: Durada
+        included_at: Inclòs a
+        indefinite_duration: Indefinida
+        internal_organisation: Organització interna
+        is_transparent:
+          'false': opaca
+          'true': transparent
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         private_space: Aquesta és una assemblea privada
+        purpose_of_action: Propòsit de l'acció
+        read_less: Llegir menys
+        read_more: Llegir més
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
+        social_networks: Xarxes socials
         target: A qui va dirigit
       statistics:
         answers_count: Respostes
@@ -177,9 +227,12 @@ ca:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assemblea no s''ha trobat a la base de dades (ID: %{id})'
+          not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
+  errors:
+    messages:
+      cannot_be_blank: no es pot deixar en blanc
   layouts:
     decidim:
       assemblies:

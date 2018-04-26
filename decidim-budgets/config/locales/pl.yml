@@ -104,6 +104,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            projects_per_page: Projekty na stronę
             total_budget: Cały budżet
             vote_threshold_percent: Procent progu głosowania
           step:

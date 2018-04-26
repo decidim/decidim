@@ -2,7 +2,7 @@
 
 <main class="wrapper">
   <% if promoted_assemblies.any? %>
-    <section id ="highlighted-assemblies" class="row section">
+    <section id="highlighted-assemblies" class="row section">
       <h1 class="section-heading"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h1>
       <%= render partial: "promoted_assembly", collection: promoted_assemblies, as: :promoted_assembly %>
     </section>

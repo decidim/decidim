@@ -9,8 +9,7 @@
             { secret: :client_secret },
             :organization_name,
             :organization_url,
-            :redirect_uri
-      %>
+            :redirect_uri %>
 
       <dt><%= display_label(@oauth_application, :authorize_url) %></dt>
       <dd><%= decidim.oauth_authorization_url(host: @oauth_application.owner.host) %></dd>

@@ -64,6 +64,10 @@ following the form instructions. After creating it, a new admin user will be cre
 Remember that System admins and regular Admins are completely different users (they don't even share the same database table), so you can't use your
 system user to login in as an organization admin.
 
+## Contributing
+
+See [Decidim](https://github.com/decidim/decidim).
+
 ## License
 
-The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).
+See [Decidim](https://github.com/decidim/decidim).

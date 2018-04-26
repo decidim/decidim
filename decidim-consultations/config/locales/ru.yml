@@ -2,4 +2,5 @@ ru:
   activemodel:
     attributes:
       consultation:
+        banner_image: Изображение баннера
         title: Название

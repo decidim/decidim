@@ -1,0 +1,18 @@
+<div class="row">
+  <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
+
+  <div class="columns large-6">
+    <%= render partial: "decidim/proposals/proposals/wizard_header", locals: {callout_help_text_class: "warning"} %>
+    <div class="card">
+      <div class="p-l">
+        <%= render partial: "decidim/proposals/proposals/proposal_preview", locals: {proposal: @collaborative_draft} %>
+        <div class="row column flex-center">
+          <%= link_to t(".modify"), edit_draft_collaborative_draft_path(@collaborative_draft) %>
+
+          <%= button_to t(".publish"), publish_collaborative_draft_path(@collaborative_draft), method: :post, class: "button button--nomargin small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns large-3"></div>
+</div>

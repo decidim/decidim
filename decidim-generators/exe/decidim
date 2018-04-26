@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+if ARGV[0] == "--component"
+  ARGV.replace(["component", *ARGV[1..-1]])
+
+  require "decidim/generators/component_generator"
+
+  Decidim::Generators::ComponentGenerator.start
+else
+  require "decidim/generators/app_generator"
+
+  Decidim::Generators::AppGenerator.start
+end

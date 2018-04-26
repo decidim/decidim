@@ -1,0 +1,69 @@
+eu:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ziur mezua ezabatu nahi duzula?
+        destroy: ezabatu
+        edit: Editatu
+        new: New
+        title: Ekintzak
+      admin:
+        models:
+          components:
+            body: Gorputzeko
+          post:
+            name: Post
+        posts:
+          create:
+            invalid: Arazo bat izan da post hau sortzeko
+            success: Mezua ondo sortu da
+          destroy:
+            success: Mezua ondo ezabatu da
+          edit:
+            save: eguneratzearen
+          index:
+            title: Mezuak
+          new:
+            create: Sortu
+            title: Sortu mezua
+          update:
+            invalid: Erroreak gertatu dira mezua gordetzean.
+            success: Mezua ondo gorde da
+      models:
+        post:
+          fields:
+            author: Egilea
+            body: Gorputzeko
+            created_at: Sortutako at
+            title: Izenburua
+      posts:
+        author_data:
+          comments: iruzkinak
+        sidebar_blog:
+          comments: iruzkinak
+          most_commented_posts: Gehien iruzkinatutako mezu
+      read_more: Irakurri gehiago
+    components:
+      blogs:
+        name: Bloga
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+    events:
+      blogs:
+        post_created:
+          email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '%{participatory_space_title} urtean argitaratutako mezu berria'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> post %{participatory_space_title} argitaratu da
+    participatory_processes:
+      statistics:
+        posts_count: Mezuak
+  pages:
+    home:
+      statistics:
+        posts_count: Mezuak

@@ -5,7 +5,7 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_area, :closing_report, autofocus: true, rows: 15 %>
+      <%= form.translated :editor, :closing_report, autofocus: true, rows: 15 %>
     </div>
 
     <div class="row column">
@@ -26,8 +26,7 @@
         <%= form.select :proposal_ids,
                         @form.proposals.order(title: :asc).pluck(:title, :id),
                         { include_blank: true },
-                        { multiple: true, class: "chosen-select" }
-        %>
+                        { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
   </div>

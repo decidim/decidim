@@ -12,10 +12,10 @@ nl:
       postal_letter_address:
         full_address: Volledig adres
       postal_letter_confirmation:
-        verification_code: Verificatie code
+        verification_code: Verificatiecode
       postal_letter_postage:
         full_address: Volledig adres
-        verification_code: Verificatie code
+        verification_code: Verificatiecode
   decidim:
     admin:
       menu:
@@ -64,7 +64,7 @@ nl:
         start_exploring: begin met verkennen
       dummy_authorization:
         extra_explanation:
-          one: Deelname is beperkt tot gebruikers met de postcode %{postal_codes}.
+          one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
           other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
       id_documents:
         admin:

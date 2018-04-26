@@ -17,8 +17,9 @@ module Decidim
           resource :proposal_endorsement, only: [:create, :destroy] do
             get :identities, on: :collection
           end
+          get :compare, on: :collection
+          get :complete, on: :collection
           member do
-            get :compare
             get :edit_draft
             patch :update_draft
             get :preview
@@ -30,6 +31,16 @@ module Decidim
           resource :proposal_widget, only: :show, path: "embed"
         end
         resources :collaborative_drafts, except: [:destroy] do
+          get :compare, on: :collection
+          get :complete, on: :collection
+          member do
+            get :edit_draft
+            patch :update_draft
+            get :preview
+            post :publish
+            delete :destroy_draft
+            put :withdraw
+          end
         end
         root to: "proposals#index"
       end

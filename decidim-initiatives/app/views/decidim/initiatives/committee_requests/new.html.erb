@@ -1,0 +1,37 @@
+<% add_decidim_meta_tags({
+                             image_url: current_initiative.type.banner_image.url,
+                             description: translated_attribute(current_initiative.description),
+                             title: translated_attribute(current_initiative.title),
+                             url: initiative_url(current_initiative.id),
+                             twitter_handler: current_organization.twitter_handler
+                         }) %>
+
+<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
+<% provide :meta_image_url, current_initiative.type.banner_image.url %>
+
+<br /><br />
+<div class="row column">
+  <h2 class="heading2"><%= translated_attribute(current_initiative.title) %></h2>
+  <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="section">
+      <%= sanitize translated_attribute(current_initiative.description) %>
+    </div>
+
+    <div class="section">
+      <p><%= t ".help_text" %></p>
+      <%= link_to t(".continue"),
+                  spawn_initiative_committee_requests_path(current_initiative),
+                  class: "title-action__action button small hollow" if current_user %>
+
+      <%= action_authorized_link_to :spawn,
+                                    t(".continue"),
+                                    spawn_initiative_committee_requests_path(current_initiative),
+                                    class: "title-action__action button small hollow" unless current_user %>
+    </div>
+  </div>
+</div>
+<%= stylesheet_link_tag "decidim/initiatives/application" %>

@@ -1,0 +1,15 @@
+.initiative-statistics{
+  margin-top: 25px;
+
+  .definition-data__item{
+    flex-basis: 50%;
+  }
+
+  .definition-data__item:nth-child(odd){
+    border-right: 1px solid #e8e8e8;
+  }
+
+  .definition-data__item:nth-last-child(2){
+    border-bottom: none;
+  }
+}
