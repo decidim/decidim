@@ -85,15 +85,15 @@ module Decidim
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
-      expect(attrs.delete('datetime').to_s(:short)).to eq(proposal.published_at.to_s(:short))
+      expect(attrs.delete("datetime").to_s(:short)).to eq(proposal.published_at.to_s(:short))
       expect(attrs).to eq(expected_searchable_rsrc_attrs(proposal, locale))
     end
 
     def expected_searchable_rsrc_attrs(proposal, locale)
       {
         "content_a" => proposal.title,
-        "content_b" => '',
-        "content_c" => '',
+        "content_b" => "",
+        "content_c" => "",
         "content_d" => proposal.body,
         "locale" => locale,
 
