@@ -36,11 +36,26 @@
 }
 
 .hero__boxes{
-  padding: 2rem 1.5rem;
-  text-align: left;
+  text-align: center;
   border-radius: 4px;
   background-color: rgba($black, .5);
   color: $white;
+  margin-top: 1rem;
+  padding: $global-padding;
+
+  @include breakpoint(medium){
+    text-align: left;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @include breakpoint(mediumlarge){
+    margin-top: 3rem;
+  }
+
+  @include breakpoint(large){
+    margin-top: 4rem;
+  }
 
   p{
     font-size: rem-calc(17);
@@ -51,25 +66,45 @@
     margin: 0 auto;
   }
 
-// TODO: Modificar los estilos de aqui
   .box__search{
     position: relative;
+    margin: 0 auto;
+
+    $color: rgba($body-font-color, .3);
 
     input,
     input:focus{
-      color: $navbar-color-hover;
-      border: 0;
-      padding-left: $input-padding * 4;
+      color: $body-font-color;
+      margin: 0;
       box-shadow: none;
-      background: $navbar-active-bg;
+      background: $white;
 
-      @include breakpoint(medium){
-        background: $navbar-bg;
+      // NOTE: Input height same as button height
+      line-height: 1;
+      padding: $button-padding;
+      padding-left: $input-padding * 4;
+      height: auto;
+      border: 1px solid transparent;
+
+      &::-webkit-input-placeholder{ /* Chrome/Opera/Safari */
+        color: $color;
+      }
+
+      &::-moz-placeholder{ /* Firefox 19+ */
+        color: $color;
+      }
+
+      &:-ms-input-placeholder{ /* IE 10+ */
+        color: $color;
+      }
+
+      &:-moz-placeholder{ /* Firefox 18- */
+        color: $color;
       }
     }
 
     svg{
-      color: $input-placeholder-color;
+      color: $color;
       position: absolute;
       top: 50%;
       left: $input-padding;
