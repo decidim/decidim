@@ -12,7 +12,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable
-      include Decidim::Proposals::CommentableProposal
+      include Decidim::Proposals::CommentableCollaborativeDraft
       include Decidim::Traceable
       include Decidim::Loggable
 
