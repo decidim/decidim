@@ -1,4 +1,4 @@
-(() => {
+((exports) => {
   const { createFieldDependentInputs } = exports.DecidimAdmin;
 
   const $assemblyMemberPosition = $("#assembly_member_position");

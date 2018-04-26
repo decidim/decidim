@@ -27,7 +27,7 @@ module Decidim
               "designation_date" => designation_date,
               "gender" => gender,
               "position" => position,
-              "birthday" => Time.current,
+              "birthday" => Time.current
             }
           }
         end
