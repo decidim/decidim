@@ -129,8 +129,9 @@ module Decidim
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
               on(:ok) do |results|
-                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
-                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
+                expected_list = [[searchable2.id, datetime2], [searchable1.id, datetime1]]
+                expected_list.zip(results.pluck(:id, :datetime)).each do |expected, current|
+                  expect([expected.first, expected.last.to_s(:short)]).to eq([current.first, current.last.to_s(:short)])
                 end
               end
               on(:invalid) { raise("Should not happen") }
