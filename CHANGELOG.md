@@ -11,6 +11,25 @@ controller or added a new module you need to rename `feature` to `component`.
 With the addition of the new step "Complete" to the proposal creation wizard,
 administrators should keep in mind updating the help texts for each step.
 
+Authorizations workflows now use a settings manifest to define their options.
+That means site admins will no longer need to introduce raw json to define
+authorization options. If you were previously using an authorization workflow
+with options, you'll need to update the workflow manifest to define them. As an
+example, if you were filtering an authorization only to users in the 08001
+postal code via an authorization option (by introducing `{ "postal_code" :
+"08001" }` in the options field of a participatory space action permissions),
+you'll need to define it in the workflow manifest as:
+
+```ruby
+Decidim::Verifications.register_workflow(:my_handler) do |workflow|
+  # ... stuff ...
+
+  workflow.options do |options|
+    options.attribute :postal_code, type: :string, required: false
+  end
+end
+```
+
 **Added**:
 
 - **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
@@ -76,6 +95,7 @@ administrators should keep in mind updating the help texts for each step.
 - **decidim-core**: Open attachments in new tab [\#3245](https://github.com/decidim/decidim/pull/3245)
 - **decidim-core**: Open space hashtags in new tab [\#3246](https://github.com/decidim/decidim/pull/3246)
 - **decidim-proposals**: Withdrawn proposals are excluded from count limit and stats. [\#3275](https://github.com/decidim/decidim/pull/3238)
+- **decidim-admin**: Admins no longer need to introduce raw json to define options for an authorization workflow. [\#3300](https://github.com/decidim/decidim/pull/3300)
 
 **Fixed**:
 
