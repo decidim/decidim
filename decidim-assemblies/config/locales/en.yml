@@ -220,6 +220,9 @@ en:
           form:
             select_a_gender: Select a gender
             select_a_position: Select a position
+      assembly_members:
+        index:
+          members: Members
       assembly_types:
         commission: Comission
         consultative_advisory: Consultative/Advisory

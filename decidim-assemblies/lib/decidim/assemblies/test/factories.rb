@@ -103,10 +103,11 @@ FactoryBot.define do
     assembly { create(:assembly) }
 
     full_name { Faker::Name.name }
-    gender Decidim::AssemblyMember::GENDERS.sample
-    position Decidim::AssemblyMember::POSITIONS.first
+    gender { Decidim::AssemblyMember::GENDERS.sample }
+    birthday { Faker::Date.birthday(18, 65) }
+    position { Decidim::AssemblyMember::POSITIONS.first }
     designation_date { Faker::Date.between(1.year.ago, 1.month.ago) }
-    designation_mode Faker::Lorem.word
+    designation_mode { Faker::Lorem.word }
 
     trait :ceased do
       ceased_date { Faker::Date.between(1.day.ago, 5.days.ago) }
