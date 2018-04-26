@@ -24,17 +24,17 @@ es:
     admin:
       meeting_copies:
         create:
-          error: Hubo un error al duplicar esta reunión.
-          success: Reunión duplicada con éxito.
+          error: Se ha producido un error al duplicar este encuentro.
+          success: El encuentro se ha duplicado con éxito.
         new:
-          copy: Dupdo
-          select: Seleccione qué datos quiere duplicar
-          title: Reunión duplicada
+          copy: Copiar
+          select: Selecciona qué datos quieres duplicar
+          title: Duplicar encuentro
     components:
       meetings:
         actions:
           join: Unirse
-        name: Reuniones
+        name: Encuentros
         settings:
           global:
             announcement: Anuncio
@@ -122,6 +122,16 @@ es:
           new:
             create: Crear
             title: Crear encuentro
+          service:
+            description: Descripción
+            down: Abajo
+            remove: Eliminar
+            service: Servicio
+            title: Título
+            up: Arriba
+          services:
+            add_service: Añadir servicio
+            services: Servicios
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
@@ -147,7 +157,7 @@ es:
           close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
-          export_registrations: "%{user_name} exportó los registros de la reunión %{resource_name} en el espacio %{space_name}"
+          export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
       mailer:
         invite_join_meeting_mailer:

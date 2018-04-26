@@ -8,8 +8,6 @@ module Decidim
       include FormFactory
       include Decidim::DeviseControllers
 
-      helper_method :terms_and_conditions_page
-
       before_action :configure_permitted_parameters
       helper_method :terms_and_conditions_page
 
@@ -48,7 +46,7 @@ module Decidim
       private
 
       def terms_and_conditions_page
-        @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions")
+        @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
       end
 
       protected

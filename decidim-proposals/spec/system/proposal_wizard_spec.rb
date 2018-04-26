@@ -25,20 +25,6 @@ describe "Proposal", type: :system do
            participatory_space: participatory_process)
   end
 
-  let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
-
-  let!(:compare_proposal_path) do
-    Decidim::EngineRouter.main_proxy(component).compare_proposal_path(proposal_draft)
-  end
-
-  let!(:preview_proposal_path) do
-    Decidim::EngineRouter.main_proxy(component).preview_proposal_path(proposal_draft)
-  end
-
-  let!(:edit_draft_proposal_path) do
-    Decidim::EngineRouter.main_proxy(component).edit_draft_proposal_path(proposal_draft)
-  end
-
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
@@ -69,7 +55,14 @@ describe "Proposal", type: :system do
         before do
           create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
           create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
-          visit compare_proposal_path
+          visit_component
+          click_link "New proposal"
+          within ".new_proposal" do
+            fill_in :proposal_title, with: proposal_title
+            fill_in :proposal_body, with: proposal_body
+
+            find("*[type=submit]").click
+          end
         end
 
         it "show previous and current step_2 highlighted" do
@@ -79,6 +72,7 @@ describe "Proposal", type: :system do
             expect(page).to have_css(".step--active.step_2")
           end
         end
+
         it "shows similar proposals" do
           expect(page).to have_css(".card--proposal", text: "Agusti for president")
           expect(page).to have_css(".card--proposal", count: 2)
@@ -91,14 +85,24 @@ describe "Proposal", type: :system do
 
       context "without similar results" do
         before do
-          visit compare_proposal_path
+          visit_component
+          click_link "New proposal"
+          within ".new_proposal" do
+            fill_in :proposal_title, with: proposal_title
+            fill_in :proposal_body, with: proposal_body
+
+            find("*[type=submit]").click
+          end
         end
 
-        it "redirects to the publish step" do
-          expect(page).to have_content("PUBLISH YOUR PROPOSAL")
+        it "redirects to the complete step" do
+          within ".section-heading" do
+            expect(page).to have_content("COMPLETE YOUR PROPOSAL")
+          end
+          expect(page).to have_css(".new_proposal")
         end
 
-        it "shows no similar proposal found" do
+        it "shows no similar proposal found callout" do
           within ".flash.callout.success" do
             expect(page).to have_content("Well done! No similar proposals found")
           end
@@ -106,16 +110,48 @@ describe "Proposal", type: :system do
       end
     end
 
-    context "when in step_3: Publish" do
+    context "when in step_3: Complete" do
       before do
-        visit preview_proposal_path
+        visit_component
+        click_link "New proposal"
+        within ".new_proposal" do
+          fill_in :proposal_title, with: proposal_title
+          fill_in :proposal_body, with: proposal_body
+
+          find("*[type=submit]").click
+        end
       end
 
-      it "show current step_3 highlighted" do
+      it "show previous and current step_3 highlighted" do
         within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 2)
           expect(page).to have_css(".step--active.step_3")
+        end
+      end
+
+      it "show form and submit button" do
+        expect(page).to have_field("Title", with: proposal_title)
+        expect(page).to have_field("Body", with: proposal_body)
+        expect(page).to have_button("Send")
+      end
+    end
+
+    context "when in step_4: Publish" do
+      let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
+      let!(:preview_proposal_path) do
+        Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/preview"
+      end
+
+      before do
+        visit preview_proposal_path
+      end
+
+      it "show current step_4 highlighted" do
+        within ".wizard__steps" do
+          expect(page).to have_css(".step--active", count: 1)
+          expect(page).to have_css(".step--past", count: 3)
+          expect(page).to have_css(".step--active.step_4")
         end
       end
 
@@ -133,16 +169,21 @@ describe "Proposal", type: :system do
     end
 
     context "when editing a proposal draft" do
-      context "when in step_1: edit proposal draft" do
+      context "when in step_4: edit proposal draft" do
+        let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
+        let!(:edit_draft_proposal_path) do
+          Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/edit_draft"
+        end
+
         before do
           visit edit_draft_proposal_path
         end
 
-        it "show current step_1 highlighted" do
+        it "show current step_4 highlighted" do
           within ".wizard__steps" do
             expect(page).to have_css(".step--active", count: 1)
-            expect(page).to have_css(".step--past", count: 0)
-            expect(page).to have_css(".step--active.step_1")
+            expect(page).to have_css(".step--past", count: 2)
+            expect(page).to have_css(".step--active.step_3")
           end
         end
 

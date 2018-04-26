@@ -120,8 +120,6 @@ uk:
           title: Редагувати чернетку пропозиції
         endorsement_identities_cabin:
           endorse: Підтримати
-        endorsements_listing:
-          title: Перелік підтримок
         filters:
           accepted: Прийнято
           activity: Діяльність
@@ -142,6 +140,8 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
+        identities_listing:
+          title: Перелік підтримок
         index:
           new_proposal: Нова пропозиція
           see_all_withdrawn: Переглянути всі відкликані пропозиції
@@ -153,8 +153,6 @@ uk:
             many: голоси
             other: голоси
         new:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
-          select_a_category: Будь ласка, оберіть розділ
           send: Продовжити
           title: Внести власну пропозицію
         orders:
@@ -206,7 +204,6 @@ uk:
           see_steps: переглянути кроки
           step_1: Внести власну пропозицію
           step_2: Порівняти
-          step_3: Опублікувати свою пропозицію
       publish:
         success: Пропозицію успішно опубліковано.
       update:

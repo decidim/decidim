@@ -40,7 +40,8 @@ pt:
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
-            proposal_wizard_step_3_help_text: Assistente de propostas "Publicar" passo ajuda texto
+            proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
+            proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
@@ -246,6 +247,11 @@ pt:
           mine_is_different: Minha proposta é diferente
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
+        complete:
+          attachment_legend: "(Opcional) Adicione um anexo"
+          select_a_category: Por favor, selecione uma categoria
+          send: Enviar
+          title: Complete sua proposta
         count:
           proposals_count:
             one: 1 proposta
@@ -264,10 +270,6 @@ pt:
           endorse: Endossar
         endorsements_card_row:
           endorse: Endossar
-        endorsements_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de endossos
         filters:
           accepted: Aceitaram
           activity: Atividade
@@ -288,6 +290,10 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        identities_listing:
+          see_all: Veja tudo
+          see_less: Veja menos
+          title: Lista de endossos
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
@@ -297,8 +303,6 @@ pt:
             one: voto
             other: votos
         new:
-          attachment_legend: "(Opcional) Adicionar um anexo"
-          select_a_category: Selecione uma categoria
           send: Continuar
           title: Crie sua proposta
         orders:
@@ -363,7 +367,8 @@ pt:
           see_steps: ver etapas
           step_1: Crie sua proposta
           step_2: Comparar
-          step_3: Publique sua proposta
+          step_3: Completo
+          step_4: Publique sua proposta
           step_of: Etapa %{current_step_num} de %{total_steps}
       publish:
         error: Houve erros ao publicar a proposta.

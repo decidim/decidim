@@ -3,16 +3,32 @@ pt:
     attributes:
       assembly:
         area_id: Área
+        assembly_type: Tipo de montagem
+        assembly_type_other: Tipo de montagem outro
         banner_image: Imagem da bandeira
+        closing_date: Data de encerramento
+        closing_date_reason: Razão da data de encerramento
+        composition: Composição
         copy_categories: Cópiar categorias
         copy_components: Copiar componentes
+        copy_features: Recursos de cópia
+        created_by: Criado por
+        created_by_other: Criado por outro
+        creation_date: Data Criada
         decidim_area_id: Área
         decidim_scope_id: Escopo
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
+        duration: Duração
+        facebook: Facebook
+        github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        included_at: Incluído em
+        instagram: Instagram
+        internal_organisation: Organização interna
+        is_transparent: É transparente
         local_area: Área Local
         meta_scope: Metadados do âmbito
         participatory_processes_ids: Processos participativos relacionados
@@ -20,6 +36,7 @@ pt:
         participatory_structure: Estrutura participativa
         promoted: Destacado
         published_at: Publicado em
+        purpose_of_action: Objetivo da ação
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
@@ -28,6 +45,8 @@ pt:
         subtitle: Subtítulo
         target: Alvo
         title: Título
+        twitter: Twitter
+        youtube: Youtube
       assembly_user_role:
         email: O email
         name: Nome
@@ -135,11 +154,26 @@ pt:
       admin:
         assemblies:
           form:
+            select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
+            select_an_assembly_type: Selecione um tipo de montagem
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+      assembly_types:
+        commission: Comissão
+        consultative_advisory: Consultivo / Consultivo
+        executive: Executivo
+        government: Governo
+        others: Outras
+        participatory: Participativo
+        working_group: Grupo de trabalho
+      created_by:
+        city_council: Câmara Municipal
+        others: Outras
+        public: Público
       index:
         title: Assembléias
       pages:
@@ -149,14 +183,30 @@ pt:
             see_all_assemblies: Veja todas as assembléias
       show:
         area: Área
+        assembly_type: Tipo de montagem
         children: Assemblies
+        closing_date: Data de encerramento
+        composition: Composição
+        created_by: Criado por
+        creation_date: Data Criada
         developer_group: Grupo de desenvolvedores
+        duration: Duração
+        included_at: Incluído em
+        indefinite_duration: Indeterminado
+        internal_organisation: Organização interna
+        is_transparent:
+          'false': opaco
+          'true': transparente
         local_area: Área Local
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         private_space: Esta é uma assembléia privada
+        purpose_of_action: Objetivo da ação
+        read_less: Leia menos
+        read_more: Consulte Mais informação
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
+        social_networks: Redes sociais
         target: Alvo
       statistics:
         answers_count: Respostas
@@ -180,6 +230,9 @@ pt:
           not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembléias
+  errors:
+    messages:
+      cannot_be_blank: nao pode estar em branco
   layouts:
     decidim:
       assemblies:

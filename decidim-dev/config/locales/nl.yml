@@ -2,12 +2,15 @@ nl:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Gemaakt op
+        created_at: Aangemaakt op
         field: Mijn veld
         start_date: Begindatum
         title: Titel
         updated_at: Bijgewerkt op
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Een ander voorbeeld van goedkeuring
     dummy:
       admin:
         exports:

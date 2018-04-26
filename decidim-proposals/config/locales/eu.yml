@@ -40,7 +40,8 @@ eu:
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
-            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
+            proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
@@ -246,6 +247,11 @@ eu:
           mine_is_different: Nire proposamena desberdina da
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
+        complete:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          select_a_category: Hautatu kategoria bat
+          send: Bidali
+          title: Zure proposamena osatzea
         count:
           proposals_count:
             one: 1 proposamen
@@ -264,10 +270,6 @@ eu:
           endorse: gatoz
         endorsements_card_row:
           endorse: gatoz
-        endorsements_listing:
-          see_all: Dena ikusi
-          see_less: Ikusi gutxiago
-          title: Onarpenen zerrenda
         filters:
           accepted: Onartuta
           activity: Jarduera
@@ -288,6 +290,10 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
+        identities_listing:
+          see_all: Dena ikusi
+          see_less: Ikusi gutxiago
+          title: Onarpenen zerrenda
         index:
           new_proposal: Proposamen berria
           see_all_withdrawn: Ikusi guztiak kendutako proposamenak
@@ -297,8 +303,6 @@ eu:
             one: proiektuaren alde egin
             other: euskarriak
         new:
-          attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
-          select_a_category: Mesedez, aukeratu kategoria bat
           send: Jarraitu
           title: Sortu zure proposamena
         orders:
@@ -363,7 +367,8 @@ eu:
           see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
           step_2: konparatu
-          step_3: Argitaratu zure proposamena
+          step_3: osoa
+          step_4: Argitaratu zure proposamena
           step_of: Urratsa %{current_step_num} de %{total_steps}
       publish:
         error: Arazoak izan dira proposamena argitaratzean.

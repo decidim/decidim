@@ -41,7 +41,8 @@ en:
             proposal_limit: Proposal limit per user
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
+            proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
+            proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:
@@ -247,6 +248,11 @@ en:
           mine_is_different: My proposal is different
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
+        complete:
+          attachment_legend: "(Optional) Add an attachment"
+          select_a_category: Please select a category
+          send: Send
+          title: Complete your proposal
         count:
           proposals_count:
             one: 1 proposal
@@ -298,8 +304,6 @@ en:
             one: vote
             other: votes
         new:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Continue
           title: Create Your Proposal
         orders:
@@ -364,7 +368,8 @@ en:
           see_steps: see steps
           step_1: Create your proposal
           step_2: Compare
-          step_3: Publish your proposal
+          step_3: Complete
+          step_4: Publish your proposal
           step_of: Step %{current_step_num} of %{total_steps}
       publish:
         error: There's been errors when publishing the proposal.
