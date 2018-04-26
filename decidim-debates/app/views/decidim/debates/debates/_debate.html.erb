@@ -20,7 +20,7 @@
         <%== html_truncate(translated_attribute(debate.description), length: 630, separator: "...") %>
       </p>
       <% if debate.category.present? %>
-        <ul class="tags tags--debate" >
+        <ul class="tags tags--debate">
           <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
         </ul>
       <% end %>
