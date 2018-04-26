@@ -23,7 +23,7 @@ fr:
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
@@ -75,7 +75,7 @@ fr:
       models:
         participatory_process:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             private: Privé
             promoted: Mis en évidence
             published: Publié
@@ -258,7 +258,7 @@ fr:
       index:
         title: Processus participatifs
       order_by_processes:
-        active: Actif
+        active: Actifs
         all: Tout
         past: Passés
         upcoming: À venir
@@ -287,7 +287,7 @@ fr:
         answers_count: Réponses
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Promotions
+        endorsements_count: Recommandations
         headline: Activité
         meetings_count: Réunions
         orders_count: Soutiens
@@ -323,7 +323,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
       process_header:
-        process_menu_item: Le processus
+        process_menu_item: Présentation
         unfold: Déplier
       process_header_steps:
         step: Étape %{current} sur %{total}

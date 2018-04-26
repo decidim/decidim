@@ -3,16 +3,32 @@ gl:
     attributes:
       assembly:
         area_id: Área
+        assembly_type: Tipo de montaxe
+        assembly_type_other: Tipo de montaxe outro
         banner_image: Imaxe do banner
+        closing_date: Data de peche
+        closing_date_reason: Razón da data de peche
+        composition: Composición
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
+        copy_features: Copiar funcións
+        created_by: Creado por
+        created_by_other: Creado por outro
+        creation_date: Data creada
         decidim_area_id: Área
         decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo de desenvolvedores
         domain: Dominio
+        duration: Duración
+        facebook: Facebook
+        github: GitHub
         hashtag: Etiqueta
         hero_image: Imaxe na casa
+        included_at: Incluído en
+        instagram: Instagram
+        internal_organisation: Organización interna
+        is_transparent: É transparente
         local_area: Área local
         meta_scope: Metadatos de ámbito
         participatory_processes_ids: Procesos participativos relacionados
@@ -20,6 +36,7 @@ gl:
         participatory_structure: Estrutura participativa
         promoted: Promocionado
         published_at: Publicado en
+        purpose_of_action: Propósito da acción
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
@@ -28,6 +45,8 @@ gl:
         subtitle: Subtítulo
         target: Obxectivo
         title: Título
+        twitter: Twitter
+        youtube: YouTube
       assembly_user_role:
         email: Correo electrónico
         name: Nome
@@ -135,11 +154,26 @@ gl:
       admin:
         assemblies:
           form:
+            select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
+            select_an_assembly_type: Seleccione un tipo de conxunto
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+      assembly_types:
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        others: Outros
+        participatory: Participativa
+        working_group: Grupo de traballo
+      created_by:
+        city_council: Concello
+        others: Outros
+        public: Público
       index:
         title: Asembleas
       pages:
@@ -149,14 +183,30 @@ gl:
             see_all_assemblies: Ver todos os conxuntos
       show:
         area: Área
+        assembly_type: Tipo de montaxe
         children: Asembleas
+        closing_date: Data de peche
+        composition: Composición
+        created_by: Creado por
+        creation_date: Data creada
         developer_group: Grupo de desenvolvedores
+        duration: Duración
+        included_at: Incluído en
+        indefinite_duration: Indefinido
+        internal_organisation: Organización interna
+        is_transparent:
+          'false': opaco
+          'true': transparente
         local_area: Área local
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         private_space: Esta é unha asemblea privada
+        purpose_of_action: Propósito da acción
+        read_less: Ler menos
+        read_more: Le máis
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
+        social_networks: Redes Sociais
         target: Obxectivo
       statistics:
         answers_count: Respostas
@@ -180,6 +230,9 @@ gl:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Asembleas
+  errors:
+    messages:
+      cannot_be_blank: non pode estar en branco
   layouts:
     decidim:
       assemblies:

@@ -10,7 +10,7 @@ nl:
         form:
           body:
             label: Reactie
-            placeholder: Wat vind u hierover?
+            placeholder: Wat is jouw mening hierover?
           form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:
@@ -42,36 +42,36 @@ nl:
           best_rated: Best beoordeeld
           most_discussed: Meest besproken
           older: Ouder
-          recent: Recentelijk
+          recent: Meest recent
         title: 'Sorteer op:'
       comment_thread:
         title: Gesprek met %{authorName}
       comments:
-        blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar u kunt de vorige berichten lezen.
+        blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         loading: Reacties laden...
         title: "%{count} reacties"
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} heeft een reactie achtergelaten in %{resource_title}. Je kunt het lezen op deze pagina:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_name}volgt. Je kunt deze gebruiker niet meer volgen van zijn profielpagina.
+          email_intro: "%{author_name} heeft een reactie achtergelaten in %{resource_title}. Je kan het lezen op deze pagina:"
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_name}volgt. Je kan deze gebruiker ontvolgen via zijn profielpagina.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} is becommentarieerd. U kunt de opmerking op deze pagina lezen:"
-          email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: "%{resource_title} heeft een reactie ontvangen. Je kan de opmerking op deze pagina lezen:"
+          email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
-          email_intro: "%{author_name} heeft je reactie gereageerd in %{resource_title}. Je kunt het lezen op deze pagina:"
-          email_outro: U hebt deze melding ontvangen omdat uw reactie is beantwoord.
-          email_subject: "%{author_name} heeft je reactie gereageerd in %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft je reactie gereageerd in <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} heeft gereageerd op jouw opmerking in %{resource_title}. Lees het via deze link:"
+          email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.
+          email_subject: "%{author_name} heeft op je comment gereageerd in %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je opmerking in <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
-          email_intro: Je bent genoemd
-          email_outro: Je hebt deze melding ontvangen omdat je bent genoemd in %{resource_title}.
-          email_subject: U bent genoemd in %{resource_title}
-          notification_title: Je bent genoemd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Iemand heeft je getagd
+          email_outro: Je hebt deze melding ontvangen omdat je bent getagd in %{resource_title}.
+          email_subject: Je bent getagd in %{resource_title}
+          notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: Kan geen reacties hebben

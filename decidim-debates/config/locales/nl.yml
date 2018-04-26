@@ -4,9 +4,9 @@ nl:
       debate:
         category_id: Categorie
         decidim_category_id: Categorie
-        description: Beschrijving
-        end_time: Eindigt bij
-        information_updates: Informatie-updates
+        description: Omschrijving
+        end_time: Eindigt op
+        information_updates: Informatie updates
         instructions: Instructies om deel te nemen
         start_time: Begint om
         title: Titel
@@ -15,8 +15,8 @@ nl:
     components:
       debates:
         actions:
-          create: creëren
-        name: debatten
+          create: Aanmaken
+        name: Debatten
         settings:
           global:
             announcement: Aankondiging
@@ -24,10 +24,10 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Debatcreatie door gebruikers ingeschakeld
+            creation_enabled: Gebruikers kunnen geen debat aanmaken
     debates:
       actions:
-        confirm_destroy: Weet je het zeker?
+        confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
         new: Nieuwe %{name}
@@ -35,7 +35,7 @@ nl:
       admin:
         debates:
           create:
-            invalid: Er is een probleem geweest tijdens het maken van het debat.
+            invalid: Er is een probleem opgetreden tijdens het maken van het debat.
             success: Debat succesvol aangemaakt.
           destroy:
             success: Debat succesvol verwijderd.
@@ -43,89 +43,90 @@ nl:
             title: Bewerk debat
             update: Update debat
           index:
-            title: debatten
+            title: Debatten
           new:
-            create: Maak een debat
+            create: Maak een debat aan
             title: Nieuw debat
           update:
-            invalid: Er is een probleem geweest bij het bijwerken van dit debat.
+            invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
         models:
           debate:
             name: Debat
       admin_log:
         debate:
-          create: "%{user_name} heeft het %{resource_name} -debat gemaakt over de ruimte %{space_name}"
-          update: "%{user_name} heeft het %{resource_name} -debat bijgewerkt op de %{space_name} spatie"
+          create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
+          update: "%{user_name} heeft het %{resource_name} debat bijgewerkt in de %{space_name} ruimte"
       debates:
         count:
           debates_count:
             one: "%{count} debat"
             other: "%{count} debatten"
         create:
-          invalid: Er is een probleem geweest tijdens het maken van het debat.
+          invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
           success: Debat succesvol aangemaakt.
         debate:
           comments:
-            one: Commentaar
-            other: Comments
+            one: Reactie
+            other: Reacties
           participate: Deelnemen
         filters:
           all: Alle
           category: Categorie
-          category_prompt: Kies een categorie
-          citizens: burgers
+          category_prompt: Selecteer een categorie
+          citizens: Burgers
           official: Officieel
           origin: Oorsprong
           search: Zoeken
         filters_small_view:
-          close_modal: Modal sluiten
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Ontvouwen
+          close_modal: Sluit venster
+          filter: Sorteren
+          filter_by: Sorteren op
+          unfold: Uitvouwen
         index:
           new_debate: Nieuw debat
         new:
           back: Terug
-          create: creëren
+          create: Aanmaken
           select_a_category: Selecteer een categorie
           title: Nieuw debat
         share:
-          close_window: Venster sluiten
+          close_window: Sluit venster
           share: Delen
-          share_link: Deel link
+          share_link: Link delen
         show:
-          comments: Comments
-          report: Verslag doen van
+          comments: Reacties
+          report: Rapporteren
       models:
         debate:
           fields:
             end_time: Einddatum
             official_debate: Officieel debat
-            start_time: Begin datum
+            start_time: Startdatum
             title: Titel
     events:
       debates:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hallo, Er is een nieuw debat gestart op de %{space_title} participatieve ruimte, bekijk het en draag bij:
-            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+              Hallo,
+              Er is een nieuw debat gestart in de %{space_title} participatieve ruimte, bekijk het en neem deel:
+            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de voorgaande link.
             email_subject: Nieuw debat op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hallo, %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat gemaakt, bekijk het en draag bij:
-            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+              Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:
+            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'Debatcreatie is niet langer actief in %{participatory_space_title}. Je kunt nog steeds deelnemen aan geopende debatten vanaf deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Debatcreatie uitgeschakeld in %{participatory_space_title}
-          notification_title: Debatten maken is nu uitgeschakeld in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Het aanmaken van een debat is gedeactiveerd %{participatory_space_title}
+          notification_title: Je kan niet langer een debat aanmaken in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Je kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin met deelname aan deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Debatten nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kunt nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Je kan nu nieuwe debatten aanmaken in %{participatory_space_title}! Start jouw deelname op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>

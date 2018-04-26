@@ -122,6 +122,16 @@ fi:
           new:
             create: Luo
             title: Luo tapaaminen
+          service:
+            description: Kuvaus
+            down: Alas
+            remove: Poistaa
+            service: palvelu
+            title: otsikko
+            up: ylös
+          services:
+            add_service: Lisää palvelua
+            services: Palvelut
           update:
             invalid: Tapaamisen luonnissa tapahtui virhe
             success: Tapaaminen luotu onnistuneesti
