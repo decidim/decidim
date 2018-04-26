@@ -5,7 +5,7 @@ require "decidim/gem_manager"
 module Decidim
   describe Generators do
     let(:result) do
-      Bundler.with_original_env { GemManager.run(command, out: File::NULL) }
+      Bundler.with_original_env { GemManager.capture(command) }
     end
 
     shared_examples_for "a sane generator" do
