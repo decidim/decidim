@@ -32,7 +32,7 @@ es:
       oauth_application:
         name: Nombre
         organization_logo: Logotipo de la organización (cuadrado)
-        organization_name: Nombre de la Organización
+        organization_name: Nombre de la organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
@@ -127,10 +127,10 @@ es:
         authorize_url: Autorizar URL
         client_id: Identificación del cliente
         client_secret: Secreto del cliente
-        organization_name: Nombre de la Organización
+        organization_name: Nombre de la organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
-        site: Sitio
+        site: Sitio Web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -241,8 +241,8 @@ es:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
         destroy:
-          error: Ha habido un error al destruir este componente.
-          success: Componente eliminado con éxito.
+          error: Ha habido un error al eliminar este componente.
+          success: Componente borrado con éxito.
         edit:
           title: Editar componente
           update: Actualizar
@@ -260,12 +260,12 @@ es:
           add: Agregar componente
           title: 'Agregar componente: %{name}'
         publish:
-          success: El componente ha sido publicado con éxito.
+          success: El componente se ha publicado con éxito.
         title: Componentes
         unpublish:
-          success: El componente se ha publicado sin éxito.
+          success: El componente se ha despublicado sin éxito.
         update:
-          error: Ha habido un error al actualizar este componente.
+          error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
       dashboard:
         show:
@@ -274,35 +274,43 @@ es:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
-      logs:
-        logs_list:
-          no_logs_yet: Aún no hay ningún registro de actividad
-      managed_users:
+      impersonatable_users:
+        index:
+          filter:
+            all: Todas
+            managed: Administrado
+            not_managed: No gestionado
+          filter_by: Filtrado por
+          impersonate: Suplantar
+          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+          managed: Administrado
+          name: Nombre
+          needs_authorization_warning: Necesita al menos una autorización habilitada para esta organización.
+          not_managed: No gestionado
+          promote: Promover
+          search: Buscar
+          status: Estado
+          view_logs: Ver los registros
+      impersonations:
         close_session:
           error: Se ha producido un error al cerrar la sesión de suplantación actual.
           success: Se ha finalizado con éxito la sesión de suplantación actual.
         create:
-          error: Se ha producido un error al crear el usuario gestionado.
+          error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha creado correctamente.
         form:
+          authorization_method: Método de autorización
           name: Nombre
-        impersonate:
-          error: Se ha producido un error al representar al usuario gestionado.
-        impersonations:
-          new:
-            impersonate: Suplantar
-            new_managed_user_impersonation: Nueva suplantación de usuario gesionado
-        index:
-          impersonate: Suplantar
-          needs_authorization_warning: Necesita al menos una autorización habilitada para esta organización.
-          promote: Promocionar
-          view_logs: Ver los registros
+          reason: Razón
         new:
-          create: Crear
-          new_managed_user: Nuevo usuario gestionado
-          no_authorization_handlers: No hay autorizaciones disponibles para gestionar usuarios. Por favor, póngase en contacto con el administrador del sistema.
-          select_authorization_method: Seleccione un método de autorización
-          step: Fase %{current} de %{total}
+          impersonate: Suplantar
+          impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
+          impersonate_existing_user: Impersonar usuario "%{name}"
+          impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+      logs:
+        logs_list:
+          no_logs_yet: Aún no hay ningún registro de actividad
+      managed_users:
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
@@ -319,7 +327,7 @@ es:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
-        managed_users: Usuarios gestionados
+        impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         officializations: Oficializaciones
@@ -354,10 +362,9 @@ es:
             admin: Administrador
             ended_at: Terminó el
             expired_at: Caduca el
+            reason: Razón
             started_at: Empezó a las
             user: Usuario
-        managed_user:
-          name: Usuario gestionado
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -443,22 +450,22 @@ es:
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       oauth_applications:
         create:
-          error: Ha habido un error al crear esta aplicación.
+          error: Se ha producido un error al crear esta aplicación.
           success: Aplicación creada con éxito.
         destroy:
-          error: Ha habido un error al destruir esta aplicación.
-          success: Aplicación destruida con éxito.
+          error: Se ha producido un error al destruir esta aplicación.
+          success: Aplicación eliminada con éxito.
         edit:
-          save: Salvar
+          save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
+          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
-          save: Salvar
+          save: Guardar
           title: Nueva aplicación
         update:
-          error: Ha habido un error al actualizar esta aplicación.
+          error: Se ha producido un error al actualizar esta aplicación.
           success: Aplicación actualizada con éxito.
       officializations:
         create:
@@ -516,14 +523,14 @@ es:
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
-          success: Acceso a usuarios privados de espacio participativo creado con éxito.
+          success: El acceso a usuarios privados de espacio participativo creado con éxito.
         destroy:
-          success: El acceso de usuarios privados del espacio participativo se destruyó con éxito.
+          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
-          title: Usuario privado de espacio participativo
+          title: Usuario privado de espacio participativo.
         new:
           create: Crear
-          title: Nuevo usuario privado de Participatory Space.
+          title: Nuevo usuario privado en el espacio participativo.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -578,8 +585,8 @@ es:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        impersonatable_users: Usuarios impersonables
         impersonations: Suplantaciones
-        managed_users: Usuarios gestionados
         officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -620,6 +627,10 @@ es:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
+    forms:
+      errors:
+        impersonate_user:
+          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
     moderations:
       actions:
         hidden: Ocultas

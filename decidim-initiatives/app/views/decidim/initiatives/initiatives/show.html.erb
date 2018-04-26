@@ -52,7 +52,7 @@
         </h2>
         <%= render partial: "author", locals: { initiative: current_initiative } %>
       </div>
-      <br>
+      <br />
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
         <%= sanitize translated_attribute(current_initiative.description) %>

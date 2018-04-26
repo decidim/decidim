@@ -8,6 +8,9 @@ ca:
         title: Títol
         updated_at: Actualitzat el
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Una altra autorització d'exemple
     dummy:
       admin:
         exports:

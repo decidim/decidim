@@ -122,6 +122,16 @@ pt-BR:
           new:
             create: Criar
             title: Criar reunião
+          service:
+            description: Descrição
+            down: Baixa
+            remove: Remover
+            service: Serviço
+            title: Título
+            up: Acima
+          services:
+            add_service: Adicionar serviço
+            services: Serviços
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
             success: Reunião atualizada com sucesso

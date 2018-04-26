@@ -114,6 +114,7 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            projects_per_page: Proxectos por páxina
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
