@@ -1,0 +1,69 @@
+fr:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Es-tu sur de vouloir supprimer cette annonce?
+        destroy: Effacer
+        edit: modifier
+        new: Nouveau
+        title: actes
+      admin:
+        models:
+          components:
+            body: Corps
+          post:
+            name: Poster
+        posts:
+          create:
+            invalid: Un problème est survenu lors de la création de ce post
+            success: Poste créé avec succès
+          destroy:
+            success: Message supprimé avec succès
+          edit:
+            save: Mettre à jour
+          index:
+            title: Des postes
+          new:
+            create: Créer
+            title: Créer un post
+          update:
+            invalid: Il y a eu des erreurs lors de l'enregistrement du message.
+            success: Message enregistré avec succès
+      models:
+        post:
+          fields:
+            author: Auteur
+            body: Corps
+            created_at: Créé à
+            title: Titre
+      posts:
+        author_data:
+          comments: commentaires
+        sidebar_blog:
+          comments: commentaires
+          most_commented_posts: Messages les plus commentés
+      read_more: Lire la suite
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Annonce
+            comments_enabled: Commentaires activés
+          step:
+            announcement: Annonce
+            comments_blocked: Commentaires bloqués
+    events:
+      blogs:
+        post_created:
+          email_intro: Le message "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Nouveau message publié dans %{participatory_space_title}
+          notification_title: Le message <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: Des postes
+  pages:
+    home:
+      statistics:
+        posts_count: Des postes

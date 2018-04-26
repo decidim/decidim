@@ -14,6 +14,15 @@ $card-padding-small: 1rem;
 
   font-size: 1rem;
   width: 100%;
+
+  &--nocaps{
+    text-transform: lowercase;
+    letter-spacing: 0;
+
+    &::first-letter{
+      text-transform: uppercase;
+    }
+  }
 }
 
 .card-footer{
@@ -92,6 +101,12 @@ $card-padding-small: 1rem;
 .card--list__heading{
   margin-bottom: 0;
   display: block;
+}
+
+.card-divider{
+  @include modifiers(background){
+    color: $white;
+  }
 }
 
 .card-divider--reduced{

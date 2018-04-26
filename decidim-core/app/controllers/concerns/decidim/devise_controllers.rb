@@ -10,8 +10,9 @@ module Decidim
     included do
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
-
+      include ImpersonateUsers
       include NeedsAuthorization
+
       skip_authorization_check
 
       helper Decidim::TranslationsHelper

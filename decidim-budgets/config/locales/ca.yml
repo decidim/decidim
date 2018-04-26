@@ -114,6 +114,7 @@ ca:
           global:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
+            projects_per_page: Projectes per pàgina
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:

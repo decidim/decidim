@@ -54,7 +54,7 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
-        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -159,8 +159,8 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
-          already_have_an_account?: Vous avez déjà un compte?
-          newsletter: Recevoir une newsletter occasionnelle avec des informations pertinentes
+          already_have_an_account?: Vous avez déjà un compte ?
+          newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           nickname_help: Votre identifiant unique et court dans %{organization}
           sign_in: S'identifier
           sign_up: S'inscrire
@@ -169,7 +169,7 @@ fr:
             user: Individu
             user_group: Organisation / Collectif
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
-          terms: Les termes et conditions d'utilisation
+          terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
@@ -308,8 +308,8 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet e-mail correctement? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir cet e-mail correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
@@ -320,8 +320,8 @@ fr:
         unsubscribe: Se désabonner
     notifications_settings:
       show:
-        email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir les lettres d'informations
+        email_on_notification: Je veux recevoir un email chaque fois que je reçois une notification.
+        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -400,7 +400,7 @@ fr:
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
-        description: Ce contenu est-il inapproprié?
+        description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
         offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
         report: Signaler
@@ -479,7 +479,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé par Open Source Politics grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -521,20 +521,20 @@ fr:
         meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus
         proposals: Propositions
-        proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
+        proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
-        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization} .
+        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
         register: S'inscrire
       hero:
         participate: Participez
-        welcome: Bienvenue sur %{organization}!
+        welcome: Bienvenue sur %{organization} !
       statistics:
         answers_count: Enquêtes terminées
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Promotions
+        endorsements_count: Recommandations
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Soutiens

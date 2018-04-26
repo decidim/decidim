@@ -54,7 +54,7 @@ es:
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
-            remove: retirar
+            remove: Eliminar
             statement: Enunciado
           edit:
             save: Guardar
@@ -68,7 +68,7 @@ es:
             description: Descripción
             down: Abajo
             question: Pregunta
-            remove: retirar
+            remove: Eliminar
             statement: Enunciado
             up: Arriba
           update:

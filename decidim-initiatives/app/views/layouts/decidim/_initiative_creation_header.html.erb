@@ -1,0 +1,35 @@
+<div class="process-header row column">
+  <div class="row column process-header__main">
+    <div class="initiative-creation-header__container row">
+      <div class="columns mediumlarge-3">
+        <% if content_for? :back_link %>
+            <%= content_for :back_link %>
+        <% end %>
+
+        <h2 class="section-heading"><%= t(".#{step}") %></h2>
+      </div>
+      <div class="columns mediumlarge-6">
+        <div class="initiative-creation-header__phase">
+          <div class="process-header__progress show-for-medium">
+            <ol>
+              <% wizard_steps.each do |wizard_step| %>
+                <% unless future_step? wizard_step %>
+                  <li class="phase-item--past">
+                    <span></span>
+                    <div class="caption"><%= t ".#{wizard_step}" %></div>
+                  </li>
+                <% else %>
+                  <li>
+                    <span></span>
+                    <div class="caption"><%= t ".#{wizard_step}" %></div>
+                  </li>
+                <% end %>
+              <% end %>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="columns mediumlarge-3"></div>
+    </div>
+  </div>
+</div>

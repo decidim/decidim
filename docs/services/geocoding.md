@@ -2,7 +2,7 @@
 
 ## Configuring geocoding
 
-Decidim has the ability to geocode proposals and meetings using the [Here](http://here.com) service, and no other provider is officially supported.
+Decidim has the ability to geocode proposals and meetings using Open Street Maps, for instance, you can use [Here](http://here.com) service. We can't use the OSM server by their [tile usage policy](https://operations.osmfoundation.org/policies/tiles/). As an alternative, you may also want to use your own [self-hosted tile server](https://opentileserver.org/).
 
 After generating your app, you'll see that your `config/initializers/decidim.rb` file has come commented code about geocoding:
 
