@@ -20,6 +20,12 @@
     <% if can?(:edit, @collaborative_draft) %>
       <%= link_to t(".edit"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
+    <div class="card">
+      <div class="card__content">
+        VERSION -1
+        <button class="button expanded light button--sc"><%= t(".request_access") %></button>
+      </div>
+    </div>
     <%= resource_reference(@collaborative_draft) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%#= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
@@ -27,7 +33,7 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%= simple_format @collaborative_draft.body %>
-      <% # TODO = cell "decidim/tags", @collaborative_draft %>
+      <%# TODO = render partial: "tags", locals: { resource: @collaborative_draft } %>
     </div>
   </div>
 </div>
