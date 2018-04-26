@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # The main admin application controller for initiatives
-    class ApplicationController < Decidim::Admin::ApplicationController
+    class ApplicationController < Decidim::ApplicationController
       layout "decidim/admin/initiatives"
 
       include NeedsPermission
