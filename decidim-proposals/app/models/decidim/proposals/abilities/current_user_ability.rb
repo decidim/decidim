@@ -19,6 +19,7 @@ module Decidim
           setup_endorsement_related_abilities
           setup_voting_related_abilities
           can :create, Proposal if authorized?(:create) && creation_enabled?
+          can :create, CollaborativeDraft if authorized?(:create) && creation_enabled?
           can :edit, Proposal do |proposal|
             proposal.editable_by?(user)
           end

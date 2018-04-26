@@ -210,6 +210,19 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       collaborative_drafts:
+        compare:
+          mine_is_different: My collaborative draft is different
+          no_similars_found: Well done! No similar collaborative drafts found
+          title: Similar collaborative drafts
+        complete:
+          attachment_legend: "(Optional) Add an attachment"
+          select_a_category: Please select a category
+          send: Send
+          title: Complete your collaborative draft
+        count:
+          drafts_count:
+            one: 1 collaborative draft
+            other: "%{count} collaborative drafts"
         filters:
           all: All
           category: Category
@@ -225,10 +238,9 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        count:
-          drafts_count:
-            one: 1 collaborative draft
-            other: "%{count} collaborative drafts"
+        new:
+          send: Continue
+          title: Create Your collaborative draft
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
@@ -236,9 +248,23 @@ en:
           most_contributed: Most contributed
           random: Random
           recent: Recent
+        preview:
+          modify: Modify the collaborative draft
+          publish: Publish
+          title: Publish your collaborative draft
         show:
-          info-message: "This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft."
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           report: Report
+        wizard_aside:
+          back: Back
+          info: You are creating a <strong>collaborative draft</strong>.
+        wizard_steps:
+          see_steps: see steps
+          step_1: Create your collaborative draft
+          step_2: Compare with collaborative draft
+          step_3: Complete your collaborative draft
+          step_4: Publish your collaborative draft
+          step_of: Step %{current_step_num} of %{total_steps}
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully. Saved as a Draft.

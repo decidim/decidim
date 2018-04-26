@@ -32,7 +32,7 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_name(step)
-        t(:"decidim.proposals.proposals.wizard_steps.#{step}")
+        t("decidim.proposals.#{type_of}.wizard_steps.#{step}")
       end
 
       # Returns the page title of the given step, translated
@@ -48,7 +48,7 @@ module Decidim
                        action_name
                      end
 
-        t("decidim.proposals.proposals.#{step_title}.title")
+        t("decidim.proposals.#{type_of}.#{step_title}.title")
       end
 
       # Returns the list item of the given step, in html
@@ -90,7 +90,7 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_help_text?(step)
-        translated_attribute(component_settings.try("proposal_wizard_#{step}_help_text")).present?
+        translated_attribute(component_settings.try("#{type_of}_wizard_#{step}_help_text")).present?
       end
 
       # Renders a user_group select field in a form.
@@ -100,6 +100,14 @@ module Decidim
       # Returns nothing.
       def user_group_select_field(form, name)
         form.select(name, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name)
+      end
+
+      def type_of
+        if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
+          :collaborative_drafts
+        else
+          :proposals
+        end
       end
     end
   end
