@@ -1,6 +1,6 @@
 <div class="row column">
   <div class="process-nav consultations-nav">
-    <button class="process-nav__trigger hide-for-medium"  data-toggle="process-nav-content">
+    <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
       <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
       <div class="process-nav__link">
         <% if self.try(:current_component) %>
@@ -21,8 +21,7 @@
                              class_active: "is-active" do %>
             <%= external_icon "decidim/pages/icon.svg" %>
             <%= t ".question_menu_item" %>
-          <% end %>
-        </li>
+          <% end %>>
         <% question.components.each do |component| %>
           <% if component.published? || component == self.try(:current_component) %>
             <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %>">
