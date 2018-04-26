@@ -9,7 +9,7 @@ module Decidim
       helper_method :collection
 
       def index
-        redirect_to "/404" if current_participatory_space.members.none?
+        redirect_to "/404" if members.none?
 
         authorize! :read, AssemblyMember
         redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless current_user_can_visit_space?
@@ -18,7 +18,7 @@ module Decidim
       private
 
       def members
-        @members ||= current_participatory_space.members.where(ceased_date: nil)
+        @members ||= current_participatory_space.members.not_ceased
       end
 
       alias collection members

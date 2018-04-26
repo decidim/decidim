@@ -34,7 +34,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :assembly, :current_user, :user
+        attr_reader :form, :assembly, :current_user
 
         def create_assembly_member!
           log_info = {

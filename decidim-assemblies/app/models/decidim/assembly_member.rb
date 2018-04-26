@@ -15,6 +15,8 @@ module Decidim
 
     default_scope { order(arel_table[:weight].asc) }
 
+    scope :not_ceased, -> { where(ceased_date: nil) }
+
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
     end
