@@ -28,7 +28,7 @@
               <%= icon_link_to "pencil",
                                decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
                                t("actions.configure", scope: "decidim.admin"),
-                               class: "action-icon--new" if allowed_to? :edit, initiative_type_scope, initiative_type_scope: s %>
+                               class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
             </td>
           </tr>
         <% end %>
