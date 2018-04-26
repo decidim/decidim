@@ -122,9 +122,9 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
 
   private onInputChange = (query: string) => {
     if (query.length < this.minCharactersToSearch) {
-      this.setState({ noResultsText: this.props.searchPromptText })
+      this.setState({ noResultsText: this.props.searchPromptText });
     } else {
-      this.setState({ noResultsText: this.props.noResultsText })
+      this.setState({ noResultsText: this.props.noResultsText });
     }
   }
 
@@ -157,7 +157,7 @@ export class Autocomplete extends React.Component<AutocompleteProps, Autocomplet
       })
       .catch((error: any) => {
         if (axios.isCancel(error)) {
-          console.log('Request canceled', error.message);
+          // console.log("Request canceled", error.message);
         } else {
           callback (error, { options: [], complete: false });
         }

@@ -9,7 +9,7 @@ describe "Bundle sanity" do
     previous_hash = bundle_hash
 
     Dir.chdir("../") do
-      expect(system("command", out: File::NULL, err: File::NULL)).to eq(true)
+      expect(system(command, out: File::NULL, err: File::NULL)).to eq(true)
     end
 
     new_hash = bundle_hash
