@@ -11,6 +11,8 @@ module Decidim
 
           user_can_enter_space_area?
 
+          user_can_read_participatory_space?
+
           if !user.admin? && initiative&.has_authorship?(user)
             initiative_committee_action?
             initiative_user_action?
@@ -33,7 +35,14 @@ module Decidim
         private
 
         def initiative
-          @initiative ||= context.fetch(:initiative, nil)
+          @initiative ||= context.fetch(:initiative, nil) || context.fetch(:current_participatory_space, nil)
+        end
+
+        def user_can_read_participatory_space?
+          return unless permission_action.action == :read &&
+                        permission_action.subject == :participatory_space
+
+          toggle_allow(user.admin? || initiative.has_authorship?(user))
         end
 
         def user_can_enter_space_area?

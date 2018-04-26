@@ -49,6 +49,13 @@ module Decidim
               organization: current_organization
             )
         end
+
+        def permission_class_chain
+          [
+            Decidim::Initiatives::Permissions,
+            Decidim::Admin::Permissions
+          ]
+        end
       end
     end
   end
