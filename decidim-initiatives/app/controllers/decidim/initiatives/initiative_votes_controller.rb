@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Exposes the initiative vote resource so users can vote initiatives.
-    class InitiativeVotesController < Decidim::ApplicationController
+    class InitiativeVotesController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
 
       before_action :authenticate_user!

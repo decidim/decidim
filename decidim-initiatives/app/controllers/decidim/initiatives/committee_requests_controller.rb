@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Controller in charge of managing committee membership
-    class CommitteeRequestsController < Decidim::ApplicationController
+    class CommitteeRequestsController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
 
       helper Decidim::ActionAuthorizationHelper

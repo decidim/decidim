@@ -5,7 +5,7 @@ module Decidim
     require "wicked"
 
     # Controller in charge of managing the create initiative wizard.
-    class CreateInitiativeController < Decidim::ApplicationController
+    class CreateInitiativeController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_creation"
 
       include Wicked::Wizard
