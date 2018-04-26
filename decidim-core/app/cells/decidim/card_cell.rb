@@ -7,6 +7,7 @@ module Decidim
   class CardCell < Decidim::ViewModel
     property :body
     property :title
+    property :id
 
     def show
       if resource_cell?
