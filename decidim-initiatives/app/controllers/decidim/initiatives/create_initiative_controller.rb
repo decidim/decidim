@@ -28,12 +28,12 @@ module Decidim
             :finish
 
       def show
-        authorize! :create, Initiative
+        enforce_permission_to :create, :initiative
         send("#{step}_step", initiative: session[:initiative])
       end
 
       def update
-        authorize! :create, Initiative
+        enforce_permission_to :update, :initiative, initiative: current_initiative
         send("#{step}_step", params)
       end
 

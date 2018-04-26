@@ -33,12 +33,12 @@ module Decidim
 
       # GET /initiatives
       def index
-        authorize! :read, Initiative
+        enforce_permission_to :list, :initiative
       end
 
       # GET /initiatives/:id
       def show
-        authorize! :read, current_initiative
+        enforce_permission_to :read, :initiative, initiative: current_initiative
       end
 
       # GET /initiatives/:id/signature_identities

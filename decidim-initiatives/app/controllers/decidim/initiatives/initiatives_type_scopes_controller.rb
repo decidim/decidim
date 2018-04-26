@@ -8,7 +8,7 @@ module Decidim
 
       # GET /initiative_type_scopes/search
       def search
-        authorize! :search, InitiativesTypeScope
+        enforce_permission_to :search, :initiative_type_scope
         render layout: false
       end
 

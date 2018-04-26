@@ -6,7 +6,7 @@ module Decidim
     class InitiativeTypesController < Decidim::ApplicationController
       # GET /initiative_types/search
       def search
-        authorize! :search, InitiativesType
+        enforce_permission_to :search, :initiative_type
 
         types = FreetextInitiativeTypes.for(current_organization, I18n.locale, params[:term])
         render json: { results: types.map { |type| { id: type.id.to_s, text: type.title[I18n.locale.to_s] } } }

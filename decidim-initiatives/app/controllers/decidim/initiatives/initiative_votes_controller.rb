@@ -14,7 +14,7 @@ module Decidim
 
       # POST /initiatives/:initiative_id/initiative_vote
       def create
-        authorize! :vote, current_initiative
+        enforce_permission_to :vote, :initiative, initiative: current_initiative
         VoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload
@@ -31,7 +31,7 @@ module Decidim
 
       # DELETE /initiatives/:initiative_id/initiative_vote
       def destroy
-        authorize! :unvote, current_initiative
+        enforce_permission_to :unvote, :initiative, initiative: current_initiative
         UnvoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload

@@ -142,7 +142,7 @@ module Decidim
           case permission_action.action
           when :read
             toggle_allow(Decidim::Initiatives.print_enabled)
-          when :preview, :edit
+          when :preview, :edit, :list
             allow!
           when :update
             toggle_allow(initiative.created?)

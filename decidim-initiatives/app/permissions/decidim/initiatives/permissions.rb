@@ -14,6 +14,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
+        list_public_initiative?
         read_public_initiative?
         search_initiative_types_and_scopes?
 
@@ -32,6 +33,11 @@ module Decidim
 
       def initiative
         @initiative ||= context.fetch(:initiative, nil)
+      end
+
+      def read_public_initiative?
+        allow! if permission_action.subject == :initiative &&
+                  permission_action.action == :list
       end
 
       def read_public_initiative?

@@ -13,12 +13,12 @@ module Decidim
 
       # GET /initiatives/:initiative_id/committee_requests/new
       def new
-        authorize! :request_membership, current_initiative
+        enforce_permission_to :request_membership, :initiative, initiative: current_initiative
       end
 
       # GET /initiatives/:initiative_id/committee_requests/spawn
       def spawn
-        authorize! :request_membership, current_initiative
+        enforce_permission_to :request_membership, :initiative, initiative: current_initiative
 
         SpawnCommitteeRequest.call(current_initiative, current_user) do
           on(:ok) do
