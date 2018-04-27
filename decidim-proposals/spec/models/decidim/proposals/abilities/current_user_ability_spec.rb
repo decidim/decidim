@@ -186,25 +186,5 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
 
       it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::Proposal) }
     end
-
-    describe "collaborative_draft edition" do
-      let(:collaborative_draft) { build :collaborative_draft, author: user, created_at: Time.current, component: proposal_component }
-
-      context "when collaborative_draft is editable" do
-        before do
-          allow(collaborative_draft).to receive(:editable_by?).and_return(true)
-        end
-
-        it { is_expected.to be_able_to(:edit, collaborative_draft) }
-      end
-
-      context "when collaborative_draft is not editable" do
-        before do
-          allow(collaborative_draft).to receive(:editable_by?).and_return(false)
-        end
-
-        it { is_expected.not_to be_able_to(:edit, collaborative_draft) }
-      end
-    end
   end
 end
