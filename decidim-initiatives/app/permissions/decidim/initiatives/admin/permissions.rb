@@ -70,9 +70,9 @@ module Decidim
           attached = attachment&.attached_to
 
           case permission_action.action
-          when :read, :update, :destroy
+          when :update, :destroy
             toggle_allow(attached && attached.is_a?(Decidim::Initiative))
-          when :create
+          when :read, :create
             allow!
           else
             disallow!
