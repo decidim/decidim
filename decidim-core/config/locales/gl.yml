@@ -109,6 +109,10 @@ gl:
       photos:
         related_photos: Fotos relacionadas
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
+        fields:
+          passport_number: Número de pasaporte
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
         fields:
