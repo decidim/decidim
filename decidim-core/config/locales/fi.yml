@@ -109,6 +109,10 @@ fi:
       photos:
         related_photos: Liittyvät kuvat
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Vahvista avaamalla passi numerosta "A"
+        fields:
+          passport_number: Passin numero
       dummy_authorization_handler:
         explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
