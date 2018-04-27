@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This concern contains the logic related to the authorship.
-  # This authorship may belong to a single user or be shared among coauthors, in
-  # this latest case the Coauthorable concern should be also applied.
-  module Authorable
+  # This concern contains the logic related to collective or shared authorship.
+  #
+  # Coauthorable will share the same object interface as Authorable (if it ducks is a duck).
+  #
+  # Coauthorable entities will have an initial author, plus a list of coauthors.
+  # The initial author will be persisted in the entity's table as implemented by Authorable,
+  # and the rest of the coauthors will be persisted in the coauthors table.
+  #
+  # All coauthors, including the initial author, will share the same permissions.
+  module Coauthorable
     extend ActiveSupport::Concern
 
     included do
