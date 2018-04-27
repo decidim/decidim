@@ -8,6 +8,9 @@ You need it in order to have a Rails application configured to lookup Decidim mo
 You can create a `development_app` from inside the project's root folder with the command:
 
 ```console
+git clone https://github.com/decidim/decidim.git
+cd decidim
+bundle install
 bundle exec rake development_app
 cd development_app
 ```
@@ -18,7 +21,7 @@ Once created, you will only have to
 
 - configure its `config/database.yml`
 - `bundle install`
-- `bin/rails db:migrate`
+- `bin/rails db:migrate db:seed`
 - `bin/rails s`
 
 ## Useful commands
@@ -42,6 +45,15 @@ We use i18n-tasks gem to keep translations ordered and without missing/unused ke
 ```console
 # from the root of the project
 bundle exec i18n-tasks normalize --locales en
+```
+
+### JavaScript linter
+
+We use JavaScript's lint library to ensure homogeneous formatting of JavaScrip code.
+
+```console
+yarn install
+yarn run lint --fix
 ```
 
 ### Rubocop
