@@ -253,13 +253,18 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
       end
 
+      context "when reading" do
+        let(:action_name) { :read }
+
+        it { is_expected.to eq true }
+      end
+
       context "when creating" do
         let(:action_name) { :create }
 
         it { is_expected.to eq true }
       end
 
-      it_behaves_like "attached to an initiative", :read
       it_behaves_like "attached to an initiative", :update
       it_behaves_like "attached to an initiative", :destroy
     end

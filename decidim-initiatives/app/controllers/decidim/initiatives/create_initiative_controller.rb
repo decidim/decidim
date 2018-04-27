@@ -33,7 +33,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :initiative, initiative: current_initiative
+        enforce_permission_to :create, :initiative
         send("#{step}_step", params)
       end
 
