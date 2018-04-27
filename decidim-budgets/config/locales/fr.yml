@@ -114,6 +114,7 @@ fr:
           global:
             announcement: Message d'annonce
             comments_enabled: Activer le module de commentaire
+            projects_per_page: Projets par page
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:

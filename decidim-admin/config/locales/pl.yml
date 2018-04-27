@@ -274,35 +274,43 @@ pl:
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
-      logs:
-        logs_list:
-          no_logs_yet: Nie ma jeszcze dzienników
-      managed_users:
+      impersonatable_users:
+        index:
+          filter:
+            all: Wszystko
+            managed: Zarządzane
+            not_managed: Nie zarządzany
+          filter_by: Filtruj według
+          impersonate: Podszywać się
+          impersonate_new_managed_user: Podszywać się pod nowego zarządzanego użytkownika
+          managed: Zarządzane
+          name: Nazwa
+          needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
+          not_managed: Nie zarządzany
+          promote: Promować
+          search: Szukaj
+          status: Status
+          view_logs: Wyświetl dzienniki
+      impersonations:
         close_session:
           error: Podczas zamykania bieżącej sesji personifikacji wystąpił błąd.
           success: Obecna sesja personifikacji została pomyślnie zakończona.
         create:
-          error: Podczas tworzenia użytkownika zarządzanego wystąpił błąd.
+          error: Wystąpił błąd podszywania się pod użytkownika.
           success: Zarządzany użytkownik został pomyślnie utworzony.
         form:
+          authorization_method: Metoda autoryzacji
           name: Nazwa
-        impersonate:
-          error: Wystąpił błąd podczas podszywania się do zarządzanego użytkownika.
-        impersonations:
-          new:
-            impersonate: Podszywać się
-            new_managed_user_impersonation: Nowa udana personifikacja użytkowników
-        index:
-          impersonate: Podszywać się
-          needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
-          promote: Promować
-          view_logs: Wyświetl dzienniki
+          reason: Powód
         new:
-          create: Utwórz
-          new_managed_user: Nowy użytkownik zarządzany
-          no_authorization_handlers: Nie ma dostępnych programów do obsługi upoważnień do zarządzania użytkownikami. Skontaktuj się z administratorem systemu.
-          select_authorization_method: Wybierz metodę autoryzacji
-          step: Krok %{current} z %{total}
+          impersonate: Podszywać się
+          impersonate_existing_managed_user: Podszywać się pod zarządzanego użytkownika "%{name}"
+          impersonate_existing_user: Podszywać się pod użytkownika "%{name}"
+          impersonate_new_managed_user: Podszywać się pod nowego zarządzanego użytkownika
+      logs:
+        logs_list:
+          no_logs_yet: Nie ma jeszcze dzienników
+      managed_users:
         promotion:
           error: Podczas promowania zarządzanego użytkownika wystąpił błąd.
           success: Zarządzany użytkownik został pomyślnie awansowany.
@@ -319,7 +327,7 @@ pl:
         areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
-        managed_users: Zarządzane użytkownicy
+        impersonations: Podszywanie się pod inne osoby
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
         officializations: Oficjalizacje
@@ -354,10 +362,9 @@ pl:
             admin: Admin
             ended_at: Zakończył się w
             expired_at: Wygasła w dniu
+            reason: Powód
             started_at: Zaczęło się od
             user: Użytkownik
-        managed_user:
-          name: Zarządzany użytkownik
         newsletter:
           fields:
             created_at: Utworzono w
@@ -578,8 +585,8 @@ pl:
         areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
+        impersonatable_users: Niekodowalni użytkownicy
         impersonations: Impersonaty
-        managed_users: Zarządzane użytkownicy
         officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -620,6 +627,10 @@ pl:
         new:
           create: Zapraszam
           title: Zaproś użytkownika jako administratora
+    forms:
+      errors:
+        impersonate_user:
+          reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
     moderations:
       actions:
         hidden: Ukryty

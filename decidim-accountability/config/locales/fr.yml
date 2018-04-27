@@ -157,7 +157,7 @@ fr:
             proposals: Propositions
             show_all_versions: Afficher toutes les versions
             version_author: Auteur de la version
-            version_created_at: Version créée à
+            version_created_at: Version créée le
             version_number: Numéro de version
             version_number_out_of_total: "%{current_version} sur %{total_count}"
             votes: Soutiens

@@ -40,7 +40,8 @@ pl:
             proposal_limit: Limit ofert na użytkownika
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
-            proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
+            proposal_wizard_step_3_help_text: Kreator propozycji "Zakończ" tekst pomocy
+            proposal_wizard_step_4_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
             threshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
@@ -246,6 +247,11 @@ pl:
           mine_is_different: Moja propozycja jest inna
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
+        complete:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          select_a_category: Proszę wybierz kategorie
+          send: Wysłać
+          title: Uzupełnij swoją propozycję
         edit:
           back: Plecy
           select_a_category: Proszę wybrać kategorię
@@ -260,10 +266,6 @@ pl:
           endorse: Podpisać się
         endorsements_card_row:
           endorse: Podpisać się
-        endorsements_listing:
-          see_all: Widzieć wszystko
-          see_less: Zobacz mniej
-          title: Lista rekomendacji
         filters:
           accepted: Przyjęty
           activity: Czynność
@@ -284,13 +286,15 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
+        identities_listing:
+          see_all: Widzieć wszystko
+          see_less: Zobacz mniej
+          title: Lista rekomendacji
         index:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
         new:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybrać kategorię
           send: dalej
           title: Utwórz swoją ofertę
         orders:
@@ -349,7 +353,8 @@ pl:
           see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównać
-          step_3: Opublikuj swoją propozycję
+          step_3: Kompletny
+          step_4: Opublikuj swoją propozycję
           step_of: Krok %{current_step_num} z %{total_steps}
       publish:
         error: Podczas publikowania propozycji wystąpiły błędy.

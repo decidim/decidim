@@ -49,30 +49,6 @@ shared_examples "manage impersonations examples" do
     end
   end
 
-  shared_context "with multiple authorization handlers" do
-    let(:available_authorizations) do
-      %w(dummy_authorization_handler another_dummy_authorization_handler)
-    end
-
-    let(:another_dummy_authorization_handler) do
-      Class.new(Decidim::AuthorizationHandler) do
-        attribute :passport_number, String
-      end
-    end
-
-    before do
-      stub_const("Decidim::AnotherDummyAuthorizationHandler", another_dummy_authorization_handler)
-
-      Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
-        workflow.form = "Decidim::AnotherDummyAuthorizationHandler"
-      end
-    end
-
-    after do
-      Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
-    end
-  end
-
   shared_examples_for "impersonating a user" do
     it "can impersonate the user filling in the correct authorization" do
       expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
@@ -80,7 +56,9 @@ shared_examples "manage impersonations examples" do
     end
 
     context "when performing an authorized action" do
-      include_context "with multiple authorization handlers"
+      let(:available_authorizations) do
+        %w(dummy_authorization_handler another_dummy_authorization_handler)
+      end
 
       let(:participatory_space) do
         create(:participatory_process, organization: organization)
@@ -163,7 +141,9 @@ shared_examples "manage impersonations examples" do
   end
 
   context "when more than one authorization handler enabled" do
-    include_context "with multiple authorization handlers"
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler another_dummy_authorization_handler)
+    end
 
     it_behaves_like "creating a managed user"
 

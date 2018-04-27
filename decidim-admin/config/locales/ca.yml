@@ -34,7 +34,7 @@ ca:
         organization_logo: Logotip de l'organització (quadrat)
         organization_name: Nom de l'organització
         organization_url: URL de l'organització
-        redirect_uri: Redirigir URI
+        redirect_uri: URL de redirecció
       organization:
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
@@ -88,7 +88,7 @@ ca:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+              must_be_ssl: L'URL de redirecció ha de ser SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -124,13 +124,13 @@ ca:
         slug: Nom curt d'URL
         title: Títol
       doorkeeper/application:
-        authorize_url: Autoritza l'URL
+        authorize_url: URL d'autorització
         client_id: Identificador de client
         client_secret: Secret del client
         organization_name: Nom de l'organització
         organization_url: URL de l'organització
-        redirect_uri: Redirigir URI
-        site: Lloc
+        redirect_uri: URL de redirecció
+        site: Lloc web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -274,35 +274,43 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
-      logs:
-        logs_list:
-          no_logs_yet: Encara no hi ha cap registre d'activitat
-      managed_users:
+      impersonatable_users:
+        index:
+          filter:
+            all: Tots
+            managed: Gestionat
+            not_managed: No gestionat
+          filter_by: Filtra per
+          impersonate: Suplantar
+          impersonate_new_managed_user: Substitueix un nou usuari administrat
+          managed: Gestionat
+          name: Nom
+          needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
+          not_managed: No gestionat
+          promote: Promocionar
+          search: Cerca
+          status: Estat
+          view_logs: Veure registres
+      impersonations:
         close_session:
           error: S'ha produït un error en tancar la sessió de suplantació actual.
           success: La sessió de suplantació actual s'ha finalitzat amb èxit.
         create:
-          error: S'ha produït un error en crear l'usuari gestionat.
+          error: S'ha produït un error en impersonar l'usuari.
           success: L'usuari gestionat s'ha creat correctament.
         form:
+          authorization_method: Mètode d'autorització
           name: Nom
-        impersonate:
-          error: S'ha produït un error en suplantar l'usuari gestionat.
-        impersonations:
-          new:
-            impersonate: Suplantar
-            new_managed_user_impersonation: Nova suplantació d'usuaris gestionats
-        index:
-          impersonate: Suplantar
-          needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
-          promote: Promocionar
-          view_logs: Veure registres
+          reason: Raó
         new:
-          create: Crear
-          new_managed_user: Nou usuari gestionat
-          no_authorization_handlers: No hi ha autoritzacions disponibles per gestionar usuaris. Poseu-vos en contacte amb l'administrador del sistema.
-          select_authorization_method: Seleccioneu un mètode d'autorització
-          step: Fase %{current} de %{total}
+          impersonate: Suplantar
+          impersonate_existing_managed_user: Impersonar l'usuari gestionat "%{name}"
+          impersonate_existing_user: Impersona l'usuari "%{name}"
+          impersonate_new_managed_user: Impersona un nou usuari administrat
+      logs:
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat
+      managed_users:
         promotion:
           error: S'ha produït un error en promoure l'usuari gestionat.
           success: S'ha promogut amb èxit l'usuari gestionat.
@@ -319,7 +327,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
-        managed_users: Usuaris gestionats
+        impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
         officializations: Oficialitzacions
@@ -354,10 +362,9 @@ ca:
             admin: Administrador
             ended_at: Va acabar el
             expired_at: Vençut el
+            reason: Raó
             started_at: Va començar el
             user: Usuari
-        managed_user:
-          name: Usuari gestionat
         newsletter:
           fields:
             created_at: Data de creació
@@ -367,11 +374,11 @@ ca:
           name: Butlletí
         oauth_application:
           fields:
-            created_at: Creat a
+            created_at: Creat el
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:
-          name: Usuari privat de l'espai participatiu
+          name: Usuari privat de l'espai de participació
         scope:
           fields:
             name: Nom
@@ -452,7 +459,7 @@ ca:
           save: Desa
           title: Edita l'aplicació
         index:
-          confirm_delete: Esteu segur que voleu suprimir aquesta aplicació?
+          confirm_delete: Estàs segur de que vols suprimir aquesta aplicació?
           title: Aplicacions OAuth
         new:
           save: Desa
@@ -515,10 +522,10 @@ ca:
           omnipresent_banner_appearance_title: Edita bàner omnipresent
       participatory_space_private_users:
         create:
-          error: S'ha produït un error en afegir un usuari privat a aquest espai participatiu.
-          success: S'ha creat l'espai d'accés privat de l'espai participatiu.
+          error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
+          success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
         destroy:
-          success: L'accés a usuaris privats de l'espai participatiu s'ha destruït amb èxit.
+          success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
         index:
           title: Usuari privat de l'espai participatiu
         new:
@@ -578,8 +585,8 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
+        impersonatable_users: Usuaris impersonables
         impersonations: Suplantacions
-        managed_users: Usuaris gestionats
         officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -620,6 +627,10 @@ ca:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
+    forms:
+      errors:
+        impersonate_user:
+          reason: Heu d'indicar un motiu quan impersoneu un usuari no administrat
     moderations:
       actions:
         hidden: Ocults

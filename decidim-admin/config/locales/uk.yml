@@ -210,32 +210,20 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
-      managed_users:
+      impersonatable_users:
+        index:
+          impersonate: Виступити в ролі учасника
+          needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
+          view_logs: Переглянути журнали
+      impersonations:
         close_session:
           error: При закритті поточного сеансу уособлення сталася помилка.
           success: Поточний сеанс виступу в ролі учасника успішно завершено.
         create:
-          error: При створенні керованого учасника сталася помилка.
           success: Керованого учасника було успішно створено.
-        form:
-          name: Ім'я
-        impersonate:
-          error: При видаванні себе за керованого учасника сталася помилка.
-        impersonations:
-          new:
-            impersonate: Виступити в ролі учасника
-            new_managed_user_impersonation: Новий виступ в ролі керованого учасника
-        index:
-          impersonate: Виступити в ролі учасника
-          needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
-          promote: Підвищити
-          view_logs: Переглянути журнали
         new:
-          create: Створити
-          new_managed_user: Новий керований учасник
-          no_authorization_handlers: Немає доступних шляхів підтвердження особи для керування учасниками. Будь ласка, зв'яжіться зі своїм системним адміністратором.
-          select_authorization_method: Оберіть спосіб підтвердження своєї особи
-          step: '%{current}-й крок з %{total} кроків'
+          impersonate: Виступити в ролі учасника
+      managed_users:
         promotion:
           error: При підвищенні керованого учасника сталася помилка.
           success: Керованого учасника було успішно підвищено.
@@ -252,7 +240,6 @@ uk:
         areas: Терени
         configuration: Конфігурація
         dashboard: Приладна дошка
-        managed_users: Керовані учасники
         newsletters: Розсилання новин
         officializations: Надання офіційного статусу
         scope_types: Різновиди терену
@@ -288,8 +275,6 @@ uk:
             expired_at: 'Термін дії закінчився:'
             started_at: Започатковано о
             user: Учасник
-        managed_user:
-          name: Керований учасник
         newsletter:
           fields:
             created_at: 'Створено:'
@@ -474,7 +459,6 @@ uk:
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
-        managed_users: Керовані учасники
         officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени

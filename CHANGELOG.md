@@ -8,9 +8,32 @@ This version has breaking changes, `Decidim::Feature` has been renamed to `Decid
 and also everything related to it (controllers, views, etc.). If you have customised some
 controller or added a new module you need to rename `feature` to `component`.
 
+With the addition of the new step "Complete" to the proposal creation wizard,
+administrators should keep in mind updating the help texts for each step.
+
+Authorizations workflows now use a settings manifest to define their options.
+That means site admins will no longer need to introduce raw json to define
+authorization options. If you were previously using an authorization workflow
+with options, you'll need to update the workflow manifest to define them. As an
+example, if you were filtering an authorization only to users in the 08001
+postal code via an authorization option (by introducing `{ "postal_code" :
+"08001" }` in the options field of a participatory space action permissions),
+you'll need to define it in the workflow manifest as:
+
+```ruby
+Decidim::Verifications.register_workflow(:my_handler) do |workflow|
+  # ... stuff ...
+
+  workflow.options do |options|
+    options.attribute :postal_code, type: :string, required: false
+  end
+end
+```
+
 **Added**:
 
 - **decidim-meetings**: Add organizer to meeting and meeting types [\#3136](https://github.com/decidim/decidim/pull/3136)
+- **decidim-meetings**: Add Minutes entity to manage Minutes. [\#3213](https://github.com/decidim/decidim/pull/3213)
 - **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
 - **decidim-blogs**: Decidim Blogs gem has been integrated into the main repository. [\#3221](https://github.com/decidim/decidim/pull/3221)
 - **decidim-meetings** Add services offered in the meeting. [\#3150](https://github.com/decidim/decidim/pull/3150)
@@ -57,10 +80,11 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#3265](https://github.com/decidim/decidim/pull/3265)
 - **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
 - **decidim-meetings**: Add a meetings API. [\#3255](https://github.com/decidim/decidim/pull/3255)
+- **decidim-proposals**: Add "complete" step to the proposal creation wizard [\#3274](https://github.com/decidim/decidim/pull/3274)
 
 **Changed**:
 
-- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. (https://github.com/decidim/decidim/pull/3238)
+- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. [\#3238](https://github.com/decidim/decidim/pull/3238)
 - **decidim-admin**: Moved the following reusable javascript components from `decidim-surveys` component [\#3194](https://github.com/decidim/decidim/pull/3194)
   - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
   - Dependent inputs (field_dependent_inputs.component.js.es6)
@@ -72,9 +96,13 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-accountability**: Include children information in main column [\#3217](https://github.com/decidim/decidim/pull/3217)
 - **decidim-core**: Open attachments in new tab [\#3245](https://github.com/decidim/decidim/pull/3245)
 - **decidim-core**: Open space hashtags in new tab [\#3246](https://github.com/decidim/decidim/pull/3246)
+- **decidim-proposals**: Withdrawn proposals are excluded from count limit and stats. [\#3275](https://github.com/decidim/decidim/pull/3238)
+- **decidim-admin**: Admins no longer need to introduce raw json to define options for an authorization workflow. [\#3300](https://github.com/decidim/decidim/pull/3300)
 
 **Fixed**:
 
+- **decidim-accountability**: Fixes linking proposals to results for accountability on creation time. [\#3167](https://github.com/decidim/decidim/pull/3262)
+- **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. [\#2894](https://github.com/decidim/decidim/pull/3238)
 - **decidim-proposals**: Ignore already imported proposals when importing them [\#3257](https://github.com/decidim/decidim/pull/3257)
 - **decidim-proposals**: Fixes clicking on "see all" should remove the ellipsis sign. [\#3238](https://github.com/decidim/decidim/pull/3238)
 - **decidim-core**: Add missing locales in Freanch fot the datepicker [\#3260](https://github.com/decidim/decidim/pull/3260)

@@ -49,6 +49,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let(:component) { proposal.component }
     let!(:hidden_proposal) { create :proposal, component: component }
     let!(:draft_proposal) { create :proposal, :draft, component: component }
+    let!(:withdrawn_proposal) { create :proposal, :withdrawn, component: component }
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -56,8 +57,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     describe "proposals_count" do
       let(:stats_name) { :proposals_count }
 
-      it "only counts published and not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 3
+      it "only counts published (except withdrawn) and not hidden proposals" do
+        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 4
         expect(subject).to eq 1
       end
     end

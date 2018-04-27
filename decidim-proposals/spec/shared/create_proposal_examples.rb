@@ -126,6 +126,40 @@ shared_examples "create a proposal" do |with_author|
             end
           end
         end
+
+        describe "the proposal limit excludes withdrawn proposals" do
+          let(:component) do
+            create(:proposal_component, settings: { "proposal_limit" => 1 })
+          end
+
+          describe "when the author is a user" do
+            let(:user_group) { nil }
+
+            before do
+              create(:proposal, :withdrawn, author: author, component: component)
+            end
+            it "checks the user doesn't exceed the amount of proposals" do
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:invalid)
+
+              user_proposal_count = Decidim::Proposals::Proposal.where(author: author).count
+              expect(user_proposal_count).to eq(2)
+            end
+          end
+
+          describe "when the author is a user_group" do
+            before do
+              create(:proposal, :withdrawn, author: author, decidim_user_group_id: user_group.id, component: component)
+            end
+            it "checks the user_group doesn't exceed the amount of proposals" do
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:invalid)
+
+              user_group_proposal_count = Decidim::Proposals::Proposal.where(user_group: user_group).count
+              expect(user_group_proposal_count).to eq(2)
+            end
+          end
+        end
       else
         it "traces the action", versioning: true do
           expect(Decidim.traceability)

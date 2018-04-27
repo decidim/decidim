@@ -20,3 +20,11 @@ And then execute:
 ```bash
 bundle
 ```
+
+## Contributing
+
+See [Decidim](https://github.com/decidim/decidim).
+
+## License
+
+See [Decidim](https://github.com/decidim/decidim).

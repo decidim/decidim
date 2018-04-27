@@ -122,6 +122,16 @@ gl:
           new:
             create: Crear
             title: Crear unha reunión
+          service:
+            description: Descrición
+            down: Baixo
+            remove: Quitar
+            service: Servizo
+            title: Título
+            up: Arriba
+          services:
+            add_service: Engadir servizo
+            services: Servizos
           update:
             invalid: Produciuse un problema ao actualizar esta reunión
             success: Reunión actualizada correctamente
