@@ -105,6 +105,7 @@ FactoryBot.define do
     full_name { Faker::Name.name }
     gender { Faker::Lorem.word }
     birthday { Faker::Date.birthday(18, 65) }
+    birthplace { Faker::Lorem.word }
     position { Decidim::AssemblyMember::POSITIONS.first }
     designation_date { Faker::Date.between(1.year.ago, 1.month.ago) }
     designation_mode { Faker::Lorem.word }

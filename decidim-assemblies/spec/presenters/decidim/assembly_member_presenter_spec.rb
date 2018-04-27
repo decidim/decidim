@@ -42,24 +42,24 @@ module Decidim
     describe "personal_information" do
       subject { described_class.new(assembly_member).personal_information }
 
-      it { is_expected.to eq "#{assembly_member.gender} / #{age}" }
-
-      context "when birthplace is present" do
-        let(:assembly_member) { build(:assembly_member, birthday: birthday, birthplace: "World") }
-
-        it { is_expected.to eq "#{assembly_member.gender} / #{age} / World" }
-      end
+      it { is_expected.to eq "#{assembly_member.gender} / #{age} / #{assembly_member.birthplace}" }
 
       context "when gender is not present" do
         let(:assembly_member) { build(:assembly_member, birthday: birthday, gender: nil) }
 
-        it { is_expected.to eq age.to_s }
+        it { is_expected.to eq "#{age} / #{assembly_member.birthplace}" }
       end
 
       context "when birthday is not present" do
         let(:assembly_member) { build(:assembly_member, birthday: nil) }
 
-        it { is_expected.to eq assembly_member.gender }
+        it { is_expected.to eq "#{assembly_member.gender} / #{assembly_member.birthplace}" }
+      end
+
+      context "when birthplace is not present" do
+        let(:assembly_member) { build(:assembly_member, birthday: birthday, birthplace: nil) }
+
+        it { is_expected.to eq "#{assembly_member.gender} / #{age}" }
       end
 
       context "when any property is present" do
