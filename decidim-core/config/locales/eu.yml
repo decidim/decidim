@@ -109,6 +109,10 @@ eu:
       photos:
         related_photos: Honekin lotutako argazkiak
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Egiaztatu pasaportearen zenbakia "A"
+        fields:
+          passport_number: Pasaporte zenbakia
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
