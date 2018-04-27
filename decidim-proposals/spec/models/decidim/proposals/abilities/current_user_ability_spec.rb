@@ -184,7 +184,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::CollaborativeDraft) }
+      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::Proposal) }
     end
 
     describe "collaborative_draft creation" do
