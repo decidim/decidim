@@ -4,7 +4,7 @@ require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
 
-root_path = File.expand_path("..", Dir.pwd)
+root_path = File.expand_path("..", ENV["ENGINE_PATH"])
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
 if ENV["SIMPLECOV"]
