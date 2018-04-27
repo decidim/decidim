@@ -20,6 +20,11 @@ pl:
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
         title: Tytuł
+      minutes:
+        audio_url: Adres audio
+        description: Opis
+        video_url: URL wideo
+        visible: Jest widoczny
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
+        minutes: Minuty
         new: Nowe
         preview: Podgląd
         registrations: Rejestracje
@@ -135,6 +141,18 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił problem
             success: Spotkanie zostało pomyślnie zaktualizowane
+        minutes:
+          create:
+            invalid: Podczas tworzenia tej minuty wystąpił problem
+            success: Udało się utworzyć minuty
+          edit:
+            update: Aktualizacja
+          new:
+            create: Stwórz
+            title: Twórz minuty
+          update:
+            invalid: Podczas aktualizowania tych minut wystąpił problem
+            success: Minuty zostały pomyślnie zaktualizowane
         models:
           meeting:
             name: Spotkanie
@@ -156,6 +174,9 @@ pl:
           delete: "%{user_name} usunął spotkanie %{resource_name} na przestrzeni %{space_name}"
           export_registrations: "%{user_name} wyeksportował zapisy spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował spotkanie %{resource_name} na przestrzeni %{space_name}"
+        minutes:
+          create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -189,9 +210,11 @@ pl:
           contributions: Liczba składek
           going: Chodzenie
           join: Dołącz do spotkania
+          meeting_minutes: Protokół ze spotkań
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
+          related_information: Powiązana informacja
       models:
         meeting:
           fields:
