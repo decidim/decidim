@@ -25,12 +25,12 @@
               <td>
                 <% if can? :update, consultation %>
                   <%= link_to translated_attribute(consultation.title), edit_consultation_path(consultation) %>
-                  <br>
+                  <br />
                 <% elsif can? :preview, consultation %>
                   <%= link_to translated_attribute(consultation.title),
                               decidim_consultations.consultation_path(consultation),
                               target: "_blank" %>
-                  <br>
+                  <br />
                 <% else %>
                   <%= translated_attribute(consultation.title) %>
                 <% end %>

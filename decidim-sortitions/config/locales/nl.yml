@@ -2,62 +2,62 @@ nl:
   activemodel:
     attributes:
       sortition:
-        additional_info: Sorteerinformatie
+        additional_info: Informatie over de loting
         decidim_category_id: Categorieën van de set voorstellen waarin u de trekking wilt toepassen
         decidim_proposals_component_id: Voorstellen geplaatst
         dice: Resultaat van de worp (rol een 6-zijdige dobbelsteen (of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren) en voer hier in, in tegenstelling tot het getuige zijn van het resulterende aantal, dit draagt ​​bij aan de kwaliteit en garanties van de willekeur van het resultaat
-        target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat u wilt selecteren door veel van de groepen voorstellen te tekenen die u eerder hebt gekozen)
+        target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat je wil selecteren door groepsvoorstellen te selecteren die je eerder hebt gekozen)
         title: Titel
         witnesses: getuigen
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Loting
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
     events:
       sortitions:
         sortition_created:
-          email_intro: De sortering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die u volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: Nieuwe sortering toegevoegd aan %{participatory_space_title}
-          notification_title: De sortering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+          email_intro: De loting "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Nieuwe loting toegevoegd aan %{participatory_space_title}
+          notification_title: De loting <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Lotingen
     sortitions:
       admin:
         actions:
-          destroy: Annuleer de sortering
+          destroy: Annuleer de loting
           edit: Bewerk
-          new: nieuwe
-          show: Sorteringsdetails
+          new: Nieuw
+          show: Details van de loting
         models:
           sortition:
             fields:
               category: Categorie
-              created_at: Aanmaakdatum
+              created_at: Aangemaakt op
               decidim_proposals_component: Voorstellen component
               dice: Dobbelsteen
               reference: Referentie
-              request_timestamp: Teken tijd
+              request_timestamp: Tekentijd
               seed: Zaad
               target_items: Te selecteren items
               title: Titel
             name:
-              one: toss
-              other: Sortitions
+              one: Loting
+              other: Lotingen
         sortitions:
           confirm_destroy:
-            confirm_destroy: Weet je zeker dat je deze sortering wilt annuleren?
-            destroy: Annuleer de sortering
-            title: Annulering van de sortering
+            confirm_destroy: Weet je zeker dat je deze loting wilt annuleren?
+            destroy: Annuleer de loting
+            title: Annulatie van de loting
           create:
-            error: Er is een fout opgetreden bij het maken van een nieuwe sortering.
-            success: Sortering succesvol aangemaakt
+            error: Er is een fout opgetreden bij het maken van een nieuwe loting.
+            success: Loting succesvol aangemaakt
           destroy:
-            error: Kan de sortering niet annuleren.
+            error: De sortering kan niet worden geannuleerd.
             success: Sortering succesvol geannuleerd
           edit:
             title: Update de informatie over de sortering
@@ -67,11 +67,11 @@ nl:
             select_proposal_component: Selecteer de voorgestelde set
             title: Nieuwe sortering voor voorstellen
           index:
-            title: Sortitions
+            title: Lotingen
           new:
             confirm: Door op de volgende knop te drukken, legt Decidim de datum en tijd vast (met een nauwkeurigheid van seconden) en samen met de dobbelsteenworp wordt deze informatie gebruikt om een ​​willekeurige selectie te genereren. De actie is onomkeerbaar, zodra op de knop is geklikt, wordt het resultaat van deze trekking gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd. Bekijk de inhoud zorgvuldig
-            create: creëren
-            title: Nieuwe sortering
+            create: Aanmaken
+            title: Nieuwe loting
           show:
             selected_proposals: Voorstellen geselecteerd voor trekking
           update:
@@ -92,14 +92,14 @@ nl:
           all: Alle
           cancelled: Geannuleerd
           category: Categorie
-          category_prompt: Kies een categorie
+          category_prompt: Selecteer een categorie
           search: Zoeken
           state: Staat
         filters_small_view:
-          close_modal: Modal sluiten
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Ontvouwen
+          close_modal: Venster sluiten
+          filter: Sorteer
+          filter_by: Sorteren op
+          unfold: Uitvouwen
         linked_sortitions:
           selected_proposals: Geselecteerde voorstellen
         orders:
@@ -114,8 +114,8 @@ nl:
             other: geselecteerde voorstellen
         show:
           algorithm: De algoritme-code van de sortering
-          any_category: van alle categorieën
-          cancelled: Geannuleerde sortering
+          any_category: alle categorieën
+          cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
           candidate_proposals_info: 'De sortering werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
           category: van de %{category} categorie
@@ -132,14 +132,14 @@ nl:
             other: "%{count} voorstellen geselecteerd"
           view_sortition: Bekijk sortering
         sortition_author:
-          deleted: Verwijderde gebruiker
+          deleted: Verwijder gebruiker
         sortition_cancel_author:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
             one: 1 sortering
-            other: "%{count} sorteringen"
+            other: "%{count} sorteringen "
   pages:
     home:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Loting

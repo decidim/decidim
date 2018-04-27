@@ -8,6 +8,9 @@ pl:
         title: Tytuł
         updated_at: Zaktualizowano na
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Kolejna przykładowa autoryzacja
     dummy:
       admin:
         exports:

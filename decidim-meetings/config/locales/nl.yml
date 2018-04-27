@@ -9,72 +9,72 @@ nl:
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
         address: Adres
-        available_slots: Beschikbare slots voor deze vergadering
+        available_slots: Beschikbare plaatsen voor dit event
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         description: Beschrijving
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
-        registration_terms: Registratie voorwaarden
-        registrations_enabled: Registraties ingeschakeld
+        registration_terms: Registratievoorwaarden
+        registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
         title: Titel
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
-          success: Gedupliceerde vergadering met succes.
+          error: Er is een fout opgetreden tijdens het dupliceren van dit event.
+          success: Event succesvol gedupliceerd.
         new:
           copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele vergadering
+          select: Selecteer welke gegevens je wilt dupliceren
+          title: Event dupliceren
     components:
       meetings:
         actions:
-          join: toetreden
-        name: vergaderingen
+          join: Word lid
+        name: event
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-            default_registration_terms: Standaardregistratiebepalingen
+            default_registration_terms: Standaard registratievoorwaarden
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
     events:
       meetings:
         meeting_closed:
-          email_intro: 'De vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De vergadering "%{resource_title}" is gesloten
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering was gesloten.
+          email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Het event "%{resource_title}" is afgelopen
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
-          email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
-          email_outro: U hebt deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
-          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+          email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
+          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
+          email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
+          notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
-          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de vergadering.
-          email_subject: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> ontmoetingen over bezette slots zijn meer dan %{percentage}%.
+          email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
+          email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
+          email_subject: Het "%{resource_title}" event bezet meer plaatsen dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette plaatsen zijn over %{percentage}%.
         meeting_updated:
-          email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De vergadering "%{resource_title}" is bijgewerkt
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering is bijgewerkt.
+          email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
+          email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
+          email_subject: Het event "%{resource_title}" is bijgewerkt
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registrations_enabled:
-          email_intro: 'De vergadering ''%{resource_title}'' heeft registraties ingeschakeld. U kunt uzelf registreren op zijn pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De vergadering '%{resource_title}' heeft registraties ingeschakeld.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering heeft registraties ingeschakeld.
+          email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
         upcoming_meeting:
-          email_intro: De "%{resource_title}" -vergadering start in minder dan 48 uur.
-          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De "%{resource_title}" -vergadering start in minder dan 48 uur.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering begint over minder dan 48 uur.
+          email_intro: Het "%{resource_title}"event start in minder dan 48 uur.
+          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
+          email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
     meetings:
       actions:
         attachment_collections: collecties
@@ -118,10 +118,20 @@ nl:
           edit:
             update: Bijwerken
           index:
-            title: Vergaderingen
+            title: Events
           new:
             create: Creëren
             title: Creëer vergadering
+          service:
+            description: Omschrijving
+            down: Omlaag
+            remove: Verwijderen
+            service: Dienst
+            title: Titel
+            up: Naar boven
+          services:
+            add_service: Dienst toevoegen
+            services: Diensten
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
@@ -137,18 +147,18 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Laat het op 0 staan ​​als je geen gereserveerde slots hebt
-            reserved_slots_less_than: Moet kleiner zijn dan of gelijk aan %{count}
+            reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
+            reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       admin_log:
         meeting:
-          close: "%{user_name} sloot de %{resource_name} vergadering op de %{space_name} spatie"
-          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt op de %{space_name} -spatie"
-          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd op de %{space_name} spatie"
-          export_registrations: "%{user_name} exporteerde de registraties van de %{resource_name} ontmoeting op de %{space_name} spatie"
-          update: "%{user_name} heeft de %{resource_name} -vergadering bijgewerkt op de %{space_name} -spatie"
+          close: "%{user_name} sloot het %{resource_name} event in de %{space_name} ruimte"
+          create: "%{user_name} heeft het %{resource_name} event gemaakt in de %{space_name} ruimte"
+          delete: "%{user_name} heeft het %{resource_name} event verwijderd in de %{space_name} ruimte"
+          export_registrations: "%{user_name} exporteerde de registraties van het %{resource_name} event op de %{space_name} ruimte"
+          update: "%{user_name} heeft het %{resource_name} event bijgewerkt in de %{space_name} ruimte"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -161,7 +171,7 @@ nl:
           category: Categorie
           category_prompt: Kies een categorie
           date: Datum
-          past: Verleden
+          past: Archief
           search: Zoeken
           upcoming: Aankomend
         filters_small_view:
@@ -194,7 +204,7 @@ nl:
             closed: Gesloten
             end_time: Einddatum
             map: Kaart
-            start_time: Begindatum
+            start_time: Startdatum
             title: Titel
       read_more: "(Lees meer)"
       registration_mailer:
@@ -211,13 +221,13 @@ nl:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Afgelopen vergaderingen
-          upcoming_meetings: Komende vergaderingen
+          past_meetings: Vorige events
+          upcoming_meetings: Toekomstige events
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Afgelopen vergaderingen
-        see_all_meetings: Bekijk alle vergaderingen
-        upcoming_meetings: Komende vergaderingen
+        past_meetings: Vorige events
+        see_all_meetings: Bekijk alle events
+        upcoming_meetings: Toekomstige events
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Gerelateerde resultaten:'

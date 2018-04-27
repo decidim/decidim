@@ -26,8 +26,7 @@
         <%= form.select :proposal_ids,
                         @form.proposals.order(title: :asc).pluck(:title, :id),
                         { include_blank: true },
-                        { multiple: true, class: "chosen-select" }
-        %>
+                        { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
   </div>

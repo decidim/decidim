@@ -10,10 +10,10 @@
               </div>
               <div class="columns medium-10">
                 <h3 class="heading3"><%= t(".wants_to_use_your_account_html", application_name: oauth_application.name) %>
-                  <br>
+                  <br />
                   <%= t(".by_organization_link_html", link: link_to(oauth_application.organization_name, oauth_application.organization_url)) %>
                 </h3>
-                <br>
+                <br />
                 <p class="lead"><%= t(".connect_your_account_html", organization: current_organization.name) %></p>
                 <div>
                   <p><strong><%= t(".this_application_will_be_able_to") %></strong></p>

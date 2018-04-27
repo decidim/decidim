@@ -25,12 +25,12 @@
                 <% if can? :update, question %>
                   <%= link_to decidim_sanitize(translated_attribute(question.title)),
                               edit_question_path(question) %>
-                  <br>
+                  <br />
                 <% elsif can? :preview, question %>
                   <%= link_to translated_attribute(question.title),
                               decidim_consultations.question_path(question),
                               target: "_blank" %>
-                  <br>
+                  <br />
                 <% else %>
                   <%= translated_attribute(question.title) %>
                 <% end %>

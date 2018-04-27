@@ -4,6 +4,7 @@ ru:
       assembly:
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
+        copy_features: Копировать составляющие
         description: Описание
         developer_group: Группа зачинателей
         domain: Домен
