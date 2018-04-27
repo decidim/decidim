@@ -64,7 +64,7 @@ shared_examples "manage proposals" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
-              scope_pick scopes_picker_find(:proposal_scope_id), scope
+              scope_pick select_data_picker(:proposal_scope_id), scope
               find("*[type=submit]").click
             end
 
@@ -132,7 +132,7 @@ shared_examples "manage proposals" do
                 fill_in :proposal_title, with: "Make decidim great again"
                 fill_in :proposal_body, with: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
-                scope_repick scopes_picker_find(:proposal_scope_id), scope, child_scope
+                scope_repick select_data_picker(:proposal_scope_id), scope, child_scope
                 find("*[type=submit]").click
               end
 
