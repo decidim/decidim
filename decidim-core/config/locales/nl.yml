@@ -109,6 +109,10 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
+        fields:
+          passport_number: Paspoortnummer
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
