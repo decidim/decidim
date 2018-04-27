@@ -20,6 +20,11 @@ eu:
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
         title: Titulua
+      minutes:
+        audio_url: Audioaren URLa
+        description: deskribapena
+        video_url: Bideoaren URLa
+        visible: Ikusgai dago
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        minutes: Minutu
         new: Berria
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -135,6 +141,18 @@ eu:
           update:
             invalid: Arazo bat izan da topaketa hau eguneratzean.
             success: Topaketa zuzen eguneratu da.
+        minutes:
+          create:
+            invalid: Arazo bat izan da minutu hau sortzeko
+            success: Akta ongi sortu da
+          edit:
+            update: eguneratzearen
+          new:
+            create: Sortu
+            title: Sortu minutu
+          update:
+            invalid: Arazo bat izan da minutu hau eguneratzean
+            success: Akta ongi eguneratu da
         models:
           meeting:
             name: Topaketa
@@ -159,6 +177,9 @@ eu:
           delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
           export_registrations: "%{user_name} %{resource_name} bilera erregistratu dira %{space_name} espazioan"
           update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu zen"
+        minutes:
+          create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
+          update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ eu:
           contributions: Ekarpen-kopurua
           going: Ari da
           join: Izena eman topaketan
+          meeting_minutes: Bilera Minutes
           meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          related_information: Lotutako informazioa
           remaining_slots:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
