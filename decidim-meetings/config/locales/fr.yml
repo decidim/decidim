@@ -20,6 +20,11 @@ fr:
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
+      minutes:
+        audio_url: URL audio
+        description: La description
+        video_url: URL de la vidéo
+        visible: Est visible
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        minutes: Minutes
         new: Nouvelle
         preview: Aperçu
         registrations: Inscriptions
@@ -135,6 +141,18 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        minutes:
+          create:
+            invalid: Un problème est survenu lors de la création de ce compte rendu
+            success: Minutes créées avec succès
+          edit:
+            update: Mettre à jour
+          new:
+            create: Créer
+            title: Créer des minutes
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
+            success: Minutes mises à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -159,6 +177,9 @@ fr:
           delete: "%{user_name} a supprimé la réunion %{resource_name} sur l'espace %{space_name}"
           export_registrations: "%{user_name} a exporté les enregistrements de la réunion %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour la réunion %{resource_name} sur l'espace %{space_name}"
+        minutes:
+          create: "%{user_name} a créé le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ fr:
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
+          meeting_minutes: Comptes rendus des réunions
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          related_information: Informations connexes
           remaining_slots:
             one: Il reste 1 place
             other: "Il reste %{count} places"
