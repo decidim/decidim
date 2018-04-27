@@ -32,7 +32,7 @@ module Decidim
       private
 
       def initiative
-        @initiative ||= context.fetch(:initiative, nil)
+        @initiative ||= context.fetch(:initiative, nil) || context.fetch(:current_participatory_space, nil)
       end
 
       def list_public_initiatives?
@@ -41,7 +41,7 @@ module Decidim
       end
 
       def read_public_initiative?
-        return unless permission_action.subject == :initiative &&
+        return unless [:initiative, :participatory_space].include?(permission_action.subject) &&
                       permission_action.action == :read
 
         return allow! if initiative.published? || initiative.rejected? || initiative.accepted?
