@@ -22,8 +22,16 @@
     <% end %>
     <div class="card">
       <div class="card__content">
-        VERSION -1
+        <div class="text-center">
+          <strong>VERSION -1</strong><br/>
+          <a href=".">See other versions</a>
+        </div>
         <button class="button expanded light button--sc"><%= t(".request_access") %></button>
+        <div class="row collapse buttons__row">
+          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 7</a></div>
+          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 12</a></div>
+          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 100</a></div>
+        </div>
       </div>
     </div>
     <%= resource_reference(@collaborative_draft) %>
