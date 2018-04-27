@@ -14,7 +14,7 @@ describe Decidim::Initiatives::Admin::Permissions do
     { scope: :admin, action: action_name, subject: action_subject }
   end
 
-  shared_context "checks initiative state" do |name, valid_trait, invalid_trait|
+  shared_examples "checks initiative state" do |name, valid_trait, invalid_trait|
     let(:action_name) { name }
 
     context "when initiative is #{valid_trait}" do
@@ -30,7 +30,7 @@ describe Decidim::Initiatives::Admin::Permissions do
     end
   end
 
-  shared_context "initiative committee action" do
+  shared_examples "initiative committee action" do
     let(:action_subject) { :initiative_committee_member }
 
     context "when indexing" do
@@ -187,7 +187,7 @@ describe Decidim::Initiatives::Admin::Permissions do
           let(:initiative) { create :initiative, :created, organization: organization }
 
           context "when initiative is authored by a user group" do
-            let(:user_group) { create :user_group, organization: user.organization, users: [user]}
+            let(:user_group) { create :user_group, organization: user.organization, users: [user] }
 
             before do
               initiative.update(decidim_user_group_id: user_group.id)
@@ -312,7 +312,6 @@ describe Decidim::Initiatives::Admin::Permissions do
             ]
           end
 
-
           it { is_expected.to eq false }
         end
       end
@@ -338,7 +337,7 @@ describe Decidim::Initiatives::Admin::Permissions do
 
         context "when it has no initiatives" do
           let(:initiatives) do
-            [ ]
+            []
           end
 
           it { is_expected.to eq true }
@@ -346,9 +345,8 @@ describe Decidim::Initiatives::Admin::Permissions do
 
         context "when it has some initiatives" do
           let(:initiatives) do
-            [ 1, 2, 3 ]
+            [1, 2, 3]
           end
-
 
           it { is_expected.to eq false }
         end

@@ -76,12 +76,12 @@ module Decidim
                       permission_action.action == :request_membership
 
         can_request = !initiative.published? &&
-          !initiative.has_authorship?(user) &&
-          (
-            Decidim::Initiatives.do_not_require_authorization ||
-            UserAuthorizations.for(user).any? ||
-            user.user_groups.verified.any?
-          )
+                      !initiative.has_authorship?(user) &&
+                      (
+                        Decidim::Initiatives.do_not_require_authorization ||
+                        UserAuthorizations.for(user).any? ||
+                        user.user_groups.verified.any?
+                      )
 
         toggle_allow(can_request)
       end
@@ -105,9 +105,9 @@ module Decidim
                       permission_action.subject == :initiative
 
         can_vote = initiative.votes_enabled? &&
-            initiative.organization&.id == user.organization&.id &&
-            initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
-            (can_user_support?(initiative) || user.user_groups.verified.any?)
+                   initiative.organization&.id == user.organization&.id &&
+                   initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
+                   (can_user_support?(initiative) || user.user_groups.verified.any?)
 
         toggle_allow(can_vote)
       end
@@ -117,9 +117,9 @@ module Decidim
                       permission_action.subject == :initiative
 
         can_unvote = initiative.votes_enabled? &&
-          initiative.organization&.id == user.organization&.id &&
-          initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
-          (can_user_support?(initiative) || user.user_groups.verified.any?)
+                     initiative.organization&.id == user.organization&.id &&
+                     initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
+                     (can_user_support?(initiative) || user.user_groups.verified.any?)
 
         toggle_allow(can_unvote)
       end
