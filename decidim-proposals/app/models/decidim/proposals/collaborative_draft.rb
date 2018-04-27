@@ -24,7 +24,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        # return true if draft?
+        return true if draft?
         authored_by?(user)
       end
     end

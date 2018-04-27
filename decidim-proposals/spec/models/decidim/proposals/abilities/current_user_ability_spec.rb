@@ -184,7 +184,29 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::Proposal) }
+      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::CollaborativeDraft) }
+    end
+
+    describe "collaborative_draft creation" do
+      context "when creation is disabled" do
+        let(:extra_settings) do
+          {
+            creation_enabled?: false
+          }
+        end
+
+        it { is_expected.not_to be_able_to(:create, Decidim::Proposals::CollaborativeDraft) }
+      end
+
+      context "when user is authorized" do
+        let(:extra_settings) do
+          {
+            creation_enabled?: true
+          }
+        end
+
+        it { is_expected.to be_able_to(:create, Decidim::Proposals::CollaborativeDraft) }
+      end
     end
 
     describe "collaborative_draft edition" do
