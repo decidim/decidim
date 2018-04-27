@@ -109,6 +109,10 @@ fr:
       photos:
         related_photos: Photos associées
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Faites-vous vérifier en introduisant un numéro de passeport commençant par "A"
+        fields:
+          passport_number: Numéro de passeport
       dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
