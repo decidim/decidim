@@ -109,16 +109,30 @@
         </ul>
         <h2 class="section-heading">Usuario</h2>
         <ul>
-          <li><%= link_to "Usuario - registro", page_path("user-register") %></li>
-          <li><%= link_to "Usuario - registro ok", page_path("user-register-success") %></li>
-          <li><%= link_to "Usuario - registro email ok", page_path("user-welcome") %></li>
-          <li><%= link_to "Usuario - entrar", page_path("user-login") %></li>
-          <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user-settings") %></li>
-          <li><%= link_to "Usuario - perfil", page_path("user-profile") %></li>
-          <li><%= link_to "Usuario - notificaciones", page_path("user-notifications") %></li>
-          <li><%= link_to "Usuario - verifica residencia", page_path("user-verification") %></li>
-          <li><%= link_to "Usuario - Recordar contraseña", page_path("user-new-password") %></li>
-          <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user-confirm") %></li>
+          <li>
+            <%= link_to "Usuario - entrar", page_path("user/user-login") %>
+            <ul>
+              <li><%= link_to "Usuario - registro", page_path("user/user-register") %></li>
+              <li><%= link_to "Usuario - registro ok", page_path("user/user-register-success") %></li>
+              <li><%= link_to "Usuario - registro email ok", page_path("user/user-welcome") %></li>
+              <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user/user-settings") %></li>
+              <li><%= link_to "Usuario - verifica residencia", page_path("user/user-verification") %></li>
+              <li><%= link_to "Usuario - Recordar contraseña", page_path("user/user-new-password") %></li>
+              <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user/user-confirm") %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
+            <ul>
+              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>
+            <ul>
+              <li><%= link_to "Usuario - notificaciones (versión antigua)", page_path("user/user-notifications-old") %></li>
+            </ul>
+          </li>
         </ul>
         <h2 class="section-heading">Presupuestos participativos</h2>
         <ul>
@@ -159,7 +173,7 @@
           <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
           <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
           <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
-          <li><%= link_to "User stories", page_path("user-stories") %></li>
+          <li><%= link_to "User stories", page_path("user/user-stories") %></li>
           <li><%= link_to "Manual de estilo", page_path("style-manual") %></li>
         </ul>
         <h2 class="section-heading">Plantilla para email</h2>
