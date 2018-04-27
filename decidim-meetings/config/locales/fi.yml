@@ -20,6 +20,11 @@ fi:
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
+      minutes:
+        audio_url: Audio url
+        description: Kuvaus
+        video_url: Video url
+        visible: Se on näkyvissä
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
+        minutes: Minuutit
         new: Uusi
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -135,6 +141,18 @@ fi:
           update:
             invalid: Tapaamisen luonnissa tapahtui virhe
             success: Tapaaminen luotu onnistuneesti
+        minutes:
+          create:
+            invalid: On ollut ongelma, joka luo tämän minuutin
+            success: Pöytäkirjat luodaan onnistuneesti
+          edit:
+            update: Päivittää
+          new:
+            create: Luoda
+            title: Luo minuutit
+          update:
+            invalid: On ollut ongelma päivittää tämä minuutti
+            success: Pöytäkirjat päivitettiin onnistuneesti
         models:
           meeting:
             name: Tapaaminen
@@ -159,6 +177,9 @@ fi:
           delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
           export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
           update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
+        minutes:
+          create: "%{user_name} luotiin kokouspöytäkirjat %{resource_name} %{space_name} -tilassa"
+          update: "%{user_name} päivitti kokouksen pöytäkirjan %{resource_name} %{space_name} -tilaan"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ fi:
           contributions: Kontribuutioiden määrä
           going: Osallistumassa
           join: Liity tapahtumaan
+          meeting_minutes: Kokouspöytäkirjat
           meeting_report: Tapaamisraportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuneet organisaatiot
+          related_information: Liittyviä tietoja
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
