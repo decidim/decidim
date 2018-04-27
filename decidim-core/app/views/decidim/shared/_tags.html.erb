@@ -1,5 +1,5 @@
 <% if resource.category.present? || has_visible_scopes?(resource) %>
-  <ul class="tags <%= tags_class_extra %>" >
+  <ul class="tags <%= tags_class_extra %>">
     <% if resource.category.present? %>
       <li><%= link_to translated_attribute(resource.category.name), resource_locator(resource).index(filter: { category_id: resource.category.id }) %></li>
     <% end %>
