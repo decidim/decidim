@@ -20,6 +20,11 @@ pt:
         registrations_enabled: Registos habilitados
         start_time: Hora de início
         title: Título
+      minutes:
+        audio_url: URL de áudio
+        description: Descrição
+        video_url: URL do vídeo
+        visible: É visível
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ pt:
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
         destroy: Excluir
         edit: Editar
+        minutes: Minutos
         new: Novo
         preview: Visualização
         registrations: Inscrições
@@ -135,6 +141,18 @@ pt:
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
             success: Reunião atualizada com sucesso
+        minutes:
+          create:
+            invalid: Houve um problema ao criar esta ata
+            success: Minutos criados com sucesso
+          edit:
+            update: Atualizar
+          new:
+            create: Crio
+            title: Crie minutos
+          update:
+            invalid: Houve um problema ao atualizar esta ata
+            success: Minutos atualizados com sucesso
         models:
           meeting:
             name: encontro
@@ -159,6 +177,9 @@ pt:
           delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
           export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
+        minutes:
+          create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ pt:
           contributions: Contagem de Contribuições
           going: Indo
           join: Participe da reunião
+          meeting_minutes: Atas de Reunião
           meeting_report: Relatório de reunião
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
+          related_information: Informação relacionada
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
