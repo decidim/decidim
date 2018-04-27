@@ -14,7 +14,7 @@ module Decidim
         resources :statuses
         resources :results, except: [:show] do
           resources :timeline_entries, except: [:show]
-          member do
+          collection do
             get :proposals
           end
         end
