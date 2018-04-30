@@ -389,7 +389,7 @@ describe "Proposals", type: :system do
       end
 
       context "with scope" do
-        let(:scopes_picker) { scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global") }
+        let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do

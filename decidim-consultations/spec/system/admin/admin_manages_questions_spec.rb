@@ -46,7 +46,7 @@ describe "Admin manages questions", type: :system do
         fill_in :question_slug, with: "slug"
         attach_file :question_hero_image, image2_path
         attach_file :question_banner_image, image1_path
-        scope_pick scopes_picker_find(:question_decidim_scope_id), organization.scopes.first
+        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
 
         find("*[type=submit]").click
       end
@@ -96,7 +96,7 @@ describe "Admin manages questions", type: :system do
         )
         attach_file :question_banner_image, image1_path
         attach_file :question_hero_image, image2_path
-        scope_pick scopes_picker_find(:question_decidim_scope_id), organization.scopes.first
+        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
 
         find("*[type=submit]").click
       end
