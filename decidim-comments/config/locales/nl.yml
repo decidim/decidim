@@ -10,7 +10,7 @@ nl:
         form:
           body:
             label: Reactie
-            placeholder: Wat is jouw mening hierover?
+            placeholder: Wat vind je hierover?
           form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:
