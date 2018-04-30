@@ -8,26 +8,25 @@ module Decidim
 
       # Syntactic sugar to initialize the class and return the queried objects.
       #
-      # components - Decidim::CurrentComponent
+      # component - Decidim::CurrentComponent
       # collaborative_draft - Decidim::Proposals::CollaborativeDraft
-      def self.for(components, collaborative_draft)
-        new(components, collaborative_draft).query
+      def self.for(component, collaborative_draft)
+        new(component, collaborative_draft).query
       end
 
       # Initializes the class.
       #
-      # components - Decidim::CurrentComponent
+      # component - Decidim::CurrentComponent
       # collaborative_draft - Decidim::Proposals::CollaborativeDraft
-      def initialize(components, collaborative_draft)
-        @components = components
+      def initialize(component, collaborative_draft)
+        @component = component
         @collaborative_draft = collaborative_draft
       end
 
       # Retrieves similar collaborative_drafts
       def query
         Decidim::Proposals::CollaborativeDraft
-          .where(component: @components)
-          .published
+          .where(component: @component)
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
             @collaborative_draft[:title],

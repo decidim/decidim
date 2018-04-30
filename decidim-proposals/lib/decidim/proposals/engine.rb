@@ -33,14 +33,6 @@ module Decidim
         resources :collaborative_drafts, except: [:destroy] do
           get :compare, on: :collection
           get :complete, on: :collection
-          member do
-            get :edit_draft
-            patch :update_draft
-            get :preview
-            post :publish
-            delete :destroy_draft
-            put :withdraw
-          end
         end
         root to: "proposals#index"
       end

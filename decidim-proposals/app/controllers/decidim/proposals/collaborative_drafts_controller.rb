@@ -11,7 +11,7 @@ module Decidim
       include CollaborativeOrderable
       include Paginable
 
-      helper_method :geocoded_proposals
+      helper_method :geocoded_collaborative_draft
       before_action :authenticate_user!, only: [:new, :create, :complete]
 
       def index
@@ -33,29 +33,11 @@ module Decidim
       def new
         authorize! :create, CollaborativeDraft
         @step = :step_1
+
         @form = form(CollaborativeDraftForm).from_params(
           attachment: form(AttachmentForm).from_params({})
         )
       end
-
-      # def create
-      #   authorize! :create, Proposal
-      #   @step = :step_1
-      #   @form = form(ProposalForm).from_params(params)
-
-      #   CreateProposal.call(@form, current_user) do
-      #     on(:ok) do |proposal|
-      #       flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-      #       compare_path = Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
-      #       redirect_to compare_path
-      #     end
-
-      #     on(:invalid) do
-      #       flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-      #       render :new
-      #     end
-      #   end
-      # end
 
       def compare
         @step = :step_2
@@ -90,90 +72,49 @@ module Decidim
 
         CreateCollaborativeDraft.call(@form, current_user) do
           on(:ok) do |collaborative_draft|
-            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+            flash[:notice] = I18n.t("proposals.collaborative_drafts.create.success", scope: "decidim")
 
-            # redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path + "/preview"
-            redirect_to preview_collaborative_draft_path collaborative_draft
+            # redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+            redirect_to collaborative_draft_path collaborative_draft
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
+            flash.now[:alert] = I18n.t("proposals.collaborative_drafts.create.error", scope: "decidim")
             render :complete
           end
         end
       end
 
-      def preview
-        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        @step = :step_4
-      end
-
-      def publish
-        @step = :step_4
-        PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-            redirect_to collaborative_draft_path(@collaborative_draft)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft
-          end
-        end
-      end
-
-      def edit_draft
-        @step = :step_3
-        authorize! :edit, CollaborativeDraft
+      def edit
+        @proposal = CollaborativeDraft.where(component: current_component).find(params[:id])
+        authorize! :edit, @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
       end
 
-      # def update_draft
-      #   @step = :step_1
-      #   authorize! :edit, @collaborative_draft
+      def update
+        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        authorize! :edit, @proposal
 
-      #   @form = form(ProposalForm).from_params(params)
-      #   UpdateProposal.call(@form, current_user, @collaborative_draft) do
-      #     on(:ok) do |proposal|
-      #       flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
-      #       redirect_to preview_proposal_path(proposal)
-      #     end
+        @form = form(CollaborativeDraftForm).from_params(params)
+        UpdateCollaborativeDraft.call(@form, current_user, @collaborative_draft) do
+          on(:ok) do |collaborative_draft|
+            flash[:notice] = I18n.t("proposals.collaborative_draft.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+          end
 
-      #     on(:invalid) do
-      #       flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-      #       render :edit_draft
-      #     end
-      #   end
-      # end
-
-      # def edit
-      #   @collaborative_draft = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-      #   authorize! :edit, @collaborative_draft
-
-      #   @form = form(ProposalForm).from_model(@collaborative_draft)
-      # end
-
-      # def update
-      #   @collaborative_draft = Proposal.not_hidden.where(component: current_component).find(params[:id])
-      #   authorize! :edit, @collaborative_draft
-
-      #   @form = form(ProposalForm).from_params(params)
-      #   UpdateProposal.call(@form, current_user, @collaborative_draft) do
-      #     on(:ok) do |proposal|
-      #       flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-      #       redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
-      #     end
-
-      #     on(:invalid) do
-      #       flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-      #       render :edit
-      #     end
-      #   end
-      # end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.collaborative_draft.update.error", scope: "decidim")
+            render :edit
+          end
+        end
+      end
 
       private
+
+      def geocoded_collaborative_draft
+        @geocoded_collaborative_draft ||= search.results.not_hidden.select(&:geocoded?)
+      end
 
       def search_klass
         CollaborativeDraftSearch

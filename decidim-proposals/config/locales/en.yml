@@ -223,6 +223,18 @@ en:
           drafts_count:
             one: 1 collaborative draft
             other: "%{count} collaborative drafts"
+        create:
+          success: Collaborative draft created successfully.
+        edit:
+          back: Back
+          select_a_category: Please select a category
+          send: Send
+          title: Edit collaborative draft
+        edit_draft:
+          discard: Discard this draft
+          discard_confirmation: Are you sure you want to discard this collaborative draft draft?
+          send: Preview
+          title: Edit collaborative draft draft
         filters:
           all: All
           category: Category
@@ -253,6 +265,7 @@ en:
           publish: Publish
           title: Publish your collaborative draft
         show:
+          edit: Edit collaborative draft
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           report: Report
           request_access: REQUEST ACCESS
@@ -262,16 +275,9 @@ en:
         wizard_steps:
           see_steps: see steps
           step_1: Create your collaborative draft
-          step_2: Compare with collaborative draft
+          step_2: Compare with collaborative drafts
           step_3: Complete your collaborative draft
-          step_4: Publish your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
-      create:
-        error: There's been errors when saving the proposal.
-        success: Proposal created successfully. Saved as a Draft.
-      destroy_draft:
-        error: There's been errors deleting the proposal draft.
-        success: Proposal draft was successfully destroyed.
       models:
         proposal:
           fields:

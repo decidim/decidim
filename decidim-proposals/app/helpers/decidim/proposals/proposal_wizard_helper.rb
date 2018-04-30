@@ -56,6 +56,7 @@ module Decidim
       # step - A symbol of the target step
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
+        return if step == :step_4 && type_of == :collaborative_drafts
         content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 
@@ -102,8 +103,12 @@ module Decidim
         form.select(name, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name)
       end
 
+      private
+
       def type_of
         if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
+          :collaborative_drafts
+        elsif @collaborative_draft.present?
           :collaborative_drafts
         else
           :proposals
