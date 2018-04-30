@@ -55,7 +55,7 @@ module Decidim
 
       class_option :demo, type: :boolean,
                           default: false,
-                          desc: "Generate a demo authorization handler"
+                          desc: "Generate demo authorization handlers"
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -114,7 +114,11 @@ module Decidim
       def authorization_handler
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
-        copy_file "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
+        if options[:demo]
+          copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+          copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
+          copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
+        end
       end
 
       def install

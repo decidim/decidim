@@ -114,6 +114,10 @@ en:
         one: comment
         other: comments
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Get verified by introducing a passport number starting with "A"
+        fields:
+          passport_number: Passport number
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:

@@ -34,7 +34,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Ideally you'll have a **Team** formed with experts on IT, Communication, Participation, Design and Law.
 
-1. Texts for at least, **terms of use, privacy policy and frequently asked questions**.
+1. Texts for at least, **terms of use, privacy policy and frequently asked questions**. To show the "Terms and conditions" body text in the "Sign Up Form", it is a requirement that the slug of this page to be equal `terms-and-conditions`.
 
 1. Comply with your current **legal requirements**, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
 

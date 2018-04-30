@@ -14,10 +14,24 @@
         </div>
       </div>
       <div class="row">
-        <div class="columns small-centered small-6 medium-4 mediumlarge-3">
-          <%= link_to page_path("processes"), class: "hero-cta button expanded large button--sc" do %>
-            Participa
-          <% end %>
+        <div class="columns small-centered large-10" data-equalizer>
+          <div class="columns medium-6">
+            <div class="hero__boxes" data-equalizer-watch>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia debitis soluta!</p>
+              <%= link_to page_path("processes"), class: "button small-9 medium-5 button--sc" do %>
+              Participa
+              <% end %>
+            </div>
+          </div>
+          <div class="columns medium-6">
+            <div class="hero__boxes" data-equalizer-watch>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, dicta repudiandae</p>
+              <div class="box__search small-9">
+                <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+                <input type="search" placeholder="Cercar" tabindex="0" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,7 +42,7 @@
         <h2 class="heading3">Únete a la plataforma online de
         participación ciudadana y participa de forma activa para mejorar tu
         ciudad. Ya somos 156000.</h2>
-        <%= link_to page_path("user-register"), class: "button--sc link subhero-cta" do %>
+        <%= link_to page_path("user/user-register"), class: "button--sc link subhero-cta" do %>
           Regístrate
           <%= icon "chevron-right", aria_hidden: true %>
         <% end %>
@@ -302,7 +316,7 @@
         <h5 class="heading4">Únete a la plataforma online de
         participación ciudadana y participa de forma activa para mejorar tu
         ciudad. Ya somos 156000.</h5>
-        <%= link_to page_path("user-register"), class: "button--sc link subhero-cta" do %>
+        <%= link_to page_path("user/user-register"), class: "button--sc link subhero-cta" do %>
           Regístrate
           <%= icon "chevron-right", aria_hidden: true %>
         <% end %>
