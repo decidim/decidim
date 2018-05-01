@@ -5,8 +5,21 @@ require "decidim/gem_manager"
 
 module Decidim
   describe Generators do
+    let(:env) do |example|
+      if ENV["SIMPLECOV"]
+        {
+          "RUBYOPT" => "-rsimplecov #{ENV["RUBYOPT"]}",
+          "RUBYLIB" => "#{repo_root}/decidim-generators/lib",
+          "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV["PATH"]}",
+          "COMMAND_NAME" => example.full_description.tr(" ", "_")
+        }
+      else
+        {}
+      end
+    end
+
     let(:result) do
-      Bundler.with_original_env { GemManager.capture(command) }
+      Bundler.with_original_env { GemManager.capture(command, env: env) }
     end
 
     shared_examples_for "a sane generator" do

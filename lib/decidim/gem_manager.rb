@@ -67,8 +67,8 @@ module Decidim
     end
 
     class << self
-      def capture(cmd)
-        output, status = Open3.capture2e(cmd)
+      def capture(cmd, env: {})
+        output, status = Open3.capture2e(env, cmd)
 
         abort unless continue?(status.success?)
 
