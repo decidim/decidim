@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 SimpleCov.start do
   add_filter "/spec/decidim_dummy_app/"
   add_filter "bundle.js"
