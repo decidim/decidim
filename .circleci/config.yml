@@ -27,6 +27,11 @@ references:
     run:
       name: Install ruby dependencies
       command: bundle install
+  save_ruby_cache: &save_ruby_cache
+    save_cache:
+      key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      paths:
+        - /usr/local/bundle/
   wait_for_db: &wait_for_db
     run:
       name: Wait for db
@@ -62,10 +67,7 @@ jobs:
       - checkout
       - *restore_ruby_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *save_ruby_cache
       - *wait_for_db
       - run:
           name: Generate test app
@@ -84,10 +86,7 @@ jobs:
       - checkout
       - *restore_ruby_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *save_ruby_cache
       - *wait_for_db
       - run:
           name: Run main folder RSpec
@@ -106,10 +105,7 @@ jobs:
       - checkout
       - *restore_ruby_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *save_ruby_cache
       - *wait_for_db
       - *run_rspec
       - *store_test_results
