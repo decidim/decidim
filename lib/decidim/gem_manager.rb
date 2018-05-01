@@ -88,7 +88,7 @@ module Decidim
         replace_file(
           "package.json",
           /^  "version": "[^"]*"/,
-          "  \"version\": \"#{version.gsub(/\.pre/, "-pre")}\""
+          "  \"version\": \"#{semver_friendly_version}\""
         )
 
         all_dirs do |dir|
@@ -123,6 +123,10 @@ module Decidim
       end
 
       private
+
+      def semver_friendly_version
+        version.gsub(/\.pre/, "-pre")
+      end
 
       def version_file
         File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
