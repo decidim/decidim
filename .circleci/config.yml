@@ -36,6 +36,10 @@ references:
     run:
       name: Wait for db
       command: dockerize -wait tcp://localhost:5432 -timeout 2m
+  install_test_reporter: &install_test_reporter
+    run:
+      name: Install CodeClimate test reporter
+      command: /app/.circleci/install_cc_test_reporter.sh
   create_test_db: &create_test_db
     run:
       name: Create test DB
@@ -72,9 +76,7 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake test_app
-      - run:
-          name: Install CodeClimate test reporter
-          command: /app/.circleci/install_cc_test_reporter.sh
+      - *install_test_reporter
       - persist_to_workspace:
           root: /app
           paths:
@@ -108,7 +110,10 @@ jobs:
       - *save_ruby_cache
       - *wait_for_db
       - *run_rspec
+      - *install_test_reporter
+      - *format_test_coverage
       - *store_test_results
+      - *persist_coverage_to_workspace
   core:
     <<: *defaults
     steps:
@@ -377,7 +382,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 19 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 20 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
