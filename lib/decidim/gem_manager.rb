@@ -106,10 +106,6 @@ module Decidim
         File.read(version_file).strip
       end
 
-      def version_file
-        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
-      end
-
       def replace_file(name, regexp, replacement)
         new_content = File.read(name).gsub(regexp, replacement)
 
@@ -124,6 +120,12 @@ module Decidim
         Dir.glob(glob)
            .select { |f| File.directory?(f) }
            .each { |dir| yield(dir) }
+      end
+
+      private
+
+      def version_file
+        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
       end
     end
 
