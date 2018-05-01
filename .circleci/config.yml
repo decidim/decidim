@@ -19,7 +19,7 @@ references:
   attach_workspace: &attach_workspace
     attach_workspace:
       at: /app
-  restore_cache: &restore_cache
+  restore_ruby_cache: &restore_ruby_cache
     restore_cache:
       keys:
         - bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -60,7 +60,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
       - *install_ruby_dependencies
       - save_cache:
           key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -82,7 +82,7 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
       - *install_ruby_dependencies
       - save_cache:
           key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -104,7 +104,7 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
       - *install_ruby_dependencies
       - save_cache:
           key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -117,7 +117,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -129,7 +129,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -141,7 +141,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -153,7 +153,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -165,7 +165,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -177,7 +177,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -189,7 +189,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -201,7 +201,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -226,7 +226,7 @@ jobs:
       - run:
           name: Run main folder lint & tests
           command: npm run test:ci
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -238,7 +238,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -250,7 +250,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -262,7 +262,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -274,7 +274,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -286,7 +286,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -298,7 +298,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -310,7 +310,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -322,7 +322,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -334,7 +334,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
@@ -346,7 +346,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
