@@ -65,15 +65,13 @@ module Decidim
       end
 
       context "with --path flag" do
-        let(:command) { "decidim --path #{File.expand_path(File.join("..", ".."), __dir__)} #{test_app}" }
+        let(:command) { "decidim --path #{repo_root} #{test_app}" }
 
         it_behaves_like "a sane generator"
       end
 
       context "with a development application" do
-        let(:command) do
-          "decidim --path #{File.expand_path(File.join("..", ".."), __dir__)} #{test_app} --recreate_db --seed_db"
-        end
+        let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db" }
 
         it_behaves_like "a sane generator"
       end
