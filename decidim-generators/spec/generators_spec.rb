@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "simplecov" if ENV["SIMPLECOV"]
 require "decidim/gem_manager"
 
 module Decidim
