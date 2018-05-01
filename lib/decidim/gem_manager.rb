@@ -103,7 +103,7 @@ module Decidim
       end
 
       def version
-        File.read(version_file).strip
+        @version ||= File.read(version_file).strip
       end
 
       def replace_file(name, regexp, replacement)
