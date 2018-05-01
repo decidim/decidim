@@ -139,7 +139,7 @@ module Decidim
       def current_gem
         return "decidim" unless options[:path]
 
-        File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
+        @current_gem ||= File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
       end
 
       def gemspec
