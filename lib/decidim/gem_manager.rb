@@ -125,7 +125,7 @@ module Decidim
       private
 
       def semver_friendly_version
-        version.gsub(/\.pre/, "-pre")
+        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
       end
 
       def version_file
