@@ -88,7 +88,7 @@ module Decidim
         replace_file(
           "package.json",
           /^  "version": "[^"]*"/,
-          "  \"version\": \"#{version.gsub(/\.pre/, "-pre")}\""
+          "  \"version\": \"#{semver_friendly_version}\""
         )
 
         all_dirs do |dir|
@@ -103,11 +103,7 @@ module Decidim
       end
 
       def version
-        File.read(version_file).strip
-      end
-
-      def version_file
-        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
+        @version ||= File.read(version_file).strip
       end
 
       def replace_file(name, regexp, replacement)
@@ -124,6 +120,16 @@ module Decidim
         Dir.glob(glob)
            .select { |f| File.directory?(f) }
            .each { |dir| yield(dir) }
+      end
+
+      private
+
+      def semver_friendly_version
+        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
+      end
+
+      def version_file
+        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
       end
     end
 
