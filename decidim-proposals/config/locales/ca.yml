@@ -40,7 +40,8 @@ ca:
             proposal_limit: Límit de propostes per usuari
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
-            proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
+            proposal_wizard_step_3_help_text: Text d'ajuda al pas de "completar" propostes
+            proposal_wizard_step_4_help_text: Text del pas "Publicar" de l'assistent de propostes
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
@@ -81,17 +82,17 @@ ca:
           email_subject: S'està avaluant una proposta que segueixes
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: La vostra proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
-          email_subject: S'ha mencionat la vostra proposta "%{mentioned_proposal_title}"
-          notification_title: La vostra proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
+          email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
+          email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
+          notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta, comprova i contribueix:"
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta. Comprova-ho i contribueix:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta per %{author_nickname}
-          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}" que seguiu.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
@@ -212,7 +213,7 @@ ca:
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: El projecte de proposta s'ha destruït amb èxit.
+        success: L'esborrany de proposta s'ha eliminat amb èxit.
       models:
         proposal:
           fields:
@@ -236,7 +237,7 @@ ca:
           select_identity: Selecciona identitat
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Aprovat
+          already_endorsed: Adherit/da
           endorse: Adherir-se
       proposal_votes:
         create:
@@ -246,6 +247,11 @@ ca:
           mine_is_different: La meva proposta és diferent
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
+        complete:
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
+          select_a_category: Selecciona una categoria
+          send: Enviar
+          title: Completa la teva proposta
         count:
           proposals_count:
             one: 1 proposta
@@ -257,17 +263,13 @@ ca:
           title: Editar proposta
         edit_draft:
           discard: Descarta aquest esborrany
-          discard_confirmation: Esteu segur que voleu descartar l'esborrany d'aquesta proposta?
+          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
         endorsement_identities_cabin:
           endorse: Adherir-se
         endorsements_card_row:
           endorse: Adherir-se
-        endorsements_listing:
-          see_all: Veure tot
-          see_less: Veure menys
-          title: Llista d'adhesions
         filters:
           accepted: Acceptades
           activity: Activitat
@@ -288,6 +290,10 @@ ca:
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
+        identities_listing:
+          see_all: Veure tot
+          see_less: Veure menys
+          title: Llista d'adhesions
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
@@ -297,8 +303,6 @@ ca:
             one: suport
             other: suports
         new:
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          select_a_category: Si us plau, seleccioni una categoria
           send: Continua
           title: Crea la teva proposta
         orders:
@@ -363,7 +367,8 @@ ca:
           see_steps: veure les fases
           step_1: Crea la teva proposta
           step_2: Compara
-          step_3: Publica la teva proposta
+          step_3: Completar
+          step_4: Publica la teva proposta
           step_of: Fase %{current_step_num} de %{total_steps}
       publish:
         error: Hi ha hagut errors en publicar la proposta.

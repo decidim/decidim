@@ -96,3 +96,9 @@ $palette: $foundation-palette;
   text-overflow: ellipsis;
   line-height: $global-lineheight;
 }
+
+@mixin inline-separator($char: ' '){
+  > *:not(:last-child)::after{
+    content: $char;
+  }
+}

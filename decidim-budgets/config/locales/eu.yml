@@ -114,6 +114,7 @@ eu:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            projects_per_page: Orrialde bakoitzeko proiektuak
             total_budget: Aurrekontu osoa
             vote_threshold_percent: Votuen ehuneko atalasea
           step:

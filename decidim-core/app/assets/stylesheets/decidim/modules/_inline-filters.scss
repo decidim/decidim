@@ -1,8 +1,10 @@
 .inline-filters{
-  display: flex;
-  justify-content: space-between;
-
   @include flexgap($global-margin * 2);
+
+  // Override gap display property
+  display: inline-flex;
+  justify-content: space-between;
+  text-align: left;
 
   label{
     display: flex;

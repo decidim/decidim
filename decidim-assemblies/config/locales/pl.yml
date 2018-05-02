@@ -3,16 +3,32 @@ pl:
     attributes:
       assembly:
         area_id: Powierzchnia
+        assembly_type: Typ zespołu
+        assembly_type_other: Typ zespołu inny
         banner_image: Obraz baneru
+        closing_date: Data zamknięcia
+        closing_date_reason: Termin zamknięcia terminu
+        composition: Kompozycja
         copy_categories: Kopiuj kategorie
         copy_components: Skopiuj komponenty
+        copy_features: Kopiuj funkcje
+        created_by: Stworzone przez
+        created_by_other: Stworzony przez inne
+        creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa programistyczna
         domain: Domena
+        duration: Trwanie
+        facebook: Facebook
+        github: GitHub
         hashtag: Hasztag
         hero_image: Obraz w domu
+        included_at: Zawarte w
+        instagram: Instagram
+        internal_organisation: Organizacja wewnętrzna
+        is_transparent: Jest przezroczysty
         local_area: Okolica
         meta_scope: Zakres metadanych
         participatory_processes_ids: Powiązane procesy uczestnictwa
@@ -20,6 +36,7 @@ pl:
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
         published_at: Opublikowano na
+        purpose_of_action: Cel działania
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
@@ -28,6 +45,8 @@ pl:
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
+        twitter: Świergot
+        youtube: Youtube
       assembly_user_role:
         email: E-mail
         name: Nazwa
@@ -135,11 +154,26 @@ pl:
       admin:
         assemblies:
           form:
+            select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
+            select_an_assembly_type: Wybierz typ zespołu
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+            social_handlers: Społeczny
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+      assembly_types:
+        commission: Prowizja
+        consultative_advisory: Konsultacyjne / doradcze
+        executive: Wykonawczy
+        government: Rząd
+        others: Inni
+        participatory: Uczestniczy
+        working_group: Grupa robocza
+      created_by:
+        city_council: Rada Miejska
+        others: Inni
+        public: Publiczny
       index:
         title: Zespoły
       pages:
@@ -149,14 +183,30 @@ pl:
             see_all_assemblies: Zobacz wszystkie zespoły
       show:
         area: Powierzchnia
+        assembly_type: Typ zespołu
         children: Złożenia
+        closing_date: Data zamknięcia
+        composition: Kompozycja
+        created_by: Stworzone przez
+        creation_date: Data utworzenia
         developer_group: Grupa programistyczna
+        duration: Trwanie
+        included_at: Zawarte w
+        indefinite_duration: Nieokreślony
+        internal_organisation: Organizacja wewnętrzna
+        is_transparent:
+          'false': nieprzezroczysty
+          'true': przezroczysty
         local_area: Okolica
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         private_space: To jest prywatne zgromadzenie
+        purpose_of_action: Cel działania
+        read_less: Mniej czytać
+        read_more: Czytaj więcej
         related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
+        social_networks: Portale społecznościowe
         target: Cel
       statistics:
         answers_count: Odpowiedzi
@@ -180,6 +230,9 @@ pl:
           not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
+  errors:
+    messages:
+      cannot_be_blank: nie może być puste
   layouts:
     decidim:
       assemblies:

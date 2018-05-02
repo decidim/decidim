@@ -1,0 +1,74 @@
+<% add_decidim_meta_tags({
+  image_url: current_initiative.type.banner_image.url,
+  description: translated_attribute(current_initiative.description),
+  title: translated_attribute(current_initiative.title),
+  url: initiative_url(current_initiative.id),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
+<% provide :meta_image_url, current_initiative.type.banner_image.url %>
+<div class="row">
+  <% unless current_initiative.online? %>
+    <div class="column">
+      <div class="callout secondary">
+        <p>
+          <%= t ".any_vote_method" if current_initiative.any? %>
+          <%= t ".offline_method" if current_initiative.offline? %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <div class="card extra definition-data">
+      <div class="definition-data__item vote-block">
+        <div id="initiative-<%= current_initiative.id %>-votes-count">
+          <%= render partial: "votes_count", locals: { initiative: current_initiative } %>
+        </div>
+        <% if current_initiative.votes_enabled? %>
+          <div id="initiative-<%= current_initiative.id %>-vote-cabin">
+            <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
+          </div>
+        <% end %>
+
+        <% if current_user %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_initiative } %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render partial: "decidim/shared/share_modal" %>
+    <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
+
+    <%= render partial: "statistics" %>
+  </div>
+
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <div class="row column">
+        <h2 class="heading2">
+          <%= translated_attribute(current_initiative.title) %>
+        </h2>
+        <%= render partial: "author", locals: { initiative: current_initiative } %>
+      </div>
+      <br />
+      <div class="row column">
+        <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+        <%= sanitize translated_attribute(current_initiative.description) %>
+        <%= render partial: "tags", locals: { resource: current_initiative } %>
+      </div>
+
+      <%= render partial: "result", locals: { initiative: current_initiative } %>
+    </div>
+
+    <%= attachments_for current_initiative %>
+
+    <%= render partial: "supports", locals: { initiative: current_initiative } %>
+  </div>
+</div>
+
+<%= comments_for current_initiative if current_initiative.published? %>
+<%= javascript_include_tag "decidim/initiatives/social_share" %>
+<%= stylesheet_link_tag "decidim/initiatives/application" %>
+<%= stylesheet_link_tag "decidim/initiatives/social_share" %>

@@ -19,8 +19,9 @@ $(function() {
           xhr.abort();
         } catch (exception) { xhr = null}
 
+        let url = $("#proposal-picker-choose").attr("href")
         xhr = $.getJSON(
-          "proposals.json",
+          url,
           { term: term },
           function(data) { response(data); }
         );

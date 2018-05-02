@@ -48,7 +48,7 @@ describe "Admin manages consultations", type: :system do
         fill_in :consultation_slug, with: "slug"
         attach_file :consultation_banner_image, image2_path
 
-        scope_pick scopes_picker_find(:consultation_decidim_highlighted_scope_id), organization.scopes.first
+        scope_pick select_data_picker(:consultation_decidim_highlighted_scope_id), organization.scopes.first
 
         find("*[type=submit]").click
       end
@@ -98,7 +98,7 @@ describe "Admin manages consultations", type: :system do
         )
         fill_in :consultation_slug, with: "slug"
         attach_file :consultation_banner_image, image2_path
-        scope_pick scopes_picker_find(:consultation_decidim_highlighted_scope_id), organization.scopes.first
+        scope_pick select_data_picker(:consultation_decidim_highlighted_scope_id), organization.scopes.first
 
         find("*[type=submit]").click
       end

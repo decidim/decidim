@@ -1,0 +1,14 @@
+<%
+  schema = form.object.options_schema
+  attributes = form.object.options_attributes
+%>
+
+<%= form.fields_for(:options, schema) do |options_form| %>
+  <% attributes.each do |name, attribute| %>
+    <%= options_form.send(
+          form_method_for_attribute(attribute),
+          name,
+          label: t("authorization_handlers.#{form.object.authorization_handler_name}.fields.#{name}", scope: "decidim")
+        ) %>
+  <% end %>
+<% end %>

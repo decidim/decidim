@@ -18,7 +18,7 @@ nl:
     components:
       surveys:
         actions:
-          answer: Antwoord
+          answer: Antwoorden
         name: Enquête
         settings:
           global:
@@ -30,18 +30,18 @@ nl:
       surveys:
         survey_closed:
           email_intro: De enquête %{resource_title} in %{participatory_space_title} is gesloten.
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
           email_subject: Een enquête is voltooid in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is voltooid.
         survey_opened:
-          email_intro: 'De enquête %{resource_title} in %{participatory_space_title} is nu geopend. U kunt vanaf deze pagina deelnemen:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_intro: 'De enquête %{resource_title} in %{participatory_space_title} is nu gestart. Je kan deelnemen op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
     forms:
       errors:
         survey_answer:
-          body: Lichaam mag niet leeg zijn
+          body: Mag niet leeg zijn
     surveys:
       admin:
         exports:
@@ -64,13 +64,13 @@ nl:
             already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
           question:
             add_answer_option: Voeg antwoord optie toe
-            any: Ieder
-            description: Beschrijving
-            down: naar beneden
+            any: Elk
+            description: Omschrijving
+            down: Omlaag
             question: Vraag
-            remove: Verwijderen
+            remove: Verwijder
             statement: Stelling
-            up: omhoog
+            up: Omhoog
           update:
             invalid: Er zijn fouten geweest bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.
@@ -79,13 +79,13 @@ nl:
         multiple_option: Meerdere opties
         short_answer: Kort antwoord
         single_option: Enkelvoudige optie
-        sorting: sorteer-
+        sorting: Sorteren
       surveys:
         answer:
           invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
           success: Enquête met succes beantwoord.
         question:
-          max_choices: 'Max. Keuzes: %{n}'
+          max_choices: 'Max. aantal keuzes: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">schrijf u in</a> om uw reactie toe te voegen.

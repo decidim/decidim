@@ -8,6 +8,8 @@ Decidim.register_component(:meetings) do |component|
   component.icon = "decidim/meetings/icon.svg"
   component.card = "decidim/meetings/meeting"
 
+  component.query_type = "Decidim::Meetings::MeetingsType"
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
   end
@@ -73,7 +75,11 @@ Decidim.register_component(:meetings) do |component|
         available_slots: (10..50).step(10).to_a.sample,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
-        end
+        end,
+        services: [
+          { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
+          { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
+        ]
       )
 
       2.times do |n|

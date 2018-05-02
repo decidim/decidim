@@ -21,22 +21,24 @@
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     min-width: 100px;
 
-    li{
-      padding: 8px 8px 0;
-    }
-
     li:hover{
       background-color: darken($white, 5%) !important;
     }
 
     a{
       color: $body-font-color;
-      padding: .5rem;
+      padding: 16px;
     }
 
     a:hover{
       color: lighten($body-font-color, 20);
     }
+  }
+}
+
+.dropdown-inverted.dropdown.menu{
+  .is-active > a{
+    color: $anchor-color;
   }
 }
 

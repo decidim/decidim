@@ -20,6 +20,12 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    services do
+      [
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
+        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
+      ]
+    end
     component { build(:component, manifest_name: "meetings") }
 
     trait :closed do
@@ -50,5 +56,13 @@ FactoryBot.define do
   factory :registration, class: "Decidim::Meetings::Registration" do
     meeting
     user
+  end
+
+  factory :minutes, class: "Decidim::Meetings::Minutes" do
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    video_url { Faker::Internet.url }
+    audio_url { Faker::Internet.url }
+    visible true
+    meeting
   end
 end

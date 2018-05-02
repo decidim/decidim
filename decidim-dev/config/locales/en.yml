@@ -9,6 +9,9 @@ en:
         title: Title
         updated_at: Updated at
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Another example authorization
     dummy:
       admin:
         exports:

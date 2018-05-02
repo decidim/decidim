@@ -1,0 +1,64 @@
+<% content_for :back_link do %>
+  <%= link_to :back, class: "muted-link" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+<% end %>
+
+<div class="row column">
+  <div class="column large-6 medium-centered">
+    <div class="callout secondary">
+      <%== t ".fill_data_help" %>
+      <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>.
+    </div>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
+          <%= f.hidden_field :type_id %>
+          <div class=section>
+            <div class="field">
+              <label for="type_description">
+                <%= t ".initiative_type" %>
+                <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
+              </label>
+            </div>
+
+            <div class="field">
+              <%= f.text_field :title, autofocus: true, required: true %>
+            </div>
+
+            <div class="field">
+              <%= f.editor :description, lines: 8, toolbar: :full, required: true %>
+            </div>
+
+            <div class="field">
+              <%= f.select :signature_type, signature_type_options %>
+            </div>
+
+            <div class="field">
+              <%= f.select :scope_id,
+                           scopes.map { |scoped_type| [translated_attribute(scoped_type.scope.name), scoped_type.scope.id]},
+                           prompt: t(".select_scope") %>
+            </div>
+
+            <% if current_user.user_groups.verified.any? %>
+              <div class="field">
+                <%= f.select :decidim_user_group_id,
+                             current_user.user_groups.verified.map{ |g| [g.name, g.id] },
+                             prompt: current_user.name %>
+              </div>
+            <% end %>
+          </div>
+          <div class="actions">
+            <%= f.submit t(".continue"), class: "button expanded", data: { disable_with: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
