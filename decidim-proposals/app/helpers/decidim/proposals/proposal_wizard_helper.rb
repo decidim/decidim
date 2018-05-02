@@ -80,7 +80,7 @@ module Decidim
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
         content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: 3)
+          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
           concat " ("
           concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
           concat ")"
@@ -104,6 +104,17 @@ module Decidim
       end
 
       private
+
+      def total_steps
+        case type_of
+        when :collaborative_drafts
+          3
+        when :proposals
+          4
+        else
+          4
+        end
+      end
 
       def type_of
         if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
