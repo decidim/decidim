@@ -2,25 +2,22 @@
 
 module Decidim
   module Admin
-    class UserManagerPermissions
-      def initialize(user, permission_action, context = {})
-        @user = user
-        @permission_action = permission_action
-        @context = context
-      end
-
+    class UserManagerPermissions < Decidim::DefaultPermissions
       def permissions
-        permission_action.allow! if read_admin_dashboard_action?
+        return permission_action unless user_manager? || user.admin?
+        allow! if read_admin_dashboard_action?
 
-        permission_action.allow! if managed_user_action?
-        permission_action.allow! if user_action?
+        allow! if managed_user_action?
+        allow! if user_action?
 
         permission_action
       end
 
       private
 
-      attr_reader :user, :context, :permission_action
+      def user_manager?
+        user && !user.admin? && user.role?("user_manager")
+      end
 
       def read_admin_dashboard_action?
         permission_action.subject == :admin_dashboard &&
@@ -59,6 +56,10 @@ module Decidim
 
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
+      end
+
+      def available_authorization_handlers?
+        user.organization.available_authorization_handlers.any?
       end
     end
   end

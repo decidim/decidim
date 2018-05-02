@@ -12,43 +12,47 @@ module Decidim
         end
 
         unless user
-          permission_action.disallow!
+          disallow!
           return permission_action
         end
 
         return user_manager_permissions if user_manager?
 
-        permission_action.allow! if user_can_enter_space_area?
+        allow! if user_can_enter_space_area?
 
         read_admin_dashboard_action?
 
         if user.admin?
-          permission_action.allow! if read_admin_log_action?
-          permission_action.allow! if static_page_action?
-          permission_action.allow! if organization_action?
-          permission_action.allow! if user_action?
+          allow! if read_admin_log_action?
+          allow! if static_page_action?
+          allow! if organization_action?
+          allow! if user_action?
 
-          permission_action.allow! if permission_action.subject == :category
-          permission_action.allow! if permission_action.subject == :component
-          permission_action.allow! if permission_action.subject == :admin_user
-          permission_action.allow! if permission_action.subject == :attachment
-          permission_action.allow! if permission_action.subject == :attachment_collection
-          permission_action.allow! if permission_action.subject == :scope
-          permission_action.allow! if permission_action.subject == :scope_type
-          permission_action.allow! if permission_action.subject == :area
-          permission_action.allow! if permission_action.subject == :area_type
-          permission_action.allow! if permission_action.subject == :newsletter
-          permission_action.allow! if permission_action.subject == :oauth_application
-          permission_action.allow! if permission_action.subject == :user_group
-          permission_action.allow! if permission_action.subject == :officialization
-          permission_action.allow! if permission_action.subject == :authorization
-          permission_action.allow! if permission_action.subject == :authorization_workflow
+          allow! if permission_action.subject == :category
+          allow! if permission_action.subject == :component
+          allow! if permission_action.subject == :admin_user
+          allow! if permission_action.subject == :attachment
+          allow! if permission_action.subject == :attachment_collection
+          allow! if permission_action.subject == :scope
+          allow! if permission_action.subject == :scope_type
+          allow! if permission_action.subject == :area
+          allow! if permission_action.subject == :area_type
+          allow! if permission_action.subject == :newsletter
+          allow! if permission_action.subject == :oauth_application
+          allow! if permission_action.subject == :user_group
+          allow! if permission_action.subject == :officialization
+          allow! if permission_action.subject == :authorization
+          allow! if permission_action.subject == :authorization_workflow
         end
 
         permission_action
       end
 
       private
+
+      def user_manager?
+        user && !user.admin? && user.role?("user_manager")
+      end
 
       def read_admin_dashboard_action?
         return unless permission_action.subject == :admin_dashboard &&
@@ -119,10 +123,6 @@ module Decidim
 
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
-      end
-
-      def user_manager?
-        user && !user.admin? && user.role?("user_manager")
       end
 
       def user_can_enter_space_area?
