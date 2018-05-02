@@ -2,7 +2,11 @@
 
 require "spec_helper"
 
-shared_examples_for "coauthorable" do
+describe Decidim::Coauthorship do
+  subject { coauthorship }
+
+  let(:coauthorship) { build(:coauthorship) }
+
   describe "validations" do
     context "when the user group is not verified" do
       it "is not valid" do
