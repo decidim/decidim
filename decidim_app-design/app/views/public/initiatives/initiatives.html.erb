@@ -28,199 +28,76 @@
     <div class="columns mediumlarge-8 large-9">
       <%= partial "order_by" %>
       <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
-        <div class="column">
-          <article class="card card--proposal">
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("initiatives/initiative-view"), class: "card__link" do %>
+        <% 3.times do %>
+          <div class="column">
+            <article class="card card--initiative success">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("proposal-view"), class: "card__link" do %>
                   <h5 class="card__title">
-                    Creació d'aules ambientals al Parc del Clot
+                    <%= Faker::StarWars.quote[0..75] %>
                   </h5>
-                <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Ajuntament de Barcelona
-                      </a>
-                      01/08/2016
-                    </div>
+                  <% end %>
+                  <div class="card__author">
+                    <!-- locals.text: the number has to match with the hidden ones -->
+                    <!-- locals.size: classname. small shows only 3 items -->
+                    <!-- locals.classText: classname. default text-small. append to span -->
+                    <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: "" } do %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <%= partial "author_data", { nick: false } %>
+                    <% end %>
                   </div>
                 </div>
-              </div>
-              <p>
-                Implementar la instal·lació d’àrees
-                estratègiques de càrrega i descàrrega per garantir uns
-                 fluxos de mobilitat sostenibles i respectuosos.</p>
-              <ul class="tags tags--proposal">
-                <li><a href="">transició ecológica</a></li>
-                <li><a href="">mobilitat sostenible</a></li>
-              </ul>
-            </div>
-            <div class="card__footer">
-              <div class="card__support">
-                <div class="card__support__data">
-                  <span class="card__support__number">27</span>suports
-                  <div class="popularity popularity--level5">
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
                   </div>
+                  <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
                 </div>
-                <button class="card__button button small"
-                  data-toggle="loginModal">
-                  Donar suport
-                </button>
               </div>
-            </div>
-          </article>
-          <div class="reveal" id="loginModal" data-reveal>
-            <div class="reveal__header">
-              <h3 class="reveal__title">Por favor, inicia sesión</h3>
-              <button class="close-button" data-close aria-label="Close modal"
-                type="button">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="row">
-              <div class="columns medium-8 medium-centered">
-                <form class="register-form">
-                  <div>
-                    <div>
-                      <label>Adreça electrònica
-                        <input type="email" placeholder="exemple@domini.com" />
-                      </label>
-                    </div>
-                    <div>
-                      <label>Contrasenya
-                        <input type="password" placeholder="Contrasenya" />
-                      </label>
-                    </div>
-                  </div>
-                  <fieldset>
-                    <label>
-                      <input type="checkbox" />
-                      Recorda'm
-                    </label>
-                  </fieldset>
-                  <button type="submit" class="button expanded">Entra</button>
-                </form>
-                <p class="text-center">
-                  Ets nou a la plataforma? <a href="#">Registra't</a>
-                </p>
+              <div class="card__status">
+                <ul class="card-data">
+                  <li class="card-data__item">
+                    <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="">
+                      <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+                    </a>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="">
+                      <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                      <%= Faker::Number.between(0, 100) %>
+                    </a>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      <%= Faker::Number.between(0, 100) %>
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </div>
+              <div class="card__footer">
+                <div class="card__support">
+                  <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Firmas" } %>
+
+                  <button class="card__button button secondary button--sc small light">
+                    Firmar
+                  </button>
+                </div>
+              </div>
+            </article>
           </div>
-        </div>
-        <div class="column">
-          <article class="card card--proposal">
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("initiatives/initiative-view-rejected"), class: "card__link" do %>
-                  <h5 class="card__title">
-                    Creació d'aules ambientals i d'estudi al Parc del Clot
-                  </h5>
-                <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Ajuntament de Barcelona
-                      </a>
-                      01/08/2016
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                Implementar la instal·lació d’àrees
-                estratègiques de càrrega i descàrrega per garantir uns
-                 fluxos de mobilitat sostenibles i respectuosos i descàrrega
-                per garantir uns fluxos de mobilitat sostenibles i
-                respectuosos.</p>
-              <ul class="tags tags--proposal">
-                <li><a href="">transició ecológica</a></li>
-                <li><a href="">mobilitat sostenible</a></li>
-              </ul>
-            </div>
-            <div class="card__footer">
-              <div class="card__support">
-                <div class="card__support__data">
-                  <span class="card__support__number">27</span>suports
-                  <div class="popularity popularity--level3">
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                  </div>
-                </div>
-                <button class="card__button button small success">
-                  Donant suport
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="column">
-          <article class="card card--proposal">
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("initiatives/initiative-view"), class: "card__link" do %>
-                  <h5 class="card__title">
-                    Creació d'aules ambientals al Parc del Clot
-                  </h5>
-                <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Ajuntament de Barcelona
-                      </a>
-                      01/08/2016
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                Implementar la instal·lació d’àrees
-                estratègiques de càrrega i descàrrega per garantir uns
-                 fluxos de mobilitat sostenibles i respectuosos.</p>
-              <ul class="tags tags--proposal">
-                <li><a href="">transició ecológica</a></li>
-                <li><a href="">mobilitat sostenible</a></li>
-              </ul>
-            </div>
-            <div class="card__footer">
-              <div class="card__support">
-                <div class="card__support__data">
-                  <span class="card__support__number">27</span>suports
-                  <div class="popularity popularity--level1">
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                    <span class="popularity__item"></span>
-                  </div>
-                </div>
-                <button class="card__button button small">
-                  Donar suport
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
