@@ -27,7 +27,7 @@ module Decidim::Admin
         permissions: {
           "create" => double(
             authorization_handler_name: "dummy",
-            options: "{ \"perry\" : \"mason\" }"
+            options: { "perry" => "mason" }
           )
         }
       )

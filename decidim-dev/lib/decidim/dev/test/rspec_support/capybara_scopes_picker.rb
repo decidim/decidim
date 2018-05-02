@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
+require_relative "capybara_data_picker"
+
 module Capybara
   module ScopesPicker
-    def scopes_picker_find(id, multiple: nil, global_value: "")
-      Struct.new(:data_picker, :global_value).new(data_picker_find(id, multiple: multiple), global_value)
-    end
+    include DataPicker
 
     RSpec::Matchers.define :have_scope_picked do |expected|
       match do |scope_picker|
@@ -33,7 +33,7 @@ module Capybara
       data_picker.find(".picker-prompt").click
 
       scope_picker_browse_scopes(scope.part_of_scopes) if scope
-      scope_picker_pick_current
+      data_picker_pick_current
 
       expect(scope_picker).to have_scope_picked(scope)
     end
@@ -49,7 +49,7 @@ module Capybara
 
       scope_picker_browse_scope(parent_scope, back: true)
       scope_picker_browse_scopes(new_scope.part_of_scopes - old_scope.part_of_scopes)
-      scope_picker_pick_current
+      data_picker_pick_current
 
       expect(scope_picker).to have_scope_picked(new_scope)
     end
@@ -65,15 +65,6 @@ module Capybara
 
     private
 
-    def data_picker_find(id, multiple: nil)
-      if multiple.nil?
-        expect(page).to have_selector("div.data-picker##{id}")
-      else
-        expect(page).to have_selector("div.data-picker.picker-#{multiple ? "multiple" : "single"}##{id}")
-      end
-      find("div.data-picker##{id}")
-    end
-
     def scope_picker_browse_scopes(scopes)
       scopes.each do |scope|
         scope_picker_browse_scope(scope)
@@ -86,12 +77,6 @@ module Capybara
       scope_name = scope ? translated(scope.name) : t("decidim.scopes.global")
       expect(body).to have_selector("#data_picker-modal .picker-#{where} a", text: scope_name)
       body.find("#data_picker-modal .picker-#{where} a", text: scope_name).click
-    end
-
-    def scope_picker_pick_current
-      body = find(:xpath, "//body")
-      expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]")
-      body.find("#data_picker-modal .picker-footer a[data-picker-choose]").click
     end
   end
 end

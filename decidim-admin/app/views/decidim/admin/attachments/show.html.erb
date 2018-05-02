@@ -10,8 +10,7 @@
   <%= display_for @attachment,
     :title,
     :description,
-    :file_type
-    %>
+    :file_type %>
   <dt><%= display_label(@attachment, :file_size) %></dt>
   <dd><%= number_to_human_size(@attachment.file_size) %></dd>
   <dt><%= display_label(@attachment, :file) %></dt>

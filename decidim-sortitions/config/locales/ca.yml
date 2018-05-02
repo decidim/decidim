@@ -2,37 +2,37 @@ ca:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informació sobre la generació
+        additional_info: Informació sobre el sorteig
         decidim_category_id: Categories del conjunt de propostes en què voleu aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
-        dice: Resultat de la matriu (rodar una matriu de 6 cares (o buscar una altra manera aleatòria de generar un número d'1 a 6) i introduir aquí, a diferència de veure el nombre resultant, això contribueix a la qualitat i garanties de l'aleatorietat de el resultat
+        dice: Resultat de la tirada de daus (tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6) i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
   decidim:
     components:
       sortitions:
-        name: Sortides
+        name: Sortejos
         settings:
           global:
             comments_enabled: Comentaris habilitats
     events:
       sortitions:
         sortition_created:
-          email_intro: S'ha afegit l'assaig "%{resource_title}" a "%{participatory_space_title}" que seguiu.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha afegit una nova classificació a %{participatory_space_title}
-          notification_title: La classificació <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
+          email_intro: S'ha afegit el sorteig "%{resource_title}" a "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'ha afegit un nou sorteig a %{participatory_space_title}
+          notification_title: El sorteig <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
     participatory_processes:
       statistics:
-        sortitions_count: Sortides
+        sortitions_count: Sortejos
     sortitions:
       admin:
         actions:
-          destroy: Cancel·la el sortition
+          destroy: Cancel·la el sorteig
           edit: Edita
           new: Nou
-          show: Detalls de la classificació
+          show: Detalls del sorteig
         models:
           sortition:
             fields:
@@ -41,56 +41,56 @@ ca:
               decidim_proposals_component: Component de propostes
               dice: Daus
               reference: Referència
-              request_timestamp: Dibuixa el temps
+              request_timestamp: Temps de dibuixat
               seed: Llavor
               target_items: Elements a seleccionar
               title: Títol
             name:
-              one: Sortició
-              other: Sortides
+              one: Sorteig
+              other: Sortejos
         sortitions:
           confirm_destroy:
-            confirm_destroy: Estàs segur que vols cancel·lar aquest sortition?
-            destroy: Cancel·lació de sortició
-            title: Cancel·lació de l'assaig
+            confirm_destroy: Estàs segur que vols cancel·lar aquest sorteig?
+            destroy: Cancel·lar el sorteig
+            title: Cancel·lació del sorteig
           create:
-            error: S'ha produït un error en crear una nova generació.
-            success: La generació s'ha creat correctament
+            error: S'ha produït un error en crear un nou sorteig.
+            success: El sorteig s'ha creat correctament
           destroy:
-            error: No es pot cancel·lar l'assaig.
-            success: La classificació s'ha cancel·lat correctament
+            error: No es pot cancel·lar el sorteig.
+            success: El sorteig s'ha cancel·lat correctament
           edit:
-            title: Actualitzeu la informació sobre l'assaig
-            update: Actualització
+            title: Actualitza la informació sobre el sorteig
+            update: Actualitzar
           form:
             all_categories: Totes les categories
-            select_proposal_component: Seleccioneu les propostes establertes
-            title: Nova proposta de propostes
+            select_proposal_component: Selecciona el grup de propostes
+            title: Nou sorteig per propostes
           index:
-            title: Sortides
+            title: Sortejos
           new:
-            confirm: Pressionant el botó següent, Decidim registrarà la data i l'hora (amb precisió de segons) i, juntament amb el rotlle de daus, aquesta informació s'utilitzarà per generar una selecció aleatòria. L'acció serà irreversible, una vegada que es faci clic al botó, es publicarà el resultat d'aquest sorteig, juntament amb les dades introduïdes en aquest formulari i que no es poden modificar, comproveu el contingut acuradament
+            confirm: Pressionant el botó següent, Decidim registrarà la data i l'hora (amb precisió de segons) i, juntament amb la tirada de daus, aquesta informació s'utilitzarà per generar una selecció aleatòria. L'acció serà irreversible, una vegada que es faci clic al botó, es publicarà el resultat d'aquest sorteig, juntament amb les dades introduïdes en aquest formulari i que no es poden modificar. Si us plau, comprova el contingut acuradament
             create: Crear
-            title: Nova sortició
+            title: Nou sorteig
           show:
             selected_proposals: Propostes seleccionades per al sorteig
           update:
-            error: S'ha produït un error en actualitzar l'assaig.
-            success: La classificació s'actualitza amb èxit
+            error: S'ha produït un error en actualitzar el sorteig.
+            success: El sorteig s'ha actualitzat amb èxit
       admin_log:
         sortition:
-          create: "%{user_name} ha creat la classificació %{resource_name} al %{space_name}"
-          delete: "%{user_name} va cancel·lar la classificació %{resource_name} a %{space_name}"
-          update: "%{user_name} va actualitzar la classificació %{resource_name} a %{space_name}"
+          create: "%{user_name} ha creat el sorteig %{resource_name} a %{space_name}"
+          delete: "%{user_name} ha cancel·lat el sorteig %{resource_name} a %{space_name}"
+          update: "%{user_name} ha actualitzat el sorteig %{resource_name} a %{space_name}"
       sortitions:
         count:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostes"
         filters:
-          active: Actiu
+          active: Actius
           all: Tots
-          cancelled: Cancel·lat
+          cancelled: Cancel·lats
           category: Categoria
           category_prompt: Selecciona una categoria
           search: Cerca
@@ -103,7 +103,7 @@ ca:
         linked_sortitions:
           selected_proposals: Propostes seleccionades
         orders:
-          label: 'Ordeneu les proves per:'
+          label: 'Ordeneu els sortejos per:'
           random: Aleatori
           recent: Recent
         proposal:
@@ -113,33 +113,33 @@ ca:
             one: proposta seleccionada
             other: propostes seleccionades
         show:
-          algorithm: Codi d'algoritme de Sortition
+          algorithm: Codi d'algoritme del sorteig
           any_category: de totes les categories
-          cancelled: Sortició cancel·lada
-          candidate_proposal_ids: Ordre de propostes de classificació i identificadors
-          candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{category_label}), amb les següents ID (en negreta, les propostes seleccionades)  '
+          cancelled: Sorteig cancel·lat
+          candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
+          candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{category_label}), amb les següents IDs (en negreta, les propostes seleccionades)  '
           category: de la categoria %{category}
-          dice_result: "(1) Resultat de les dades"
-          introduction: 'Aquesta pàgina conté els resultats de la classificació %{reference}. Mitjançant aquesta classificació, %{target_items} nombre de resultats han estat seleccionats aleatòriament i amb una distribució de probabilitat igual al conjunt de propostes que es mostra a continuació. Juntament amb els resultats, la informació que es mostra en aquesta pàgina proporciona tota la informació necessària per maximitzar les garanties i reproduir els resultats. La clau per a la qualitat d''aquest assaig és l''aleatoriedad doble proporcionada per un rodatge d''un dau (verificat pels testimonis) i el temps precís de l''assentament que proporciona entrada per a un algorisme que genera una selecció aleatòria. El llindar de temps per a l''assaig és tan precís (segons) que és impossible de controlar pels humans, oferint així una doble entrada "incontrolable" per garantir un resultat just.  '
+          dice_result: "(1) Resultat de la tirada de daus"
+          introduction: 'Aquesta pàgina conté els resultats del sorteig %{reference}. Mitjançant aquest sorteig, %{target_items} nombre de resultats han estat seleccionats aleatòriament i amb una distribució de probabilitat igual al conjunt de propostes que es mostra a continuació. Juntament amb els resultats, la informació que es mostra en aquesta pàgina proporciona tota la informació necessària per maximitzar les garanties i reproduir els resultats. La clau per a la qualitat d''aquest sorteig és l''aleatorietat doble proporcionada per una tirada d''un dau (verificat pels testimonis) i el temps precís de l''assentament que proporciona entrada per a un algorisme que genera una selecció aleatòria. El llindar de temps per a l''assaig és tan precís (segons) que és impossible de controlar pels humans, oferint així una doble entrada "incontrolable" per garantir un resultat just.  '
           mathematical_result: Resultat (1) x (2)
-          proposals_selected_by_sortition: Propostes seleccionades per sortition
-          sortition_reproducibility_details: Detalls de reproducibilitat d'eliminació
+          proposals_selected_by_sortition: Propostes seleccionades pel sorteig
+          sortition_reproducibility_details: Detalls de la reproductibilitat del sorteig
           time_seed: "(2) Llavor de temps"
           witnesses: Testimonis
         sortition:
           selected_proposals:
             one: 1 proposta seleccionada
             other: "%{count} propostes seleccionades"
-          view_sortition: Mostra sortition
+          view_sortition: Mostra el sorteig
         sortition_author:
           deleted: Usuari eliminat
         sortition_cancel_author:
           deleted: Usuari eliminat
         sortitions_count:
           count:
-            one: 1 sortició
+            one: 1 sorteig
             other: "%{count} classificacions"
   pages:
     home:
       statistics:
-        sortitions_count: Sortides
+        sortitions_count: Sortejos

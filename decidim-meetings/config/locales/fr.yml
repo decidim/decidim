@@ -122,6 +122,16 @@ fr:
           new:
             create: Créer
             title: Créer une rencontre
+          service:
+            description: La description
+            down: Vers le bas
+            remove: Retirer
+            service: Un service
+            title: Titre
+            up: Up
+          services:
+            add_service: Ajouter un service
+            services: Prestations de service
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès

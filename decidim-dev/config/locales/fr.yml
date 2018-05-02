@@ -2,12 +2,15 @@ fr:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Créé à
+        created_at: Créé le
         field: Mon champ
         start_date: Date de début
         title: Titre
         updated_at: Mis à jour à
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Un autre exemple d'autorisation
     dummy:
       admin:
         exports:

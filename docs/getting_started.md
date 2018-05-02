@@ -170,7 +170,7 @@ also manually check your application before upgrading.
 
 ## Checklist
 
-There are several things you need to check before making your putting your application on production. See the [checklist](docs/checklist.md).
+There are several things you need to check before making your putting your application on production. See the [checklist](checklist.md).
 
 [docker]: https://docs.docker.com/engine/installation/
 [docker-compose]: https://docs.docker.com/compose/install/

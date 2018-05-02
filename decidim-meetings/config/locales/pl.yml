@@ -122,6 +122,16 @@ pl:
           new:
             create: Utwórz
             title: Utwórz spotkanie
+          service:
+            description: Opis
+            down: Na dół
+            remove: Usunąć
+            service: Usługa
+            title: Tytuł
+            up: W górę
+          services:
+            add_service: Dodaj usługę
+            services: Usługi
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił problem
             success: Spotkanie zostało pomyślnie zaktualizowane
