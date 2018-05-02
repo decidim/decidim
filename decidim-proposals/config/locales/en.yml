@@ -224,17 +224,16 @@ en:
             one: 1 collaborative draft
             other: "%{count} collaborative drafts"
         create:
-          success: Collaborative draft created successfully.
+          error: There's been a problem creating this collaborative drafts
+          success: Collaborative draft successfully created.
+        update:
+          error: There's been errors when saving the collaborative draft.
+          success: Collaborative draft updated successfully.
         edit:
           back: Back
           select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
-        edit_draft:
-          discard: Discard this draft
-          discard_confirmation: Are you sure you want to discard this collaborative draft draft?
-          send: Preview
-          title: Edit collaborative draft draft
         filters:
           all: All
           category: Category
@@ -260,10 +259,6 @@ en:
           most_contributed: Most contributed
           random: Random
           recent: Recent
-        preview:
-          modify: Modify the collaborative draft
-          publish: Publish
-          title: Publish your collaborative draft
         show:
           edit: Edit collaborative draft
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.

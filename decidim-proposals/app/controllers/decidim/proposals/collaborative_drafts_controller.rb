@@ -86,7 +86,7 @@ module Decidim
       end
 
       def edit
-        @proposal = CollaborativeDraft.where(component: current_component).find(params[:id])
+        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
         authorize! :edit, @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
@@ -94,17 +94,18 @@ module Decidim
 
       def update
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        authorize! :edit, @proposal
+        authorize! :edit, @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_params(params)
         UpdateCollaborativeDraft.call(@form, current_user, @collaborative_draft) do
           on(:ok) do |collaborative_draft|
-            flash[:notice] = I18n.t("proposals.collaborative_draft.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+            flash[:notice] = I18n.t("proposals.collaborative_drafts.update.success", scope: "decidim")
+            # redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+            redirect_to collaborative_draft_path collaborative_draft
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.collaborative_draft.update.error", scope: "decidim")
+            flash.now[:alert] = I18n.t("proposals.collaborative_drafts.update.error", scope: "decidim")
             render :edit
           end
         end
