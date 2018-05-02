@@ -85,8 +85,9 @@ module Decidim
       end
 
       def complete
-        authorize! :create, Proposal
+        enforce_permission_to :create, :proposal
         @step = :step_3
+
         if params[:proposal].present?
           params[:proposal][:attachment] = form(AttachmentForm).from_params({})
           @form = form(ProposalForm).from_params(params)
