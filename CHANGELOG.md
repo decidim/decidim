@@ -32,7 +32,7 @@ end
 
 **Added**:
 
-- **decidim-docs**: Add documentation for developers getting started. [no issue](https://github.com/decidim/decidim/pull/3297)
+- **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
 - **decidim-meetings**: Add Minutes entity to manage Minutes. [\#3213](https://github.com/decidim/decidim/pull/3213)
 
 **Changed**:
