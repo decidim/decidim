@@ -270,6 +270,11 @@ FactoryBot.define do
     organization
   end
 
+  factory :coauthorship, class: "Decidim::Coauthorship" do
+    author { create(:user, :confirmed, organization: component.organization) }
+    coauthorable { create(:dummy_resource) }
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
