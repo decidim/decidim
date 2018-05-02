@@ -4,6 +4,8 @@ module Decidim
   module Assemblies
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if assembly && !assembly.is_a?(Decidim::Assembly)
+
         if permission_action.scope == :public
           public_list_assemblies_action?
           public_read_assembly_action?

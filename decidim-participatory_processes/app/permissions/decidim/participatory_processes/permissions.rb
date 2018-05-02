@@ -4,6 +4,8 @@ module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if process && !process.is_a?(Decidim::ParticipatoryProcess)
+
         if permission_action.scope == :public
           public_list_processes_action?
           public_list_process_groups_action?

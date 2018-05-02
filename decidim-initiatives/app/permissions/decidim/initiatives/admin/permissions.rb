@@ -8,6 +8,7 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
           return permission_action unless user
+          return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
 
           user_can_enter_space_area?
 
