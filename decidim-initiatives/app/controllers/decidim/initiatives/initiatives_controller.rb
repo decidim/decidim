@@ -29,8 +29,6 @@ module Decidim
 
       helper_method :collection, :initiatives, :filter, :stats
 
-      # skip_authorization_check only: :signature_identities
-
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
