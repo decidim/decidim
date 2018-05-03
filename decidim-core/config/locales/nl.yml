@@ -108,6 +108,10 @@ nl:
         related_documents: Gerelateerde documenten
       photos:
         related_photos: Gerelateerde foto 's
+    author:
+      comments:
+        one: commentaar
+        other: opmerkingen
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
