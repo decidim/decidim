@@ -144,6 +144,10 @@ module Decidim
         options[:app_name] || super
       end
 
+      def app_const_base
+        app_name.gsub(/\W/, "_").squeeze("_").camelize
+      end
+
       def current_gem
         return "decidim" unless options[:path]
 
