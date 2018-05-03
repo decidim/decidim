@@ -114,16 +114,12 @@ fi:
       participatory_process_groups:
         highlighted_proposals:
           proposals: ehdotukset
-        proposal:
-          creation_date: 'Luominen: %{date}'
-          view_proposal: Näytä ehdotus
     participatory_spaces:
       highlighted_proposals:
         proposals: ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
       proposal:
         creation_date: 'Luominen: %{date}'
-        view_proposal: Näytä ehdotus
     proposals:
       actions:
         answer: Vastaa
