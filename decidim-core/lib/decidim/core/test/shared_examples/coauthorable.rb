@@ -14,8 +14,9 @@ shared_examples_for "coauthorable" do
       end
       context "when there are many authors" do
         let(:other_authors) { create_list(:user, 4, organization: coauthorable.component.participatory_space.organization) }
+
         before do
-          coauthorable.authors+= other_authors
+          coauthorable.authors += other_authors
         end
 
         it "returns the first coauthor" do
