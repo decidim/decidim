@@ -47,18 +47,18 @@ fr:
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
         homepage_image: Image d'accueil
-        instagram_handler: Gestionnaire d'Instagram
+        instagram_handler: Gestionnaire Instagram
         logo: Logo
         name: Nom
-        official_img_footer: Pied de page officiel du logo
-        official_img_header: En-tête de logo officiel
+        official_img_footer: Logo officiel - pied de page
+        official_img_header: Logo officiel - barre de navigation
         official_url: URL officielle de l'organisation
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
         show_statistics: Montrer les statistiques
-        twitter_handler: Gestionnaire de Twitter
+        twitter_handler: Gestionnaire Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
@@ -66,7 +66,7 @@ fr:
         name: Nom
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de périmètre de d'application
+        scope_type: Type de périmètre d'application
         scope_type_id: Type de périmètre d'application
       scope_type:
         name: Nom
