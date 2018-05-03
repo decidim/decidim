@@ -29,8 +29,6 @@ Once created you are ready to:
 
 - `bin/rails s`
 
-
-
 ## Useful commands
 
 ### erb-lint
