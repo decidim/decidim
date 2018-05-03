@@ -10,7 +10,7 @@ describe Decidim::Coauthorship do
   describe "validations" do
     context "when the coauthorable is nil" do
       before do
-        coauthorship.coauthorable= nil
+        coauthorship.coauthorable = nil
       end
 
       it { is_expected.to be_invalid }
