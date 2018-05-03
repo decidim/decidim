@@ -65,7 +65,6 @@ RuboCop is a code analyzer tool we use at Decidim to enforce our code formatting
 bundle exec rubocop
 # Run Rubocop and automatically correct offenses
 bundle exec rubocop -a
-
 ```
 
 ## Good to know
