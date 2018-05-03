@@ -108,6 +108,10 @@ ca:
         related_documents: Documents relacionats
       photos:
         related_photos: Fotos relacionades
+    author:
+      comments:
+        one: comentar
+        other: comentaris
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obteniu la verificació introduint un número de passaport que comenci per "A"
@@ -395,8 +399,6 @@ ca:
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
-      author:
-        deleted: Usuari eliminat
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
