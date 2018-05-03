@@ -108,6 +108,10 @@ eu:
         related_documents: Honekin lotutako agiriak
       photos:
         related_photos: Honekin lotutako argazkiak
+    author:
+      comments:
+        one: iruzkin
+        other: iruzkinak
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Egiaztatu pasaportearen zenbakia "A"
@@ -395,8 +399,6 @@ eu:
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
-      author:
-        deleted: Erabiltzailea ezabatua
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
