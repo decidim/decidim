@@ -4,43 +4,43 @@
   </div>
 
   <div class="card-section">
-    <div class="row column" >
+    <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>
 
-    <div class="row column" >
+    <div class="row column">
       <%= form.translated :editor, :description %>
     </div>
 
-    <div class="row column" >
+    <div class="row column">
       <%= form.text_field :address %>
     </div>
 
-    <div class="row column" >
+    <div class="row column">
       <%= form.translated :text_area, :location %>
     </div>
 
-    <div class="row column" >
+    <div class="row column">
       <%= form.translated :text_area, :location_hints %>
     </div>
 
-    <div class="row" >
-      <div class="columns xlarge-6" >
+    <div class="row">
+      <div class="columns xlarge-6">
         <%= form.datetime_field :start_time %>
       </div>
 
-      <div class="columns xlarge-6" >
+      <div class="columns xlarge-6">
         <%= form.datetime_field :end_time %>
       </div>
     </div>
-    <div class="row" >
+    <div class="row">
       <% if current_participatory_space.has_subscopes? %>
-        <div class="columns xlarge-6" >
+        <div class="columns xlarge-6">
           <%= scopes_picker_field form, :decidim_scope_id %>
         </div>
       <% end %>
 
-      <div class="columns xlarge-6" >
+      <div class="columns xlarge-6">
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: "", disable_parents: false %>
       </div>
     </div>

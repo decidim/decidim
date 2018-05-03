@@ -47,8 +47,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= current_initiative.title.try(:[], I18n.locale.to_s) || current_initiative.title.values.compact.first %>
+      <%= link_to translated_attribute(current_initiative.title), decidim_initiatives.initiative_path(current_initiative), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>
