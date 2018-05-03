@@ -56,7 +56,7 @@ module Decidim
         private
 
         def post
-          @post ||= Blogs::Post.find_by(component: current_component)
+          @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])
         end
       end
     end
