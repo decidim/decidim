@@ -108,6 +108,10 @@ fr:
         related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
+    author:
+      comments:
+        one: commentaire
+        other: commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Faites-vous vérifier en introduisant un numéro de passeport commençant par "A"
@@ -395,8 +399,6 @@ fr:
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
-      author:
-        deleted: Utilisateur supprimé
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
