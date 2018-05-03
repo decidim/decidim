@@ -108,6 +108,10 @@ es:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
+    author:
+      comments:
+        one: comentario
+        other: comentarios
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
@@ -395,8 +399,6 @@ es:
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
-      author:
-        deleted: Usuario eliminado
       embed_modal:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
