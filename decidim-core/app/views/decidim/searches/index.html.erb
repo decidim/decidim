@@ -1,7 +1,7 @@
 <main class="wrapper">
   <div class="row columns">
-    <h2 class="section-heading">
-      <%= t("decidim.search.results_found_for_term", count: @results.count, term: term) %>
+    <h2 id="results-count" class="section-heading">
+      <%= render partial: "count" %>
     </h2>
   </div>
   <div class="row">
@@ -11,7 +11,7 @@
         <%= render partial: "filters" %>
       </div>
     </div>
-    <div class="columns mediumlarge-8 large-9">
+    <div id="results" class="columns mediumlarge-8 large-9">
       <%= render partial: "results" %>
     </div>
   </div>
