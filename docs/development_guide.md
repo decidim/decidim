@@ -34,7 +34,7 @@ Once created you are ready to:
 
 When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
 
-```
+```console
 bin/rails decidim:upgrade
 ```
 
