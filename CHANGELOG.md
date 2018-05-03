@@ -4,13 +4,6 @@
 
 **Upgrade notes**:
 
-This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,
-and also everything related to it (controllers, views, etc.). If you have customised some
-controller or added a new module you need to rename `feature` to `component`.
-
-With the addition of the new step "Complete" to the proposal creation wizard,
-administrators should keep in mind updating the help texts for each step.
-
 Authorizations workflows now use a settings manifest to define their options.
 That means site admins will no longer need to introduce raw json to define
 authorization options. If you were previously using an authorization workflow
