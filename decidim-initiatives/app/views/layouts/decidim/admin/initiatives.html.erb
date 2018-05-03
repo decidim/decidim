@@ -16,5 +16,13 @@
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <%= yield %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to t("decidim.admin.titles.initiatives"), decidim_initiatives.initiatives_path, target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>
