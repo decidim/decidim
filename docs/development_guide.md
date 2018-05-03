@@ -21,6 +21,7 @@ On creation, this steps are automatically invoked by the generator:
 
 - create a `config/database.yml`
 - `bundle install`
+- `bin/rails decidim:upgrade`
 - `bin/rails db:migrate db:seed`
 
 If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
@@ -28,6 +29,14 @@ If the default database.yml does not suit your needs you can always configure it
 Once created you are ready to:
 
 - `bin/rails s`
+
+## During development
+
+When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
+
+```
+bin/rails decidim:upgrade
+```
 
 ## Useful commands
 
