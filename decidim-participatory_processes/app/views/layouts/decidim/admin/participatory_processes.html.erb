@@ -1,17 +1,7 @@
-<<<<<<< HEAD
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
       <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
-=======
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t "decidim.admin.titles.participatory_processes" %>
-    </div>
-    <div class="secondary-nav__actions">
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ["new", "participatory_process"], class: "button expanded small" if allowed_to? :create, :process %>
->>>>>>> [WIP] Fine grained permissions: admin && core (#3137)
     </div>
   </div>
 
