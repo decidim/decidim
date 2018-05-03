@@ -61,7 +61,7 @@ PATH
       cancancan (~> 2.0)
       carrierwave (~> 1.1)
       cells-erb (~> 0.1.0)
-      cells-rails (~> 0.0.8)
+      cells-rails (~> 0.0.9)
       date_validator (~> 0.9.0)
       decidim-api (= 0.12.0.dev)
       devise (~> 4.3)
@@ -125,7 +125,7 @@ PATH
       decidim-core (= 0.12.0.dev)
     decidim-meetings (0.12.0.dev)
       cells-erb (~> 0.1.0)
-      cells-rails (~> 0.0.8)
+      cells-rails (~> 0.0.9)
       decidim-core (= 0.12.0.dev)
       httparty (~> 0.16.0)
       icalendar (~> 2.4)
@@ -137,6 +137,8 @@ PATH
     decidim-participatory_processes (0.12.0.dev)
       decidim-core (= 0.12.0.dev)
     decidim-proposals (0.12.0.dev)
+      cells-erb (~> 0.1.0)
+      cells-rails (~> 0.0.9)
       decidim-comments (= 0.12.0.dev)
       decidim-core (= 0.12.0.dev)
       kaminari (~> 1.0)
@@ -483,7 +485,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.2)
     puma (3.11.4)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-cors (1.0.2)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -638,7 +640,7 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.1.9)
+    uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.2)
     valid_email2 (2.2.3)
@@ -651,7 +653,7 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.6.0)
+    web-console (3.6.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -689,7 +691,7 @@ DEPENDENCIES
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.1

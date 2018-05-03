@@ -9,7 +9,7 @@
           </h5>
           <% end %>
           <div class="card__author">
-            <%= render partial: "author_data", locals: { post: post } %>
+            <%= card_for present(post.author), from: post %>
           </div>
         </div>
         <%= sanitize post_description(post) %>
