@@ -133,6 +133,7 @@ module Decidim
           [
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
+            "--skip_gemfile=#{options[:skip_gemfile]}",
             "--app_name=#{app_name}"
           ]
         )
