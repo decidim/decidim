@@ -178,6 +178,11 @@ en:
     core:
       actions:
         unauthorized: You are not authorized to perform this action
+    data_portability:
+      show:
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
     devise:
       omniauth_registrations:
         create:
@@ -595,6 +600,7 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
+        my_data: My data
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations

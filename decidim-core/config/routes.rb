@@ -46,6 +46,11 @@ Decidim::Core::Engine.routes.draw do
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
+    resource :data_portability, only: [:show], controller: "data_portability" do
+      member do
+        post :export
+      end
+    end
   end
 
   resources :profiles, only: [:show], param: :nickname
