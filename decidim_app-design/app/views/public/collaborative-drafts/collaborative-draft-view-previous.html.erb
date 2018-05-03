@@ -1,7 +1,7 @@
 <%
-@title = "Borrador -- Decidim Barcelona"
-@activesection = "drafts"
-@activepage = "drafts"
+@title = "Collaborative Draft -- Decidim Barcelona"
+@activesection = "collaborative-drafts"
+@activepage = "collaborative-drafts"
 %>
 
 <%= partial "template_top" %>
@@ -23,7 +23,8 @@
         <div class="card text-center">
           <div class="card__content">
             <div>
-              <strong class="text-large text-uppercase">version <%= Faker::Number.between(1, 50) %></strong>
+              <strong class="text-large text-uppercase">version <%= Faker::Number.between(1, 5) %></strong>&nbsp;
+              <small class="text-medium">(of <%= Faker::Number.between(6, 10) %>)</small>
             </div>
             <div>
               <span class="text-medium"><u>see other versions</u></span>

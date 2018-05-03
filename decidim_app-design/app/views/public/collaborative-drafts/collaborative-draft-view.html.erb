@@ -1,7 +1,7 @@
 <%
-@title = "Borrador -- Decidim Barcelona"
-@activesection = "drafts"
-@activepage = "drafts"
+@title = "Collaborative Draft -- Decidim Barcelona"
+@activesection = "collaborative-drafts"
+@activepage = "collaborative-drafts"
 %>
 
 <%= partial "template_top" %>
@@ -12,7 +12,14 @@
 
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <%= partial "followme" %>
+        <div class="card text-center">
+          <div class="card__content">
+            <button class="button expanded button--sc">
+              <span>Publish</span>
+            </button>
+            <small>Publish this version of the draft</small>
+          </div>
+        </div>
         <div class="card text-center">
           <div class="card__content">
             <div>
@@ -45,6 +52,20 @@
               </li>
             </ul>
           </div>
+        </div>
+        <div class="card extra">
+          <div class="definition-data__item">
+            <span class="definition-data__title">Collaboration requests</span>
+          </div>
+          <% 4.times do %>
+            <div class="definition-data__item expanded">
+              <%= partial "author_data", { nick: false, verified: false } %>
+              <div>
+                <button type="button" class="button hollow secondary small">Aceptar</button>
+                <%= icon "x", class: "icon--small muted ml-xs" %>
+              </div>
+            </div>
+          <% end %>
         </div>
         <div class="text-center">
           <small>Referencia: BCN-2016-01-173</small>

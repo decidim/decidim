@@ -1,7 +1,7 @@
 <%
-@title = "Borrador -- Decidim Barcelona"
-@activesection = "drafts"
-@activepage = "drafts"
+@title = "Collaborative Draft -- Decidim Barcelona"
+@activesection = "collaborative-drafts"
+@activepage = "collaborative-drafts"
 %>
 
 <%= partial "template_top" %>
@@ -9,27 +9,18 @@
 <main>
   <div class="wrapper">
     <%= partial "process_header" %>
-
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="card text-center">
-          <div class="card__content">
-            <button class="button expanded button--sc">
-              <span>Publish</span>
-            </button>
-            <small>Publish this version of the draft</small>
-          </div>
-        </div>
+        <%= partial "followme" %>
         <div class="card text-center">
           <div class="card__content">
             <div>
-              <strong class="text-large text-uppercase">version <%= Faker::Number.between(1, 5) %></strong>&nbsp;
-              <small class="text-medium">(of <%= Faker::Number.between(6, 10) %>)</small>
+              <strong class="text-large text-uppercase">version <%= Faker::Number.between(1, 50) %></strong>
             </div>
             <div>
               <span class="text-medium"><u>see other versions</u></span>
             </div>
-            <button class="button secondary hollow expanded button--sc mt-s">Edit proposal</button>
+            <button class="button secondary light expanded button--sc mt-s"><%= icon "check", class: "icon--small" %>&nbsp;Acceso solicitado</button>
           </div>
           <div class="card__status">
             <ul class="card-data">
@@ -53,20 +44,6 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div class="card extra">
-          <div class="definition-data__item">
-            <span class="definition-data__title">Collaboration requests</span>
-          </div>
-          <% 4.times do %>
-            <div class="definition-data__item expanded">
-              <%= partial "author_data", { nick: false, verified: false } %>
-              <div>
-                <button type="button" class="button hollow secondary small">Aceptar</button>
-                <%= icon "x", class: "icon--small muted ml-xs" %>
-              </div>
-            </div>
-          <% end %>
         </div>
         <div class="text-center">
           <small>Referencia: BCN-2016-01-173</small>
