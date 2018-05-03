@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: meeting_minutes_path(current_meeting), html: { method: :post, class: "form new_minutes" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+      <%= f.submit t(".create") %>
+  </div>
+<% end %>

@@ -64,7 +64,7 @@ describe "Explore meetings", type: :system do
         visit_component
 
         within ".filters" do
-          scope_pick scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global"), scope
+          scope_pick select_data_picker(:filter_scope_id, multiple: true, global_value: "global"), scope
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -190,7 +190,7 @@ describe "Explore meetings", type: :system do
         end
 
         within ".filters" do
-          expect(scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
+          expect(select_data_picker(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
         end
       end
     end

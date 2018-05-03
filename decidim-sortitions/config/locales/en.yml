@@ -107,8 +107,6 @@ en:
           label: 'Order sortitions by:'
           random: Random
           recent: Recent
-        proposal:
-          view_proposal: View proposal
         results_count:
           count:
             one: selected proposal
