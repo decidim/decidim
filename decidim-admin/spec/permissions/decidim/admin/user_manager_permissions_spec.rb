@@ -81,29 +81,22 @@ describe Decidim::Admin::UserManagerPermissions do
     context "when promoting" do
       let(:action_name) { :promote }
 
-      before do
-        allow(Decidim::ImpersonationLog)
-          .to receive_message_chain(:active, :where) { logs }
-      end
-
       context "when subject user is not managed" do
-        let(:logs) { [] }
-
         it_behaves_like "permission is not set"
       end
 
       context "when subject user is managed" do
-        let(:subject_user) { build :user, :managed }
+        let(:subject_user) { build :user, :managed, organization: organization }
 
         context "when there are active impersonation logs" do
-          let(:logs) { [:foo] }
+          before do
+            create :impersonation_log, user: subject_user, admin: user
+          end
 
           it_behaves_like "permission is not set"
         end
 
         context "when there are no active impersonation logs" do
-          let(:logs) { [] }
-
           it { is_expected.to eq true }
         end
       end
@@ -111,13 +104,7 @@ describe Decidim::Admin::UserManagerPermissions do
 
     context "when impersonating" do
       let(:action_name) { :impersonate }
-      let(:logs) { [] }
       let(:organization) { build :organization, available_authorizations: ["dummy_authorization_handler"] }
-
-      before do
-        allow(Decidim::ImpersonationLog)
-          .to receive_message_chain(:active, :where) { logs }
-      end
 
       context "when organization has no available authorizations" do
         let(:organization) { build :organization, available_authorizations: [] }
@@ -138,7 +125,11 @@ describe Decidim::Admin::UserManagerPermissions do
       end
 
       context "when there are active impersonation logs" do
-        let(:logs) { [:foo] }
+        let(:subject_user) { build :user, organization: organization }
+
+        before do
+          create :impersonation_log, user: subject_user, admin: user
+        end
 
         it_behaves_like "permission is not set"
       end
