@@ -106,8 +106,6 @@ fr:
           label: 'Trier les tirages au sort par :'
           random: Aléatoire
           recent: Récent
-        proposal:
-          view_proposal: Voir la proposition
         results_count:
           count:
             one: propositions sélectionnées
