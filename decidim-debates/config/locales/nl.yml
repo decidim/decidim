@@ -94,9 +94,6 @@ nl:
           close_window: Sluit venster
           share: Delen
           share_link: Link delen
-        show:
-          comments: Reacties
-          report: Rapporteren
       models:
         debate:
           fields:
