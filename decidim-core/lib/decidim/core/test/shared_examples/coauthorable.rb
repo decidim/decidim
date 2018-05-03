@@ -39,13 +39,17 @@ shared_examples_for "coauthorable" do
     end
 
     describe "authored by? user" do
-      context "when there are no coauthors"
+      context "when there are no coauthors" do
+        it "returns false"
+      end
       context "when the checked user is one of the coauthors"
       context "when the checked user is one of the coauthors user_groups"
     end
 
-    describe "normalized_author" do
-      context "when there are no coauthors"
+    describe "normalized_authors" do
+      context "when there are no coauthors" do
+        it "returns an empty list"
+      end
       context "when there are many coauthors"
     end
   end
