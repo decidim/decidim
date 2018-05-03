@@ -108,6 +108,10 @@ sv:
         related_documents: Relaterade dokument
       photos:
         related_photos: Relaterade bilder
+    author:
+      comments:
+        one: kommentar
+        other: kommentarer
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
@@ -395,8 +399,6 @@ sv:
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
-      author:
-        deleted: Raderad användare
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
