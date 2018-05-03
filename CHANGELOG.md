@@ -8,6 +8,7 @@
 
 **Changed**:
 
+- **decidim-core**: Force user_group.name uniqueness in user_group test factory. (https://github.com/decidim/decidim/pull/3290)
 - **decidim-admin**: Admins no longer need to introduce raw json to define options for an authorization workflow. [\#3300](https://github.com/decidim/decidim/pull/3300)
 
 **Fixed**:
