@@ -340,7 +340,7 @@ fr:
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
-          proposal_rejected_reason: 'Cette proposition n'a pas été retenue parce que:'
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
           report: Signaler
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
