@@ -17,12 +17,19 @@ cd development_app
 
 A development_app/ entry appears in the .gitignore file, so you don't have to worry about commiting the development app by mistake.
 
-Once created, you will only have to
+On creation, this steps are automatically invoked by the generator:
 
-- configure its `config/database.yml`
+- create a `config/database.yml`
 - `bundle install`
 - `bin/rails db:migrate db:seed`
+
+If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
+
+Once created you are ready to:
+
 - `bin/rails s`
+
+
 
 ## Useful commands
 
