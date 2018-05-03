@@ -395,8 +395,6 @@ nl:
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: Ok
           title: Niet geautoriseerd
-      author:
-        deleted: Verwijderde gebruiker
       embed_modal:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
