@@ -1,6 +1,3 @@
-<% if answered? %>
-  <%= content_tag :span, state_name, class: "label proposal-status #{badge_state_css}" %>
-<% end %>
-<% if withdrawn? %>
-  <%= content_tag :span, state_name, class: "label proposal-status #{badge_state_css}" %>
+<% if answered? || withdrawn? %>
+  <%= content_tag :span, state_name, class: "card__text--status #{badge_state_css}" %>
 <% end %>

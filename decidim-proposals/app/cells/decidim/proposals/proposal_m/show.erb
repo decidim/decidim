@@ -3,11 +3,12 @@
     <div class="card__content">
       <%= render :header %>
 
-      <%= render :badge %>
-
-      <p>
-        <%= body %>
-      </p>
+      <div class="card__text">
+        <div class="card__text--paragraph">
+          <%= render :badge %>
+          <%= body %>
+        </div>
+      </div>
 
       <%= cell "decidim/tags", model, context: {extra_classes: ["tags--proposal"]} %>
     </div>
