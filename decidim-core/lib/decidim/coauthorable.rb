@@ -3,22 +3,17 @@
 module Decidim
   # This concern contains the logic related to collective or shared authorship.
   #
-  # Coauthorable will share the same object interface as Authorable (if it ducks is a duck).
-  #
-  # Coauthorable entities will have an initial author, plus a list of coauthors.
-  # The initial author will be persisted in the entity's table as implemented by Authorable,
-  # and the rest of the coauthors will be persisted in the coauthors table.
+  # Coauthorable shares nearly the same object interface as Authorable but with some differences.
+  # - `authored_by?(user)` is exactly the same
+  # - `normalized_authors` is pluralized
   #
   # All coauthors, including the initial author, will share the same permissions.
   module Coauthorable
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User", optional: true
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
-
-      validate :verified_user_group, :user_group_membership
-      validate :author_belongs_to_organization
+      has_many :authors, class_name: "Decidim::User"
+      has_many :user_groups, class_name: "Decidim::UserGroup"
 
       # Checks whether the user is author of the given proposal, either directly
       # authoring it or via a user group.
@@ -32,25 +27,8 @@ module Decidim
       # the *author* method, but it's pending a refactor.
       #
       # Returns an Author, a UserGroup or nil.
-      def normalized_author
+      def normalized_authors
         user_group || author
-      end
-
-      private
-
-      def verified_user_group
-        return unless user_group
-        errors.add :user_group, :invalid unless user_group.verified?
-      end
-
-      def user_group_membership
-        return unless user_group
-        errors.add :user_group, :invalid unless user_group.users.include? author
-      end
-
-      def author_belongs_to_organization
-        return if !author || !organization
-        errors.add(:author, :invalid) unless author.organization == organization
       end
     end
   end
