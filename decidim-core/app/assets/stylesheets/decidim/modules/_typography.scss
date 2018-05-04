@@ -143,6 +143,10 @@ hr{
   text-transform: uppercase;
 }
 
+.text-lowercase{
+  text-transform: lowercase;
+}
+
 .text-ellipsis{
   @include ellipsis();
 }
@@ -188,5 +192,5 @@ textarea,
 time,
 tt,
 var{
-  @include modifiers(color);
+  @include modifiers(color, (muted: $muted));
 }
