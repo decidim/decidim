@@ -87,10 +87,6 @@ module Decidim
           @collection ||= OrganizationConsultations.new(current_user.organization).query
         end
 
-        def ability_context
-          super.merge(current_consultation: current_consultation)
-        end
-
         def consultation_form
           form(ConsultationForm)
         end
