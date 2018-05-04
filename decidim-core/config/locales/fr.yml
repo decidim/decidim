@@ -272,7 +272,7 @@ fr:
       expired_session: La session de connexion a expiré.
     menu:
       home: Accueil
-      more_information: Plus d'information
+      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:
@@ -328,7 +328,7 @@ fr:
         verified: Vérifié
     pages:
       index:
-        title: Plus d'information
+        title: Plus d'informations
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:

@@ -250,7 +250,7 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Déjà recommandé
+          already_endorsed: Déjà recommandée
           endorse: Recommander
       proposal_votes:
         create:
@@ -279,7 +279,7 @@ fr:
           send: Aperçu
           title: Modifier le projet de proposition
         endorsement_button:
-          already_endorsed: Déjà recommandé
+          already_endorsed: Déjà recommandée
           already_endorsed_hover: Ne plus recommander
         endorsement_identities_cabin:
           endorse: Recommander
