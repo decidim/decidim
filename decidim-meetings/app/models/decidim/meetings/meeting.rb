@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Loggable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
@@ -30,6 +31,10 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
+      end
+
+      def can_be_joined_by?(user)
+        !closed? && registrations_enabled? && can_participate?(user)
       end
 
       def closed?

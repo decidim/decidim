@@ -1,0 +1,27 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <%= render :header %>
+
+        <div class="card__author">
+          <%= card_for present(model).author, context: {extra_classes: ["author-data--small"], from: from_context } %>
+        </div>
+
+        <div class="tech-info tech-info--text-left">
+          <%= t("decidim.participatory_spaces.proposal.creation_date", date: l(model.created_at, format: :decidim_short)) %>
+        </div>
+        <%= resource_reference(model, class: "tech-info--text-left") %>
+      </div>
+
+      <%= render :badge %>
+
+      <p>
+        <%= body %>
+      </p>
+
+      <%= cell "decidim/tags", model, context: {extra_classes: ["tags--proposal"]} %>
+    </div>
+
+    <%= render :footer %>
+  </article>
+</div>

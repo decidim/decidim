@@ -7,12 +7,12 @@ module Decidim
       layout "decidim/admin/settings"
 
       def edit
-        authorize! :update, current_organization
+        enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_model(current_organization)
       end
 
       def update
-        authorize! :update, current_organization
+        enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_params(params)
 
         UpdateOrganizationAppearance.call(current_organization, @form) do

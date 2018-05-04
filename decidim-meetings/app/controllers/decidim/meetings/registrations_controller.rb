@@ -5,7 +5,7 @@ module Decidim
     # Exposes the registration resource so users can join and leave meetings.
     class RegistrationsController < Decidim::Meetings::ApplicationController
       def create
-        authorize! :join, meeting
+        enforce_permission_to :join, :meeting, meeting: meeting
 
         JoinMeeting.call(meeting, current_user) do
           on(:ok) do
@@ -21,7 +21,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :leave, meeting
+        enforce_permission_to :leave, :meeting, meeting: meeting
 
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do

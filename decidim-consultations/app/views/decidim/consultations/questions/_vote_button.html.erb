@@ -31,7 +31,7 @@
     <% end %>
 
     <% if signed_in? && question.consultation.active? %>
-      <% if can? :unvote, question %>
+      <% if allowed_to? :unvote, :question, question: question %>
         <%= action_authorized_button_to :unvote,
                                         decidim_consultations.question_question_votes_path(question),
                                         method: :delete,
@@ -49,7 +49,7 @@
         <% end %>
       <% end %>
 
-      <% if can? :vote, question %>
+      <% if allowed_to? :vote, :question, question: question %>
         <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
           <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
         <% end %>

@@ -10,11 +10,14 @@ describe "User previews initiative", type: :system do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_initiatives.initiatives_path
-      page.find(".action-icon--preview").click
     end
 
     it "shows the details of the given initiative" do
-      within_window(page.driver.browser.window_handles.last) do
+      preview_window = window_opened_by do
+        page.find(".action-icon--preview").click
+      end
+
+      within_window(preview_window) do
         within "main" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))

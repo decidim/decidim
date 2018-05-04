@@ -60,17 +60,6 @@ module Decidim
         )
       end
 
-      initializer "decidim_initiatives.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += %w(
-            Decidim::Initiatives::Abilities::NonLoggedUserAbility
-            Decidim::Initiatives::Abilities::EveryoneAbility
-            Decidim::Initiatives::Abilities::CurrentUserAbility
-            Decidim::Initiatives::Abilities::VoteAbility
-          )
-        end
-      end
-
       initializer "decidim_initiatives.view_hooks" do
         Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           highlighted_initiatives = OrganizationPrioritizedInitiatives.new(view_context.current_organization)

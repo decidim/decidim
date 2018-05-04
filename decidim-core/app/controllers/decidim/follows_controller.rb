@@ -8,7 +8,7 @@ module Decidim
 
     def destroy
       @form = form(Decidim::FollowForm).from_params(params)
-      authorize! :delete, @form.follow
+      enforce_permission_to :delete, :follow, follow: @form.follow
 
       DeleteFollow.call(@form, current_user) do
         on(:ok) do
@@ -23,7 +23,7 @@ module Decidim
 
     def create
       @form = form(Decidim::FollowForm).from_params(params)
-      authorize! :create, Follow
+      enforce_permission_to :create, :follow
 
       CreateFollow.call(@form, current_user) do
         on(:ok) do

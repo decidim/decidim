@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     module Admin
       # Controller that allows managing all the attachments for an initiative
-      class InitiativeAttachmentsController < Decidim::Admin::ApplicationController
+      class InitiativeAttachmentsController < Decidim::Initiatives::Admin::ApplicationController
         include InitiativeAdmin
         include Decidim::Admin::Concerns::HasAttachments
 

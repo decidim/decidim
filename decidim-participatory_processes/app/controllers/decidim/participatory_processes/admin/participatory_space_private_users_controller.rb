@@ -17,7 +17,7 @@ module Decidim
         end
 
         def authorization_object
-          @participatory_space_private_user || ParticipatorySpacePrivateUser
+          @participatory_space_private_user
         end
       end
     end

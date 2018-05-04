@@ -8,8 +8,10 @@ module Decidim
     class ImpersonatableUsersController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"
 
+      helper_method :new_managed_user
+
       def index
-        authorize! :index, :impersonatable_users
+        enforce_permission_to :index, :impersonatable_user
 
         @query = params[:q]
         @state = params[:state]
@@ -23,6 +25,10 @@ module Decidim
 
       def collection
         @collection ||= current_organization.users.where(admin: false, roles: [])
+      end
+
+      def new_managed_user
+        Decidim::User.new(managed: true, admin: false, roles: [])
       end
     end
   end
