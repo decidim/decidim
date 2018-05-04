@@ -22,7 +22,7 @@
       params: { follow: { followable_gid: followable.to_sgid.to_s }},
       data: { tooltip: true, disable_hover: false },
       :'aria-haspopup' => true,
-      title: t(".sign_in_before_follow"),
+      title: t("decidim.shared.follow_button.sign_in_before_follow"),
       disabled: true,
       remote: true) do %>
       <%= icon "bell", class: "icon--small" %>
