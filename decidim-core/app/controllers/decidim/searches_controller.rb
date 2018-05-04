@@ -8,8 +8,6 @@ module Decidim
     # include Orderable
     include Paginable
 
-    skip_authorization_check
-
     helper Decidim::FiltersHelper
     helper_method :term
 
