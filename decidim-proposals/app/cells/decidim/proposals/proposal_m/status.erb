@@ -4,6 +4,9 @@
       <%= l(model.created_at.to_date, format: :decidim_short) %>
     </li>
     <li class="card-data__item">
+      <%= follow_button_for(model) %>
+    </li>
+    <li class="card-data__item">
       <%= link_to resource_path do %>
         <%= with_tooltip t("decidim.proposals.models.proposal.fields.endorsements") do %>
           <%= icon("bullhorn", class: "icon--small") %>

@@ -31,6 +31,10 @@ module Decidim
 
       private
 
+      def decidim
+        Decidim::Core::Engine.routes.url_helpers
+      end
+
       def resource_path
         resource_locator(model).path
       end

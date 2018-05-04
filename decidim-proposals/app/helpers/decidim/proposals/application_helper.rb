@@ -74,7 +74,7 @@ module Decidim
 
       def follow_button_for(model)
         if current_user
-          render partial: "decidim/shared/follow_button", locals: { followable: model }
+          render partial: "decidim/shared/follow_button.html", locals: { followable: model }
         else
           content_tag(:p, class: "mt-s mb-none") do
             t("decidim.proposals.proposals.show.sign_in_or_up",
