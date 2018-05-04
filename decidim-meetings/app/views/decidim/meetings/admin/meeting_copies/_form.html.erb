@@ -35,9 +35,8 @@
     </div>
 
     <div class="row column">
-      <% picker_text = form.object.organizer.present? ? "#{form.object.organizer.name} (@#{form.object.organizer.nickname})" : "" %>
-      <%= form.text_field :organizer_picker, value: picker_text, class: "user-autocomplete", placeholder: t(".select_organizer"),
-                          data: { url: organizers_url } %>
+      <%= form.text_field :organizer_picker, value: meeting_organizer_picker_text(form), class: "user-autocomplete", placeholder: t(".select_organizer"),
+                          data: { url: decidim.organization_users_url } %>
       <%= form.hidden_field :organizer_id %>
     </div>
 

@@ -2,7 +2,6 @@
 
 module Decidim
   class UsersController < Decidim::ApplicationController
-
     def index
       respond_to do |format|
         format.json do
