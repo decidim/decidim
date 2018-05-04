@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     # A controller that holds the logic to show Assemblies in a
     # public layout.
-    class AssembliesController < Decidim::ApplicationController
+    class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
 
@@ -19,7 +19,7 @@ module Decidim
       def index
         redirect_to "/404" if published_assemblies.none?
 
-        authorize! :read, Assembly
+        enforce_permission_to :list, :assembly
       end
 
       def show

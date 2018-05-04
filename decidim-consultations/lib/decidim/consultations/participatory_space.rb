@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:consultations) do |participatory_space|
   participatory_space.icon = "decidim/consultations/icon.svg"
   participatory_space.model_class_name = "Decidim::Consultations::Question"
+  participatory_space.permissions_class_name = "Decidim::Consultations::Permissions"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Consultations::Question.where(organization: organization)

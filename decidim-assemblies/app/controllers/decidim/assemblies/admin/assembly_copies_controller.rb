@@ -5,16 +5,16 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssemblyCopiesController < Decidim::Admin::ApplicationController
+      class AssemblyCopiesController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def new
-          authorize! :new, Decidim::Assembly
+          enforce_permission_to :create, :assembly
           @form = form(AssemblyCopyForm).from_model(current_assembly)
         end
 
         def create
-          authorize! :create, Decidim::Assembly
+          enforce_permission_to :create, :assembly
           @form = form(AssemblyCopyForm).from_params(params)
 
           CopyAssembly.call(@form, current_assembly) do

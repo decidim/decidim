@@ -4,7 +4,7 @@
       <%= t "decidim.admin.titles.initiatives_types" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.initiatives_types.name", scope: "decidim.admin")),
                   ["new", "initiatives_type"],
-                  class: "button tiny button--title" if can? :create, Decidim::InitiativesType %>
+                  class: "button tiny button--title" if allowed_to? :create, :initiative_type %>
     </h2>
   </div>
   <div class="card-section">
@@ -20,7 +20,7 @@
           <% @initiatives_types.each do |initiative_type| %>
           <tr>
             <td>
-              <% if can? :update, initiative_type %>
+              <% if allowed_to? :update, :initiative_type, initiative_type: initiative_type %>
                 <%= link_to translated_attribute(initiative_type.title), edit_initiatives_type_path(initiative_type) %>
               <% else %>
                 <%= translated_attribute initiative_type.title %></td>

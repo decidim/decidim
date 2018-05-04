@@ -4,17 +4,17 @@ module Decidim
   module Initiatives
     module Admin
       # Controller in charge of managing committee membership
-      class CommitteeRequestsController < Decidim::Admin::ApplicationController
+      class CommitteeRequestsController < Decidim::Initiatives::Admin::ApplicationController
         include InitiativeAdmin
 
         # GET /admin/initiatives/:initiative_id/committee_requests
         def index
-          authorize! :index, InitiativesCommitteeMember
+          enforce_permission_to :index, :initiative_committee_member
         end
 
         # GET /initiatives/:initiative_id/committee_requests/:id/approve
         def approve
-          authorize! :approve, membership_request
+          enforce_permission_to :approve, :initiative_committee_member, request: membership_request
           membership_request.accepted!
 
           redirect_to initiative_committee_requests_path(membership_request.initiative)
@@ -22,7 +22,7 @@ module Decidim
 
         # DELETE /initiatives/:initiative_id/committee_requests/:id/revoke
         def revoke
-          authorize! :revoke, membership_request
+          enforce_permission_to :revoke, :initiative_committee_member, request: membership_request
           membership_request.rejected!
           redirect_to initiative_committee_requests_path(membership_request.initiative)
         end

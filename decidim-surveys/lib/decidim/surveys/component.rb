@@ -7,6 +7,7 @@ Decidim.register_component(:surveys) do |component|
   component.admin_engine = Decidim::Surveys::AdminEngine
   component.icon = "decidim/surveys/icon.svg"
   component.stylesheet = "decidim/surveys/surveys"
+  component.permissions_class_name = "Decidim::Surveys::Permissions"
 
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do

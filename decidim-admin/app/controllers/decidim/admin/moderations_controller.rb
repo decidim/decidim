@@ -4,14 +4,14 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class ModerationsController < Decidim::Admin::ApplicationController
-      helper_method :moderations
+      helper_method :moderations, :allowed_to?
 
       def index
-        authorize! :read, Decidim::Moderation
+        enforce_permission_to :read, :moderation
       end
 
       def unreport
-        authorize! :unreport, reportable
+        enforce_permission_to :unreport, :moderation
 
         Admin::UnreportResource.call(reportable, current_user) do
           on(:ok) do
@@ -27,7 +27,7 @@ module Decidim
       end
 
       def hide
-        authorize! :hide, reportable
+        enforce_permission_to :hide, :moderation
 
         Admin::HideResource.call(reportable, current_user) do
           on(:ok) do

@@ -78,7 +78,6 @@ PATH
     decidim-core (0.12.0.dev)
       active_link_to (~> 1.0)
       autoprefixer-rails (~> 8.0)
-      cancancan (~> 2.0)
       carrierwave (~> 1.1)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -253,7 +252,6 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
-    cancancan (2.2.0)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)

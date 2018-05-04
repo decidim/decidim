@@ -4,11 +4,11 @@ module Decidim
   module Consultations
     module Admin
       # Controller that allows managing consultation result publications.
-      class ConsultationResultsPublicationsController < Decidim::Admin::ApplicationController
+      class ConsultationResultsPublicationsController < Decidim::Consultations::Admin::ApplicationController
         include ConsultationAdmin
 
         def create
-          authorize! :publish_results, current_consultation
+          enforce_permission_to :publish_results, :consultation, consultation: current_consultation
 
           PublishConsultationResults.call(current_consultation) do
             on(:ok) do
@@ -24,7 +24,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :unpublish_Results, current_consultation
+          enforce_permission_to :unpublish_results, :consultation, consultation: current_consultation
 
           UnpublishConsultationResults.call(current_consultation) do
             on(:ok) do

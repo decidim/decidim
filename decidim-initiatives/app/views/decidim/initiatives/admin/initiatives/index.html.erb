@@ -61,7 +61,7 @@
           <% @initiatives.each do |initiative| %>
           <tr>
             <td>
-              <% if can? :edit, initiative %>
+              <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= link_to translated_attribute(initiative.title),
                             decidim_admin_initiatives.edit_initiative_path(initiative.to_param) %>
               <% else %>
@@ -72,7 +72,7 @@
             <td><%= initiative.supports_count %>/<%= initiative.scoped_type.supports_required %></td>
             <td><%= l initiative.created_at, format: :short %></td>
             <td class="table-list__actions">
-              <% if can? :preview, initiative %>
+              <% if allowed_to? :preview, :initiative, initiative: initiative %>
                 <%= icon_link_to "eye",
                                  decidim_initiatives.initiative_path(initiative.to_param),
                                  t(".preview"),
@@ -80,14 +80,14 @@
                                  target: "_blank" %>
               <% end %>
 
-              <% if can? :edit, initiative %>
+              <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= icon_link_to "pencil",
                                  decidim_admin_initiatives.edit_initiative_path(initiative.to_param),
                                  t("actions.configure", scope: "decidim.admin"),
                                  class: "action-icon--edit" %>
               <% end %>
 
-              <% if can? :read, initiative %>
+              <% if allowed_to? :read, :initiative, initiative: initiative %>
                 <%= icon_link_to "print",
                                  decidim_admin_initiatives.initiative_path(initiative.to_param),
                                  t(".print",),
