@@ -13,10 +13,14 @@ module Decidim
       # collection = export_manifest.collection.call(component)
       # serializer = export_manifest.serializer
 
+      
+
       collection = Decidim::Proposals::Proposal.where(decidim_author_id: user.id)
-      serializer = Decidim::Exporters::Serializer
+      serializer = Decidim::Proposals::ProposalSerializer
 
       export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
+
+      raise
 
       ExportMailer.export(user, name, export_data).deliver_now
     end

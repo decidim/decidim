@@ -55,6 +55,7 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
+  autoload :DataPortability, "decidim/data_portability"
 
   include ActiveSupport::Configurable
 

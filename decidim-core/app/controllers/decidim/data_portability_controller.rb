@@ -12,7 +12,10 @@ module Decidim
 
     def export
       authorize! :export, current_user
-      name = "Test"
+      name = current_user.name
+      raise
+
+      objects = ActiveRecord::Base.descendants.select{|c| c.included_modules.include?(Decidim::DataPortability)}.map(&:name)
 
       DataPortabilityExportJob.perform_later(current_user, name, export_format)
 
