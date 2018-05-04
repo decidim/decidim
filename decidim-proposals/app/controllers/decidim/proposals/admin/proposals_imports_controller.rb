@@ -5,17 +5,15 @@ module Decidim
     module Admin
       class ProposalsImportsController < Admin::ApplicationController
         def new
-          authorize! :manage, current_component
+          enforce_permission_to :import, :proposals
 
           @form = form(Admin::ProposalsImportForm).instance
         end
 
         def create
-          authorize! :manage, current_component
+          enforce_permission_to :import, :proposals
 
           @form = form(Admin::ProposalsImportForm).from_params(params)
-
-          authorize! :manage, @form.origin_component
 
           Admin::ImportProposals.call(@form) do
             on(:ok) do |proposals|

@@ -6,22 +6,22 @@ module Decidim
     #
     class OAuthApplicationsController < Admin::ApplicationController
       def index
-        authorize! :index, :oauth_applications
+        enforce_permission_to :read, :oauth_application
         @oauth_applications = collection.page(params[:page]).per(15)
       end
 
       def show
         @oauth_application = collection.find(params[:id])
-        authorize! :show, @oauth_application
+        enforce_permission_to :read, :oauth_application
       end
 
       def new
-        authorize! :create, :oauth_applications
+        enforce_permission_to :create, :oauth_application
         @form = form(OAuthApplicationForm).instance
       end
 
       def create
-        authorize! :create, :oauth_applications
+        enforce_permission_to :create, :oauth_application
 
         @form = form(OAuthApplicationForm).from_params(params)
 
@@ -40,13 +40,13 @@ module Decidim
 
       def edit
         @oauth_application = collection.find(params[:id])
-        authorize! :update, @oauth_application
+        enforce_permission_to :update, :oauth_application, oauth_application: @oauth_application
         @form = form(OAuthApplicationForm).from_model(@oauth_application)
       end
 
       def update
         @oauth_application = collection.find(params[:id])
-        authorize! :update, @oauth_application
+        enforce_permission_to :update, :oauth_application, oauth_application: @oauth_application
         @form = form(OAuthApplicationForm).from_params({ organization_logo: @oauth_application.organization_logo }.merge(params.to_unsafe_h))
 
         UpdateOAuthApplication.call(@oauth_application, @form, current_user) do
@@ -65,7 +65,7 @@ module Decidim
 
       def destroy
         @oauth_application = collection.find(params[:id])
-        authorize! :destroy, @oauth_application
+        enforce_permission_to :destroy, :oauth_application, oauth_application: @oauth_application
 
         DestroyOAuthApplication.call(@oauth_application, current_user) do
           on(:ok) do

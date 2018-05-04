@@ -21,6 +21,13 @@ module Decidim
             return current_consultation if params.has_key? :consultation_slug
             current_question
           end
+
+          def permission_class_chain
+            [
+              Decidim::Consultations::Permissions,
+              Decidim::Admin::Permissions
+            ]
+          end
         end
       end
     end
