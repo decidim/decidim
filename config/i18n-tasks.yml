@@ -133,6 +133,7 @@ ignore_unused:
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
   - decidim.initiatives.admin_states.*
+  - decidim.initiatives.events.*
   - decidim.events.*
   - doorkeeper.scopes.*
 
