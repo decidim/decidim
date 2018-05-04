@@ -43,7 +43,7 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user)
+        !closed? && registrations_enabled? && can_participate?(user) && can_participate_meeting?(user)
       end
 
       def closed?
