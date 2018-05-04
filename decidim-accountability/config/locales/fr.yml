@@ -176,7 +176,7 @@ fr:
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans le résultat <a href="%{resource_path}">%{resource_title}</a>.
     features:
       accountability:
-        name: Responsabilité
+        name: Suivi
         settings:
           global:
             categories_label: Nom pour "Catégories"

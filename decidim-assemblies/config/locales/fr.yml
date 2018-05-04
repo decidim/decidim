@@ -13,7 +13,7 @@ fr:
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Périmètre
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_scope: Objectif
         participatory_structure: Modalités
@@ -141,7 +141,7 @@ fr:
       show:
         area: Région
         developer_group: Organisateur
-        local_area: Périmètre
+        local_area: Espace d'organisation
         participatory_scope: Objectif
         participatory_structure: Modalités
         scope: Échelle

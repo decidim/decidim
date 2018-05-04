@@ -267,6 +267,7 @@ fr:
           title: Propositions similaires
         count:
           proposals_count:
+            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
         edit:
@@ -310,7 +311,7 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
-          see_all_withdrawn: Voir toutes les propositions retirées
+          see_all_withdrawn: Voir toutes les propositions retirées par leurs auteurs
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
