@@ -217,6 +217,7 @@ en:
             category: Category
             comments: Comments
             created_at: Created at
+            endorsements: Endorsements
             id: ID
             notes: Notes
             official_proposal: Official proposal

@@ -7,6 +7,7 @@ module Decidim
     # This cell renders a proposal with its M-size card.
     class ProposalMCell < Decidim::Proposals::ProposalCell
       include Cell::ViewModel::Partial
+      include Decidim::TooltipHelper
 
       def show
         render
