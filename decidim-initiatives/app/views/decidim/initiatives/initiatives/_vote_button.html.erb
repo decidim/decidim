@@ -1,4 +1,4 @@
-<% if can? :vote, initiative %>
+<% if allowed_to? :vote, :initiative, initiative: initiative %>
     <%= action_authorized_button_to :vote,
                                     vote_label,
                                     initiative_initiative_vote_path(initiative_slug: initiative.slug),
@@ -7,7 +7,7 @@
                                     class: "card__button button expanded button--sc" %>
 <% end %>
 
-<% if can? :unvote, initiative %>
+<% if allowed_to? :unvote, :initiative, initiative: initiative %>
     <%= action_authorized_button_to :vote,
                                     unvote_label,
                                     initiative_initiative_vote_path(initiative_slug: initiative.slug),

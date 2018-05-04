@@ -6,6 +6,7 @@ Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.icon = "decidim/proposals/icon.svg"
+  component.card = "decidim/proposals/proposal"
 
   component.on(:before_destroy) do |instance|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
@@ -14,6 +15,8 @@ Decidim.register_component(:proposals) do |component|
   component.actions = %w(endorse vote create withdraw)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
+
+  component.permissions_class_name = "Decidim::Proposals::Permissions"
 
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0

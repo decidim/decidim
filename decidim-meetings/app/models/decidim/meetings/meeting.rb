@@ -33,6 +33,10 @@ module Decidim
         Decidim::Meetings::AdminLog::MeetingPresenter
       end
 
+      def can_be_joined_by?(user)
+        !closed? && registrations_enabled? && can_participate?(user)
+      end
+
       def closed?
         closed_at.present?
       end

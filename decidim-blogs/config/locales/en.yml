@@ -38,8 +38,6 @@ en:
             created_at: Created at
             title: title
       posts:
-        author_data:
-          comments: comments
         sidebar_blog:
           comments: comments
           most_commented_posts: Most commented posts

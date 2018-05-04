@@ -15,7 +15,7 @@ module Decidim
 
         # GET /admin/initiatives
         def index
-          authorize! :list, Decidim::Initiative
+          enforce_permission_to :list, :initiative
 
           @query = params[:q]
           @state = params[:state]
@@ -32,12 +32,12 @@ module Decidim
 
         # GET /admin/initiatives/:id
         def show
-          authorize! :read, current_initiative
+          enforce_permission_to :read, :initiative, initiative: current_initiative
         end
 
         # GET /admin/initiatives/:id/edit
         def edit
-          authorize! :edit, current_initiative
+          enforce_permission_to :edit, :initiative, initiative: current_initiative
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_model(
                     current_initiative,
@@ -49,7 +49,7 @@ module Decidim
 
         # PUT /admin/initiatives/:id
         def update
-          authorize! :update, current_initiative
+          enforce_permission_to :update, :initiative, initiative: current_initiative
 
           params[:id] = params[:slug]
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
@@ -70,7 +70,7 @@ module Decidim
 
         # POST /admin/initiatives/:id/publish
         def publish
-          authorize! :publish, current_initiative
+          enforce_permission_to :publish, :initiative, initiative: current_initiative
 
           PublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
@@ -81,7 +81,7 @@ module Decidim
 
         # DELETE /admin/initiatives/:id/unpublish
         def unpublish
-          authorize! :unpublish, current_initiative
+          enforce_permission_to :unpublish, :initiative, initiative: current_initiative
 
           UnpublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
@@ -92,28 +92,28 @@ module Decidim
 
         # DELETE /admin/initiatives/:id/discard
         def discard
-          authorize! :discard, current_initiative
+          enforce_permission_to :discard, :initiative, initiative: current_initiative
           current_initiative.discarded!
           redirect_to decidim_admin_initiatives.initiatives_path
         end
 
         # POST /admin/initiatives/:id/accept
         def accept
-          authorize! :accept, current_initiative
+          enforce_permission_to :accept, :initiative, initiative: current_initiative
           current_initiative.accepted!
           redirect_to decidim_admin_initiatives.initiatives_path
         end
 
         # DELETE /admin/initiatives/:id/reject
         def reject
-          authorize! :reject, current_initiative
+          enforce_permission_to :reject, :initiative, initiative: current_initiative
           current_initiative.rejected!
           redirect_to decidim_admin_initiatives.initiatives_path
         end
 
         # GET /admin/initiatives/:id/send_to_technical_validation
         def send_to_technical_validation
-          authorize! :send_to_technical_validation, current_initiative
+          enforce_permission_to :send_to_technical_validation, :initiative, initiative: current_initiative
 
           SendInitiativeToTechnicalValidation.call(current_initiative, current_user) do
             on(:ok) do
@@ -129,7 +129,7 @@ module Decidim
 
         # GET /admin/initiatives/:id/export_votes
         def export_votes
-          authorize! :export_votes, current_initiative
+          enforce_permission_to :export_votes, :initiative, initiative: current_initiative
 
           votes = current_initiative.votes.votes.map(&:sha1)
           csv_data = CSV.generate(headers: false) do |csv|

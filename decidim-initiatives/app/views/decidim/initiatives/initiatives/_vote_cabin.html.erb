@@ -17,7 +17,7 @@
                } if Decidim::Initiatives.online_voting_allowed %>
 <% end %>
 
-<% if cannot?(:vote, initiative) && cannot?(:unvote, initiative) %>
+<% if !allowed_to?(:vote, :initiative, initiative: initiative) && !allowed_to?(:unvote, :initiative, initiative: initiative) %>
   <button class='card__button button expanded button--sc disabled' disabled>
     <%= t(".votes_blocked") %>
   </button>
