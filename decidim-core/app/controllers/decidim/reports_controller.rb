@@ -4,10 +4,12 @@ module Decidim
   # Exposes the report resource so users can report a reportable.
   class ReportsController < Decidim::ApplicationController
     include FormFactory
+    include NeedsPermission
+
     before_action :authenticate_user!
 
     def create
-      authorize! :report, reportable
+      enforce_permission_to :create, :moderation
 
       @form = form(Decidim::ReportForm).from_params(params)
 
@@ -28,6 +30,17 @@ module Decidim
 
     def reportable
       @reportable ||= GlobalID::Locator.locate_signed params[:sgid]
+    end
+
+    def permission_class_chain
+      [
+        reportable.participatory_space.manifest.permissions_class,
+        Decidim::Permissions
+      ]
+    end
+
+    def permission_scope
+      :public
     end
   end
 end

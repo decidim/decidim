@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing all the attachments for a participatory
       # process.
       #
-      class AttachmentsController < Admin::ApplicationController
+      class AttachmentsController < Decidim::Meetings::Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachments
 
         def after_destroy_path

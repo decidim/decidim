@@ -49,6 +49,16 @@ module Decidim
               organization: current_organization
             )
         end
+
+        def permission_class_chain
+          list = [
+            Decidim::Initiatives::Permissions,
+            Decidim::Admin::Permissions
+          ]
+
+          return list if permission_scope == :admin
+          list << Decidim::Permissions
+        end
       end
     end
   end

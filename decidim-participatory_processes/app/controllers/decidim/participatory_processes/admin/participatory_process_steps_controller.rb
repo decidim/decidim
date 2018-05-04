@@ -9,16 +9,16 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
 
         def index
-          authorize! :read, Decidim::ParticipatoryProcessStep
+          enforce_permission_to :read, :process_step
         end
 
         def new
-          authorize! :create, Decidim::ParticipatoryProcessStep
+          enforce_permission_to :create, :process_step
           @form = form(ParticipatoryProcessStepForm).instance
         end
 
         def create
-          authorize! :create, Decidim::ParticipatoryProcessStep
+          enforce_permission_to :create, :process_step
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
           CreateParticipatoryProcessStep.call(@form, current_participatory_process) do
@@ -36,13 +36,13 @@ module Decidim
 
         def edit
           @participatory_process_step = collection.find(params[:id])
-          authorize! :update, @participatory_process_step
+          enforce_permission_to :update, :process_step, process_step: @participatory_process_step
           @form = form(ParticipatoryProcessStepForm).from_model(@participatory_process_step)
         end
 
         def update
           @participatory_process_step = collection.find(params[:id])
-          authorize! :update, @participatory_process_step
+          enforce_permission_to :update, :process_step, process_step: @participatory_process_step
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
           UpdateParticipatoryProcessStep.call(@participatory_process_step, @form) do
@@ -60,12 +60,12 @@ module Decidim
 
         def show
           @participatory_process_step = collection.find(params[:id])
-          authorize! :read, @participatory_process_step
+          enforce_permission_to :read, :process_step, process_step: @participatory_process_step
         end
 
         def destroy
           @participatory_process_step = collection.find(params[:id])
-          authorize! :destroy, @participatory_process_step
+          enforce_permission_to :destroy, :process_step, process_step: @participatory_process_step
 
           DestroyParticipatoryProcessStep.call(@participatory_process_step, current_user) do
             on(:ok) do

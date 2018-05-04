@@ -5,7 +5,7 @@ module Decidim
     require "wicked"
 
     # Controller in charge of managing the create initiative wizard.
-    class CreateInitiativeController < Decidim::ApplicationController
+    class CreateInitiativeController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_creation"
 
       include Wicked::Wizard
@@ -28,12 +28,12 @@ module Decidim
             :finish
 
       def show
-        authorize! :create, Initiative
+        enforce_permission_to :create, :initiative
         send("#{step}_step", initiative: session[:initiative])
       end
 
       def update
-        authorize! :create, Initiative
+        enforce_permission_to :create, :initiative
         send("#{step}_step", params)
       end
 

@@ -14,7 +14,7 @@ component.actions = %w(adhere vote create)
 ```
 
 1. Translate the action for the corresponding key: `en.decidim.components.proposals.actions.adhere = Adhere`
-1. Edit `app/models/decidim/proposals/abilities/current_user_ability.rb` and add the corresponding cancancan ability like `can :adhere, Proposal do |_proposal| ...`.
+1. Edit `app/permissions/decidim/proposals/permissions.rb` and add the corresponding permission.
 1. Restart the server to pick up the changes.
 1. Now the admin should be able to go to the Control Panel and edit `PROCESSES/Proposals/Permissions/Adhere` panel. There an `Authorization Handler` can be set.
 

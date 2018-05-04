@@ -6,6 +6,10 @@ module Decidim
       # This controller allows admins to manage moderations in a participatory process.
       class ModerationsController < Decidim::Admin::ModerationsController
         include Concerns::ParticipatoryProcessAdmin
+
+        def permissions_context
+          super.merge(current_participatory_space: current_participatory_space)
+        end
       end
     end
   end

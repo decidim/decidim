@@ -8,6 +8,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
   end
 
+  participatory_space.permissions_class_name = "Decidim::Assemblies::Permissions"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"
@@ -74,6 +76,29 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         youtube_handler: Faker::Lorem.word,
         github_handler: Faker::Lorem.word
       )
+
+      # Create users with specific roles
+      Decidim::AssemblyUserRole::ROLES.each do |role|
+        email = "assembly_#{assembly.id}_#{role}@example.org"
+
+        user = Decidim::User.find_or_initialize_by(email: email)
+        user.update!(
+          name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
+          organization: organization,
+          confirmed_at: Time.current,
+          locale: I18n.default_locale,
+          tos_agreement: true
+        )
+
+        Decidim::AssemblyUserRole.find_or_create_by!(
+          user: user,
+          assembly: assembly,
+          role: role
+        )
+      end
 
       child = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
