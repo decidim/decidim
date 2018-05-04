@@ -23,9 +23,9 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <% if !meeting.closed? && meeting.registrations_enabled? && meeting.can_participate?(current_user) && meeting.can_participate_meeting?(current_user) %>
+        <% if meeting.can_be_joined_by?(current_user) %>
           <% if meeting.has_registration_for? current_user %>
-            <%= action_authorized_button_to :leave, t(".going"), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success", data: { disable: true } %>
+            <%= action_authorized_button_to :join, t(".going"), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success", data: { disable: true } %>
           <% else %>
             <%= action_authorized_button_to :join, meeting.has_available_slots? ? t(".join") : t(".no_slots_available"), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { open: current_user.present? ? "meeting-registration-confirm" : "loginModal" } %>
           <% end %>

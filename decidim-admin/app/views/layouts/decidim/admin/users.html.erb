@@ -4,22 +4,22 @@
       <%= t ".title" %>
     </div>
     <ul>
-      <% if can? :index, Decidim::User %>
+      <% if allowed_to? :read, :admin_user %>
         <li <% if is_active_link?(decidim_admin.users_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path %>
         </li>
       <% end %>
-      <% if can? :index, Decidim::UserGroup %>
+      <% if allowed_to? :index, :user_group %>
         <li <% if is_active_link?(decidim_admin.user_groups_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path %>
         </li>
       <% end %>
-      <% if can? :index, :officializations %>
+      <% if allowed_to? :index, :officialization %>
         <li <% if is_active_link?(decidim_admin.officializations_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.officializations", scope: "decidim.admin"), decidim_admin.officializations_path %>
         </li>
       <% end %>
-      <% if can? :index, :impersonatable_users %>
+      <% if allowed_to? :index, :impersonatable_user %>
         <li <% if is_active_link?(decidim_admin.impersonatable_users_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.impersonations", scope: "decidim.admin"), decidim_admin.impersonatable_users_path %>
         </li>

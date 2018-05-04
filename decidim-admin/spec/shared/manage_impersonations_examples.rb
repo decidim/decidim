@@ -18,7 +18,6 @@ shared_examples "manage impersonations examples" do
     it "the managed users page displays a warning and creation is disabled" do
       navigate_to_impersonations_page
 
-      expect(page).to have_selector("a.button.disabled", text: "NEW")
       expect(page).to have_content("You need at least one authorization enabled for this organization.")
     end
   end

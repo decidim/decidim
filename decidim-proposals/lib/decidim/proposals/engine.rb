@@ -3,6 +3,9 @@
 require "kaminari"
 require "social-share-button"
 require "ransack"
+require "cells/rails"
+require "cells-erb"
+require "cell/partial"
 
 module Decidim
   module Proposals
@@ -37,12 +40,6 @@ module Decidim
         app.config.assets.precompile += %w(decidim_proposals_manifest.js
                                            decidim_proposals_manifest.css
                                            decidim/proposals/identity_selector_dialog.js)
-      end
-
-      initializer "decidim_proposals.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
-        end
       end
 
       initializer "decidim.content_processors" do |_app|
@@ -120,6 +117,11 @@ module Decidim
             proposal.update(state: "accepted")
           end
         end
+      end
+
+      initializer "decidim_proposals.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
       end
     end
   end

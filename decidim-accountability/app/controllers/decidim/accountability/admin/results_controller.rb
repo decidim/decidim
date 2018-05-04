@@ -8,11 +8,15 @@ module Decidim
         helper_method :results, :parent_result, :parent_results, :statuses
 
         def new
+          enforce_permission_to :create, :result
+
           @form = form(ResultForm).instance
           @form.parent_id = params[:parent_id]
         end
 
         def create
+          enforce_permission_to :create, :result
+
           @form = form(ResultForm).from_params(params)
 
           CreateResult.call(@form) do
@@ -29,10 +33,14 @@ module Decidim
         end
 
         def edit
+          enforce_permission_to :update, :result, result: result
+
           @form = form(ResultForm).from_model(result)
         end
 
         def update
+          enforce_permission_to :update, :result, result: result
+
           @form = form(ResultForm).from_params(params)
 
           UpdateResult.call(@form, result) do
@@ -49,6 +57,8 @@ module Decidim
         end
 
         def destroy
+          enforce_permission_to :destroy, :result, result: result
+
           DestroyResult.call(result, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")

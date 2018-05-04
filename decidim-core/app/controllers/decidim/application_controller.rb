@@ -5,7 +5,7 @@ module Decidim
   class ApplicationController < ::DecidimController
     include NeedsOrganization
     include LocaleSwitcher
-    include NeedsAuthorization
+    include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
 
@@ -44,8 +44,19 @@ module Decidim
       store_location_for(:user, value)
     end
 
-    def user_not_authorized_path
+    def user_has_no_permission_path
       decidim.root_path
+    end
+
+    def permission_class_chain
+      [
+        Decidim::Admin::Permissions,
+        Decidim::Permissions
+      ]
+    end
+
+    def permission_scope
+      :public
     end
 
     # Make sure Chrome doesn't use the cache from a different format. This
@@ -53,12 +64,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    # Overwrites `cancancan`'s method to point to the correct ability class,
-    # since the gem expects the ability class to be in the root namespace.
-    def current_ability_klass
-      Decidim::Abilities::BaseAbility
     end
   end
 end

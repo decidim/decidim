@@ -8,12 +8,14 @@ module Decidim
         helper_method :survey, :blank_question, :blank_answer_option, :question_types
 
         def edit
-          authorize! :edit, Survey
+          enforce_permission_to :update, :survey, survey: survey
+
           @form = form(Admin::SurveyForm).from_model(survey)
         end
 
         def update
-          authorize! :update, Survey
+          enforce_permission_to :update, :survey, survey: survey
+
           params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 

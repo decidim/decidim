@@ -16,6 +16,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   end
 
   participatory_space.model_class_name = "Decidim::Initiative"
+  participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
