@@ -1,5 +1,5 @@
 <div class="column">
-  <article class="card card--proposal">
+  <article class="card card--proposal <%= badge_state_css %>">
     <div class="card__content">
       <%= render :header %>
 
@@ -13,6 +13,7 @@
       <%= cell "decidim/tags", model, context: {extra_classes: ["tags--proposal"]} %>
     </div>
 
+    <%= render :status %>
     <%= render :footer %>
   </article>
 </div>

@@ -88,13 +88,13 @@ module Decidim
         when "accepted"
           "success"
         when "rejected"
-          "warning"
+          "alert"
         when "evaluating"
-          "muted"
+          "warning"
         when "withdrawn"
           "alert"
         else
-          ""
+          "muted"
         end
       end
     end

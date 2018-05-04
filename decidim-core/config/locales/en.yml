@@ -36,6 +36,9 @@ en:
   carrierwave:
     errors:
       image_too_big: The image is too big
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
   decidim:
     account:
       delete:

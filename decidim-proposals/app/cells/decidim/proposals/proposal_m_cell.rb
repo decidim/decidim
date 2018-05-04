@@ -20,6 +20,10 @@ module Decidim
         render
       end
 
+      def status
+        render
+      end
+
       def badge
         render
       end
