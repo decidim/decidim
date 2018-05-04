@@ -37,6 +37,16 @@ module Decidim
       def body
         truncate(model.body, length: 100)
       end
+
+      def badge_classes
+        classes = [badge_state_css]
+        if options[:full_badge]
+          classes += ["label", "proposal-status"]
+        else
+          classes += ["card__text--status"]
+        end
+        classes.join(" ")
+      end
     end
   end
 end
