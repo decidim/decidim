@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This concern contains the logic related to authorship
+  # This concern contains the logic related to the authorship.
+  # This authorship may belong to a single user or be shared among coauthors, in
+  # this latest case the Coauthorable concern should be also applied.
   module Authorable
     extend ActiveSupport::Concern
 
