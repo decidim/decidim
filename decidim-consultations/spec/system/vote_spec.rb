@@ -47,7 +47,7 @@ describe "Question vote", type: :system do
       context "and never voted before" do
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -65,7 +65,7 @@ describe "Question vote", type: :system do
 
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -102,7 +102,7 @@ describe "Question vote", type: :system do
       context "and never voted before" do
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -125,7 +125,7 @@ describe "Question vote", type: :system do
 
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 

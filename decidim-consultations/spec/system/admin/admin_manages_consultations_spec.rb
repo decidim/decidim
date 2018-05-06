@@ -7,7 +7,7 @@ describe "Admin manages consultations", type: :system do
 
   before do
     switch_to_host(organization.host)
-    login_as user, scope: :user, run_callbacks: false
+    login_as user, scope: :user
     visit decidim_admin_consultations.consultations_path
   end
 
