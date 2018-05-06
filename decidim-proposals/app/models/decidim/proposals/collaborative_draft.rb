@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     class CollaborativeDraft < ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Authorable
+      include Decidim::Coauthorable
       include Decidim::HasComponent
       include Decidim::ScopableComponent
       include Decidim::HasReference

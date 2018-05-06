@@ -227,8 +227,9 @@ FactoryBot.define do
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     state { "open" }
 
-    author do
-      create(:user, organization: component.organization) if component
+    after(:create) do |collaborative_draft|
+      collaborative_draft.authors << create(:user, organization: collaborative_draft.component.organization) if collaborative_draft.component
+      collaborative_draft.save
     end
 
     trait :published do

@@ -3,27 +3,29 @@
 require "spec_helper"
 
 shared_examples_for "coauthorable" do
-  let(:creator_author) { coauthorable.author }
-
   describe "authorable interface" do
-    describe "author" do
+    let(:creator_author) { puts "@creator_author #{coauthorable.authors.to_a}"; coauthorable.authors.first }
+
+    describe "authors" do
       context "when there is one author" do
         it "returns the only coauthor" do
-          expect(coauthorable.author).to eq(creator_author)
+          expect(coauthorable.authors).to eq([creator_author])
         end
       end
+
       context "when there are many authors" do
-        let(:other_authors) { create_list(:user, 4, organization: coauthorable.component.participatory_space.organization) }
+        let(:other_authors) { create_list(:user, 5, organization: coauthorable.component.participatory_space.organization) }
 
         before do
-          coauthorable.authors += other_authors
+          coauthorable.authors = other_authors
         end
 
-        it "returns the first coauthor" do
-          expect(coauthorable.author).to eq(creator_author)
+        it "returns the all coauthors" do
+          expect(coauthorable.authors).to eq(other_authors)
         end
       end
     end
+
     describe "user_group" do
       context "when there is NO user_group" do
         it "returns nil"

@@ -12,15 +12,16 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :authors, class_name: "Decidim::User"
-      has_many :user_groups, class_name: "Decidim::UserGroup"
+      has_many :coauthorships, as: :coauthorable, class_name: "Decidim::Coauthorship"
+      has_many :authors, through: :coauthorships
+      has_many :user_groups, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
 
       # Checks whether the user is author of the given proposal, either directly
       # authoring it or via a user group.
       #
       # user - the user to check for authorship
       def authored_by?(user)
-        author == user || user.user_groups.include?(user_group)
+        authors.where(author: user).or(authors.where(user_group: user.user_groups)).exists?
       end
 
       # Returns the normalized author, whether it's a user group or a user. Ideally this should be
