@@ -36,10 +36,6 @@ module Decidim
 
         private
 
-        def ability_context
-          super.merge(current_consultation: current_consultation)
-        end
-
         def detect_consultation
           request.env["current_consultation"] ||
             organization_consultations.find_by(slug: params[:consultation_slug] || params[:slug])

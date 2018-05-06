@@ -49,14 +49,6 @@ module Decidim
         @current_manifest ||= current_component.manifest
       end
 
-      def ability_context
-        super.merge(
-          current_manifest: current_manifest,
-          current_settings: current_settings,
-          component_settings: component_settings
-        )
-      end
-
       def permission_scope
         :public
       end

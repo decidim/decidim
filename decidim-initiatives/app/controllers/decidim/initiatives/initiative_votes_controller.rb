@@ -39,18 +39,6 @@ module Decidim
           end
         end
       end
-
-      private
-
-      def ability_context
-        {
-          current_settings: try(:current_settings),
-          component_settings: try(:component_settings),
-          current_organization: try(:current_organization),
-          current_component: try(:current_component),
-          params: try(:params)
-        }
-      end
     end
   end
 end

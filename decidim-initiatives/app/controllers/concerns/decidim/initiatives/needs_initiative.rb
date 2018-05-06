@@ -27,10 +27,6 @@ module Decidim
 
         private
 
-        def ability_context
-          super.merge(current_participatory_space: current_initiative)
-        end
-
         def detect_initiative
           request.env["current_initiative"] ||
             Initiative.find_by(
