@@ -18,7 +18,7 @@ module Decidim
 
       def button_classes
         return "button expanded button--sc" if big_button?
-        "button card__button button--sc"
+        "button card__button button--sc small"
       end
 
       def big_button?

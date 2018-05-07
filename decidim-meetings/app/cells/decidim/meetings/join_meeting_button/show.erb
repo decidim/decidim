@@ -1,8 +1,24 @@
 <% if model.can_be_joined_by?(current_user) %>
   <% if model.has_registration_for? current_user %>
-    <%= action_authorized_button_to :join, t("going", scope: i18n_scope), meeting_registration_path(model), method: :delete, class: "#{button_classes} secondary", data: { disable: true } %>
+    <%= action_authorized_button_to(
+      :join,
+      meeting_registration_path(model),
+      method: :delete,
+      class: "#{button_classes} secondary light",
+      data: { disable: true }
+    ) do %>
+      <%= icon("check", class: "icon--small") %>
+      <%= t("going", scope: i18n_scope) %>
+    <% end %>
   <% else %>
-    <%= action_authorized_button_to :join, model.has_available_slots? ? t("join", scope: i18n_scope) : t("no_slots_available", scope: i18n_scope), "", class: button_classes, disabled: !model.has_available_slots?, data: { open: current_user.present? ? "model-registration-confirm" : "loginModal" } %>
+    <%= action_authorized_button_to(
+      :join,
+      model.has_available_slots? ? t("join", scope: i18n_scope) : t("no_slots_available", scope: i18n_scope),
+      "",
+      class: button_classes,
+      disabled: !model.has_available_slots?,
+      data: { open: current_user.present? ? "model-registration-confirm" : "loginModal" }
+    ) %>
   <% end %>
 <% end %>
 
