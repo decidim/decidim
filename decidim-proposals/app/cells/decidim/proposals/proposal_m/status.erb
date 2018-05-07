@@ -4,7 +4,7 @@
       <%= l(model.created_at.to_date, format: :decidim_short) %>
     </li>
     <li class="card-data__item">
-      <%= render partial: "decidim/shared/follow_button.html", locals: { followable: model } %>
+      <%= cell "decidim/follow_button", model, inline: true %>
     </li>
     <li class="card-data__item">
       <%= link_to resource_path do %>

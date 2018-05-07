@@ -3,6 +3,8 @@
 module Decidim
   # This cell renders the button to follow the given resource.
   class FollowButtonCell < Decidim::ViewModel
+    include LayoutHelper
+
     def show
       render
     end
@@ -31,7 +33,7 @@ module Decidim
     # not have any border, and the icon will be small. This is mostly intended
     # to be used from cards.
     def inline?
-      option[:inline]
+      options[:inline]
     end
   end
 end

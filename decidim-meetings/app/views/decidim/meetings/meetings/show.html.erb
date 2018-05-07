@@ -20,7 +20,7 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <%= render partial: "decidim/meetings/meetings/join_button", locals: { followable: meeting, big_button: true } %>
+        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true %>
         <% if meeting.can_be_joined_by?(current_user) %>
           <% if meeting.available_slots.positive? %>
             <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
