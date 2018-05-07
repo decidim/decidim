@@ -75,10 +75,6 @@ module Decidim
           @collection ||= current_consultation&.questions
         end
 
-        def ability_context
-          super.merge(current_consultation: current_consultation)
-        end
-
         def question_form
           form(QuestionForm)
         end
