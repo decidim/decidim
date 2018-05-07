@@ -15,6 +15,15 @@ module Decidim
       validates :name, translatable_presence: true
       validates :organization, presence: true
 
+      validate :name_uniqueness
+
+      def name_uniqueness
+        return unless organization
+        return unless organization.areas.where(name: name, area_type: area_type).where.not(id: id).any?
+
+        errors.add(:name, :taken)
+      end
+
       alias organization current_organization
 
       def area_type
