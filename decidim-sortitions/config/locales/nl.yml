@@ -106,8 +106,6 @@ nl:
           label: 'Sorteringen bestellen op:'
           random: Willekeurig
           recent: recent
-        proposal:
-          view_proposal: Bekijk voorstel
         results_count:
           count:
             one: geselecteerd voorstel

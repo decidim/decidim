@@ -20,6 +20,11 @@ es:
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
+      minutes:
+        audio_url: URL de audio
+        description: Descripción
+        video_url: URL del vídeo
+        visible: Es visible
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ es:
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
+        minutes: Minutos
         new: Nuevo
         preview: Previsualizar
         registrations: Inscripciones
@@ -135,6 +141,18 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
+        minutes:
+          create:
+            invalid: Ha habido un problema al crear este minuto
+            success: Minutos creados con éxito
+          edit:
+            update: Actualizar
+          new:
+            create: Crear
+            title: Crear minutos
+          update:
+            invalid: Ha habido un problema al actualizar este minuto
+            success: Minutos actualizados con éxito
         models:
           meeting:
             name: Encuentro
@@ -159,6 +177,9 @@ es:
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
+        minutes:
+          create: "%{user_name} creó el acta de la reunión %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el acta de la reunión %{resource_name} en el espacio %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ es:
           contributions: Número de contribuciones
           going: Yendo
           join: Inscribirse al encuentro
+          meeting_minutes: Acta de la reunión
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          related_information: Información relacionada
           remaining_slots:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"

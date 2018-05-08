@@ -106,8 +106,6 @@ es:
           label: 'Ordena los sorteos por:'
           random: Aleatorio
           recent: Reciente
-        proposal:
-          view_proposal: Ver propuesta
         results_count:
           count:
             one: propuesta seleccionada

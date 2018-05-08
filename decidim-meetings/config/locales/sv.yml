@@ -20,6 +20,11 @@ sv:
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
+      minutes:
+        audio_url: Ljudadress
+        description: Beskrivning
+        video_url: Video-url
+        visible: Är synlig
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ sv:
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
+        minutes: Minuter
         new: Ny
         preview: Förhandsvisa
         registrations: Registreringar
@@ -135,6 +141,18 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera det här mötet
             success: Mötet har blivit uppdaterat
+        minutes:
+          create:
+            invalid: Det har varit ett problem att skapa det här protokollet
+            success: Protokoll skapades framgångsrikt
+          edit:
+            update: Uppdatering
+          new:
+            create: Skapa
+            title: Skapa minuter
+          update:
+            invalid: Det har varit ett problem att uppdatera det här protokollet
+            success: Protokoll uppdaterades
         models:
           meeting:
             name: Möte
@@ -159,6 +177,9 @@ sv:
           delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
           export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
           update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
+        minutes:
+          create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
+          update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ sv:
           contributions: Antal bidrag
           going: Jag kommer
           join: Gå med i mötet
+          meeting_minutes: Möte protokoll
           meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
+          related_information: Relaterad information
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"

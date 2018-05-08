@@ -20,6 +20,11 @@ ca:
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
+      minutes:
+        audio_url: URL de l'àudio
+        description: Descripció
+        video_url: URL del vídeo
+        visible: És visible
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ ca:
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
+        minutes: Minuts
         new: Nova
         preview: Previsualitzar
         registrations: Inscripcions
@@ -135,6 +141,18 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
+        minutes:
+          create:
+            invalid: Hi ha hagut un problema en crear aquests minuts
+            success: S'han creat els minuts amb èxit
+          edit:
+            update: Actualització
+          new:
+            create: Crear
+            title: Crea minuts
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquests minuts
+            success: S'han actualitzat correctament els minuts
         models:
           meeting:
             name: Trobada
@@ -159,6 +177,9 @@ ca:
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
           export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
+        minutes:
+          create: "%{user_name} va crear l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} va actualitzar els minuts de la reunió %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ ca:
           contributions: Nombre d'aportacions
           going: Inscrit
           join: Inscriu-te a la reunió
+          meeting_minutes: Minuts de trobada
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
+          related_information: Informació relacionada
           remaining_slots:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"

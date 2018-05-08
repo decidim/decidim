@@ -37,8 +37,6 @@ pl:
             created_at: Utworzono w
             title: tytuł
       posts:
-        author_data:
-          comments: komentarze
         sidebar_blog:
           comments: komentarze
           most_commented_posts: Najczęściej komentowane posty

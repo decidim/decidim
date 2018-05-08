@@ -108,7 +108,15 @@ fi:
         related_documents: Liittyvät dokumentit
       photos:
         related_photos: Liittyvät kuvat
+    author:
+      comments:
+        one: kommentti
+        other: kommentit
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Vahvista avaamalla passi numerosta "A"
+        fields:
+          passport_number: Passin numero
       dummy_authorization_handler:
         explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
@@ -391,8 +399,6 @@ fi:
           invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
           ok: Ok
           title: Ei varmennettu
-      author:
-        deleted: Käyttäjä poistettu
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi

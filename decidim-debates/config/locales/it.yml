@@ -94,9 +94,6 @@ it:
           close_window: Chiudi la finestra
           share: Condividere
           share_link: Condividi il link
-        show:
-          comments: Commenti
-          report: rapporto
       models:
         debate:
           fields:

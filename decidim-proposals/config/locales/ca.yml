@@ -114,16 +114,12 @@ ca:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostes
-        proposal:
-          creation_date: 'Data de creació: %{date}'
-          view_proposal: Veure proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propostes
         see_all_proposals: Veure totes les propostes
       proposal:
         creation_date: 'Creació: %{date}'
-        view_proposal: Veure proposta
     proposals:
       actions:
         answer: Respondre

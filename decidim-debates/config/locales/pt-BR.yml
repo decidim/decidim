@@ -94,9 +94,6 @@ pt-BR:
           close_window: Janela fechada
           share: Compartilhar
           share_link: Compartilhar link
-        show:
-          comments: Comentários
-          report: Relatório
       models:
         debate:
           fields:

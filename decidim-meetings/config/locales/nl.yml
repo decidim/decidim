@@ -20,6 +20,11 @@ nl:
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
         title: Titel
+      minutes:
+        audio_url: Audio-URL
+        description: Beschrijving
+        video_url: Video URL
+        visible: Is zichtbaar
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +88,7 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        minutes: Notulen
         new: nieuwe
         preview: Voorbeeld
         registrations: registraties
@@ -135,6 +141,18 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
+        minutes:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze minuten
+            success: Notulen met succes gemaakt
+          edit:
+            update: Bijwerken
+          new:
+            create: creëren
+            title: Maak minuten
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze minuten
+            success: Notulen met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -159,6 +177,9 @@ nl:
           delete: "%{user_name} heeft het %{resource_name} event verwijderd in de %{space_name} ruimte"
           export_registrations: "%{user_name} exporteerde de registraties van het %{resource_name} event op de %{space_name} ruimte"
           update: "%{user_name} heeft het %{resource_name} event bijgewerkt in de %{space_name} ruimte"
+        minutes:
+          create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
+          update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -192,9 +213,11 @@ nl:
           contributions: Aantal bijdragen
           going: Gaat
           join: Deelnemen aan bijeenkomst
+          meeting_minutes: Meeting Minutes
           meeting_report: Bijeenkomst verslag
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
+          related_information: Gerelateerde informatie
           remaining_slots:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
