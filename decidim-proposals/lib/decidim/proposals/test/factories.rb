@@ -228,8 +228,10 @@ FactoryBot.define do
     state { "open" }
 
     after(:create) do |collaborative_draft|
-      collaborative_draft.authors << create(:user, organization: collaborative_draft.component.organization) if collaborative_draft.component
-      collaborative_draft.save
+      if collaborative_draft.component
+        user = create(:user, organization: collaborative_draft.component.participatory_space.organization)
+        Decidim::Coauthorship.create(author: user, coauthorable: collaborative_draft)
+      end
     end
 
     trait :published do

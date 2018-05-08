@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "coauthorable" do
   describe "authorable interface" do
-    let(:creator_author) { puts "@creator_author #{coauthorable.authors.to_a}"; coauthorable.authors.first }
+    let(:creator_author) { coauthorable.authors.first }
 
     describe "authors" do
       context "when there is one author" do
