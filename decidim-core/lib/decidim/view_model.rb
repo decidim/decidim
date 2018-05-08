@@ -10,5 +10,9 @@ module Decidim
     include Decidim::ActionAuthorization
     include Decidim::ActionAuthorizationHelper
     include Decidim::ReplaceButtonsHelper
+
+    def current_user
+      context[:current_user]
+    end
   end
 end
