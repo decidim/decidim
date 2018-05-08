@@ -41,7 +41,7 @@ module Decidim
         end
 
         context "and published initiative" do
-          let!(:published_initiative) { create(:initiative) }
+          let!(:published_initiative) { create(:initiative, :published, organization: organization) }
 
           it "Membership request is not created" do
             expect do

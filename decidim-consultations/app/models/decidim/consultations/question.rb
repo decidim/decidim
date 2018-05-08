@@ -87,6 +87,27 @@ module Decidim
         votes.where(author: user).any?
       end
 
+      # Public: Checks whether the given user can unvote the question or note.
+      #
+      # Returns a Boolean.
+      def can_be_unvoted_by?(user)
+        consultation.active? &&
+          consultation.published? &&
+          published? &&
+          voted_by?(user)
+      end
+
+      # Public: Checks whether the given user can vote the question or note.
+      #
+      # Returns a Boolean.
+      def can_be_voted_by?(user)
+        organization.id == user.organization.id &&
+          consultation.active? &&
+          consultation.published? &&
+          published? &&
+          !voted_by?(user)
+      end
+
       def scopes_enabled?
         false
       end

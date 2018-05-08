@@ -70,17 +70,6 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_assemblies_manifest.js)
       end
 
-      initializer "decidim_assemblies.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::Assemblies::Abilities::Admin::AdminAbility",
-            "Decidim::Assemblies::Abilities::Admin::AssemblyModeratorAbility",
-            "Decidim::Assemblies::Abilities::Admin::AssemblyCollaboratorAbility",
-            "Decidim::Assemblies::Abilities::Admin::AssemblyAdminAbility"
-          ]
-        end
-      end
-
       initializer "decidim_assemblies.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.assemblies", scope: "decidim.admin"),
@@ -88,7 +77,7 @@ module Decidim
                     icon_name: "dial",
                     position: 3.5,
                     active: :inclusive,
-                    if: can?(:read, Decidim::Assembly)
+                    if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
     end

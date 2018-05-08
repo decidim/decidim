@@ -3,8 +3,6 @@
 module Decidim
   # The controller to show the newsletter on the website.
   class NewslettersController < Decidim::ApplicationController
-    skip_authorization_check
-
     layout "decidim/mailer", only: [:show]
     helper Decidim::SanitizeHelper
     include Decidim::NewslettersHelper

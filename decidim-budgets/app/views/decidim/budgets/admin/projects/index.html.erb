@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: "button tiny button--title" if can? :manage, current_component %>
+      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: "button tiny button--title" if allowed_to? :create, :project %>
     </h2>
   </div>
 
@@ -28,19 +28,19 @@
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(project).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
-                <% if can? :update, current_component %>
+                <% if allowed_to? :update, :project, project: project %>
                   <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
                 <% end %>
 
-                <% if can? :update, current_component %>
+                <% if allowed_to? :update, :project, project: project %>
                     <%= icon_link_to "folder", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
                 <% end %>
 
-                <% if can? :update, current_component %>
+                <% if allowed_to? :update, :project, project: project %>
                   <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
                 <% end %>
 
-                <% if can? :destroy, current_component %>
+                <% if allowed_to? :destroy, :project, project: project %>
                   <%= icon_link_to "circle-x", project_path(project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% end %>
               </td>
@@ -52,8 +52,8 @@
     </div>
   </div>
   <div class="card-divider">
-    <strong><%= t ".finished_orders" %>: </strong><span><%= finished_orders.count %></span>
-    <span>|</span>
-    <strong><%= t ".pending_orders" %>: </strong><span><%= pending_orders.count %></span>
+    <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
   </div>
 </div>

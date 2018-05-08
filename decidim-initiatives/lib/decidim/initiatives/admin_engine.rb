@@ -66,20 +66,6 @@ module Decidim
         )
       end
 
-      initializer "decidim_assemblies.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += %w(
-            Decidim::Initiatives::Abilities::Admin::CommitteeUserAbility
-            Decidim::Initiatives::Abilities::Admin::InitiativeUserAbility
-            Decidim::Initiatives::Abilities::Admin::CommitteeAdminAbility
-            Decidim::Initiatives::Abilities::Admin::InitiativeAdminAbility
-            Decidim::Initiatives::Abilities::Admin::InitiativeTypeAbility
-            Decidim::Initiatives::Abilities::Admin::AttachmentsAbility
-            Decidim::Initiatives::Abilities::Admin::ComponentsAbility
-          )
-        end
-      end
-
       initializer "decidim_assemblies.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
@@ -87,7 +73,7 @@ module Decidim
                     icon_name: "chat",
                     position: 3.7,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Initiative)
+                    if: allowed_to?(:enter, :space_area, space_name: :initiatives)
         end
       end
     end

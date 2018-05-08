@@ -187,10 +187,18 @@ describe "Proposal", type: :system do
           end
         end
 
-        it "renders a Discard button" do
+        it "can discard the draft" do
           within ".card__content" do
             expect(page).to have_content("Discard this draft")
+            click_link "Discard this draft"
           end
+
+          page.accept_alert
+
+          within_flash_messages do
+            expect(page).to have_content "successfully"
+          end
+          expect(page).to have_css(".step--active.step_1")
         end
 
         it "renders a Preview button" do

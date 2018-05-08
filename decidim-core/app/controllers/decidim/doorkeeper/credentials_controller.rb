@@ -4,7 +4,6 @@ module Decidim
   module Doorkeeper
     # A controller to expose a simple JSON API so OAuth clients can get the user's information.
     class CredentialsController < ApplicationController
-      skip_authorization_check
       before_action :doorkeeper_authorize!
       respond_to :json
 

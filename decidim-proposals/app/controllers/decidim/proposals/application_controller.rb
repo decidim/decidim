@@ -9,10 +9,7 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       helper Decidim::Messaging::ConversationHelper
-
       helper_method :proposal_limit_reached?
-
-      private
 
       def proposal_limit
         return nil if component_settings.proposal_limit.zero?
