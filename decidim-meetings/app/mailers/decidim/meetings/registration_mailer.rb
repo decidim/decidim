@@ -21,7 +21,7 @@ module Decidim
           add_calendar_attachment
 
           subject = I18n.t("confirmation.subject", scope: "decidim.meetings.mailer.registration_mailer")
-          mail(to: user.email, subject: subject)
+          mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
         end
       end
 

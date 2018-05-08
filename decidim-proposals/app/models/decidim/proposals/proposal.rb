@@ -100,6 +100,7 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+
       # Public: Whether the proposal is official or not.
       def official?
         author.nil?

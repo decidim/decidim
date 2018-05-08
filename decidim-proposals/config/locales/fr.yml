@@ -44,6 +44,8 @@ fr:
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
+            upstream_moderation_enabled: Modération a priori des propositions activée
+            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -52,9 +54,18 @@ fr:
             endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Soutiens bloqués
-            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
-            votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
+            votes_enabled: Activer le module de votes "Soutiens"
+            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
+            votes_hidden: Cacher les soutiens/votes (si les soutiens/votes sont activés, le compte des soutiens/votes sera caché)
     events:
+      proposal_created:
+        notification_title: Nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+        url: "Url de la proposition : %{resource_url}"
+        email_subject: 'Nouvelle proposition de %{author_name}'
+        moderation:
+          email_intro: "%{author_name} a publié une nouvelle proposition dans"
+          moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
+          email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
       proposals:
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
@@ -64,7 +75,7 @@ fr:
         endorsing_enabled:
           email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: La promotion des différentes propositions a commencé pour %{participatory_space_title}
+          email_subject: La recommandation des différentes propositions est activée pour %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">recommander les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
@@ -162,7 +173,7 @@ fr:
             success: La réponse à la proposition a publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
-            success: Proposition créée avec succès
+            success: Proposition créée avec succès.
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -237,12 +248,17 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Recommandé
+          already_endorsed: Déjà recommandée
           endorse: Recommander
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
+        vote_weight_button:
+          neutral: Neutre
+          maximum_votes_reached: Nb max de votes atteint
+          no_votes_remaining: Aucun vote restant
+          votes_blocked: Votes désactivés
         compare:
           mine_is_different: Ma proposition est différente
           no_similars_found: Bien joué! Aucune proposition similaire n'a été trouvée
@@ -254,6 +270,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
+            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
         edit:
@@ -293,10 +310,10 @@ fr:
         identities_listing:
           see_all: Tout voir
           see_less: Voir moins
-          title: Liste des promoteurs
+          title: Liste des recommandations
         index:
           new_proposal: Nouvelle proposition
-          see_all_withdrawn: Voir toutes les propositions retirées
+          see_all_withdrawn: Voir toutes les propositions retirées par leurs auteurs
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -329,7 +346,7 @@ fr:
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: s'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune recommandation vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
@@ -355,7 +372,7 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le soutien est soumis aux règles suivantes:'
+          title: 'La participation est soumise aux règles suivantes:'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant

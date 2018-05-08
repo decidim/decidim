@@ -46,7 +46,9 @@ module Decidim
         nickname: User.nicknamize(form.name),
         organization: form.organization,
         admin: form.role == "admin",
-        roles: form.role == "admin" ? [] : [form.role].compact
+        roles: form.role == "admin" ? [] : [form.role].compact,
+        newsletter_notifications: true,
+        email_on_notification: true
       )
       @user.invite!(
         form.invited_by,

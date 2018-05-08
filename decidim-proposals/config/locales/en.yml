@@ -45,6 +45,8 @@ en:
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
+            upstream_moderation_enabled: Upstream moderation for proposals enabled
+            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -55,7 +57,16 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: "Comment's url : %{resource_url}"
+        email_subject: 'New proposal from %{author_name}'
+        moderation:
+          email_intro: '%{author_name} published a new proposal in'
+          moderation_url: "You can moderate it here : %{moderation_url}"
+          email_subject: 'New proposal from %{author_name} waiting for moderation'
       proposals:
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
@@ -163,7 +174,7 @@ en:
             success: Proposal successfully answered
           create:
             invalid: There's been a problem creating this proposal
-            success: Proposal successfully created
+            success: Proposal successfully created.
           form:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
@@ -244,6 +255,11 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        vote_weight_button:
+          neutral: Neutral
+          maximum_votes_reached: Vote limit reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         compare:
           mine_is_different: My proposal is different
           no_similars_found: Well done! No similar proposals found

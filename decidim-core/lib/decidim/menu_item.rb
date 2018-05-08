@@ -18,9 +18,10 @@ module Decidim
       @if = options[:if]
       @active = options[:active]
       @icon_name = options[:icon_name]
+      @target = options[:target]
     end
 
-    attr_reader :label, :url, :position, :active, :icon_name
+    attr_reader :label, :url, :position, :active, :icon_name, :target
 
     def visible?
       return true if @if.nil? || @if

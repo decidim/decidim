@@ -39,6 +39,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
             default_registration_terms: Conditions d'enregistrement par défaut
           step:
             announcement: Annonce
@@ -77,7 +78,7 @@ fr:
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     meetings:
       actions:
-        attachment_collections: Dossier
+        attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
@@ -89,7 +90,7 @@ fr:
         title: Actions
       admin:
         exports:
-          registrations: Inscriptions
+          registrations: Liste des inscrits
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
@@ -99,7 +100,7 @@ fr:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
           new:
-            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
+            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
             new_invite: Inviter un utilisateur
         meeting_closes:

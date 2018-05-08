@@ -14,7 +14,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender , to: user.email, subject: subject)
       end
     end
 
@@ -25,7 +25,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender , to: user.email, subject: subject)
       end
     end
 

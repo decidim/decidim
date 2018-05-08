@@ -15,14 +15,15 @@ module Decidim
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
-      def index
+      def index # this method has been extended
         @proposals = search
-                     .results
-                     .published
-                     .not_hidden
-                     .includes(:author)
-                     .includes(:category)
-                     .includes(:scope)
+                      .results
+                      .published
+                      .not_hidden
+                      .authorized
+                      .includes(:author)
+                      .includes(:category)
+                      .includes(:scope)
 
         @voted_proposals = if current_user
                              ProposalVote.where(
@@ -38,7 +39,11 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal
+                    .published
+                    .not_hidden
+                    .where(component: current_component)
+                    .find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -59,9 +64,13 @@ module Decidim
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
-            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-
-            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/preview"
+            if proposal.component.settings.upstream_moderation_enabled
+              flash[:notice] = I18n.t("proposals.create.moderation.success", scope: "decidim")
+            else
+              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+            end
+            compare_path = Decidim::ResourceLocatorPresenter.new(proposal).path + "/preview"
+            redirect_to compare_path
           end
 
           on(:invalid) do

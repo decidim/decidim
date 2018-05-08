@@ -125,6 +125,77 @@ module Decidim
                          nickname: user.nickname).save(validate: false)
           end.to raise_error(ActiveRecord::RecordNotUnique)
         end
+
+        it "can't be empty backed by an index" do
+          expect { user.save(validate: false) }.not_to raise_error
+        end
+
+        context "when managed" do
+          before do
+            user.managed = true
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            managed: true)
+            end.not_to raise_error
+          end
+        end
+
+        context "when deleted" do
+          before do
+            user.deleted_at = Time.zone.now
+          end
+
+          it "is valid" do
+            expect(user).to be_valid
+          end
+
+          it "can be saved" do
+            expect(user.save).to be true
+          end
+
+          it "can have duplicates" do
+            user.save!
+
+            expect do
+              create(:user, organization: user.organization,
+                            nickname: user.nickname,
+                            deleted_at: Time.zone.now)
+            end.not_to raise_error
+          end
+        end
+      end
+
+      context "when the nickname is not empty" do
+        before do
+          user.nickname = "a-nickname"
+        end
+
+        it "can be created" do
+          expect(user.save).to eq(true)
+        end
+
+        it "can't have duplicates even when skipping validations" do
+          user.save!
+
+          expect do
+            build(:user, organization: user.organization,
+                         nickname: user.nickname).save(validate: false)
+          end.to raise_error(ActiveRecord::RecordNotUnique)
+        end
       end
 
       context "when the file is too big" do

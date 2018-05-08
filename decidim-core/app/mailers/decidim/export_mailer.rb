@@ -22,7 +22,7 @@ module Decidim
       attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
 
       with_user(user) do
-        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
+        mail(from: Decidim.config.mailer_sender, to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
       end
     end
   end
