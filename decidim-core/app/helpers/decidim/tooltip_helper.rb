@@ -6,7 +6,7 @@ module Decidim
   module TooltipHelper
     def with_tooltip(title, &block)
       content_tag(:span, data: { tooltip: true, disable_hover: false, click_open: false },
-                          title: title, &block)
+                         title: title, &block)
     end
   end
 end
