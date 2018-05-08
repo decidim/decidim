@@ -76,7 +76,6 @@ shared_examples "manage registrations" do
           find("*[type=submit]").click
         end
 
-        p current_path
         expect(page).to have_content "successfully"
 
         within ".card.extra" do
