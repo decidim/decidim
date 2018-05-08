@@ -100,10 +100,6 @@ module Decidim
           @collection ||= OrganizationAssemblies.new(current_user.organization).query.where(parent_id: parent_id)
         end
 
-        def ability_context
-          super.merge(current_participatory_space: current_assembly)
-        end
-
         def assembly_params
           {
             id: params[:slug],
