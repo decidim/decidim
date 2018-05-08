@@ -18,7 +18,7 @@ describe "Bundles sanity" do
     end
   end
 
-  let(:command) { "COMPONENT=admin npm run build:prod" }
+  let(:command) { "npm run build:prod" }
 
   describe "javascript bundle" do
     let(:bundle_path) { "app/assets/javascripts/decidim/admin/bundle.js" }

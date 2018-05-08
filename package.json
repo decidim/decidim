@@ -12,8 +12,8 @@
     "node": "^9.2.0"
   },
   "scripts": {
-    "build": "COMPONENT=${COMPONENT:-all} webpack --env.dev",
-    "build:prod": "NODE_ENV=production COMPONENT=${COMPONENT:-all} webpack -p --env.prod",
+    "build": "webpack --env.dev",
+    "build:prod": "NODE_ENV=production webpack -p --env.prod",
     "start": "webpack --env.dev --watch --progress --color --display-error-details",
     "prelint": "tslint decidim-*/**/*.ts decidim-*/**/*.tsx",
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",

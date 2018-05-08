@@ -12,12 +12,10 @@ module.exports = env => {
   const ifTest = envUtils.ifTest;
 
   const config = {
-    entry: Object.entries({
+    entry: {
       admin: "./decidim-admin/app/frontend/entry.ts",
       comments: "./decidim-comments/app/frontend/entry.ts",
-      })
-      .filter(([name, entry]) => process.env.COMPONENT === "all" || process.env.COMPONENT === name)
-      .reduce((a, [name, entry]) => Object.assign(a, {[name]: entry}), {}),
+    },
     output: {
       path: __dirname,
       filename:

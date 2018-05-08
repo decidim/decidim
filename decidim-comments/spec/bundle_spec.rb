@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Bundle sanity" do
-  let(:command) { "COMPONENT=comments npm run build:prod" }
+  let(:command) { "npm run build:prod" }
 
   it "is up to date" do
     previous_hash = bundle_hash
