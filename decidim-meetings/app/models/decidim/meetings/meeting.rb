@@ -43,7 +43,7 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user) && can_participate_meeting?(user)
+        !closed? && registrations_enabled? && can_participate?(user)
       end
 
       def closed?
@@ -88,17 +88,16 @@ module Decidim
         followers
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
       def can_participate?(user)
         return true unless participatory_space.try(:private_space?)
         return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
         return false if participatory_space.try(:private_space?) && participatory_space.try(:transparent?)
-      end
-
-      def can_participate_meeting?(current_user)
         return true unless private_meeting?
         return true if private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))
         return false if private_meeting? && transparent?
       end
+      # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
