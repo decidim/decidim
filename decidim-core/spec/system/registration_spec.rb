@@ -2,6 +2,14 @@
 
 require "spec_helper"
 
+def fill_registration_form
+  fill_in :user_name, with: "Nikola Tesla"
+  fill_in :user_nickname, with: "the-greatest-genius-in-history"
+  fill_in :user_email, with: "nikola.tesla@example.org"
+  fill_in :user_password, with: "sekritpass123"
+  fill_in :user_password_confirmation, with: "sekritpass123"
+end
+
 describe "Registration", type: :system do
   let(:organization) { create(:organization) }
   let!(:terms_and_conditions_page) { create(:static_page, slug: "terms-and-conditions", organization: organization) }
@@ -11,14 +19,10 @@ describe "Registration", type: :system do
     visit decidim.new_user_registration_path
   end
 
-  context "when on the sign up page" do
-    before do
-    end
-
+  context "when signing up" do
     describe "on first sight" do
-      it "fields must be empty" do
+      it "shows fields empty" do
         expect(page).to have_content("Sign up as")
-
         expect(page).to have_field("user_name", with: "")
         expect(page).to have_field("user_nickname", with: "")
         expect(page).to have_field("user_email", with: "")
@@ -29,27 +33,51 @@ describe "Registration", type: :system do
     end
   end
 
-  context "when submit fails" do
-    before do
-      fill_in :user_name, with: "Nikola Tesla"
-      fill_in :user_nickname, with: "the-best-genius-in-history"
-      fill_in :user_email, with: "https://example.org"
-      fill_in :user_password, with: "sekritpass123"
-      fill_in :user_password_confirmation, with: "sekritpass123"
-    end
-
-    it "keeps the user newsletter checkbox false value" do
+  context "when newsletter checkbox is unchecked" do
+    it "opens modal on submit" do
       within "form.new_user" do
         find("*[type=submit]").click
       end
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: true)
+      expect(page).to have_current_path decidim.new_user_registration_path
+    end
+
+    it "checks when clicking the checking button" do
+      within "form.new_user" do
+        find("*[type=submit]").click
+      end
+      click_button "Check and continue"
+      expect(page).to have_current_path decidim.new_user_registration_path
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      expect(page).to have_field("user_newsletter", checked: true)
+    end
+
+    it "submit after modal has been opened and selected an option" do
+      within "form.new_user" do
+        find("*[type=submit]").click
+      end
+      click_button "Keep uncheck"
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      fill_registration_form
+      within "form.new_user" do
+        find("*[type=submit]").click
+      end
+      expect(page).to have_current_path decidim.user_registration_path
       expect(page).to have_field("user_newsletter", checked: false)
+    end
+  end
+
+  context "when newsletter checkbox is checked but submit fails" do
+    before do
+      fill_registration_form
+      page.check("user_newsletter")
     end
 
     it "keeps the user newsletter checkbox true value" do
-      page.check("user_newsletter")
       within "form.new_user" do
         find("*[type=submit]").click
       end
+      expect(page).to have_current_path decidim.user_registration_path
       expect(page).to have_field("user_newsletter", checked: true)
     end
   end
