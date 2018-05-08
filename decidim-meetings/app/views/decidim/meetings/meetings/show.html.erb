@@ -20,12 +20,7 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true %>
-        <% if meeting.can_be_joined_by?(current_user) %>
-          <% if meeting.available_slots.positive? %>
-            <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
-          <% end %>
-        <% end %>
+        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
       </div>
       <% if meeting.closed? %>
@@ -143,8 +138,6 @@
 </div>
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
-
-<%= render partial: "registration_confirm" %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

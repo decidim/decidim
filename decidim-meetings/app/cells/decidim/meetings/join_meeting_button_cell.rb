@@ -21,6 +21,10 @@ module Decidim
         options[:big_button]
       end
 
+      def shows_remaining_slots?
+        options[:show_remaining_slots] && model.available_slots.positive?
+      end
+
       def i18n_join_text
         return I18n.t("join", scope: "decidim.meetings.meetings.show") if model.has_available_slots?
         I18n.t("no_slots_available", scope: "decidim.meetings.meetings.show")
