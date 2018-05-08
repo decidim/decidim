@@ -46,7 +46,6 @@ module Decidim
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
-  autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
