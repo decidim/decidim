@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3360](https://github.com/decidim/decidim/pull/3360)
 ## [0.11.0.pre](https://github.com/decidim/decidim/tree/v0.11.0)
 
 **Upgrade notes**:
