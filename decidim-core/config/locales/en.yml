@@ -179,6 +179,8 @@ en:
       actions:
         unauthorized: You are not authorized to perform this action
     data_portability:
+      export:
+        ready: Ready
       show:
         download_data: Download the data
         download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
@@ -273,6 +275,8 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
+      data_portability_export:
+        ready: Please find attached a zipped version of your export.
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready

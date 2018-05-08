@@ -5,24 +5,14 @@ module Decidim
     queue_as :default
 
     def perform(user, name, format)
+      objects = ActiveRecord::Base.descendants.select{|c| c.included_modules.include?(Decidim::DataPortability)}
 
-      # export_manifest = component.manifest.export_manifests.find do |manifest|
-      #   manifest.name == name.to_sym
-      # end
+      export_data = []
+      objects.each do |object|
+        export_data << [object.model_name.human.pluralize,  Decidim::Exporters.find_exporter(format).new(object.user_collection(user), object.export_serializer).export ]
+      end
 
-      # collection = export_manifest.collection.call(component)
-      # serializer = export_manifest.serializer
-
-      
-
-      collection = Decidim::Proposals::Proposal.where(decidim_author_id: user.id)
-      serializer = Decidim::Proposals::ProposalSerializer
-
-      export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
-
-      raise
-
-      ExportMailer.export(user, name, export_data).deliver_now
+      ExportMailer.data_portability_export(user, name, export_data).deliver_now
     end
   end
 end

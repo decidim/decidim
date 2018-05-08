@@ -175,6 +175,10 @@ module Decidim
         Arel.sql(query)
       end
 
+      def self.export_serializer
+        Decidim::Proposals::ProposalSerializer
+      end
+
       private
 
       # Checks whether the proposal is inside the time window to be editable or not once published.
