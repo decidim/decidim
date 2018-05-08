@@ -8,12 +8,12 @@
       data: { disable: true }
     ) do %>
       <%= icon("check", class: "icon--small") %>
-      <%= t("going", scope: i18n_scope) %>
+      <%= t("going", scope: "decidim.meetings.meetings.show") %>
     <% end %>
   <% else %>
     <%= action_authorized_button_to(
       :join,
-      model.has_available_slots? ? t("join", scope: i18n_scope) : t("no_slots_available", scope: i18n_scope),
+      i18n_join_text,
       "",
       class: button_classes,
       disabled: !model.has_available_slots?,

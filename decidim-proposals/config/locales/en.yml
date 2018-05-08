@@ -119,8 +119,6 @@ en:
       highlighted_proposals:
         proposals: Proposals
         see_all_proposals: See all proposals
-      proposal:
-        creation_date: 'Creation: %{date}'
     proposals:
       actions:
         answer: Answer
