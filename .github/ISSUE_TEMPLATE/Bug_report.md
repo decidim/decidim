@@ -23,9 +23,9 @@ If applicable, add screenshots to help explain your problem.
 **Stacktrace**
 If applicable, add the error stacktrace to help explain your problem.
 
-**Smartphone (please complete the following information):**
+**Extra data (please complete the following information):**
  - Device: [e.g. iPhone6, Desktop]
- - OS: [e.g. iOS8.1, Windows 10]
+ - Device OS: [e.g. iOS8.1, Windows 10]
  - Browser: [e.g. Chrome, Firefox, Safari]
  - Decidim Version: [e.g. 0.10]
  - Decidim installation: [e.g. MetaDecidim]
