@@ -7,14 +7,16 @@ module Decidim
     extend ActiveSupport::Concern
 
     class_methods do
+      attr_reader :fingerprint_options
+
       def fingerprint(fields: nil, &block)
-        @@fingerprint_block = nil
+        @fingerprint_options = {}
 
         if block_given?
-          @@fingerprint_block = block
+          @fingerprint_options[:block] = block
         else
           raise "You must provide a set of fields to generate the fingerprint." unless fields
-          @@fingerprint_fields = fields
+          @fingerprint_options[:fields] = fields
         end
       end
     end
@@ -26,13 +28,17 @@ module Decidim
     private
 
     def fingerprint_data
-      if @@fingerprint_block
-        @@fingerprint_block.call(self)
-      else
-        @@fingerprint_fields.each_with_object({}) do |field, result|
+      options = self.class.fingerprint_options
+
+      if options[:block]
+        fingerprint_options[:block].call(self)
+      elsif options[:fields]
+        options[:fields].each_with_object({}) do |field, result|
           result[field] = send(field)
         end
       end
+
+      raise "Fingerprinting needs to be set up via the `fingerprint` class method."
     end
   end
 end
