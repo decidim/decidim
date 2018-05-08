@@ -24,12 +24,11 @@ module Decidim
         coauthorships.where(author: user).or(coauthorships.where(user_group: user.user_groups)).exists?
       end
 
-      # Returns the normalized author, whether it's a user group or a user. Ideally this should be
-      # the *author* method, but it's pending a refactor.
+      # Returns the identities for the authors, whether they are user groups or users.
       #
-      # Returns an Author, a UserGroup or nil.
-      def normalized_authors
-        coauthorships.where.not(user_group: nil).first&.user_group || coauthorships.first&.author
+      # Returns an Array of User and/or UserGroups.
+      def identities
+        coauthorships.collect(&:identity)
       end
     end
   end
