@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    class AssemblyMembersController < Decidim::ApplicationController
+    class AssemblyMembersController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :index
 
@@ -11,7 +11,7 @@ module Decidim
       def index
         redirect_to "/404" if members.none?
 
-        authorize! :read, AssemblyMember
+        enforce_permission_to :list, :members
         redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless current_user_can_visit_space?
       end
 

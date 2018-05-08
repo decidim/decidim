@@ -9,7 +9,7 @@ module Decidim
         include Concerns::AssemblyAdmin
 
         def index
-          authorize! :read, Decidim::AssemblyMember
+          enforce_permission_to :index, :assembly_member
 
           @query = params[:q]
           @status = params[:status]
@@ -18,12 +18,12 @@ module Decidim
         end
 
         def new
-          authorize! :create, Decidim::AssemblyMember
+          enforce_permission_to :create, :assembly_member
           @form = form(AssemblyMemberForm).instance
         end
 
         def create
-          authorize! :create, Decidim::AssemblyMember
+          enforce_permission_to :create, :assembly_member
           @form = form(AssemblyMemberForm).from_params(params)
 
           CreateAssemblyMember.call(@form, current_user, current_assembly) do
@@ -41,13 +41,13 @@ module Decidim
 
         def edit
           @assembly_member = collection.find(params[:id])
-          authorize! :update, @assembly_member
+          enforce_permission_to :update, :assembly_member, member: @assembly_member
           @form = form(AssemblyMemberForm).from_model(@assembly_member)
         end
 
         def update
           @assembly_member = collection.find(params[:id])
-          authorize! :update, @assembly_member
+          enforce_permission_to :update, :assembly_member, member: @assembly_member
           @form = form(AssemblyMemberForm).from_params(params)
 
           UpdateAssemblyMember.call(@form, @assembly_member) do
@@ -65,7 +65,7 @@ module Decidim
 
         def destroy
           @assembly_member = collection.find(params[:id])
-          authorize! :destroy, @assembly_member
+          enforce_permission_to :destroy, :assembly_member, member: @assembly_member
 
           DestroyAssemblyMember.call(@assembly_member, current_user) do
             on(:ok) do
