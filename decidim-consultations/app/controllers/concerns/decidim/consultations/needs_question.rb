@@ -49,13 +49,6 @@ module Decidim
 
         private
 
-        def ability_context
-          super.merge(
-            current_question: current_question,
-            current_consultation: current_consultation
-          )
-        end
-
         def detect_question
           request.env["current_question"] ||
             OrganizationQuestions.for(current_organization).find_by(slug: params[:question_slug] || params[:slug])
