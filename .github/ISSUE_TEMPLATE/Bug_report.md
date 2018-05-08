@@ -28,7 +28,7 @@ If applicable, add the error stacktrace to help explain your problem.
  - OS: [e.g. iOS8.1, Windows 10]
  - Browser: [e.g. Chrome, Firefox, Safari]
  - Decidim Version: [e.g. 0.10]
- - Decidim installation: [e.e. MetaDecidim]
+ - Decidim installation: [e.g. MetaDecidim]
 
 **Additional context**
 Add any other context about the problem here.
