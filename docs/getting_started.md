@@ -56,29 +56,7 @@ running `bundle install`, you would run `d/bundle install`.
 
 ### C. Step by step
 
-In order to develop on decidim, you'll need:
-
-* **Git** 2.15+
-* **PostgreSQL** 9.4+
-* **Ruby** 2.5.0 (2.3+ should work just fine, but that's the version we test against)
-* **NodeJS** 9.x.x
-* **ImageMagick**
-* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
-
-First of all, you need to install the `decidim` gem:
-
-```console
-gem install decidim
-```
-
-afterwards, you can create an application with the nice `decidim` executable:
-
-```console
-decidim decidim_application
-cd decidim_application
-bundle install
-rails server
-```
+See our [manual installation tutorial](docs/manual-installation.md).
 
 ## Initializing your app for local development
 
