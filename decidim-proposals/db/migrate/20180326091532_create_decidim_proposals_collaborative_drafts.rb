@@ -6,9 +6,7 @@ class CreateDecidimProposalsCollaborativeDrafts < ActiveRecord::Migration[5.1]
       t.text "title", null: false
       t.text "body", null: false
       t.integer "decidim_component_id", null: false
-      t.integer "decidim_author_id"
       t.integer "decidim_scope_id"
-      t.integer "decidim_user_group_id"
       t.string "state"
       t.string "reference"
       t.text "address"
