@@ -31,6 +31,10 @@ module Decidim
 
       private
 
+      def current_user
+        context[:current_user]
+      end
+
       def decidim
         Decidim::Core::Engine.routes.url_helpers
       end
