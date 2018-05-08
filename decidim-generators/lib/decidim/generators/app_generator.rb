@@ -102,8 +102,14 @@ module Decidim
 
         if current_gem == "decidim"
           gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
-          gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
-          gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+
+          if options[:demo]
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+          else
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+          end
         end
 
         Bundler.with_original_env { run "bundle install" }
