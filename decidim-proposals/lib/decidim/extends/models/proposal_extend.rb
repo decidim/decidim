@@ -12,12 +12,12 @@ module ProposalExtend
 
   # Public: Override Commentable concern method `users_to_notify_on_comment_authorized`
   def users_to_notify_on_comment_authorized
-    return (followers | feature.participatory_space.admins).uniq if official?
+    return (followers | component.participatory_space.admins).uniq if official?
     followers
   end
 
   def create_proposal_moderation
-    participatory_space = self.feature.participatory_space
+    participatory_space = self.component.participatory_space
     self.create_moderation!(participatory_space: participatory_space)
   end
 

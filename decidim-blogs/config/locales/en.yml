@@ -50,7 +50,7 @@ en:
         settings:
           global:
             announcement: Announcement
-            comments_enabled: Comments Enabled
+            comments_enabled: Comments enabled
           step:
             announcement: Announcement
             comments_blocked: Comments Blocked

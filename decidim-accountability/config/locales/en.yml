@@ -179,7 +179,6 @@ en:
           global:
             categories_label: Name for "Categories"
             comments_enabled: Comments enabled
-            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
             display_progress_enabled: Display progress
             heading_leaf_level_results: Name for "Projects"
             heading_parent_level_results: Name for "Results"

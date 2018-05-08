@@ -18,9 +18,9 @@ module ModerationExtend
 
   def upstream_activated?
     if reportable.is_a?(Decidim::Proposals::Proposal)
-      reportable.feature.settings.upstream_moderation_enabled
+      reportable.component.settings.upstream_moderation_enabled
     else
-      reportable.root_commentable.feature.settings.comments_upstream_moderation_enabled
+      reportable.root_commentable.component.settings.comments_upstream_moderation_enabled
     end
   end
 end

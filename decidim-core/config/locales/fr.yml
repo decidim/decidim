@@ -143,7 +143,6 @@ fr:
         settings:
           global:
             comments_enabled: Activer le module de commentaire
-            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut fictif 2
           step:

@@ -15,7 +15,7 @@ module CommentExtend
   end
 
   def create_comment_moderation
-    participatory_space = self.root_commentable.feature.participatory_space
+    participatory_space = self.root_commentable.component.participatory_space
     self.create_moderation!(participatory_space: participatory_space)
   end
 
