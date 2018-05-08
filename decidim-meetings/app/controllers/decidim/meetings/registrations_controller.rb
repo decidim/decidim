@@ -10,12 +10,12 @@ module Decidim
         JoinMeeting.call(meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_back fallback_location: meeting_path(meeting)
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_back fallback_location: meeting_path(meeting)
           end
         end
       end
@@ -26,12 +26,12 @@ module Decidim
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.destroy.success", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_back fallback_location: meeting_path(meeting)
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("registrations.destroy.invalid", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_back fallback_location: meeting_path(meeting)
           end
         end
       end
