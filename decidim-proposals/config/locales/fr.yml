@@ -110,14 +110,14 @@ fr:
         highlighted_proposals:
           proposals: Propositions
         proposal:
-          creation_date: 'Création : %{date}'
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
     participatory_spaces:
       highlighted_proposals:
         proposals: Les propositions
         see_all_proposals: Voir toutes les propositions
       proposal:
-        creation_date: 'Création : %{date}'
+        creation_date: 'Création: %{date}'
         view_proposal: Voir la proposition
     proposals:
       actions:
