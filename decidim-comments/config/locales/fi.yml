@@ -1,6 +1,7 @@
 fi:
   decidim:
     comments:
+      comments: Kommentit
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
