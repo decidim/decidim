@@ -3,6 +3,14 @@ is:
     admin_log:
       page:
         update: "%{user_name} uppfært %{resource_name} síðu í %{space_name}"
+    components:
+      pages:
+        name: Síða
+        settings:
+          global:
+            announcement: Tilkynning
+          step:
+            announcement: Tilkynning
     pages:
       admin:
         models:
@@ -13,5 +21,5 @@ is:
             save: Uppfæra
             title: Breyta síðu
           update:
-            invalid: Það hafa verið villur þegar þú vistar síðuna.
-            success: Síða vistað með góðum árangri.
+            invalid: Það komu villur þegar þú vistaðir síðuna.
+            success: Síða vistuð með góðum árangri.
