@@ -118,8 +118,6 @@ eu:
       highlighted_proposals:
         proposals: proposamenak
         see_all_proposals: Ikusi proposamen guztiak
-      proposal:
-        creation_date: 'Sorkuntza: %{date}'
     proposals:
       actions:
         answer: Erantzuna
