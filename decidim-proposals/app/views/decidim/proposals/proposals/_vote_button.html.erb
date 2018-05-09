@@ -1,4 +1,6 @@
-<% unless proposal.rejected? %>
+<% if proposal.rejected? %>
+  <div></div>
+<% else %>
   <div id="proposal-<%= proposal.id %>-vote-button">
     <% if !current_user %>
       <% if current_settings.votes_blocked? %>
@@ -8,7 +10,23 @@
       <% end %>
     <% else %>
       <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
-        <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.already_voted"), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true, original: t("decidim.proposals.proposals.vote_button.already_voted"), replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"), "redirect-url": proposal_path(proposal) }, class: "button #{vote_button_classes(from_proposals_list)} success", id: "vote_button" %>
+        <%= action_authorized_button_to(
+          :vote,
+          proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+          method: :delete,
+          remote: true,
+          data: {
+            disable: true,
+            original: t("decidim.proposals.proposals.vote_button.already_voted"),
+            replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"),
+            "redirect-url": proposal_path(proposal)
+          },
+          class: "button #{vote_button_classes(from_proposals_list)} success light",
+          id: "vote_button"
+        ) do %>
+          <%= icon("check", class: "icon--small") %>
+          <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
+        <% end %>
       <% else %>
         <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold %>
           <%= content_tag :span, t("decidim.proposals.proposals.vote_button.maximum_votes_reached"), class: "button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>

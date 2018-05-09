@@ -187,7 +187,7 @@ describe "Vote Proposal", type: :system do
               expect(page).to have_button("Already voted")
             end
 
-            expect(page).to have_content("REMAINING 9 VOTES")
+            expect(page).to have_content("REMAINING\n9\nVOTES")
           end
         end
 
@@ -235,7 +235,7 @@ describe "Vote Proposal", type: :system do
               expect(page).to have_content("0 VOTES")
             end
 
-            expect(page).to have_content("REMAINING 10 VOTES")
+            expect(page).to have_content("REMAINING\n10\nVOTES")
           end
         end
 
@@ -260,8 +260,11 @@ describe "Vote Proposal", type: :system do
             end
 
             it "shows the vote count but not the vote button" do
-              expect(page).to have_css(".card__support__data", text: "1 VOTE")
-              expect(page).to have_content("Voting disabled")
+              within "#proposal_#{proposal.id} .card__support" do
+                expect(page).to have_content("1 VOTE")
+              end
+
+              expect(page).to have_content("VOTING DISABLED")
             end
           end
         end
@@ -301,11 +304,11 @@ describe "Vote Proposal", type: :system do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.reference)
+        proposal_element = page.find("article", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("Vote limit reached")
+            expect(page).to have_content("VOTE LIMIT REACHED")
           end
         end
       end
@@ -313,16 +316,17 @@ describe "Vote Proposal", type: :system do
       it "allows users to vote on proposals under the limit" do
         visit_component
 
-        proposal_element = page.find("article", text: proposal.reference)
+        proposal_element = page.find("article", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do
             click_button "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("ALREADY VOTED")
           end
         end
       end
     end
+
     context "when proposals have vote limit but can accumulate more votes" do
       let!(:component) do
         create(:proposal_component,
@@ -341,7 +345,7 @@ describe "Vote Proposal", type: :system do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.reference)
+        proposal_element = page.find("article", text: proposal.title)
 
         within proposal_element do
           within ".card__support", match: :first do

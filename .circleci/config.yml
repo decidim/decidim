@@ -44,9 +44,19 @@ references:
     run:
       name: Create test DB
       command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-  store_artifacts: &store_artifacts
+  extract_failure_logs: &extract_failure_logs
+    run:
+      name: Extract failure logs
+      command: |
+        mkdir -p /app/spec/decidim_dummy_app/tmp/logs/
+        tail -1000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
+      when: on_fail
+  store_screenshot_artifacts: &store_screenshot_artifacts
     store_artifacts:
       path: /app/spec/decidim_dummy_app/tmp/screenshots
+  store_log_artifacts: &store_log_artifacts
+    store_artifacts:
+      path: /app/spec/decidim_dummy_app/tmp/logs
   store_test_results: &store_test_results
     store_test_results:
       path: ~/rspec
@@ -123,7 +133,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   assemblies:
@@ -135,7 +147,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   initiatives:
@@ -147,7 +161,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   api:
@@ -159,7 +175,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   participatory_processes:
@@ -171,7 +189,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   admin:
@@ -183,7 +203,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   system:
@@ -195,7 +217,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   proposals:
@@ -207,7 +231,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   comments:
@@ -232,7 +258,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   meetings:
@@ -244,7 +272,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   pages:
@@ -256,7 +286,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   accountability:
@@ -268,7 +300,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   budgets:
@@ -280,7 +314,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   surveys:
@@ -292,7 +328,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   verifications:
@@ -304,7 +342,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   debates:
@@ -316,7 +356,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   sortitions:
@@ -328,7 +370,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   blogs:
@@ -340,7 +384,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   consultations:
@@ -352,7 +398,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   build_design_app:

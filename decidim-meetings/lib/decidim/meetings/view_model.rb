@@ -7,6 +7,7 @@ module Decidim
       include LayoutHelper
       include Decidim::Meetings::MeetingsHelper
       include Decidim::SanitizeHelper
+      include Decidim::Meetings::Engine.routes.url_helpers
     end
   end
 end
