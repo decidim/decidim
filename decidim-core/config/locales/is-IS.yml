@@ -4,7 +4,7 @@ is:
       account:
         delete_reason: Ástæða til að eyða reikningnum þínum
       report:
-        details: Önnur athugasemdir
+        details: Fleiri athugasemdir
       user:
         about: Um
         email: Netfangið þitt
@@ -13,24 +13,24 @@ is:
         password: Nýtt lykilorð
         password_confirmation: Staðfesta nýja lykilorðið þitt
         personal_url: Persónuleg vefslóð
-        remove_avatar: Fjarlægja avatar
+        remove_avatar: Fjarlægja mynd
         user_group_document_number: Skipulag skjal númer
         user_group_name: Nafn samtaka
-        user_group_phone: Símafyrirtæki
+        user_group_phone: Símanúmer samtaka
   activerecord:
     attributes:
       decidim/user:
         current_password: Núverandi lykilorð
-        email: Email
+        email: Tölvupóstur
         name: Notendanafn
         password: Lykilorð
-        password_confirmation: staðfesting lykilorðs
-        remember_me: Mundu eftir mér
+        password_confirmation: Staðfesta lykilorð
+        remember_me: Muna eftir mér
         user_group_document_number: Skipulag skjal númer
         user_group_name: Nafn samtaka
-        user_group_phone: Símafyrirtæki
+        user_group_phone: Símanúmer samtaka
   booleans:
-    'false': 'Nr'
+    'false': 'Nei'
     'true': 'Já'
   carrierwave:
     errors:
@@ -44,7 +44,7 @@ is:
       delete:
         alert: Ekki er hægt að afturkalla þessa aðgerð. Ef þú eyðir reikningnum þínum geturðu ekki skráð þig inn.
         confirm:
-          close: Lokaðu glugga
+          close: Loka glugga
           ok: Já, ég vil eyða reikningnum mínum
           question: Ertu viss um að þú viljir eyða reikningnum þínum?
           title: Eyða reikningnum mínum
