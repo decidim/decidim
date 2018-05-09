@@ -31,7 +31,6 @@ module Decidim
       end
 
       def new
-        # authorize! :create, CollaborativeDraft
         enforce_permission_to :create, :collaborative_draft
         @step = :step_1
 
@@ -54,7 +53,7 @@ module Decidim
       end
 
       def complete
-        authorize! :create, CollaborativeDraft
+        enforce_permission_to :create, :collaborative_draft
         @step = :step_3
         if params[:collaborative_draft].present?
           params[:collaborative_draft][:attachment] = form(AttachmentForm).from_params({})
@@ -67,7 +66,7 @@ module Decidim
       end
 
       def create
-        authorize! :create, CollaborativeDraft
+        enforce_permission_to :create, :collaborative_draft
         @step = :step_3
         @form = form(CollaborativeDraftForm).from_params(params)
 
@@ -88,14 +87,14 @@ module Decidim
 
       def edit
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        authorize! :edit, @collaborative_draft
+        enforce_permission_to :update, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
       end
 
       def update
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        authorize! :edit, @collaborative_draft
+        enforce_permission_to :update, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_params(params)
         UpdateCollaborativeDraft.call(@form, current_user, @collaborative_draft) do

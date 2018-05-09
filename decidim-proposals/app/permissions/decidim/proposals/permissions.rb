@@ -10,8 +10,20 @@ module Decidim
         return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        return permission_action if permission_action.subject != :proposal
+        if permission_action.subject == :proposal
+          apply_proposal_permissions(permission_action)
+        elsif permission_action.subject == :collaborative_draft
+          apply_collaborative_draft_permissions(permission_action)
+        else
+          permission_action
+        end
 
+        permission_action
+      end
+
+      private
+
+      def apply_proposal_permissions(permission_action)
         case permission_action.action
         when :create
           can_create_proposal?
@@ -30,11 +42,7 @@ module Decidim
         when :report
           true
         end
-
-        permission_action
       end
-
-      private
 
       def proposal
         @proposal ||= context.fetch(:proposal, nil)
@@ -102,6 +110,24 @@ module Decidim
                      voting_enabled?
 
         toggle_allow(is_allowed)
+      end
+
+
+      def apply_collaborative_draft_permissions(permission_action)
+        case permission_action.action
+        when :create
+          can_create_collaborative_draft?
+        when :edit
+          can_edit_collaborative_draft?
+        end
+      end
+
+      def can_create_collaborative_draft?
+        toggle_allow(authorized?(:create) && current_settings&.creation_enabled?)
+      end
+
+      def can_edit_collaborative_draft?
+        toggle_allow(proposal && proposal.editable_by?(user))
       end
     end
   end
