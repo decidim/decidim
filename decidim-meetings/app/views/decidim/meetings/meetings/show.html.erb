@@ -8,6 +8,9 @@
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
+  <% if meeting.organizer.present? %>
+    <%= render partial: "decidim/shared/author_reference", locals: { author: present(meeting.organizer) } %>
+  <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
@@ -70,6 +73,16 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <% if meeting.private_meeting? %>
+        <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
+          <%= t("private_meeting", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.private_meeting? and meeting.transparent? %>
+        <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
+          <%= t("transparent", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
       <p><%= decidim_sanitize translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
