@@ -225,6 +225,7 @@ it:
         meeting:
           fields:
             closed: Chiuso
+            comments: Commenti
             end_time: Data di fine
             map: Mappa
             start_time: Data di inizio
