@@ -293,9 +293,11 @@ is:
           promote: Kynna
           search: Leita
           status: Staða
+          view_logs: Skoða sögu
       impersonations:
         create:
           error: Það hefur verið villa við að bæta við notandanum.
+          success: Stýrður notandi hefur verið búinn til.
         form:
           authorization_method: Leyfisaðferð
           name: Nafn
