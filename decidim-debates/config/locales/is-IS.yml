@@ -1,0 +1,121 @@
+is:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Flokkur
+        decidim_category_id: Flokkur
+        description: Lýsing
+        end_time: Endar á
+        information_updates: Upplýsingauppfærslur
+        instructions: Leiðbeiningar um þátttöku
+        start_time: Byrjar á
+        title: Titill
+        user_group_id: Búðu til umræðu sem
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Búa til
+        name: Umræður
+    debates:
+      actions:
+        confirm_destroy: Ertu viss?
+        destroy: Eyða
+        edit: Breyta
+        new: Nýtt %{name}
+        title: Aðgerðir
+      admin:
+        debates:
+          create:
+            invalid: Vandamál kom upp við að búa til umræðuna.
+            success: Umræða búin til með góðum árangri.
+          destroy:
+            success: Umræða hefur verið eytt með góðum árangri.
+          edit:
+            title: Breyta umræðu
+            update: Uppfæra umræðu
+          index:
+            title: Umræður
+          new:
+            create: Búðu til umræðu
+            title: Ný umræða
+          update:
+            invalid: Vandamál kom upp við að uppfæra þessa umræðu.
+            success: Umræða uppfærð með góðum árangri.
+        models:
+          debate:
+            name: Umræða
+      admin_log:
+        debate:
+          create: "%{user_name} búið til %{resource_name} umræðu á %{space_name} plássinu"
+          update: "%{user_name} uppfært %{resource_name} umræðu um %{space_name} rými"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} umræða"
+            other: "%{count} umræður"
+        create:
+          invalid: Vandamál kom upp við að búa til umræðuna.
+          success: Umræða búin til með góðum árangri.
+        debate:
+          comments:
+            one: Athugasemd
+            other: Athugasemdir
+          participate: Taka þátt
+        filters:
+          all: Allt
+          category: Flokkur
+          category_prompt: Veldu flokk
+          citizens: Borgarar
+          official: Opinber
+          origin: Uppruni
+          search: Leita
+        filters_small_view:
+          close_modal: Loka mát
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        index:
+          new_debate: Ný umræða
+        new:
+          back: Til baka
+          create: Búa til
+          select_a_category: Vinsamlegast veldu flokk
+          title: Ný umræða
+        share:
+          close_window: Lokaðu glugga
+          share: Deila
+          share_link: Deila tengil
+      models:
+        debate:
+          fields:
+            end_time: Loka dagsetning
+            official_debate: Opinber umræða
+            start_time: Upphafsdagur
+            title: Titill
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hæ, Nýtt umræða hefur verið búið til á %{space_title} þátttakandi rúminu, athugaðu það og leggið fram:
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir %{space_title} þátttakandi plássinu. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+            email_subject: Ný umræða um %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> umræðurnar voru búnar til á <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hæ,
+              %{author_name} %{author_nickname}, sem þú fylgist með, hefur skapað nýja umræðu, athugaðu það og stuðlað að:
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+            email_subject: Ný umræða um %{author_nickname}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> umræðurnar voru búnar til af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'Umræðan er ekki lengur virk í %{participatory_space_title}. Þú getur samt tekið þátt í opnum umræðum frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Umræða um stofnun fatlaður í %{participatory_space_title}
+          notification_title: Umræða er nú óvirk í <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Þú getur nú byrjað á nýjum umræðum í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Umræður nú fáanlegir í %{participatory_space_title}
+          notification_title: Þú getur nú byrjað <a href="%{resource_path}">nýjar umræður</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a>
