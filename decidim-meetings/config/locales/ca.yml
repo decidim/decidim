@@ -225,6 +225,7 @@ ca:
         meeting:
           fields:
             closed: Tancada
+            comments: Comentaris
             end_time: Data de finalització
             map: Mapa
             start_time: Data d'inici
