@@ -118,8 +118,6 @@ pt:
       highlighted_proposals:
         proposals: Propostas
         see_all_proposals: Veja todas as propostas
-      proposal:
-        creation_date: 'Criação: %{date}'
     proposals:
       actions:
         answer: Responda
