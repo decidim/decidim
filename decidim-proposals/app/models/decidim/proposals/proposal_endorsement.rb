@@ -5,6 +5,7 @@ module Decidim
     # A proposal can include an endorsement per user or group.
     class ProposalEndorsement < ApplicationRecord
       include Decidim::Authorable
+      include Decidim::DataPortability
 
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
 
@@ -29,6 +30,10 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
         errors.add(:proposal, :invalid) if proposal.rejected?
+      end
+
+      def self.export_serializer
+        Decidim::Proposals::DataPortabilityProposalEndorsementSerializer
       end
     end
   end

@@ -16,7 +16,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Meetings::RegistrationSerializer
+        Decidim::Meetings::DataPortabilityRegistrationSerializer
       end
     end
   end

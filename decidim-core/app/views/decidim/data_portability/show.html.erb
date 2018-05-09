@@ -3,5 +3,3 @@
   <p><%= t(".download_data_description", user_email: current_user.email).html_safe %></p>
   <%= button_to t(".request_data"), export_data_portability_path, class: "button secondary", data: { disable: true } %>
 </div>
-
-<%console%>

@@ -21,7 +21,15 @@ module Decidim
       # redirect_back(fallback_location: data_portability_path)
 
       # objects = ActiveRecord::Base.descendants.select{|c| c.included_modules.include?(Decidim::DataPortability)}
-      objects = [Decidim::Meetings::Registration, Decidim::User, Decidim::Comments::Comment, Decidim::Proposals::Proposal]
+      objects = [ Decidim::User,
+                  Decidim::UserGroup,
+                  Decidim::Meetings::Registration,
+                  Decidim::Comments::Comment,
+                  Decidim::Proposals::Proposal,
+                  Decidim::Proposals::ProposalVote,
+                  Decidim::Proposals::ProposalEndorsement,
+                  Decidim::Debates::Debate,
+                ]
 
       #Temporary#
       format = export_format
@@ -29,7 +37,7 @@ module Decidim
 
       export_data = []
       objects.each do |object|
-        export_data << [object.model_name.human.pluralize,  Decidim::Exporters.find_exporter(format).new(object.user_collection(user), object.export_serializer).export ]
+        export_data << [ object.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter(format).new(object.user_collection(user), object.export_serializer).export ]
       end
 
       compressed_filestream = Zip::OutputStream.write_buffer do |zos|

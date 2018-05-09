@@ -8,7 +8,8 @@ module Decidim
     autoload :Excel, "decidim/exporters/excel"
     autoload :ExportData, "decidim/exporters/export_data"
     autoload :Serializer, "decidim/exporters/serializer"
-    autoload :UserSerializer, "decidim/exporters/user_serializer"
+    autoload :DataPortabilityUserSerializer, "decidim/exporters/data_portability_user_serializer"
+    autoload :DataPortabilityUserGroupSerializer, "decidim/exporters/data_portability_user_group_serializer"
 
     # Get the exporter class constant from the format as a string.
     #

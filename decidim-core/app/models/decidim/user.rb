@@ -153,7 +153,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::Exporters::UserSerializer
+      Decidim::Exporters::DataPortabilityUserSerializer
     end
 
     private
