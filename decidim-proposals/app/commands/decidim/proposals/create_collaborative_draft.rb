@@ -54,7 +54,7 @@ module Decidim
         Decidim::Coauthorship.create(
           coauthorable: @collaborative_draft,
           author: @current_user,
-          decidim_user_group_id: form.user_group_id,
+          decidim_user_group_id: form.user_group_id
         )
       end
 

@@ -112,7 +112,6 @@ module Decidim
         toggle_allow(is_allowed)
       end
 
-
       def apply_collaborative_draft_permissions(permission_action)
         case permission_action.action
         when :create
