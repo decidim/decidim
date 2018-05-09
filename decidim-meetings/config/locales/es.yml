@@ -237,7 +237,6 @@ es:
         meeting:
           fields:
             closed: Cerrado
-            comments: Comentarios
             end_time: Fecha de finalización
             map: Mapa
             start_time: Fecha de inicio
