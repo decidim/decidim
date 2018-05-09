@@ -214,6 +214,7 @@ gl:
             category: Categoría
             comments: Comentarios
             created_at: Creado en
+            endorsements: Aprobacións
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
