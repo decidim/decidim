@@ -214,6 +214,7 @@ ca:
             category: Categoria
             comments: Comentaris
             created_at: Creat el
+            endorsements: Aprovacions
             id: ID
             notes: Notes
             official_proposal: Proposta oficial
