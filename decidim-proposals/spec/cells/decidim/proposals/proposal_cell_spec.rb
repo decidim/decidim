@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Proposals::ProposalCell, type: :cell do
+  controller Decidim::Proposals::ProposalsController
+
   let!(:official_proposal) { create(:proposal, :official) }
   let!(:user_proposal) { create(:proposal) }
   let(:current_user) { create(:user, :confirmed, organization: component.participatory_space.organization) }

@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns a string with the value of the css classes.
       def vote_button_classes(from_proposals_list)
-        return "small" if from_proposals_list
+        return "card__button button--sc" if from_proposals_list
         "expanded button--sc"
       end
 

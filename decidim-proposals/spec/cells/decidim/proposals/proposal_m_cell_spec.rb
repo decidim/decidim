@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Proposals
   describe ProposalCell, type: :cell do
+    controller Decidim::Proposals::ProposalsController
+
     let!(:proposal) { create(:proposal) }
 
     context "when rendering" do

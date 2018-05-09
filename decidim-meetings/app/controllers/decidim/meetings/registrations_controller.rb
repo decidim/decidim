@@ -10,12 +10,12 @@ module Decidim
         JoinMeeting.call(meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_after_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_after_path
           end
         end
       end
@@ -26,12 +26,12 @@ module Decidim
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.destroy.success", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_after_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("registrations.destroy.invalid", scope: "decidim.meetings")
-            redirect_to meeting_path(meeting)
+            redirect_after_path
           end
         end
       end
@@ -40,6 +40,12 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+      end
+
+      def redirect_after_path
+        referer = request.headers["Referer"]
+        return redirect_to(meeting_path(meeting)) if referer =~ /invitation_token/
+        redirect_back fallback_location: meeting_path(meeting)
       end
     end
   end

@@ -228,6 +228,7 @@ en:
         meeting:
           fields:
             closed: Closed
+            comments: Comments
             end_time: End date
             map: Map
             start_time: Start date
