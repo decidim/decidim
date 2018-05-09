@@ -1,6 +1,7 @@
 fr:
   decidim:
     comments:
+      comments: commentaires
       votes:
         create:
           error: Une erreur s'est produite lors du soutien du commentaire.
