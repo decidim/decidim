@@ -56,7 +56,7 @@ sv:
     admin_log:
       feature:
         create: "%{user_name} lade till %{resource_name}funktionen till %{space_name}platsen"
-        delete: "%{user_name} tog bort funktionen %{resource_name} från platsen %{space_name}"
+        delete: "%{user_name} tog bort %{resource_name} funktion från %{space_name} rymden"
         publish: "%{user_name} publicerade funktionen %{resource_name} i platsen %{space_name}"
         unpublish: "%{user_name} avpublicerade funktionen %{resource_name} från platsen %{space_name}"
       moderation:
