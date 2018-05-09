@@ -6,11 +6,13 @@ is:
       report:
         details: Önnur athugasemdir
       user:
+        about: Um
         email: Netfangið þitt
         name: Nafn þitt
         nickname: Stutt, einstakt auðkenni þitt
         password: Nýtt lykilorð
         password_confirmation: Staðfesta nýja lykilorðið þitt
+        personal_url: Persónuleg vefslóð
         remove_avatar: Fjarlægja avatar
         user_group_document_number: Skipulag skjal númer
         user_group_name: Nafn samtaka
@@ -33,6 +35,10 @@ is:
   carrierwave:
     errors:
       image_too_big: Myndin er of stór
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -71,6 +77,10 @@ is:
         delete: "%{user_name} eyddi %{resource_name} fréttabréfinu"
         deliver: "%{user_name} sendi %{resource_name} fréttabréf"
         update: "%{user_name} uppfært %{resource_name} fréttabréf"
+      oauth_application:
+        create: "%{user_name} búið til %{resource_name} OAuth forritið"
+        delete: "%{user_name} eytt %{resource_name} OAuth umsókninni"
+        update: "%{user_name} uppfært %{resource_name} OAuth umsóknina"
       organization:
         update: "%{user_name} uppfærði stofnunarstillingar"
       scope:
@@ -102,7 +112,15 @@ is:
         related_documents: Tengd skjöl
       photos:
         related_photos: Svipaðir myndir
+    author:
+      comments:
+        one: athugasemd
+        other: athugasemdir
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Fá staðfest með því að kynna vegabréfarnúmer sem byrjar með "A"
+        fields:
+          passport_number: Vegabréfs númer
       dummy_authorization_handler:
         explanation: Fá staðfest með því að kynna skjalnúmer sem endar með "X"
         fields:
@@ -173,6 +191,21 @@ is:
       shared:
         omniauth_buttons:
           or: Eða
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Leyfa umsókn
+          by_organization_link_html: <small class="heading-small">af %{link}</small>
+          cancel: Hætta við
+          connect_your_account_html: Tengdu reikninginn þinn með því að skrá þig inn á <strong>%{organization}</strong>
+          publish_content: Birta efni fyrir þig
+          see_email: Sjá netfangið þitt
+          see_name: Sjáðu nafnið þitt
+          see_username: Sjáðu notendanafnið þitt
+          this_application_will_be_able_to: 'Þetta forrit mun geta:'
+          this_application_will_not_be_able_to: 'Þetta forrit mun ekki geta:'
+          update_profile: Uppfærðu prófílinn þinn
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill nota reikninginn þinn"
     errors:
       internal_server_error:
         title: Vandamál kom upp við netþjóninn okkar
@@ -429,6 +462,9 @@ is:
         greeting: Halló %{recipient}!
         message: Við erum að hafa samband við þig til að tilkynna þér að lykilorðið þitt hafi verið breytt.
         subject: Lykilorð breytt
+  doorkeeper:
+    scopes:
+      public: Opinberar upplýsingar þínar.
   errors:
     messages:
       content_type_whitelist_error: Skráartegundin er ekki gild
