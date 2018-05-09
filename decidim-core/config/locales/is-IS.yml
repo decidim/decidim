@@ -14,7 +14,7 @@ is:
         password_confirmation: Staðfesta nýja lykilorðið þitt
         personal_url: Persónuleg vefslóð
         remove_avatar: Fjarlægja mynd
-        user_group_document_number: Skipulag skjal númer
+        user_group_document_number: Skjal samtaka númer
         user_group_name: Nafn samtaka
         user_group_phone: Símanúmer samtaka
   activerecord:
@@ -26,7 +26,7 @@ is:
         password: Lykilorð
         password_confirmation: Staðfesta lykilorð
         remember_me: Muna eftir mér
-        user_group_document_number: Skipulag skjal númer
+        user_group_document_number: Skjal samtaka númer
         user_group_name: Nafn samtaka
         user_group_phone: Símanúmer samtaka
   booleans:
@@ -51,12 +51,12 @@ is:
         explanation: Vinsamlegast fylltu út ástæðuna sem þú vilt eyða reikningnum þínum (valfrjálst).
       destroy:
         error: Villa kom upp við að eyða reikningnum þínum.
-        success: Reikningurinn þinn var eytt með góðum árangri.
+        success: Reikningi eytt.
       show:
         change_password: Breyta lykilorði
         update_account: Uppfæra reikning
       update:
-        error: Villa kom upp við að uppfæra reikninginn þinn.
+        error: Villa kom upp við að uppfæra reikning.
         success: Reikningurinn þinn var uppfærður með góðum árangri.
         success_with_email_confirmation: Reikningurinn þinn var uppfærður með góðum árangri. Þú færð tölvupóst til að staðfesta nýtt netfang þitt.
     admin_log:
@@ -68,12 +68,12 @@ is:
         create: "%{user_name} bætti %{resource_name} hluti við %{space_name} plássið"
         delete: "%{user_name} fjarlægði %{resource_name} hluti úr %{space_name} rúminu"
         publish: "%{user_name} gaf út %{resource_name} hluti í %{space_name} rúminu"
-        unpublish: "%{user_name} unpublished %{resource_name} hluti úr %{space_name} rúminu"
+        unpublish: "%{user_name} faldi %{resource_name} hluti úr %{space_name} rúminu"
       moderation:
-        hide: "%{user_name} faldi auðlind tegund %{resource_type} í %{space_name} rúminu"
-        unreport: "%{user_name} unreported auðlind af tegund %{resource_type} í %{space_name} rúminu"
+        hide: "%{user_name} faldi tegund auðlindar %{resource_type} í %{space_name}"
+        unreport: "%{user_name} hætti við birtingu tegundar %{resource_type} í %{space_name}"
       newsletter:
-        create: "%{user_name} búið til %{resource_name} fréttabréf"
+        create: "%{user_name} bjó til %{resource_name} fréttabréf"
         delete: "%{user_name} eyddi %{resource_name} fréttabréfinu"
         deliver: "%{user_name} sendi %{resource_name} fréttabréf"
         update: "%{user_name} uppfært %{resource_name} fréttabréf"
