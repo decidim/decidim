@@ -1,0 +1,668 @@
+is:
+  activemodel:
+    attributes:
+      area:
+        area_type: Svæðisgerð
+        name: Nafn
+        organization: Skipulag
+      area_type:
+        name: Nafn
+        organization: Skipulag
+        plural: Fleirtala
+      attachment:
+        attachment_collection_id: Safn
+        description: Lýsing
+        file: Skrá
+        title: Titill
+      attachment_collection:
+        description: Lýsing
+        name: Nafn
+      category:
+        description: Lýsing
+        name: Nafn
+        parent_id: Foreldri
+      component:
+        name: Nafn
+        published_at: Birt á
+        weight: Þyngd
+      id: Auðkenni
+      newsletter:
+        body: Líkami
+        subject: Efni
+      oauth_application:
+        name: Nafn
+        organization_logo: Organization logo (ferningur)
+        organization_name: Nafn samtaka
+        organization_url: Vefslóð stofnunarinnar
+        redirect_uri: Beina URI
+      organization:
+        cta_button_path: Hringja til aðgerða hnappaslóð
+        cta_button_text: Hringja í aðgerð hnappinn texta
+        default_locale: Sjálfgefið tungumál
+        description: Lýsing
+        enable_omnipresent_banner: Sýna algengasta borði
+        facebook_handler: Facebook handler
+        favicon: Táknmynd
+        github_handler: GitHub handler
+        header_snippets: Header brot
+        highlighted_content_banner_action_subtitle: Aðgerðshnappur texti
+        highlighted_content_banner_action_title: Heiti aðgerðahnappsins
+        highlighted_content_banner_action_url: Vefslóð aðgerðahnappsins
+        highlighted_content_banner_enabled: Sýna auðkenndan innihald borða
+        highlighted_content_banner_image: Mynd
+        highlighted_content_banner_short_description: Stutt lýsing
+        highlighted_content_banner_title: Titill
+        homepage_image: Homepage mynd
+        instagram_handler: Instagram handler
+        logo: Merki
+        name: Nafn
+        official_img_footer: Opinber merki fótbolta
+        official_img_header: Opinber heiti merki
+        official_url: Opinber vefslóð stofnunarinnar
+        omnipresent_banner_short_description: Stutt lýsing
+        omnipresent_banner_title: Titill
+        omnipresent_banner_url: URL
+        reference_prefix: Tilvísunarnúmer
+        show_statistics: Sýna tölfræði
+        twitter_handler: Twitter handler
+        welcome_text: Velkomin texti
+        youtube_handler: YouTube umsjónarmaður
+      scope:
+        code: Kóði
+        name: Nafn
+        organization: Skipulag
+        parent_id: Foreldri
+        scope_type: Gildissvið
+        scope_type_id: Gildissvið
+      scope_type:
+        name: Nafn
+        organization: Skipulag
+        plural: Fleirtala
+      static_page:
+        content: Innihald
+        organization: Skipulag
+        slug: URL slug
+        title: Titill
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Beina URI verður að vera SSL URI
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Banner image
+        description: Lýsing
+        developer_group: Hönnuður hópur
+        domain: Lén
+        end_date: Loka dagsetning
+        hashtag: Kassamerki
+        hero_image: Heimsmynd
+        local_area: Staðarnet
+        meta_scope: Gildissvið lýsigagna
+        participatory_scope: Þátttökuskilyrði
+        participatory_structure: Þátttaka uppbyggingu
+        promoted: Kynnt
+        scope: Umfang
+        short_description: Stutt lýsing
+        slug: URL slug
+        start_date: Upphafsdagur
+        subtitle: Texti
+        target: Skotmark
+        title: Titill
+      decidim/participatory_process_group:
+        description: Lýsing
+        hero_image: Heimsmynd
+        name: Nafn
+        participatory_processes: Þátttökuferli
+      decidim/participatory_process_step:
+        end_date: Loka dagsetning
+        start_date: Upphafsdagur
+      decidim/static_page:
+        content: Innihald
+        slug: URL slug
+        title: Titill
+      doorkeeper/application:
+        authorize_url: Leyfa vefslóð
+        client_id: Viðskiptavinur ID
+        client_secret: Viðskiptavinur Secret
+        organization_name: Nafn samtaka
+        organization_url: Vefslóð stofnunarinnar
+        redirect_uri: Beina URI
+        site: Site
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
+  decidim:
+    admin:
+      actions:
+        add: Bæta við
+        browse: Skoða
+        export: Útflutningur
+        manage: Stjórna
+        permissions: Heimildir
+        reject: Hafna
+        verify: Staðfestu
+      area_types:
+        create:
+          error: Villa kom upp við að búa til nýja svæðisgerð.
+          success: Svæði gerð búin til með góðum árangri.
+        destroy:
+          success: Svæði gerð með góðum árangri eytt
+        edit:
+          title: Breyta svæðisgerð
+          update: Uppfæra
+        new:
+          create: Búðu til svæðisgerð
+          title: Ný svæðisgerð
+        update:
+          error: Villa kom upp við uppfærslu þessa svæðisgerð.
+          success: Svæðið gerð uppfærður með góðum árangri
+      areas:
+        create:
+          error: Villa kom upp við að búa til nýtt svæði.
+          success: Svæði búin til með góðum árangri.
+        destroy:
+          success: Svæði með góðum árangri eytt
+        edit:
+          title: Breyta svæði
+          update: Uppfæra
+        new:
+          create: Búa til svæði
+          title: Nýtt svæði
+        no_areas: Engin svæði
+        update:
+          error: Villa kom upp við uppfærslu á þessu svæði.
+          success: Svæði uppfærður með góðum árangri
+      attachment_collections:
+        create:
+          error: Villa kom upp við að búa til nýtt safn.
+          success: Safn búin til með góðum árangri.
+        destroy:
+          success: Safn eyðilagt með góðum árangri.
+        edit:
+          title: Breyta safninu
+          update: Uppfæra
+        index:
+          attachment_collection_used: Ekki er hægt að fjarlægja þetta safn vegna þess að það er í notkun.
+          attachment_collections_title: Viðhengisöfnur
+        new:
+          create: Búa til
+          title: Nýtt safn
+        update:
+          error: Villa kom upp við uppfærslu á þessu safni.
+          success: Safn uppfærð með góðum árangri.
+      attachments:
+        create:
+          error: Villa kom upp við að búa til nýjan viðhengi.
+          success: Viðhengi búin til með góðum árangri.
+        destroy:
+          success: Viðhengi eytt með góðum árangri.
+        edit:
+          title: Breyta viðhengi
+          update: Uppfæra
+        index:
+          attachments_title: Viðhengi
+        new:
+          create: Búðu til viðhengi
+          title: Ný viðhengi
+        update:
+          error: Villa kom upp við uppfærslu þessa viðhengis.
+          success: Viðhengi uppfærður með góðum árangri.
+      autocomplete:
+        no_results: Engar niðurstöður fundust
+        search_prompt: Sláðu inn amk þrjá stafi til að leita
+      categories:
+        create:
+          error: Villa kom upp við að búa til þennan flokk.
+          success: Flokkur búin til með góðum árangri.
+        destroy:
+          error: Villa kom upp við að eyða þessum flokki. Vinsamlegast eyða öllum undirflokkum fyrst, vertu viss um að enginn annar aðili tilheyrir þessum flokki og reyndu aftur.
+          success: Flokkur eytt með góðum árangri.
+        edit:
+          title: Breyta flokki
+          update: Uppfæra
+        index:
+          categories_title: Flokkar
+          category_used: Ekki er hægt að fjarlægja þennan flokk vegna þess að hún er í notkun.
+        new:
+          create: Búa til flokk
+          title: Ný flokkur
+        update:
+          error: Villa kom upp við að uppfæra þennan flokk.
+          success: Flokkur uppfærð með góðum árangri.
+      component_permissions:
+        edit:
+          everyone: Allir
+          submit: Vista heimildir
+          title: Breyta heimildum
+        update:
+          success: Heimildir uppfærðar með góðum árangri.
+      components:
+        create:
+          error: Villa kom upp við að búa til þessa hluti.
+          success: Hluti búin til með góðum árangri.
+        destroy:
+          error: Villa kom upp við að eyðileggja þessa hluti.
+          success: Hluti eytt með góðum árangri.
+        edit:
+          title: Breyta hlutanum
+          update: Uppfæra
+        form:
+          default_step_settings: Sjálfgefnar skrefstillingar
+          global_settings: Global stillingar
+          step_settings: Skref stillingar
+        index:
+          add: Bæta við þáttum
+          headers:
+            actions: Aðgerðir
+            name: Nafn efnis
+            type: Tegund hlutar
+        new:
+          add: Bæta við þáttum
+          title: 'Bæta við hluti: %{name}'
+        publish:
+          success: Hlutinn hefur verið birtur með góðum árangri.
+        title: Hluti
+        unpublish:
+          success: Hlutinn hefur verið unpublished með góðum árangri.
+        update:
+          error: Villa kom upp við að uppfæra þessa hluti.
+          success: Hlutinn var uppfærður með góðum árangri.
+      dashboard:
+        show:
+          view_more_logs: Skoða fleiri logs
+          welcome: Velkomin á Decidim Admin Panel.
+      exports:
+        export_as: "%{name} sem %{export_format}"
+        notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
+      impersonatable_users:
+        index:
+          filter:
+            all: Allt
+            managed: Stýrður
+            not_managed: Ekki tekist
+          filter_by: Sía eftir
+          impersonate_new_managed_user: Tjáðu nýja, stýrða notanda
+          managed: Stýrður
+          name: Nafn
+          not_managed: Ekki tekist
+          promote: Kynna
+          search: Leita
+          status: Staða
+      impersonations:
+        create:
+          error: Það hefur verið villa við að bæta við notandanum.
+        form:
+          authorization_method: Leyfisaðferð
+          name: Nafn
+          reason: Ástæða
+        new:
+          impersonate_existing_managed_user: Tjáðu stýrða notandann "%{name}"
+          impersonate_existing_user: Birtu notanda "%{name}"
+          impersonate_new_managed_user: Tjáðu nýja, stýrða notanda
+      logs:
+        logs_list:
+          no_logs_yet: Það eru engar skrár ennþá
+      managed_users:
+        promotion:
+          error: Villa kom upp við að kynna stýrða notandann.
+          success: Stýrður notandi hefur verið kynntur með góðum árangri.
+        promotions:
+          new:
+            explanation: Stýrðir notendur geta verið kynntar til venjulegra notenda. Það þýðir að þeir verða boðnir í umsóknina og þú munt ekki geta nýtt þau aftur. Boðið notandi mun fá tölvupóst til að samþykkja boðið þitt.
+            new_managed_user_promotion: Ný stýrður notandi kynning
+            promote: Kynna
+      menu:
+        admin_log: Admin virkni log
+        admins: Admins
+        appearance: Útlit
+        area_types: Svæði tegundir
+        areas: Svæði
+        configuration: Stillingar
+        dashboard: Mælaborð
+        impersonations: Impersonations
+        newsletters: Fréttabréf
+        oauth_applications: OAuth forrit
+        officializations: Stjórnvöld
+        scope_types: Gildissvið
+        scopes: Scopes
+        settings: Stillingar
+        static_pages: Síður
+        user_groups: Notendahópar
+        users: Notendur
+      models:
+        area:
+          fields:
+            area_type: Svæðisgerð
+            name: Nafn
+        area_type:
+          fields:
+            name: Nafn
+            plural: Fleirtala
+        attachment:
+          fields:
+            collection: Safn
+            content_type: Gerð
+            file_size: Stærð
+            title: Titill
+          name: Viðhengi
+        attachment_collection:
+          name: Safn
+        category:
+          name: Flokkur
+        impersonation_log:
+          fields:
+            admin: Admin
+            ended_at: Lauk á
+            expired_at: Útrunnið á
+            reason: Ástæða
+            started_at: Byrjaði á
+            user: Notandi
+        newsletter:
+          fields:
+            created_at: Búið til á
+            progress: Framfarir
+            sent_at: Sent á
+            subject: Efni
+          name: Fréttabréf
+        oauth_application:
+          fields:
+            created_at: Búið til á
+            name: Nafn
+          name: OAuth umsókn
+        participatory_space_private_user:
+          name: Þátttökurými einkaaðila
+        scope:
+          fields:
+            name: Nafn
+            scope_type: Gildissvið
+        scope_type:
+          fields:
+            name: Nafn
+            plural: Fleirtala
+        static_page:
+          fields:
+            created_at: Búið til á
+            title: Titill
+        user:
+          fields:
+            created_at: Sköpunardegi
+            email: Email
+            last_sign_in_at: Síðasta skilti inn dagsetning
+            name: Nafn
+            role: Hlutverk
+            roles:
+              admin: Admin
+              user_manager: Notendastjóri
+          name: Notandi
+        user_group:
+          fields:
+            actions: Aðgerðir
+            created_at: Búið til á
+            document_number: Skjal númer
+            name: Nafn
+            phone: Sími
+            state: Ríki
+            users_count: Notendur telja
+      moderations:
+        index:
+          title: Moderations
+        report:
+          reasons:
+            does_not_belong: Tilheyrir ekki
+            offensive: Sókn
+            spam: Ruslpóstur
+      newsletters:
+        create:
+          error: Villa kom upp við að búa til þetta fréttabréf.
+          success: Fréttabréf búin til með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
+        deliver:
+          error: Það hefur verið villa við að afhenda þetta fréttabréf.
+          success: Fréttabréf skilað með góðum árangri.
+        destroy:
+          error_already_sent: 'Get ekki eyðilagt fréttabréf: Það hefur þegar verið sent.'
+          success: Fréttabréf eyðilagt með góðum árangri.
+        edit:
+          save_and_preview: Vista og forskoða
+          title: Breyta fréttabréfinu
+        form:
+          interpolations_hint: 'Ábending: Þú getur notað "%{name}" hvar sem er í líkamanum eða efninu og það verður skipt út fyrir nafn viðtakanda.'
+        index:
+          confirm_delete: Ertu viss um að þú viljir eyða þessu fréttabréfi?
+          title: Fréttabréf
+        new:
+          save: Vista
+          title: Nýtt fréttabréf
+        show:
+          confirm_deliver: Ertu viss um að þú viljir afhenda þetta fréttabréf? Ekki er hægt að afturkalla þessa aðgerð.
+          deliver: Bera fréttabréf
+          preview: Preview
+          subject: Efni
+        update:
+          error: Villa kom upp við að uppfæra þetta fréttabréf.
+          success: Fréttabréf uppfært með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
+      oauth_applications:
+        create:
+          error: Villa kom upp við að búa til þetta forrit.
+          success: Umsókn búin til með góðum árangri.
+        destroy:
+          error: Villa kom upp við að eyðileggja þetta forrit.
+          success: Umsókn eyðilagt með góðum árangri.
+        edit:
+          save: Vista
+          title: Breyta forritinu
+        index:
+          confirm_delete: Ertu viss um að þú viljir eyða þessu forriti?
+          title: OAuth forrit
+        new:
+          save: Vista
+          title: Ný forrit
+        update:
+          error: Villa kom upp við að uppfæra þetta forrit.
+          success: Umsókn uppfærð með góðum árangri.
+      officializations:
+        create:
+          success: Notandi var opinberaður með góðum árangri
+        destroy:
+          success: Notandi óopinberkt með góðum árangri
+        index:
+          actions: Aðgerðir
+          badge: Merki
+          created_at: Búið til á
+          filter:
+            all: Allt
+            not_officialized: Ekki opinberað
+            officialized: Opinberað
+          filter_by: Sía eftir
+          name: Nafn
+          nickname: Gælunafn
+          not_officialized: Ekki opinberað
+          officialize: Opinbera
+          officialized: Opinberað
+          reofficialize: Reofficialize
+          search: Leita
+          status: Staða
+          unofficialize: Óopinbera
+        new:
+          badge: Opinberunarmerki
+          officialize: Opinbera
+          title: Stofna notanda "%{name}"
+      organization:
+        edit:
+          title: Breyta skipulagi
+          update: Uppfæra
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Félagsleg
+          twitter: Twitter
+          url: Url
+          youtube: Youtube
+        update:
+          error: Villa kom upp við uppfærslu á þessari stofnun.
+          success: Skipulag uppfærður með góðum árangri.
+      organization_appearance:
+        edit:
+          update: Uppfæra
+        form:
+          cta_button_path_help: 'Þú getur skrifað yfir hvar Hnappurinn Hringja til aðgerða á heimasíðunni tengist. Notaðu hluta slóða, ekki fulla vefslóðir hér. Tekur bréf, tölur, bindur og rista, og verður að byrja með stafi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar. Dæmi: %{url}'
+          cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
+          header_snippets_help: Notaðu þetta reit til að bæta hlutum við HTML höfuðið. Algengasta notkunin er að samþætta þjónustu þriðja aðila sem krefst viðbótar JavaScript eða CSS. Einnig er hægt að nota það til að bæta við auka meta tags í HTML. Athugaðu að þetta verður aðeins birt á opinberum síðum, ekki í stjórnunarhlutanum.
+          homepage_appearance_title: Breyta heimasíðu útliti
+          homepage_highlighted_content_banner_title: Hápunktur efni borði
+          layout_appearance_title: Breyta útliti útlits
+          omnipresent_banner_appearance_title: Breyta omnipresent
+      participatory_space_private_users:
+        create:
+          error: Villa kom upp við að bæta einkaaðila notanda fyrir þetta þátttakandi pláss.
+          success: Þátttökuskilyrði einkaaðgangsaðganga var stofnað
+        destroy:
+          success: Þátttakandi rými einkaaðgangsaðgangs eyðilagt með góðum árangri.
+        index:
+          title: Þátttökurými einkaaðila
+        new:
+          create: Búa til
+          title: New Participatory Space einkaaðila notandi.
+      scope_types:
+        create:
+          error: Villa kom upp við að búa til nýja umfangstegund.
+          success: Gildissvið gerð búin til með góðum árangri.
+        destroy:
+          success: Gildissvið gerð með góðum árangri eytt
+        edit:
+          title: Breyta umfangstegund
+          update: Uppfæra
+        new:
+          create: Búðu til umfang gerð
+          title: Ný umfang
+        update:
+          error: Villa kom upp við uppfærslu þessa umfangs tegundar.
+          success: Gildissvið gerð uppfærð með góðum árangri
+      scopes:
+        create:
+          error: Villa kom upp við að búa til nýtt svið.
+          success: Gildissvið búið til með góðum árangri.
+        destroy:
+          success: Gildissvið eyðilagt með góðum árangri
+        edit:
+          title: Breyta umfangi
+          update: Uppfæra
+        new:
+          create: Búðu til umfang
+          title: Ný umfang
+        no_scopes: Engar mælar á þessu stigi.
+        update:
+          error: Villa kom upp við uppfærslu þessarar umfangs.
+          success: Gildissvið uppfært með góðum árangri
+      static_pages:
+        actions:
+          view: Skoðaðu opinbera síðu
+        create:
+          error: Villa kom upp við að búa til nýja síðu.
+          success: Síða búin til með góðum árangri.
+        destroy:
+          success: Page tókst að eyðileggja
+        edit:
+          title: Breyta síðu
+          update: Uppfæra
+        new:
+          create: Búa til
+          title: Ný síða
+        update:
+          error: Villa kom upp við uppfærslu þessa síðu.
+          success: Síða uppfærð með góðum árangri
+      titles:
+        admin_log: Admin log
+        area_types: Svæði tegundir
+        areas: Svæði
+        authorization_workflows: Staðfestingaraðferðir
+        dashboard: Mælaborð
+        impersonatable_users: Ópersónulegar notendur
+        impersonations: Impersonations
+        officializations: Stjórnvöld
+        scope_types: Gildissvið
+        scopes: Scopes
+        static_pages: Síður
+        user_groups: Notendahópar
+        users: Notendur
+      user_group:
+        reject:
+          invalid: Villa kom upp við að hafna þessum notendahópi.
+          success: Notendahópur hafnað með góðum árangri
+        verify:
+          invalid: Villa kom upp við staðfestingu þessa notendahóps.
+          success: Notendahópur staðfestur með góðum árangri
+      user_groups:
+        index:
+          filter:
+            all: Allt
+            pending: Í bið
+            rejected: Hafnað
+            verified: Staðfest
+          filter_by: Sía eftir
+          search: Leita
+          state:
+            pending: Í bið
+            rejected: Hafnað
+            verified: Staðfest
+      users:
+        create:
+          error: Villa kom upp við að bjóða þessum notanda.
+          success: Notandi boðið með góðum árangri.
+        destroy:
+          error: Villa kom upp þegar reynt var að eyða þessum notanda.
+          success: Notandi er ekki lengur stjórnandi.
+        form:
+          email: Email
+          name: Nafn
+          role: Hlutverk
+        new:
+          create: Bjóddu
+          title: Bjóddu notanda sem stjórnandi
+    forms:
+      errors:
+        impersonate_user:
+          reason: Þú þarft að leggja fram ástæðu þegar þú gefur frá sér óstýrða notanda
+    moderations:
+      actions:
+        hidden: Falið
+        hide: Fela
+        not_hidden: Ekki falið
+        title: Aðgerðir
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: Vandamál kom upp við að fela auðlindina.
+            success: Resource tókst falið.
+          unreport:
+            invalid: Vandamál kom upp við að unreporting úrræði.
+            success: Resource tókst ekki með skýrslu.
+      models:
+        moderation:
+          fields:
+            hidden_at: Falinn á
+            report_count: Telja
+            reportable: Tilkynnt
+            reported_content_url: Tilkynnt efni vefslóð
+            reports: Skýrslur
+            visit_url: Heimsókn vefslóð
+  errors:
+    messages:
+      invalid_json: Ógilt JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Fréttabréf
+        settings:
+          title: Stillingar
+        users:
+          title: Notendur
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"
