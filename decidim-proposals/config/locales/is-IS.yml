@@ -41,6 +41,7 @@ is:
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
             proposal_wizard_step_3_help_text: Tillaga töframaður "Complete" skref hjálpartexta
+            proposal_wizard_step_4_help_text: Tillaga "Birta" skref hjálpartexti
             threshold_per_proposal: Gildi fyrir hverja tillögu
             vote_limit: Atkvæðagreiðsla á hvern notanda
           step:
@@ -284,6 +285,10 @@ is:
           filter: Sía
           filter_by: Sía eftir
           unfold: Fella út
+        identities_listing:
+          see_all: Sjá allt
+          see_less: Sjá minna
+          title: Listi yfir meðmæli
         index:
           new_proposal: Ný tillaga
           see_all_withdrawn: Sjá öll afturkallað tillögur
