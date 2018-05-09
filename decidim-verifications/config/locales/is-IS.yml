@@ -60,6 +60,7 @@ is:
         new:
           authorize: Senda
           authorize_with: Staðfestu með %{authorizer}
+        skip_verification: Þú getur sleppt þessu nú og %{link}
         start_exploring: byrja að kanna
       dummy_authorization:
         extra_explanation:
