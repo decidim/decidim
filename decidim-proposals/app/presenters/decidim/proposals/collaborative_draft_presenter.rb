@@ -10,10 +10,11 @@ module Decidim
       include ActionView::Helpers::UrlHelper
 
       def author
-        @author ||= if user_group
-                      Decidim::UserGroupPresenter.new(user_group)
+        coauthorship= __getobj__.coauthorships.first
+        @author ||= if coauthorship.user_group
+                      Decidim::UserGroupPresenter.new(coauthorship.user_group)
                     else
-                      Decidim::UserPresenter.new(super)
+                      Decidim::UserPresenter.new(coauthorship.author)
                     end
       end
 
