@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-admin**: Fixes the validation uniqueness name of area, scoped with organization and area_type [\#3350](https://github.com/decidim/decidim/pull/3350)
+
 ## [0.11.0.pre](https://github.com/decidim/decidim/tree/v0.11.0)
 
 **Upgrade notes**:
