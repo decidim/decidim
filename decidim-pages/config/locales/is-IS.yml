@@ -7,7 +7,7 @@ is:
       admin:
         models:
           components:
-            body: Líkami
+            body: Meginmál
         pages:
           edit:
             save: Uppfæra
