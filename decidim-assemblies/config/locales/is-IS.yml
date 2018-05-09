@@ -5,6 +5,7 @@ is:
         area_id: Svæði
         banner_image: Banner image
         copy_categories: Afrita flokka
+        copy_features: Afrita eiginleika
         decidim_area_id: Svæði
         decidim_scope_id: Umfang
         description: Lýsing
@@ -88,6 +89,7 @@ is:
           attachment_files: Skrár
           attachments: Viðhengi
           categories: Flokkar
+          features: Eiginleikar
           info: Upplýsingar
           moderations: Moderations
       models:
