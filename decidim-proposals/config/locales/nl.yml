@@ -214,6 +214,7 @@ nl:
             category: Categorie
             comments: Reacties
             created_at: Aangemaakt op
+            endorsements: Endorsements
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
