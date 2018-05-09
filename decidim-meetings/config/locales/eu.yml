@@ -237,7 +237,6 @@ eu:
         meeting:
           fields:
             closed: Itxita
-            comments: Oharrak
             end_time: Bukaera-data
             map: Mapa
             start_time: Hasiera-data
