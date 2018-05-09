@@ -1,0 +1,68 @@
+is:
+  decidim:
+    comments:
+      votes:
+        create:
+          error: Það hafa verið villur þegar atkvæðagreiðslan var samþykkt.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Skráðu þig inn með reikningnum þínum</a> eða <a href="%{sign_up_url}">skráðu þig</a> til að bæta við ummælum þínum.
+        form:
+          body:
+            label: Athugasemd
+            placeholder: Hvað finnst þér um þetta?
+          form_error: Textinn er krafist og það má ekki vera lengri en %{length} stafir.
+          submit: Senda
+          user_group_id:
+            label: Athugasemd sem
+        opinion:
+          neutral: Hlutlaus
+        remaining_characters: "%{count} stafir eftir"
+        remaining_characters_1: "%{count} stafur eftir"
+        title: Bæta við athugasemd þinni
+      comment:
+        alignment:
+          against: Gegn
+          in_favor: Í hag
+        deleted_user: Eyði notanda
+        reply: Svara
+        report:
+          action: Skýrsla
+          already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
+          close: Loka
+          description: Er þetta efni óviðeigandi?
+          details: Önnur athugasemdir
+          reasons:
+            does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
+            offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
+            spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
+          title: Tilkynna um vandamál
+      comment_order_selector:
+        order:
+          best_rated: Bestu einkunnir
+          most_discussed: Mest rætt
+          older: Eldri
+          recent: Nýleg
+        title: 'Raða eftir:'
+      comment_thread:
+        title: Samtal við %{authorName}
+      comments:
+        blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
+        loading: Hleð inn athugasemdir ...
+        title: "%{count} athugasemdir"
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}" eða höfundinum. Þú getur sleppt því frá fyrri tengilinn.
+            email_subject: Það er nýtt ummæli frá %{author_name} í %{resource_title}
+            notification_title: Það er nýtt ummæli frá <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}" eða höfundinum. Þú getur sleppt því frá fyrri tengilinn.
+        user_mentioned:
+          email_intro: Þú hefur verið nefndur
+          email_subject: Þú hefur verið nefndur í %{resource_title}
+          notification_title: Þú hefur verið nefndur í <a href="%{resource_path}">%{resource_title}</a> af <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+  errors:
+    messages:
+      cannot_have_comments: getur ekki haft athugasemdir
