@@ -118,8 +118,6 @@ nl:
       highlighted_proposals:
         proposals: Voorstellen
         see_all_proposals: Bekijk alle voorstellen
-      proposal:
-        creation_date: 'Aangemaakt op: %{date}'
     proposals:
       actions:
         answer: Antwoord
@@ -289,7 +287,7 @@ nl:
         identities_listing:
           see_all: Alles bekijken
           see_less: Minder bekijken
-          title: Lijst met stemmen
+          title: Lijst met aanbevelingen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
