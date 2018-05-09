@@ -3,19 +3,19 @@ is:
     attributes:
       participatory_process:
         announcement: Tilkynning
-        banner_image: Banner image
+        banner_image: Borðamynd
         copy_categories: Afrita flokka
         copy_components: Afrita hluti
-        copy_steps: Afritaðu skref
+        copy_steps: Afrita skref
         description: Lýsing
-        developer_group: Hönnuður hópur
+        developer_group: Þróunarhópur
         domain: Lén
         end_date: Loka dagsetning
         hashtag: Kassamerki
-        hero_image: Heimsmynd
+        hero_image: Heima mynd
         local_area: Staðarnet
         meta_scope: Gildissvið lýsigagna
-        participatory_process_group_id: Vinnur hópur
+        participatory_process_group_id: Vinnuhópur
         participatory_scope: Þátttökuskilyrði
         participatory_structure: Þátttaka uppbyggingu
         promoted: Kynnt
