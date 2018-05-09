@@ -87,14 +87,14 @@ module Decidim
 
       def edit
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        enforce_permission_to :update, :collaborative_draft, collaborative_draft: @collaborative_draft
+        enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
       end
 
       def update
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
-        enforce_permission_to :update, :collaborative_draft, collaborative_draft: @collaborative_draft
+        enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_params(params)
         UpdateCollaborativeDraft.call(@form, current_user, @collaborative_draft) do
