@@ -17,6 +17,14 @@ is:
         actions:
           create: Búa til
         name: Umræður
+        settings:
+          global:
+            announcement: Tilkynning
+            comments_enabled: Athugasemdir virkar
+          step:
+            announcement: Tilkynning
+            comments_blocked: Læst fyrir athugasemdir
+            creation_enabled: Umræða um stofnun notenda virk
     debates:
       actions:
         confirm_destroy: Ertu viss?
