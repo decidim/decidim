@@ -16,10 +16,12 @@ gl:
         end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
+        private_meeting: Encontro privado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
         title: Título
+        transparent: Transparente
       minutes:
         audio_url: URL de audio
         description: Descrición
@@ -112,6 +114,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_organizer: Selecciona o organizador
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -123,6 +128,8 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
+          form:
+            select_organizer: Selecciona o organizador
           index:
             title: Reunións
           new:
@@ -177,6 +184,9 @@ gl:
           delete: "%{user_name} eliminou a %{resource_name} reunión no espazo %{space_name}"
           export_registrations: "%{user_name} exportou os rexistros da %{resource_name} reunión no espazo %{space_name}"
           update: "%{user_name} actualizou a %{resource_name} reunión no espazo %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
@@ -187,6 +197,8 @@ gl:
         registration_mailer:
           confirmation:
             subject: O rexistro da túa xuntanza foi confirmado
+      meeting:
+        not_allowed: Non tes permiso para ver esta reunión
       meetings:
         filters:
           category: Categoría
@@ -242,6 +254,9 @@ gl:
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
+      types:
+        private_meeting: Encontro privado
+        transparent: Transparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
