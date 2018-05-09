@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     # This cell renders the proposal card for an instance of a Proposal
     # the default size is the Medium Card (:m)
-    class ProposalCell < Decidim::Proposals::ViewModel
+    class ProposalCell < Decidim::ViewModel
       include ProposalCellsHelper
       include Cell::ViewModel::Partial
       include Messaging::ConversationHelper

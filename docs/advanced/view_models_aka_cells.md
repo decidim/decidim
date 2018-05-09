@@ -44,17 +44,6 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
   end
   ```
 
-- add the *ViewModel* `decidim-<module>/lib/decidim/<module>/view_model.rb`
-
-  ```rb
-  module Decidim
-    module <Module>
-      class ViewModel < Decidim::ViewModel
-      end
-    end
-  end
-  ```
-
 - The attribute `card` of the Components is defined in `decidim-core/lib/decidim/component_manifest.rb`:
 
   ```rb
@@ -73,7 +62,7 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
   ```rb
   module Decidim
     module <Component>s
-      class <Component>Cell < Decidim::<Component>s::ViewModel
+      class <Component>Cell < Decidim::ViewModel
         def show
           render # renders decidim-<component>s/app/cells/decidim/<component>s/<component>
         end
