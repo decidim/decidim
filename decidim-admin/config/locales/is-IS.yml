@@ -295,6 +295,9 @@ is:
           status: Staða
           view_logs: Skoða sögu
       impersonations:
+        close_session:
+          error: Villa kom upp við að loka núverandi eftirlíkingu.
+          success: Núverandi eftirlíkingu hefur verið lokið.
         create:
           error: Það hefur verið villa við að bæta við notandanum.
           success: Stýrður notandi hefur verið búinn til.
