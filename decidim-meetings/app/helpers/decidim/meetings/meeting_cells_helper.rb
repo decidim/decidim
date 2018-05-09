@@ -13,7 +13,6 @@ module Decidim
       def description
         decidim_sanitize meeting_description(model)
       end
-
     end
   end
 end
