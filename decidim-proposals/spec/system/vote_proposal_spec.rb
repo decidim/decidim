@@ -187,7 +187,7 @@ describe "Vote Proposal", type: :system do
               expect(page).to have_button("Already voted")
             end
 
-            expect(page).to have_content("REMAINING 9 VOTES")
+            expect(page).to have_content("REMAINING\n9\nVOTES")
           end
         end
 
@@ -235,7 +235,7 @@ describe "Vote Proposal", type: :system do
               expect(page).to have_content("0 VOTES")
             end
 
-            expect(page).to have_content("REMAINING 10 VOTES")
+            expect(page).to have_content("REMAINING\n10\nVOTES")
           end
         end
 

@@ -511,7 +511,7 @@ describe "Answer a survey", type: :system do
 
           expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
 
-          expect(page).to have_content("idiotas trates No por nos")
+          expect(page).to have_content("idiotas\ntrates\nNo\npor\nnos")
 
           check "No"
           check "nos"
@@ -519,7 +519,7 @@ describe "Answer a survey", type: :system do
           check "por"
           check "idiotas"
 
-          expect(page).to have_content("1. No 2. nos 3. trates 4. por 5. idiotas")
+          expect(page).to have_content("1. No\n2. nos\n3. trates\n4. por\n5. idiotas")
         end
 
         it "properly saves valid sortings" do
