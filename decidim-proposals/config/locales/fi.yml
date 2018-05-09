@@ -214,6 +214,7 @@ fi:
             category: Aihepiiri
             comments: Kommentit
             created_at: Luontipäivämäärä
+            endorsements: merkintöjen
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
