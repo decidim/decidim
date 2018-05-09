@@ -210,6 +210,9 @@ fi:
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
           success: Liite luotu onnistuneesti.
+      autocomplete:
+        no_results: Ei tuloksia
+        search_prompt: Kirjoita vähintään kolme merkkiä etsimään
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
