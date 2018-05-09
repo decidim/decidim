@@ -23,15 +23,28 @@ references:
     restore_cache:
       keys:
         - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+  restore_npm_cache: &restore_npm_cache
+    restore_cache:
+      keys:
+        - npm-dependencies-{{ checksum "package-lock.json" }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
       command: bundle install
+  install_npm_dependencies: &install_npm_dependencies
+    run:
+      name: Install npm dependencies
+      command: npm install
   save_ruby_cache: &save_ruby_cache
     save_cache:
       key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
       paths:
         - /usr/local/bundle/
+  save_npm_cache: &save_npm_cache
+    save_cache:
+      key: npm-dependencies-{{ checksum "package-lock.json" }}
+      paths:
+        - node_modules
   wait_for_db: &wait_for_db
     run:
       name: Wait for db
@@ -44,9 +57,19 @@ references:
     run:
       name: Create test DB
       command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-  store_artifacts: &store_artifacts
+  extract_failure_logs: &extract_failure_logs
+    run:
+      name: Extract failure logs
+      command: |
+        mkdir -p /app/spec/decidim_dummy_app/tmp/logs/
+        tail -1000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
+      when: on_fail
+  store_screenshot_artifacts: &store_screenshot_artifacts
     store_artifacts:
       path: /app/spec/decidim_dummy_app/tmp/screenshots
+  store_log_artifacts: &store_log_artifacts
+    store_artifacts:
+      path: /app/spec/decidim_dummy_app/tmp/logs
   store_test_results: &store_test_results
     store_test_results:
       path: ~/rspec
@@ -70,8 +93,11 @@ jobs:
     steps:
       - checkout
       - *restore_ruby_cache
+      - *restore_npm_cache
       - *install_ruby_dependencies
+      - *install_npm_dependencies
       - *save_ruby_cache
+      - *save_npm_cache
       - *wait_for_db
       - run:
           name: Generate test app
@@ -123,7 +149,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   assemblies:
@@ -135,7 +163,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   initiatives:
@@ -147,7 +177,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   api:
@@ -159,7 +191,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   participatory_processes:
@@ -171,19 +205,24 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   admin:
     <<: *defaults
     steps:
       - *attach_workspace
+      - *restore_npm_cache
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   system:
@@ -195,7 +234,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   proposals:
@@ -207,23 +248,16 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   comments:
     <<: *defaults
     steps:
       - *attach_workspace
-      - restore_cache:
-          keys:
-            - npm-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install npm dependencies
-          command: npm install
-      - save_cache:
-          key: npm-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+      - *restore_npm_cache
       - run:
           name: Run main folder lint & tests
           command: npm run test:ci
@@ -232,7 +266,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   meetings:
@@ -244,7 +280,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   pages:
@@ -256,7 +294,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   accountability:
@@ -268,7 +308,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   budgets:
@@ -280,7 +322,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   surveys:
@@ -292,7 +336,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   verifications:
@@ -304,7 +350,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   debates:
@@ -316,7 +364,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   sortitions:
@@ -328,7 +378,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   blogs:
@@ -340,7 +392,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   consultations:
@@ -352,7 +406,9 @@ jobs:
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   build_design_app:

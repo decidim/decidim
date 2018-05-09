@@ -44,6 +44,20 @@
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: "", disable_parents: false %>
       </div>
     </div>
+
+    <div class="row column">
+      <%= form.text_field :organizer_picker, value: meeting_organizer_picker_text(form), class: "user-autocomplete", placeholder: t(".select_organizer"),
+                          data: { url: decidim.organization_users_url } %>
+      <%= form.hidden_field :organizer_id %>
+    </div>
+
+    <div class="row column" id="private_meeting">
+      <%= form.check_box :private_meeting %>
+    </div>
+
+    <div class="row column" id="transparent">
+      <%= form.check_box :transparent %>
+    </div>
   </div>
 </div>
 

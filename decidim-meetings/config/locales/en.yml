@@ -17,10 +17,12 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
+        transparent: Transparent
       minutes:
         audio_url: Audio url
         description: Description
@@ -113,6 +115,9 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There's been a problem closing this meeting
@@ -124,6 +129,8 @@ en:
             success: Meeting successfully deleted
           edit:
             update: Update
+          form:
+            select_organizer: Select the organizer
           index:
             title: Meetings
           new:
@@ -179,6 +186,9 @@ en:
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          value_types:
+            organizer_presenter:
+              not_found: 'The organizer was not found on the database (ID: %{id})'
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
@@ -189,6 +199,8 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
+      meeting:
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
           category: Category
@@ -244,6 +256,9 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+      types:
+        private_meeting: Private meeting
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
