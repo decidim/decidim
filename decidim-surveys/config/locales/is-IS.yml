@@ -41,6 +41,7 @@ is:
         surveys:
           answer_option:
             answer_option: Svar valkostur
+            remove_answer_option: Fjarlægja svarvalkost
             statement: Yfirlýsing
           edit:
             save: Vista
@@ -51,6 +52,7 @@ is:
           question:
             add_answer_option: Bæta við svarvalkosti
             question: Spurning
+            remove_question: Fjarlægja spurningu
             statement: Yfirlýsing
           update:
             invalid: Það hafa verið villur við vistun könnunarinnar.
