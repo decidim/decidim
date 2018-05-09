@@ -20,6 +20,8 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    private_meeting false
+    transparent true
     services do
       [
         { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
@@ -27,6 +29,10 @@ FactoryBot.define do
       ]
     end
     component { build(:component, manifest_name: "meetings") }
+
+    organizer do
+      create(:user, organization: component.organization) if component
+    end
 
     trait :closed do
       closing_report { Decidim::Faker::Localized.sentence(3) }
