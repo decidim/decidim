@@ -4,18 +4,10 @@ module Decidim
   module Meetings
     # This cell renders the Medium (:m) meeting card
     # for an given instance of a Meeting
-    class MeetingMCell < Decidim::Meetings::MeetingCell
-      include Decidim::TooltipHelper
-
-      def show
-        render
-      end
+    class MeetingMCell < Decidim::CardMCell
+      include MeetingCellsHelper
 
       private
-
-      def decidim
-        Decidim::Core::Engine.routes.url_helpers
-      end
 
       def resource_icon
         icon "meetings", class: "icon--big"
@@ -44,6 +36,10 @@ module Decidim
 
       def end_date
         model.end_time.to_date
+      end
+
+      def shows_footer?
+        model.can_be_joined_by?(current_user)
       end
     end
   end

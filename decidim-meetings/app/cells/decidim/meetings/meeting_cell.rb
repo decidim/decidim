@@ -14,14 +14,6 @@ module Decidim
 
       private
 
-      def title
-        translated_attribute model.title
-      end
-
-      def description
-        decidim_sanitize meeting_description(model)
-      end
-
       def card_size
         case @options[:size]
         when :list_item
@@ -33,10 +25,6 @@ module Decidim
 
       def resource_icon
         icon "meetings", remove_icon_class: true, width: 40, height: 70
-      end
-
-      def resource_path
-        resource_locator(model).path
       end
 
       def current_component

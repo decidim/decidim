@@ -3,7 +3,10 @@
 module Decidim
   module Meetings
     # This cell renders the button to join a meeting.
-    class JoinMeetingButtonCell < Decidim::Meetings::ViewModel
+    class JoinMeetingButtonCell < Decidim::ViewModel
+      include MeetingCellsHelper
+      include Decidim::SanitizeHelper
+
       def show
         render
       end
