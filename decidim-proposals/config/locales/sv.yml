@@ -118,8 +118,6 @@ sv:
       highlighted_proposals:
         proposals: Förslag
         see_all_proposals: Se alla förslag
-      proposal:
-        creation_date: 'Skapelse: %{date}'
     proposals:
       actions:
         answer: Svara
