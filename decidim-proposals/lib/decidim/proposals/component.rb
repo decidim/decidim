@@ -230,8 +230,7 @@ Decidim.register_component(:proposals) do |component|
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
-        author: author,
-        # user_group: user_group,
+        authors: [author],
         state: state,
         published_at: Time.current
       )

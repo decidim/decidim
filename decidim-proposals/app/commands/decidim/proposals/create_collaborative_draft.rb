@@ -45,13 +45,16 @@ module Decidim
           body: form.body,
           category: form.category,
           scope: form.scope,
-          author: @current_user,
-          decidim_user_group_id: form.user_group_id,
           component: form.component,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude,
           state: "open"
+        )
+        Decidim::Coauthorship.create(
+          coauthorable: @collaborative_draft,
+          author: @current_user,
+          decidim_user_group_id: form.user_group_id,
         )
       end
 
