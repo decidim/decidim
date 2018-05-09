@@ -225,6 +225,7 @@ fi:
         meeting:
           fields:
             closed: Suljettu
+            comments: Kommentit
             end_time: Lopetusaika
             map: Kartta
             start_time: Aloitusaika
