@@ -1,0 +1,79 @@
+is:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Svara
+      survey_question:
+        mandatory: Lögboðin
+        question_type: Gerð
+  decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Könnunin %{resource_title} í %{participatory_space_title} hefur verið lokuð.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Könnun er lokið í %{participatory_space_title}
+          notification_title: Könnunin <a href="%{resource_path}">%{resource_title}</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a> er lokið.
+        survey_opened:
+          email_intro: 'Könnunin %{resource_title} í %{participatory_space_title} er nú opin. Þú getur tekið þátt í henni frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Ný könnun á %{participatory_space_title}
+          notification_title: Könnunin <a href="%{resource_path}">%{resource_title}</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a> er nú opin.
+    features:
+      surveys:
+        actions:
+          answer: Svara
+        name: Könnun
+        settings:
+          global:
+            announcement: Tilkynning
+          step:
+            allow_answers: Leyfa svörum
+            announcement: Tilkynning
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Kannaðu notendasvar
+        models:
+          components:
+            description: Lýsing
+            tos: Skilmálar þjónustu
+        surveys:
+          answer_option:
+            answer_option: Svar valkostur
+            statement: Yfirlýsing
+          edit:
+            save: Vista
+            title: Titill
+          form:
+            add_question: Bæta við spurningu
+            already_answered_warning: Könnunin er þegar svarað af sumum notendum svo þú getir ekki breytt spurningum sínum.
+          question:
+            add_answer_option: Bæta við svarvalkosti
+            question: Spurning
+            statement: Yfirlýsing
+          update:
+            invalid: Það hafa verið villur við vistun könnunarinnar.
+            success: Könnunin var vistuð með góðum árangri.
+      question_types:
+        long_answer: Langt svar
+        multiple_option: Mörg valkostur
+        short_answer: Stutt svar
+        single_option: Einn valkostur
+      surveys:
+        answer:
+          invalid: Það hafa verið villur þegar svarað er könnuninni.
+          success: Könnunin svaraði með góðum árangri.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Skráðu þig inn með reikningnum þínum</a> eða <a href="%{sign_up_link}">skráðu þig</a> til að svara könnuninni.
+            title: Svaraðu könnuninni
+          are_you_sure: Ekki er hægt að afturkalla þessa aðgerð og þú munt ekki geta breytt svörunum þínum. Ertu viss?
+          submit: Senda inn
+          survey_answered:
+            body: Þú hefur þegar svarað þessari könnun.
+            title: Könnunin svaraði
+          survey_closed:
+            body: Könnunin er lokuð og ekki hægt að svara.
+            title: Könnun lokuð
+          tos_agreement: Með því að taka þátt í þessari könnun samþykkir þú þjónustuskilmála þess
