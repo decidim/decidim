@@ -18,6 +18,15 @@ uk:
           endorse: Підтримати
           vote: Голосувати
         name: Пропозиції
+    participatory_processes:
+      participatory_process_groups:
+        proposal:
+          creation_date: 'Створено: %{date}'
+          view_proposal: Переглянути пропозицію
+    participatory_spaces:
+      proposal:
+        creation_date: 'Створено: %{date}'
+        view_proposal: Переглянути пропозицію
     proposals:
       actions:
         answer: Відповісти
