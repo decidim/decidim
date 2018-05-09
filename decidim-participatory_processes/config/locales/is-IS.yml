@@ -5,6 +5,7 @@ is:
         announcement: Tilkynning
         banner_image: Borðamynd
         copy_categories: Afrita flokka
+        copy_features: Afrita eiginleika
         copy_steps: Afrita skref
         description: Lýsing
         developer_group: Þróunarhópur
@@ -16,7 +17,7 @@ is:
         meta_scope: Gildissvið lýsigagna
         participatory_process_group_id: Vinnuhópur
         participatory_scope: Þátttökuskilyrði
-        participatory_structure: Þátttaka uppbyggingu
+        participatory_structure: Uppbygging þátttöku
         promoted: Kynnt
         published_at: Birt á
         scope_id: Umfang
@@ -40,7 +41,7 @@ is:
         start_date: Upphafsdagur
         title: Titill
       participatory_process_user_role:
-        email: Email
+        email: Netfang
         name: Nafn
         role: Hlutverk
   decidim:
@@ -65,6 +66,7 @@ is:
           attachment_files: Skrár
           attachments: Viðhengi
           categories: Flokkar
+          features: Eiginleikar
           info: Upplýsingar
           moderations: Moderations
           process_admins: Aðferð notenda
