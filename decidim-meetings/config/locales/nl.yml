@@ -237,7 +237,6 @@ nl:
         meeting:
           fields:
             closed: Gesloten
-            comments: Comments
             end_time: Einddatum
             map: Kaart
             start_time: Startdatum
