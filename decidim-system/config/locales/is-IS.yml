@@ -59,10 +59,10 @@ is:
         new:
           reference_prefix_hint: Tilvísunarnúmerið er notað til að auðkenna auðlindir á öllum stofnunum
           secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
-          title: Ný stofnun
+          title: Ný samtök
         update:
-          error: Villa kom upp við uppfærslu á þessari stofnun.
-          success: Skipulag uppfærður með góðum árangri.
+          error: Villa kom upp við uppfærslu á þessum samtökum.
+          success: Samtök uppfærð með góðum árangri.
       shared:
         notices:
           no_organization_warning_html: Þú verður að stofna stofnun til að byrja. Gakktu úr skugga um að þú lest %{guide} áður en þú heldur áfram.
