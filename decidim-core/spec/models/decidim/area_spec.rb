@@ -9,8 +9,14 @@ module Decidim
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
 
-    context "with two areas with the same name and organization" do
-      let!(:existing_area) { create(:area, name: area.name, organization: area.organization) }
+    context "with two areas with the same name and organization but different area type" do
+      let!(:existing_area) { create(:area, name: area.name, area_type: build(:area_type), organization: area.organization) }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "with two areas with the same name and organization and same area type " do
+      let!(:existing_area) { create(:area, name: area.name, area_type: area.area_type, organization: area.organization) }
 
       it { is_expected.to be_invalid }
     end
