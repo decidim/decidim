@@ -30,6 +30,32 @@ module Decidim
       Decidim::Core::Engine.routes.url_helpers
     end
 
+    def has_author?
+      model.is_a?(Decidim::Authorable)
+    end
+
+    def has_state?
+      false
+    end
+
+    def has_badge?
+      has_state?
+    end
+
+    def badge_name
+      model.state
+    end
+
+    def card_classes
+      classes = ["card--#{dom_class(model)}"]
+      return classes unless has_state?
+      classes.concat(state_classes).join(" ")
+    end
+
+    def badge_classes
+      state_classes.concat(["card__text--status"]).join(" ")
+    end
+
     def comments_count
       model.comments.count
     end
