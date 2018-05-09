@@ -5,8 +5,8 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", path: "."
-gem "decidim-consultations", path: "decidim-consultations"
-gem "decidim-initiatives", path: "decidim-initiatives"
+gem "decidim-consultations", path: "."
+gem "decidim-initiatives", path: "."
 
 # Use unreleased 5-1-stable because 5.1.6 is not compatible with capybara 3.0
 # and 5.1.7 is not yet released
