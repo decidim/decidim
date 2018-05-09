@@ -118,8 +118,6 @@ gl:
       highlighted_proposals:
         proposals: Propostas
         see_all_proposals: Ver todas as propostas
-      proposal:
-        creation_date: 'Creación: %{date}'
     proposals:
       actions:
         answer: Resposta
