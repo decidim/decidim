@@ -284,9 +284,11 @@ is:
             managed: Stýrður
             not_managed: Ekki tekist
           filter_by: Sía eftir
+          impersonate: Líkjast notanda
           impersonate_new_managed_user: Tjáðu nýja, stýrða notanda
           managed: Stýrður
           name: Nafn
+          needs_authorization_warning: Þú þarft að minnsta kosti eitt leyfi virkt fyrir þetta félag.
           not_managed: Ekki tekist
           promote: Kynna
           search: Leita
@@ -299,6 +301,7 @@ is:
           name: Nafn
           reason: Ástæða
         new:
+          impersonate: Líkjast notanda
           impersonate_existing_managed_user: Tjáðu stýrða notandann "%{name}"
           impersonate_existing_user: Birtu notanda "%{name}"
           impersonate_new_managed_user: Tjáðu nýja, stýrða notanda
