@@ -214,6 +214,7 @@ pl:
             category: Kategoria
             comments: Komentarze
             created_at: Utworzono w
+            endorsements: Adnotacje
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
