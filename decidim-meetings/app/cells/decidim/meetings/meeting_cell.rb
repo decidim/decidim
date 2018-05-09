@@ -6,6 +6,7 @@ module Decidim
     # the default size is the Medium Card (:m)
     # also available the List Item Card (:list_item)
     class MeetingCell < Decidim::ViewModel
+      include MeetingCellsHelper
       include Cell::ViewModel::Partial
 
       def show
