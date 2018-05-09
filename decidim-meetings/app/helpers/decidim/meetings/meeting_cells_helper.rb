@@ -2,12 +2,17 @@
 
 module Decidim
   module Meetings
-    class ViewModel < Decidim::ViewModel
+    # Custom helpers used in meetings views
+    module MeetingCellsHelper
       include TranslatableAttributes
       include LayoutHelper
       include Decidim::Meetings::MeetingsHelper
       include Decidim::SanitizeHelper
       include Decidim::Meetings::Engine.routes.url_helpers
+
+      def description
+        decidim_sanitize meeting_description(model)
+      end
     end
   end
 end

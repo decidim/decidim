@@ -1,19 +1,20 @@
 <div class="column" id="<%= dom_id(model) %>">
-  <article class="card card--meeting">
+  <article class="card <%= card_classes %>">
     <div class="card__content">
       <%= render :header %>
 
       <div class="card__text">
         <div class="card__text--paragraph">
+          <%= render :badge if has_badge? %>
           <%= description %>
-          <%= render partial: "decidim/shared/tags.html", locals: { resource: model, tags_class_extra: "tags--meeting" } %>
         </div>
       </div>
+
+      <%= render :tags %>
     </div>
 
-    <%= render :date %>
-    <%= render :address %>
+    <%= render :data %>
     <%= render :status %>
-    <%= render :footer if model.can_be_joined_by?(current_user) %>
+    <%= render :footer %>
   </article>
 </div>

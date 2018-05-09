@@ -10,5 +10,6 @@ module Decidim
   #
   module Admin
     autoload :Components, "decidim/admin/components"
+    autoload :FormBuilder, "decidim/admin/form_builder"
   end
 end
