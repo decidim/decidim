@@ -288,7 +288,7 @@ is:
           impersonate_new_managed_user: Tjáðu nýja, stýrða notanda
           managed: Stýrður
           name: Nafn
-          needs_authorization_warning: Þú þarft að minnsta kosti eitt leyfi virkt fyrir þetta félag.
+          needs_authorization_warning: Þú þarft að minnsta kosti eitt virkt leyfi fyrir þetta félag.
           not_managed: Ekki tekist
           promote: Kynna
           search: Leita
