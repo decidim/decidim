@@ -55,6 +55,10 @@ PATH
     decidim-comments (0.11.1)
       decidim-core (= 0.11.1)
       jquery-rails (~> 4.0)
+    decidim-consultations (0.11.1)
+      decidim-admin (= 0.11.1)
+      decidim-comments (= 0.11.1)
+      decidim-core (= 0.11.1)
     decidim-core (0.11.1)
       active_link_to (~> 1.0)
       autoprefixer-rails (~> 8.0)
@@ -123,6 +127,14 @@ PATH
       wisper-rspec (~> 1.0)
     decidim-generators (0.11.1)
       decidim-core (= 0.11.1)
+    decidim-initiatives (0.11.1)
+      decidim-admin (= 0.11.1)
+      decidim-comments (= 0.11.1)
+      decidim-core (= 0.11.1)
+      decidim-verifications (= 0.11.1)
+      kaminari (~> 1.0)
+      social-share-button (~> 1.0)
+      wicked (~> 1.3)
     decidim-meetings (0.11.1)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.8)
@@ -160,26 +172,6 @@ PATH
       sassc-rails (~> 1.3)
     decidim-verifications (0.11.1)
       decidim-core (= 0.11.1)
-
-PATH
-  remote: decidim-consultations
-  specs:
-    decidim-consultations (0.11.1)
-      decidim-admin (= 0.11.1)
-      decidim-comments (= 0.11.1)
-      decidim-core (= 0.11.1)
-
-PATH
-  remote: decidim-initiatives
-  specs:
-    decidim-initiatives (0.11.1)
-      decidim-admin (= 0.11.1)
-      decidim-comments (= 0.11.1)
-      decidim-core (= 0.11.1)
-      decidim-verifications (= 0.11.1)
-      kaminari (~> 1.0)
-      social-share-button (~> 1.0)
-      wicked (~> 1.3)
 
 GEM
   remote: https://rubygems.org/
