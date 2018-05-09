@@ -225,6 +225,7 @@ fr:
         meeting:
           fields:
             closed: Clos
+            comments: commentaires
             end_time: Heure de fin
             map: Carte
             start_time: Date de début
