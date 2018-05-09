@@ -118,8 +118,6 @@ fi:
       highlighted_proposals:
         proposals: ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
-      proposal:
-        creation_date: 'Luominen: %{date}'
     proposals:
       actions:
         answer: Vastaa
