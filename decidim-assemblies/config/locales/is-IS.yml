@@ -11,6 +11,7 @@ is:
         composition: Samsetning
         copy_categories: Afrita flokka
         copy_components: Afrita hluti
+        copy_features: Afrita eiginleika
         created_by: Búið til af
         created_by_other: Búið til af öðrum
         creation_date: Dagsetning búin til
