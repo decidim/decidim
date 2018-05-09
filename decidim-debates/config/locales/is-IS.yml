@@ -81,6 +81,9 @@ is:
           close_window: Lokaðu glugga
           share: Deila
           share_link: Deila tengil
+        show:
+          comments: Athugasemdir
+          report: Skýrslur
       models:
         debate:
           fields:
@@ -119,3 +122,11 @@ is:
         actions:
           create: Búa til
         name: Umræður
+        settings:
+          global:
+            announcement: Tilkynning
+            comments_enabled: Athugasemdir virkar
+          step:
+            announcement: Tilkynning
+            comments_blocked: Læst fyrir athugasemdir
+            creation_enabled: Umræða um stofnun notenda virk
