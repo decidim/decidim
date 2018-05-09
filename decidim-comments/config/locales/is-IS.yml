@@ -50,17 +50,24 @@ is:
         blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
         loading: Hleð inn athugasemdir ...
         title: "%{count} athugasemdir"
+      featured_comment:
+        title: Valin ummæli
     events:
       comments:
         comment_created:
           comment:
+            email_intro: '"%{resource_title}" hefur verið birt. Þú getur lesið athugasemdina á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}" eða höfundinum. Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Það er nýtt ummæli frá %{author_name} í %{resource_title}
             notification_title: Það er nýtt ummæli frá <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>
           reply:
+            email_intro: The "%{resource_title}" hefur verið birt
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}" eða höfundinum. Þú getur sleppt því frá fyrri tengilinn.
+            email_subject: Það er nýtt svar við ummælum þínum frá %{author_name} í <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Það er nýtt svar við ummælum þínum frá <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Þú hefur verið nefndur
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú hefur verið nefndur í "%{resource_title}".
           email_subject: Þú hefur verið nefndur í %{resource_title}
           notification_title: Þú hefur verið nefndur í <a href="%{resource_path}">%{resource_title}</a> af <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
