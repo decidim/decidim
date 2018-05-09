@@ -1,6 +1,7 @@
 is:
   decidim:
     comments:
+      comments: Athugasemdir
       votes:
         create:
           error: Það hafa verið villur þegar atkvæðagreiðslan var samþykkt.
