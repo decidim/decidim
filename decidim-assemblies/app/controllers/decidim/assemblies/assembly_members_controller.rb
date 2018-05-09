@@ -9,7 +9,7 @@ module Decidim
       helper_method :collection
 
       def index
-        redirect_to "/404" if members.none?
+        raise ActionController::RoutingError, "No members for this assembly" if members.none?
 
         enforce_permission_to :list, :members
         redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless current_user_can_visit_space?
