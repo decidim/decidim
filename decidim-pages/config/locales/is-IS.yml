@@ -1,0 +1,17 @@
+is:
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} uppfært %{resource_name} síðu í %{space_name}"
+    pages:
+      admin:
+        models:
+          components:
+            body: Líkami
+        pages:
+          edit:
+            save: Uppfæra
+            title: Breyta síðu
+          update:
+            invalid: Það hafa verið villur þegar þú vistar síðuna.
+            success: Síða vistað með góðum árangri.
