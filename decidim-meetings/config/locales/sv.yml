@@ -16,10 +16,12 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
+        transparent: Transparent
       minutes:
         audio_url: Ljudadress
         description: Beskrivning
@@ -112,6 +114,9 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
+        meeting_copies:
+          form:
+            select_organizer: Välj arrangören
         meetings:
           close:
             invalid: Det här problemet har avslutats
@@ -123,6 +128,8 @@ sv:
             success: Mötet har tagits bort
           edit:
             update: Uppdatera
+          form:
+            select_organizer: Välj arrangören
           index:
             title: Möten
           new:
@@ -177,6 +184,9 @@ sv:
           delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
           export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
           update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
+          value_types:
+            organizer_presenter:
+              not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
@@ -187,6 +197,8 @@ sv:
         registration_mailer:
           confirmation:
             subject: Ditt mötesregistrering har bekräftats
+      meeting:
+        not_allowed: Du får inte se det här mötet
       meetings:
         filters:
           category: Kategori
@@ -242,6 +254,9 @@ sv:
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.
+      types:
+        private_meeting: Privat möte
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
