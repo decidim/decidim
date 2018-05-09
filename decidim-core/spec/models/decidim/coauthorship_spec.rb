@@ -18,7 +18,7 @@ describe Decidim::Coauthorship do
 
     context "when the user group is not verified" do
       it "is not valid" do
-        user_group = create(:user_group)
+        user_group = create(:user_group, :verified)
         create(:user_group_membership, user: subject.author, user_group: user_group)
         subject.user_group = user_group
         expect(subject).not_to be_valid
@@ -49,7 +49,7 @@ describe Decidim::Coauthorship do
       end
       context "when author is a user_group" do
         let(:author) { coauthorship.author }
-        let(:user_group) { create(:user_group, organization: author.organization, users: [author]) }
+        let(:user_group) { create(:user_group, :verified, organization: author.organization, users: [author]) }
 
         before { subject.user_group = user_group }
 

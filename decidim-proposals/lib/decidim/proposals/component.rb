@@ -222,7 +222,7 @@ Decidim.register_component(:proposals) do |component|
                 "closed"
               else
                 "open"
-            end
+              end
 
       draft = Decidim::Proposals::CollaborativeDraft.create!(
         component: component,

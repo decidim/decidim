@@ -31,7 +31,8 @@ module Decidim
       end
 
       def new
-        authorize! :create, CollaborativeDraft
+        # authorize! :create, CollaborativeDraft
+        enforce_permission_to :create, :collaborative_draft
         @step = :step_1
 
         @form = form(CollaborativeDraftForm).from_params(

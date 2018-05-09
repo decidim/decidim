@@ -49,7 +49,7 @@ module Decidim
         end
 
         context "when created from user group and user is admin" do
-          let(:user_group) { create :user_group, users: [author], organization: author.organization }
+          let(:user_group) { create :user_group, :verified, users: [author], organization: author.organization }
           let(:collaborative_draft) do
             cd = create :collaborative_draft, component: component, updated_at: Time.current
             Decidim::Coauthorship.create(author: author, decidim_user_group_id: user_group.id, coauthorable: cd)
