@@ -35,6 +35,10 @@ eu:
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
