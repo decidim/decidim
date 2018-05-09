@@ -237,7 +237,6 @@ gl:
         meeting:
           fields:
             closed: Pechado
-            comments: Comentarios
             end_time: Data de finalización
             map: Mapa
             start_time: Data de inicio
