@@ -237,7 +237,6 @@ is:
         meeting:
           fields:
             closed: Lokað
-            comments: Athugasemdir
             end_time: Loka dagsetning
             map: Kort
             start_time: Upphafsdagur
