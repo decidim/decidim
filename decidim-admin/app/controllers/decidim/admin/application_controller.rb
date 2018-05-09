@@ -23,6 +23,8 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
 
+      default_form_builder Decidim::Admin::FormBuilder
+
       protect_from_forgery with: :exception, prepend: true
 
       def user_has_no_permission_path
