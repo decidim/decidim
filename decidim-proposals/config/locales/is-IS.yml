@@ -92,6 +92,7 @@ is:
             proposal_limit: Tillaga takmörk á notanda
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
+            proposal_wizard_step_3_help_text: Tillaga "Birta" skref hjálpartexti
             threshold_per_proposal: Gildi fyrir hverja tillögu
             vote_limit: Atkvæðagreiðsla á hvern notanda
           step:
@@ -181,6 +182,7 @@ is:
             success: "%{number} tillögur tókst að flytja inn"
           new:
             create: Innflutningur tillögur
+            no_features: Það eru engar aðrar tillögur í þessu þáttarými til að flytja tillögur frá.
             select_feature: Vinsamlegast veldu hluta
             select_states: Athugaðu ríki tillöganna til að flytja inn
         shared:
@@ -227,6 +229,7 @@ is:
           select_identity: Veldu auðkenni
       proposal_endorsements_helper:
         endorsement_button:
+          already_endorsed: Nú þegar mælt með
           endorse: Styðja
       proposal_votes:
         create:
@@ -248,10 +251,17 @@ is:
         edit_draft:
           send: Preview
           title: Breyta tillögu drög
+        endorsement_button:
+          already_endorsed: Nú þegar mælt með
+          already_endorsed_hover: Hætta við meðmæli
         endorsement_identities_cabin:
           endorse: Styðja
         endorsements_card_row:
           endorse: Styðja
+        endorsements_listing:
+          see_all: Sjá allt
+          see_less: Sjá minna
+          title: Listi yfir meðmæli
         filters:
           accepted: Samþykkt
           activity: Virkni
