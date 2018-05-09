@@ -267,7 +267,7 @@ fr:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
-          success: Le composant a été publié avec succès.
+          success: La fonctionnalité a été publié avec succès.
         title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.

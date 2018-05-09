@@ -139,7 +139,7 @@ fr:
         actions:
           bar: Bar
           foo: Foo
-        name: Composant factice
+        name: Fonctionnalité factice
         settings:
           global:
             comments_enabled: Activer le module de commentaire
@@ -217,10 +217,10 @@ fr:
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'La fonctionnalité %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
