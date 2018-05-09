@@ -229,7 +229,7 @@ nl:
           select_identity: Selecteer gebruiker
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Al goedgekeurd
+          already_endorsed: Al aanbevolen
           endorse: Aanbevelen
       proposal_votes:
         create:
@@ -252,7 +252,7 @@ nl:
           send: Voorbeeldweergave
           title: Bewerk voorstel
         endorsement_button:
-          already_endorsed: Al goedgekeurd
+          already_endorsed: Al aanbevolen
           already_endorsed_hover: Goedkeuring annuleren
         endorsement_identities_cabin:
           endorse: Aanbevelen
@@ -261,7 +261,7 @@ nl:
         endorsements_listing:
           see_all: Alles bekijken
           see_less: Minder bekijken
-          title: Lijst met stemmen
+          title: Lijst met aanbevelingen
         filters:
           accepted: Aanvaard
           activity: Activiteit
