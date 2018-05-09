@@ -1,0 +1,322 @@
+is:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Tilkynning
+        banner_image: Borðamynd
+        copy_categories: Afrita flokka
+        copy_steps: Afrita skref
+        description: Lýsing
+        developer_group: Þróunarhópur
+        domain: Lén
+        end_date: Loka dagsetning
+        hashtag: Kassamerki
+        hero_image: Heima mynd
+        local_area: Staðarnet
+        meta_scope: Gildissvið lýsigagna
+        participatory_process_group_id: Vinnuhópur
+        participatory_scope: Þátttökuskilyrði
+        participatory_structure: Þátttaka uppbyggingu
+        promoted: Kynnt
+        published_at: Birt á
+        scope_id: Umfang
+        scopes_enabled: Scopes virkt
+        short_description: Stutt lýsing
+        show_statistics: Sýna tölfræði
+        slug: URL slug
+        start_date: Upphafsdagur
+        subtitle: Texti
+        target: Skotmark
+        title: Titill
+      participatory_process_group:
+        description: Lýsing
+        hero_image: Mynd
+        name: Nafn
+        participatory_process_ids: Tengd ferli
+      participatory_process_step:
+        description: Lýsing
+        end_date: Loka dagsetning
+        short_description: Stutt lýsing
+        start_date: Upphafsdagur
+        title: Titill
+      participatory_process_user_role:
+        email: Email
+        name: Nafn
+        role: Hlutverk
+  decidim:
+    admin:
+      actions:
+        activate: Virkja
+        configure: Stilla
+        confirm_destroy: Staðfestu eyðileggingu
+        destroy: Eyðileggja
+        duplicate: Afrit
+        edit: Breyta
+        new: Nýtt
+        preview: Preview
+        publish: Birta
+        resend_invitation: Endursenda boð
+        unpublish: Unpublish
+      menu:
+        participatory_process_groups: Vinnuhópar
+        participatory_processes: Ferli
+        participatory_processes_submenu:
+          attachment_collections: Söfn
+          attachment_files: Skrár
+          attachments: Viðhengi
+          categories: Flokkar
+          info: Upplýsingar
+          moderations: Moderations
+          process_admins: Aðferð notenda
+          steps: Skref
+      models:
+        participatory_process:
+          fields:
+            created_at: Búið til á
+            promoted: Hápunktur
+            published: Published
+            title: Titill
+          name: Þátttökuferli
+        participatory_process_group:
+          fields:
+            name: Nafn
+          name: Vinnuhópur
+        participatory_process_step:
+          fields:
+            end_date: Loka dagsetning
+            start_date: Upphafsdagur
+            title: Titill
+          name: Þátttaka ferli skref
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Nafn
+            role: Hlutverk
+          name: Þátttakandi aðferð notandi
+          roles:
+            admin: Stjórnandi
+            collaborator: Samstarfsaðili
+            moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Boð samþykkt á
+            invitation_sent_at: Boð sendur á
+      participatory_process_copies:
+        new:
+          copy: Afrita
+          select: Veldu hvaða gögn þú vilt afrita
+          title: Afrit þátttakandi ferli
+      participatory_process_groups:
+        destroy:
+          success: Þátttakandi ferli hópur eytt með góðum árangri.
+        edit:
+          title: Breyta ferli hópsins
+          update: Uppfæra
+        new:
+          create: Búa til
+          title: Nýr ferli hópur
+        update:
+          error: Villa kom upp við að uppfæra þessa þátttakendahóp.
+          success: Þátttaka ferli hópur uppfærð með góðum árangri.
+      participatory_process_publications:
+        create:
+          error: Villa kom upp við að birta þessa þátttökuferli.
+          success: Þátttaka fer fram með góðum árangri.
+        destroy:
+          error: Villa kom upp við að birta þessa þátttökuferli.
+          success: Þátttakandi ferli unpublished með góðum árangri.
+      participatory_process_step_activations:
+        create:
+          error: Villa kom upp við að virkja þetta þátttökuferli.
+          success: Þátttaka ferli skref virkur með góðum árangri.
+      participatory_process_steps:
+        create:
+          error: Villa kom upp við að búa til nýtt þátttökuferli.
+          success: Þátttaka ferli skref búin til með góðum árangri.
+        default_title: Kynning
+        destroy:
+          error:
+            active_step: Ekki er hægt að eyða virku skrefi.
+            last_step: Ekki er hægt að eyða síðasta skrefi í ferli.
+          success: Þátttaka ferli skref eyðilagt með góðum árangri.
+        edit:
+          title: Breyta þátttakandi ferli skref
+          update: Uppfæra
+        index:
+          steps_title: Skref
+        new:
+          create: Búa til
+          title: Nýtt þátttaka ferli skref
+        ordering:
+          error: Villa kom upp við endurskipulagningu þessa þátttökuferli.
+        update:
+          error: Villa kom upp við uppfærslu þessa þátttökuferlisþreps.
+          success: Þátttaka ferli skref uppfært með góðum árangri.
+      participatory_process_user_roles:
+        create:
+          error: Villa kom upp við að bæta notanda við þessa þátttökuferli.
+          success: Notandi búinn til með góðum árangri fyrir þessa þátttökuferli.
+        destroy:
+          success: Notandi eyðilögð með góðum árangri fyrir þessa þátttökuferli.
+        edit:
+          title: Uppfæra þátttökuferli notanda.
+          update: Uppfæra
+        index:
+          process_admins_title: Þátttakendur notendur
+        new:
+          create: Búa til
+          title: Nýtt þátttakandi ferli notandi.
+        update:
+          error: Villa kom upp við uppfærslu notanda fyrir þessa þátttökuferli.
+          success: Notandi uppfærður tókst fyrir þessa þátttökuferli.
+      participatory_processes:
+        create:
+          error: Villa kom upp við að búa til nýtt þátttökuferli.
+          success: Þátttakandi aðferð búin til með góðum árangri. Stilla nú skref þess.
+        destroy:
+          success: Þátttakandi ferli eytt með góðum árangri.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Nýtt þátttökuferli
+        update:
+          error: Villa kom upp við að uppfæra þessa þátttökuferli.
+          success: Þátttökuferli uppfært með góðum árangri.
+      participatory_processes_copies:
+        create:
+          error: Villa kom upp við að afrita þessa þátttökuferli.
+          success: Þátttakandi ferli afritað með góðum árangri.
+      participatory_processes_group:
+        create:
+          error: Villa kom upp við að búa til nýja þátttökuhóp.
+          success: Þátttaka ferli hópur búin til með góðum árangri.
+      titles:
+        participatory_process_groups: Þátttaka ferli hópa
+        participatory_processes: Þátttökuferli
+      users:
+        resend_invitation:
+          error: Villa kom upp við að senda boðið aftur.
+          success: Boð bregst vel með.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} búið til %{resource_name} þátttakandi ferli"
+        publish: "%{user_name} gaf út %{resource_name} þátttökuferlið"
+        unpublish: "%{user_name} unpublished %{resource_name} þátttökuferlinu"
+        update: "%{user_name} uppfært %{resource_name} þátttökuferlið"
+      participatory_process_step:
+        activate: "%{user_name} virkjaði %{resource_name} skrefið í %{space_name} þátttökuferlinu"
+        create: "%{user_name} skapaði %{resource_name} skrefið í %{space_name} þátttökuferlinu"
+        delete: "%{user_name} eyddi %{resource_name} skrefi í %{space_name} þátttökuferlinu"
+        update: "%{user_name} uppfært %{resource_name} skrefið í %{space_name} þátttökuferlinu"
+      participatory_process_user_role:
+        create: "%{user_name} bauð notandanum %{resource_name} í %{space_name} þátttökuferlinu"
+        delete: "%{user_name} eyddi notandanum %{resource_name} úr %{space_name} þátttökuferlinu"
+        update: "%{user_name} breytti hlutverki notandans %{resource_name} í %{space_name} þátttökuferlinu"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: '%{resource_title} stígurinn er nú virkur fyrir %{participatory_space_title}. Þú getur séð það frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{participatory_space_title}
+          notification_title: '%{resource_title} stígurinn er nú virkur fyrir <a href="%{resource_path}">%{participatory_space_title}</a>'
+        step_changed:
+          email_intro: 'Dagsetningin fyrir %{resource_title} skrefið á %{participatory_space_title} hefur verið uppfærð. Þú getur séð það frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{participatory_space_title}
+          notification_title: Dagsetningin fyrir <a href="%{resource_path}">%{resource_title}</a> skrefið í <a href="%{participatory_space_url}">%{participatory_space_title}</a> hefur verið uppfærð.
+    menu:
+      processes: Ferli
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Aðferðir við %{group}
+        title: Þátttaka ferli hópa
+    participatory_process_steps:
+      index:
+        process_steps: Aðferð skref
+        title: Þátttaka ferli skref
+    participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+        participatory_processes:
+          form:
+            announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+      index:
+        title: Þátttökuferli
+      order_by_processes:
+        active: Virkur
+        all: Allt
+        past: Past
+        upcoming: Næstu
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Virk ferli
+            active_step: Virk skref
+            see_all_processes: Sjá öll ferli
+      participatory_process_groups:
+        none: Enginn
+      participatory_processes:
+        index:
+          loading: Loading niðurstöður ...
+      show:
+        developer_group: Hönnuður hópur
+        end_date: Loka dagsetning
+        local_area: Skipulagssvæði
+        participatory_scope: Hvað er ákveðið
+        participatory_structure: Hvernig er það ákveðið
+        scope: Umfang
+        start_date: Upphafsdagur
+        target: Hver tekur þátt
+      statistics:
+        answers_count: Svör
+        comments_count: Athugasemdir
+        endorsements_count: Áritanir
+        headline: Virkni
+        meetings_count: Fundir
+        orders_count: Atkvæði
+        pages_count: Síður
+        processes_count: Ferli
+        projects_count: Verkefni
+        proposals_count: Tillögur
+        results_count: Niðurstöður
+        surveys_count: Kannanir
+        users_count: Þátttakendur
+        votes_count: Atkvæði
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Skoða
+      participatory_process_widgets:
+        show:
+          active_step: Virk skref
+          take_part: Taka þátt
+      participatory_processes:
+        index:
+          promoted_processes: Hápunktar ferli
+        order_by_processes:
+          processes:
+            one: "%{count} ferli"
+            other: "%{count} ferli"
+        participatory_process:
+          active_step: 'Núverandi skref:'
+          take_part: Taka þátt
+        promoted_process:
+          active_step: 'Núverandi skref:'
+          more_info: Meiri upplýsingar
+          take_part: Taka þátt
+      process_header:
+        process_menu_item: Árangurinn
+        unfold: Fella út
+      process_header_steps:
+        step: Skref %{current} af %{total}
+        view_steps: Skoða skref
