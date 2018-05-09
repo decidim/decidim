@@ -237,7 +237,6 @@ sv:
         meeting:
           fields:
             closed: Stängd
-            comments: kommentarer
             end_time: Slutdatum
             map: Karta
             start_time: Startdatum
