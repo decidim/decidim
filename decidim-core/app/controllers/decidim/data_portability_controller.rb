@@ -7,12 +7,13 @@ module Decidim
     include Decidim::UserProfile
 
     def show
-      authorize! :show, current_user
+      enforce_permission_to :show, :user, current_user: current_user
+
       @account = form(AccountForm).from_model(current_user)
     end
 
     def export
-      authorize! :export, current_user
+      enforce_permission_to :export, :user, current_user: current_user
       name = current_user.name
 
       # DataPortabilityExportJob.perform_later(current_user, name, export_format)
@@ -21,7 +22,8 @@ module Decidim
       # redirect_back(fallback_location: data_portability_path)
 
       # objects = ActiveRecord::Base.descendants.select{|c| c.included_modules.include?(Decidim::DataPortability)}
-      objects = [ Decidim::User,
+      objects = [ Decidim::Messaging::Message,
+                  Decidim::User,
                   Decidim::UserGroup,
                   Decidim::Meetings::Registration,
                   Decidim::Comments::Comment,
