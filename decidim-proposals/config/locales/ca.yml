@@ -118,8 +118,6 @@ ca:
       highlighted_proposals:
         proposals: Propostes
         see_all_proposals: Veure totes les propostes
-      proposal:
-        creation_date: 'Creació: %{date}'
     proposals:
       actions:
         answer: Respondre
