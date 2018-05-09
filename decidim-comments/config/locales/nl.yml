@@ -1,6 +1,7 @@
 nl:
   decidim:
     comments:
+      comments: Comments
       votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van de reactie.
