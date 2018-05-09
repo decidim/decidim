@@ -35,6 +35,10 @@ fi:
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
