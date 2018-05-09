@@ -16,10 +16,12 @@ es:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        private_meeting: Reunión privada
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
+        transparent: Transparente
       minutes:
         audio_url: URL de audio
         description: Descripción
@@ -112,6 +114,9 @@ es:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          form:
+            select_organizer: Seleccione el organizador
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
@@ -123,6 +128,8 @@ es:
             success: El encuentro se ha eliminado correctamente
           edit:
             update: Actualizar
+          form:
+            select_organizer: Seleccione el organizador
           index:
             title: Encuentros
           new:
@@ -177,6 +184,9 @@ es:
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
         minutes:
           create: "%{user_name} creó el acta de la reunión %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el acta de la reunión %{resource_name} en el espacio %{space_name}"
@@ -187,6 +197,8 @@ es:
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
+      meeting:
+        not_allowed: No puedes ver esta reunión
       meetings:
         filters:
           category: Categoría
@@ -242,6 +254,9 @@ es:
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
+      types:
+        private_meeting: Reunión privada
+        transparent: Transparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
