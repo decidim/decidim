@@ -24,9 +24,8 @@ module Decidim
       describe "GET index" do
         context "when assembly has no members" do
           it "redirects to 404" do
-            get :index, params: { assembly_slug: assembly.slug }
-
-            expect(response).to redirect_to("/404")
+            expect { get :index, params: { assembly_slug: assembly.slug } }
+              .to raise_error(ActionController::RoutingError)
           end
         end
 
