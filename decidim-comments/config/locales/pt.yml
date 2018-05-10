@@ -1,6 +1,7 @@
 pt:
   decidim:
     comments:
+      comments: Comentários
       votes:
         create:
           error: Houve erros ao votar o comentário.
