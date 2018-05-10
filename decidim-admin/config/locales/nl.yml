@@ -210,6 +210,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
           success: Bijlage is succesvol bijgewerkt.
+      autocomplete:
+        no_results: geen resultaten gevonden
+        search_prompt: Typ minimaal drie tekens om te zoeken
       categories:
         create:
           error: Er is een fout opgetreden bij het maken van deze categorie.
