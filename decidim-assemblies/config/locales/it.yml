@@ -47,6 +47,11 @@ it:
         title: Titolo
         twitter: cinguettio
         youtube: Youtube
+      assembly_member:
+        birthday: Compleanno
+        birthplace: luogo di nascita
+        ceased_date: Data di fine
+        designation_date: Data di designazione
       assembly_user_role:
         email: E-mail
         name: Nome
