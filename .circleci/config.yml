@@ -449,22 +449,22 @@ workflows:
           filters:
             branches:
               ignore:
-                - l10n_*
+                - l10n_master
       - build_test_app:
           filters:
             branches:
               ignore:
-                - l10n_*
+                - l10n_master
       - main:
           filters:
             branches:
               ignore:
-                - l10n_*
+                - l10n_master
       - generators:
           filters:
             branches:
               ignore:
-                - l10n_*
+                - l10n_master
       - core:
           requires:
             - build_test_app
