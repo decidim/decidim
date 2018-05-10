@@ -22,7 +22,7 @@ module Decidim
     end
 
     def fingerprint
-      @fingerprint ||= FingerprintCalculator.new(self, fingerprint_data)
+      @fingerprint ||= FingerprintCalculator.new(fingerprint_data)
     end
 
     private
@@ -31,14 +31,14 @@ module Decidim
       options = self.class.fingerprint_options
 
       if options[:block]
-        fingerprint_options[:block].call(self)
+        options[:block].call(self)
       elsif options[:fields]
         options[:fields].each_with_object({}) do |field, result|
           result[field] = send(field)
         end
+      else
+        raise "Fingerprinting needs to be set up via the `fingerprint` class method."
       end
-
-      raise "Fingerprinting needs to be set up via the `fingerprint` class method."
     end
   end
 end

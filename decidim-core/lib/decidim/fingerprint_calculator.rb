@@ -4,15 +4,12 @@ require "digest"
 
 module Decidim
   class FingerprintCalculator
-    alias to_s fingerprint
-
-    def initialize(object, data)
-      @object = object
+    def initialize(data)
       @data = data
     end
 
-    def fingerprint
-      @fingerprint ||= Digest::SHA256.hexdigest(data)
+    def value
+      @value ||= Digest::SHA256.hexdigest(source)
     end
 
     def source

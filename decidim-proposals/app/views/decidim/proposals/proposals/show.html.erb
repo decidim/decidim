@@ -28,6 +28,7 @@
       </div>
     <% end %>
     <%= resource_reference(@proposal) %>
+    <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
