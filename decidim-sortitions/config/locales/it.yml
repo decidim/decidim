@@ -106,8 +106,6 @@ it:
           label: 'Ordina le ordinazioni per:'
           random: Casuale
           recent: Recente
-        proposal:
-          view_proposal: Visualizza proposta
         results_count:
           count:
             one: proposta selezionata
