@@ -159,4 +159,4 @@ We always welcome new contributors of all levels to the project. If you are not 
 
 We also have a [developer's reference](docs/development_guide.md) that will help you getting started with your environment and our daily commands, routines, etc.
 
-Finally, you can also find other ways of helping us on our [contribution guide](CONTRIBUTING.md).
+Finally, you can also find other ways of helping us on our [contribution guide](../CONTRIBUTING.md).

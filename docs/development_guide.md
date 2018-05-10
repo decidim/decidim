@@ -87,4 +87,4 @@ bundle exec rubocop -a
 
 ## Testing
 
-Refer to the `advanced/testing.md` document.
+Refer to the [testing](docs/advanced/testing.md) guide.
