@@ -47,6 +47,15 @@ fi:
         title: Otsikko
         twitter: Viserrys
         youtube: YouTube
+      assembly_member:
+        birthday: Syntymäpäivä
+        birthplace: Syntymäpaikka
+        ceased_date: Viivästynyt päivämäärä
+        designation_date: Nimityspäivä
+        designation_mode: Nimitystila
+        full_name: Koko nimi
+        gender: sukupuoli
+        position: asento
       assembly_user_role:
         email: Sähköposti
         name: Nimi
