@@ -210,6 +210,9 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este anexo.
           success: Anexo atualizado com sucesso.
+      autocomplete:
+        no_results: Nenhum resultado encontrado
+        search_prompt: Digite pelo menos três caracteres para pesquisar
       categories:
         create:
           error: Ocorreu um erro ao criar esta categoria.

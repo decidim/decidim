@@ -47,6 +47,10 @@ pt-BR:
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Aniversário
+        birthplace: Berço
+        ceased_date: Data de cessação
       assembly_user_role:
         email: O email
         name: Nome

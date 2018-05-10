@@ -47,6 +47,10 @@ pl:
         title: Tytuł
         twitter: Świergot
         youtube: Youtube
+      assembly_member:
+        birthday: Urodziny
+        birthplace: Miejsce urodzenia
+        ceased_date: Przerywana data
       assembly_user_role:
         email: E-mail
         name: Nazwa

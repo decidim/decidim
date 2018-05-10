@@ -47,6 +47,15 @@ nl:
         title: Titel
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Verjaardag
+        birthplace: Geboorteplaats
+        ceased_date: Gestaakte datum
+        designation_date: Aanwijzingsdatum
+        designation_mode: Aanwijzingsmodus
+        full_name: Voor-en achternaam
+        gender: Geslacht
+        position: Positie
       assembly_user_role:
         email: E-mail
         name: Naam
@@ -83,6 +92,23 @@ nl:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Dupliceer bijeenkomst
+      assembly_members:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
+          success: Lid is met succes voor deze assembly gemaakt.
+        destroy:
+          success: Lid succesvol vernietigd voor deze assembly.
+        edit:
+          title: Update assembly-lid.
+          update: Bijwerken
+        index:
+          assembly_members_title: Vergadering leden
+        new:
+          create: creëren
+          title: Nieuw assemblagelid.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze assembly.
+          success: Lid is succesvol bijgewerkt voor deze assembly.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
@@ -111,6 +137,7 @@ nl:
         assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
+          assembly_members: leden
           attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
@@ -128,6 +155,18 @@ nl:
             published: Gepubliceerd
             title: Titel
           name: Bijeenkomst
+        assembly_member:
+          fields:
+            ceased_date: Gestaakte datum
+            designation_date: Aanwijzingsdatum
+            full_name: Naam
+            position: Positie
+          name: Lid
+          positions:
+            other: anders
+            president: President
+            secretary: Secretaris
+            vice_president: Onderdirecteur
         assembly_user_role:
           fields:
             email: E-mail
@@ -146,6 +185,8 @@ nl:
         publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
         update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
+      assembly_member:
+        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly gemaakt"
       assembly_user_role:
         create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
         delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"

@@ -94,9 +94,6 @@ gl:
           close_window: Pechar ventá
           share: Comparte
           share_link: Compartir a ligazón
-        show:
-          comments: Comentarios
-          report: Informe
       models:
         debate:
           fields:

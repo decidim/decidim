@@ -94,9 +94,6 @@ fi:
           close_window: Sulje ikkuna
           share: Jaa
           share_link: Jaa linkki
-        show:
-          comments: Kommentit
-          report: Raportti
       models:
         debate:
           fields:

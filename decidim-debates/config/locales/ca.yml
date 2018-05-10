@@ -94,9 +94,6 @@ ca:
           close_window: Tanca la finestra
           share: Compartir
           share_link: Comparteix l'enllaç
-        show:
-          comments: Comentaris
-          report: Denuncia
       models:
         debate:
           fields:
