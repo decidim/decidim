@@ -47,6 +47,15 @@ fr:
         title: Titre
         twitter: Gazouillement
         youtube: Youtube
+      assembly_member:
+        birthday: Anniversaire
+        birthplace: Lieu de naissance
+        ceased_date: Date de cessation
+        designation_date: Date de désignation
+        designation_mode: Mode de désignation
+        full_name: Nom complet
+        gender: Le genre
+        position: Position
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -83,6 +92,23 @@ fr:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer l'assemblée
+      assembly_members:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet assembly.
+          success: Membre créé avec succès pour cet assembly.
+        destroy:
+          success: Membre détruit avec succès pour cet assemblage.
+        edit:
+          title: Mettre à jour le membre de l'assembly
+          update: Mettre à jour
+        index:
+          assembly_members_title: Membres de l'Assemblée
+        new:
+          create: Créer
+          title: Nouveau membre de l'assemblée.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour du membre pour cet assembly.
+          success: Membre mis à jour avec succès pour cet assembly.
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -111,6 +137,7 @@ fr:
         assemblies: Agora
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
+          assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
@@ -128,6 +155,18 @@ fr:
             published: Publié
             title: Titre
           name: Assemblée
+        assembly_member:
+          fields:
+            ceased_date: Date de cessation
+            designation_date: Date de désignation
+            full_name: prénom
+            position: Position
+          name: Membre
+          positions:
+            other: Autre
+            president: Président
+            secretary: secrétaire
+            vice_president: Vice président
         assembly_user_role:
           fields:
             email: Email
@@ -146,6 +185,8 @@ fr:
         publish: "%{user_name} a publié l'agora %{resource_name}"
         unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
         update: "%{user_name} a mis à jour l'agora %{resource_name}"
+      assembly_member:
+        create: "%{user_name} créé le %{resource_name} membre dans l'assemblage %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
