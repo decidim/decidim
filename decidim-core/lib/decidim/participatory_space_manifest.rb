@@ -32,6 +32,9 @@ module Decidim
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can

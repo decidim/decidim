@@ -21,6 +21,14 @@ module Decidim
       resource_locator(model).path
     end
 
+    def resource_image_path
+      nil
+    end
+
+    def has_image?
+      false
+    end
+
     def title
       translated_attribute model.title
     end
@@ -49,8 +57,12 @@ module Decidim
       model.state
     end
 
+    def base_card_class
+      "card--#{dom_class(model)}"
+    end
+
     def card_classes
-      classes = ["card--#{dom_class(model)}"]
+      classes = [base_card_class]
       return classes unless has_state?
       classes.concat(state_classes).join(" ")
     end
