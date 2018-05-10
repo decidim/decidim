@@ -19,6 +19,8 @@ module Decidim
         let(:designation_date) { Time.current }
         let(:gender) { ::Faker::Lorem.word }
         let(:position) { Decidim::AssemblyMember::POSITIONS.first }
+        let(:existing_user) { false }
+        let(:user_id) { nil }
 
         let(:attributes) do
           {
@@ -27,7 +29,9 @@ module Decidim
               "designation_date" => designation_date,
               "gender" => gender,
               "position" => position,
-              "birthday" => Time.current
+              "birthday" => Time.current,
+              "existing_user" => existing_user,
+              "user_id" => user_id
             }
           }
         end
@@ -72,6 +76,26 @@ module Decidim
           end
         end
 
+        context "when existing user is present" do
+          let(:existing_user) { true }
+
+          context "and no user is provided" do
+            it { is_expected.to be_invalid }
+          end
+
+          context "and user exists" do
+            let(:user_id) { create(:user, organization: organization).id }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "and no such user exists" do
+            let(:user_id) { 999_999 }
+
+            it { is_expected.to be_invalid }
+          end
+        end
+
         context "when ceased date is present" do
           context "and is older than designation date" do
             subject(:form) { described_class.from_params(attributes.merge(ceased_date: (designation_date - 1.minute))).with_context(context) }
@@ -89,6 +113,28 @@ module Decidim
             subject(:form) { described_class.from_params(attributes.merge(ceased_date: (designation_date + 1.minute))).with_context(context) }
 
             it { is_expected.to be_valid }
+          end
+        end
+
+        describe "user" do
+          subject { form.user }
+
+          context "when the user exists" do
+            let(:user_id) { create(:user, organization: organization).id }
+
+            it { is_expected.to be_kind_of(Decidim::User) }
+          end
+
+          context "when the user does not exist" do
+            let(:user_id) { 999_999 }
+
+            it { is_expected.to eq(nil) }
+          end
+
+          context "when the user is from another organization" do
+            let(:user_id) { create(:user).id }
+
+            it { is_expected.to eq(nil) }
           end
         end
       end
