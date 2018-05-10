@@ -1,0 +1,19 @@
+<div class="card__icondata">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <%= icon "datetime", class: "icon--big" %>
+    </li>
+    <li class="card-data__item">
+      <div class="card-data__item--centerblock">
+        <strong><%= t("activemodel.attributes.participatory_process.start_date") %></strong>
+        <%= l start_date, format: :decidim_short %>
+      </div>
+    </li>
+    <li class="card-data__item">
+      <div class="card-data__item--centerblock">
+        <strong><%= t("activemodel.attributes.participatory_process.end_date") %></strong>
+        <%= l end_date, format: :decidim_short %>
+      </div>
+    </li>
+  </ul>
+</div>

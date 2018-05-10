@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+module Decidim
+  module ParticipatoryProcesses
+    # This cell renders the process card for an instance of a Process
+    # the default size is the Medium Card (:m)
+    # also available the List Item Card (:list_item)
+    class ProcessCell < Decidim::ViewModel
+      def show
+        cell card_size, model
+      end
+
+      private
+
+      def card_size
+        "decidim/participatory_processes/process_m"
+      end
+    end
+  end
+end
