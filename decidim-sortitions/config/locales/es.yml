@@ -12,7 +12,7 @@ es:
   decidim:
     components:
       sortitions:
-        name: Clases
+        name: Sorteos
         settings:
           global:
             comments_enabled: Comentarios habilitados

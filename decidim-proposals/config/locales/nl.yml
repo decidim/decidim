@@ -276,7 +276,7 @@ nl:
           all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizens: burgers
+          citizens: Burgers
           evaluating: Aan het beoordelen
           official: Officieel
           origin: Oorsprong
@@ -293,7 +293,7 @@ nl:
         identities_listing:
           see_all: Alles bekijken
           see_less: Minder bekijken
-          title: Lijst met stemmen
+          title: Lijst met aanbevelingen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
