@@ -53,7 +53,7 @@ module Decidim
       end
 
       def end_date
-        model.end_date.to_date
+        model.end_date
       end
     end
   end
