@@ -6,7 +6,7 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
-        about: Handla om
+        about: Om
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
@@ -61,7 +61,7 @@ sv:
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
       component:
-        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} utrymmet"
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
         publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
         unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
@@ -152,7 +152,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplett profil
+          complete_profile: Komplettera profil
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
