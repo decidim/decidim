@@ -11,6 +11,15 @@ ru:
       proposal_answer:
         answer: Ответить
   decidim:
+    participatory_processes:
+      participatory_process_groups:
+        proposal:
+          creation_date: 'Создано: %{date}'
+          view_proposal: Просмотреть предложение
+    participatory_spaces:
+      proposal:
+        creation_date: 'Создано: %{date}'
+        view_proposal: Просмотреть предложение
     proposals:
       actions:
         answer: Ответить
