@@ -1,6 +1,7 @@
 gl:
   decidim:
     comments:
+      comments: Comentarios
       votes:
         create:
           error: Houbo erros ao votar o comentario.
