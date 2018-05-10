@@ -106,8 +106,6 @@ sv:
           label: 'Beställ sorteringar genom:'
           random: Slumpmässig
           recent: Nyligen
-        proposal:
-          view_proposal: Visa förslag
         results_count:
           count:
             one: valda förslaget
