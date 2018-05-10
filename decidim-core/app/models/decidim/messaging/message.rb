@@ -9,7 +9,6 @@ module Decidim
     #
     class Message < ApplicationRecord
       include Decidim::FriendlyDates
-      include Decidim::DataPortability
 
       belongs_to :sender,
                  foreign_key: :decidim_sender_id,
@@ -42,14 +41,6 @@ module Decidim
         receipts.build(recipient: sender, read_at: Time.zone.now)
 
         recipients.each { |recipient| receipts.build(recipient: recipient) }
-      end
-
-      def self.user_collection(user)
-        Decidim::Messaging::UserConversations.for(user).map(&:messages)
-      end
-
-      def self.export_serializer
-        Decidim::Exporters::DataPortabilityMessageSerializer
       end
 
       private

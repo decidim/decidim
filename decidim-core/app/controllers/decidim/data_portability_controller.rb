@@ -22,7 +22,10 @@ module Decidim
       # redirect_back(fallback_location: data_portability_path)
 
       # objects = ActiveRecord::Base.descendants.select{|c| c.included_modules.include?(Decidim::DataPortability)}
-      objects = [ Decidim::Messaging::Message,
+
+      objects = [
+                  Decidim::Budgets::Order,
+                  Decidim::Messaging::Conversation,
                   Decidim::User,
                   Decidim::UserGroup,
                   Decidim::Meetings::Registration,
@@ -31,6 +34,10 @@ module Decidim
                   Decidim::Proposals::ProposalVote,
                   Decidim::Proposals::ProposalEndorsement,
                   Decidim::Debates::Debate,
+                  Decidim::Follow,
+                  Decidim::Report,
+                  Decidim::Notification,
+                  Decidim::Identity,
                 ]
 
       #Temporary#

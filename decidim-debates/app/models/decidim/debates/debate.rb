@@ -101,7 +101,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Debates ::DataPortabilityDebateSerializer
+        Decidim::Debates::DataPortabilityDebateSerializer
       end
 
       private
