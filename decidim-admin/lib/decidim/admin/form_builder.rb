@@ -53,6 +53,7 @@ module Decidim
                                     searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
                                     noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
                                   },
+                                  autocomplete_for: attribute,
                                   plugin: "autocomplete"
                                 })
         template += error_for(attribute, options) if error?(attribute)
