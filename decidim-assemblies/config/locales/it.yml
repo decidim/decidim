@@ -47,6 +47,15 @@ it:
         title: Titolo
         twitter: cinguettio
         youtube: Youtube
+      assembly_member:
+        birthday: Compleanno
+        birthplace: luogo di nascita
+        ceased_date: Data di fine
+        designation_date: Data di designazione
+        designation_mode: Modalità di designazione
+        full_name: Nome e cognome
+        gender: Genere
+        position: Posizione
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -83,6 +92,23 @@ it:
           copy: Copia
           select: Scegli quale quale dato vuoi duplicare
           title: Duplicare il montaggio
+      assembly_members:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
+          success: Membro creato con successo per questo assembly.
+        destroy:
+          success: Membro distrutto con successo per questo assemblaggio.
+        edit:
+          title: Aggiorna membro dell'assembly.
+          update: Aggiornare
+        index:
+          assembly_members_title: Membri dell'Assemblea
+        new:
+          create: Creare
+          title: Nuovo membro dell'assemblea.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento del membro per questo assembly.
+          success: Membro aggiornato correttamente per questo assembly.
       assembly_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
@@ -111,6 +137,7 @@ it:
         assemblies: assemblee
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
+          assembly_members: Utenti
           attachment_collections: collezioni
           attachment_files: File
           attachments: Allegati
@@ -128,6 +155,18 @@ it:
             published: Pubblicato
             title: Nome
           name: montaggio
+        assembly_member:
+          fields:
+            ceased_date: Data di fine
+            designation_date: Data di designazione
+            full_name: Nome
+            position: Posizione
+          name: Membro
+          positions:
+            other: Altro
+            president: Presidente
+            secretary: segretario
+            vice_president: Vicepresidente
         assembly_user_role:
           fields:
             email: E-mail
@@ -146,6 +185,10 @@ it:
         publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
         unpublish: "%{user_name} non pubblicato l'assembly %{resource_name}"
         update: "%{user_name} ha aggiornato l'assembly %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creato il membro %{resource_name} nel %{space_name} assembly"
+        delete: "%{user_name} rimosso il membro %{resource_name} dal gruppo %{space_name}"
+        update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
       assembly_user_role:
         create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
         delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
@@ -162,6 +205,19 @@ it:
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_members:
+          form:
+            select_a_position: Seleziona una posizione
+          index:
+            filter:
+              all: Tutti
+              ceased: cessato
+              not_ceased: Non è cessato
+            filter_by: Filtra per
+            search: Ricerca
+      assembly_members:
+        index:
+          members: Utenti
       assembly_types:
         commission: comission
         consultative_advisory: Consultivo / Advisory
@@ -224,6 +280,11 @@ it:
         surveys_count: indagini
         users_count: Partecipanti
         votes_count: Voti
+    assembly_members:
+      assembly_member:
+        desiganted_on: Designato su
+      index:
+        title: Utenti
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +309,7 @@ it:
           more_info: Maggiori informazioni
           take_part: Partecipa
       assembly_header:
+        assembly_member_menu_item: Utenti
         assembly_menu_item: L'assemblea
         unfold: Espandi
       assembly_widgets:
