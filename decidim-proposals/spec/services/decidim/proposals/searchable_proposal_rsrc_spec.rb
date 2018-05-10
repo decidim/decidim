@@ -27,6 +27,7 @@ module Decidim
             expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
           end
         end
+
         it "updates the associated SearchableRsrc after Proposal update" do
           searchable = SearchableRsrc.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
           created_at = searchable.created_at
@@ -41,6 +42,7 @@ module Decidim
             expect(searchable.updated_at).to be > created_at
           end
         end
+
         it "destroys the associated SearchableRsrc after Proposal destroy" do
           proposal.destroy
 
@@ -74,11 +76,7 @@ module Decidim
       end
     end
 
-    #--------------------------------------------------------------------
-
     private
-
-    #--------------------------------------------------------------------
 
     def expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
       attrs = searchable.attributes.clone

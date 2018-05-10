@@ -28,6 +28,7 @@ module Decidim
             expect_searchable_rsrc_to_correspond_to_meeting(searchable, meeting, locale)
           end
         end
+
         it "updates the associated SearchableRsrc after Meeting update" do
           searchable = SearchableRsrc.find_by(resource_type: meeting.class.name, resource_id: meeting.id)
           created_at = searchable.created_at
@@ -44,6 +45,7 @@ module Decidim
             expect(searchable.updated_at).to be > created_at
           end
         end
+
         it "destroys the associated SearchableRsrc after Meeting destroy" do
           meeting.destroy
 
@@ -78,11 +80,7 @@ module Decidim
       end
     end
 
-    #--------------------------------------------------------------------
-
     private
-
-    #--------------------------------------------------------------------
 
     def expect_searchable_rsrc_to_correspond_to_meeting(searchable, meeting, locale)
       attrs = searchable.attributes

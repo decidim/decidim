@@ -3,7 +3,18 @@
 require "pg_search"
 
 module Decidim
-  # A searchable Resource
+  # A Searchable Resource.
+  # This is a model to a PgSearch table that indexes all searchable resources.
+  # This table is used to perform textual searches.
+  #
+  # Main attributes are:
+  # - locale: One entry per locale is required, so each resource will be indexed once per locale.
+  # - content_a: The most relevant textual content.
+  # - content_b: The second most relevant textual content.
+  # - content_c: The third most relevant textual content.
+  # - content_d: The less relevant textual content.
+  # - datetime:  The timestamp that places this resource in the line of time. Used as second criteria (first is text relevance) for sorting.
+  #
   class SearchableRsrc < ApplicationRecord
     include PgSearch
 

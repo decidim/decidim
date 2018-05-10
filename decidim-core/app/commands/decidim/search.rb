@@ -10,10 +10,10 @@ module Decidim
     # Public: Initializes the command.
     #
     # @param term: The term to search for.
-    def initialize(term, organization, filters = nil)
+    def initialize(term, organization, filters = {})
       @term = term
       @organization = organization
-      @filters = filters || {}
+      @filters = filters
     end
 
     # Executes the command. Broadcasts these events:
@@ -24,8 +24,8 @@ module Decidim
     # Returns nothing.
     def call
       query = SearchableRsrc.where(organization: @organization, locale: I18n.locale)
-      @filters.each_pair do |att_name, value|
-        query = query.where(att_name => value) if permit_filter?(att_name, value)
+      @filters.each_pair do |attribute_name, value|
+        query = query.where(attribute_name => value) if permit_filter?(attribute_name, value)
       end
       @results = if term.present?
                    query.global_search(I18n.transliterate(term))
@@ -36,13 +36,10 @@ module Decidim
       broadcast(:ok, @results.order("datetime DESC"))
     end
 
-    #---------------------------------------------------------------------
-
     private
 
-    #---------------------------------------------------------------------
-    def permit_filter?(att_name, value)
-      ACCEPTED_FILTERS.include?(att_name.to_sym) && value.present?
+    def permit_filter?(attribute_name, value)
+      ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
     end
   end
 end

@@ -11,10 +11,10 @@ class CreateDecidimSearchableRsrcs < ActiveRecord::Migration[5.1]
       t.datetime :datetime
 
       t.belongs_to :decidim_scope
-      t.belongs_to :decidim_participatory_space, polymorphic: true, index: { name: "idx_decidim_schbl_rsrcs_on_ptcptry_spc_type_and_ptcptry_spc_id" }
+      t.belongs_to :decidim_participatory_space, polymorphic: true, index: { name: "index_decidim_searchable_resource_on_pspace_type_and_pspace_id" }
       t.belongs_to :decidim_organization
 
-      t.belongs_to :resource, polymorphic: true, index: { name: "idx_decidim_schbl_rsrcs_on_schbl_type_and_schbl_id" }
+      t.belongs_to :resource, polymorphic: true, index: { name: "index_decidim_searchable_rsrcs_on_s_type_and_s_id" }
       t.timestamps null: false
     end
   end

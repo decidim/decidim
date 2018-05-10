@@ -1,8 +1,28 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class with the responsibility to mapp fields between a Searchalbe and a SearchableRsrc.
+  # A class with the responsibility to mapp fields between a Searchable and a SearchableRsrc.
   class SearchResourceFieldsMapper
+    #
+    # Declared fields may be of types:
+    # - Hash for deep associations.
+    # - Array each element should be a text field symbol, all values will be concatenated.
+    # - Symbol when mapping is direct.
+    #
+    # @param declared_fields: A Hash with the mappings between a SearchableRsrc attributes and 
+    #    any given model. Mapped fields are:
+    # - scope_id: The field where the scope is setted in the model, if any.
+    # - participatory_space: The field where the ParticipatorySpace is setted in the model.
+    # - datetime: The field that describes where in time the model is placed.
+    # - A, B, C, D: Weighted text fields.
+    #
+    # Example value for declared_fields param:
+    # {scope_id: :decidim_scope_id,
+    # participatory_space: { component: :participatory_space },
+    # A: :title,
+    # D: [:description, :address],
+    # datetime: :start_time}
+    #
     def initialize(declared_fields)
       @declared_fields = declared_fields.with_indifferent_access
     end

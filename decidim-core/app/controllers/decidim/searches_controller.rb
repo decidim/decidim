@@ -5,7 +5,6 @@ module Decidim
     include Rectify::ControllerHelpers
     include FormFactory
     include FilterResource
-    # include Orderable
     include Paginable
 
     helper Decidim::FiltersHelper
@@ -19,11 +18,7 @@ module Decidim
       end
     end
 
-    #--------------------------------------------------------------
-
     private
-
-    #--------------------------------------------------------------
 
     def default_filter_params
       {
@@ -38,7 +33,6 @@ module Decidim
     end
 
     def filters
-      # @filters ||= params[:filter]&.permit([:resource_type, :scope_id])&.to_h
       filter_params
     end
   end

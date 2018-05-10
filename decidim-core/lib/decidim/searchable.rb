@@ -39,11 +39,8 @@ module Decidim
         end
       end
 
-      #------------------------------------------------------------------
-
       private
 
-      #------------------------------------------------------------------
       def contents_to_searchable_rsrc_attrs(fields, locale)
         contents = fields[:i18n][locale]
         content_a = I18n.transliterate(contents[:A] || "")
@@ -69,7 +66,7 @@ module Decidim
         @search_rsrc_indexable_fields
       end
 
-      # Declare the searchable fields for this instance.
+      # Declares the searchable fields for this instance.
       # Must be a Hash that follow the following format:
       # {
       #   scope_id: { scope: :id },

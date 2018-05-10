@@ -26,6 +26,7 @@ module Decidim
         before do
           create(:searchable_rsrc, organization: organization, content_a: "I don't like groomming my dog.")
         end
+
         it "returns results with 'Great' in their content" do
           get :index, params: { term: "Great" }
 
@@ -33,13 +34,13 @@ module Decidim
         end
       end
     end
+
     context "when applying resource_type filter" do
       let(:search) { instance_dobule(Decidim::Search) }
       let(:resource_type) { "SomeResourceType" }
 
-      before do
-        allow(Decidim::Search).to receive(:call)
-      end
+      before { allow(Decidim::Search).to receive(:call) }
+
       it "takes the resource_type filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(resource_type: resource_type))
 
@@ -51,9 +52,8 @@ module Decidim
       let(:search) { instance_dobule(Decidim::Search) }
       let(:scope_id) { "SomeScopeId" }
 
-      before do
-        allow(Decidim::Search).to receive(:call)
-      end
+      before { allow(Decidim::Search).to receive(:call) }
+
       it "takes the scope filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(scope_id: scope_id))
 
