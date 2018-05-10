@@ -5,25 +5,8 @@ require "cell/partial"
 module Decidim
   module Proposals
     # This cell renders a proposal with its M-size card.
-    class ProposalMCell < Decidim::Proposals::ProposalCell
-      include Cell::ViewModel::Partial
-      include Decidim::TooltipHelper
-
-      def show
-        render
-      end
-
-      def footer
-        render
-      end
-
-      def header
-        render
-      end
-
-      def status
-        render
-      end
+    class ProposalMCell < Decidim::CardMCell
+      include ProposalCellsHelper
 
       def badge
         render
@@ -31,30 +14,33 @@ module Decidim
 
       private
 
-      def current_user
-        context[:current_user]
+      def has_state?
+        true
       end
 
-      def decidim
-        Decidim::Core::Engine.routes.url_helpers
+      def has_badge?
+        answered? || withdrawn?
       end
 
-      def resource_path
-        resource_locator(model).path
-      end
-
-      def body
+      def description
         truncate(model.body, length: 100)
       end
 
       def badge_classes
-        classes = [badge_state_css]
-        classes += if options[:full_badge]
-                     ["label", "proposal-status"]
-                   else
-                     ["card__text--status"]
-                   end
-        classes.join(" ")
+        return super unless options[:full_badge]
+        state_classes.concat(["label", "proposal-status"]).join(" ")
+      end
+
+      def statuses
+        [:creation_date, :follow, :endorsements_count, :comments_count]
+      end
+
+      def endorsements_count_status
+        link_to resource_path do
+          with_tooltip t("decidim.proposals.models.proposal.fields.endorsements") do
+            icon("bullhorn", class: "icon--small") + " " + model.proposal_endorsements_count.to_s
+          end
+        end
       end
     end
   end

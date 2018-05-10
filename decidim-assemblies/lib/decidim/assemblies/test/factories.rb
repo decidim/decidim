@@ -113,4 +113,20 @@ FactoryBot.define do
              role: :collaborator
     end
   end
+
+  factory :assembly_member, class: "Decidim::AssemblyMember" do
+    assembly { create(:assembly) }
+
+    full_name { Faker::Name.name }
+    gender { Faker::Lorem.word }
+    birthday { Faker::Date.birthday(18, 65) }
+    birthplace { Faker::Lorem.word }
+    position { Decidim::AssemblyMember::POSITIONS.first }
+    designation_date { Faker::Date.between(1.year.ago, 1.month.ago) }
+    designation_mode { Faker::Lorem.word }
+
+    trait :ceased do
+      ceased_date { Faker::Date.between(1.day.ago, 5.days.ago) }
+    end
+  end
 end

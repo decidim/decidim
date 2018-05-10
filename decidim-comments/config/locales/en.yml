@@ -2,6 +2,7 @@
 en:
   decidim:
     comments:
+      comments: Comments
       votes:
         create:
           error: There's been errors when voting the comment.
