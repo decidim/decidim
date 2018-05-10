@@ -66,9 +66,6 @@ ca:
           invalid: Hi ha hagut un problema en crear el debat.
           success: Debat creat correctament.
         debate:
-          comments:
-            one: Comentari
-            other: Comentaris
           participate: Participa
         filters:
           all: Tots
