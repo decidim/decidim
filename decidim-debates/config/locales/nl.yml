@@ -66,9 +66,6 @@ nl:
           invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
           success: Debat succesvol aangemaakt.
         debate:
-          comments:
-            one: Reactie
-            other: Reacties
           participate: Deelnemen
         filters:
           all: Alle
