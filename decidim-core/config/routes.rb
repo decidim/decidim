@@ -55,7 +55,7 @@ Decidim::Core::Engine.routes.draw do
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
-  
+
   get :organization_users, to: "users#index"
 
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
