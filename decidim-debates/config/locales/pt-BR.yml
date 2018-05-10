@@ -66,9 +66,6 @@ pt-BR:
           invalid: Houve um problema ao criar o debate.
           success: Debate criado com sucesso.
         debate:
-          comments:
-            one: Comente
-            other: Comentários
           participate: Participar
         filters:
           all: Todos
