@@ -47,7 +47,7 @@
 
     <div class="row column">
       <%= form.text_field :organizer_picker, value: meeting_organizer_picker_text(form), class: "user-autocomplete", placeholder: t(".select_organizer"),
-                          data: { url: decidim.organization_users_url } %>
+                          data: { url: decidim_admin.users_organization_url } %>
       <%= form.hidden_field :organizer_id %>
     </div>
 
