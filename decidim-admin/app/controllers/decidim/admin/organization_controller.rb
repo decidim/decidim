@@ -28,6 +28,25 @@ module Decidim
           end
         end
       end
+
+      def users
+        respond_to do |format|
+          format.json do
+            if (term = params[:term].to_s).present?
+              query = current_organization.users.order(name: :asc)
+              query = if term.start_with?("@")
+                        query.where("nickname ILIKE ?", "#{term.delete("@")}%")
+                      else
+                        query.where("name ILIKE ?", "%#{term}%")
+                      end
+
+              render json: query.pluck(:id, :name, :nickname)
+            else
+              render json: []
+            end
+          end
+        end
+      end
     end
   end
 end
