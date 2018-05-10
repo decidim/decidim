@@ -66,9 +66,6 @@ it:
           invalid: C'è stato un problema durante la creazione del dibattito.
           success: Dibattito creato con successo.
         debate:
-          comments:
-            one: Commento
-            other: Commenti
           participate: Partecipare
         filters:
           all: Tutti
