@@ -47,6 +47,11 @@ es:
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Cumpleaños
+        birthplace: Lugar de nacimiento
+        ceased_date: Fecha de vencimiento
+        designation_date: Fecha de designación
       assembly_user_role:
         email: Email
         name: Nombre
