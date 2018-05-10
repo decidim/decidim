@@ -129,6 +129,7 @@ administrators should keep in mind updating the help texts for each step.
 - **decidim-admin**: Ability to select leaf categories from Admin change-category bulk action [\#3243](https://github.com/decidim/decidim/pull/3243)
 - **decidim-admin**: Highlighted banner image is not required if already present in the organization [\#3244](https://github.com/decidim/decidim/pull/3244)
 - **decidim-proposals**: Keep the user group (if set) as default value of author field on forms [\#3247](https://github.com/decidim/decidim/pull/3247)
+- **decidim**: Fix the dependency of `high_voltage` to `v3.0.0` [\#3383](https://github.com/decidim/decidim/pull/3383)
 
 **Removed**:
 
