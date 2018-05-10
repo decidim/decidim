@@ -1,28 +1,28 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
-      <% if can? :update, current_participatory_space.consultation %>
+      <% if allowed_to?(:update, :consultation, consultation: current_participatory_space.consultation) %>
         <li <% if is_active_link?(decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("consultation", scope: "decidim.admin.menu.questions_submenu"),
                                     decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation) %>
         </li>
       <% end %>
 
-      <% if can?(:update, current_participatory_space) %>
+      <% if allowed_to?(:update, :question, question: current_participatory_space) %>
         <li <% if is_active_link?(decidim_admin_consultations.edit_question_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.questions_submenu"),
                                     decidim_admin_consultations.edit_question_path(current_participatory_space) %>
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Consultations::Response %>
+      <% if allowed_to? :read, :response %>
         <li <% if is_active_link?(decidim_admin_consultations.responses_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("responses", scope: "decidim.admin.menu.questions_submenu"),
                                     decidim_admin_consultations.responses_path(current_participatory_space) %>
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Component %>
+      <% if allowed_to? :read, :component %>
         <li <% if is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.questions_submenu"),
                                     decidim_admin_consultations.components_path(current_participatory_space) %>
@@ -45,14 +45,14 @@
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Category %>
+      <% if allowed_to? :read, :category %>
         <li <% if is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".categories"),
                                     decidim_admin_consultations.categories_path(current_participatory_space) %>
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Attachment %>
+      <% if allowed_to? :read, :attachment %>
         <li <% if is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".attachments"),
                                     decidim_admin_consultations.question_attachments_path(current_participatory_space) %>
@@ -65,8 +65,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= translated_attribute(current_participatory_space.consultation.title) %>
+      <%= link_to translated_attribute(current_participatory_space.consultation.title), decidim_consultations.consultation_path(current_participatory_space.consultation), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

@@ -23,7 +23,7 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
 
   ```rb
   s.add_dependency "cells-erb", "~> 0.1.0"
-  s.add_dependency "cells-rails", "~> 0.0.8"
+  s.add_dependency "cells-rails", "~> 0.0.9"
   ```
 
 - **autoload** view_model to module `decidim-<module>/lib/decidim/<module>.rb`
@@ -41,17 +41,6 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
   initializer "decidim_<module>.add_cells_view_paths" do
     Cell::ViewModel.view_paths << File.expand_path("#{Decidim::<Module>::Engine.root}/app/cells")
     Cell::ViewModel.view_paths << File.expand_path("#{Decidim::<Module>::Engine.root}/app/views") # for partials
-  end
-  ```
-
-- add the *ViewModel* `decidim-<module>/lib/decidim/<module>/view_model.rb`
-
-  ```rb
-  module Decidim
-    module <Module>
-      class ViewModel < Decidim::ViewModel
-      end
-    end
   end
   ```
 
@@ -73,7 +62,7 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
   ```rb
   module Decidim
     module <Component>s
-      class <Component>Cell < Decidim::<Component>s::ViewModel
+      class <Component>Cell < Decidim::ViewModel
         def show
           render # renders decidim-<component>s/app/cells/decidim/<component>s/<component>
         end

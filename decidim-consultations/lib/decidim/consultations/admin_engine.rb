@@ -47,16 +47,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += %w(
-            Decidim::Consultations::Abilities::Admin::ConsultationAdminAbility
-            Decidim::Consultations::Abilities::Admin::QuestionAdminAbility
-            Decidim::Consultations::Abilities::Admin::ResponseAdminAbility
-          )
-        end
-      end
-
       initializer "decidim_consultations.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.consultations", scope: "decidim.admin"),
@@ -64,7 +54,7 @@ module Decidim
                     icon_name: "comment-square",
                     position: 3.8,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Consultation)
+                    if: allowed_to?(:enter, :space_area, space_name: :consultations)
         end
       end
     end

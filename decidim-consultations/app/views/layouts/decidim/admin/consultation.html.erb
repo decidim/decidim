@@ -1,14 +1,14 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
-      <% if can? :update, current_consultation %>
+      <% if allowed_to? :update, :consultation, consultation: current_consultation %>
         <li <% if is_active_link?(decidim_admin_consultations.edit_consultation_path(current_consultation)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.consultations_submenu"),
                                     decidim_admin_consultations.edit_consultation_path(current_consultation) %>
         </li>
       <% end %>
 
-      <% if can?(:index, Decidim::Consultations::Question) %>
+      <% if allowed_to? :read, :question %>
         <li <% if is_active_link?(decidim_admin_consultations.consultation_questions_path(current_consultation)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("questions", scope: "decidim.admin.menu.consultations_submenu"),
                                     decidim_admin_consultations.consultation_questions_path(current_consultation) %>
@@ -21,8 +21,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= translated_attribute(current_consultation.title) %>
+      <%= link_to translated_attribute(current_consultation.title), decidim_consultations.consultation_path(current_consultation), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

@@ -4,17 +4,9 @@ require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
 
-root_path = File.expand_path("..", Dir.pwd)
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
-if ENV["SIMPLECOV"]
-  require "simplecov/no_defaults"
-
-  SimpleCov.root(root_path)
-  require "simplecov/defaults"
-
-  SimpleCov.command_name File.basename(Dir.pwd)
-end
+require "simplecov" if ENV["SIMPLECOV"]
 
 require "decidim/core"
 require "decidim/core/test"

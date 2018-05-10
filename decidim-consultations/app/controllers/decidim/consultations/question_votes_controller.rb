@@ -2,14 +2,14 @@
 
 module Decidim
   module Consultations
-    class QuestionVotesController < Decidim::ApplicationController
+    class QuestionVotesController < Decidim::Consultations::ApplicationController
       include NeedsQuestion
       include Decidim::FormFactory
 
       before_action :authenticate_user!
 
       def create
-        authorize! :vote, current_question
+        enforce_permission_to :vote, :question, question: current_question
 
         vote_form = form(VoteForm).from_params(params, current_question: current_question)
         VoteQuestion.call(vote_form) do
@@ -27,7 +27,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :unvote, current_question
+        enforce_permission_to :unvote, :question, question: current_question
         UnvoteQuestion.call(current_question, current_user) do
           on(:ok) do
             current_question.reload

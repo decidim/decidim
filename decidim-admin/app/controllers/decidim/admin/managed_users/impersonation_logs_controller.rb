@@ -8,8 +8,6 @@ module Decidim
       class ImpersonationLogsController < Decidim::Admin::ApplicationController
         layout "decidim/admin/users"
 
-        skip_authorization_check
-
         def index
           @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order(started_at: :desc).page(params[:page]).per(15)
         end

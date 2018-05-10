@@ -9,7 +9,7 @@ module Decidim
       before_action :authenticate_user!
 
       def create
-        authorize! :endorse, proposal
+        enforce_permission_to :endorse, :proposal, proposal: proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
         user_group_id = params[:user_group_id]
 
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :unendorse, proposal
+        enforce_permission_to :unendorse, :proposal, proposal: proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
         user_group_id = params[:user_group_id]
         user_group = current_user.user_groups.verified.find(user_group_id) if user_group_id
@@ -40,7 +40,7 @@ module Decidim
       end
 
       def identities
-        authorize! :endorse, proposal
+        enforce_permission_to :endorse, :proposal, proposal: proposal
 
         @user_verified_groups = current_user.user_groups.verified
         render :identities, layout: false

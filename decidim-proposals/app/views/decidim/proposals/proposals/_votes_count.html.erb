@@ -1,28 +1,25 @@
-<div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
-  <% if !current_settings.votes_hidden? %>
-    <% progress ||= proposal.proposal_votes_count || 0 %>
-    <% total ||= proposal.maximum_votes || 0 %>
-    <% percent = (progress.to_f/total) * 100 %>
-    <% vertical ||= from_proposals_list %>
-    <div class="progress__bar<%= (!vertical) ? " progress__bar--vertical" : "" %>">
-      <div class="progress__bar__title">
-        <span class="progress__bar__number"><%= progress %></span><%= "/#{total}" if total != 0 %>
-        <span class="progress__bar__text"><%= t(".count", count: proposal.proposal_votes_count) %></span>
-      </div>
-      <% if total != 0 %>
-        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuetext="<%= percent %> percent" aria-valuemax="100">
-          <div class="progress-meter progress__bar__bar--complete" style="width: <%= percent %>%"></div>
-          <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>%);"></div>
-        </div>
-        <div class="progress__bar__subtitle">
-          <% if progress >= total %>
-            <%= t(".most_popular_proposal") %>
-          <% else %>
-            <%= t(".need_more_votes") %>
-          <% end %>
-        </div>
-      <% end %>
+<% if !current_settings.votes_hidden? %>
+  <% progress ||= proposal.proposal_votes_count || 0 %>
+  <% total ||= proposal.maximum_votes || 0 %>
+  <% percent = (progress.to_f/total) * 100 %>
+  <% vertical ||= from_proposals_list %>
+  <div id="proposal-<%= proposal.id %>-votes-count" class="progress__bar<%= (!vertical) ? " progress__bar--vertical" : "" %>">
+    <div class="progress__bar__title">
+      <span class="progress__bar__number"><%= progress %></span><%= "/#{total}" if total != 0 %>
+      <span class="progress__bar__text"><%= t("decidim.proposals.proposals.votes_count.count", count: proposal.proposal_votes_count) %></span>
     </div>
-
-  <% end %>
-</div>
+    <% if total != 0 %>
+      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuetext="<%= percent %> percent" aria-valuemax="100">
+        <div class="progress-meter progress__bar__bar--complete" style="width: <%= percent %>%"></div>
+        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>%);"></div>
+      </div>
+      <div class="progress__bar__subtitle">
+        <% if progress >= total %>
+          <%= t("decidim.proposals.proposals.votes_count.most_popular_proposal") %>
+        <% else %>
+          <%= t("decidim.proposals.proposals.votes_count.need_more_votes") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

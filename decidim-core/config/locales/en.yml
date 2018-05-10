@@ -36,6 +36,10 @@ en:
   carrierwave:
     errors:
       image_too_big: The image is too big
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -109,6 +113,10 @@ en:
         related_documents: Related documents
       photos:
         related_photos: Related photos
+    author:
+      comments:
+        one: comment
+        other: comments
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
@@ -396,8 +404,6 @@ en:
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
-      author:
-        deleted: Deleted user
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page

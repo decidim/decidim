@@ -20,6 +20,21 @@ module Decidim
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
+
+      # Public: The css class applied based on the meeting type to
+      #         the css class.
+      #
+      # type - The String type of the meeting.
+      #
+      # Returns a String.
+      def meeting_type_badge_css_class(type)
+        case type
+        when "private"
+          "alert"
+        when "transparent"
+          "secondary"
+        end
+      end
     end
   end
 end

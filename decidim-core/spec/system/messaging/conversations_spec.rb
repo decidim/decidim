@@ -37,7 +37,7 @@ describe "Conversations", type: :system do
       expect(page).to have_no_selector(".card--list__item")
     end
 
-    it "allows sending an initial message" do
+    it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
       expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
     end
@@ -121,7 +121,7 @@ describe "Conversations", type: :system do
         click_button "Send"
       end
 
-      it "appears as the last message" do
+      it "appears as the last message", :slow do
         expect(page).to have_selector(".message:last-child", text: "Please reply!")
       end
 

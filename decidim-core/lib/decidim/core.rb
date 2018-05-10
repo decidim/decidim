@@ -45,7 +45,6 @@ module Decidim
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
-  autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
@@ -81,20 +80,6 @@ module Decidim
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
   config_accessor :mailer_sender
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the base `Decidim::Abilities::BaseAbility`
-  # class.
-  config_accessor :abilities do
-    []
-  end
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the `Decidim::Admin::Abilities::BaseAbility`
-  # class.
-  config_accessor :admin_abilities do
-    []
-  end
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do

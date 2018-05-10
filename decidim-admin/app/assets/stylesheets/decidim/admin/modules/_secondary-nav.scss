@@ -47,7 +47,8 @@ $process-title-height: 3rem;
   }
 }
 
-.secondary-nav--subnav{
+.secondary-nav--subnav,
+.process-content{
   padding-top: 2rem;
 
   @include breakpoint(large){
@@ -98,7 +99,7 @@ $process-title-height: 3rem;
     left: 120px;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 1;
     background-color: $white;
     padding: 1rem 1.5rem;
     height: $process-title-height;

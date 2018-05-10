@@ -75,4 +75,55 @@
 
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
+
+  const $form = $(".edit_meeting, .new_meeting, .copy_meetings");
+
+  if ($form.length > 0) {
+    const $privateMeeting = $form.find("#private_meeting");
+    const $transparent = $form.find("#transparent");
+
+    const toggleDisabledHiddenFields = () => {
+      const enabledPrivateSpace = $privateMeeting.find("input[type='checkbox']").prop("checked");
+      $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
+
+      if (enabledPrivateSpace) {
+        $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+      }
+    };
+
+    $privateMeeting.on("change", toggleDisabledHiddenFields);
+    toggleDisabledHiddenFields();
+
+    let xhr = null;
+
+    $(".user-autocomplete").autoComplete({
+      minChars: 2,
+      source: function(term, response) {
+        try {
+          xhr.abort();
+        } catch (exception) { xhr = null }
+
+        xhr = $.getJSON(
+          $(".user-autocomplete").data("url"),
+          { term: term },
+          function(data) { response(data); }
+        );
+      },
+      renderItem: function (item, search) {
+        let re = new RegExp(`(${search.split(" ").join("|")})`, "gi");
+
+        let modelId = item[0];
+        let name = item[1];
+        let nickname = item[2];
+        let val = `${name} (@${nickname})`;
+        return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${val}">${val.replace(re, "<b>$1</b>")}</div>`;
+      },
+      onSelect: function(event, term, item) {
+        let modelId = item.data("modelId");
+        let val = `${item.data("val")}`;
+        $("#meeting_organizer_id").val(modelId);
+        $(".user-autocomplete").val(val);
+      }
+    });
+  }
 })(window);

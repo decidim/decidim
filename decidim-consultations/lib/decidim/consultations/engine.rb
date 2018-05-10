@@ -54,15 +54,6 @@ module Decidim
         )
       end
 
-      initializer "decidim_consultations.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += %w(
-            Decidim::Consultations::Abilities::EveryoneAbility
-            Decidim::Consultations::Abilities::CurrentUserAbility
-          )
-        end
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Consultation.where(organization: organization).published.count
