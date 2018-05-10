@@ -66,9 +66,6 @@ fi:
           invalid: Luotaessa keskustelua tapahtui virhe.
           success: Keskustelu luotu onnistuneesti.
         debate:
-          comments:
-            one: Kommentti
-            other: Kommenttia
           participate: Osallistu
         filters:
           all: Kaikki
