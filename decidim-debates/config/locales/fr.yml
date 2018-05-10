@@ -66,9 +66,6 @@ fr:
           invalid: Il y a eu un problème lors de la création du débat.
           success: Débat créé avec succès.
         debate:
-          comments:
-            one: Commentaire
-            other: Commentaires
           participate: Participer
         filters:
           all: Tout
