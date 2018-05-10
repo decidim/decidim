@@ -210,6 +210,9 @@ es:
         update:
           error: Se ha producido un error al actualizar este archivo adjunto.
           success: Adjunto actualizado correctamente.
+      autocomplete:
+        no_results: No se han encontrado resultados
+        search_prompt: Escriba al menos tres caracteres para buscar
       categories:
         create:
           error: Se ha producido un error al crear esta categoría.
