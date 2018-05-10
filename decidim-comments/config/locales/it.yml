@@ -1,6 +1,7 @@
 it:
   decidim:
     comments:
+      comments: Commenti
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
