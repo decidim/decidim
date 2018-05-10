@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rails"
+require "parallel_tests/tasks"
 
 module Decidim
   module Dev

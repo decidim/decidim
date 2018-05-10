@@ -8,6 +8,7 @@ SimpleCov.start do
   add_filter "/vendor/"
 end
 
-SimpleCov.command_name ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
+command_name = ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
+SimpleCov.command_name command_name + ENV.fetch("TEST_ENV_NUMBER", "")
 
 SimpleCov.merge_timeout 1800

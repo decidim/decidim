@@ -6,9 +6,10 @@ defaults: &defaults
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
     - image: decidim/decidim@sha256:743a212e757a0c0d4cb85cf99251290864b6d02d1a17aa285d342d0bdcff796b
       environment:
-        SIMPLECOV: true
         DATABASE_USERNAME: postgres
         FAIL_FAST: true
+        NUM_CPUS: 2
+        SIMPLECOV: true
     - image: postgres
       environment:
         POSTGRES_USER: postgres
@@ -46,7 +47,7 @@ references:
   create_test_db: &create_test_db
     run:
       name: Create test DB
-      command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
+      command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake parallel:create[$NUM_CPUS] parallel:rake[db:schema:load,$NUM_CPUS]
   extract_failure_logs: &extract_failure_logs
     run:
       name: Extract failure logs
@@ -66,7 +67,7 @@ references:
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake parallel:spec[$NUM_CPUS]
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
