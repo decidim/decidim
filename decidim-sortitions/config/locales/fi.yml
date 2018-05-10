@@ -106,8 +106,6 @@ fi:
           label: 'Tilaa järjestykset:'
           random: satunnainen
           recent: viimeaikainen
-        proposal:
-          view_proposal: Näytä ehdotus
         results_count:
           count:
             one: valittu ehdotus
