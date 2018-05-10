@@ -114,16 +114,10 @@ fr:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propositions
-        proposal:
-          creation_date: 'Création : %{date}'
-          view_proposal: Voir la proposition
     participatory_spaces:
       highlighted_proposals:
         proposals: Les propositions
         see_all_proposals: Voir toutes les propositions
-      proposal:
-        creation_date: 'Création : %{date}'
-        view_proposal: Voir la proposition
     proposals:
       actions:
         answer: Répondre
@@ -220,6 +214,7 @@ fr:
             category: Catégorie
             comments: Commentaires
             created_at: Créé le
+            endorsements: Les avenants
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
