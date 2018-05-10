@@ -24,6 +24,10 @@ module Decidim
         ["alert"]
       end
 
+      def resource_path
+        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_process_path(model)
+      end
+
       def resource_image_path
         model.hero_image.url
       end
