@@ -85,9 +85,6 @@ uk:
           close_window: Закрити вікно
           share: Поділитися
           share_link: Поділитись посиланням
-        show:
-          comments: Коментарі
-          report: Поскаржитись
       models:
         debate:
           fields:
