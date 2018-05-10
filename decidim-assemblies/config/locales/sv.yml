@@ -47,6 +47,10 @@ sv:
         title: Titel
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Födelsedag
+        birthplace: Födelseort
+        ceased_date: Upphämtat datum
       assembly_user_role:
         email: E-post
         name: Namn
