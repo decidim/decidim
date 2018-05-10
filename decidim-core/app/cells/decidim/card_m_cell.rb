@@ -5,8 +5,11 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardMCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
+    include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
     include Decidim::SanitizeHelper
+    include Decidim::CardHelper
+    include Decidim::LayoutHelper
 
     def show
       render
@@ -23,7 +26,7 @@ module Decidim
     end
 
     def description
-      decidim_sanitize model.description
+      decidim_sanitize(translated_attribute(model.description))
     end
 
     def decidim
