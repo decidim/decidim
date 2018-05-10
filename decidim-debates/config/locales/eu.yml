@@ -94,9 +94,6 @@ eu:
           close_window: Itxi leihoa
           share: Share
           share_link: Partekatu esteka
-        show:
-          comments: Oharrak
-          report: txostena
       models:
         debate:
           fields:
