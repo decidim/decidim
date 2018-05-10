@@ -11,8 +11,25 @@ module Decidim
         true
       end
 
+      def has_state?
+        model.past?
+      end
+
+      def has_badge?
+        false
+      end
+
+      def state_classes
+        return unless model.past?
+        ["alert"]
+      end
+
       def resource_image_path
         model.hero_image.url
+      end
+
+      def step_title
+        translated_attribute model.active_step.title
       end
 
       def base_card_class
