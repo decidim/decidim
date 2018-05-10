@@ -1,0 +1,29 @@
+<% member_presenter = Decidim::AssemblyMemberPresenter.new(assembly_member) %>
+
+<div class="column">
+  <article class="card card--member">
+    <div class="card__content">
+      <div class="card__header collapse">
+        <div class="author-data author-data--big">
+          <div class="author-data__main">
+            <div class="author author--flex">
+              <span class="author__avatar">
+                <%= image_tag asset_path("decidim/default-avatar.svg") %>
+              </span>
+              <div>
+                <div class="author__name--container">
+                    <%= member_presenter.full_name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__text card--picture-offset">
+        <div><small><strong><%= member_presenter.position %></strong></small></div>
+        <div class="text-small"><%= t(".desiganted_on") %> <strong> <%= l assembly_member.designation_date, format: :datepicker %></strong></div>
+        <div class="text-small mt-s"><%= member_presenter.personal_information %></div>
+      </div>
+    </div>
+  </article>
+</div>
