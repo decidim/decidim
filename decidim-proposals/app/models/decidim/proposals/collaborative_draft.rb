@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Proposals::CommentableCollaborativeDraft
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::DeclaresResourceManifest
 
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }

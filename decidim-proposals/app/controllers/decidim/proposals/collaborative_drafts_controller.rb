@@ -17,7 +17,7 @@ module Decidim
       def index
         @collaborative_drafts = search
                                 .results
-                                .includes(:author)
+                                .includes(:authors)
                                 .includes(:category)
                                 .includes(:scope)
 

@@ -33,6 +33,9 @@ module Decidim
     # The template to use to render the collection of a resource.
     attribute :template, String
 
+    # The card to use to render the collection of a resource.
+    attribute :card, String
+
     validates :component_manifest, :model_class_name, :route_name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the

@@ -20,7 +20,9 @@ module Decidim
     end
 
     def resource_cell
-      if model.respond_to? :component
+      if model.class.included_modules.include?(Decidim::DeclaresResourceManifest)
+        @resource_cell ||= model.resource_cell
+      elsif model.respond_to? :component
         @resource_cell ||= model.component.manifest.card
       elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
         @resource_cell ||= "decidim/author"

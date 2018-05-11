@@ -55,6 +55,11 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
+  component.register_resource do |resource|
+    resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
+    resource.card = "decidim/proposals/collaborative_draft"
+  end
+
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.except_withdrawn.not_hidden.count
   end
@@ -230,10 +235,10 @@ Decidim.register_component(:proposals) do |component|
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
-        authors: [author],
         state: state,
         published_at: Time.current
       )
+      Decidim::Coauthorship.create(coauthorable: draft, author: author)
 
       Decidim::Comments::Seed.comments_for(draft)
     end
