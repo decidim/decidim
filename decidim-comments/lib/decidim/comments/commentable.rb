@@ -52,9 +52,9 @@ module Decidim
         end
 
         def get_all_users_with_role
-          participatory_process = feature.participatory_space
-          admins = feature.organization.admins
-          users_with_role = feature.organization.users_with_any_role
+          participatory_process = component.participatory_space
+          admins = component.organization.admins
+          users_with_role = component.organization.users_with_any_role
           process_users_with_role = get_user_with_process_role(participatory_process.id)
           users = admins + users_with_role + process_users_with_role
           users.uniq
