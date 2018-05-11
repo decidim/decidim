@@ -208,7 +208,10 @@ sv:
         assembly_members:
           form:
             existing_user: Existerande användare
+            non_user: Icke-användare
             select_a_position: Välj en position
+            select_user: Välj en användare
+            user_type: Användartyp
           index:
             filter:
               all: Allt
