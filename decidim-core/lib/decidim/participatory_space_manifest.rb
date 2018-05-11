@@ -10,6 +10,7 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
+    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
