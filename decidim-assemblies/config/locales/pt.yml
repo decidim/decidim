@@ -211,6 +211,7 @@ pt:
             non_user: Não usuário
             select_a_position: Selecione uma posição
             select_user: Selecione um usuário
+            user_type: Tipo de usuário
           index:
             filter:
               all: Todos
