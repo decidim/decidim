@@ -304,8 +304,8 @@ en:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          processes_count: "Processes:"
           browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
           active_step: Active step
