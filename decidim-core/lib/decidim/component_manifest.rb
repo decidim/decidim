@@ -130,7 +130,7 @@ module Decidim
     # defined by `Decidim::ResourceManifest`.
     #
     # Resource manifests are a way to expose a resource from one engine to
-    # the whole system. This was resoruces can be linked between them.
+    # the whole system. This way resources can be linked between them.
     #
     # block - A Block that will be called to set the Resource attributes.
     #

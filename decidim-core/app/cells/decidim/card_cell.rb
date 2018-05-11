@@ -20,8 +20,8 @@ module Decidim
     end
 
     def resource_cell
-      if model.respond_to? :component
-        @resource_cell ||= model.component.manifest.card
+      if model.respond_to?(:resource_manifest) && model.resource_manifest.card.present?
+        @resource_cell ||= model.resource_manifest.card
       elsif model.respond_to? :manifest
         @resource_cell ||= model.manifest.card
       elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
