@@ -207,7 +207,10 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
+            existing_user: Usuario existente
+            non_user: No usuario
             select_a_position: Seleccione una posición
+            select_user: Seleccione un usuario
           index:
             filter:
               all: Todas
