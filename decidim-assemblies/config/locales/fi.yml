@@ -207,7 +207,11 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
+            existing_user: Olemassa oleva käyttäjä
+            non_user: Ei käyttäjä
             select_a_position: Valitse paikka
+            select_user: Valitse käyttäjä
+            user_type: Käyttäjätyyppi
           index:
             filter:
               all: Kaikki
