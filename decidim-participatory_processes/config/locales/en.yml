@@ -304,6 +304,7 @@ en:
     decidim:
       participatory_process_groups:
         participatory_process_group:
+          processes_count: "Processes:"
           browse: Browse
       participatory_process_widgets:
         show:
