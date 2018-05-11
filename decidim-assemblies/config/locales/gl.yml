@@ -207,7 +207,11 @@ gl:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_members:
           form:
+            existing_user: Usuario existente
+            non_user: Non usuario
             select_a_position: Seleccione unha posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
           index:
             filter:
               all: Todo
