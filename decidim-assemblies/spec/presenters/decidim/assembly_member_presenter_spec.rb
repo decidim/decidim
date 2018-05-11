@@ -13,6 +13,32 @@ module Decidim
       build(:assembly_member, full_name: "Full name", birthday: birthday)
     end
 
+    describe "name" do
+      subject { described_class.new(assembly_member).name }
+
+      it { is_expected.to eq "Full name" }
+
+      context "when member is an existing user" do
+        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user: user) }
+
+        it { is_expected.to eq "Julia G." }
+      end
+    end
+
+    describe "nickname" do
+      subject { described_class.new(assembly_member).nickname }
+
+      it { is_expected.to be_nil }
+
+      context "when member is an existing user" do
+        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user: user) }
+
+        it { is_expected.to eq "@julia_g" }
+      end
+    end
+
     describe "age" do
       subject { described_class.new(assembly_member).age }
 

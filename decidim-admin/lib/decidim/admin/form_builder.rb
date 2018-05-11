@@ -19,7 +19,7 @@ module Decidim
       # @param [Hash] prompt_options
       #   Prompt configuration. A hash with options:
       #   - :url (String) The url where the ajax endpoint to fill the select
-      #   - :text (String) Text to use as placeholder
+      #   - :placeholder (String) Text to use as placeholder
       #   - :no_results (String) (optional) Text to use when there are no matching results (default: No results found)
       #   - :search_prompt (String) (optional) Text to prompt for search input (default: Type at least three characters to search)
       #

@@ -128,5 +128,9 @@ FactoryBot.define do
     trait :ceased do
       ceased_date { Faker::Date.between(1.day.ago, 5.days.ago) }
     end
+
+    trait :with_user do
+      user { create(:user, organization: assembly.organization) }
+    end
   end
 end
