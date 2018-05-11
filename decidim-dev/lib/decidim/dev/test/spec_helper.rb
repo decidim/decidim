@@ -35,5 +35,6 @@ RSpec.configure do |config|
   config.include Rectify::RSpec::Helpers
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
+  config.include Capybara::ReactSelect, type: :system
   config.include Decidim::ScreenshotHelperExt, type: :system
 end

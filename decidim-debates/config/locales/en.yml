@@ -67,9 +67,6 @@ en:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
         debate:
-          comments:
-            one: Comment
-            other: Comments
           participate: Participate
         filters:
           all: All

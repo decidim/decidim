@@ -9,6 +9,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_assemblies_action?
           public_read_assembly_action?
+          public_list_members_action?
           public_report_content_action?
           return permission_action
         end
@@ -85,6 +86,13 @@ module Decidim
         return allow! if user&.admin?
         return allow! if assembly.published?
         toggle_allow(can_manage_assembly?)
+      end
+
+      def public_list_members_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :members
+
+        allow!
       end
 
       def public_report_content_action?
@@ -182,7 +190,8 @@ module Decidim
           :component_data,
           :moderation,
           :assembly,
-          :assembly_user_role
+          :assembly_user_role,
+          :assembly_member
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -199,6 +208,7 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
+          :assembly_member,
           :space_private_user
         ].include?(permission_action.subject)
         allow! if is_allowed
