@@ -22,8 +22,6 @@ module Decidim
     def resource_cell
       if model.respond_to?(:resource_manifest) && model.resource_manifest.card.present?
         @resource_cell ||= model.resource_manifest.card
-      elsif model.respond_to? :manifest
-        @resource_cell ||= model.manifest.card
       elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
         @resource_cell ||= "decidim/author"
       elsif ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
