@@ -19,6 +19,10 @@ module Decidim
         false
       end
 
+      def has_step?
+        model.active_step.present?
+      end
+
       def state_classes
         return unless model.past?
         ["alert"]

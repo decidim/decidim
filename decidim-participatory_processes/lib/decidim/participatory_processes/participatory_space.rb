@@ -17,6 +17,11 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     resource.card = "decidim/participatory_processes/process"
   end
 
+  participatory_space.register_resource do |resource|
+    resource.model_class_name = "Decidim::ParticipatoryProcessGroup"
+    resource.card = "decidim/participatory_processes/process_group"
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ParticipatoryProcesses::Engine
     context.layout = "layouts/decidim/participatory_process"

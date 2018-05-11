@@ -76,7 +76,10 @@ module Decidim
     end
 
     def statuses
-      [:creation_date, :follow, :comments_count]
+      collection = [:creation_date]
+      collection << :follow if model.is_a?(Decidim::Followable)
+      collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
+      collection
     end
 
     def creation_date_status
