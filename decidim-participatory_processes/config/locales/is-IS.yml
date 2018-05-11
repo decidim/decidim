@@ -304,6 +304,7 @@ is:
       participatory_process_groups:
         participatory_process_group:
           browse: Skoða
+          processes_count: 'Ferli:'
       participatory_process_widgets:
         show:
           active_step: Virk skref
