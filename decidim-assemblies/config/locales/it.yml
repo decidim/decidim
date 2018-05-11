@@ -207,7 +207,11 @@ it:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
+            existing_user: Utente esistente
+            non_user: Non utente
             select_a_position: Seleziona una posizione
+            select_user: Seleziona un utente
+            user_type: Tipologia di utente
           index:
             filter:
               all: Tutti
