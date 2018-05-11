@@ -26,8 +26,9 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
 
     SurveyAnswer.find_each do |answer|
       question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
+      choices = SurveyAnswerChoice.where(decidim_survey_answer_id: answer.id)
 
-      answer.choices.each do |answer_choice|
+      choices.each do |answer_choice|
         answer_options = SurveyAnswerOption.where(decidim_survey_question_id: question.id)
 
         answer_option = answer_options.find do |option|
