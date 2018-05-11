@@ -304,6 +304,7 @@ es:
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
+          processes_count: 'Procesos:'
       participatory_process_widgets:
         show:
           active_step: Fase activa
