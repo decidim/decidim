@@ -207,7 +207,11 @@ fr:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
+            existing_user: Utilisateur existant
+            non_user: Non utilisateur
             select_a_position: Sélectionnez un poste
+            select_user: Sélectionnez un utilisateur
+            user_type: Type d'utilisateur
           index:
             filter:
               all: Tout
