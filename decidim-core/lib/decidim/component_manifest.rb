@@ -47,9 +47,6 @@ module Decidim
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
-    # The cell path to use to render the card of a resource.
-    attribute :card, String
-
     # The name of the class that handles the permissions for this component. It will
     # probably have the form of `Decidim::<MyComponent>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
