@@ -10,6 +10,13 @@ en:
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
         title: Title
         witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:

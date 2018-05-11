@@ -26,6 +26,7 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
+    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
@@ -88,6 +89,28 @@ module Decidim
 
     def follows?(followable)
       Decidim::Follow.where(user: self, followable: followable).any?
+    end
+
+    # Public: Returns a collection with all the entities this user is following.
+    #
+    # This can't be done as with a `has_many :following, through: :following_follows`
+    # since it's a polymorphic relation and Rails doesn't know how to load it. With
+    # this implementation we only query the database once for each kind of following.
+    #
+    # Returns an Array of Decidim::Followable
+    def following
+      @following ||= begin
+                       followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
+                       grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
+                         all[type] ||= []
+                         all[type] << following_id
+                         all
+                       end
+
+                       grouped_followings.flat_map do |type, ids|
+                         type.constantize.where(id: ids)
+                       end
+                     end
     end
 
     def unread_conversations

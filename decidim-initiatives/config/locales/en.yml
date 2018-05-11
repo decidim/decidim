@@ -33,6 +33,17 @@ en:
         address: Address
         id_document: CIF
         name: Complete name
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        other: Initatives
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comittees
+      decidim/initiative_vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       menu:

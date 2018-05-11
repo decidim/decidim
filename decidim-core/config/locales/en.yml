@@ -18,6 +18,10 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
+    models:
+      decidim/attachment_created_event: Attachment
+      decidim/component_published_event: Active component
+      decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
       decidim/user:
@@ -30,6 +34,13 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
+    models:
+      decidim/user:
+        one: User
+        other: Users
+      decidim/user_group:
+        one: User group
+        other: User groups
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -262,6 +273,10 @@ en:
       source: Source
       title: Fingerprint
       value: Value
+    followers:
+      no_followers: No followers yet.
+    following:
+      no_followings: No followings yet.
     follows:
       create:
         button: Follow
@@ -340,6 +355,8 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    notifications:
+      no_notifications: No notifications yet.
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
@@ -401,8 +418,11 @@ en:
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
-        about_me: About me
-        personal_url: Personal website
+        followers: Followers
+        following: Following
+        notifications: Notifications
+      user:
+        edit_profile: Edit profile
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -550,8 +570,6 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Mark all as read
-        no_notifications: No notifications yet.
-        title: Notifications
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
