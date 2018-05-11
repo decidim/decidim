@@ -207,6 +207,7 @@ sv:
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
         assembly_members:
           form:
+            existing_user: Existerande användare
             select_a_position: Välj en position
           index:
             filter:
