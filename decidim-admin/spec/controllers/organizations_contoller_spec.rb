@@ -19,7 +19,7 @@ module Decidim
         let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o") }
 
-        let(:parsed_response) { JSON.parse(response.body) }
+        let(:parsed_response) { JSON.parse(response.body).map(&:symbolize_keys) }
 
         context "when no search term is provided" do
           it "returns an empty result set" do
@@ -38,14 +38,14 @@ module Decidim
         context "when searching by name" do
           it "returns the id, name and nickname for filtered users" do
             get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([[user.id, user.name, user.nickname]])
+            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
           end
         end
 
         context "when searching by nickname" do
           it "returns the id, name and nickname for filtered users" do
             get :users, format: :json, params: { term: "@daisy" }
-            expect(parsed_response).to eq([[user.id, user.name, user.nickname]])
+            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
           end
         end
       end

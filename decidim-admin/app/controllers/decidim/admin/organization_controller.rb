@@ -40,7 +40,7 @@ module Decidim
                         query.where("name ILIKE ?", "%#{term}%")
                       end
 
-              render json: query.pluck(:id, :name, :nickname)
+              render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname})" } }
             else
               render json: []
             end
