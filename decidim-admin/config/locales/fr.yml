@@ -289,11 +289,11 @@ fr:
             not_managed: Non géré
           filter_by: Filtrer par
           impersonate: Représenter
-          impersonate_new_managed_user: Emprunter l'identité d'un nouvel utilisateur géré
-          managed: Géré
-          name: prénom
+          impersonate_new_managed_user: Nouvel utilisateur représenté
+          managed: Représenté
+          name: Nom
           needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
-          not_managed: Non géré
+          not_managed: Non représenté
           promote: Promouvoir
           search: Chercher
           status: Statut
@@ -303,17 +303,17 @@ fr:
           error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
           success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
         create:
-          error: Une erreur a été commise en usurpant l'identité de l'utilisateur.
+          error: Une erreur a été commise en représentant l'identité de l'utilisateur.
           success: L'utilisateur à représenter a été créé avec succès.
         form:
           authorization_method: Méthode d'autorisation
-          name: prénom
+          name: Nom
           reason: Raison
         new:
           impersonate: Représenter
-          impersonate_existing_managed_user: Imiter l'utilisateur géré "%{name}"
-          impersonate_existing_user: Emprunter l'identité "%{name}"
-          impersonate_new_managed_user: Emprunter l'identité d'un nouvel utilisateur géré
+          impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
+          impersonate_existing_user: Représenter l'identité de "%{name}"
+          impersonate_new_managed_user: Nouvel utilisateur représenté
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journal d'activité
@@ -334,7 +334,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        impersonations: Impersonations
+        impersonations: Utilisateurs représentés
         oauth_applications: Applications OAuth
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
@@ -604,8 +604,8 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs impersonnés
-        impersonations: Représentations d'utilisateurs
+        impersonatable_users: Utilisateurs représentés
+        impersonations: Utilisateurs représentés
         managed_users: Utilisateurs représentés
         officializations: Validation d'utilisateurs
         scope_types: Types de périmètre d'application

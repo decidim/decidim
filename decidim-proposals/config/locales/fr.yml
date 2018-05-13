@@ -40,7 +40,7 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Assistant d'offre de proposition "Complete" étape texte d'aide
+            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Finaliser" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
@@ -330,8 +330,8 @@ fr:
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
-            one: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
-            other: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            one: Vous avez la possibilité de modifier cette proposition au cours d' %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            other: Vous avez la possibilité de modifier cette proposition au cours des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publiez votre proposition
         proposal:
@@ -378,13 +378,13 @@ fr:
             left: Restant
             votes: Soutiens
         wizard_aside:
-          back: Arrière
+          back: Retour
           info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           see_steps: voir les étapes
           step_1: Créez votre proposition
-          step_2: Comparer
-          step_3: Achevée
+          step_2: Comparez avec les autres propositions
+          step_3: Finalisez votre proposition
           step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:

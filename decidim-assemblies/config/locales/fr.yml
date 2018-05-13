@@ -13,7 +13,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
-        created_by_other: Créé par d'autres
+        created_by_other: Si "autres", précisez
         creation_date: Date créée
         decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
@@ -100,7 +100,7 @@ fr:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
         index:
-          assembly_admins_title: Utilisateurs de l'agora
+          assembly_admins_title: Administrateurs de l'agora
         new:
           create: Créer
           title: Nouvel utilisateur d'agora.
@@ -110,7 +110,7 @@ fr:
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'agora
+          assembly_admins: Administrateurs de l'agora
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés

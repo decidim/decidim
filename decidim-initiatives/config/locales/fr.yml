@@ -105,13 +105,13 @@ fr:
           destroy:
             success: La portée a été supprimée avec succès
           edit:
-            back: Arrière
+            back: Retour
             confirm_destroy: Êtes-vous sûr?
             destroy: Détruire
             title: Modifier la portée du type d'initiative
             update: Mettre à jour
           new:
-            back: Arrière
+            back: Retour
             create: Créer
             title: Créer une portée de type d'initiative
           update:
@@ -158,14 +158,14 @@ fr:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       create_initiative:
         fill_data:
-          back: Arrière
+          back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Réviser le contenu de votre initiative. Votre titre est-il facile à comprendre? L'objectif de votre initiative est-il clair?</li> <li>Vous devez choisir le type de signature. En personne, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative? District de la ville?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'information)"
           select_scope: Sélectionnez une portée
         finish:
-          back: Arrière
+          back: Retour
           back_to_initiatives: Retour aux initiatives
           callout_text: Toutes nos félicitations! Votre initiative citoyenne a été créée avec succès.
           go_to_my_initiatives: Aller à mes initiatives
@@ -178,16 +178,16 @@ fr:
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à informer sur les initiatives.
           page: page
         previous_form:
-          back: Arrière
+          back: Retour
           continue: Continuer
           help: En quoi consiste l'initiative? Notez le titre et la description. Nous recommandons un titre court et concis et une description axée sur la solution proposée.
           more_information: "(Plus d'information)"
         promotal_committee:
-          back: Arrière
+          back: Retour
           individual_help_text: Les initiatives citoyennes nécessitent une commission de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'information)"
         select_initiative_type:
-          back: Arrière
+          back: Retour
           more_information: "(Plus d'information)"
           select: Choisir
           select_initiative_type_help: Les initiatives citoyennes sont un moyen par lequel la citoyenneté peut intervenir pour que le conseil municipal puisse entreprendre des actions en défense de l'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer?
@@ -195,7 +195,7 @@ fr:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter les personnes qui feront partie du comité de promotion
         show_similar_initiatives:
-          back: Arrière
+          back: Retour
           compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura plus de possibilités de se faire.
           continue: Mon initiative est différente
           more_information: "(Plus d'information)"
