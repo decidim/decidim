@@ -349,7 +349,7 @@ fr:
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
-            description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
+            description: Pour être validées, les propositions doivent atteindre %{limit} soutiens
           title: 'Le soutien est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
