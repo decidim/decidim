@@ -42,6 +42,11 @@ module Decidim
         app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
       end
 
+      initializer "decidim_assemblies.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/views") # for partials
+      end
+
       initializer "decidim.stats" do
         Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Assembly.where(organization: organization).public_spaces.count

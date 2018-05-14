@@ -7,6 +7,10 @@ module Decidim
     class MeetingMCell < Decidim::CardMCell
       include MeetingCellsHelper
 
+      def date
+        render
+      end
+
       private
 
       def resource_icon

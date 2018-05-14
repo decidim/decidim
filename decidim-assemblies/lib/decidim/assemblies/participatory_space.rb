@@ -10,6 +10,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.permissions_class_name = "Decidim::Assemblies::Permissions"
 
+  participatory_space.register_resource do |resource|
+    resource.model_class_name = "Decidim::Assembly"
+    resource.card = "decidim/assemblies/assembly"
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"
