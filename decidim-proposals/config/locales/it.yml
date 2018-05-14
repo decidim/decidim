@@ -349,7 +349,7 @@ it:
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
           threshold_per_proposal:
-            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
+            description: Per essere convalidate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
