@@ -349,7 +349,7 @@ es:
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser validadas, las propuestas deben llegar a %{limit} apoyos
+            description: Para ser validadas, las propuestas deben llegar a %{limit} soportes
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
