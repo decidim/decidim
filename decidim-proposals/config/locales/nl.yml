@@ -349,7 +349,7 @@ nl:
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:
-            description: Je voorstel moet minimum %{limit} stemmen ontvangen voordat het aanvaard wordt
+            description: Om te worden gevalideerd, moeten voorstellen %{limit} ondersteuningen bereiken
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
