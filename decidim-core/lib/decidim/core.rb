@@ -54,6 +54,7 @@ module Decidim
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
+  autoload :HasResourceManifests, "decidim/has_resource_manifests"
   autoload :DeclaresResourceManifest, "decidim/declares_resource_manifest"
 
   include ActiveSupport::Configurable
@@ -288,7 +289,8 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    component_registry.find_resource_manifest(resource_name_or_klass)
+    component_registry.find_resource_manifest(resource_name_or_klass) ||
+      participatory_space_registry.find_resource_manifest(resource_name_or_klass)
   end
 
   # Public: Stores the registry of components

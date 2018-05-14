@@ -7,7 +7,6 @@ Decidim.register_component(:debates) do |component|
   component.admin_engine = Decidim::Debates::AdminEngine
   component.icon = "decidim/debates/icon.svg"
   component.permissions_class_name = "Decidim::Debates::Permissions"
-  component.card = "decidim/debates/debate"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
@@ -30,6 +29,7 @@ Decidim.register_component(:debates) do |component|
 
   component.register_resource do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
+    resource.card = "decidim/debates/debate"
   end
 
   component.actions = %w(create)

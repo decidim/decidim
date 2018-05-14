@@ -11,6 +11,14 @@ module Decidim
 
     delegate :profile_url, :avatar_url, to: :user, allow_nil: true
 
+    def name
+      user ? user.name : full_name
+    end
+
+    def nickname
+      user.nickname if user
+    end
+
     def personal_information
       [
         gender.presence,
@@ -23,6 +31,16 @@ module Decidim
       return position_other if __getobj__.position == "other"
 
       I18n.t(__getobj__.position, scope: "decidim.admin.models.assembly_member.positions", default: "")
+    end
+
+    private
+
+    def user
+      @user ||= begin
+        if (user = __getobj__.user.presence)
+          Decidim::UserPresenter.new(user)
+        end
+      end
     end
   end
 end

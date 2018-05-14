@@ -7,12 +7,14 @@ module Decidim::Assemblies
     subject { described_class.new(form, current_user, assembly) }
 
     let(:assembly) { create(:assembly) }
+    let(:user) { nil }
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
     let(:form) do
       instance_double(
         Admin::AssemblyMemberForm,
         invalid?: invalid,
         full_name: "Full name",
+        user: user,
         attributes: {
           weight: 0,
           full_name: "Full name",
@@ -62,6 +64,15 @@ module Decidim::Assemblies
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+
+      context "with an existing user in the platform" do
+        let!(:user) { create(:user, organization: assembly.organization) }
+
+        it "sets the user" do
+          subject.call
+          expect(assembly_member.user).to eq user
+        end
       end
     end
   end

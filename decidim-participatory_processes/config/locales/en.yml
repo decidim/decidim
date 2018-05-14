@@ -305,6 +305,7 @@ en:
       participatory_process_groups:
         participatory_process_group:
           browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
           active_step: Active step

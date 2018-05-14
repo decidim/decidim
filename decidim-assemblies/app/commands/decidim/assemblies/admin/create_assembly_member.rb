@@ -61,7 +61,8 @@ module Decidim
               :position_other,
               :weight
             ).merge(
-              assembly: assembly
+              assembly: assembly,
+              user: form.user
             ),
             log_info
           )

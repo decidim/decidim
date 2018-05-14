@@ -59,12 +59,13 @@
         </thead>
         <tbody>
           <% @assembly_members.each do |member| %>
+            <% member_presenter = Decidim::Admin::AssemblyMemberPresenter.new(member) %>
             <tr>
               <td>
-                <%= member.full_name %>
+                <%= member_presenter.name %>
               </td>
               <td>
-                <%= Decidim::AssemblyMemberPresenter.new(member).position %>
+                <%= member_presenter.position %>
               </td>
               <td>
                 <%= l member.designation_date, format: :datepicker %>

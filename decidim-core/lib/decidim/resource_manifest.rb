@@ -30,10 +30,10 @@ module Decidim
     # When not explicitly set, it will use the model name.
     attribute :route_name, String
 
-    # The template to use to render the collection of a resource.
+    # The template to use to render the collection of the resource.
     attribute :template, String
 
-    # The card to use to render the collection of a resource.
+    # The main card to render an instance of the resource.
     attribute :card, String
 
     validates :component_manifest, :model_class_name, :route_name, presence: true
