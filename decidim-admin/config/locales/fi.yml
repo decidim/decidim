@@ -129,7 +129,7 @@ fi:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
           success: Aluetyyppi luotu onnistuneesti.
         destroy:
-          success: Alueen tyyppi onnistuneesti tuhoutunut
+          success: Alueen tyyppi onnistuneesti poistettu
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivittää
@@ -144,7 +144,7 @@ fi:
           error: Virhe aiheutti uuden alueen luomisen.
           success: Alue luotiin onnistuneesti.
         destroy:
-          success: Alue onnistuneesti tuhoutui
+          success: Alue poistettu
         edit:
           title: Muokkaa aluetta
           update: Päivittää
@@ -160,7 +160,7 @@ fi:
           error: Virhe uuden kokoelman luomisessa.
           success: Kokoelma on luotu onnistuneesti.
         destroy:
-          success: Kokoelma on tuhottu onnistuneesti.
+          success: Kokoelma poistettu.
         edit:
           title: Muokkaa kokoelmia
           update: Päivittää
@@ -178,7 +178,7 @@ fi:
           error: Uuden liitteen luonnissa tapahtui virhe.
           success: Liite luotu onnistuneesti.
         destroy:
-          success: Liite tuhottu onnistuneesti.
+          success: Liite poistettu onnistuneesti.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -195,7 +195,7 @@ fi:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri luotu onnistuneesti.
         destroy:
-          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kooknaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
+          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kokonaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
           success: Aihepiiri poistettu onnistuneesti.
         edit:
           title: Muokkaa aihepiiriä
@@ -228,7 +228,7 @@ fi:
           error: Tämän ominaisuuden luonnissa tapahtui virhe.
           success: Ominaisuus luotu onnistuneesti.
         destroy:
-          error: Tämän ominaisuuden tuhoamisessa tapahtui virhe.
+          error: Tämän ominaisuuden poistamisessa tapahtui virhe.
           success: Ominaisuus poistettu onnistuneesti.
         edit:
           title: Muokkaa ominaisuutta
@@ -252,7 +252,7 @@ fi:
         unpublish:
           success: Tämän ominaisuuden julkaisu on onnistuneesti peruttu.
         update:
-          error: Tämän ominaisuuden päivityksessä tapahtui virhe.
+          error: Ominaisuuden päivityksessä tapahtui virhe.
           success: Ominaisuus päivitetty onnistuneesti.
       logs:
         logs_list:
@@ -392,8 +392,8 @@ fi:
           error: Tämän uutiskirjeen toimituksessa tapahtui virhe.
           success: Uutiskirje toimitettu onnistuneesti.
         destroy:
-          error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
-          success: Uutiskirje tuhottu onnistuneesti.
+          error_already_sent: 'Uutiskirjettä ei voi poistaa: se on jo lähetetty.'
+          success: Uutiskirje poistettu onnistuneesti.
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
@@ -471,7 +471,7 @@ fi:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
           success: Kontekstin tyyppi luotu onnistuneesti.
         destroy:
-          success: Kontekstin tyyppi tuhottu onnistuneesti
+          success: Kontekstin tyyppi poistettu onnistuneesti
         edit:
           title: Muokkaa kontekstityyppiä
           update: Päivitä
@@ -486,7 +486,7 @@ fi:
           error: Uuden kontekstin luonnissa tapahtui virhe.
           success: Konteksti luotu onnistuneesti.
         destroy:
-          success: Konteksti tuhottu onnistuneesti
+          success: Konteksti poistettu onnistuneesti
         edit:
           title: Muokkaa kontekstia
           update: Päivitä
@@ -504,7 +504,7 @@ fi:
           error: Uuden sivun luonnissa tapahtui virhe.
           success: Sivu luotu onnistuneesti.
         destroy:
-          success: Sivu tuhottu onnistuneesti
+          success: Sivun poisto onnistui
         edit:
           title: Muokkaa sivua
           update: Päivitä
