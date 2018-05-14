@@ -349,7 +349,7 @@ fi:
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
-            description: Jotta ehdotukset hyväksytään, niiden on saavutettava %{limit} tukee
+            description: Voidakseen validoida ehdotukset täytyy saavuttaa %{limit} tukee
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
