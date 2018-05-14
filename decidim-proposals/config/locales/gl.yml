@@ -349,7 +349,7 @@ gl:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
           threshold_per_proposal:
-            description: Para ser aceptado, as propostas deben chegar a %{limit} apoios
+            description: Para ser validado, as propostas deben chegar a %{limit} apoios
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
