@@ -87,9 +87,6 @@ pl:
           close_window: Zamknij okno
           share: Dzielić
           share_link: Udostępnij link
-        show:
-          comments: Komentarze
-          report: Raport
       models:
         debate:
           fields:
