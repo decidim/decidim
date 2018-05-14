@@ -5,8 +5,11 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardMCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
+    include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
     include Decidim::SanitizeHelper
+    include Decidim::CardHelper
+    include Decidim::LayoutHelper
 
     def show
       render
@@ -18,12 +21,20 @@ module Decidim
       resource_locator(model).path
     end
 
+    def resource_image_path
+      nil
+    end
+
+    def has_image?
+      false
+    end
+
     def title
       translated_attribute model.title
     end
 
     def description
-      decidim_sanitize model.description
+      decidim_sanitize(translated_attribute(model.description))
     end
 
     def decidim
@@ -46,8 +57,12 @@ module Decidim
       model.state
     end
 
+    def base_card_class
+      "card--#{dom_class(model)}"
+    end
+
     def card_classes
-      classes = ["card--#{dom_class(model)}"]
+      classes = [base_card_class]
       return classes unless has_state?
       classes.concat(state_classes).join(" ")
     end
@@ -61,7 +76,10 @@ module Decidim
     end
 
     def statuses
-      [:creation_date, :follow, :comments_count]
+      collection = [:creation_date]
+      collection << :follow if model.is_a?(Decidim::Followable)
+      collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
+      collection
     end
 
     def creation_date_status

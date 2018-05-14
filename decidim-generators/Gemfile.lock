@@ -71,7 +71,7 @@ PATH
       foundation-rails (~> 6.4, < 6.5)
       foundation_rails_helper (~> 3.0)
       geocoder (~> 1.4)
-      high_voltage (~> 3.0)
+      high_voltage (~> 3.0.0)
       invisible_captcha (~> 0.10.0)
       jquery-rails (~> 4.3)
       loofah (~> 2.0, >= 2.2.1)

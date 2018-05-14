@@ -17,6 +17,7 @@ module Decidim
         resources :assemblies, param: :slug, except: :show do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
           resources :copies, controller: "assembly_copies", only: [:new, :create]
+          resources :members, controller: "assembly_members"
 
           resources :user_roles, controller: "assembly_user_roles" do
             member do

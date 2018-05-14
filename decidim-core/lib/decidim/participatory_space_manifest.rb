@@ -10,6 +10,7 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
+    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
@@ -31,6 +32,9 @@ module Decidim
     # The name of the class that handles the permissions for this space. It will
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
 
     validates :name, presence: true
 

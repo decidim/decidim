@@ -27,7 +27,7 @@ module Decidim
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname, presence: true, unless: -> { deleted? || managed? }
+    validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }

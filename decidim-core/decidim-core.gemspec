@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation-rails", "~> 6.4", "< 6.5"
   s.add_dependency "foundation_rails_helper", "~> 3.0"
   s.add_dependency "geocoder", "~> 1.4"
-  s.add_dependency "high_voltage", "~> 3.0"
+  s.add_dependency "high_voltage", "~> 3.0.0"
   s.add_dependency "invisible_captcha", "~> 0.10.0"
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
