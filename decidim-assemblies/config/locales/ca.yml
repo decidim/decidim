@@ -186,9 +186,9 @@ ca:
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
       assembly_member:
-        create: "%{user_name} creat l' %{resource_name} membre de l'ensamblat de %{space_name}"
-        delete: "%{user_name} remogut el %{resource_name} membre de la %{space_name} acoblament"
-        update: "%{user_name} actualitzat el membre de %{resource_name} en el conjunt %{space_name}"
+        create: "%{user_name} ha afegit el membre %{resource_name} a l'assemblea %{space_name}"
+        delete: "%{user_name} esborrat el membre %{resource_name} de l'assemblea %{space_name}"
+        update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
@@ -209,14 +209,14 @@ ca:
           form:
             existing_user: Usuari existent
             non_user: No usuari
-            select_a_position: Seleccioneu una posició
-            select_user: Seleccioneu un usuari
+            select_a_position: Selecciona una posició
+            select_user: Selecciona un usuari
             user_type: Tipus d'usuari
           index:
             filter:
               all: Tots
               ceased: Cessat
-              not_ceased: No ha cessat
+              not_ceased: No cessat
             filter_by: Filtra per
             search: Cerca
       assembly_members:
@@ -286,7 +286,7 @@ ca:
         votes_count: Suports
     assembly_members:
       assembly_member:
-        desiganted_on: Designat a
+        desiganted_on: Designat el
       index:
         title: Membres
     log:
