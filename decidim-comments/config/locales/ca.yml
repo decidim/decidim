@@ -1,6 +1,7 @@
 ca:
   decidim:
     comments:
+      comments: Comentaris
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.
