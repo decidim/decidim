@@ -60,7 +60,7 @@ fi:
           proposals:
             close: kiinni
             current_selection: Nykyinen valinta
-            select: valita
+            select: Valitse
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
             success: Tulos päivitetty onnistuneesti
