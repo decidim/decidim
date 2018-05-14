@@ -349,7 +349,7 @@ eu:
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
-            description: Onartutako proposamenak %{limit} euskarri behar ditu
+            description: Proposamenak balioztatzeko, %{limit} euskarri behar dira
           title: 'Botoak honako arauak ditu:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
