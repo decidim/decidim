@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This cell renders the process card for an instance of an Assembly
+    # This cell renders the assembly card for an instance of an Assembly
     # the default size is the Medium Card (:m)
     class AssemblyCell < Decidim::ViewModel
       def show
