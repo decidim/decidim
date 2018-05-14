@@ -335,7 +335,7 @@ pl:
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
           threshold_per_proposal:
-            description: Aby zostać zaakceptowanym, wnioski muszą dotrzeć do %{limit} wsparcia
+            description: Aby być zatwierdzonym, wnioski muszą dotrzeć do %{limit} podpór
           title: 'Głosowanie podlega następującym zasadom:'
           vote_limit:
             description: Możesz zgłosić do %{limit} propozycje.
