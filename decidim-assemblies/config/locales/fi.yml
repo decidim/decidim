@@ -7,7 +7,7 @@ fi:
         copy_categories: Kopioi aihepiirit
         copy_features: Kopioi ominaisuudet
         decidim_area_id: alue
-        decidim_scope_id: laajuus
+        decidim_scope_id: konteksti
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -18,7 +18,7 @@ fi:
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaisupäivä
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -150,7 +150,7 @@ fi:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
-        endorsements_count: merkintöjen
+        endorsements_count: Suosioäänet
         headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Äänet
