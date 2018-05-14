@@ -48,7 +48,7 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Bloquejar adhesions
+            endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
