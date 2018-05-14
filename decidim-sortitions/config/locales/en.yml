@@ -130,10 +130,11 @@ en:
           time_seed: "(2) Time seed"
           witnesses: Witnesses
         sortition:
+          random_seed: Random seed
           selected_proposals:
-            one: 1 proposal selected
-            other: "%{count} proposals selected"
-          view_sortition: View sortition
+            one: proposal selected
+            other: proposals selected
+          view: View
         sortition_author:
           deleted: Deleted user
         sortition_cancel_author:

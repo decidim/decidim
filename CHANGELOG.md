@@ -64,6 +64,7 @@ end
 - **decidim-participatory_processes**: Update card layout for processes [\#3382](https://github.com/decidim/decidim/pull/3382)
 - **decidim-participatory_processes**: Update card layout for process groups [\#3395](https://github.com/decidim/decidim/pull/3395)
 - **decidim-assemblies**: Update card layout for assemblies and assembly members [\#3405](https://github.com/decidim/decidim/pull/3405)
+- **decidim-sortitions**: Update card layout [\#3405](https://github.com/decidim/decidim/pull/3405)
 
 **Fixed**:
 

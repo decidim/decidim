@@ -71,6 +71,10 @@ module Decidim
       state_classes.concat(["card__text--status"]).join(" ")
     end
 
+    def state_classes
+      ["muted"]
+    end
+
     def comments_count
       model.comments.count
     end
