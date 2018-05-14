@@ -210,6 +210,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest arxiu adjunt.
           success: Adjunt actualitzat correctament.
+      autocomplete:
+        no_results: No s'ha trobat resultats
+        search_prompt: Escriu com a mínim tres caràcters per cercar
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
