@@ -209,14 +209,14 @@ es:
           form:
             existing_user: Usuario existente
             non_user: No usuario
-            select_a_position: Seleccione una posición
-            select_user: Seleccione un usuario
+            select_a_position: Selecciona una posición
+            select_user: Selecciona un usuario
             user_type: Tipo de usuario
           index:
             filter:
               all: Todas
               ceased: Cesado
-              not_ceased: No cesó
+              not_ceased: No cesado
             filter_by: Filtrado por
             search: Buscar
       assembly_members:
@@ -286,7 +286,7 @@ es:
         votes_count: Soportes
     assembly_members:
       assembly_member:
-        desiganted_on: Designado en
+        desiganted_on: Designado el
       index:
         title: Miembros
     log:
