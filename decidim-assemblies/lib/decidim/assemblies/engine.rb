@@ -71,6 +71,23 @@ module Decidim
             }
           )
         end
+
+        Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
+          assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
+                                                      .query.distinct
+                                                      .joins(:members)
+                                                      .merge(Decidim::AssemblyMember.where(user: view_context.user))
+                                                      .reorder(title: :asc)
+
+          next unless assemblies.any?
+
+          view_context.render(
+            partial: "decidim/assemblies/pages/user_profile/member_of",
+            locals: {
+              assemblies: assemblies
+            }
+          )
+        end
       end
     end
   end

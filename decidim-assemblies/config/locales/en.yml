@@ -242,6 +242,9 @@ en:
           highlighted_assemblies:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
+        user_profile:
+          member_of:
+            member_of: Member of
       show:
         area: Area
         assembly_type: Assembly type
