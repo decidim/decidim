@@ -114,16 +114,10 @@ it:
       participatory_process_groups:
         highlighted_proposals:
           proposals: proposte
-        proposal:
-          creation_date: 'Creazione: %{date}'
-          view_proposal: Visualizza proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: proposte
         see_all_proposals: Vedi tutte le proposte
-      proposal:
-        creation_date: 'Creazione: %{date}'
-        view_proposal: Visualizza proposta
     proposals:
       actions:
         answer: Risposta
@@ -220,6 +214,7 @@ it:
             category: Categoria
             comments: Commenti
             created_at: Creato a
+            endorsements: Riconoscimenti
             id: ID
             notes: Gli appunti
             official_proposal: Proposta ufficiale
@@ -354,7 +349,7 @@ it:
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
           threshold_per_proposal:
-            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
+            description: Per essere convalidate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.

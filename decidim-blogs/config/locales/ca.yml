@@ -37,8 +37,6 @@ ca:
             created_at: Creat el
             title: títol
       posts:
-        author_data:
-          comments: comentaris
         sidebar_blog:
           comments: comentaris
           most_commented_posts: Publicacions més comentades

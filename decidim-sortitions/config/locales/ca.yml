@@ -106,8 +106,6 @@ ca:
           label: 'Ordeneu els sortejos per:'
           random: Aleatori
           recent: Recent
-        proposal:
-          view_proposal: Veure proposta
         results_count:
           count:
             one: proposta seleccionada

@@ -1,0 +1,248 @@
+is:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Hápunktur sviðsins
+        description: Lýsing
+        end_voting_date: Loka dagsetning
+        introductory_image: Inngangs mynd
+        introductory_video_url: Inngangur vídeó URL
+        slug: URL slug
+        start_voting_date: Upphafsdagur
+        subtitle: Texti
+        title: Titill
+      question:
+        banner_image: Banner image
+        decidim_scope_id: Borgarsvæði
+        hashtag: Kassamerki
+        hero_image: Heimsmynd
+        i_frame_url: Vefslóð fyrir utanaðkomandi atkvæðagreiðslur
+        origin_scope: Umfang
+        origin_title: Uppruni
+        origin_url: Uppruni vefslóð
+        participatory_scope: Þátttökuskilyrði
+        promoter_group: Framkvæmdarhópur
+        question_context: Samhengi
+        reference: Tilvísun
+        scope: Borgarsvæði
+        slug: URL slug
+        subtitle: Texti
+        title: Titill
+        vote: Ytri atkvæðakerfi
+        what_is_decided: Hvað er ákveðið
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svar fannst ekki.
+  decidim:
+    admin:
+      actions:
+        publish_results: Birta niðurstöður
+        unpublish_results: Afritaðu niðurstöðurnar
+      consultation_publications:
+        create:
+          error: Villa kom upp við að birta þetta samráð.
+          success: Samráð birtist með góðum árangri.
+        destroy:
+          error: Villa kom upp við að birta þetta samráð.
+          success: Samráð óútgefið með góðum árangri.
+      consultation_results_publications:
+        create:
+          error: Villa kom upp við að birta niðurstöður fyrir þessa samráði.
+          success: Samráðs niðurstöður birtar með góðum árangri.
+        destroy:
+          error: Villa kom upp við að birta niðurstöðurnar fyrir þessa samráði.
+          success: Samráðs niðurstöður unpublished með góðum árangri.
+      consultations:
+        create:
+          error: Villa kom upp við að búa til nýtt samráð.
+          success: Samráð hefur verið búið til.
+        destroy:
+          success: Samráð með góðum árangri eytt.
+        edit:
+          update: Uppfæra
+        form:
+          slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samráðs. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Nýtt samráð
+        update:
+          error: Villa kom upp við uppfærslu þessa samráðs.
+          success: Samráð uppfærður með góðum árangri.
+      menu:
+        consultations: Samráð
+        consultations_submenu:
+          info: Upplýsingar
+          questions: Spurningar
+        questions_submenu:
+          components: Hluti
+          consultation: Samráð
+          info: Upplýsingar
+          responses: Svör
+      models:
+        consultation:
+          fields:
+            created_at: Búið til á
+            published: Published
+            title: Titill
+          name:
+            one: Samráð
+            other: Samráð
+        question:
+          fields:
+            created_at: Búið til á
+            published: Published
+            title: Titill
+          name:
+            one: Spurning
+            other: Spurningar
+        response:
+          fields:
+            created_at: Búið til á
+            title: Titill
+          name:
+            one: Svar
+            other: Svör
+      question_publications:
+        create:
+          error: Villa kom upp við að birta þessa spurningu.
+          success: Spurning birt með góðum árangri.
+        destroy:
+          error: Villa kom upp við að birta þessa spurningu.
+          success: Spurningin var birt án árangurs.
+      questions:
+        create:
+          error: Villa kom upp við að búa til nýja spurningu.
+          success: Spurning búin til.
+        destroy:
+          success: Spurning með góðum árangri eytt.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Ný spurning
+        update:
+          error: Villa kom upp við að uppfæra þessa spurningu.
+          success: Spurning uppfærð með góðum árangri.
+      responses:
+        create:
+          error: Villa kom upp við að búa til nýtt svar.
+          success: Svar búin til.
+        destroy:
+          error: Villa kom upp við að fjarlægja svarið.
+          success: Svarið var eytt með góðum árangri.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        new:
+          create: Búa til
+          title: Nýtt svar
+        update:
+          error: Villa kom upp við að uppfæra þetta svar.
+          success: Svar uppfært með góðum árangri.
+      titles:
+        consultations: Samráð
+        questions: Spurningar
+        responses: Svör
+    consultations:
+      consultation:
+        start_voting_date: Atkvæðagreiðsla frá
+        view_results: Skoða niðurstöður
+      consultation_card:
+        view_results: Skoða niðurstöður
+      consultations:
+        orders:
+          label: 'Raða samráð með:'
+          random: Handahófi
+          recent: Síðast
+      count:
+        title:
+          one: "%{count} samráð"
+          other: "%{count} samráð"
+      filters:
+        active: Virkur
+        all: Allt
+        finished: Lokið
+        search: Leita
+        state: Ríki
+        upcoming: Næstu
+      filters_small_view:
+        close_modal: Lokaðu glugga
+        filter: Sía
+        filter_by: Sía eftir
+        unfold: Fella út
+      finished:
+        active_consultations: Virkt samráð
+        past_consultations: Fyrri samráð
+      highlighted_questions:
+        title: Samráð frá %{scope_name}
+      index:
+        title: Samráð
+      question:
+        take_part: Taka þátt
+        view_results: Skoða niðurstöður
+        votes_out_of:
+          one: kjósa út úr
+          other: atkvæði úr
+      question_votes:
+        create:
+          error: Það hafa verið villur við atkvæðagreiðslu
+      regular_questions:
+        title: Annað samráð
+      show:
+        see_finished_consultations: Sjá fyrri samráð
+    menu:
+      consultations: Samráð
+    questions:
+      results:
+        title: Niðurstöður
+      show:
+        read_more: Lestu meira
+      statistics:
+        assistants_count_title: Aðstoðarmenn
+        comments_count_title: Athugasemdir
+        meetings_count_title: Fundir
+        supports_count_title: Lím
+      technical_info:
+        technical_data: Tæknilegar upplýsingar
+      vote_button:
+        already_voted: Already kusu
+        already_voted_hover: Afturkalla stuðning
+        starting_from: Byrjar frá %{date}
+        vote: Kjósa
+      vote_modal:
+        contextual_help: Vinsamlegast veldu valkost. Hafðu í huga að þegar þú hefur staðfest Stuðningur þinn er ekki hægt að breyta.
+        title: 'Samráð: spurningastuðningur'
+      vote_modal_confirm:
+        change: Breyta
+        confirm: Staðfesta
+        contextual_help: Vinsamlegast staðfestu valinn valkost.
+        title: 'Samráð: staðfestu stuðning'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Viðhengi
+          categories: Flokkar
+      consultation_voting_data:
+        start_voting_date: Atkvæðagreiðsla frá
+      question_components:
+        question_menu_item: Spurningin
+        unfold: Fella út
+      question_header:
+        back_to_consultation: Sjá öll samráð
+  pages:
+    home:
+      statistics:
+        consultations_count: Samráð

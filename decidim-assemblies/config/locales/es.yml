@@ -47,6 +47,15 @@ es:
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Cumpleaños
+        birthplace: Lugar de nacimiento
+        ceased_date: Fecha de vencimiento
+        designation_date: Fecha de designación
+        designation_mode: Modo de designación
+        full_name: Nombre completo
+        gender: Género
+        position: Posición
       assembly_user_role:
         email: Email
         name: Nombre
@@ -83,6 +92,23 @@ es:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar asamblea
+      assembly_members:
+        create:
+          error: Se produjo un error al agregar un miembro para este ensamblaje.
+          success: Miembro creado con éxito para este ensamblaje.
+        destroy:
+          success: Miembro destruido con éxito para esta asamblea.
+        edit:
+          title: Actualizar miembro de la asamblea.
+          update: Actualizar
+        index:
+          assembly_members_title: Miembros de la Asamblea
+        new:
+          create: Crear
+          title: Nuevo miembro de la asamblea.
+        update:
+          error: Se produjo un error al actualizar el miembro para este ensamblaje.
+          success: Miembro actualizado con éxito para este ensamblaje.
       assembly_publications:
         create:
           error: Se produjo un error al publicar esta asamblea.
@@ -111,6 +137,7 @@ es:
         assemblies: Asambleas
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
+          assembly_members: Miembros
           attachment_collections: Colecciones
           attachment_files: Archivos
           attachments: Archivos adjuntos
@@ -128,6 +155,18 @@ es:
             published: Publicada
             title: Título
           name: Asamblea
+        assembly_member:
+          fields:
+            ceased_date: Fecha de vencimiento
+            designation_date: Fecha de designación
+            full_name: Nombre
+            position: Posición
+          name: Miembro
+          positions:
+            other: Otro
+            president: presidente
+            secretary: Secretario
+            vice_president: Vicepresidente
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -146,6 +185,10 @@ es:
         publish: "%{user_name} publicó la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creó el %{resource_name} miembro en el %{space_name} conjunto"
+        delete: "%{user_name} eliminó el %{resource_name} miembro del ensamblaje %{space_name}"
+        update: "%{user_name} actualizó el %{resource_name} miembro en el %{space_name} ensamblaje"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
@@ -162,6 +205,23 @@ es:
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuario existente
+            non_user: No usuario
+            select_a_position: Seleccione una posición
+            select_user: Seleccione un usuario
+            user_type: Tipo de usuario
+          index:
+            filter:
+              all: Todas
+              ceased: Cesado
+              not_ceased: No cesó
+            filter_by: Filtrado por
+            search: Buscar
+      assembly_members:
+        index:
+          members: Miembros
       assembly_types:
         commission: Comisión
         consultative_advisory: Consultivo / Asesor
@@ -224,6 +284,11 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    assembly_members:
+      assembly_member:
+        desiganted_on: Designado en
+      index:
+        title: Miembros
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +313,7 @@ es:
           more_info: Más información
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Miembros
         assembly_menu_item: La asamblea
         unfold: Desplegar
       assembly_widgets:

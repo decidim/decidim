@@ -35,6 +35,10 @@ it:
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ it:
         related_documents: Documenti Relativi
       photos:
         related_photos: Immagini relative
+    author:
+      comments:
+        one: commento
+        other: Commenti
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
+        fields:
+          passport_number: Numero di passaporto
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
@@ -391,8 +403,6 @@ it:
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
-      author:
-        deleted: Utente eliminato
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina

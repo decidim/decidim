@@ -114,16 +114,10 @@ gl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostas
-        proposal:
-          creation_date: 'Creación: %{date}'
-          view_proposal: Ver proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propostas
         see_all_proposals: Ver todas as propostas
-      proposal:
-        creation_date: 'Creación: %{date}'
-        view_proposal: Ver proposta
     proposals:
       actions:
         answer: Resposta
@@ -220,6 +214,7 @@ gl:
             category: Categoría
             comments: Comentarios
             created_at: Creado en
+            endorsements: Aprobacións
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
@@ -354,7 +349,7 @@ gl:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
           threshold_per_proposal:
-            description: Para ser aceptado, as propostas deben chegar a %{limit} apoios
+            description: Para ser validado, as propostas deben chegar a %{limit} apoios
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.

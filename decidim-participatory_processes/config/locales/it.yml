@@ -304,6 +304,7 @@ it:
       participatory_process_groups:
         participatory_process_group:
           browse: Naviga
+          processes_count: 'Processi:'
       participatory_process_widgets:
         show:
           active_step: Fase attiva

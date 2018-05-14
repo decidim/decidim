@@ -114,16 +114,10 @@ eu:
       participatory_process_groups:
         highlighted_proposals:
           proposals: proposamenak
-        proposal:
-          creation_date: 'Sorkuntza: %{date}'
-          view_proposal: Ikusi proposamena
     participatory_spaces:
       highlighted_proposals:
         proposals: proposamenak
         see_all_proposals: Ikusi proposamen guztiak
-      proposal:
-        creation_date: 'Sorkuntza: %{date}'
-        view_proposal: Ikusi proposamena
     proposals:
       actions:
         answer: Erantzuna
@@ -220,6 +214,7 @@ eu:
             category: Kategoria
             comments: Oharrak
             created_at: Sortutako at
+            endorsements: Oniritziak
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
@@ -354,7 +349,7 @@ eu:
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
-            description: Onartutako proposamenak %{limit} euskarri behar ditu
+            description: Proposamenak balioztatzeko, %{limit} euskarri behar dira
           title: 'Botoak honako arauak ditu:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'

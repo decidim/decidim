@@ -106,8 +106,6 @@ gl:
           label: 'Solicitar sortións por:'
           random: Aleatorio
           recent: Recentes
-        proposal:
-          view_proposal: Ver proposta
         results_count:
           count:
             one: proposta seleccionada

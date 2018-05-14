@@ -37,8 +37,6 @@ eu:
             created_at: Sortutako at
             title: Izenburua
       posts:
-        author_data:
-          comments: iruzkinak
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
