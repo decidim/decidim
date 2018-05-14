@@ -114,16 +114,10 @@ sv:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Förslag
-        proposal:
-          creation_date: 'Skapelse: %{date}'
-          view_proposal: Visa förslag
     participatory_spaces:
       highlighted_proposals:
         proposals: Förslag
         see_all_proposals: Se alla förslag
-      proposal:
-        creation_date: 'Skapelse: %{date}'
-        view_proposal: Visa förslag
     proposals:
       actions:
         answer: Svara
@@ -220,6 +214,7 @@ sv:
             category: Kategori
             comments: Kommentarer
             created_at: Skapad vid
+            endorsements: påskrifter
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
