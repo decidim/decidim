@@ -6,12 +6,12 @@ module Decidim
     include Decidim::UserProfile
 
     def show
-      authorize! :show, current_user
+      enforce_permission_to :read, :user, current_user: current_user
       @notifications_settings = form(NotificationsSettingsForm).from_model(current_user)
     end
 
     def update
-      authorize! :update, current_user
+      enforce_permission_to :update, :user, current_user: current_user
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
       UpdateNotificationsSettings.call(current_user, @notifications_settings) do

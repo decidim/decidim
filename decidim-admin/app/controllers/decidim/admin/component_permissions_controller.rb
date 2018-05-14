@@ -5,17 +5,17 @@ module Decidim
     # Controller that allows managing component permissions.
     #
     class ComponentPermissionsController < Decidim::Admin::ApplicationController
-      helper_method :authorizations, :component
+      helper_method :authorizations, :other_authorizations_for, :component
 
       def edit
-        authorize! :update, component
+        enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.new(
           permissions: permission_forms
         )
       end
 
       def update
-        authorize! :update, component
+        enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.from_params(params)
 
         UpdateComponentPermissions.call(@permissions_form, component) do
@@ -33,12 +33,10 @@ module Decidim
       private
 
       def permission_forms
-        permissions = component.permissions || {}
-
-        @permission_forms ||= component.manifest.actions.inject({}) do |result, action|
+        component.manifest.actions.inject({}) do |result, action|
           form = PermissionForm.new(
-            authorization_handler_name: permissions.dig(action, "authorization_handler_name"),
-            options: permissions.dig(action, "options").try(:to_json)
+            authorization_handler_name: authorization_for(action),
+            options: permissions.dig(action, "options")
           )
 
           result.update(action => form)
@@ -51,8 +49,22 @@ module Decidim
         )
       end
 
+      def other_authorizations_for(action)
+        Verifications::Adapter.from_collection(
+          current_organization.available_authorizations - [authorization_for(action)]
+        )
+      end
+
       def component
         @component ||= current_participatory_space.components.find(params[:component_id])
+      end
+
+      def permissions
+        @permissions ||= component.permissions || {}
+      end
+
+      def authorization_for(action)
+        permissions.dig(action, "authorization_handler_name")
       end
     end
   end

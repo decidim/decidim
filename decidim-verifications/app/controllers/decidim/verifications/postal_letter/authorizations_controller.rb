@@ -9,13 +9,13 @@ module Decidim
         before_action :load_authorization
 
         def new
-          authorize! :create, @authorization
+          enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = AddressForm.new
         end
 
         def create
-          authorize! :create, @authorization
+          enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = AddressForm.from_params(params.merge(user: current_user))
 
@@ -33,13 +33,13 @@ module Decidim
         end
 
         def edit
-          authorize! :update, @authorization
+          enforce_permission_to :update, :authorization, authorization: @authorization
 
           @form = ConfirmationForm.from_params(params)
         end
 
         def update
-          authorize! :update, @authorization
+          enforce_permission_to :update, :authorization, authorization: @authorization
 
           @form = ConfirmationForm.from_params(params)
 

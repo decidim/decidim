@@ -22,6 +22,12 @@ module Decidim
         end
       end
 
+      def show
+        return if meeting.current_user_can_visit_meeting?(current_user)
+        flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
+        redirect_to action: "index"
+      end
+
       private
 
       def meeting
@@ -29,7 +35,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results)
+        @meetings ||= paginate(search.results).visible_meeting_for(current_user)
       end
 
       def geocoded_meetings

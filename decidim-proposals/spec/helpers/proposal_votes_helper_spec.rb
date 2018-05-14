@@ -20,7 +20,7 @@ module Decidim
 
       describe "#vote_button_classes" do
         it "returns small buttons classes from proposals list" do
-          expect(helper.vote_button_classes(true)).to eq("small")
+          expect(helper.vote_button_classes(true)).to eq("card__button button--sc")
         end
 
         it "returns expanded buttons classes if it's not from proposals list'" do

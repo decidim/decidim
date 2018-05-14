@@ -75,4 +75,23 @@
 
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
+
+  const $form = $(".edit_meeting, .new_meeting, .copy_meetings");
+
+  if ($form.length > 0) {
+    const $privateMeeting = $form.find("#private_meeting");
+    const $transparent = $form.find("#transparent");
+
+    const toggleDisabledHiddenFields = () => {
+      const enabledPrivateSpace = $privateMeeting.find("input[type='checkbox']").prop("checked");
+      $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
+
+      if (enabledPrivateSpace) {
+        $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+      }
+    };
+
+    $privateMeeting.on("change", toggleDisabledHiddenFields);
+    toggleDisabledHiddenFields();
+  }
 })(window);

@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     # A controller that holds the logic to show consultations in a
     # public layout.
-    class ConsultationsController < Decidim::ApplicationController
+    class ConsultationsController < Decidim::Consultations::ApplicationController
       layout "layouts/decidim/consultation", only: :show
 
       include NeedsConsultation
@@ -22,16 +22,16 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
 
       def index
-        authorize! :read, Consultation
+        enforce_permission_to :read, :consultation_list
         redirect_to consultation_path(active_consultations.first) if active_consultations.count == 1
       end
 
       def show
-        authorize! :read, current_consultation
+        enforce_permission_to :read, :consultation, consultation: current_consultation
       end
 
       def finished
-        authorize! :read, Consultation
+        enforce_permission_to :read, :consultation
         render layout: "layouts/decidim/consultation_choose"
       end
 

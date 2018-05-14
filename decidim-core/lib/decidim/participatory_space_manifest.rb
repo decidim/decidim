@@ -10,6 +10,7 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
+    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
@@ -27,6 +28,13 @@ module Decidim
     # A String with the component's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
+
+    # The name of the class that handles the permissions for this space. It will
+    # probably have the form of `Decidim::<MySpace>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
 
     validates :name, presence: true
 
@@ -84,6 +92,15 @@ module Decidim
     # Returns nothing.
     def participatory_spaces(&block)
       @participatory_spaces ||= block
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
     end
   end
 end

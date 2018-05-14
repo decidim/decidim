@@ -6,12 +6,12 @@ module Decidim
     include Decidim::UserProfile
 
     def show
-      authorize! :show, current_user
+      enforce_permission_to :show, :user, current_user: current_user
       @account = form(AccountForm).from_model(current_user)
     end
 
     def update
-      authorize! :update, current_user
+      enforce_permission_to :update, :user, current_user: current_user
       @account = form(AccountForm).from_params(account_params)
 
       UpdateAccount.call(current_user, @account) do
@@ -34,12 +34,12 @@ module Decidim
     end
 
     def delete
-      authorize! :delete, current_user
+      enforce_permission_to :delete, :user, current_user: current_user
       @form = form(DeleteAccountForm).from_model(current_user)
     end
 
     def destroy
-      authorize! :delete, current_user
+      enforce_permission_to :delete, :user, current_user: current_user
       @form = form(DeleteAccountForm).from_params(params)
 
       DestroyAccount.call(current_user, @form) do

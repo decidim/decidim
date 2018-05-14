@@ -45,7 +45,6 @@ module Decidim
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
-  autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
@@ -54,6 +53,7 @@ module Decidim
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
+  autoload :HasResourceManifests, "decidim/has_resource_manifests"
 
   include ActiveSupport::Configurable
 
@@ -81,20 +81,6 @@ module Decidim
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
   config_accessor :mailer_sender
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the base `Decidim::Abilities::BaseAbility`
-  # class.
-  config_accessor :abilities do
-    []
-  end
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the `Decidim::Admin::Abilities::BaseAbility`
-  # class.
-  config_accessor :admin_abilities do
-    []
-  end
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
@@ -301,7 +287,8 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    component_registry.find_resource_manifest(resource_name_or_klass)
+    component_registry.find_resource_manifest(resource_name_or_klass) ||
+      participatory_space_registry.find_resource_manifest(resource_name_or_klass)
   end
 
   # Public: Stores the registry of components

@@ -10,7 +10,7 @@
            } unless current_initiative.offline? %>
 
 <% current_user.user_groups.verified.each do |g| %>
-  <br>
+  <br />
   <% if @voted_groups.include? g.id %>
       <%= action_authorized_button_to :vote,
                                       g.name,

@@ -5,12 +5,12 @@ require "rspec/rails"
 require "rspec/cells"
 require "factory_bot_rails"
 require "byebug"
-require "cancan/matchers"
 require "rectify/rspec"
 require "wisper/rspec/stub_wisper_publisher"
 require "db-query-matchers"
 require "action_view/helpers/sanitize_helper"
 require_relative "factories"
+require_relative "screenshot_helper_ext"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./rspec_support/ and its subdirectories.
@@ -35,4 +35,6 @@ RSpec.configure do |config|
   config.include Rectify::RSpec::Helpers
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
+  config.include Capybara::ReactSelect, type: :system
+  config.include Decidim::ScreenshotHelperExt, type: :system
 end

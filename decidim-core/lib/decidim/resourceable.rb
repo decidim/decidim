@@ -81,6 +81,8 @@ module Decidim
           end
         end
       end
+
+      delegate :resource_manifest, to: :class
     end
 
     class_methods do

@@ -115,16 +115,10 @@ en:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Proposals
-        proposal:
-          creation_date: 'Creation: %{date}'
-          view_proposal: View proposal
     participatory_spaces:
       highlighted_proposals:
         proposals: Proposals
         see_all_proposals: See all proposals
-      proposal:
-        creation_date: 'Creation: %{date}'
-        view_proposal: View proposal
     proposals:
       actions:
         answer: Answer
@@ -221,6 +215,7 @@ en:
             category: Category
             comments: Comments
             created_at: Created at
+            endorsements: Endorsements
             id: ID
             notes: Notes
             official_proposal: Official proposal
@@ -355,7 +350,7 @@ en:
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
-            description: In order to be accepted proposals need to reach %{limit} supports
+            description: In order to be validated proposals need to reach %{limit} supports
           title: 'Voting is subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} proposals.

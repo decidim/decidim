@@ -64,7 +64,7 @@ describe "Explore meetings", type: :system do
         visit_component
 
         within ".filters" do
-          scope_pick scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global"), scope
+          scope_pick select_data_picker(:filter_scope_id, multiple: true, global_value: "global"), scope
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -190,7 +190,7 @@ describe "Explore meetings", type: :system do
         end
 
         within ".filters" do
-          expect(scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
+          expect(select_data_picker(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
         end
       end
     end
@@ -246,8 +246,8 @@ describe "Explore meetings", type: :system do
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do
-          expect(page).to have_content("ATTENDEES COUNT #{meeting.attendees_count}")
-          expect(page).to have_content("ATTENDING ORGANIZATIONS #{meeting.attending_organizations}")
+          expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")
+          expect(page).to have_content("ATTENDING ORGANIZATIONS\n#{meeting.attending_organizations}")
         end
       end
     end
@@ -259,7 +259,7 @@ describe "Explore meetings", type: :system do
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("CONTRIBUTIONS COUNT 0")
+          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
         end
       end
     end
@@ -271,7 +271,7 @@ describe "Explore meetings", type: :system do
 
       it "shows contributions count" do
         within ".definition-data" do
-          expect(page).to have_content("CONTRIBUTIONS COUNT 1")
+          expect(page).to have_content("CONTRIBUTIONS COUNT\n1")
         end
       end
     end

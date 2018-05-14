@@ -1,5 +1,5 @@
 
-<ul class="tags tags--sortition" >
+<ul class="tags tags--sortition">
   <li>
     <%= link_to t("filters.active", scope: "decidim.sortitions.sortitions"),
                 sortitions_path(filter: { state: "active" }) unless sortition.cancelled? %>

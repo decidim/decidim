@@ -1,0 +1,49 @@
+<% member_presenter = Decidim::AssemblyMemberPresenter.new(assembly_member) %>
+
+<div class="column">
+  <article class="card card--member">
+    <div class="card__content">
+      <div class="card__header collapse">
+        <div class="author-data author-data--big">
+          <div class="author-data__main">
+            <div class="author author--flex">
+              <% if (profile_url = member_presenter.profile_url) %>
+                <a href="<%= profile_url %>" class="author__avatar">
+                  <%= image_tag member_presenter.avatar_url(:big) %>
+                </a>
+                <div>
+                  <div class="author__name--container">
+                    <a href="<%= profile_url %>" class="author__name">
+                      <%= member_presenter.name %>
+                    </a>
+                  </div>
+                  <% if (nickname = member_presenter.nickname) %>
+                    <a href="<%= profile_url %>" class="author__nickname">
+                      <%= nickname %>
+                    </a>
+                  <% end %>
+                </div>
+              <% else %>
+                <span class="author__avatar"><%= image_tag asset_path("decidim/default-avatar.svg") %></span>
+                <div>
+                  <div class="author__name--container"><%= member_presenter.name %></div>
+                  <% if (nickname = member_presenter.nickname) %>
+                    <span class="author__nickname"><%= nickname %></span>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__text card--picture-offset">
+        <div>
+          <small><strong><%= member_presenter.position %></strong></small>
+        </div>
+        <div class="text-small"><%= t(".desiganted_on") %>
+          <strong> <%= l assembly_member.designation_date, format: :datepicker %></strong></div>
+        <div class="text-small mt-s"><%= member_presenter.personal_information %></div>
+      </div>
+    </div>
+  </article>
+</div>

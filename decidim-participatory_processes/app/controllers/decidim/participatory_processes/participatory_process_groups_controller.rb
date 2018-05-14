@@ -8,8 +8,12 @@ module Decidim
 
       before_action :set_group
 
+      def index
+        enforce_permission_to :list, :process_group
+      end
+
       def show
-        authorize! :read, ParticipatoryProcessGroup
+        enforce_permission_to :read, :process_group, process_group: @group
       end
 
       private

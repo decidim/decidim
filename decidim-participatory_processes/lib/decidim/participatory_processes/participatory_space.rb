@@ -10,6 +10,18 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
 
   participatory_space.query_type = "Decidim::ParticipatoryProcesses::ParticipatoryProcessType"
 
+  participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
+
+  participatory_space.register_resource do |resource|
+    resource.model_class_name = "Decidim::ParticipatoryProcess"
+    resource.card = "decidim/participatory_processes/process"
+  end
+
+  participatory_space.register_resource do |resource|
+    resource.model_class_name = "Decidim::ParticipatoryProcessGroup"
+    resource.card = "decidim/participatory_processes/process_group"
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ParticipatoryProcesses::Engine
     context.layout = "layouts/decidim/participatory_process"

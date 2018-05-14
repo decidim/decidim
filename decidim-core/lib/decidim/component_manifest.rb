@@ -10,6 +10,7 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_component`.
   class ComponentManifest
+    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
@@ -46,8 +47,9 @@ module Decidim
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
-    # The cell path to use to render the card of a resource.
-    attribute :card, String
+    # The name of the class that handles the permissions for this component. It will
+    # probably have the form of `Decidim::<MyComponent>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
     validates :name, presence: true
 
@@ -122,23 +124,6 @@ module Decidim
       settings
     end
 
-    # Public: Registers a resource inside a component manifest. Exposes a DSL
-    # defined by `Decidim::ResourceManifest`.
-    #
-    # Resource manifests are a way to expose a resource from one engine to
-    # the whole system. This was resoruces can be linked between them.
-    #
-    # block - A Block that will be called to set the Resource attributes.
-    #
-    # Returns nothing.
-    def register_resource
-      manifest = ResourceManifest.new
-      manifest.component_manifest = self
-      yield(manifest)
-      manifest.validate!
-      resource_manifests << manifest
-    end
-
     # Public: Registers an export artifact with a name and its properties
     # defined in `Decidim::Components::ExportManifest`.
     #
@@ -169,14 +154,6 @@ module Decidim
       end
     end
 
-    # Public: Finds all the registered resource manifest's via the
-    # `register_resource` method.
-    #
-    # Returns an Array[ResourceManifest].
-    def resource_manifests
-      @resource_manifests ||= []
-    end
-
     # Public: Stores an instance of StatsRegistry
     def stats
       @stats ||= StatsRegistry.new
@@ -193,6 +170,15 @@ module Decidim
     # Returns nothing.
     def register_stat(name, options = {}, &block)
       stats.register(name, options, &block)
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
     end
   end
 end

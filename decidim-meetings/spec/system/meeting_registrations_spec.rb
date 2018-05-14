@@ -91,7 +91,7 @@ describe "Meeting registrations", type: :system do
             click_button "Join meeting"
           end
 
-          within "#meeting-registration-confirm" do
+          within "#meeting-registration-confirm-#{meeting.id}" do
             expect(page).to have_content "A legal text"
             page.find(".button.expanded").click
           end

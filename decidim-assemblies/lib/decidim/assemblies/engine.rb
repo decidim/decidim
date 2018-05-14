@@ -23,6 +23,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+          resources :assembly_members, only: :index, path: "members"
           resource :assembly_widget, only: :show, path: "embed"
         end
 
@@ -39,18 +40,6 @@ module Decidim
 
       initializer "decidim_assemblies.assets" do |app|
         app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
-      end
-
-      initializer "decidim_assemblies.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += [
-            "Decidim::Assemblies::Abilities::EveryoneAbility",
-            "Decidim::Assemblies::Abilities::AssemblyAdminAbility",
-            "Decidim::Assemblies::Abilities::AssemblyCollaboratorAbility",
-            "Decidim::Assemblies::Abilities::AssemblyModeratorAbility",
-            "Decidim::Assemblies::Abilities::AdminAbility"
-          ]
-        end
       end
 
       initializer "decidim.stats" do

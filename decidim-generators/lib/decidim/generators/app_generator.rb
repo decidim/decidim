@@ -25,6 +25,10 @@ module Decidim
 
       source_root File.expand_path("app_templates", __dir__)
 
+      class_option :app_name, type: :string,
+                              default: nil,
+                              desc: "The name of the app"
+
       class_option :path, type: :string,
                           default: nil,
                           desc: "Path to the gem"
@@ -55,7 +59,7 @@ module Decidim
 
       class_option :demo, type: :boolean,
                           default: false,
-                          desc: "Generate a demo authorization handler"
+                          desc: "Generate demo authorization handlers"
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -95,9 +99,18 @@ module Decidim
                        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
-        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
-        gsub_file "Gemfile", /gem "decidim-([A-z]+)".*/, "# gem \"decidim-\\1\", #{gem_modifier}"
-        gsub_file "Gemfile", /(# )?gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
+
+        if current_gem == "decidim"
+          gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
+
+          if options[:demo]
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+          else
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+          end
+        end
 
         Bundler.with_original_env { run "bundle install" }
       end
@@ -114,7 +127,11 @@ module Decidim
       def authorization_handler
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
-        copy_file "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
+        if options[:demo]
+          copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+          copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
+          copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
+        end
       end
 
       def install
@@ -122,6 +139,7 @@ module Decidim
           [
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
+            "--skip_gemfile=#{options[:skip_gemfile]}",
             "--app_name=#{app_name}"
           ]
         )
@@ -129,10 +147,18 @@ module Decidim
 
       private
 
+      def app_name
+        options[:app_name] || super
+      end
+
+      def app_const_base
+        app_name.gsub(/\W/, "_").squeeze("_").camelize
+      end
+
       def current_gem
         return "decidim" unless options[:path]
 
-        File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
+        @current_gem ||= File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
       end
 
       def gemspec
