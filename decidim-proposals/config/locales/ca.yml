@@ -115,7 +115,7 @@ ca:
         highlighted_proposals:
           proposals: Propostes
         proposal:
-          creation_date: 'Data de creació: %{date}'
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
     participatory_spaces:
       highlighted_proposals:
@@ -354,7 +354,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser acceptat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validades, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
