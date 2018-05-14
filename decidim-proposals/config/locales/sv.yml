@@ -349,7 +349,7 @@ sv:
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
-            description: För att accepteras måste förslag nå %{limit} stöd
+            description: För att kunna valideras måste förslag nå %{limit} stöd
           title: 'Röstning är föremål för följande regler:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
