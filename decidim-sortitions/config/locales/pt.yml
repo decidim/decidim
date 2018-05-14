@@ -106,8 +106,6 @@ pt:
           label: 'Ordenar ordenações por:'
           random: Aleatória
           recent: Recente
-        proposal:
-          view_proposal: Ver proposta
         results_count:
           count:
             one: proposta selecionada
