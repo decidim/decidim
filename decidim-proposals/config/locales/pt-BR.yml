@@ -349,7 +349,7 @@ pt-BR:
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
           threshold_per_proposal:
-            description: Para serem aceitos, as propostas precisam chegar aos apoios %{limit}
+            description: Para serem validadas, as propostas precisam atingir %{limit} suporte
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Você pode votar até %{limit} propostas.
