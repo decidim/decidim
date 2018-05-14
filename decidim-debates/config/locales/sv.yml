@@ -66,9 +66,6 @@ sv:
           invalid: Det har varit ett problem under debatten.
           success: Debatt skapades framgångsrikt.
         debate:
-          comments:
-            one: Kommentar
-            other: Kommentarer
           participate: Delta
         filters:
           all: Alla
@@ -94,9 +91,6 @@ sv:
           close_window: Stäng fönstret
           share: Dela
           share_link: Dela länk
-        show:
-          comments: Kommentarer
-          report: Rapportera
       models:
         debate:
           fields:
