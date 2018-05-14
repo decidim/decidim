@@ -16,7 +16,6 @@ module Decidim
       def has_profile?
         model.profile_url.present?
       end
-
     end
   end
 end
