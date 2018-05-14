@@ -304,6 +304,7 @@ pl:
       participatory_process_groups:
         participatory_process_group:
           browse: Paść się
+          processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
           active_step: Aktywny krok

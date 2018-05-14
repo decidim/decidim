@@ -304,6 +304,7 @@ gl:
       participatory_process_groups:
         participatory_process_group:
           browse: Buscar
+          processes_count: 'Procesos:'
       participatory_process_widgets:
         show:
           active_step: Paso activo

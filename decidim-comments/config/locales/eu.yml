@@ -1,6 +1,7 @@
 eu:
   decidim:
     comments:
+      comments: Oharrak
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.

@@ -1,6 +1,7 @@
 pl:
   decidim:
     comments:
+      comments: Komentarze
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.

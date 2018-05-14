@@ -66,9 +66,6 @@ fr:
           invalid: Il y a eu un problème lors de la création du débat.
           success: Débat créé avec succès.
         debate:
-          comments:
-            one: Commentaire
-            other: Commentaires
           participate: Participer
         filters:
           all: Tout
@@ -94,9 +91,6 @@ fr:
           close_window: Fermer la fenêtre
           share: Partager
           share_link: Lien de partage
-        show:
-          comments: Commentaires
-          report: Rapport
       models:
         debate:
           fields:

@@ -110,8 +110,6 @@ pl:
           label: 'Zamów sortowanie według:'
           random: Losowy
           recent: Niedawny
-        proposal:
-          view_proposal: Wyświetl propozycję
         results_count:
           count:
             one: wybrana propozycja
