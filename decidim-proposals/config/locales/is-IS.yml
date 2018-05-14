@@ -349,7 +349,7 @@ is:
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
           threshold_per_proposal:
-            description: Til að vera samþykktar tillögur þarf að ná %{limit} stuðningi
+            description: Til að fullgilda tillögur þarf að ná %{limit} stuðningi
           title: 'Atkvæðagreiðsla er háð eftirfarandi reglum:'
           vote_limit:
             description: Þú getur kosið allt að %{limit} tillögur.
