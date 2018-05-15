@@ -125,10 +125,11 @@ eu:
           time_seed: "(2) Denbora hazia"
           witnesses: Lekukoak
         sortition:
+          random_seed: Ausazko hazia
           selected_proposals:
             one: Aukeratutako 1 proposamena
-            other: "%{count} proposamen hautatuak"
-          view_sortition: Ikusi sortioa
+            other: '%{count} proposamen hautatuak'
+          view: ikusi
         sortition_author:
           deleted: Erabiltzailea ezabatua
         sortition_cancel_author:

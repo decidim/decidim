@@ -125,10 +125,11 @@ fi:
           time_seed: "(2) Aikasementti"
           witnesses: todistajat
         sortition:
+          random_seed: Satunnainen siemen
           selected_proposals:
             one: 1 ehdotus valittu
-            other: "%{count} valitut ehdotukset"
-          view_sortition: Näytä lajittelu
+            other: '%{count} valitut ehdotukset'
+          view: näkymä
         sortition_author:
           deleted: Poistettu käyttäjä
         sortition_cancel_author:

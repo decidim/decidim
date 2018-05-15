@@ -241,6 +241,9 @@ sv:
           highlighted_assemblies:
             active_assemblies: Aktiva aggregat
             see_all_assemblies: Se alla församlingar
+        user_profile:
+          member_of:
+            member_of: Medlem i
       show:
         area: Område
         assembly_type: Monteringstyp
@@ -286,7 +289,7 @@ sv:
         votes_count: Röster
     assembly_members:
       assembly_member:
-        desiganted_on: Anges den
+        designated_on: Anges den
       index:
         title: medlemmar
     log:
