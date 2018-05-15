@@ -43,7 +43,7 @@ module Decidim
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
 
-      initializer "decidim_meetings.add_cells_view_paths" do
+      initializer "decidim_participatory_processes.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/views") # for partials
       end

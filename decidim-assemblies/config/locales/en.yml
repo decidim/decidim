@@ -290,7 +290,7 @@ en:
         votes_count: Votes
     assembly_members:
       assembly_member:
-        desiganted_on: Designated on
+        designated_on: Designated on
       index:
         title: Members
     log:
