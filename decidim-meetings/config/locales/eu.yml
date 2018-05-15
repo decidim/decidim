@@ -266,6 +266,8 @@ eu:
         past_meetings: Azken bilerak
         see_all_meetings: Ikusi bilera guztiak
         upcoming_meetings: Hurrengo topaketak
+      upcoming_meeting_for_card:
+        upcoming_meeting: Hurrengo bilera
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Topaketaren emaitzak:'
