@@ -296,8 +296,7 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    component_registry.find_resource_manifest(resource_name_or_klass) ||
-      participatory_space_registry.find_resource_manifest(resource_name_or_klass)
+    resource_registry.find(resource_name_or_klass)
   end
 
   # Public: Stores the registry of components

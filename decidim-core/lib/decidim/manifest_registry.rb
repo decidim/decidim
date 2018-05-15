@@ -22,7 +22,7 @@ module Decidim
 
     def find(name)
       manifests.find do |manifest|
-        manifest.try(:model_class) == name ||
+        manifest.try(:model_class_name) == name.to_s ||
           manifest.name.to_s == name.to_s
       end
     end
