@@ -241,6 +241,9 @@ pl:
           highlighted_assemblies:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
+        user_profile:
+          member_of:
+            member_of: Członkiem
       show:
         area: Powierzchnia
         assembly_type: Typ zespołu
@@ -286,7 +289,7 @@ pl:
         votes_count: Głosowania
     assembly_members:
       assembly_member:
-        desiganted_on: Wyznaczony na
+        designated_on: Wyznaczony na
       index:
         title: Członkowie
     log:
@@ -305,6 +308,12 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaż"
+            few: "%{count} złożeń"
+            many: "%{count} złożeń"
+            other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział
