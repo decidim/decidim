@@ -267,7 +267,7 @@ ca:
         see_all_meetings: Veure totes les trobades
         upcoming_meetings: Properes trobades
       upcoming_meeting_for_card:
-        upcoming_meeting: Pròxima reunió
+        upcoming_meeting: Propera reunió
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'
