@@ -61,7 +61,7 @@ es:
       initiatives:
         milestone_completed:
           email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de los votos!'
-          email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Nuevo hito completado!'
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de los votos.
     initiatives:
