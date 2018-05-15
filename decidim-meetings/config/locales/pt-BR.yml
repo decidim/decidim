@@ -266,6 +266,8 @@ pt-BR:
         past_meetings: Reuniões anteriores
         see_all_meetings: Veja todas as reuniões
         upcoming_meetings: Próximas reuniões
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunião
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

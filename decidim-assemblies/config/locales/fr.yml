@@ -241,6 +241,9 @@ fr:
           highlighted_assemblies:
             active_assemblies: Agora actives
             see_all_assemblies: Voir toutes les agora
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Région
         assembly_type: Type d'assemblage
@@ -286,7 +289,7 @@ fr:
         votes_count: Soutiens
     assembly_members:
       assembly_member:
-        desiganted_on: Désigné sur
+        designated_on: Désigné sur
       index:
         title: Membres
     log:

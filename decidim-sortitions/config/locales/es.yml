@@ -125,10 +125,11 @@ es:
           time_seed: "(2) Tiempo de semilla"
           witnesses: Testigos
         sortition:
+          random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
-            other: "%{count} propuestas seleccionadas"
-          view_sortition: Ver sorteo
+            other: '%{count} propuestas seleccionadas'
+          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:

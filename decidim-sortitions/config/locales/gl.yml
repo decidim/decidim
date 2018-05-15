@@ -125,10 +125,11 @@ gl:
           time_seed: "(2) Semente de tempo"
           witnesses: Testemuñas
         sortition:
+          random_seed: Semente aleatoria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: "%{count} propostas seleccionadas"
-          view_sortition: Ver sortition
+            other: '%{count} propostas seleccionadas'
+          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:

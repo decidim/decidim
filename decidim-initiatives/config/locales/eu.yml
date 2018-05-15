@@ -57,6 +57,12 @@ eu:
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
+    events:
+      initiatives:
+        milestone_completed:
+          email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Mugarri berria osatu da!
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek botoen% %{percentage}lortu dute.
     initiatives:
       admin:
         committee_requests:

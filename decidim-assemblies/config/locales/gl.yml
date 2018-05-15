@@ -241,6 +241,9 @@ gl:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
+        user_profile:
+          member_of:
+            member_of: Membro de
       show:
         area: Área
         assembly_type: Tipo de montaxe
@@ -286,7 +289,7 @@ gl:
         votes_count: Votos
     assembly_members:
       assembly_member:
-        desiganted_on: Designado en
+        designated_on: Designado en
       index:
         title: Membros
     log:
