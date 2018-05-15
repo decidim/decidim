@@ -15,8 +15,8 @@ module Decidim
     end
 
     it "calculates the same fingerprint regardless of key order" do
-      calculator1 = described_class.new(foo: { cory: "wong", bob: "ross"}, bar: "baz")
-      calculator2 = described_class.new(bar: "baz", foo: { bob: "ross", cory: "wong"})
+      calculator1 = described_class.new(foo: { cory: "wong", bob: "ross" }, bar: "baz")
+      calculator2 = described_class.new(bar: "baz", foo: { bob: "ross", cory: "wong" })
 
       expect(calculator1.value).to eq(calculator2.value)
       expect(calculator1.source).to eq(calculator2.source)
