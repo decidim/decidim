@@ -8,7 +8,7 @@ module Decidim
   # used directly, you should use `register_resource` inside a component.
   #
   # Example:
-  #   component.register_resource do |resource|
+  #   component.register_resource(:my_model) do |resource|
   #     resource.model_class = Decidim::MyEngine::MyModel
   #     resource.template    = "decidim/myengine/myengine/linked_models"
   #   end

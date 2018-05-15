@@ -88,10 +88,11 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_step_attribute_2, type: :boolean
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:dummy_resource) do |resource|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
+    resource.component_manifest = component
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
