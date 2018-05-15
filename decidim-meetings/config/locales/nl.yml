@@ -16,10 +16,17 @@ nl:
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
+        private_meeting: Privé vergadering
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
         title: Titel
+        transparent: Transparant
+      minutes:
+        audio_url: Audio-URL
+        description: Beschrijving
+        video_url: Video URL
+        visible: Is zichtbaar
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +90,7 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        minutes: Notulen
         new: nieuwe
         preview: Voorbeeld
         registrations: registraties
@@ -106,6 +114,9 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
+        meeting_copies:
+          form:
+            select_organizer: Selecteer de organisator
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -117,6 +128,8 @@ nl:
             success: Vergadering succesvol verwijderd
           edit:
             update: Bijwerken
+          form:
+            select_organizer: Selecteer de organisator
           index:
             title: Events
           new:
@@ -135,6 +148,18 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
+        minutes:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze minuten
+            success: Notulen met succes gemaakt
+          edit:
+            update: Bijwerken
+          new:
+            create: creëren
+            title: Maak minuten
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze minuten
+            success: Notulen met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -159,6 +184,12 @@ nl:
           delete: "%{user_name} heeft het %{resource_name} event verwijderd in de %{space_name} ruimte"
           export_registrations: "%{user_name} exporteerde de registraties van het %{resource_name} event op de %{space_name} ruimte"
           update: "%{user_name} heeft het %{resource_name} event bijgewerkt in de %{space_name} ruimte"
+          value_types:
+            organizer_presenter:
+              not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
+        minutes:
+          create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
+          update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +197,8 @@ nl:
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
+      meeting:
+        not_allowed: U mag deze vergadering niet bekijken
       meetings:
         filters:
           category: Categorie
@@ -192,9 +225,11 @@ nl:
           contributions: Aantal bijdragen
           going: Gaat
           join: Deelnemen aan bijeenkomst
+          meeting_minutes: Meeting Minutes
           meeting_report: Bijeenkomst verslag
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
+          related_information: Gerelateerde informatie
           remaining_slots:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
@@ -218,6 +253,9 @@ nl:
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
+      types:
+        private_meeting: Privé vergadering
+        transparent: Transparant
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

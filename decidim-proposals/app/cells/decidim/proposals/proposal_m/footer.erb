@@ -5,7 +5,7 @@
       <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
     <% else %>
       <div class="card__support__data"></div>
-      <%= link_to t("decidim.proposals.proposals.proposal.view_proposal"), resource_path, class: "card__button button small secondary" %>
+      <%= link_to t("decidim.proposals.proposals.proposal.view_proposal"), resource_path, class: "card__button button--sc light button small secondary" %>
     <% end %>
   </div>
 </div>

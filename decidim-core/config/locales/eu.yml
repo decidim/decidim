@@ -35,6 +35,10 @@ eu:
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ eu:
         related_documents: Honekin lotutako agiriak
       photos:
         related_photos: Honekin lotutako argazkiak
+    author:
+      comments:
+        one: iruzkin
+        other: iruzkinak
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Egiaztatu pasaportearen zenbakia "A"
+        fields:
+          passport_number: Pasaporte zenbakia
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
@@ -391,8 +403,6 @@ eu:
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
-      author:
-        deleted: Erabiltzailea ezabatua
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian

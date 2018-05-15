@@ -1,0 +1,8 @@
+<div class="row" id="member-of-assemblies">
+  <strong><%= t(".member_of") %></strong>
+  <div class="card__text--separated-mid-dot">
+    <% assemblies.each do |assembly| %>
+      <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %>
+    <% end %>
+  </div>
+</div>

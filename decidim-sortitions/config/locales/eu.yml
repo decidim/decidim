@@ -106,8 +106,6 @@ eu:
           label: 'Agindu ordenantzak honela:'
           random: Random
           recent: Berriki
-        proposal:
-          view_proposal: Ikusi proposamena
         results_count:
           count:
             one: hautatutako proposamena
