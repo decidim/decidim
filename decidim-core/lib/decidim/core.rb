@@ -55,7 +55,7 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :HasResourceManifests, "decidim/has_resource_manifests"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
-  autoload :HasFingerprint, "decidim/has_fingerprint"
+  autoload :Fingerprintable, "decidim/fingerprintable"
 
   include ActiveSupport::Configurable
 

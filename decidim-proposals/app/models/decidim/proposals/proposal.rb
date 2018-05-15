@@ -16,7 +16,7 @@ module Decidim
       include Decidim::Proposals::CommentableProposal
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::HasFingerprint
+      include Decidim::Fingerprintable
 
       fingerprint fields: [:title, :body]
 
