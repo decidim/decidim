@@ -241,6 +241,9 @@ fr:
           highlighted_assemblies:
             active_assemblies: Agora actives
             see_all_assemblies: Voir toutes les agora
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Région
         assembly_type: Type d'assemblage
