@@ -57,6 +57,13 @@ ca:
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: La iniciativa %{resource_title} ha aconseguit l' %{percentage}% dels vots!
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha completat una nova fita!
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% dels vots.
     initiatives:
       admin:
         committee_requests:
