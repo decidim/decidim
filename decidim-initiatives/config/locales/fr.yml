@@ -57,6 +57,13 @@ fr:
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de votes!
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle étape franchie!
+          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de votes.
     initiatives:
       admin:
         committee_requests:
