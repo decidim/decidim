@@ -266,6 +266,8 @@ fi:
         past_meetings: Aiemmat kokoukset
         see_all_meetings: Katso kaikki kokoukset
         upcoming_meetings: Tulevat kokoukset
+      upcoming_meeting_for_card:
+        upcoming_meeting: Tuleva kokous
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Liittyvät tulokset:'
