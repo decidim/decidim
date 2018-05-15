@@ -36,16 +36,19 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
-    validates :component_manifest, :model_class_name, :route_name, presence: true
+    validates :model_class_name, :route_name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the
     # given component. This way you can find resources from another engine without
-    # actually coupling both engines.
+    # actually coupling both engines. If no `component_manifest` is set for this
+    # manifest, it returns an empty collection.
     #
     # component - a Decidim::Component
     #
     # Returns an ActiveRecord::Relation.
     def resource_scope(component)
+      return model_class.none unless component_manifest
+
       component_ids = Decidim::Component.where(participatory_space: component.participatory_space, manifest_name: component_manifest.name).pluck(:id)
       return model_class.none if component_ids.empty?
 
