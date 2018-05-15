@@ -241,6 +241,9 @@ ca:
           highlighted_assemblies:
             active_assemblies: Assemblees actives
             see_all_assemblies: Veure totes les assemblees
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Àrea
         assembly_type: Tipus d'assemblea
