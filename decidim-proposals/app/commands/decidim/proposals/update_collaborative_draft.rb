@@ -37,17 +37,27 @@ module Decidim
       attr_reader :form, :collaborative_draft, :current_user
 
       def update_collaborative_draft
-        @collaborative_draft.update!(
-          title: form.title,
-          body: form.body,
-          category: form.category,
-          scope: form.scope,
-          author: current_user,
-          decidim_user_group_id: user_group.try(:id),
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude
+        Decidim.traceability.update!(
+          @collaborative_draft,
+          @current_user,
+          attributes,
+          extra: {
+            parent_name: "This test"
+          }
         )
+      end
+
+      def attributes
+        {
+          title: @form.title,
+          body: @form.body,
+          category: @form.category,
+          scope: @form.scope,
+          decidim_user_group_id: user_group.try(:id),
+          address: @form.address,
+          latitude: @form.latitude,
+          longitude: @form.longitude
+        }
       end
 
       def user_group

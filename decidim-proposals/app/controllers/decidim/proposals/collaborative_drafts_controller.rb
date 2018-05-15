@@ -6,6 +6,7 @@ module Decidim
     class CollaborativeDraftsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper TooltipHelper
       include FormFactory
       include FilterResource
       include CollaborativeOrderable
@@ -74,8 +75,8 @@ module Decidim
           on(:ok) do |collaborative_draft|
             flash[:notice] = I18n.t("proposals.collaborative_drafts.create.success", scope: "decidim")
 
-            # redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
-            redirect_to collaborative_draft_path collaborative_draft
+            redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+            # redirect_to collaborative_draft_path collaborative_draft
           end
 
           on(:invalid) do
@@ -100,8 +101,8 @@ module Decidim
         UpdateCollaborativeDraft.call(@form, current_user, @collaborative_draft) do
           on(:ok) do |collaborative_draft|
             flash[:notice] = I18n.t("proposals.collaborative_drafts.update.success", scope: "decidim")
-            # redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
-            redirect_to collaborative_draft_path collaborative_draft
+            redirect_to Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
+            # redirect_to collaborative_draft_path collaborative_draft
           end
 
           on(:invalid) do

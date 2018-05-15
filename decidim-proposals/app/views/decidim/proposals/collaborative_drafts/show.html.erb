@@ -1,43 +1,106 @@
 <% add_decidim_meta_tags({
   description: @collaborative_draft.body,
   title: @collaborative_draft.title,
-  # url: proposal_url(@proposal.id)
+  url: collaborative_draft_url(@collaborative_draft.id)
 }) %>
+<%# if !(current_user and @collaborative_draft.authorship?(current_user)) %>
+  <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+<%# end %>
 
-<div class="row column view-header">
-  <%# if !(current_user and @collaborative_draft.authorship?(current_user)) %>
-    <div class="callout secondary"><%= t('.info-message').html_safe %></div>
-  <%# end %>
-  <h2 class="heading2"><%= @collaborative_draft.title %></h2>
-  <%= card_for present(@collaborative_draft).author, from: @collaborative_draft %>
-</div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if allowed_to?(:edit, @collaborative_draft) %>
-      <%= link_to t(".edit"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+
+    <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+      <div class="card text-center">
+          <div class="card__content">
+            <%= link_to t("publish", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc" %>
+
+            <small>
+              <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
+            </small>
+          </div>
+        </div>
     <% end %>
-    <div class="card">
+
+    <div class="card text-center">
       <div class="card__content">
-        <div class="text-center">
-          <strong>VERSION -1</strong><br/>
-          <a href=".">See other versions</a>
+        <div>
+          <strong class="text-large text-uppercase">
+            <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+          </strong>
+          <small class="text-medium">
+            <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+          </small>
         </div>
-        <button class="button expanded light button--sc"><%= t(".request_access") %></button>
-        <div class="row collapse buttons__row">
-          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 7</a></div>
-          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 12</a></div>
-          <div class="column collapse small-4"><a href="." class="button hollow secondary">xx 100</a></div>
+
+        <div>
+          <span class="text-medium">
+            <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), collaborative_draft_versions_path(@collaborative_draft) %>
+          </span>
         </div>
+
+        <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+          <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button--sc mt-s" %>
+        <% end %>
+
+        <% if allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+          <button class="button expanded button--sc mt-s"><%= t("request_access", scope:"decidim.proposals.collaborative_drafts.show") %></button>
+        <% end %>
+
+        <% if !allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) && !allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+          <button class="button secondary light expanded button--sc mt-s"><%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %></button>
+        <% end %>
+
+      </div>
+
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= link_to "#" do %>
+              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
+                <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.authors.count}" %>
+              <% end %>
+            <% end %>
+          </li>
+
+          <li class="card-data__item">
+            <%= link_to collaborative_draft_versions_path(@collaborative_draft) do %>
+              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.contributions") do %>
+                <%= icon("pencil", class: "icon--small") + " " + "#{@collaborative_draft.versions.count}" %>
+              <% end %>
+            <% end %>
+          </li>
+          <li class="card-data__item">
+            <%= link_to "#comments" do %>
+              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.comments") do %>
+                <%= icon("comment-square", class: "icon--small") + " " + "#{@collaborative_draft.comments.count}" %>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
+
     <%= resource_reference(@collaborative_draft) %>
+
     <%= render partial: "decidim/shared/share_modal" %>
-    <%#= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
+    <%# = embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="row column view-header">
+      <h2 class="heading2">
+        <%= @collaborative_draft.title %>
+      </h2>
+
+      <%= card_for present(@collaborative_draft).author, from: @collaborative_draft %>
+    </div>
+
     <div class="section">
+      <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
+
       <%= simple_format @collaborative_draft.body %>
-      <%# TODO = render partial: "tags", locals: { resource: @collaborative_draft } %>
+
+      <%= cell "decidim/tags", @collaborative_draft, context: {extra_classes: ["tags--proposal"]} %>
     </div>
   </div>
 </div>

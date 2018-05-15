@@ -2,6 +2,14 @@
 en:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Body
+        category_id: Category
+        decidim_scope_id: Scope
+        has_address: Has address
+        state: State
+        title: Title
+        user_group_id: Create collaborative draft as
       proposal:
         answer: Answer
         answered_at: Answered at
@@ -204,6 +212,8 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       collaborative_drafts:
+        collaborative_draft:
+          view_collaborative_draft: View Collaborative Draft
         compare:
           mine_is_different: My collaborative draft is different
           no_similars_found: Well done! No similar collaborative drafts found
@@ -220,9 +230,6 @@ en:
         create:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
-        update:
-          error: There's been errors when saving the collaborative draft.
-          success: Collaborative draft updated successfully.
         edit:
           back: Back
           select_a_category: Please select a category
@@ -256,8 +263,21 @@ en:
         show:
           edit: Edit collaborative draft
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
+          of_versions: "(of %{number})"
+          publish: Publish
+          publish_info: Publish this version of the draft
           report: Report
-          request_access: REQUEST ACCESS
+          request_access: Request access
+          requested_access: Access requested
+          see_other_versions: see other versions
+          version: Version %{number}
+        states:
+          closed: Closed
+          open: Open
+          published: Published
+        update:
+          error: There's been errors when saving the collaborative draft.
+          success: Collaborative draft updated successfully.
         wizard_aside:
           back: Back
           info: You are creating a <strong>collaborative draft</strong>.
@@ -268,6 +288,11 @@ en:
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
       models:
+        collaborative_draft:
+          fields:
+            authors: Authors
+            comments: Comments
+            contributions: Contributions
         proposal:
           fields:
             category: Category
@@ -434,6 +459,20 @@ en:
       update_draft:
         error: There's been errors when saving the proposal draft.
         success: Proposal draft updated successfully.
+      versions:
+        index:
+          changes_at_title: Changes at "%{title}"
+          title: Versions
+        show:
+          changes_at_title: Changes at "%{title}"
+          stats:
+            back_to_result: Go back to collaborative draft
+            number_of_versions: Versions
+            show_all_versions: Show all versions
+            version_number: Version number
+            version_number_out_of_total: "%{current_version} out of %{total_count}"
+        version:
+          version_index: Version %{index}
     resource_links:
       copied_from_component:
         proposal_proposals: Related proposals

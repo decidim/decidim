@@ -39,22 +39,28 @@ module Decidim
         end
       end
 
-      # Public: The css class applied based on the proposal state to
-      #         the proposal badge.
+      # Public: The state of a proposal in a way a human can understand.
       #
       # state - The String state of the proposal.
       #
       # Returns a String.
-      def proposal_state_badge_css_class(state)
+      def humanize_collaborative_draft_state(state)
+        I18n.t(state, scope: "decidim.proposals.collaborative_drafts.states", default: :open)
+      end
+
+      # Public: The css class applied based on the collaborative draft state.
+      #
+      # state - The String state of the collaborative draft.
+      #
+      # Returns a String.
+      def collaborative_draft_state_badge_css_class(state)
         case state
-        when "accepted"
+        when "open"
           "success"
-        when "rejected"
-          "warning"
-        when "evaluating"
-          "secondary"
-        when "withdrawn"
+        when "closed"
           "alert"
+        when "published"
+          "secondary"
         end
       end
 

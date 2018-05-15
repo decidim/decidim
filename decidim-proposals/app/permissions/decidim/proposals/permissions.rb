@@ -118,7 +118,15 @@ module Decidim
           can_create_collaborative_draft?
         when :edit
           can_edit_collaborative_draft?
+        when :publish
+          can_edit_collaborative_draft?
+        when :request_access
+          can_request_access_collaborative_draft?
         end
+      end
+
+      def collaborative_draft
+        @collaborative_draft ||= context.fetch(:collaborative_draft, nil)
       end
 
       def can_create_collaborative_draft?
@@ -126,7 +134,11 @@ module Decidim
       end
 
       def can_edit_collaborative_draft?
-        toggle_allow(proposal && proposal.editable_by?(user))
+        toggle_allow(collaborative_draft && collaborative_draft.editable_by?(user))
+      end
+
+      def can_request_access_collaborative_draft?
+        toggle_allow(collaborative_draft && !collaborative_draft.editable_by?(user))
       end
     end
   end

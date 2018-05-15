@@ -40,7 +40,9 @@ module Decidim
       attr_reader :form, :collaborative_draft, :attachment
 
       def create_collaborative_draft
-        @collaborative_draft = CollaborativeDraft.create!(
+        @collaborative_draft = Decidim.traceability.create!(
+          CollaborativeDraft,
+          @form.current_user,
           title: form.title,
           body: form.body,
           category: form.category,
@@ -51,6 +53,7 @@ module Decidim
           longitude: form.longitude,
           state: "open"
         )
+
         Decidim::Coauthorship.create(
           coauthorable: @collaborative_draft,
           author: @current_user,

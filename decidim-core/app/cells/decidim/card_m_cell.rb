@@ -45,6 +45,10 @@ module Decidim
       model.is_a?(Decidim::Authorable)
     end
 
+    def has_authors?
+      model.is_a?(Decidim::Coauthorable)
+    end
+
     def has_state?
       false
     end

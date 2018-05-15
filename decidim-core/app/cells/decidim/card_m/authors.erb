@@ -1,0 +1,7 @@
+<div class="card__author">
+  <div class="collapsible-list small is-filtered" data-toggler=".is-filtered">
+    <% model.authors.each do |author| %>
+      <%= card_for present(author), options: { extra_classes: ["author-data--small"] } %>
+    <% end %>
+  </div>
+</div>
