@@ -247,6 +247,13 @@ module Decidim
     participatory_space_registry.register(name, &block)
   end
 
+  # Public: Registers a resource.
+  #
+  # Returns nothing.
+  def self.register_resource(&block)
+    resource_registry.register(&block)
+  end
+
   # Public: Finds all registered component manifest's via the `register_component`
   # method.
   #
@@ -301,6 +308,11 @@ module Decidim
   # Public: Stores the registry of participatory spaces
   def self.participatory_space_registry
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
+  end
+
+  # Public: Stores the registry of resource spaces
+  def self.resource_registry
+    @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
   # Public: Stores an instance of StatsRegistry

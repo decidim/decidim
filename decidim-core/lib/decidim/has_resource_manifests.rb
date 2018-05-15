@@ -10,16 +10,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      # Public: Finds all the registered resource manifest's via the
-      # `register_resource` method.
-      #
-      # Returns an Array[ResourceManifest].
-      def resource_manifests
-        @resource_manifests ||= []
-      end
-
-      # Public: Registers a resource inside a component manifest. Exposes a DSL
-      # defined by `Decidim::ResourceManifest`.
+      # Public: Registers a resource. Exposes a DSL defined by
+      # `Decidim::ResourceManifest`.
       #
       # Resource manifests are a way to expose a resource from one engine to
       # the whole system. This way resources can be linked between them.
@@ -27,12 +19,8 @@ module Decidim
       # block - A Block that will be called to set the Resource attributes.
       #
       # Returns nothing.
-      def register_resource
-        manifest = ResourceManifest.new
-        manifest.component_manifest = self
-        yield(manifest)
-        manifest.validate!
-        resource_manifests << manifest
+      def register_resource(&block)
+        Decidim.register_resource(&block)
       end
     end
   end
