@@ -23,6 +23,19 @@ Decidim::Verifications.register_workflow(:my_handler) do |workflow|
 end
 ```
 
+If you have some custom modules from which you are registering a resource, you
+will need to tweak how those resources are being registered as per #3416. You
+must set a resource name, and manually set the reference to the component
+manifest:
+
+```ruby
+  # inside decidim-my-module/lib/decidim/my-module/component.rb
+  component.register_resource(:my_resource) do |resource|
+    resource.model_class_name = "Decidim::MyComponent::MyResource"
+    resource.component_manifest = component
+  end
+```
+
 **Added**:
 
 - **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
@@ -70,6 +83,7 @@ end
 - **decidim-participatory_processes**: Update card layout for process groups [\#3395](https://github.com/decidim/decidim/pull/3395)
 - **decidim-assemblies**: Update card layout for assemblies and assembly members [\#3405](https://github.com/decidim/decidim/pull/3405)
 - **decidim-sortitions**: Update card layout [\#3405](https://github.com/decidim/decidim/pull/3405)
+- **decidim**: Changes on how to register resources. Resources from a component now they need a specific reference to the component manifest, and all resources need a name. [\#3416](https://github.com/decidim/decidim/pull/3416)
 
 **Fixed**:
 
