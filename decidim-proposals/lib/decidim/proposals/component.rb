@@ -153,7 +153,7 @@ Decidim.register_component(:proposals) do |component|
 
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
-        name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
+        name = "#{Faker::Name.unique.name} #{participatory_space.id} #{n} #{m}"
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
@@ -188,7 +188,7 @@ Decidim.register_component(:proposals) do |component|
           )
           if index.even?
             group = Decidim::UserGroup.create!(
-              name: Faker::Name.name,
+              name: Faker::Name.unique.name,
               document_number: Faker::Code.isbn,
               phone: Faker::PhoneNumber.phone_number,
               decidim_organization_id: component.organization.id,
