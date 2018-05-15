@@ -241,6 +241,9 @@ nl:
           highlighted_assemblies:
             active_assemblies: Huidige events
             see_all_assemblies: Bekijk alle events
+        user_profile:
+          member_of:
+            member_of: Lid van
       show:
         area: onderwerp
         assembly_type: Montage type

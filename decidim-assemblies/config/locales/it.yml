@@ -241,6 +241,9 @@ it:
           highlighted_assemblies:
             active_assemblies: Assemblee attive
             see_all_assemblies: Vedere tutti gli assiemi
+        user_profile:
+          member_of:
+            member_of: Membro di
       show:
         area: La zona
         assembly_type: Tipo di assieme

@@ -241,6 +241,9 @@ fi:
           highlighted_assemblies:
             active_assemblies: Aktiiviset kehitysryhmät
             see_all_assemblies: Näytä kaikki kehitysryhmät
+        user_profile:
+          member_of:
+            member_of: Jonkin jäsen
       show:
         area: alue
         assembly_type: Asennustyyppi

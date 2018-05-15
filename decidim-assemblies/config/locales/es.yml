@@ -241,6 +241,9 @@ es:
           highlighted_assemblies:
             active_assemblies: Asambleas activas
             see_all_assemblies: Ver todas las asambleas
+        user_profile:
+          member_of:
+            member_of: Miembro de
       show:
         area: Área
         assembly_type: Tipo de asambleas

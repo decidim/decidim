@@ -241,6 +241,9 @@ eu:
           highlighted_assemblies:
             active_assemblies: Batzar aktiboak
             see_all_assemblies: Ikusi muntaia guztiak
+        user_profile:
+          member_of:
+            member_of: Kidea
       show:
         area: Area
         assembly_type: Muntatze-mota
