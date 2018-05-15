@@ -1,0 +1,185 @@
+is:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Svæði
+        banner_image: Banner image
+        copy_categories: Afrita flokka
+        copy_features: Afrita eiginleika
+        decidim_area_id: Svæði
+        decidim_scope_id: Umfang
+        description: Lýsing
+        developer_group: Hönnuður hópur
+        domain: Lén
+        hashtag: Kassamerki
+        hero_image: Heimsmynd
+        local_area: Staðarnet
+        meta_scope: Gildissvið lýsigagna
+        participatory_scope: Þátttökuskilyrði
+        participatory_structure: Þátttaka uppbyggingu
+        promoted: Kynnt
+        published_at: Birt á
+        scope_id: Umfang
+        scopes_enabled: Scopes virkt
+        short_description: Stutt lýsing
+        show_statistics: Sýna tölfræði
+        slug: URL slug
+        subtitle: Texti
+        target: Skotmark
+        title: Titill
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Villa kom upp við að búa til nýja samsetningu.
+          success: Samkoma búin til með góðum árangri.
+        destroy:
+          success: Samkoma eyðilagt með góðum árangri.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Ný samkoma
+        update:
+          error: Villa kom upp við uppfærslu þessa samsetningar.
+          success: Samkoma uppfærður með góðum árangri.
+      assemblies_copies:
+        create:
+          error: Villa kom upp við að afrita þessa samsetningu.
+          success: Þingið afritað með góðum árangri.
+      assembly_copies:
+        new:
+          copy: Afrita
+          select: Veldu hvaða gögn þú vilt afrita
+          title: Afrit samkoma
+      assembly_publications:
+        create:
+          error: Villa kom upp við að birta þessa samkomu.
+          success: Þingið birtist með góðum árangri.
+        destroy:
+          error: Villa kom upp við að birta þessa samsetningu.
+          success: Þingið var birt án árangurs.
+      assembly_user_roles:
+        create:
+          error: Villa kom upp við að bæta notanda við þessa samsetningu.
+          success: Notandi búinn til fyrir þessa samkomu.
+        destroy:
+          success: Notandi eytt með góðum árangri fyrir þessa samkomu.
+        edit:
+          title: Uppfæra samkoma notanda.
+          update: Uppfæra
+        index:
+          assembly_admins_title: Þingnotendur
+        new:
+          create: Búa til
+          title: Ný samkoma notandi.
+        update:
+          error: Villa kom upp við uppfærslu notanda fyrir þessa samsetningu.
+          success: Notandi uppfærður með góðum árangri fyrir þessa samsetningu.
+      menu:
+        assemblies: Þing
+        assemblies_submenu:
+          assembly_admins: Þingnotendur
+          attachment_collections: Söfn
+          attachment_files: Skrár
+          attachments: Viðhengi
+          categories: Flokkar
+          features: Eiginleikar
+          info: Upplýsingar
+          moderations: Moderations
+      models:
+        assembly:
+          fields:
+            created_at: Búið til á
+            promoted: Hápunktur
+            published: Published
+            title: Titill
+          name: Þing
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Nafn
+            role: Hlutverk
+          name: Þingnotandi
+          roles:
+            admin: Stjórnandi
+            collaborator: Samstarfsaðili
+            moderator: Moderator
+      titles:
+        assemblies: Þing
+    admin_log:
+      assembly:
+        create: "%{user_name} búið til %{resource_name} samkoma"
+        publish: "%{user_name} birt %{resource_name} samkoma"
+        unpublish: "%{user_name} unpublished %{resource_name} samkoma"
+        update: "%{user_name} uppfært %{resource_name} samkoma"
+      assembly_user_role:
+        create: "%{user_name} boðið %{resource_name} í %{space_name} samkoma"
+        delete: "%{user_name} eyddi notandanum %{resource_name} úr %{space_name} samkoma"
+        update: "%{user_name} breytti hlutverki %{resource_name} í %{space_name} samkoma"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            select_an_area: Veldu svæði
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+      index:
+        title: Þing
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Virkir þættir
+            see_all_assemblies: Sjá allar þingmenn
+      show:
+        area: Svæði
+        developer_group: Hönnuður hópur
+        local_area: Staðarnet
+        participatory_scope: Þátttökuskilyrði
+        participatory_structure: Þátttaka uppbyggingu
+        scope: Umfang
+        target: Skotmark
+      statistics:
+        answers_count: Svör
+        assemblies_count: Þing
+        comments_count: Athugasemdir
+        endorsements_count: Áritanir
+        headline: Virkni
+        meetings_count: Fundir
+        orders_count: Atkvæði
+        pages_count: Síður
+        projects_count: Verkefni
+        proposals_count: Tillögur
+        results_count: Niðurstöður
+        surveys_count: Kannanir
+        users_count: Þátttakendur
+        votes_count: Atkvæði
+    menu:
+      assemblies: Þing
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Taka þátt
+        index:
+          promoted_assemblies: Hápunktar þingsins
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} samkoma"
+            other: "%{count} samsetningar"
+        promoted_assembly:
+          more_info: Meiri upplýsingar
+          take_part: Taka þátt
+      assembly_header:
+        assembly_menu_item: Samkoma
+        unfold: Fella út
+      assembly_widgets:
+        show:
+          take_part: Taka þátt

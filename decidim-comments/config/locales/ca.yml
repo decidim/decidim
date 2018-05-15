@@ -56,13 +56,13 @@ ca:
       comments:
         comment_created:
           comment:
-            email_intro: 'S''ha comentat "%{resource_title}". Podeu llegir el comentari d''aquesta pàgina:'
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}" o el seu autor. Podeu deixar de seguir-lo des de l'enllaç anterior.
+            email_intro: 'S''ha comentat "%{resource_title}". Pots llegir el comentari d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o el seu autor. Pots deixar de seguir-lo des de l'enllaç anterior.
             email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
             notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: S'ha comentat "%{resource_title}"
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}" o el seu autor. Podeu deixar de seguir-lo des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o el seu autor. Pots deixar de seguir-lo des de l'enllaç anterior.
             email_subject: Hi ha una nova resposta del teu comentari d'en/na %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Hi ha una nova resposta al teu comentari d'en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:

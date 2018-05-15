@@ -110,14 +110,14 @@ fi:
         highlighted_proposals:
           proposals: ehdotukset
         proposal:
-          creation_date: 'Luominen: %{date}'
+          creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
     participatory_spaces:
       highlighted_proposals:
         proposals: ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
       proposal:
-        creation_date: 'Luominen: %{date}'
+        creation_date: 'Luontiaika: %{date}'
         view_proposal: Näytä ehdotus
     proposals:
       actions:
@@ -292,7 +292,7 @@ fi:
             other: ääntä
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse aihepiiri
+          select_a_category: Valitse kategoria
           send: Jatkaa
           title: Luo ehdotuksesi
         orders:

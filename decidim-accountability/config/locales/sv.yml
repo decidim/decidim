@@ -9,10 +9,10 @@ sv:
         end_date: Slutdatum
         progress: Framsteg
         project_ids: Inkluderade projekt
-        proposals: Ingår förslag
+        proposals: Inkluderade förslag
         start_date: Startdatum
         title: Titel
-        updated_at: Uppdaterad på
+        updated_at: Uppdaterad
       status:
         description: Beskrivning
         key: Nyckel
@@ -40,11 +40,11 @@ sv:
           status:
             name: Status
           timeline_entry:
-            name: Tidslinje inmatning
+            name: Händelse
         results:
           create:
             invalid: Det här har uppstått ett problem
-            success: Resultat som har skapats framgångsrikt
+            success: Resultatet har skapats
           destroy:
             success: Resultatet har tagits bort
           edit:
@@ -59,17 +59,17 @@ sv:
             title: Nytt resultat
           proposals:
             close: Stäng
-            current_selection: Aktuellt urval
+            current_selection: Nuvarande markering
             select: Välj
           update:
-            invalid: Det har varit ett problem att uppdatera resultatet
-            success: Resultatet uppdaterades med framgång
+            invalid: Det gick inte att uppdatera detta resultat
+            success: Resultatet har uppdaterats
         shared:
           subnav:
             statuses: Statusar
         statuses:
           create:
-            invalid: Det har varit ett problem att skapa denna status
+            invalid: Det gick inte att skapa denna status
             success: Status skapad
           destroy:
             success: Statusen har tagits bort
@@ -82,29 +82,29 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det har varit ett problem att uppdatera den här statusen
+            invalid: Det gick inte att uppdatera denna status
             success: Status uppdaterad
         timeline_entries:
           create:
-            invalid: Det här har uppstått ett problem med att skapa den här posten
-            success: Entry skapades med framgång
+            invalid: Det gick inte att skapa denna post
+            success: Posten skapad
           destroy:
-            success: Inlägget har tagits bort
+            success: Posten har tagits bort
           edit:
             title: Redigera posten
             update: Uppdatera posten
           index:
-            title: Projekt tidslinje poster
+            title: Tidslinjepunkter för projektet
           new:
             create: Skapa post
-            title: Ny ingång
+            title: Ny tidslinjepost
           update:
-            invalid: Det har varit ett problem att uppdatera den här posten
-            success: Inmatning uppdaterad
+            invalid: Det gick inte att uppdatera denna post
+            success: Post uppdaterad
       admin_log:
         result:
-          create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
-          update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
+          create: "%{user_name} skapade resultat %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade resultat %{resource_name} i %{space_name}"
       models:
         result:
           fields:
@@ -137,9 +137,9 @@ sv:
         home_header:
           global_status: Global exekveringsstatus
         nav_breadcrumb:
-          global: Global utförande
+          global: Global exekvering
         search:
-          search: Sök efter åtgärder
+          search: Sök efter handlingar
         show:
           stats:
             attendees: Deltagare
@@ -153,7 +153,7 @@ sv:
             proposals: Förslag
             show_all_versions: Visa alla versioner
             version_author: Version författare
-            version_created_at: Version skapad på
+            version_created_at: Version skapad
             version_number: Versionsnummer
             version_number_out_of_total: "%{current_version} av %{total_count}"
             votes: stöder
@@ -170,13 +170,13 @@ sv:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En uppdatering till %{proposal_title}
+          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se det på denna sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden via föregående länk.
+          email_subject: '%{proposal_title} har uppdaterats'
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
     features:
       accountability:
-        name: Ansvarighet
+        name: Ansvarsskyldighet
         settings:
           global:
             categories_label: Namn för "Kategorier"

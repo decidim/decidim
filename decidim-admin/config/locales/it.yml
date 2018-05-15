@@ -278,7 +278,7 @@ it:
           promote: Promuovere
           view_logs: Visualizza i registri
         new:
-          create: Crea
+          create: Creare
           new_managed_user: Nuovo utente gestito
           no_authorization_handlers: Non ci sono gestori di autorizzazioni disponibili per la gestione degli utenti. Si prega di contattare l'amministratore di sistema.
           select_authorization_method: Selezionare un metodo di autorizzazione

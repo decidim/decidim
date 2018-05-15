@@ -55,10 +55,10 @@ sv:
         success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-postmeddelande för att bekräfta din nya e-postadress.
     admin_log:
       feature:
-        create: "%{user_name} lagt till %{resource_name} funktion till %{space_name} rymden"
+        create: "%{user_name} lade till %{resource_name}funktionen till %{space_name}platsen"
         delete: "%{user_name} tog bort %{resource_name} funktion från %{space_name} rymden"
-        publish: "%{user_name} publicerade %{resource_name} -funktionen i %{space_name} -utrymmet"
-        unpublish: "%{user_name} opublicerade %{resource_name} -funktionen från %{space_name} -platsen"
+        publish: "%{user_name} publicerade funktionen %{resource_name} i platsen %{space_name}"
+        unpublish: "%{user_name} avpublicerade funktionen %{resource_name} från platsen %{space_name}"
       moderation:
         hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
         unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
@@ -127,7 +127,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplett profil
+          complete_profile: Komplettera profil
           nickname_help: Din korta, unika identifierare i decidim
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
@@ -197,7 +197,7 @@ sv:
         actions:
           bar: Bar
           foo: foo
-        name: Dummy-funktionen
+        name: Dummyfunktion
         settings:
           global:
             comments_enabled: Kommentarer aktiverade

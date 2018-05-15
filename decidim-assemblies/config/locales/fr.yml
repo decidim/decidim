@@ -32,7 +32,7 @@ fr:
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
-          success: Assemblée créée avec succès.
+          success: Agora créée avec succès.
         destroy:
           success: Assemblée supprimée avec succès.
         edit:
@@ -47,7 +47,7 @@ fr:
           title: Nouvelle assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
-          success: Assemblée mise à jour avec succès.
+          success: Agora mise à jour avec succès.
       assemblies_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cet assemblée.
@@ -67,7 +67,7 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
-          success: Utilisateur créé avec succès pour cette assemblée.
+          success: Utilisateur créé avec succès pour cette agora.
         destroy:
           success: Utilisateur supprimé avec succès pour cette assemblée.
         edit:
@@ -79,10 +79,10 @@ fr:
           create: Créer
           title: Nouvel utilisateur d'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
-          success: Utilisateur mis à jour avec succès pour cette assemblée.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
+          success: Utilisateur mis à jour avec succès pour cette agora.
       menu:
-        assemblies: Assemblées
+        assemblies: Agora
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
           attachment_collections: Dossiers
@@ -95,7 +95,7 @@ fr:
       models:
         assembly:
           fields:
-            created_at: Crée le
+            created_at: Créé le
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -111,7 +111,7 @@ fr:
             collaborator: Collaborateur
             moderator: Modérateur
       titles:
-        assemblies: Assemblées
+        assemblies: Agora
     admin_log:
       assembly:
         create: "%{user_name} a créé l'agora %{resource_name}"
@@ -132,12 +132,12 @@ fr:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
-        title: Assemblées
+        title: Agora
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            see_all_assemblies: Voir toutes les assemblées
+            active_assemblies: Agora actives
+            see_all_assemblies: Voir toutes les agora
       show:
         area: Région
         developer_group: Organisateur
@@ -148,9 +148,9 @@ fr:
         target: Participants
       statistics:
         answers_count: Réponses
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Promotions
+        endorsements_count: Recommandations
         headline: Activité
         meetings_count: Réunions
         orders_count: Soutiens
@@ -162,18 +162,18 @@ fr:
         users_count: Participants
         votes_count: Soutiens
     menu:
-      assemblies: Assemblées
+      assemblies: Agora
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblées mises en avant
+          promoted_assemblies: Agora mises en avant
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblée"
-            other: "%{count} assemblées"
+            one: "%{count} agora"
+            other: "%{count} agora"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer

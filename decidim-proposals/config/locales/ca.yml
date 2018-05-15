@@ -45,13 +45,13 @@ ca:
           email_subject: S'està avaluant una proposta que segueixes
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta, comprova i contribueix:"
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta. Comprova-ho i contribueix:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta per %{author_nickname}
-          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}" que seguiu.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{participatory_space_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
@@ -99,8 +99,8 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Bloquejar adhesions
-            endorsements_enabled: Adhesions habilitades
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -110,7 +110,7 @@ ca:
         highlighted_proposals:
           proposals: Propostes
         proposal:
-          creation_date: 'Data de creació: %{date}'
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
     participatory_spaces:
       highlighted_proposals:
@@ -292,7 +292,7 @@ ca:
             other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          select_a_category: Si us plau, seleccioni una categoria
+          select_a_category: Si us plau, selecciona una categoria
           send: Continua
           title: Crea la teva proposta
         orders:
@@ -341,7 +341,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser acceptat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validades, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.

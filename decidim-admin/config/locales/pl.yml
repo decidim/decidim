@@ -278,7 +278,7 @@ pl:
           promote: Promować
           view_logs: Wyświetl dzienniki
         new:
-          create: Utwórz
+          create: Stwórz
           new_managed_user: Nowy użytkownik zarządzany
           no_authorization_handlers: Nie ma dostępnych programów do obsługi upoważnień do zarządzania użytkownikami. Skontaktuj się z administratorem systemu.
           select_authorization_method: Wybierz metodę autoryzacji

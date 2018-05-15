@@ -292,7 +292,7 @@ eu:
             other: euskarriak
         new:
           attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
-          select_a_category: Mesedez, aukeratu kategoria bat
+          select_a_category: Hautatu kategoria bat
           send: Jarraitu
           title: Sortu zure proposamena
         orders:

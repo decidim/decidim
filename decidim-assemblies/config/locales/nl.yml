@@ -2,12 +2,12 @@ nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Gebied
+        area_id: Onderwerp
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
-        decidim_area_id: Gebied
-        decidim_scope_id: strekking
+        copy_features: Functionaliteiten kopiëren
+        decidim_area_id: onderwerp
+        decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
@@ -31,7 +31,7 @@ nl:
     admin:
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe bijeenkomt.
+          error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         destroy:
           success: Bijeenkomst is succesvol vernietigd.
@@ -66,30 +66,30 @@ nl:
           success: Bijeenkomt succesvol ongepubliceerd.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol gemaakt voor deze assembly.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
+          success: Gebruiker is succesvol gemaakt voor deze vergadering.
         destroy:
-          success: Gebruiker met succes vernietigd voor deze assembly.
+          success: Gebruiker met succes vernietigd voor dit event.
         edit:
-          title: Update assembly-gebruiker.
+          title: Update event gebruiker.
           update: Bijwerken
         index:
           assembly_admins_title: Assemblage gebruikers
         new:
-          create: creëren
-          title: Nieuwe assembly-gebruiker.
+          create: Aanmaken
+          title: Nieuwe vergaderinggebruiker.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze assembly.
-          success: Gebruiker is succesvol bijgewerkt voor deze assembly.
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
+          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Bijeenkomsten
+        assemblies: Events
         assemblies_submenu:
-          assembly_admins: Assemblage gebruikers
-          attachment_collections: collecties
+          assembly_admins: Gebruikersbijeenkomst
+          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
+          features: Functionaliteiten
           info: info
           moderations: Moderaties
       models:
@@ -105,41 +105,41 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Assemblage gebruiker
+          name: Vergaderinggebruiker
           roles:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Bijeenkomsten
+        assemblies: Events
     admin_log:
       assembly:
-        create: "%{user_name} heeft de assemblage %{resource_name} gemaakt"
-        publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
-        update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+        create: "%{user_name} heeft de vergadering %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
+        update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
-        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
+        create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Selecteer een gebied
+            select_an_area: Selecteer een onderwerp
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
-        title: Bijeenkomsten
+        title: Events
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle bijeenkomsten
+            active_assemblies: Huidige events
+            see_all_assemblies: Bekijk alle events
       show:
-        area: Gebied
+        area: onderwerp
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
@@ -150,9 +150,9 @@ nl:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
-        endorsements_count: Endorsements
+        endorsements_count: Aanbevelingen
         headline: Activiteit
-        meetings_count: Vergaderingen
+        meetings_count: Events
         orders_count: Stemmen
         pages_count: Pagina's
         projects_count: Projecten
@@ -162,14 +162,14 @@ nl:
         users_count: Deelnemers
         votes_count: Stemmen
     menu:
-      assemblies: Bijeenkomsten
+      assemblies: Events
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Gemarkeerde bijenkomsten
+          promoted_assemblies: Uitgelichte events
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"

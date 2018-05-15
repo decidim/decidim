@@ -228,7 +228,7 @@ ca:
           error: S'ha produït un error en afegir aquesta funcionalitat.
           success: Funcionalitat creada correctament.
         destroy:
-          error: S'ha produït un error destruir aquesta funcionalitat.
+          error: S'ha produït un error en destruir aquesta funcionalitat.
           success: Funcionalitat eliminada correctament.
         edit:
           title: Editar funcionalitat
@@ -278,7 +278,7 @@ ca:
           promote: Promocionar
           view_logs: Veure registres
         new:
-          create: Crear
+          create: Crea
           new_managed_user: Nou usuari gestionat
           no_authorization_handlers: No hi ha autoritzacions disponibles per gestionar usuaris. Poseu-vos en contacte amb l'administrador del sistema.
           select_authorization_method: Seleccioneu un mètode d'autorització
