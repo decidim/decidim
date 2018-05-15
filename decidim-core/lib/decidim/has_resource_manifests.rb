@@ -19,8 +19,8 @@ module Decidim
       # block - A Block that will be called to set the Resource attributes.
       #
       # Returns nothing.
-      def register_resource(&block)
-        Decidim.register_resource(&block)
+      def register_resource(name, &block)
+        Decidim.register_resource(name, &block)
       end
     end
   end

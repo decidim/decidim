@@ -250,8 +250,8 @@ module Decidim
   # Public: Registers a resource.
   #
   # Returns nothing.
-  def self.register_resource(&block)
-    resource_registry.register(&block)
+  def self.register_resource(name, &block)
+    resource_registry.register(name, &block)
   end
 
   # Public: Finds all registered component manifest's via the `register_component`
