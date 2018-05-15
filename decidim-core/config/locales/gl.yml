@@ -35,6 +35,10 @@ gl:
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ gl:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
+    author:
+      comments:
+        one: comentario
+        other: comentarios
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
+        fields:
+          passport_number: Número de pasaporte
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
         fields:
@@ -391,8 +403,6 @@ gl:
           invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
-      author:
-        deleted: Usuario eliminado
       embed_modal:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina

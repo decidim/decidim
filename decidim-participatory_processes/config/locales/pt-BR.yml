@@ -304,6 +304,7 @@ pt-BR:
       participatory_process_groups:
         participatory_process_group:
           browse: Squeaky toy
+          processes_count: 'Processos:'
       participatory_process_widgets:
         show:
           active_step: Passo ativo

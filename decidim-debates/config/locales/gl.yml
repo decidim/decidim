@@ -66,9 +66,6 @@ gl:
           invalid: Produciuse un problema ao crear o debate.
           success: Debate creouse con éxito.
         debate:
-          comments:
-            one: Comentario
-            other: Comentarios
           participate: Participar
         filters:
           all: Todo
@@ -94,9 +91,6 @@ gl:
           close_window: Pechar ventá
           share: Comparte
           share_link: Compartir a ligazón
-        show:
-          comments: Comentarios
-          report: Informe
       models:
         debate:
           fields:

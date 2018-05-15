@@ -304,6 +304,7 @@ fi:
       participatory_process_groups:
         participatory_process_group:
           browse: Selaa
+          processes_count: 'Prosessit:'
       participatory_process_widgets:
         show:
           active_step: Aktiivinen vaihe
