@@ -241,6 +241,9 @@ pl:
           highlighted_assemblies:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
+        user_profile:
+          member_of:
+            member_of: Członkiem
       show:
         area: Powierzchnia
         assembly_type: Typ zespołu
