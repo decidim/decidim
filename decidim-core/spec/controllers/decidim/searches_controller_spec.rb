@@ -19,12 +19,12 @@ module Decidim
       context "when having resources with the term 'Great' in their content" do
         let!(:results) do
           now = DateTime.current
-          [create(:searchable_rsrc, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
-           create(:searchable_rsrc, organization: organization, content_a: "The great-est place of the world", datetime: now)]
+          [create(:searchable_resource, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
+           create(:searchable_resource, organization: organization, content_a: "The great-est place of the world", datetime: now)]
         end
 
         before do
-          create(:searchable_rsrc, organization: organization, content_a: "I don't like groomming my dog.")
+          create(:searchable_resource, organization: organization, content_a: "I don't like groomming my dog.")
         end
 
         it "returns results with 'Great' in their content" do

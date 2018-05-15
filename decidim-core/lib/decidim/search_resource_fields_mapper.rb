@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class with the responsibility to mapp fields between a Searchable and a SearchableRsrc.
+  # A class with the responsibility to mapp fields between a Searchable and a SearchableResource.
   class SearchResourceFieldsMapper
     #
     # Declared fields may be of types:
@@ -9,7 +9,7 @@ module Decidim
     # - Array each element should be a text field symbol, all values will be concatenated.
     # - Symbol when mapping is direct.
     #
-    # @param declared_fields: A Hash with the mappings between a SearchableRsrc attributes and
+    # @param declared_fields: A Hash with the mappings between a SearchableResource attributes and
     #    any given model. Mapped fields are:
     # - scope_id: The field where the scope is setted in the model, if any.
     # - participatory_space: The field where the ParticipatorySpace is setted in the model.

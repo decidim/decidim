@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchableRsrc do
+  describe SearchableResource do
     subject { searchable_rsrc }
 
     let(:searchable_rsrc) { build(:searchable_rsrc, locale: "en") }

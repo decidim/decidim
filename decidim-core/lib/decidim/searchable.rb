@@ -17,16 +17,16 @@ module Decidim
     end
 
     included do
-      has_many :searchable_rsrcs, class_name: "Decidim::SearchableRsrc", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
+      has_many :searchable_rsrcs, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
       after_create :add_to_index_as_search_rsrc
       after_update :update_index_for_search_rsrc
 
-      # Public: after_create callback to index the model as a SearchableRsrc.
+      # Public: after_create callback to index the model as a SearchableResource.
       #
       def add_to_index_as_search_rsrc
         fields = self.class.search_rsrc_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
-          Decidim::SearchableRsrc.create(contents_to_searchable_rsrc_attrs(fields, locale))
+          Decidim::SearchableResource.create(contents_to_searchable_rsrc_attrs(fields, locale))
         end
       end
 
