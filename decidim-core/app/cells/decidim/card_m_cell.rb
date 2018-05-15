@@ -29,6 +29,10 @@ module Decidim
       false
     end
 
+    def has_link_to_resource?
+      true
+    end
+
     def title
       translated_attribute model.title
     end
@@ -95,10 +99,16 @@ module Decidim
     end
 
     def comments_count_status
+      return render_comments_count unless has_link_to_resource?
+
       link_to resource_path do
-        with_tooltip t("decidim.comments.comments") do
-          render :comments_counter
-        end
+        render_comments_count
+      end
+    end
+
+    def render_comments_count
+      with_tooltip t("decidim.comments.comments") do
+        render :comments_counter
       end
     end
   end
