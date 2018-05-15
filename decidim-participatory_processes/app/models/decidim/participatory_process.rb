@@ -71,6 +71,7 @@ module Decidim
     end
 
     def past?
+      return false if end_date.blank?
       end_date < Time.current
     end
 
