@@ -241,6 +241,9 @@ gl:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
+        user_profile:
+          member_of:
+            member_of: Membro de
       show:
         area: Área
         assembly_type: Tipo de montaxe
