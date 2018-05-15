@@ -16,13 +16,13 @@ module Decidim
     validate :user_and_moderation_same_organization
 
     def self.user_collection(user)
-      self.where(decidim_user_id: user.id)
+      where(decidim_user_id: user.id)
     end
 
     def self.export_serializer
       Decidim::Exporters::DataPortabilityReportSerializer
     end
-    
+
     private
 
     # Private: check if the moderation and the user have the same organization

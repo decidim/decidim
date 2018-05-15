@@ -47,11 +47,20 @@ module Decidim
       include Followable
       include Traceable
       include Publicable
+      include Decidim::DataPortability
 
       component_manifest_name "dummy"
 
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      def self.user_collection(user)
+        where(decidim_author_id: user.id)
+      end
+
+      def self.export_serializer
+        DummySerializer
       end
     end
   end

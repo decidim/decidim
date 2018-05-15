@@ -15,6 +15,7 @@ module Decidim
     autoload :DataPortabilityFollowSerializer, "decidim/exporters/data_portability_follow_serializer"
     autoload :DataPortabilityNotificationSerializer, "decidim/exporters/data_portability_notification_serializer"
     autoload :DataPortabilityIdentitySerializer, "decidim/exporters/data_portability_identity_serializer"
+    autoload :DataPortabilityParticipatorySpacePrivateUserSerializer, "decidim/exporters/data_portability_participatory_space_private_user_serializer"
 
     # Get the exporter class constant from the format as a string.
     #

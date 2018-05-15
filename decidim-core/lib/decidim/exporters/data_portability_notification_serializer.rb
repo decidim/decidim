@@ -10,9 +10,9 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          resource_type:{
+          resource_type: {
             id: resource.decidim_resource_id,
-            type: resource.decidim_resource_type,
+            type: resource.decidim_resource_type
           },
           event_name: resource.event_name,
           event_class: resource.event_class,

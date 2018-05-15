@@ -9,7 +9,7 @@ module Decidim
 
     included do
       def self.user_collection(user)
-        self.where(decidim_author_id: user.id)
+        where(decidim_author_id: user.id)
       end
 
       def self.export_serializer

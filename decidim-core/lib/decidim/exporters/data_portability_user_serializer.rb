@@ -25,7 +25,7 @@ module Decidim
             id: resource.invited_by_id,
             type: resource.invited_by_type
           },
-          invitations_count: resource.invitations_count,
+          invitations_count: resource.invitations_count
         }
       end
     end

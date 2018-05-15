@@ -10,15 +10,14 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          followable:{
+          followable: {
             id: resource.decidim_followable_id,
-            type: resource.decidim_followable_type,
+            type: resource.decidim_followable_type
           },
           created_at: resource.created_at,
           updated_at: resource.updated_at
         }
       end
-
     end
   end
 end

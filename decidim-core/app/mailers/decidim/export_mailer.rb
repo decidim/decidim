@@ -37,7 +37,11 @@ module Decidim
           filename_file = element.last.filename(element.first.parameterize)
 
           zos.put_next_entry(filename_file)
-          zos.write element.last.read
+          if element.last.read.presence
+            zos.write element.last.read
+          else
+            zos.write "No data"
+          end
         end
       end
       compressed_filestream.rewind

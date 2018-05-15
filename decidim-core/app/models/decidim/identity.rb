@@ -14,7 +14,7 @@ module Decidim
     validate :same_organization
 
     def self.user_collection(user)
-      self.where(decidim_user_id: user.id)
+      where(decidim_user_id: user.id)
     end
 
     def self.export_serializer

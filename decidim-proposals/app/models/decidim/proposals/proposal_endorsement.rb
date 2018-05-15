@@ -15,6 +15,10 @@ module Decidim
 
       scope :for_listing, -> { order(:decidim_user_group_id, :created_at) }
 
+      def self.export_serializer
+        Decidim::Proposals::DataPortabilityProposalEndorsementSerializer
+      end
+
       private
 
       def organization
@@ -30,10 +34,6 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
         errors.add(:proposal, :invalid) if proposal.rejected?
-      end
-
-      def self.export_serializer
-        Decidim::Proposals::DataPortabilityProposalEndorsementSerializer
       end
     end
   end

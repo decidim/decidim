@@ -12,7 +12,7 @@ module Decidim
             title: resource.proposal.title,
             body: resource.proposal.body
           },
-          user_group:{
+          user_group: {
             id: resource.try(:user_group).try(:id),
             name: resource.try(:user_group).try(:name)
           }

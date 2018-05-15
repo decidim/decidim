@@ -13,6 +13,10 @@ module Decidim
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
+      def self.export_serializer
+        Decidim::Proposals::DataPortabilityProposalVoteSerializer
+      end
+
       private
 
       # Private: check if the proposal and the author have the same organization
@@ -24,10 +28,6 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
         errors.add(:proposal, :invalid) if proposal.rejected?
-      end
-
-      def self.export_serializer
-        Decidim::Proposals::DataPortabilityProposalVoteSerializer
       end
     end
   end

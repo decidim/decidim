@@ -132,6 +132,14 @@ module Decidim
       )
     end
 
+    def self.user_collection(user)
+      where(id: user.id)
+    end
+
+    def self.export_serializer
+      Decidim::Exporters::DataPortabilityUserSerializer
+    end
+
     protected
 
     # Overrides devise email required validation.
@@ -146,14 +154,6 @@ module Decidim
     def password_required?
       return false if managed?
       super
-    end
-
-    def self.user_collection(user)
-      self.where(id: user.id)
-    end
-
-    def self.export_serializer
-      Decidim::Exporters::DataPortabilityUserSerializer
     end
 
     private

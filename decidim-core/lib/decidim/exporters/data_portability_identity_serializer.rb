@@ -5,7 +5,7 @@ module Decidim
   module Exporters
     class DataPortabilityIdentitySerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
-      
+
       # Public: Exports a hash with the serialized data for this identities.
       def serialize
         {

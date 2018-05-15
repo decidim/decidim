@@ -15,11 +15,11 @@ module Decidim
             participatory_space: {
               id: resource.moderation.decidim_participatory_space_id,
               type: resource.moderation.decidim_participatory_space_type,
-              title: resource.moderation.participatory_space.title,
+              title: resource.moderation.participatory_space.title
             },
             reportable_element: {
               id: resource.moderation.decidim_reportable_id,
-              type: resource.moderation.decidim_reportable_type,
+              type: resource.moderation.decidim_reportable_type
             },
             hidden_at: resource.moderation.hidden_at,
             created_at: resource.moderation.created_at,
