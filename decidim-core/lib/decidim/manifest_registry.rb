@@ -22,8 +22,8 @@ module Decidim
 
     def find(name)
       manifests.find do |manifest|
-        manifest.try(:model_class) == resource_name_or_klass ||
-          manifest.name.to_s == resource_name_or_klass.to_s
+        manifest.try(:model_class) == name ||
+          manifest.name.to_s == name.to_s
       end
     end
 
