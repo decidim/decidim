@@ -49,10 +49,11 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:proposal) do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
+    resource.component_manifest = component
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
