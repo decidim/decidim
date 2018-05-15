@@ -1,5 +1,6 @@
 <div class="card card--action card--list">
   <% resources.each do |sortition| %>
+    <% next unless sortition.component.published? %>
     <div class="card--list__item">
       <div class="card--list__text">
         <%= link_to resource_locator(sortition).path do %>
