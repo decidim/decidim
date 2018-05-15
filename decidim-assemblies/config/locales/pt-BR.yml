@@ -241,6 +241,9 @@ pt-BR:
           highlighted_assemblies:
             active_assemblies: Conjuntos ativos
             see_all_assemblies: Veja todas as assembléias
+        user_profile:
+          member_of:
+            member_of: Membro de
       show:
         area: Área
         assembly_type: Tipo de montagem
