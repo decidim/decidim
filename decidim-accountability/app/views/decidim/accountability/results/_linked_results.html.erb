@@ -1,5 +1,6 @@
 <div class="card card--action card--list">
   <% resources.each do |result| %>
+    <% next unless result.component.published? %>
     <div class="card--list__item">
       <%= icon "actions", class: "card--list__icon", remove_icon_class: true %>
       <%= link_to resource_locator(result).path, class: "card--list__text card__link card__link--block" do %>
