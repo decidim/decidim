@@ -283,6 +283,7 @@ gl:
         scope: Alcance
         start_date: Data de inicio
         target: Quen participa
+        unspecified: Non especificado
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
