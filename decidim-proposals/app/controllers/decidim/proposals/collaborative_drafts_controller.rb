@@ -27,7 +27,7 @@ module Decidim
       end
 
       def show
-        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        retrieve_collaborative_draft
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -87,14 +87,14 @@ module Decidim
       end
 
       def edit
-        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        retrieve_collaborative_draft
         enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
       end
 
       def update
-        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+        retrieve_collaborative_draft
         enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_params(params)
@@ -112,7 +112,17 @@ module Decidim
         end
       end
 
+      def request_access
+        retrieve_collaborative_draft
+        @collaborative_draft.access_requestors << current_user
+        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
+      end
+
       private
+
+      def retrieve_collaborative_draft
+        @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])
+      end
 
       def geocoded_collaborative_draft
         @geocoded_collaborative_draft ||= search.results.not_hidden.select(&:geocoded?)

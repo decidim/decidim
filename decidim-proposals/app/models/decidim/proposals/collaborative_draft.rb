@@ -16,6 +16,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
+      has_and_belongs_to_many :access_requestors, class_name: "Decidim::User", join_table: "decidim_proposals_collaborative_draft_access_requests", association_foreign_key: "decidim_user_id", foreign_key: "decidim_proposals_collaborative_draft_id"
+
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }
       scope :published, -> { where(state: "published") }

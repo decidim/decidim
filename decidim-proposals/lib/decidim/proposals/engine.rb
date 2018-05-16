@@ -36,6 +36,7 @@ module Decidim
         resources :collaborative_drafts, except: [:destroy] do
           get :compare, on: :collection
           get :complete, on: :collection
+          post :request_access, on: :member
           resources :versions, only: [:show, :index]
         end
         root to: "proposals#index"

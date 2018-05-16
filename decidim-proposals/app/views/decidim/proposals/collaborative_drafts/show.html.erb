@@ -44,7 +44,7 @@
         <% end %>
 
         <% if allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-          <button class="button expanded button--sc mt-s"><%= t("request_access", scope:"decidim.proposals.collaborative_drafts.show") %></button>
+          <%= link_to t(".request_access"), request_access_collaborative_draft_path(@collaborative_draft), method: "POST", class: "button expanded button--sc mt-s" %>
         <% end %>
 
         <% if !allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) && !allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
