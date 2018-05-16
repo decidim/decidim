@@ -283,6 +283,7 @@ fr:
         scope: Périmètre d'application
         start_date: Date de début
         target: Participants
+        unspecified: Non précisé
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
