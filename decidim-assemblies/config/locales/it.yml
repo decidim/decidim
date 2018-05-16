@@ -34,6 +34,7 @@ it:
         participatory_processes_ids: Processi partecipativi correlati
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
+        private_space: Spazio privato
         promoted: Promosso
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
@@ -42,6 +43,7 @@ it:
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
         slug: URL slug
+        special_features: Caratteristiche speciali
         subtitle: Sottotitolo
         target: Target
         title: Titolo

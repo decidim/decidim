@@ -34,6 +34,7 @@ fi:
         participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
         purpose_of_action: Toimen tarkoitus
@@ -42,6 +43,7 @@ fi:
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
+        special_features: Lisäominaisuudet
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko

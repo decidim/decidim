@@ -252,6 +252,14 @@ ca:
         project: Projectes
         proposal: propostes
         result: Resultats
+    fingerprint:
+      check: Verifica l'empremta digital
+      explanation: El text següent és una representació reduïda amb una funció hash d'aquest contingut. És útil per assegurar-se que el contingut no ha estat manipulat, ja que una sola modificació provocaria un valor totalment diferent.
+      online_calculator_name: Calculadora MD5 en línia
+      replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
+      source: Origen
+      title: Empremta digital
+      value: Valor
     follows:
       create:
         button: Seguir

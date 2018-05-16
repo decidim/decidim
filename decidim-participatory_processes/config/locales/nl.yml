@@ -283,6 +283,7 @@ nl:
         scope: Scope
         start_date: Startdatum
         target: Wie neemt deel
+        unspecified: Niet gespecificeerd
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties

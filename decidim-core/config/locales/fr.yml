@@ -252,6 +252,14 @@ fr:
         project: Projets
         proposal: Propositions
         result: Résultats
+    fingerprint:
+      check: Vérifiez l'empreinte digitale
+      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
+      online_calculator_name: MD5 calculatrice en ligne
+      replicate_help: Cette empreinte est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données source.
+      source: La source
+      title: Empreinte digitale
+      value: Valeur
     follows:
       create:
         button: Suivre

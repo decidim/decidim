@@ -252,6 +252,14 @@ es:
         project: Proyectos
         proposal: Propuestas
         result: Resultados
+    fingerprint:
+      check: Verificar huella digital
+      explanation: La siguiente cadena de texto es una representación abreviada y hashed de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 en línea
+      replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
+      source: Origen
+      title: Huella digital
+      value: Valor
     follows:
       create:
         button: Seguir

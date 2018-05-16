@@ -252,6 +252,14 @@ fi:
         project: Projektit
         proposal: Ehdotukset
         result: Tulokset
+    fingerprint:
+      check: Tarkista sormenjälki
+      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. On hyödyllistä varmistaa, että sisältöä ei ole muokattu, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
+      online_calculator_name: MD5 laskin verkossa
+      replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat kopioida sen itse, voit käyttää %{online_calculator_link} -koodia ja kopioida liittää lähdetiedot.
+      source: Lähde
+      title: Sormenjälki
+      value: Arvo
     follows:
       create:
         button: Seuraa
