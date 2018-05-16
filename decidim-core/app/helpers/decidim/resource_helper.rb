@@ -17,7 +17,6 @@ module Decidim
     def linked_resources_for(resource, type, link_name)
       linked_resources = resource.linked_resources(type, link_name).group_by { |linked_resource| linked_resource.class.name }
       safe_join(linked_resources.map do |klass, resources|
-        next unless resources.any? { |r| r.component.published? }
 
         resource_manifest = klass.constantize.resource_manifest
         content_tag(:div, class: "section") do
