@@ -75,5 +75,9 @@ module Decidim
         select('"decidim_consultations".*, RANDOM()').order("RANDOM()").load
       end
     end
+
+    def can_participate?(_user)
+      true
+    end
   end
 end

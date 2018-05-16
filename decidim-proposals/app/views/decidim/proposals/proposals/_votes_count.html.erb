@@ -1,4 +1,4 @@
-<% if !current_settings.votes_hidden? %>
+<% if !current_settings.votes_hidden? && current_component.participatory_space.can_participate?(current_user) %>
   <% progress ||= proposal.proposal_votes_count || 0 %>
   <% total ||= proposal.maximum_votes || 0 %>
   <% percent = (progress.to_f/total) * 100 %>

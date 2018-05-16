@@ -22,5 +22,11 @@ module Decidim
         super.where(private_space: false)
       end
     end
+
+    def can_participate?(user)
+      return true unless private_space?
+      return true if private_space? && users.include?(user)
+      return false if private_space? && is_transparent?
+    end
   end
 end

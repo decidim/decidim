@@ -9,9 +9,9 @@
 
 <% case answer.question.question_type %>
 <% when "short_answer" %>
-  <%= answer_form.text_field :body, label: false, id: field_id %>
+  <%= answer_form.text_field :body, label: false, id: field_id, disabled: disabled %>
 <% when "long_answer" %>
-  <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
+  <%= answer_form.text_area :body, label: false, id: field_id, rows: 10, disabled: disabled %>
 <% when "single_option" %>
   <div class="radio-button-collection">
     <% choice = answer.choices.first %>
@@ -23,7 +23,7 @@
         <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]",
                              translated_attribute(answer_option.body),
                              choice.try(:body),
-                             id: "#{choice_id}_body" %>
+                             id: "#{choice_id}_body", disabled: disabled %>
 
         <%= translated_attribute(answer_option.body) %>
 
@@ -49,7 +49,7 @@
       <%= label_tag do %>
         <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
                           translated_attribute(answer_option.body),
-                          choice.present? %>
+                          choice.present?, disabled: disabled %>
 
         <%= translated_attribute(answer_option.body) %>
 
@@ -71,7 +71,7 @@
       <%= label_tag do %>
         <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
                           translated_attribute(answer_option.body),
-                          choice.present? %>
+                          choice.present?, disabled: disabled %>
 
         <span class="position"><%= choice.try(:position) %></span>
 

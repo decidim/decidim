@@ -271,6 +271,10 @@ module Decidim
         published?
     end
 
+    def can_participate?(_user)
+      true
+    end
+
     private
 
     def notify_state_change
