@@ -252,6 +252,14 @@ pt-BR:
         project: Projetos
         proposal: Propostas
         result: Resultados
+    fingerprint:
+      check: Verifique a impressão digital
+      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 online
+      replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
+      source: Fonte
+      title: Impressão digital
+      value: Valor
     follows:
       create:
         button: Seguir

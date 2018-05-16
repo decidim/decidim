@@ -34,6 +34,7 @@ pl:
         participatory_processes_ids: Powiązane procesy uczestnictwa
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
+        private_space: Prywatna przestrzeń
         promoted: Lansowany
         published_at: Opublikowano na
         purpose_of_action: Cel działania
@@ -42,6 +43,7 @@ pl:
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
         slug: Ślimak URL
+        special_features: Cechy szczególne
         subtitle: Podtytuł
         target: Cel
         title: Tytuł

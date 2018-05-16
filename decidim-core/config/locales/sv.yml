@@ -252,6 +252,14 @@ sv:
         project: Projekt
         proposal: Förslag
         result: Resultat
+    fingerprint:
+      check: Kontrollera fingeravtryck
+      explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
+      online_calculator_name: MD5-kalkylator online
+      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera klistra in källdata.
+      source: Källa
+      title: Fingeravtryck
+      value: Värde
     follows:
       create:
         button: Följ

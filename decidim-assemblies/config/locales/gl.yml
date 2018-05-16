@@ -34,6 +34,7 @@ gl:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
@@ -42,6 +43,7 @@ gl:
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
         slug: URL slug
+        special_features: Características especiais
         subtitle: Subtítulo
         target: Obxectivo
         title: Título

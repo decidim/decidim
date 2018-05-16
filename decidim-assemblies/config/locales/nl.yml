@@ -34,6 +34,7 @@ nl:
         participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
+        private_space: Prive ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doel van actie
@@ -42,6 +43,7 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
+        special_features: Speciale functies
         subtitle: Ondertiteling
         target: Doel
         title: Titel

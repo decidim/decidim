@@ -283,6 +283,7 @@ pl:
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
+        unspecified: Nieokreślony
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
@@ -312,6 +313,12 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
+        order_by_processes:
+          processes:
+            one: "%{count} proces"
+            few: "%{count} procesów"
+            many: "%{count} procesów"
+            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział

@@ -283,6 +283,7 @@ sv:
         scope: Omfattning
         start_date: Startdatum
         target: Vem deltar
+        unspecified: Ej angivet
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
