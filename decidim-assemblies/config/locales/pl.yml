@@ -240,6 +240,12 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaż"
+            few: "%{count} złożeń"
+            many: "%{count} złożeń"
+            other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział
