@@ -104,6 +104,12 @@ pl:
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
       photos:
@@ -250,6 +256,14 @@ pl:
         project: Projekty
         proposal: Propozycje
         result: Wyniki
+    fingerprint:
+      check: Sprawdź odcisk palca
+      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      online_calculator_name: Kalkulator MD5 online
+      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      source: Źródło
+      title: Odcisk palca
+      value: Wartość
     follows:
       create:
         button: Postępuj zgodnie z
