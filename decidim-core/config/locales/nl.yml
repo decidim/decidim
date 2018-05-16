@@ -252,6 +252,14 @@ nl:
         project: Projecten
         proposal: Voorstellen
         result: Resultaten
+    fingerprint:
+      check: Controleer vingerafdruk
+      explanation: Het onderstaande stukje tekst is een verkorte, gehashte weergave van deze inhoud. Het is handig om ervoor te zorgen dat er niet met de inhoud is geknoeid, omdat een enkele wijziging een totaal andere waarde zou hebben.
+      online_calculator_name: MD5 calculator online
+      replicate_help: Deze vingerafdruk wordt berekend met behulp van een SHA256 hash-algoritme. Om het zelf te repliceren, kunt u een %{online_calculator_link} en de brongegevens kopiëren en plakken.
+      source: Bron
+      title: Vingerafdruk
+      value: Waarde
     follows:
       create:
         button: Volgen
