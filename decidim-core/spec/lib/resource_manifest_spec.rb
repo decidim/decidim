@@ -17,16 +17,14 @@ module Decidim
       ComponentManifest.new(name: "dummy")
     end
 
-    let(:name) { :dummy }
+    let(:name) { :dummy_resource }
     let(:route_name) { :dummy }
     let(:model_class) { "DummyResources::DummyResource" }
 
     context "when no name is set" do
       let(:name) { nil }
 
-      it "builds it" do
-        expect(subject.name).to eq(:dummy_resources)
-      end
+      it { is_expected.to be_invalid }
     end
 
     context "when no route_name is set" do
