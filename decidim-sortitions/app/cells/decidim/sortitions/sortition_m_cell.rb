@@ -46,6 +46,7 @@ module Decidim
       def description
         text = decidim_sanitize(translated_attribute(model.additional_info))
         text.gsub(/^<p>/, "<p>#{render :badge}")
+        html_truncate(text, length: 100)
       end
     end
   end
