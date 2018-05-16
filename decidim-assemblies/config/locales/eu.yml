@@ -34,6 +34,7 @@ eu:
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
+        private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Argitaratu at
         purpose_of_action: Ekintza xedea
@@ -42,6 +43,7 @@ eu:
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         slug: URL laburra
+        special_features: Ezaugarri bereziak
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Prozesu partizipatiboen multzoak
