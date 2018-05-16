@@ -29,6 +29,15 @@
               </div>
             <% else %>
               <div class="answer-survey">
+                <% unless current_participatory_space.can_participate?(current_user) %>
+                  <div class="section">
+                    <div class="callout alert">
+                      <h5><%= t(".survey_for_private_users.title") %></h5>
+                      <p><%= t(".survey_for_private_users.body") %></p>
+                    </div>
+                  </div>
+                <% end %>
+
                 <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
