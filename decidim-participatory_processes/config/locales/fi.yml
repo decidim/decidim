@@ -283,6 +283,7 @@ fi:
         scope: Konteksti
         start_date: Aloitusaika
         target: Kuka osallistuu
+        unspecified: Ei määritelty
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
