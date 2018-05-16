@@ -38,7 +38,10 @@ module Decidim
     end
 
     def description
-      decidim_sanitize(html_truncate(translated_attribute(model.description), length: 100))
+      attribute = model.try(:short_description) || model.description
+      text = translated_attribute(attribute)
+
+      decidim_sanitize(html_truncate(text, length: 100))
     end
 
     def decidim
