@@ -191,12 +191,12 @@ module Decidim
     # block - A Block that will be called to set the Resource attributes.
     #
     # Returns nothing.
-    def register_resource(name, &block)
+    def register_resource(name)
       my_component_manifest = self
 
-      my_block = Proc.new do |resource|
+      my_block = proc do |resource|
         resource.component_manifest = my_component_manifest
-        block.call(resource)
+        yield(resource)
       end
 
       Decidim.register_resource(name, &my_block)
