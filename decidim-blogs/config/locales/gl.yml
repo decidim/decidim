@@ -37,8 +37,6 @@ gl:
             created_at: Creado en
             title: título
       posts:
-        author_data:
-          comments: comentarios
         sidebar_blog:
           comments: comentarios
           most_commented_posts: A maioría das publicacións comentadas

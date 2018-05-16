@@ -106,8 +106,6 @@ ca:
           label: 'Ordeneu els sortejos per:'
           random: Aleatori
           recent: Recent
-        proposal:
-          view_proposal: Veure proposta
         results_count:
           count:
             one: proposta seleccionada
@@ -127,10 +125,11 @@ ca:
           time_seed: "(2) Llavor de temps"
           witnesses: Testimonis
         sortition:
+          random_seed: Llavor aleatòria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: "%{count} propostes seleccionades"
-          view_sortition: Mostra el sorteig
+            other: '%{count} propostes seleccionades'
+          view: Veure
         sortition_author:
           deleted: Usuari eliminat
         sortition_cancel_author:

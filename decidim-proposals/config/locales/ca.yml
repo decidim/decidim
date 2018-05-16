@@ -48,8 +48,8 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Bloquejar adhesions
-            endorsements_enabled: Adhesions habilitades
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -114,16 +114,10 @@ ca:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostes
-        proposal:
-          creation_date: 'Data de creació: %{date}'
-          view_proposal: Veure proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propostes
         see_all_proposals: Veure totes les propostes
-      proposal:
-        creation_date: 'Creació: %{date}'
-        view_proposal: Veure proposta
     proposals:
       actions:
         answer: Respondre
@@ -220,6 +214,7 @@ ca:
             category: Categoria
             comments: Comentaris
             created_at: Creat el
+            endorsements: Aprovacions
             id: ID
             notes: Notes
             official_proposal: Proposta oficial
@@ -354,7 +349,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser acceptat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validat, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.

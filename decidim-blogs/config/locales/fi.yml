@@ -37,8 +37,6 @@ fi:
             created_at: Luotu osoitteessa
             title: otsikko
       posts:
-        author_data:
-          comments: kommentit
         sidebar_blog:
           comments: kommentit
           most_commented_posts: Eniten kommentoituja viestejä

@@ -4,6 +4,8 @@ module Decidim
   module Assemblies
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        user_can_enter_space_area?
+
         return permission_action if assembly && !assembly.is_a?(Decidim::Assembly)
 
         if permission_action.scope == :public
@@ -20,8 +22,6 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
-
-        user_can_enter_space_area?
 
         if read_admin_dashboard_action?
           user_can_read_admin_dashboard?
@@ -107,6 +107,7 @@ module Decidim
       # not the assembly groups one.
       def user_can_enter_space_area?
         return unless permission_action.action == :enter &&
+                      permission_action.scope == :admin &&
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :assemblies
 

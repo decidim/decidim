@@ -106,8 +106,6 @@ pt:
           label: 'Ordenar ordenações por:'
           random: Aleatória
           recent: Recente
-        proposal:
-          view_proposal: Ver proposta
         results_count:
           count:
             one: proposta selecionada
@@ -127,10 +125,11 @@ pt:
           time_seed: "(2) semente do tempo"
           witnesses: Testemunhas
         sortition:
+          random_seed: Semente aleatória
           selected_proposals:
             one: 1 proposta selecionada
-            other: "%{count} propostas selecionadas"
-          view_sortition: Ver ordenação
+            other: '%{count} propostas selecionadas'
+          view: Visão
         sortition_author:
           deleted: Usuário deletado
         sortition_cancel_author:

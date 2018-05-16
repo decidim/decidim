@@ -208,7 +208,11 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
+            existing_user: Existing user
+            non_user: Non user
             select_a_position: Select a position
+            select_user: Select an user
+            user_type: User type
           index:
             filter:
               all: All
@@ -238,6 +242,9 @@ en:
           highlighted_assemblies:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
+        user_profile:
+          member_of:
+            member_of: Member of
       show:
         area: Area
         assembly_type: Assembly type
@@ -283,7 +290,7 @@ en:
         votes_count: Votes
     assembly_members:
       assembly_member:
-        desiganted_on: Designated on
+        designated_on: Designated on
       index:
         title: Members
     log:

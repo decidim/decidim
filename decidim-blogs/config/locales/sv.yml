@@ -37,8 +37,6 @@ sv:
             created_at: Skapad vid
             title: titel
       posts:
-        author_data:
-          comments: kommentarer
         sidebar_blog:
           comments: kommentarer
           most_commented_posts: Mest kommenterade inlägg

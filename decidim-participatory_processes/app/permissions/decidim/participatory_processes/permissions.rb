@@ -4,6 +4,9 @@ module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        user_can_enter_processes_space_area?
+        user_can_enter_process_groups_space_area?
+
         return permission_action if process && !process.is_a?(Decidim::ParticipatoryProcess)
 
         if permission_action.scope == :public
@@ -21,8 +24,6 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
-
-        user_can_enter_space_area?
 
         valid_process_group_action?
 
@@ -113,11 +114,21 @@ module Decidim
         allow!
       end
 
-      # All users with a relation to a process and organization admins can enter
-      # the space area. The sapce area is considered to be the processes zone,
-      # not the process groups one.
-      def user_can_enter_space_area?
+      # Only organization admins can enter the process groups space area.
+      def user_can_enter_process_groups_space_area?
         return unless permission_action.action == :enter &&
+                      permission_action.scope == :admin &&
+                      permission_action.subject == :space_area &&
+                      context.fetch(:space_name, nil) == :process_groups
+
+        toggle_allow(user.admin?)
+      end
+
+      # All users with a relation to a process and organization admins can enter
+      # the processes space area.
+      def user_can_enter_processes_space_area?
+        return unless permission_action.action == :enter &&
+                      permission_action.scope == :admin &&
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 

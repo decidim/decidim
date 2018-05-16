@@ -1,5 +1,7 @@
 <div class="column" id="<%= dom_id(model) %>">
   <article class="card <%= card_classes %>">
+    <%= render :image if has_image? %>
+
     <div class="card__content">
       <%= render :header %>
 

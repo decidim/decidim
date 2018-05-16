@@ -171,6 +171,7 @@ FactoryBot.define do
     end
 
     trait :with_answer do
+      state "accepted"
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end

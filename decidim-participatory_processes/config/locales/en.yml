@@ -284,6 +284,7 @@ en:
         scope: Scope
         start_date: Start date
         target: Who participates
+        unspecified: Not specified
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -305,6 +306,7 @@ en:
       participatory_process_groups:
         participatory_process_group:
           browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
           active_step: Active step

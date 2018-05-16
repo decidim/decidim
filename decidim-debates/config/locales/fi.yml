@@ -66,9 +66,6 @@ fi:
           invalid: Luotaessa keskustelua tapahtui virhe.
           success: Keskustelu luotu onnistuneesti.
         debate:
-          comments:
-            one: Kommentti
-            other: Kommenttia
           participate: Osallistu
         filters:
           all: Kaikki
@@ -94,9 +91,6 @@ fi:
           close_window: Sulje ikkuna
           share: Jaa
           share_link: Jaa linkki
-        show:
-          comments: Kommentit
-          report: Raportti
       models:
         debate:
           fields:

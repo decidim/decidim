@@ -9,10 +9,11 @@ module Decidim
 
     POSITIONS = %w(president vice_president secretary other).freeze
 
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"
     alias participatory_space assembly
 
-    default_scope { order(arel_table[:weight].asc) }
+    default_scope { order(weight: :asc, created_at: :asc) }
 
     scope :not_ceased, -> { where(ceased_date: nil) }
 

@@ -210,6 +210,9 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este anexo.
           success: Adxunto actualizado correctamente.
+      autocomplete:
+        no_results: Non se atoparon resultados
+        search_prompt: Escriba polo menos tres caracteres para buscar
       categories:
         create:
           error: Houbo un erro ao crear esta categoría.

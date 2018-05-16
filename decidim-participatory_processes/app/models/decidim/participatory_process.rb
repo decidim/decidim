@@ -70,6 +70,11 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def past?
+      return false if end_date.blank?
+      end_date < Time.current
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
