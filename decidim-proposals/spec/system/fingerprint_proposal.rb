@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Follow proposals", type: :system do
+describe "Fingerprint proposal", type: :system do
   let(:manifest_name) { "proposals" }
 
-  let!(:followable) do
+  let!(:fingerprintable) do
     create(:proposal, component: component)
   end
 
-  include_examples "follows"
+  include_examples "fingerprint"
 end

@@ -16,6 +16,9 @@ module Decidim
       include Decidim::Proposals::CommentableProposal
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Fingerprintable
+
+      fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"
 
