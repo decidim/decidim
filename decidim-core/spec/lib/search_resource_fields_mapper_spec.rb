@@ -9,15 +9,13 @@ module Decidim
     let(:component) { create(:component, manifest_name: "dummy") }
     let(:scope) { create(:scope, organization: component.organization) }
     let(:resource) do
-      dbl = Struct.new(:title, :description, :address, :scope, :component, :datetime).new
-      allow(dbl.class).to receive_messages(has_many: 1, after_create: 1, after_update: 1)
-      dbl.scope = scope
-      dbl.component = component
-      dbl.title = "The resource title"
-      dbl.description = "The resource description."
-      dbl.address = "The resource address."
-      dbl.datetime = DateTime.current
-      dbl
+      Decidim::DummyResources::DummyResource.new(
+        scope: scope,
+        component: component,
+        title: "The resource title",
+        address: "The resource address.",
+        published_at: DateTime.current
+      )
     end
 
     describe "#searchable_fields" do
@@ -29,8 +27,8 @@ module Decidim
               scope_id: { scope: :id },
               participatory_space: { component: :participatory_space },
               A: [:title],
-              D: [:description, :address],
-              datetime: :datetime
+              D: [:address],
+              datetime: :published_at
             )
           end
 
@@ -42,12 +40,12 @@ module Decidim
               decidim_participatory_space_id: resource.component.participatory_space_id,
               decidim_participatory_space_type: resource.component.participatory_space_type,
               decidim_organization_id: resource.component.organization.id,
-              datetime: resource.datetime,
+              datetime: resource.published_at,
               i18n: {}
             }
             i18n = expected_fields[:i18n]
             resource.component.organization.available_locales.each do |locale|
-              i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.description, resource.address].join(" ") }
+              i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.address].join(" ") }
             end
             expect(mapped_fields).to eq expected_fields
           end
@@ -61,8 +59,8 @@ module Decidim
               scope_id: { scope: :id },
               participatory_space: { component: :participatory_space },
               A: [:title],
-              D: [:description, :address],
-              datetime: :datetime
+              D: [:address],
+              datetime: :published_at
             )
           end
 
@@ -73,13 +71,13 @@ module Decidim
               decidim_participatory_space_id: resource.component.participatory_space_id,
               decidim_participatory_space_type: resource.component.participatory_space_type,
               decidim_organization_id: resource.component.organization.id,
-              datetime: resource.datetime,
+              datetime: resource.published_at,
               i18n: {}
             }
             i18n = expected_fields[:i18n]
-            i18n["ca"] = { A: resource.title["ca"], B: nil, C: nil, D: [resource.description, resource.address].join(" ") }
-            i18n["en"] = { A: resource.title["en"], B: nil, C: nil, D: [resource.description, resource.address].join(" ") }
-            i18n["es"] = { A: resource.title["es"], B: nil, C: nil, D: [resource.description, resource.address].join(" ") }
+            i18n["ca"] = { A: resource.title, B: nil, C: nil, D: resource.address }
+            i18n["en"] = { A: resource.title, B: nil, C: nil, D: resource.address }
+            i18n["es"] = { A: resource.title, B: nil, C: nil, D: resource.address }
             expect(mapped_fields).to eq expected_fields
           end
         end
