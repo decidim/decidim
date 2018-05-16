@@ -3,14 +3,12 @@
 require "spec_helper"
 
 describe "Upcoming meeting for card view hook", type: :system do
-  let(:assembly) { create :assembly, organization: organization }
-
   include_context "with a component" do
     let(:participatory_space) { assembly }
   end
 
+  let(:assembly) { create :assembly, organization: organization }
   let(:manifest_name) { "meetings" }
-
   let!(:past_meeting) do
     create(:meeting, :past, component: component)
   end
