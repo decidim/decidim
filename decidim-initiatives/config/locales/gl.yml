@@ -57,6 +57,13 @@ gl:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% dos votos.
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Novo fito rematado!
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> conseguiu o %{percentage}% dos votos.
     initiatives:
       admin:
         committee_requests:
