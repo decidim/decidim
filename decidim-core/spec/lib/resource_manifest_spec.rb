@@ -37,12 +37,6 @@ module Decidim
       end
     end
 
-    context "without a component manifest" do
-      let(:component_manifest) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
     context "without a model_class" do
       let(:model_class) { nil }
 
