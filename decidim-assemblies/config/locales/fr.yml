@@ -34,6 +34,7 @@ fr:
         participatory_processes_ids: Processus participatifs associés
         participatory_scope: Objectif
         participatory_structure: Modalités
+        private_space: Espace privé
         promoted: Mis en avant
         published_at: Publié à
         purpose_of_action: But de l'action
@@ -42,6 +43,7 @@ fr:
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
+        special_features: Particularités
         subtitle: Sous-titre
         target: Participants
         title: Titre
