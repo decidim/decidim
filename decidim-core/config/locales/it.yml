@@ -252,6 +252,14 @@ it:
         project: Progetti
         proposal: Proposte
         result: Votazioni
+    fingerprint:
+      check: Controlla l'impronta digitale
+      explanation: La parte di testo qui sotto è una rappresentazione abbreviata e con hash di questo contenuto. È utile assicurarsi che il contenuto non sia stato manomesso, poiché una singola modifica darebbe un valore completamente diverso.
+      online_calculator_name: Calcolatrice MD5 online
+      replicate_help: Questa impronta digitale viene calcolata utilizzando un algoritmo di hash SHA256. Per replicare tu stesso, puoi usare uno %{online_calculator_link} e copiare e incollare i dati di origine.
+      source: fonte
+      title: impronta digitale
+      value: Valore
     follows:
       create:
         button: Seguire
