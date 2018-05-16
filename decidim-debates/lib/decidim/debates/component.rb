@@ -30,7 +30,6 @@ Decidim.register_component(:debates) do |component|
   component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"
-    resource.component_manifest = component
   end
 
   component.actions = %w(create)

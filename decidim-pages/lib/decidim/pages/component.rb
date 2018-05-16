@@ -43,7 +43,6 @@ Decidim.register_component(:pages) do |component|
 
   component.register_resource(:page) do |resource|
     resource.model_class_name = "Decidim::Pages::Page"
-    resource.component_manifest = component
   end
 
   component.seeds do |participatory_space|

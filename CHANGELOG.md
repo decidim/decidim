@@ -25,14 +25,12 @@ end
 
 If you have some custom modules from which you are registering a resource, you
 will need to tweak how those resources are being registered as per #3416. You
-must set a resource name, and manually set the reference to the component
-manifest:
+must now set a resource name:
 
 ```ruby
   # inside decidim-my-module/lib/decidim/my-module/component.rb
   component.register_resource(:my_resource) do |resource|
     resource.model_class_name = "Decidim::MyComponent::MyResource"
-    resource.component_manifest = component
   end
 ```
 

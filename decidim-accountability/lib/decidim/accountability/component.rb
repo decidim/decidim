@@ -16,7 +16,6 @@ Decidim.register_component(:accountability) do |component|
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
-    resource.component_manifest = component
   end
 
   component.settings(:global) do |settings|
