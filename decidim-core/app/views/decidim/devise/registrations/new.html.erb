@@ -74,6 +74,7 @@
         <div class="card" id="card__tos">
           <div class="card__content">
             <legend><%= t(".tos_title") %></legend>
+
             <p class="tos-text">
               <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
             </p>
@@ -86,12 +87,12 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <h5 class="heading5 text-center"><%= t(".newsletter_title") %></h5>
+            <legend><%= t(".newsletter_title") %></legend>
+
             <fieldset>
               <div class="field">
-                <%= f.check_box :newsletter, label: t(".newsletter"), checked: true %>
+                <%= f.check_box :newsletter, label: t(".newsletter") %>
               </div>
-
             </fieldset>
           </div>
         </div>
