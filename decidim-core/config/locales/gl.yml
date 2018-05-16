@@ -252,6 +252,14 @@ gl:
         project: Proxectos
         proposal: Propostas
         result: Resultados
+    fingerprint:
+      check: Verifique a pegada dixital
+      explanation: A parte de texto a continuación é unha representación reducida e enxurrada deste contido. É útil asegurar que o contido non foi manipulado, xa que unha modificación única resultaría nun valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 en liña
+      replicate_help: Esta pegada calcúlase usando un algoritmo de hash SHA256. Para replicalo por si mesmo, pode usar un %{online_calculator_link} e copiar e pegar os datos fonte.
+      source: Fonte
+      title: Impresión dixital
+      value: Valor
     follows:
       create:
         button: Segue
