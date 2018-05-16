@@ -283,6 +283,7 @@ ca:
         scope: Àmbit
         start_date: Data d'inici
         target: Qui participa
+        unspecified: Sense especificar
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
