@@ -34,7 +34,7 @@ module Decidim
     end
 
     def description
-      decidim_sanitize(translated_attribute(model.description))
+      decidim_sanitize(html_truncate(translated_attribute(model.description), length: 100))
     end
 
     def decidim
