@@ -252,6 +252,14 @@ eu:
         project: Proiektuak
         proposal: Proposamenak
         result: Emaitzak
+    fingerprint:
+      check: Egiaztatu hatz-marka
+      explanation: Beheko testu zatiak eduki honen ordezkaritza laburtu bat du. Oso erabilgarria da edukia ez dela manipulatu, aldaketa bakar bat balioa erabat desberdina izango delako.
+      online_calculator_name: MD5 kalkulagailua linean
+      replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
+      source: Iturria
+      title: Hatz
+      value: Balio
     follows:
       create:
         button: Jarraitu
