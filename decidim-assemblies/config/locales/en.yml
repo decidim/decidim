@@ -35,6 +35,7 @@ en:
         participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: Private space
         promoted: Promoted
         published_at: Published at
         purpose_of_action: Purpose of action
@@ -43,6 +44,7 @@ en:
         short_description: Short description
         show_statistics: Show statistics
         slug: URL slug
+        special_features: Special features
         subtitle: Subtitle
         target: Target
         title: Title
