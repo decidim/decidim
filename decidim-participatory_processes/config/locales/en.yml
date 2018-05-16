@@ -284,6 +284,7 @@ en:
         scope: Scope
         start_date: Start date
         target: Who participates
+        unspecified: Not specified
       statistics:
         answers_count: Answers
         comments_count: Comments
