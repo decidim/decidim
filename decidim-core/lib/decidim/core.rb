@@ -55,7 +55,6 @@ module Decidim
   autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
   autoload :HasResourceManifests, "decidim/has_resource_manifests"
-  autoload :DeclaresResourceManifest, "decidim/declares_resource_manifest"
 
   include ActiveSupport::Configurable
 
