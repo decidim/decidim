@@ -58,10 +58,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Nowy wpis opublikowany w %{participatory_space_title}
           notification_title: Post <a href="%{resource_path}">%{resource_title}</a> został opublikowany w %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posty
     participatory_processes:
-      statistics:
-        posts_count: Posty
-  pages:
-    home:
       statistics:
         posts_count: Posty
