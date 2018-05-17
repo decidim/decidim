@@ -352,6 +352,43 @@ nl:
         rejected: Geweigerd
         verified: Geverifieerd
     pages:
+      home:
+        extended:
+          debates: Debatten
+          debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel?
+          meetings: vergaderingen
+          meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
+          more_info: Meer informatie
+          proposals: voorstellen
+          proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
+        footer_sub_hero:
+          footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+          register: Registreren
+        hero:
+          participate: Deelnemen
+          welcome: Welkom op het portaal van de burgerinspraak %{organization}!
+        statistics:
+          answers_count: Voltooide enquêtes
+          assemblies_count: Events
+          comments_count: Reacties
+          debates_count: Debatten
+          endorsements_count: Aanbevelingen
+          headline: Huidige stand van %{organization}
+          meetings_count: vergaderingen
+          orders_count: stemmen
+          pages_count: Pages
+          processes_count: Thema's
+          projects_count: projecten
+          proposals_accepted: Aanvaarde voorstellen
+          proposals_count: voorstellen
+          results_count: resultaten
+          surveys_count: Enquête
+          users_count: Deelnemers
+          votes_count: stemmen
+        sub_hero:
+          register: Registreren
       index:
         title: Meer informatie
     participatory_space_private_users:
@@ -529,44 +566,6 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-  pages:
-    home:
-      extended:
-        debates: Debatten
-        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel aan een thema?
-        meetings: Events
-        meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
-        more_info: Meer informatie
-        proposals: Voorstellen
-        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
-      footer_sub_hero:
-        footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
-        footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-        register: Registreren
-      hero:
-        participate: Deelnemen
-        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-      statistics:
-        answers_count: Voltooide enquêtes
-        assemblies_count: Events
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelen
-        headline: Huidige stand van %{organization}
-        meetings_count: Events
-        orders_count: stemmen
-        pages_count: Pages
-        processes_count: Thema's
-        projects_count: Projecten
-        proposals_accepted: Aanvaarde voorstellen
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        surveys_count: Enquête
-        users_count: Deelnemers
-        votes_count: Stemmen
-      sub_hero:
-        register: Registeren
   social_share_button:
     delicious: Heerlijk
     douban: Douban
