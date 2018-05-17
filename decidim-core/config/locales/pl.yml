@@ -100,6 +100,12 @@ pl:
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
       photos:
