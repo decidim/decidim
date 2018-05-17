@@ -26,14 +26,14 @@ module Decidim
       end
     end
 
+    def page
+      @page ||= current_organization.static_pages.find_by(slug: params[:id])
+    end
+
     private
 
     def stats
       @stats ||= HomeStatsPresenter.new(organization: current_organization)
-    end
-
-    def page
-      @page ||= current_organization.static_pages.find_by(slug: params[:id])
     end
   end
 end
