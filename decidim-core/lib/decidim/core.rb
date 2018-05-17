@@ -53,7 +53,6 @@ module Decidim
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
-  autoload :HasResourceManifests, "decidim/has_resource_manifests"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
 
@@ -247,6 +246,13 @@ module Decidim
     participatory_space_registry.register(name, &block)
   end
 
+  # Public: Registers a resource.
+  #
+  # Returns nothing.
+  def self.register_resource(name, &block)
+    resource_registry.register(name, &block)
+  end
+
   # Public: Finds all registered component manifest's via the `register_component`
   # method.
   #
@@ -289,8 +295,7 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    component_registry.find_resource_manifest(resource_name_or_klass) ||
-      participatory_space_registry.find_resource_manifest(resource_name_or_klass)
+    resource_registry.find(resource_name_or_klass)
   end
 
   # Public: Stores the registry of components
@@ -301,6 +306,11 @@ module Decidim
   # Public: Stores the registry of participatory spaces
   def self.participatory_space_registry
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
+  end
+
+  # Public: Stores the registry of resource spaces
+  def self.resource_registry
+    @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
   # Public: Stores an instance of StatsRegistry

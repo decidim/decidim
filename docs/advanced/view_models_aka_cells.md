@@ -54,9 +54,10 @@ To render a specified size/variation include the `size` option as a `symbol`: `c
   In your `decidim-<component>/lib/decidim/<component>/component.rb` register the resource and set the card value:
 
   ```rb
-  component.register_resource do |resource|
+  component.register_resource(:<my_resource>) do |resource|
     resource.class = "Decidim::<Component>/<MyResource>" # eg. "Decidim::Proposals::ProposalDraft
     resource.card = "decidim/<component>/<my_resource>" # eg. "decidim/proposals/proposal_draft"
+    resource.component_manifest = component
   end
   ```
 

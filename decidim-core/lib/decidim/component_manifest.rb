@@ -10,7 +10,6 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_component`.
   class ComponentManifest
-    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
@@ -179,6 +178,28 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Registers a resource. Exposes a DSL defined by
+    # `Decidim::ResourceManifest`. Automatically sets the component manifest
+    # for that resource to the current one.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This way resources can be linked between them.
+    #
+    # name - A name for that resource. Should be singular (ie not plural).
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(name)
+      my_component_manifest = self
+
+      my_block = proc do |resource|
+        resource.component_manifest = my_component_manifest
+        yield(resource)
+      end
+
+      Decidim.register_resource(name, &my_block)
     end
   end
 end
