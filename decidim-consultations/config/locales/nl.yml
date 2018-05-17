@@ -204,6 +204,10 @@ nl:
         see_finished_consultations: Bekijk vorige burgerinspraken
     menu:
       consultations: Burgerinspraak
+    pages:
+      home:
+        statistics:
+          consultations_count: overleg
     questions:
       results:
         title: Resultaten
@@ -242,7 +246,3 @@ nl:
         unfold: Uitklappen
       question_header:
         back_to_consultation: Bekijk alle burgerinspraken
-  pages:
-    home:
-      statistics:
-        consultations_count: Burgerinspraak
