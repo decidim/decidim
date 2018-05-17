@@ -15,6 +15,13 @@ sv:
       admin:
         exports:
           dummies: Dummies
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies höga
+          dummies_count_medium: Dummies medium
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies höga
@@ -22,10 +29,3 @@ sv:
     resource_links:
       test_link:
         dummy_resource_dummy: Relaterad dummy
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Dummies höga
-        dummies_count_medium: Dummies medium
-        foo: Foo
