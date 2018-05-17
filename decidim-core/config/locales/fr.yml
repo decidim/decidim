@@ -352,6 +352,43 @@ fr:
         rejected: Non retenue
         verified: Vérifié
     pages:
+      home:
+        extended:
+          debates: Débats
+          debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
+          how_to_participate: Comment participer ?
+          meetings: Réunions
+          meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
+          more_info: En savoir plus
+          proposals: Les propositions
+          proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
+        footer_sub_hero:
+          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+          footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
+          register: S'inscrire
+        hero:
+          participate: Participez
+          welcome: Bienvenue sur %{organization} !
+        statistics:
+          answers_count: Enquêtes terminées
+          assemblies_count: Agora
+          comments_count: Commentaires
+          debates_count: Débats
+          endorsements_count: Recommandations
+          headline: État actuel de %{organization}
+          meetings_count: Réunions
+          orders_count: Soutiens
+          pages_count: Pages
+          processes_count: Processus participatifs
+          projects_count: Projets
+          proposals_accepted: Propositions acceptées
+          proposals_count: Les propositions
+          results_count: Résultats
+          surveys_count: Enquêtes
+          users_count: Participants
+          votes_count: Soutiens
+        sub_hero:
+          register: S'inscrire
       index:
         title: Plus d'information
     participatory_space_private_users:
@@ -529,44 +566,6 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-  pages:
-    home:
-      extended:
-        debates: Débats
-        debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
-        how_to_participate: Comment participer ?
-        meetings: Rencontres
-        meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
-        more_info: En savoir plus
-        proposals: Propositions
-        proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
-      footer_sub_hero:
-        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
-        register: S'inscrire
-      hero:
-        participate: Participez
-        welcome: Bienvenue sur %{organization} !
-      statistics:
-        answers_count: Enquêtes terminées
-        assemblies_count: Agora
-        comments_count: Commentaires
-        debates_count: Débats
-        endorsements_count: Recommandations
-        headline: État actuel de %{organization}
-        meetings_count: Rencontres
-        orders_count: Soutiens
-        pages_count: Pages
-        processes_count: Processus participatifs
-        projects_count: Projets
-        proposals_accepted: Propositions acceptées
-        proposals_count: Propositions
-        results_count: Résultats
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Soutiens
-      sub_hero:
-        register: S'inscrire
   social_share_button:
     delicious: Delicious
     douban: Douban
