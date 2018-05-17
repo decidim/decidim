@@ -352,6 +352,43 @@ pt-BR:
         rejected: Rejeitadas
         verified: Verificadas
     pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço parte de um processo?
+          meetings: Reuniões
+          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+          more_info: Mais informações
+          proposals: Propostas
+          proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+          footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: registo
+        hero:
+          participate: Participar
+          welcome: Bem-vindo ao %{organization}!
+        statistics:
+          answers_count: Formulário completo
+          assemblies_count: Assembléias
+          comments_count: Comentários
+          debates_count: Debates
+          endorsements_count: Endossos
+          headline: Estado atual de %{organization}
+          meetings_count: Reuniões
+          orders_count: Votos
+          pages_count: Páginas
+          processes_count: Processos
+          projects_count: Projetos
+          proposals_accepted: Propostas aceitas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: pesquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: registo
       index:
         title: Mais informação
     participatory_space_private_users:
@@ -529,44 +566,6 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-  pages:
-    home:
-      extended:
-        debates: Debates
-        debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
-        how_to_participate: Como faço parte de um processo?
-        meetings: Reuniões
-        meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-        more_info: Mais informações
-        proposals: Propostas
-        proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
-      footer_sub_hero:
-        footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
-        footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-        register: registo
-      hero:
-        participate: Participar
-        welcome: Bem-vindo ao %{organization}!
-      statistics:
-        answers_count: Formulário completo
-        assemblies_count: Assembléias
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Estado atual de %{organization}
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        processes_count: Processos
-        projects_count: Projetos
-        proposals_accepted: Propostas aceitas
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
-      sub_hero:
-        register: registo
   social_share_button:
     delicious: Delicioso
     douban: Douban
