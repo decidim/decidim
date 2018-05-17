@@ -352,6 +352,43 @@ ca:
         rejected: Rebutjades
         verified: Verificada
     pages:
+      home:
+        extended:
+          debates: Debats
+          debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
+          how_to_participate: Com participo en un procés?
+          meetings: Reunions
+          meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
+          more_info: Més informació
+          proposals: Propostes
+          proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
+        footer_sub_hero:
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
+          footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
+          register: Registra't
+        hero:
+          participate: Participa
+          welcome: Benvingut a %{organization}!
+        statistics:
+          answers_count: Enquestes realitzades
+          assemblies_count: Assemblees
+          comments_count: Comentaris
+          debates_count: Debats
+          endorsements_count: Adhesions
+          headline: Estat actual de %{organization}
+          meetings_count: Reunions
+          orders_count: Vots
+          pages_count: Pàgines
+          processes_count: Processos
+          projects_count: Projectes
+          proposals_accepted: Propostes acceptades
+          proposals_count: Propostes
+          results_count: Resultats
+          surveys_count: Enquestes
+          users_count: Participants
+          votes_count: Vots
+        sub_hero:
+          register: Registra't
       index:
         title: Més informació
     participatory_space_private_users:
@@ -530,44 +567,6 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-  pages:
-    home:
-      extended:
-        debates: Debats
-        debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-        how_to_participate: Com participo en un procés?
-        meetings: Trobades
-        meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-        more_info: Més informació
-        proposals: Propostes
-        proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
-      footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-        register: Registra't
-      hero:
-        participate: Participa
-        welcome: Benvingut a %{organization}!
-      statistics:
-        answers_count: Enquestes realitzades
-        assemblies_count: Assemblees
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        headline: Estat actual de %{organization}
-        meetings_count: Trobades
-        orders_count: Vots
-        pages_count: Pàgines
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_accepted: Propostes acceptades
-        proposals_count: Propostes
-        results_count: Resultats
-        surveys_count: Enquestes
-        users_count: Participants
-        votes_count: Suports
-      sub_hero:
-        register: Registre
   social_share_button:
     delicious: Delicious
     douban: Douban
