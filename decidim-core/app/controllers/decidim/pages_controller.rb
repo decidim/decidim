@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/page_finder"
-
 module Decidim
   # This controller serves static pages using HighVoltage.
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    delegate :page, to: :page_finder
     helper_method :page, :stats
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
