@@ -62,7 +62,7 @@ en:
     participatory_processes:
       statistics:
         posts_count: Posts
-  pages:
-    home:
-      statistics:
-        posts_count: Posts
+    pages:
+      home:
+        statistics:
+          posts_count: Posts

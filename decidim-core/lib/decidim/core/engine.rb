@@ -22,7 +22,6 @@ require "rectify"
 require "decidim/rectify_ext"
 
 require "carrierwave"
-require "high_voltage"
 require "rails-i18n"
 require "date_validator"
 require "sprockets/es6"
@@ -69,12 +68,6 @@ module Decidim
         end
 
         app.config.assets.debug = true if Rails.env.test?
-      end
-
-      initializer "decidim.high_voltage" do |_app|
-        HighVoltage.configure do |config|
-          config.routes = false
-        end
       end
 
       initializer "decidim.default_form_builder" do |_app|
