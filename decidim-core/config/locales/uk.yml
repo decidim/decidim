@@ -256,6 +256,37 @@ uk:
         rejected: Відхилено
         verified: Перевірено
     pages:
+      home:
+        extended:
+          debates: Обговорення
+          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
+          how_to_participate: Як я можу взяти участь у русі?
+          meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
+          more_info: Дізнатися більше
+          proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
+        footer_sub_hero:
+          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
+          footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
+          register: Зареєструватися
+        hero:
+          participate: Взяти участь
+          welcome: Ласкаво просимо до %{organization}!
+        statistics:
+          answers_count: Пройдено опитувань
+          assemblies_count: Збори
+          comments_count: Коментарі
+          debates_count: Обговорення
+          endorsements_count: Підтримало
+          headline: Поточний стан %{organization}
+          orders_count: Голоси
+          pages_count: Сторінки
+          processes_count: Рухи
+          proposals_accepted: Прийняті пропозиції
+          surveys_count: Опитування
+          users_count: Учасники
+          votes_count: Голоси
+        sub_hero:
+          register: Зареєструватися
       index:
         title: Дізнатися більше
     profiles:
@@ -421,43 +452,6 @@ uk:
         see_more: Переглянути інші
   locale:
     name: Українська
-  pages:
-    home:
-      extended:
-        debates: Обговорення
-        debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
-        how_to_participate: Як я можу взяти участь у русі?
-        meetings: Зустрічі
-        meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-        more_info: Дізнатися більше
-        proposals: Пропозиції
-        proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
-      footer_sub_hero:
-        footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
-        footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
-        register: Зареєструватися
-      hero:
-        participate: Взяти участь
-        welcome: Ласкаво просимо до %{organization}!
-      statistics:
-        answers_count: Пройдено опитувань
-        assemblies_count: Збори
-        comments_count: Коментарі
-        endorsements_count: Підтримало
-        headline: Поточний стан %{organization}
-        meetings_count: Зустрічі
-        orders_count: Голоси
-        pages_count: Сторінки
-        processes_count: Рухи
-        projects_count: Проекти
-        proposals_accepted: Прийняті пропозиції
-        proposals_count: Пропозиції
-        results_count: Підсумки
-        surveys_count: Опитування
-        users_count: Учасники
-        votes_count: Голоси
-      sub_hero:
-        register: Зареєструватися
   social_share_button:
     delicious: Delicious
     douban: Douban
