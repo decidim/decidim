@@ -202,6 +202,36 @@ ru:
         rejected: Отклонено
         verified: Проверено
     pages:
+      home:
+        extended:
+          debates: Дебаты
+          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
+          how_to_participate: Как принять участие в движении?
+          meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
+          more_info: Узнать больше
+          proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
+        footer_sub_hero:
+          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
+          footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+          register: Зарегистрироваться
+        hero:
+          participate: Принять участие
+          welcome: Добро пожаловать в %{organization}!
+        statistics:
+          answers_count: Завершенные опросы
+          assemblies_count: Собрания
+          comments_count: Комментарии
+          debates_count: Дебаты
+          headline: Текущее состояние %{organization}
+          orders_count: Голоса
+          pages_count: Страницы
+          processes_count: Движения
+          proposals_accepted: Принятые предложения
+          surveys_count: Опросы
+          users_count: Участники
+          votes_count: Голоса
+        sub_hero:
+          register: Зарегистрироваться
       index:
         title: Узнать больше
     profiles:
@@ -362,42 +392,6 @@ ru:
         see_more: Узнать больше
   locale:
     name: Русский
-  pages:
-    home:
-      extended:
-        debates: Дебаты
-        debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
-        how_to_participate: Как принять участие в движении?
-        meetings: Встречи
-        meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-        more_info: Узнать больше
-        proposals: Предложения
-        proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
-      footer_sub_hero:
-        footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
-        footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
-        register: Зарегистрироваться
-      hero:
-        participate: Принять участие
-        welcome: Добро пожаловать в %{organization}!
-      statistics:
-        answers_count: Завершенные опросы
-        assemblies_count: Собрания
-        comments_count: Комментарии
-        headline: Текущее состояние %{organization}
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        processes_count: Движения
-        projects_count: Проекты
-        proposals_accepted: Принятые предложения
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
-      sub_hero:
-        register: Зарегистрироваться
   social_share_button:
     delicious: Delicious
     douban: Douban
