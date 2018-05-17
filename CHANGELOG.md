@@ -48,6 +48,7 @@ must now set a resource name:
 - **decidim-admin**: Add autocomplete field with customizable url to fetch results. [\#3301](https://github.com/decidim/decidim/pull/3301)
 - **decidim-admin**: Add endpoint to query organization users in json format. [\#3381](https://github.com/decidim/decidim/pull/3381)
 - **decidim-core**: Adds fingerprinting capabilities to resources. [\#3351](https://github.com/decidim/decidim/pull/3351)
+- **decidim-core**: Add user profile card [\#3444](https://github.com/decidim/decidim/pull/3444)
 
 **Changed**:
 
