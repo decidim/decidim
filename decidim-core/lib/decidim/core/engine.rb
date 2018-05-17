@@ -261,6 +261,13 @@ module Decidim
           inflect.acronym "OAuth"
         end
       end
+
+      initializer "decidim.core.register_resources" do
+        Decidim.register_resource(:user) do |resource|
+          resource.model_class_name = "Decidim::User"
+          resource.card = "decidim/user_profile"
+        end
+      end
     end
   end
 end
