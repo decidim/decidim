@@ -395,6 +395,7 @@ eu:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
       deleted: Erabiltzailea ezabatua
+      view: ikusi
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
