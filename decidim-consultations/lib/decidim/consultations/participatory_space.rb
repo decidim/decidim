@@ -9,7 +9,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     Decidim::Consultations::Question.where(organization: organization)
   end
 
-  participatory_space.data_portable_entities = [ "Decidim::Consultations::Vote" ]
+  participatory_space.data_portable_entities = ["Decidim::Consultations::Vote"]
 
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Consultations::Engine

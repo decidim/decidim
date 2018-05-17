@@ -24,7 +24,7 @@ module Decidim
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
 
-    #comments
+    # comments
     attribute :data_portable_entities, Array, default: []
 
     # A String with the component's icon. The icon must be stored in the

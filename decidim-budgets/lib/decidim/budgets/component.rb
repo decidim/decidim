@@ -9,7 +9,7 @@ Decidim.register_component(:budgets) do |component|
   component.stylesheet = "decidim/budgets/budgets"
   component.permissions_class_name = "Decidim::Budgets::Permissions"
 
-  component.data_portable_entities = [ "Decidim::Budgets::Order" ]
+  component.data_portable_entities = ["Decidim::Budgets::Order"]
 
   component.actions = %(vote)
 

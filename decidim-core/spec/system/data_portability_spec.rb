@@ -17,7 +17,6 @@ describe "DataPortability", type: :system do
     end
 
     describe "show button export data" do
-
       it "export the user's data" do
         within ".row.data-portability" do
           expect(page).to have_content("Download the data")
@@ -28,7 +27,6 @@ describe "DataPortability", type: :system do
 
     describe "Export data" do
       it "exports a ZIP with all user information" do
-
         perform_enqueued_jobs { click_button "Request data" }
 
         within_flash_messages do

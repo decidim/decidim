@@ -11,7 +11,7 @@ module Decidim
             name: resource.user.name,
             email: resource.user.email
           },
-          meeting:{
+          meeting: {
             title: resource.meeting.title,
             description: resource.meeting.description,
             start_time: resource.meeting.start_time,

@@ -38,6 +38,5 @@ module Decidim
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))
       end
     end
-
   end
 end

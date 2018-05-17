@@ -38,7 +38,7 @@ module Decidim
     end
 
     describe "data portability export " do
-      let(:export_data) { [ ["contents1", Decidim::Exporters::ExportData.new("content", "txt")],["contents2", Decidim::Exporters::ExportData.new("content2", "txt")]] }
+      let(:export_data) { [["contents1", Decidim::Exporters::ExportData.new("content", "txt")], ["contents2", Decidim::Exporters::ExportData.new("content2", "txt")]] }
       let(:mail) { described_class.data_portability_export(user, "dummy", export_data) }
 
       it "sets a subject" do

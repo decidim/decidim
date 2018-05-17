@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Fingerprintable
       include Decidim::DataPortability
-      
+
       fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"

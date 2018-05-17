@@ -4,8 +4,7 @@ require "zip"
 
 module Decidim
   class DataPortabilityFileZipper < Decidim::DataPortabilityFileReader
-
-    def initialize(user, data, token=nil)
+    def initialize(user, data, token = nil)
       super(user, token)
       @export_data = data
     end

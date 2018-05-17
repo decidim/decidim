@@ -81,19 +81,18 @@ namespace :decidim do
       log.info "RightToBeForgotten: --------------- END #{Time.current}"
     end
   end
-  
-  desc 'Deletes the data portability file inside tmp/data-portability folder.'
+
+  desc "Deletes the data portability file inside tmp/data-portability folder."
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
     path = "tmp/data-portability/*"
     Dir.glob(Rails.root.join(path)).each do |filename|
-      if File.mtime(filename) < 7.days.ago
-        file = File.delete(filename)
-        puts "------"
-        puts "!! deleting #{filename}"
-        puts "------"
-      end
-    end;
+      next unless File.mtime(filename) < 7.days.ago
+      file = File.delete(filename)
+      puts "------"
+      puts "!! deleting #{filename}"
+      puts "------"
+    end
     puts "DELETE DATA PORTABILITY FILES: --------------- END"
   end
 end

@@ -46,7 +46,7 @@ module Decidim
           deleted_at: resource.deleted_at,
           managed: resource.managed,
           officialized_at: resource.officialized_at,
-          officialized_as: resource.officialized_as,
+          officialized_as: resource.officialized_as
         }
       end
     end
