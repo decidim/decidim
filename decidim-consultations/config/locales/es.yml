@@ -204,6 +204,10 @@ es:
         see_finished_consultations: Ver consultas previas
     menu:
       consultations: Consultas
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultas
     questions:
       results:
         title: Resultados
@@ -242,7 +246,3 @@ es:
         unfold: Desplegar
       question_header:
         back_to_consultation: Ver todas las consultas
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultas
