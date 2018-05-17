@@ -352,6 +352,43 @@ sv:
         rejected: avvisade
         verified: Verifierad
     pages:
+      home:
+        extended:
+          debates: Debatter
+          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+          how_to_participate: Hur deltar jag i en process?
+          meetings: möten
+          meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
+          more_info: Mer information
+          proposals: förslag
+          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+        footer_sub_hero:
+          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
+          register: Registrera
+        hero:
+          participate: Delta
+          welcome: Välkommen till %{organization}!
+        statistics:
+          answers_count: Avslutade Undersökningar
+          assemblies_count: Assemblies
+          comments_count: Kommentarer
+          debates_count: Debatter
+          endorsements_count: påskrifter
+          headline: Aktuellt tillstånd %{organization}
+          meetings_count: möten
+          orders_count: Röster
+          pages_count: Sidor
+          processes_count: Processer
+          projects_count: projekt
+          proposals_accepted: Godkända förslag
+          proposals_count: förslag
+          results_count: Resultat
+          surveys_count: Undersökningar
+          users_count: Deltagare
+          votes_count: Röster
+        sub_hero:
+          register: Registrera
       index:
         title: Mer information
     participatory_space_private_users:
@@ -529,44 +566,6 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
-  pages:
-    home:
-      extended:
-        debates: Debatter
-        debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
-        how_to_participate: Hur deltar jag i en process?
-        meetings: Möten
-        meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
-        more_info: Mer information
-        proposals: Förslag
-        proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
-      footer_sub_hero:
-        footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-        footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-        register: Registrera
-      hero:
-        participate: Delta
-        welcome: Välkommen till %{organization}!
-      statistics:
-        answers_count: Avslutade Undersökningar
-        assemblies_count: Assemblies
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: påskrifter
-        headline: Aktuellt tillstånd %{organization}
-        meetings_count: Möten
-        orders_count: Röster
-        pages_count: Sidor
-        processes_count: Processer
-        projects_count: Projekt
-        proposals_accepted: Godkända förslag
-        proposals_count: Förslag
-        results_count: Resultat
-        surveys_count: Undersökningar
-        users_count: Deltagare
-        votes_count: Röster
-      sub_hero:
-        register: Registrera
   social_share_button:
     delicious: Delicious
     douban: Douban
