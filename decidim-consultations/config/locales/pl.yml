@@ -214,6 +214,10 @@ pl:
         see_finished_consultations: Zobacz poprzednie konsultacje
     menu:
       consultations: Konsultacje
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultacje
     questions:
       results:
         title: Wyniki
@@ -252,7 +256,3 @@ pl:
         unfold: Rozwijać się
       question_header:
         back_to_consultation: Zobacz wszystkie konsultacje
-  pages:
-    home:
-      statistics:
-        consultations_count: Konsultacje
