@@ -395,6 +395,7 @@ fi:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
+      view: näkymä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
