@@ -58,10 +58,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
           email_subject: Nytt inlägg publicerat i %{participatory_space_title}
           notification_title: Posten <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: inlägg
     participatory_processes:
-      statistics:
-        posts_count: inlägg
-  pages:
-    home:
       statistics:
         posts_count: inlägg
