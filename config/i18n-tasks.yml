@@ -113,7 +113,7 @@ ignore_unused:
   - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*
-  - pages.home.statistics.*
+  - decidim.pages.home.statistics.*
   - social_share_button.*
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
