@@ -204,6 +204,10 @@ sv:
         see_finished_consultations: Se tidigare samråd
     menu:
       consultations: samråd
+    pages:
+      home:
+        statistics:
+          consultations_count: samråd
     questions:
       results:
         title: Resultat
@@ -242,7 +246,3 @@ sv:
         unfold: Veckla ut
       question_header:
         back_to_consultation: Se alla samråd
-  pages:
-    home:
-      statistics:
-        consultations_count: samråd
