@@ -204,6 +204,10 @@ eu:
         see_finished_consultations: Ikusi aurreko kontsultak
     menu:
       consultations: kontsultak
+    pages:
+      home:
+        statistics:
+          consultations_count: kontsultak
     questions:
       results:
         title: Emaitzak
@@ -242,7 +246,3 @@ eu:
         unfold: Zabaldu
       question_header:
         back_to_consultation: Ikusi kontsulta guztiak
-  pages:
-    home:
-      statistics:
-        consultations_count: kontsultak
