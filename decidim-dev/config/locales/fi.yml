@@ -15,6 +15,13 @@ fi:
       admin:
         exports:
           dummies: Esimerkkitiedot
+    pages:
+      home:
+        statistics:
+          bar: Palkki
+          dummies_count_high: Dummies korkea
+          dummies_count_medium: Dummies medium
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Esimerkkitilastojen korkein arvo
@@ -22,10 +29,3 @@ fi:
     resource_links:
       test_link:
         dummy_resource_dummy: Liittyvät esimerkkitiedot
-  pages:
-    home:
-      statistics:
-        bar: Palkki
-        dummies_count_high: Esimerkkitilastojen korkein arvo
-        dummies_count_medium: Esimerkkitilastojen keskimääräinen arvo
-        foo: Foo
