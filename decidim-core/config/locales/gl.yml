@@ -352,6 +352,43 @@ gl:
         rejected: Rexeitado
         verified: Verificado
     pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
+          how_to_participate: '¿Como participo nun proceso?'
+          meetings: Reunións
+          meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
+          more_info: Máis información
+          proposals: Propostas
+          proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
+          footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
+          register: Rexistrarse
+        hero:
+          participate: Participar
+          welcome: Benvido a %{organization}.
+        statistics:
+          answers_count: Enquisas concluídas
+          assemblies_count: Asembleas
+          comments_count: Comentarios
+          debates_count: Debates
+          endorsements_count: Aprobacións
+          headline: Estado actual de %{organization}
+          meetings_count: Reunións
+          orders_count: Votos
+          pages_count: Páxinas
+          processes_count: Procesos
+          projects_count: Proxectos
+          proposals_accepted: Propostas aceptadas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: Enquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: Rexistrarse
       index:
         title: Máis información
     participatory_space_private_users:
@@ -529,44 +566,6 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
-  pages:
-    home:
-      extended:
-        debates: Debates
-        debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-        how_to_participate: '¿Como participo nun proceso?'
-        meetings: Reunións
-        meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
-        more_info: Máis información
-        proposals: Propostas
-        proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
-      footer_sub_hero:
-        footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
-        footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-        register: Rexistrarse
-      hero:
-        participate: Participar
-        welcome: Benvido a %{organization}.
-      statistics:
-        answers_count: Enquisas concluídas
-        assemblies_count: Asembleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        headline: Estado actual de %{organization}
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        processes_count: Procesos
-        projects_count: Proxectos
-        proposals_accepted: Propostas aceptadas
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
-      sub_hero:
-        register: Rexistrarse
   social_share_button:
     delicious: Delicioso
     douban: Douban
