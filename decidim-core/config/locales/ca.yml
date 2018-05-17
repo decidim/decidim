@@ -395,6 +395,7 @@ ca:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
       deleted: Usuari eliminat
+      view: Veure
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
