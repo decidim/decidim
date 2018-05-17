@@ -204,6 +204,10 @@ fi:
         see_finished_consultations: Katso edelliset neuvottelut
     menu:
       consultations: kuulemiset
+    pages:
+      home:
+        statistics:
+          consultations_count: kuulemiset
     questions:
       results:
         title: tulokset
@@ -242,7 +246,3 @@ fi:
         unfold: avautua
       question_header:
         back_to_consultation: Katso kaikki neuvottelut
-  pages:
-    home:
-      statistics:
-        consultations_count: kuulemiset
