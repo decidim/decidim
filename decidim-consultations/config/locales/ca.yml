@@ -204,6 +204,10 @@ ca:
         see_finished_consultations: Veure consultes prèvies
     menu:
       consultations: Consultes
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultes
     questions:
       results:
         title: Resultats
@@ -242,7 +246,3 @@ ca:
         unfold: Desplegar
       question_header:
         back_to_consultation: Veure totes les consultes
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultes
