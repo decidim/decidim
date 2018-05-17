@@ -190,7 +190,7 @@ ca:
       index:
         title: Consultes
       question:
-        take_part: Formar part
+        take_part: Participar
         view_results: Veure resultats
         votes_out_of:
           one: vot d'un total de
