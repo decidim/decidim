@@ -15,6 +15,13 @@ ca:
       admin:
         exports:
           dummies: Maniquins
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Maniquís alts
+          dummies_count_medium: Dummies mitjà
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Prova alt
@@ -22,10 +29,3 @@ ca:
     resource_links:
       test_link:
         dummy_resource_dummy: Fictici relacionat
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Prova alt
-        dummies_count_medium: Prova mig
-        foo: Foo
