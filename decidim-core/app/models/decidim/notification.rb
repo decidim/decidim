@@ -16,7 +16,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::Exporters::DataPortabilityNotificationSerializer
+      Decidim::DataPortabilitySerializers::DataPortabilityNotificationSerializer
     end
   end
 end

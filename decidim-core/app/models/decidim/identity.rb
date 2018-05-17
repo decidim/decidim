@@ -18,7 +18,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::Exporters::DataPortabilityIdentitySerializer
+      Decidim::DataPortabilitySerializers::DataPortabilityIdentitySerializer
     end
 
     private

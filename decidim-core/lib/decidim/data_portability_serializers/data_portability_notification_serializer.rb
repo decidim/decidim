@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serializes a Follow so can be exported to CSV
-  module Exporters
+  module DataPortabilitySerializers
     class DataPortabilityNotificationSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 

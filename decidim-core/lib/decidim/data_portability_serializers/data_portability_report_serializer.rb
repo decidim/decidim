@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serializes a Report so can be exported to CSV
-  module Exporters
+  module DataPortabilitySerializers
     class DataPortabilityReportSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 

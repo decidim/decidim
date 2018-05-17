@@ -53,6 +53,11 @@ en:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: File no exists
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -276,7 +281,8 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        ready: Please find attached a zipped version of your export.
+        click_button: Click the next button to download your data. You will have the file available for 7 days.
+        download: Download
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready

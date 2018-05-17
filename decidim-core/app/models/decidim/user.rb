@@ -137,7 +137,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::Exporters::DataPortabilityUserSerializer
+      Decidim::DataPortabilitySerializers::DataPortabilityUserSerializer
     end
 
     protected

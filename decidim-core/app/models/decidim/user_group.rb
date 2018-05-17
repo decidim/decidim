@@ -48,7 +48,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::Exporters::DataPortabilityUserGroupSerializer
+      Decidim::DataPortabilitySerializers::DataPortabilityUserGroupSerializer
     end
 
     private

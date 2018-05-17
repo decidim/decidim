@@ -134,7 +134,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Exporters::DataPortabilityConversationSerializer
+        Decidim::DataPortabilitySerializers::DataPortabilityConversationSerializer
       end
     end
   end

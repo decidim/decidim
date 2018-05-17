@@ -4,7 +4,9 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe DataPortabilityBudgetsOrderSerializer do
-    let(:resource) { create(:order) }
+    let(:resource) { create(:order, checked_out_at: Time.now) }
+    let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
+
     let(:subject) { described_class.new(resource) }
 
     describe "#serialize" do
@@ -21,18 +23,15 @@ module Decidim::Budgets
       end
 
       it "includes the projects" do
-        puts "-------------"
-        puts "#{resource.projects.length}"
-        puts "-------------"
-        # expect(subject.serialize).to include(checked_out_at: resource.checked_out_at)
-      end
-
-      it "includes the created at" do
         expect(subject.serialize).to include(checked_out_at: resource.checked_out_at)
       end
 
+      it "includes the created at" do
+        expect(subject.serialize).to include(created_at: resource.created_at)
+      end
+
       it "includes the updated at" do
-        expect(subject.serialize).to include(checked_out_at: resource.updated_at)
+        expect(subject.serialize).to include(updated_at: resource.updated_at)
       end
     end
   end

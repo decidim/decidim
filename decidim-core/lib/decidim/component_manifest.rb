@@ -21,6 +21,9 @@ module Decidim
 
     attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
+    ##COMENTSS
+    attribute :data_portable_entities, Array, default: []
+
     # A path with the `scss` stylesheet this engine provides. It is used to
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.

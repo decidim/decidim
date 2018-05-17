@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serializes a Identity so can be exported to CSV
-  module Exporters
+  module DataPortabilitySerializers
     class DataPortabilityIdentitySerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 

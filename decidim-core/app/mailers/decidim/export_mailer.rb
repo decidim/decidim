@@ -26,31 +26,18 @@ module Decidim
       end
     end
 
-    def data_portability_export(user, export_name, export_data)
+    def data_portability_export(user, export_data)
       @user = user
       @organization = user.organization
 
-      filename = export_name + "#{I18n.localize(Time.zone.today, format: :default)}-#{Time.now.seconds_since_midnight.to_i}"
-
-      compressed_filestream = Zip::OutputStream.write_buffer do |zos|
-        export_data.each do |element|
-          filename_file = element.last.filename(element.first.parameterize)
-
-          zos.put_next_entry(filename_file)
-          if element.last.read.presence
-            zos.write element.last.read
-          else
-            zos.write "No data"
-          end
-        end
-      end
-      compressed_filestream.rewind
-
-      attachments["#{filename}.zip"] = compressed_filestream.read
+      file_zipper = Decidim::DataPortabilityFileZipper.new(@user, export_data)
+      file_zipper.make_zip
 
       with_user(user) do
-        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
+        @token = file_zipper.token
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))
       end
     end
+
   end
 end

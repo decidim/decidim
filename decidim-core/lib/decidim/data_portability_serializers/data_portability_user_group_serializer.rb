@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serializes a User so can be exported to CSV
-  module Exporters
+  module DataPortabilitySerializers
     class DataPortabilityUserGroupSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 

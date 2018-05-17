@@ -49,6 +49,7 @@ Decidim::Core::Engine.routes.draw do
     resource :data_portability, only: [:show], controller: "data_portability" do
       member do
         post :export
+        get :download_file
       end
     end
   end

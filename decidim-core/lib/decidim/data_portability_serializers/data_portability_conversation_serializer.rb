@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serializes a Message so can be exported to CSV
-  module Exporters
+  module DataPortabilitySerializers
     class DataPortabilityConversationSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 
