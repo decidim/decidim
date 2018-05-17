@@ -21,28 +21,24 @@ module Decidim
     end
 
     describe "CSV" do
-      it "uses the CSV exporter" do
-        export_data = [ ]
-        objects = [ DummyResources::DummyResource ]
+      # it "exports the data portability entities" do
+      #   exporter_double = double(export: true)
+      #   class_double = double(new: exporter_double)
+      #   expect(Decidim::Exporters::CSV)
+      #     .to(receive(:new).with(anything, DummySerializer))
+      #     .and_return(double(export: export_data))
+      #
+      # end
 
-        #TODO tests This
-
-        # objects.each do |object|
-        #   export_data << [object.model_name.name.parameterize.pluralize, expect(Decidim::Exporters::CSV)
-        #   .to(receive(:new).with(object.user_collection(user), object.export_serializer))
-        #   .and_return(double(export: export_data))]
-        # end
-
-        # objects.each do |object|
-        #   export_data << [object.model_name.name.parameterize.pluralize]
-        # end
-
-        expect(ExportMailer)
-          .to(receive(:data_portability_export).with(user, anything, export_data))
-          .and_return(double(deliver_now: true))
-
-        DataPortabilityExportJob.perform_now(user, "exporter", "CSV")
-      end
+      # let(:export_data) { [ ["contents1", Decidim::Exporters::CSV.new("content", "csv")],["contents2", Decidim::Exporters::CSV.new("content2", "csv")]] }
+      # it "uses the CSV exporter" do
+      #   #TODO make the test exporter
+      #
+      #   expect(ExportMailer)
+      #     .to(receive(:data_portability_export).with(user, anything, export_data))
+      #     .and_return(double(deliver_now: true))
+      #
+      # end
     end
   end
 end

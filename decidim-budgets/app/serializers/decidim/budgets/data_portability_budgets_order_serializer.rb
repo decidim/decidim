@@ -2,7 +2,7 @@
 
 module Decidim
   module Budgets
-    class DataPortabilityBudgetOrderSerializer < Decidim::Exporters::Serializer
+    class DataPortabilityBudgetsOrderSerializer < Decidim::Exporters::Serializer
       # Public: Initializes the serializer with a conversation.
       def initialize(order)
         @order = order

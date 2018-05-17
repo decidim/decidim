@@ -66,7 +66,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Budgets::DataPortabilityBudgetOrderSerializer
+        Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
       end
 
       private

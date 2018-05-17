@@ -23,5 +23,26 @@ module Decidim
     def self.find_exporter(format)
       const_get(format)
     end
+
+    def self.data_portability_entities
+      [
+        Decidim::Budgets::Order,
+        Decidim::Comments::Comment,
+        Decidim::Consultations::Vote,
+        Decidim::Debates::Debate,
+        Decidim::Follow,
+        Decidim::Identity,
+        Decidim::Meetings::Registration,
+        Decidim::Messaging::Conversation,
+        Decidim::Notification,
+        Decidim::ParticipatorySpacePrivateUser,
+        Decidim::Proposals::Proposal,
+        Decidim::Proposals::ProposalVote,
+        Decidim::Proposals::ProposalEndorsement,
+        Decidim::Report,
+        Decidim::User,
+        Decidim::UserGroup
+      ]
+    end
   end
 end
