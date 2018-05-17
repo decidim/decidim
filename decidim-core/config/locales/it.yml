@@ -352,6 +352,43 @@ it:
         rejected: Respinta
         verified: Verificato
     pages:
+      home:
+        extended:
+          debates: Dibattiti
+          debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
+          how_to_participate: Come posso partecipare ad un processo?
+          meetings: incontri
+          meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
+          more_info: Maggiori informazioni
+          proposals: proposte
+          proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
+        footer_sub_hero:
+          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
+          footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
+          register: Registrati
+        hero:
+          participate: Partecipa
+          welcome: Benvenuto su %{organization}!
+        statistics:
+          answers_count: Sondaggi completati
+          assemblies_count: assemblee
+          comments_count: Commenti
+          debates_count: Dibattiti
+          endorsements_count: Riconoscimenti
+          headline: Stato attuale dell'organizzazione %{organization}
+          meetings_count: incontri
+          orders_count: Voti
+          pages_count: Pagine
+          processes_count: Processi
+          projects_count: progetti
+          proposals_accepted: Proposte accettate
+          proposals_count: proposte
+          results_count: risultati
+          surveys_count: indagini
+          users_count: Partecipanti
+          votes_count: Voti
+        sub_hero:
+          register: Registrati
       index:
         title: Informazione
     participatory_space_private_users:
@@ -529,44 +566,6 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-  pages:
-    home:
-      extended:
-        debates: Dibattiti
-        debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
-        how_to_participate: Come posso partecipare ad un processo?
-        meetings: Incontri, meeting
-        meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
-        more_info: Maggiori informazioni
-        proposals: Proposte
-        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
-      footer_sub_hero:
-        footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
-        footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-        register: Registrati
-      hero:
-        participate: Partecipa
-        welcome: Benvenuto su %{organization}!
-      statistics:
-        answers_count: Sondaggi completati
-        assemblies_count: assemblee
-        comments_count: Commenti
-        debates_count: dibattiti
-        endorsements_count: Riconoscimenti
-        headline: Stato attuale dell'organizzazione %{organization}
-        meetings_count: Meeting
-        orders_count: Voti
-        pages_count: Pagine
-        processes_count: Processi
-        projects_count: Progetti
-        proposals_accepted: Proposte accettate
-        proposals_count: Proposte
-        results_count: Resultati
-        surveys_count: indagini
-        users_count: Partecipanti
-        votes_count: Voti
-      sub_hero:
-        register: Registrati
   social_share_button:
     delicious: Delicious
     douban: Douban
