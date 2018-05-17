@@ -352,6 +352,43 @@ eu:
         rejected: Ukatua
         verified: Egiaztatuta
     pages:
+      home:
+        extended:
+          debates: Eztabaidak
+          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          how_to_participate: Nola har dezaket parte prozesu batean?
+          meetings: Bilerak
+          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
+          more_info: Argibide gehiago
+          proposals: proposamenak
+          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
+        footer_sub_hero:
+          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          register: Erregistroa
+        hero:
+          participate: Parte hartu
+          welcome: Ongi etorri %{organization} erakundera!
+        statistics:
+          answers_count: Amaitutako inkestak
+          assemblies_count: Batzar
+          comments_count: Iruzkinak
+          debates_count: Eztabaidak
+          endorsements_count: Oniritziak
+          headline: '%{organization} erakundearen egungo egoera'
+          meetings_count: Bilerak
+          orders_count: Euskarriak
+          pages_count: Orriak
+          processes_count: Prozesuak
+          projects_count: Proiektuak
+          proposals_accepted: Onartutako proposamenak
+          proposals_count: proposamenak
+          results_count: Emaitzak
+          surveys_count: Inkestak
+          users_count: Parte-hartzaileak
+          votes_count: Euskarriak
+        sub_hero:
+          register: Erregistroa
       index:
         title: Argibide gehiago
     participatory_space_private_users:
@@ -529,44 +566,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  pages:
-    home:
-      extended:
-        debates: Eztabaidak
-        debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-        how_to_participate: Nola har dezaket parte prozesu batean?
-        meetings: Topaketa-zerrenda
-        meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-        more_info: Argibide gehiago
-        proposals: Proposamenak
-        proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
-      footer_sub_hero:
-        footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
-        footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-        register: Erregistroa
-      hero:
-        participate: Parte hartu
-        welcome: Ongi etorri %{organization} erakundera!
-      statistics:
-        answers_count: Amaitutako inkestak
-        assemblies_count: Batzar
-        comments_count: Iruzkinak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: '%{organization} erakundearen egungo egoera'
-        meetings_count: Topaketak
-        orders_count: Euskarriak
-        pages_count: Orriak
-        processes_count: Prozesuak
-        projects_count: Proiektuak
-        proposals_accepted: Onartutako proposamenak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
-      sub_hero:
-        register: Erregistratu
   social_share_button:
     delicious: Delicious
     douban: Douban
