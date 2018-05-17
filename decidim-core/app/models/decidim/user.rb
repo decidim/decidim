@@ -7,6 +7,7 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     include Nicknamizable
+    include Resourceable
     include Decidim::Followable
     include Decidim::Loggable
 
