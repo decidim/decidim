@@ -24,34 +24,36 @@ if !Rails.env.production? || ENV["SEED"]
     available_authorizations: Decidim.authorization_workflows.map(&:name)
   )
 
-  province = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("province"),
-    plural: Decidim::Faker::Localized.literal("provinces"),
-    organization: organization
-  )
-
-  municipality = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("municipality"),
-    plural: Decidim::Faker::Localized.literal("municipalities"),
-    organization: organization
-  )
-
-  3.times do
-    parent = Decidim::Scope.create!(
-      name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-      code: Faker::Address.unique.country_code,
-      scope_type: province,
+  if organization.top_scopes.none?
+    province = Decidim::ScopeType.create!(
+      name: Decidim::Faker::Localized.literal("province"),
+      plural: Decidim::Faker::Localized.literal("provinces"),
       organization: organization
     )
 
-    5.times do
-      Decidim::Scope.create!(
-        name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
-        code: parent.code + "-" + Faker::Address.unique.state_abbr,
-        scope_type: municipality,
-        organization: organization,
-        parent: parent
+    municipality = Decidim::ScopeType.create!(
+      name: Decidim::Faker::Localized.literal("municipality"),
+      plural: Decidim::Faker::Localized.literal("municipalities"),
+      organization: organization
+    )
+
+    3.times do
+      parent = Decidim::Scope.create!(
+        name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
+        code: Faker::Address.unique.country_code,
+        scope_type: province,
+        organization: organization
       )
+
+      5.times do
+        Decidim::Scope.create!(
+          name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
+          code: parent.code + "-" + Faker::Address.unique.state_abbr,
+          scope_type: municipality,
+          organization: organization,
+          parent: parent
+        )
+      end
     end
   end
 

@@ -283,6 +283,7 @@ es:
         scope: Ámbito
         start_date: Fecha de inicio
         target: Quién participa
+        unspecified: No especificado
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios

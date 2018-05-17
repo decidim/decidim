@@ -34,6 +34,7 @@ es:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
@@ -42,6 +43,7 @@ es:
         short_description: Descripción breve
         show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
+        special_features: Características especiales
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título

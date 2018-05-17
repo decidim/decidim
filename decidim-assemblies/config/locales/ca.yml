@@ -34,6 +34,7 @@ ca:
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
+        private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
@@ -42,6 +43,7 @@ ca:
         short_description: Descripció breu
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
+        special_features: Característiques especials
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
