@@ -395,6 +395,7 @@ sv:
       not_allowed: Du får inte se det här innehållet
     profile:
       deleted: Ta bort användare
+      view: Se
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
