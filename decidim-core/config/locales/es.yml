@@ -172,7 +172,7 @@ es:
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
-          newsletter: Quiro recibir un boletín ocasional con información relevante
+          newsletter: Quiero recibir un boletín ocasional con información relevante
           nickname_help: Su identificador corto y único en %{organization}
           sign_in: Entra
           sign_up: Regístrate
