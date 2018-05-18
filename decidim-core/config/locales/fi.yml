@@ -121,6 +121,7 @@ fi:
         explanation: Vahvista avaamalla passi numerosta "A"
         fields:
           passport_number: Passin numero
+        name: Toinen esimerkki valtuutuksesta
       dummy_authorization_handler:
         explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
