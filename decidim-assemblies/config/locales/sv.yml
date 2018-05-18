@@ -62,6 +62,17 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+  activerecord:
+    models:
+      decidim/assembly:
+        one: hopsättning
+        other: Assemblies
+      decidim/assembly_member:
+        one: Församlingsmedlem
+        other: Församlingsmedlemmar
+      decidim/assembly_user_role:
+        one: Montering användarroll
+        other: Montera användarroller
   decidim:
     admin:
       assemblies:
