@@ -58,6 +58,7 @@ search:
       <%= "- #{path}/app/presenters\n" %>
       <%= "- #{path}/app/services\n" %>
       <%= "- #{path}/app/views\n" %>
+      <%= "- #{path}/app/cells\n" %>
     <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
@@ -95,7 +96,9 @@ ignore_missing:
 ignore_unused:
   - activemodel.attributes.*
   - activemodel.errors.*
+  - activemodel.models.*
   - activerecord.attributes.*
+  - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
   - decidim.admin.participatory_process_steps.default_title

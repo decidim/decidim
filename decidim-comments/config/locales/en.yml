@@ -1,5 +1,19 @@
 ---
 en:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comment
+      decidim/comments/comment_created_event: Comment
+      decidim/comments/reply_created_event: Comment reply
+      decidim/comments/user_mentioned_event: Mention
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comment
+        other: Comments
+      decidim/comments/comment_vote:
+        one: Vote
+        other: Votes
   decidim:
     comments:
       comments: Comments

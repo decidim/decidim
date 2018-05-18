@@ -17,6 +17,31 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from
+    models:
+      decidim/proposals/accepted_proposal_event: Proposal accepted
+      decidim/proposals/admin/update_proposal_category_event: Proposal category changed
+      decidim/proposals/creation_enabled_event: Proposal creation enabled
+      decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
+      decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
+      decidim/proposals/proposal_endorsed_event: Proposal endorsed
+      decidim/proposals/proposal_mentioned_event: Proposal mentioned
+      decidim/proposals/publish_proposal_event: Proposal published
+      decidim/proposals/rejected_proposal_event: Proposal rejected
+      decidim/proposals/voting_enabled_event: Proposal voting enabled
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposal
+        other: Proposals
+      decidim/proposals/proposal_endorsement:
+        one: Endorsement
+        other: Endorsements
+      decidim/proposals/proposal_note:
+        one: Note
+        other: Notes
+      decidim/proposals/proposal_vote:
+        one: Vote
+        other: Votes
   decidim:
     components:
       proposals:
