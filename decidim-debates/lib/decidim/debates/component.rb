@@ -27,7 +27,7 @@ Decidim.register_component(:debates) do |component|
     Decidim::Debates::Debate.where(component: components).count
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"
   end

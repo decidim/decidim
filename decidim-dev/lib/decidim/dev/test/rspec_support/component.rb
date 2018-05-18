@@ -88,7 +88,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_step_attribute_2, type: :boolean
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:dummy_resource) do |resource|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"

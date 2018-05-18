@@ -10,7 +10,6 @@ module Decidim
   # It's normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
-    include Decidim::HasResourceManifests
     include ActiveModel::Model
     include Virtus.model
 
@@ -101,6 +100,20 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Registers a resource. Exposes a DSL defined by
+    # `Decidim::ResourceManifest`.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This way resources can be linked between them.
+    #
+    # name - A name for that resource. Should be singular (ie not plural).
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(name, &block)
+      Decidim.register_resource(name, &block)
     end
   end
 end

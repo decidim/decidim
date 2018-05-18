@@ -23,6 +23,17 @@ Decidim::Verifications.register_workflow(:my_handler) do |workflow|
 end
 ```
 
+If you have some custom modules from which you are registering a resource, you
+will need to tweak how those resources are being registered as per #3416. You
+must now set a resource name:
+
+```ruby
+  # inside decidim-my-module/lib/decidim/my-module/component.rb
+  component.register_resource(:my_resource) do |resource|
+    resource.model_class_name = "Decidim::MyComponent::MyResource"
+  end
+```
+
 **Added**:
 
 - **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3042](https://github.com/decidim/decidim/pull/3042)
@@ -38,6 +49,7 @@ end
 - **decidim-admin**: Add autocomplete field with customizable url to fetch results. [\#3301](https://github.com/decidim/decidim/pull/3301)
 - **decidim-admin**: Add endpoint to query organization users in json format. [\#3381](https://github.com/decidim/decidim/pull/3381)
 - **decidim-core**: Adds fingerprinting capabilities to resources. [\#3351](https://github.com/decidim/decidim/pull/3351)
+- **decidim-core**: Add user profile card [\#3444](https://github.com/decidim/decidim/pull/3444)
 
 **Changed**:
 
@@ -71,9 +83,11 @@ end
 - **decidim-participatory_processes**: Update card layout for process groups [\#3395](https://github.com/decidim/decidim/pull/3395)
 - **decidim-assemblies**: Update card layout for assemblies and assembly members [\#3405](https://github.com/decidim/decidim/pull/3405)
 - **decidim-sortitions**: Update card layout [\#3405](https://github.com/decidim/decidim/pull/3405)
+- **decidim**: Changes on how to register resources. Resources from a component now they need a specific reference to the component manifest, and all resources need a name. [\#3416](https://github.com/decidim/decidim/pull/3416)
 
 **Fixed**:
 
+- **decidim-core**: Include datepicker locales in front pages too. [\#3448](https://github.com/decidim/decidim/pull/3448)
 - **decidim-core**: Uses current organization scopes in scopes picker. [\#3386](https://github.com/decidim/decidim/pull/3386)
 - **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3329](https://github.com/decidim/decidim/pull/3329)
 - **decidim-admin**: Fixes the validation uniqueness name of area, scoped with organization and area_type [\#3336](https://github.com/decidim/decidim/pull/3336) https://github.com/decidim/decidim/pull/3336

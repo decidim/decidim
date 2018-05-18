@@ -15,7 +15,7 @@ Decidim.register_component(:budgets) do |component|
     raise StandardError, "Can't remove this component" if Decidim::Budgets::Project.where(component: instance).any?
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:project) do |resource|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
   end
