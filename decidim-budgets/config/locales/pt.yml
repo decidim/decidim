@@ -8,6 +8,11 @@ pt:
         description: Descrição
         proposal_ids: Propostas relacionadas
         title: Título
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projeto
+        other: Projetos
   decidim:
     budgets:
       actions:
