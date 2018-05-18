@@ -121,6 +121,7 @@ pt-BR:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
           passport_number: Número do passaporte
+        name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Para verificar sua conta, introduza um número de documento que termine com "X"
         fields:
