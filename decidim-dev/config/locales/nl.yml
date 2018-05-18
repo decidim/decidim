@@ -8,9 +8,6 @@ nl:
         title: Titel
         updated_at: Bijgewerkt op
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Een ander voorbeeld van goedkeuring
     dummy:
       admin:
         exports:
