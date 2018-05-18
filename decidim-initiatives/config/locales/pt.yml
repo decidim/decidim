@@ -32,6 +32,17 @@ pt:
         address: Endereço
         id_document: CIF
         name: Nome completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comitês
+      decidim/initiative_vote:
+        one: Voto
+        other: Votos
   decidim:
     admin:
       menu:
