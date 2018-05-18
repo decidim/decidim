@@ -17,6 +17,10 @@ sv:
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
+    models:
+      decidim/attachment_created_event: Bilaga
+      decidim/component_published_event: Aktiv komponent
+      decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ sv:
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
+    models:
+      decidim/user:
+        one: Användare
+        other: användare
+      decidim/user_group:
+        one: Användargrupp
+        other: Användargrupper
   booleans:
     'false': 'Nej'
     'true': 'Ja'
@@ -261,6 +272,10 @@ sv:
       source: Källa
       title: Fingeravtryck
       value: Värde
+    followers:
+      no_followers: Inga följare än.
+    following:
+      no_followings: Inga följder än.
     follows:
       create:
         button: Följ
@@ -339,6 +354,8 @@ sv:
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
+    notifications:
+      no_notifications: Inga notiser ännu.
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
@@ -400,8 +417,7 @@ sv:
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
-        about_me: Om mig
-        personal_url: Personlig webbplats
+        followers: anhängare
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -548,8 +564,6 @@ sv:
         expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera alla som lästa
-        no_notifications: Inga notiser ännu.
-        title: Notiser
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
