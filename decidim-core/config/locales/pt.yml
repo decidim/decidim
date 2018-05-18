@@ -17,6 +17,10 @@ pt:
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Componente ativo
+      decidim/profile_updated_event: perfil atualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ pt:
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/user:
+        one: Do utilizador
+        other: Comercial
+      decidim/user_group:
+        one: Grupo de usuários
+        other: Grupos de usuários
   booleans:
     'false': 'Não'
     'true': 'Sim'
@@ -261,6 +272,8 @@ pt:
       source: Fonte
       title: Impressão digital
       value: Valor
+    followers:
+      no_followers: Ainda não há seguidores
     follows:
       create:
         button: Seguir
@@ -339,6 +352,8 @@ pt:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    notifications:
+      no_notifications: Ainda não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -399,9 +414,6 @@ pt:
       view: Visão
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
-      show:
-        about_me: Sobre mim
-        personal_url: Site pessoal
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -548,8 +560,6 @@ pt:
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
-        no_notifications: Ainda não há notificações.
-        title: Notificações
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
