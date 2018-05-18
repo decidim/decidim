@@ -1,4 +1,8 @@
 nl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commentaar
+      decidim/comments/comment_created_event: Commentaar
   decidim:
     comments:
       comments: Comments
