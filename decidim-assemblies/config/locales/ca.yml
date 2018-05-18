@@ -62,6 +62,17 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: muntatge
+        other: Assemblees
+      decidim/assembly_member:
+        one: Membre de l'assemblea
+        other: Membres de l'assemblea
+      decidim/assembly_user_role:
+        one: Funció d'usuari de l'assemblea
+        other: Muntar rols d'usuari
   decidim:
     admin:
       assemblies:
