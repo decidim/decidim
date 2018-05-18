@@ -38,7 +38,7 @@ module Decidim
           let(:locale_before) { I18n.locale }
 
           it "returns only results in current language" do
-            I18n.with_locale(:ca)
+            I18n.with_locale(:ca) do
               described_class.call(term, current_organization) do
                 on(:ok) do |results|
                   expect(results.pluck(:id)).to eq([lice_ca.id])
