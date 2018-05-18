@@ -49,6 +49,7 @@ must now set a resource name:
 - **decidim-admin**: Add endpoint to query organization users in json format. [\#3381](https://github.com/decidim/decidim/pull/3381)
 - **decidim-core**: Adds fingerprinting capabilities to resources. [\#3351](https://github.com/decidim/decidim/pull/3351)
 - **decidim-core**: Add user profile card [\#3444](https://github.com/decidim/decidim/pull/3444)
+- **decidim-budgets**: Add project card [\#3454](https://github.com/decidim/decidim/pull/3454)
 
 **Changed**:
 
