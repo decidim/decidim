@@ -16,7 +16,7 @@ module Decidim
     end
 
     def description
-      html_truncate(model.about, length: 100)
+      html_truncate(model.about.to_s, length: 100)
     end
 
     def avatar

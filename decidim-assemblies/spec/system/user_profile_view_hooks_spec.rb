@@ -14,7 +14,7 @@ describe "Member of assemblies", type: :system do
   it "includes active assemblies to the homepage" do
     visit decidim.profile_path(assembly_member.user.nickname)
 
-    within "#member-of-assemblies" do
+    within ".card__text--separated-mid-dot" do
       expect(page).to have_i18n_content(assembly.title)
     end
   end

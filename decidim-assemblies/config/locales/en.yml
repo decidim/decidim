@@ -63,6 +63,17 @@ en:
         email: Email
         name: Name
         role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assembly
+        other: Assemblies
+      decidim/assembly_member:
+        one: Assembly member
+        other: Assembly members
+      decidim/assembly_user_role:
+        one: Assembly user role
+        other: Assembly user roles
   decidim:
     admin:
       assemblies:

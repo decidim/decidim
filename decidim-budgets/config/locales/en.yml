@@ -9,6 +9,11 @@ en:
         description: Description
         proposal_ids: Related proposals
         title: Title
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Project
+        other: Projects
   decidim:
     budgets:
       actions:
