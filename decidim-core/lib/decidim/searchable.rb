@@ -17,31 +17,31 @@ module Decidim
     end
 
     included do
-      has_many :searchable_rsrcs, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
-      after_create :add_to_index_as_search_rsrc
-      after_update :update_index_for_search_rsrc
+      has_many :searchable_resources, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
+      after_create :add_to_index_as_search_resource
+      after_update :update_index_for_search_resource
 
       # Public: after_create callback to index the model as a SearchableResource.
       #
-      def add_to_index_as_search_rsrc
-        fields = self.class.search_rsrc_fields_mapper.mapped(self)
+      def add_to_index_as_search_resource
+        fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
-          Decidim::SearchableResource.create(contents_to_searchable_rsrc_attrs(fields, locale))
+          Decidim::SearchableResource.create(contents_to_searchable_resource_attributes(fields, locale))
         end
       end
 
       # Public: after_update callback to update index information of the model.
       #
-      def update_index_for_search_rsrc
-        fields = self.class.search_rsrc_fields_mapper.mapped(self)
-        searchable_rsrcs.each do |sr|
-          sr.update(contents_to_searchable_rsrc_attrs(fields, sr.locale))
+      def update_index_for_search_resource
+        fields = self.class.search_resource_fields_mapper.mapped(self)
+        searchable_resources.each do |sr|
+          sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
         end
       end
 
       private
 
-      def contents_to_searchable_rsrc_attrs(fields, locale)
+      def contents_to_searchable_resource_attributes(fields, locale)
         contents = fields[:i18n][locale]
         content_a = I18n.transliterate(contents[:A] || "")
         content_b = I18n.transliterate(contents[:B] || "")
@@ -61,9 +61,9 @@ module Decidim
     end
 
     class_methods do
-      def search_rsrc_fields_mapper
-        raise "`searchable_fields` should be declared when including Searchable" unless defined?(@search_rsrc_indexable_fields)
-        @search_rsrc_indexable_fields
+      def search_resource_fields_mapper
+        raise "`searchable_fields` should be declared when including Searchable" unless defined?(@search_resource_indexable_fields)
+        @search_resource_indexable_fields
       end
 
       # Declares the searchable fields for this instance.
@@ -77,7 +77,7 @@ module Decidim
       #   D: [:description, :address]
       # }
       def searchable_fields(declared_fields)
-        @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
+        @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
         Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
       end
     end

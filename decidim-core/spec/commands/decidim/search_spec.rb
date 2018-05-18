@@ -37,20 +37,14 @@ module Decidim
           let(:term) { "polls" }
           let(:locale_before) { I18n.locale }
 
-          before do
-            I18n.locale = :ca
-          end
-
           it "returns only results in current language" do
-            begin
+            I18n.with_locale(:ca)
               described_class.call(term, current_organization) do
                 on(:ok) do |results|
                   expect(results.pluck(:id)).to eq([lice_ca.id])
                 end
                 on(:invalid) { raise("Should not happen") }
               end
-            ensure
-              I18n.locale = locale_before
             end
           end
         end
