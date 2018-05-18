@@ -1,4 +1,9 @@
 gl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentario
+      decidim/comments/comment_created_event: Comentario
+      decidim/comments/reply_created_event: Comentario de resposta
   decidim:
     comments:
       comments: Comentarios
