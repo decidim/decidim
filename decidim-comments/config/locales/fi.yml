@@ -1,4 +1,9 @@
 fi:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentti
+      decidim/comments/comment_created_event: Kommentti
+      decidim/comments/reply_created_event: Kommentti vastaus
   decidim:
     comments:
       comments: Kommentit
