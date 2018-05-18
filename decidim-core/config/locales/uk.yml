@@ -242,6 +242,8 @@ uk:
         success: Ви успішно скасували підписку.
         token_error: Термін дії посилання закінчився.
         unsubscribe: Скасувати підписку
+    notifications:
+      no_notifications: Ще немає сповіщень.
     notifications_settings:
       show:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
@@ -291,9 +293,6 @@ uk:
         title: Дізнатися більше
     profiles:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
-      show:
-        about_me: Про мене
-        personal_url: Особистий веб-сайт
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -432,8 +431,6 @@ uk:
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
-        no_notifications: Ще немає сповіщень.
-        title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
         conversations: Бесіди
