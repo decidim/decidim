@@ -99,7 +99,7 @@ en:
           count:
             one: 1 support
             other: "%{count} supports"
-          of_budget: "of budget"
+          of_budget: of budget
           remove: Remove
           view: View
         project_budget_button:
