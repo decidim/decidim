@@ -121,6 +121,7 @@ ca:
         explanation: Obté la verificació introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+        name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
