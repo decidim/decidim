@@ -17,6 +17,9 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/attachment_created_event: eranskina
+      decidim/component_published_event: Osagai aktiboa
   activerecord:
     attributes:
       decidim/user:
@@ -339,6 +342,8 @@ eu:
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
+    notifications:
+      no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -399,9 +404,6 @@ eu:
       view: ikusi
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
-      show:
-        about_me: Niri buruz
-        personal_url: Webgune pertsonala
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -548,8 +550,6 @@ eu:
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
-        no_notifications: Oraindik ez dago jakinarazpenik.
-        title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
