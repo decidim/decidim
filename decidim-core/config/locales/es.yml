@@ -17,6 +17,10 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
+    models:
+      decidim/attachment_created_event: Adjunto archivo
+      decidim/component_published_event: Componente activo
+      decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
+    models:
+      decidim/user:
+        one: Usuario
+        other: Usuarios
+      decidim/user_group:
+        one: Grupo de usuario
+        other: Grupos de Usuarios
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -261,6 +272,10 @@ es:
       source: Origen
       title: Huella digital
       value: Valor
+    followers:
+      no_followers: Aún no hay seguidores
+    following:
+      no_followings: No sigue aún.
     follows:
       create:
         button: Seguir
@@ -339,6 +354,8 @@ es:
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
+    notifications:
+      no_notifications: No hay notificaciones aún.
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
@@ -399,9 +416,6 @@ es:
       view: Ver
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
-      show:
-        about_me: Sobre mi
-        personal_url: Sitio web personal
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -549,8 +563,6 @@ es:
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
-        no_notifications: No hay notificaciones aún.
-        title: Notificaciones
       user_menu:
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
