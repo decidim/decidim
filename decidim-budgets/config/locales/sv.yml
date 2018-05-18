@@ -8,6 +8,11 @@ sv:
         description: Beskrivning
         proposal_ids: Relaterade förslag
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        other: projekt
   decidim:
     budgets:
       actions:
