@@ -8,6 +8,11 @@ fi:
         description: Kuvaus
         proposal_ids: Liittyvät esitykset
         title: Otsikko
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: projekti
+        other: projektit
   decidim:
     budgets:
       actions:
