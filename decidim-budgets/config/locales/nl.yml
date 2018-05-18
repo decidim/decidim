@@ -8,6 +8,11 @@ nl:
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: project
+        other: projecten
   decidim:
     budgets:
       actions:
