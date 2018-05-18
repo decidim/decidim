@@ -445,6 +445,7 @@ uk:
         answers_count: Пройдено опитувань
         assemblies_count: Збори
         comments_count: Коментарі
+        debates_count: Обговорення
         endorsements_count: Підтримало
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
