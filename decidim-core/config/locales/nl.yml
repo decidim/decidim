@@ -516,8 +516,8 @@ nl:
       extended:
         debates: Debatten
         debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel aan een thema?
-        meetings: Events
+        how_to_participate: Hoe neem ik deel?
+        meetings: Vergaderingen
         meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
         more_info: Meer informatie
         proposals: Voorstellen
@@ -534,9 +534,9 @@ nl:
         assemblies_count: Events
         comments_count: Reacties
         debates_count: Debatten
-        endorsements_count: Aanbevelen
+        endorsements_count: Aanbevelingen
         headline: Huidige stand van %{organization}
-        meetings_count: Events
+        meetings_count: Vergaderingen
         orders_count: stemmen
         pages_count: Pages
         processes_count: Thema's
