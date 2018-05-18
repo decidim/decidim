@@ -52,9 +52,10 @@ must now set a resource name:
 
 **Changed**:
 
-- **decidim-core**: Force user_group.name uniqueness in user_group test factory. (https://github.com/decidim/decidim/pull/3290)
+- **decidim-core**: New user profile design [\#3415](https://github.com/decidim/decidim/pull/3290)
+- **decidim-core**: Force user_group.name uniqueness in user_group test factory. [\#3290](https://github.com/decidim/decidim/pull/3290)
 - **decidim-admin**: Admins no longer need to introduce raw json to define options for an authorization workflow. [\#3300](https://github.com/decidim/decidim/pull/3300)
-- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. (https://github.com/decidim/decidim/pull/3238)
+- **decidim-proposals**: Extract partials in Proposals into helper methors so that they can be reused in collaborative draft. [\#3238](https://github.com/decidim/decidim/pull/3238)
 - **decidim-admin**: Moved the following reusable javascript components from `decidim-surveys` component [\#3194](https://github.com/decidim/decidim/pull/3194)
   - Nested resources (auto_buttons_by_position.component.js.es6, auto_label_by_position.component.js.es6, dynamic_fields.component.js.es6)
   - Dependent inputs (field_dependent_inputs.component.js.es6)

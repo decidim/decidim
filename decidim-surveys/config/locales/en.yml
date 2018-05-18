@@ -15,6 +15,17 @@ en:
             choices:
               missing: are not complete
               too_many: are too many
+    models:
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Survey
+        other: Surveys
+      decidim/surveys/survey_answer:
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:

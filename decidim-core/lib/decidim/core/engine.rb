@@ -37,6 +37,7 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
 

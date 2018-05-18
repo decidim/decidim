@@ -36,6 +36,20 @@ en:
       vote:
         decidim_consultations_response_id:
           not_found: Response not found.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consultation
+        other: Consultations
+      decidim/consultations/question:
+        one: Question
+        other: Questions
+      decidim/consultations/response:
+        one: Response
+        other: Responses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       actions:
