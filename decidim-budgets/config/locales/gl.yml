@@ -8,6 +8,11 @@ gl:
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proxecto
+        other: Proxectos
   decidim:
     budgets:
       actions:
