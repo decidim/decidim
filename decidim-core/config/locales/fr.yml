@@ -17,6 +17,10 @@ fr:
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
+    models:
+      decidim/attachment_created_event: Attachement
+      decidim/component_published_event: Composant actif
+      decidim/profile_updated_event: Profil mis à jour
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,10 @@ fr:
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
+    models:
+      decidim/user:
+        one: Utilisateur
+        other: Utilisateurs
   booleans:
     'false': 'Non'
     'true': 'Oui'
@@ -339,6 +347,8 @@ fr:
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
+    notifications:
+      no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         email_on_notification: Je veux recevoir un email chaque fois que je reçois une notification.
@@ -399,9 +409,6 @@ fr:
       view: Vue
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
-      show:
-        about_me: À propos de moi
-        personal_url: Site Web personnel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -548,8 +555,6 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
-        no_notifications: Il n'y a pas encore de notifications.
-        title: Notifications
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
