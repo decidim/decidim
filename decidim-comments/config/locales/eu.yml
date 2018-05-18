@@ -1,4 +1,7 @@
 eu:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Iruzkina
   decidim:
     comments:
       comments: Oharrak
