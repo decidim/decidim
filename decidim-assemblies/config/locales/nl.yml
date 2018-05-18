@@ -62,6 +62,17 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: bijeenkomst
+        other: Assemblies
+      decidim/assembly_member:
+        one: Montage lid
+        other: Vergadering leden
+      decidim/assembly_user_role:
+        one: Assemblage gebruikersrol
+        other: Assemblage van gebruikersrollen
   decidim:
     admin:
       assemblies:
