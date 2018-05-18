@@ -8,6 +8,11 @@ ca:
         description: Descripció
         proposal_ids: Propostes relacionades
         title: Títol
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projecte
+        other: Projectes
   decidim:
     budgets:
       actions:
