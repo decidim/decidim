@@ -521,7 +521,7 @@ ca:
         meetings: Trobades
         meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
         more_info: Més informació
-        proposals: Propostes
+        proposals: propostes
         proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
       footer_sub_hero:
         footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
@@ -543,7 +543,7 @@ ca:
         processes_count: Processos
         projects_count: Projectes
         proposals_accepted: Propostes acceptades
-        proposals_count: Propostes
+        proposals_count: propostes
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
