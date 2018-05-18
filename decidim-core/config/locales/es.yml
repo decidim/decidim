@@ -121,6 +121,7 @@ es:
         explanation: Verifíquese introduciendo un número de pasaporte que comience por "A"
         fields:
           passport_number: Número de pasaporte
+        name: Otro ejemplo de autorización
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
         fields:
