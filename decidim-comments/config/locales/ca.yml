@@ -1,4 +1,8 @@
 ca:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentari
+      decidim/comments/comment_created_event: Comentari
   decidim:
     comments:
       comments: Comentaris
