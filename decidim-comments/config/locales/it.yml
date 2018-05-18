@@ -1,4 +1,10 @@
 it:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commento
+      decidim/comments/comment_created_event: Commento
+      decidim/comments/reply_created_event: Risposta al commento
+      decidim/comments/user_mentioned_event: Citare
   decidim:
     comments:
       comments: Commenti
