@@ -17,6 +17,10 @@ gl:
         user_group_document_number: Número de documento da organización
         user_group_name: Nome da Organización
         user_group_phone: Teléfono da organización
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Compoñente activo
+      decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,10 @@ gl:
         user_group_document_number: Número de documento da organización
         user_group_name: Nome da organización
         user_group_phone: Organización do teléfono
+    models:
+      decidim/user:
+        one: Usuario
+        other: Usuarios
   booleans:
     'false': 'Non'
     'true': 'Si'
@@ -339,6 +347,8 @@ gl:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
         unsubscribe: Anular a suscripción
+    notifications:
+      no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
@@ -399,9 +409,6 @@ gl:
       view: Ver
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
-      show:
-        about_me: Sobre min
-        personal_url: Sitio web persoal
     reported_mailer:
       hide:
         hello: Ola %{name},
@@ -548,8 +555,6 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
-        no_notifications: Aínda non hai notificacións.
-        title: Notificacións
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
