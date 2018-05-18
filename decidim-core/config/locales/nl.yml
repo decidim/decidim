@@ -339,6 +339,8 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    notifications:
+      no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
@@ -399,9 +401,6 @@ nl:
       view: Uitzicht
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
-      show:
-        about_me: Over mij
-        personal_url: Persoonlijke website
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -548,8 +547,6 @@ nl:
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
-        no_notifications: Nog geen meldingen.
-        title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
