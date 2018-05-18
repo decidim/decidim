@@ -1,4 +1,18 @@
 sv:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+      decidim/comments/reply_created_event: Kommentar svar
+      decidim/comments/user_mentioned_event: Nämna
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentar
+        other: kommentarer
+      decidim/comments/comment_vote:
+        one: Rösta
+        other: röster
   decidim:
     comments:
       comments: kommentarer
