@@ -140,6 +140,10 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityUserSerializer
     end
 
+    def self.data_portability_images(user)
+      user_collection(user).map(&:avatar_url)
+    end
+
     protected
 
     # Overrides devise email required validation.

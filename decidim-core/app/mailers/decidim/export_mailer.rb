@@ -26,11 +26,11 @@ module Decidim
       end
     end
 
-    def data_portability_export(user, export_data)
+    def data_portability_export(user, export_data, export_images)
       @user = user
       @organization = user.organization
 
-      file_zipper = Decidim::DataPortabilityFileZipper.new(@user, export_data)
+      file_zipper = Decidim::DataPortabilityFileZipper.new(@user, export_data, export_images)
       file_zipper.make_zip
 
       with_user(user) do

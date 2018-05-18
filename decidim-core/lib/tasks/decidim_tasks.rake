@@ -87,7 +87,7 @@ namespace :decidim do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
     path = "tmp/data-portability/*"
     Dir.glob(Rails.root.join(path)).each do |filename|
-      next unless File.mtime(filename) < 7.days.ago
+      next unless File.mtime(filename) < Decidim.time_data_portability_files_available.days.ago
       file = File.delete(filename)
       puts "------"
       puts "!! deleting #{filename}"

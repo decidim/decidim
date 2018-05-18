@@ -178,6 +178,11 @@ module Decidim
     true
   end
 
+  # Time that data portability files are available in server
+  config_accessor :time_data_portability_files_available do
+    7
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production

@@ -15,6 +15,10 @@ module Decidim
       def self.export_serializer
         Decidim::Exporters::Serializer
       end
+
+      def self.data_portability_images(_user)
+        nil
+      end
     end
   end
 end

@@ -179,6 +179,10 @@ module Decidim
         Decidim::Proposals::ProposalSerializer
       end
 
+      def self.data_portability_images(user)
+        user_collection(user).map { |p| p.attachments.collect(&:file_url) }
+      end
+
       private
 
       # Checks whether the proposal is inside the time window to be editable or not once published.
