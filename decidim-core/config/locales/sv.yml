@@ -121,6 +121,7 @@ sv:
         explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
         fields:
           passport_number: Passnummer
+        name: Ett annat exempel godkännande
       dummy_authorization_handler:
         explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
         fields:
