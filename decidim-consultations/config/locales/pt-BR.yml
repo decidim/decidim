@@ -41,7 +41,7 @@ pt-BR:
         one: Consulta
         other: Consultas
       decidim/consultations/question:
-        one: Questão
+        one: Pergunta
         other: Questões
       decidim/consultations/response:
         one: Resposta
