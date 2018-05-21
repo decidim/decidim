@@ -1,4 +1,12 @@
 ca:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova publicació del bloc
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicació
+        other: Publicacions
   decidim:
     blogs:
       actions:
