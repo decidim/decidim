@@ -103,7 +103,9 @@ fi:
           count:
             one: 1 kannatus
             other: "%{count} kannatusta"
+          of_budget: budjetista
           remove: Poista
+          view: näkymä
         project_budget_button:
           add: Lisää
           added: Lisätty
