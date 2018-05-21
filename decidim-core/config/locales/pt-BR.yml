@@ -274,6 +274,8 @@ pt-BR:
       value: Valor
     followers:
       no_followers: Ainda não há seguidores
+    following:
+      no_followings: Não há seguidores ainda.
     follows:
       create:
         button: Seguir
@@ -414,6 +416,12 @@ pt-BR:
       view: Visão
     profiles:
       default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
+      show:
+        followers: Seguidores
+        following: Segue
+        notifications: Notificações
+      user:
+        edit_profile: Editar Perfil
     reported_mailer:
       hide:
         hello: Olá %{name},
