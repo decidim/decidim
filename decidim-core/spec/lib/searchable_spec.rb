@@ -10,6 +10,10 @@ module Decidim
       Decidim::DummyResources::DummyResource.new
     end
 
+    after do
+      Decidim::Searchable.searchable_resources.delete(subject.class.name)
+    end
+
     describe "#searchable_fields" do
       context "when searchable_fields are correctly setted" do
         before do
