@@ -32,6 +32,17 @@ ca:
         address: Adreça
         id_document: CIF
         name: Nom complet
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initativa
+        other: Initatius
+      decidim/initiative_comittee:
+        one: Comitè
+        other: Comitès
+      decidim/initiative_vote:
+        one: Votació
+        other: Vots
   decidim:
     admin:
       menu:
