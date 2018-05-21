@@ -9,6 +9,13 @@ eu:
         target_items: Aukeratutako proposamen kopurua (lehenago aukeratu dituzun proposamenen multzoa hautatzeko hautatu dituzun proposamenen kopurua adierazten du)
         title: Izenburua
         witnesses: Lekukoak
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
