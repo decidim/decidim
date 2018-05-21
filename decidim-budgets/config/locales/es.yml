@@ -103,7 +103,6 @@ es:
           count:
             one: 1 apoyo
             other: "%{count} apoyos"
-          of_budget: de presupuesto
           remove: Eliminar
           view: Ver
         project_budget_button:
