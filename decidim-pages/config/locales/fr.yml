@@ -1,4 +1,9 @@
 fr:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Page
+        other: Pages
   decidim:
     admin_log:
       page:
