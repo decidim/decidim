@@ -33,6 +33,13 @@ fi:
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
+    models:
+      decidim/user:
+        one: käyttäjä
+        other: käyttäjät
+      decidim/user_group:
+        one: Käyttäjäryhmä
+        other: Käyttäjäryhmät
   booleans:
     'false': 'Ei'
     'true': 'Kyllä'
@@ -265,6 +272,10 @@ fi:
       source: Lähde
       title: Sormenjälki
       value: Arvo
+    followers:
+      no_followers: Ei seuraajia vielä.
+    following:
+      no_followings: Ei seuraa vielä.
     follows:
       create:
         button: Seuraa
@@ -405,6 +416,12 @@ fi:
       view: näkymä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
+      show:
+        followers: seuraajaa
+        following: Seurata
+        notifications: ilmoitukset
+      user:
+        edit_profile: Muokkaa profiilia
     reported_mailer:
       hide:
         hello: Hei %{name},
