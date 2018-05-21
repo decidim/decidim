@@ -103,7 +103,9 @@ eu:
           count:
             one: 1 sostengu 
             other: "%{count} sostengu"
+          of_budget: aurrekontua
           remove: Kendu
+          view: ikusi
         project_budget_button:
           add: Gehitu
           added: Erantsita
