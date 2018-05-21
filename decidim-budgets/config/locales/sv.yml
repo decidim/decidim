@@ -103,7 +103,6 @@ sv:
           count:
             one: 1 stöd
             other: "%{count} stöder"
-          of_budget: av budgeten
           remove: Avlägsna
           view: Se
         project_budget_button:
