@@ -104,7 +104,7 @@ pt-BR:
             one: 1 suporte
             other: "%{count} suporta"
           remove: Remover
-          view: Visão
+          view: Ver
         project_budget_button:
           add: Adicionar
           added: Adicionado
