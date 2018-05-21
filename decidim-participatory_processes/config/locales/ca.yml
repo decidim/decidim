@@ -56,8 +56,8 @@ ca:
         one: Grup de procés participatiu
         other: Grups de procés participatiu
       decidim/participatory_process_step:
-        one: Pas
-        other: Passos
+        one: Fase
+        other: Fases
   decidim:
     admin:
       actions:
