@@ -9,6 +9,13 @@ ca:
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
+    models:
+      decidim/sortitions/create_sortition_event: Sortició
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortició
+        other: Sortides
   decidim:
     components:
       sortitions:
