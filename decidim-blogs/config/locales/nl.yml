@@ -1,4 +1,12 @@
 nl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nieuwe blogpost
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: berichten
   decidim:
     blogs:
       actions:
