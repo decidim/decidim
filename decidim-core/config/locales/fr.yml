@@ -37,6 +37,9 @@ fr:
       decidim/user:
         one: Utilisateur
         other: Utilisateurs
+      decidim/user_group:
+        one: Groupe d'utilisateurs
+        other: Groupes d'utilisateurs
   booleans:
     'false': 'Non'
     'true': 'Oui'
@@ -269,6 +272,10 @@ fr:
       source: La source
       title: Empreinte digitale
       value: Valeur
+    followers:
+      no_followers: Aucun abonné pour le moment.
+    following:
+      no_followings: Pas encore de suite.
     follows:
       create:
         button: Suivre
@@ -409,6 +416,12 @@ fr:
       view: Vue
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
+      show:
+        followers: Suiveurs
+        following: Suivant
+        notifications: Notifications
+      user:
+        edit_profile: Editer le profil
     reported_mailer:
       hide:
         hello: Bonjour %{name},
