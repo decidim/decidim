@@ -7,9 +7,7 @@ module Decidim
     subject { resource }
 
     let(:resource) do
-      dbl = double(:dummy_resource)
-      allow(dbl.class).to receive_messages(has_many: 1, after_create: 1, after_update: 1)
-      dbl
+      Decidim::DummyResources::DummyResource.new
     end
 
     describe "#searchable_fields" do
