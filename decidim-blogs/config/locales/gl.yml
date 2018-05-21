@@ -1,4 +1,12 @@
 gl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova publicación no blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicar
+        other: Publicacións
   decidim:
     blogs:
       actions:
