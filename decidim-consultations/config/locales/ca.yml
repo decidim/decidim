@@ -47,7 +47,7 @@ ca:
         one: Resposta
         other: Respostes
       decidim/consultations/vote:
-        one: Votació
+        one: Vot
         other: Vots
   decidim:
     admin:
