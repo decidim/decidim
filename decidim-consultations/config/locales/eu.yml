@@ -35,6 +35,20 @@ eu:
       vote:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: kontsultak
+      decidim/consultations/question:
+        one: Galdera
+        other: Galderak
+      decidim/consultations/response:
+        one: Erantzun
+        other: Erantzunak
+      decidim/consultations/vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     admin:
       actions:
