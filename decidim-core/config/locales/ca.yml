@@ -33,6 +33,13 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
+    models:
+      decidim/user:
+        one: Usuari
+        other: Usuaris
+      decidim/user_group:
+        one: Grup d'usuaris
+        other: Grups d'usuaris
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -265,6 +272,10 @@ ca:
       source: Origen
       title: Empremta digital
       value: Valor
+    followers:
+      no_followers: Encara no hi ha seguidors.
+    following:
+      no_followings: Encara no hi ha ningú seguit.
     follows:
       create:
         button: Seguir
@@ -364,7 +375,7 @@ ca:
           debates: Debats
           debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
           how_to_participate: Com participo en un procés?
-          meetings: Reunions
+          meetings: Trobades
           meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
           more_info: Més informació
           proposals: Propostes
@@ -383,7 +394,7 @@ ca:
           debates_count: Debats
           endorsements_count: Adhesions
           headline: Estat actual de %{organization}
-          meetings_count: Reunions
+          meetings_count: Trobades
           orders_count: Vots
           pages_count: Pàgines
           processes_count: Processos
@@ -405,6 +416,12 @@ ca:
       view: Veure
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
+      show:
+        followers: Seguidors
+        following: Seguint
+        notifications: Notificacions
+      user:
+        edit_profile: Edita el perfil
     reported_mailer:
       hide:
         hello: Hola %{name},
