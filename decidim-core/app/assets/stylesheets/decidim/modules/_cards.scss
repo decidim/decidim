@@ -736,10 +736,11 @@ $datetime-bg: $primary;
     -1px -1px 0 $card-bg,
     1px -1px 0 $card-bg,
     -1px 1px 0 $card-bg,
-     1px 1px 0 $card-bg;
-  margin-top: ($global-margin * .60) * -1;
+    1px 1px 0 $card-bg;
+  margin-top: ($global-margin * .6) * -1;
   margin-left: $card-padding-small;
   z-index: 0;
+
   &::before{
     content: " ";
     height: $border-width;
@@ -749,16 +750,18 @@ $datetime-bg: $primary;
     left: 0;
     right: 0;
     z-index: -1;
-    top: $global-margin * 0.5;
+    top: $global-margin * .5;
   }
+
   .success &,
   .muted &,
   .warning &,
   .alert & {
     margin-top: ($global-margin * .95) * -1;
+
     &::before{
       height: $card-border-top-width;
-      top: $global-margin * 0.45;
+      top: $global-margin * .45;
     }
   }
 
