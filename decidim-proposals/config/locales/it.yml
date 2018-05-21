@@ -16,6 +16,31 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+    models:
+      decidim/proposals/accepted_proposal_event: Proposta accettata
+      decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
+      decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
+      decidim/proposals/endorsing_enabled_event: Approvazione proposta abilitata
+      decidim/proposals/evaluating_proposal_event: La proposta è in corso di valutazione
+      decidim/proposals/proposal_endorsed_event: Proposta approvata
+      decidim/proposals/proposal_mentioned_event: Proposta menzionata
+      decidim/proposals/publish_proposal_event: Proposta pubblicata
+      decidim/proposals/rejected_proposal_event: Proposta respinta
+      decidim/proposals/voting_enabled_event: Voto della proposta abilitato
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposta
+        other: proposte
+      decidim/proposals/proposal_endorsement:
+        one: Approvazione
+        other: Riconoscimenti
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Gli appunti
+      decidim/proposals/proposal_vote:
+        one: Votazione
+        other: voti
   decidim:
     components:
       proposals:
