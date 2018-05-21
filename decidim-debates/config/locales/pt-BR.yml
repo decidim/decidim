@@ -14,7 +14,7 @@ pt-BR:
     models:
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
-      decidim/debates/creation_enabled_event: Debates habilitados
+      decidim/debates/creation_enabled_event: Debates ativados
   activerecord:
     models:
       decidim/debates/debate:
