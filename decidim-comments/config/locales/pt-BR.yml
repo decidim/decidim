@@ -8,7 +8,7 @@ pt-BR:
   activerecord:
     models:
       decidim/comments/comment:
-        one: Comente
+        one: Comentário
         other: Comentários
       decidim/comments/comment_vote:
         one: Voto
