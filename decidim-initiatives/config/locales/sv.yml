@@ -32,6 +32,17 @@ sv:
         address: Adress
         id_document: CIF
         name: Fullständigt namn
+  activerecord:
+    models:
+      decidim/initiative:
+        one: intitiativ
+        other: Initatives
+      decidim/initiative_comittee:
+        one: KOMMITTÉN
+        other: Comittees
+      decidim/initiative_vote:
+        one: Rösta
+        other: röster
   decidim:
     admin:
       menu:
