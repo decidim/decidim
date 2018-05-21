@@ -32,6 +32,17 @@ fi:
         address: Osoite
         id_document: CIF
         name: Koko nimi
+  activerecord:
+    models:
+      decidim/initiative:
+        one: aloitteestaan
+        other: Initatives
+      decidim/initiative_comittee:
+        one: pääsihteerien
+        other: Valiokunnat
+      decidim/initiative_vote:
+        one: Äänestys
+        other: ääntä
   decidim:
     admin:
       menu:
