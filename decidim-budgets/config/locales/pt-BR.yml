@@ -103,7 +103,6 @@ pt-BR:
           count:
             one: 1 suporte
             other: "%{count} suporta"
-          of_budget: do orçamento
           remove: Remover
           view: Visão
         project_budget_button:
