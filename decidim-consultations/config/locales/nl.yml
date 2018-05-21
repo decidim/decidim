@@ -35,6 +35,20 @@ nl:
       vote:
         decidim_consultations_response_id:
           not_found: Reactie niet gevonden.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Overleg
+        other: overleg
+      decidim/consultations/question:
+        one: Vraag
+        other: vragen
+      decidim/consultations/response:
+        one: antwoord
+        other: Antwoorden
+      decidim/consultations/vote:
+        one: Stemmen
+        other: stemmen
   decidim:
     admin:
       actions:
