@@ -1,4 +1,12 @@
 es:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nueva publicación de blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Enviar
+        other: Publicaciones
   decidim:
     blogs:
       actions:
