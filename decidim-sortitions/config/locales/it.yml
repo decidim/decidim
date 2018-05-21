@@ -9,6 +9,13 @@ it:
         target_items: Numero di proposte da selezionare (indica il numero di proposte che si desidera selezionare tracciando lotti del gruppo di proposte che si è scelto in precedenza)
         title: Titolo
         witnesses: Testimoni
+    models:
+      decidim/sortitions/create_sortition_event: sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
