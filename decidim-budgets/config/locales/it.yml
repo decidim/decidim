@@ -103,7 +103,9 @@ it:
           count:
             one: 1 supporto/voto
             other: "%{count} supportati/voti"
+          of_budget: di bilancio
           remove: Elimina
+          view: vista
         project_budget_button:
           add: Aggiungi
           added: Aggiunto
