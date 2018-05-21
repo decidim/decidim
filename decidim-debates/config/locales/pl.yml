@@ -58,6 +58,12 @@ pl:
           create: "%{user_name} stworzył %{resource_name} debatę na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni %{space_name}"
       debates:
+        count:
+          debates_count:
+            one: "%{count} debata"
+            few: "%{count} debat"
+            many: "%{count} debaty"
+            other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
           success: Debatę utworzono pomyślnie.

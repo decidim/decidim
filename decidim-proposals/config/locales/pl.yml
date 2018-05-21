@@ -252,6 +252,12 @@ pl:
           select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swoją propozycję
+        count:
+          proposals_count:
+            one: 1 propozycja
+            few: "%{count} propozycje"
+            many: "%{count} propozycje"
+            other: "%{count} propozycje"
         edit:
           back: Plecy
           select_a_category: Proszę wybrać kategorię
@@ -294,6 +300,12 @@ pl:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
+        linked_proposals:
+          proposal_votes:
+            one: głosować
+            few: głosów
+            many: głosów
+            other: głosów
         new:
           send: dalej
           title: Utwórz swoją ofertę
@@ -304,6 +316,11 @@ pl:
           recent: Niedawny
         preview:
           modify: Zmodyfikuj propozycję
+          proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
         proposal:
@@ -332,6 +349,11 @@ pl:
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
+          count:
+            one: GŁOSOWAĆ
+            few: GŁOSOWANIA
+            many: GŁOSY
+            other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
