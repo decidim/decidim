@@ -416,6 +416,12 @@ es:
       view: Ver
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      show:
+        followers: Seguidores
+        following: Siguiendo
+        notifications: Notificaciones
+      user:
+        edit_profile: Editar perfil
     reported_mailer:
       hide:
         hello: Hola %{name},
