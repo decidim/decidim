@@ -35,6 +35,20 @@ gl:
       vote:
         decidim_consultations_response_id:
           not_found: A resposta non se atopou.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: Consultas
+      decidim/consultations/question:
+        one: Pregunta
+        other: Preguntas
+      decidim/consultations/response:
+        one: Resposta
+        other: Respostas
+      decidim/consultations/vote:
+        one: Vota
+        other: Votos
   decidim:
     admin:
       actions:
