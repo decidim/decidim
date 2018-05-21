@@ -20,6 +20,7 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
+      decidim/profile_updated_event: Profila eguneratu da
   activerecord:
     attributes:
       decidim/user:
@@ -32,6 +33,13 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/user:
+        one: Erabiltzaileak
+        other: erabiltzaileak
+      decidim/user_group:
+        one: Erabiltzaile taldea
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -264,6 +272,10 @@ eu:
       source: Iturria
       title: Hatz
       value: Balio
+    followers:
+      no_followers: Ez da jarraitzailerik oraindik.
+    following:
+      no_followings: Ez dago jarraikirik oraindik.
     follows:
       create:
         button: Jarraitu
@@ -404,6 +416,12 @@ eu:
       view: ikusi
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
+      show:
+        followers: Jarraitzaileak
+        following: Jarraitzen
+        notifications: jakinarazpenak
+      user:
+        edit_profile: Editatu profila
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
