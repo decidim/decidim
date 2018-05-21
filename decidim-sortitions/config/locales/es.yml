@@ -15,7 +15,7 @@ es:
     models:
       decidim/sortitions/sortition:
         one: Sorteo
-        other: Clases
+        other: Sorteos
   decidim:
     components:
       sortitions:
@@ -33,7 +33,7 @@ es:
     pages:
       home:
         statistics:
-          sortitions_count: Clases
+          sortitions_count: Sorteos
     participatory_processes:
       statistics:
         sortitions_count: Sorteos
