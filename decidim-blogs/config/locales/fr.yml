@@ -1,4 +1,12 @@
 fr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nouveau blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Poster
+        other: Des postes
   decidim:
     blogs:
       actions:
