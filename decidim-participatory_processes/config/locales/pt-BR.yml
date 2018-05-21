@@ -56,8 +56,8 @@ pt-BR:
         one: Grupo de processo participativo
         other: Grupos de processos participativos
       decidim/participatory_process_step:
-        one: Degrau
-        other: Passos
+        one: Etapa
+        other: Etapas
   decidim:
     admin:
       actions:
