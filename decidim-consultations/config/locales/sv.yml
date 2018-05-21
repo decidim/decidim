@@ -35,6 +35,20 @@ sv:
       vote:
         decidim_consultations_response_id:
           not_found: Svar ej hittat.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Samråd
+        other: samråd
+      decidim/consultations/question:
+        one: Fråga
+        other: frågor
+      decidim/consultations/response:
+        one: Svar
+        other: Svar
+      decidim/consultations/vote:
+        one: Rösta
+        other: röster
   decidim:
     admin:
       actions:
