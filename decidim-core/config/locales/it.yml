@@ -272,6 +272,10 @@ it:
       source: fonte
       title: impronta digitale
       value: Valore
+    followers:
+      no_followers: Nessun follower ancora.
+    following:
+      no_followings: Ancora nessun seguito.
     follows:
       create:
         button: Seguire
@@ -412,6 +416,12 @@ it:
       view: vista
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
+      show:
+        followers: Seguaci
+        following: A seguire
+        notifications: notifiche
+      user:
+        edit_profile: Modifica Profilo
     reported_mailer:
       hide:
         hello: Ciao %{name},
