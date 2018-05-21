@@ -32,6 +32,17 @@ nl:
         address: Adres
         id_document: CIF
         name: Volledige naam
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initiative
+        other: initatieven
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comités
+      decidim/initiative_vote:
+        one: Stemmen
+        other: stemmen
   decidim:
     admin:
       menu:
