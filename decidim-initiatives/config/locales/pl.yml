@@ -32,6 +32,23 @@ pl:
         address: Adres
         id_document: CIF
         name: Pełne imię
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        few: Inicjatywy
+        many: Inicjatywy
+        other: Inicjatywy
+      decidim/initiative_comittee:
+        one: Komitet
+        few: Komitety
+        many: Komitety
+        other: Komitety
+      decidim/initiative_vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     admin:
       menu:
