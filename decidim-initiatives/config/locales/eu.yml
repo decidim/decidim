@@ -32,6 +32,17 @@ eu:
         address: Helbidea
         id_document: CIF
         name: Izen osoa
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        other: Initatives
+      decidim/initiative_comittee:
+        one: batzordea
+        other: Comittees
+      decidim/initiative_vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     admin:
       menu:
