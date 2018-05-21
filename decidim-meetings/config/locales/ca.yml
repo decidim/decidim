@@ -40,10 +40,10 @@ ca:
         one: Trobada
         other: Trobades
       decidim/meetings/minutes:
-        one: Minuts
-        other: Minuts
+        one: Acta
+        other: Actes
       decidim/meetings/registration:
-        one: Registre
+        one: Inscripció
         other: Inscripcions
   decidim:
     admin:
