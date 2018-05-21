@@ -17,6 +17,7 @@ describe "decidim:right_to_be_forgotten", type: :task do
 
   # rubocop:disable RSpec/ExpectOutput
   before do
+    File.delete(Rails.root.join("log", "right_to_be_forgotten.log")) if File.exist?(Rails.root.join("log", "right_to_be_forgotten.log"))
     $stdout = StringIO.new
   end
 
@@ -58,6 +59,13 @@ describe "decidim:right_to_be_forgotten", type: :task do
       create_forgotten_users_file(user_ids)
       task.execute
       message_raised("[#{deleted_user.id}] User already deleted")
+    end
+
+    it "creates a log file" do
+      user_ids = users.collect(&:id)
+      create_forgotten_users_file(user_ids)
+      task.execute
+      expect(File.exist?(Rails.root.join("log", "right_to_be_forgotten.log"))).to be true
     end
   end
 
