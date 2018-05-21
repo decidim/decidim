@@ -17,6 +17,10 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/attachment_created_event: gehechtheid
+      decidim/component_published_event: Actieve component
+      decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/user:
+        one: Gebruiker
+        other: gebruikers
+      decidim/user_group:
+        one: Gebruikersgroep
+        other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -261,6 +272,10 @@ nl:
       source: Bron
       title: Vingerafdruk
       value: Waarde
+    followers:
+      no_followers: Nog geen volgers.
+    following:
+      no_followings: Nog geen volgers.
     follows:
       create:
         button: Volgen
@@ -401,6 +416,12 @@ nl:
       view: Uitzicht
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
+      show:
+        followers: Volgers
+        following: Als vervolg op
+        notifications: meldingen
+      user:
+        edit_profile: Bewerk profiel
     reported_mailer:
       hide:
         hello: Hallo %{name},
