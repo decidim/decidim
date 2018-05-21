@@ -9,6 +9,13 @@ es:
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
+    models:
+      decidim/sortitions/create_sortition_event: Sorteo
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteo
+        other: Clases
   decidim:
     components:
       sortitions:
