@@ -68,8 +68,8 @@ pt-BR:
         one: Assembleia
         other: Assembleias
       decidim/assembly_member:
-        one: Membro da Assembléia
-        other: Membros da Assembléia
+        one: Membros da assembleia
+        other: Membros das assembleias
       decidim/assembly_user_role:
         one: Função de usuário de montagem
         other: Funções de usuário de montagem
@@ -260,7 +260,7 @@ pt-BR:
       show:
         area: Área
         assembly_type: Tipo de montagem
-        children: Assemblies
+        children: Assembleias
         closing_date: Data de encerramento
         composition: Composição
         created_by: Criado por
