@@ -35,6 +35,20 @@ pt:
       vote:
         decidim_consultations_response_id:
           not_found: Resposta não encontrada.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: Consultas
+      decidim/consultations/question:
+        one: Questão
+        other: Questões
+      decidim/consultations/response:
+        one: Resposta
+        other: Respostas
+      decidim/consultations/vote:
+        one: Voto
+        other: Votos
   decidim:
     admin:
       actions:
