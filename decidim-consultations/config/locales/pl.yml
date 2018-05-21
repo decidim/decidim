@@ -35,6 +35,28 @@ pl:
       vote:
         decidim_consultations_response_id:
           not_found: Odpowiedź nie znaleziono.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Konsultacja
+        few: Konsultacje
+        many: Konsultacje
+        other: Konsultacje
+      decidim/consultations/question:
+        one: Pytanie
+        few: pytania
+        many: pytania
+        other: pytania
+      decidim/consultations/response:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+      decidim/consultations/vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     admin:
       actions:
