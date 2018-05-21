@@ -533,10 +533,10 @@ eu:
         answers_count: Amaitutako inkestak
         assemblies_count: Batzar
         comments_count: Iruzkinak
-        debates_count: eztabaidak
+        debates_count: Eztabaidak
         endorsements_count: Oniritziak
         headline: '%{organization} erakundearen egungo egoera'
-        meetings_count: Topaketak
+        meetings_count: Topaketa-zerrenda
         orders_count: Euskarriak
         pages_count: Orriak
         processes_count: Prozesuak

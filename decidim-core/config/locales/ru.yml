@@ -386,6 +386,7 @@ ru:
         answers_count: Завершенные опросы
         assemblies_count: Собрания
         comments_count: Комментарии
+        debates_count: Дебаты
         headline: Текущее состояние %{organization}
         meetings_count: Встречи
         orders_count: Голоса

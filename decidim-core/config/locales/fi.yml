@@ -534,7 +534,7 @@ fi:
         answers_count: Valmistuneet kyselyt
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
-        debates_count: keskustelut
+        debates_count: Väittelyt
         endorsements_count: merkintöjen
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
