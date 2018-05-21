@@ -10,12 +10,12 @@ ca:
         title: Títol
         witnesses: Testimonis
     models:
-      decidim/sortitions/create_sortition_event: Sortició
+      decidim/sortitions/create_sortition_event: Sorteig
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortició
-        other: Sortides
+        one: Sorteig
+        other: Sortejos
   decidim:
     components:
       sortitions:
@@ -33,7 +33,7 @@ ca:
     pages:
       home:
         statistics:
-          sortitions_count: Sortides
+          sortitions_count: Sortejos
     participatory_processes:
       statistics:
         sortitions_count: Sortejos
