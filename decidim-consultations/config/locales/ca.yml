@@ -35,6 +35,20 @@ ca:
       vote:
         decidim_consultations_response_id:
           not_found: La resposta no s'ha trobat.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: Consultes
+      decidim/consultations/question:
+        one: Pregunta
+        other: Preguntes
+      decidim/consultations/response:
+        one: Resposta
+        other: Respostes
+      decidim/consultations/vote:
+        one: Votació
+        other: Vots
   decidim:
     admin:
       actions:
