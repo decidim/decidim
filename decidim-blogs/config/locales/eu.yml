@@ -1,4 +1,12 @@
 eu:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Blogeko post berria
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Mezuak
   decidim:
     blogs:
       actions:
