@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Status
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
