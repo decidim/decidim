@@ -65,14 +65,14 @@ ca:
   activerecord:
     models:
       decidim/assembly:
-        one: muntatge
+        one: Assemblea
         other: Assemblees
       decidim/assembly_member:
         one: Membre de l'assemblea
         other: Membres de l'assemblea
       decidim/assembly_user_role:
-        one: Funció d'usuari de l'assemblea
-        other: Muntar rols d'usuari
+        one: Rol d'usuari de l'assemblea
+        other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
       assemblies:
