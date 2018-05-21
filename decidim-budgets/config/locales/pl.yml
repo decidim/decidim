@@ -111,7 +111,9 @@ pl:
             few: "%{count} obsługuje"
             many: "%{count} obsługuje"
             other: "%{count} obsługuje"
+          of_budget: budżetowy
           remove: Usunąć
+          view: Widok
         project_budget_button:
           add: Dodaj
           added: W dodatku
