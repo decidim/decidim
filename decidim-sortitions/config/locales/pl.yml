@@ -9,6 +9,15 @@ pl:
         target_items: Liczba wniosków, które należy wybrać (wskazuje liczbę wniosków, które chcesz wybrać, losując wybraną wcześniej grupę propozycji)
         title: Tytuł
         witnesses: Świadkowie
+    models:
+      decidim/sortitions/create_sortition_event: Sortowanie
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortowanie
+        few: Sortowanie
+        many: Sortowanie
+        other: Sortowanie
   decidim:
     components:
       sortitions:
