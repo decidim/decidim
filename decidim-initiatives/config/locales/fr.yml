@@ -32,6 +32,17 @@ fr:
         address: Adresse
         id_document: CAF
         name: Nom complet
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initatif
+        other: Initiatives
+      decidim/initiative_comittee:
+        one: Comité
+        other: Comités
+      decidim/initiative_vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       menu:
