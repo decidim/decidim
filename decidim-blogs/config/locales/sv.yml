@@ -1,4 +1,12 @@
 sv:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogginlägg
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Posta
+        other: inlägg
   decidim:
     blogs:
       actions:
