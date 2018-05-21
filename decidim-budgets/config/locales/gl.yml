@@ -103,7 +103,9 @@ gl:
           count:
             one: 1 apoio
             other: "%{count} soporta"
+          of_budget: do orzamento
           remove: Quitar
+          view: Ver
         project_budget_button:
           add: Engadir
           added: Engadido
