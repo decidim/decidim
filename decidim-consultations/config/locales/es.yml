@@ -47,7 +47,7 @@ es:
         one: Respuesta
         other: Respuestas
       decidim/consultations/vote:
-        one: Votar
+        one: Voto
         other: Votos
   decidim:
     admin:
