@@ -5,6 +5,14 @@ it:
       decidim/comments/comment_created_event: Commento
       decidim/comments/reply_created_event: Risposta al commento
       decidim/comments/user_mentioned_event: Citare
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commento
+        other: Commenti
+      decidim/comments/comment_vote:
+        one: Votazione
+        other: voti
   decidim:
     comments:
       comments: Commenti
