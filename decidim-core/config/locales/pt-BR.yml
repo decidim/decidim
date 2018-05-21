@@ -20,7 +20,7 @@ pt-BR:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
-      decidim/profile_updated_event: perfil atualizado
+      decidim/profile_updated_event: Perfil atualizado
   activerecord:
     attributes:
       decidim/user:
@@ -35,8 +35,8 @@ pt-BR:
         user_group_phone: Telefone da organização
     models:
       decidim/user:
-        one: Do utilizador
-        other: Comercial
+        one: Usuário
+        other: Usuários
       decidim/user_group:
         one: Grupo de usuários
         other: Grupos de usuários
@@ -375,7 +375,7 @@ pt-BR:
           debates: Debates
           debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
           how_to_participate: Como faço parte de um processo?
-          meetings: Reuniões
+          meetings: Encontros
           meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
           more_info: Mais informações
           proposals: Propostas
@@ -394,7 +394,7 @@ pt-BR:
           debates_count: Debates
           endorsements_count: Endossos
           headline: Estado atual de %{organization}
-          meetings_count: Reuniões
+          meetings_count: Encontros
           orders_count: Votos
           pages_count: Páginas
           processes_count: Processos
@@ -413,15 +413,15 @@ pt-BR:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
       deleted: Usuário deletado
-      view: Visão
+      view: Vista
     profiles:
       default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
       show:
         followers: Seguidores
-        following: Segue
+        following: Seguindo
         notifications: Notificações
       user:
-        edit_profile: Editar Perfil
+        edit_profile: Editar perfil
     reported_mailer:
       hide:
         hello: Olá %{name},
