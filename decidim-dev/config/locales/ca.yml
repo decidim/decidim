@@ -16,8 +16,8 @@ ca:
       home:
         statistics:
           bar: Bar
-          dummies_count_high: Maniquís alts
-          dummies_count_medium: Dummies mitjà
+          dummies_count_high: Fals alt
+          dummies_count_medium: Fals mitjà
           foo: Foo
     participatory_processes:
       statistics:
