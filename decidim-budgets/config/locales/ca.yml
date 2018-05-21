@@ -103,7 +103,6 @@ ca:
           count:
             one: 1 suport
             other: "%{count} suports"
-          of_budget: del pressupost
           remove: Esborrar
           view: Veure
         project_budget_button:
