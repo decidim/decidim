@@ -1,4 +1,22 @@
 pl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentarz
+      decidim/comments/comment_created_event: Komentarz
+      decidim/comments/reply_created_event: Odpowiedź na komentarz
+      decidim/comments/user_mentioned_event: Wzmianka
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Komentarz
+        few: Komentarze
+        many: Komentarze
+        other: Komentarze
+      decidim/comments/comment_vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     comments:
       comments: Komentarze
