@@ -103,7 +103,6 @@ fr:
           count:
             one: 1 soutien
             other: "%{count} soutiens"
-          of_budget: du budget
           remove: Supprimer
           view: Vue
         project_budget_button:
