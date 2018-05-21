@@ -128,6 +128,12 @@ pl:
             description: Opis
             entry_date: Data
       results:
+        count:
+          results_count:
+            one: 1 wynik
+            few: "%{count} wyników"
+            many: "%{count} wyniki"
+            other: "%{count} wyników"
         filters:
           all: Wszystkie
           scopes: Zakresy
