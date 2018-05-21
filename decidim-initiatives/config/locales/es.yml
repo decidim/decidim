@@ -35,13 +35,13 @@ es:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Iniciales
+        one: Iniciativa
+        other: Iniciativas
       decidim/initiative_comittee:
-        one: Comittee
+        one: Comité
         other: Comités
       decidim/initiative_vote:
-        one: Votar
+        one: Voto
         other: Votos
   decidim:
     admin:
