@@ -62,6 +62,17 @@ eu:
         email: Emaila
         name: izena
         role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Batzar
+        other: Batzar
+      decidim/assembly_member:
+        one: Batzar kidea
+        other: Batzar kideak
+      decidim/assembly_user_role:
+        one: Batzar erabiltzaileen rola
+        other: Batzar erabiltzailearen rolak
   decidim:
     admin:
       assemblies:
