@@ -1,4 +1,12 @@
 it:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nuovo post sul blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Inviare
+        other: Messaggi
   decidim:
     blogs:
       actions:
