@@ -9,6 +9,13 @@ sv:
         target_items: Antal förslag som ska väljas (anger antalet förslag som du vill välja genom att dra mycket av gruppen av förslag du tidigare valt)
         title: Titel
         witnesses: Vittnen
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
