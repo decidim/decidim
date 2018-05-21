@@ -171,7 +171,7 @@ pt-BR:
         new:
           create: Criar área
           title: Nova área
-        no_areas: No Areas
+        no_areas: Nenhuma área
         update:
           error: Ocorreu um erro ao atualizar esta área.
           success: Área atualizada com sucesso
