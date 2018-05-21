@@ -35,13 +35,13 @@ ca:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativa
-        other: Initatius
+        one: Iniciativa
+        other: Iniciatives
       decidim/initiative_comittee:
         one: Comitè
         other: Comitès
       decidim/initiative_vote:
-        one: Votació
+        one: Vot
         other: Vots
   decidim:
     admin:
