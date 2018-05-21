@@ -1,11 +1,11 @@
 es:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Nueva publicación de blog
+      decidim/blogs/create_post_event: Nueva publicación del blog
   activerecord:
     models:
       decidim/blogs/post:
-        one: Enviar
+        one: Publicación
         other: Publicaciones
   decidim:
     blogs:
