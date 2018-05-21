@@ -9,6 +9,13 @@ fi:
         target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
         title: otsikko
         witnesses: todistajat
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
