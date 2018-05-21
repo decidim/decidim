@@ -18,7 +18,7 @@ es:
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
     models:
-      decidim/attachment_created_event: Adjunto archivo
+      decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
@@ -38,8 +38,8 @@ es:
         one: Usuario
         other: Usuarios
       decidim/user_group:
-        one: Grupo de usuario
-        other: Grupos de Usuarios
+        one: Grupo de usuarios
+        other: Grupos de usuarios
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -273,9 +273,9 @@ es:
       title: Huella digital
       value: Valor
     followers:
-      no_followers: Aún no hay seguidores
+      no_followers: Aún no hay seguidores.
     following:
-      no_followings: No sigue aún.
+      no_followings: No sigue a nadie.
     follows:
       create:
         button: Seguir
@@ -375,7 +375,7 @@ es:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
           how_to_participate: '¿Cómo tomo parte en un proceso?'
-          meetings: Reuniones
+          meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
           proposals: Propuestas
@@ -394,7 +394,7 @@ es:
           debates_count: Debates
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
-          meetings_count: Reuniones
+          meetings_count: Encuentros
           orders_count: Votos
           pages_count: Páginas
           processes_count: Procesos
