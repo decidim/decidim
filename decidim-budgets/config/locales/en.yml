@@ -105,6 +105,7 @@ en:
             one: 1 support
             other: "%{count} supports"
           remove: Remove
+          view: View
         project_budget_button:
           add: Add
           added: Added

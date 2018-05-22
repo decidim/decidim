@@ -290,6 +290,7 @@ en:
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:
+          comments: Comments
           endorse: Endorse
         filters:
           accepted: Accepted

@@ -55,7 +55,8 @@ module Decidim
             introductory_video_url: form.introductory_video_url,
             start_voting_date: form.start_voting_date,
             end_voting_date: form.end_voting_date,
-            introductory_image: form.introductory_image
+            introductory_image: form.introductory_image,
+            remove_introductory_image: form.remove_introductory_image
           }
         end
       end
