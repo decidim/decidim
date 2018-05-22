@@ -21,16 +21,6 @@ module Decidim
     describe "#searchable_fields" do
       context "when searchable_fields are correctly setted" do
         context "and resource fields are NOT localized" do
-          before do
-            subject.class.include Searchable
-            subject.class.searchable_fields(
-              scope_id: { scope: :id },
-              participatory_space: { component: :participatory_space },
-              A: [:title],
-              D: [:address],
-              datetime: :published_at
-            )
-          end
 
           it "correctly resolves untranslatable fields into available_locales" do
             mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
@@ -54,14 +44,6 @@ module Decidim
         context "and resource fields ARE localized" do
           before do
             resource.title = { "ca" => "title ca", "en" => "title en", "es" => "title es" }
-            subject.class.include Searchable
-            subject.class.searchable_fields(
-              scope_id: { scope: :id },
-              participatory_space: { component: :participatory_space },
-              A: [:title],
-              D: [:address],
-              datetime: :published_at
-            )
           end
 
           it "correctly resolves untranslatable fields into available_locales" do

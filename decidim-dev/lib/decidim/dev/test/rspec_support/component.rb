@@ -47,6 +47,15 @@ module Decidim
       include Followable
       include Traceable
       include Publicable
+      include Searchable
+
+      searchable_fields(
+        scope_id: { scope: :id },
+        participatory_space: { component: :participatory_space },
+        A: [:title],
+        D: [:address],
+        datetime: :published_at
+      )
 
       component_manifest_name "dummy"
 

@@ -15,19 +15,19 @@ module Decidim
         before { subject.save! }
 
         context "when resource is different" do
-          let(:other_resource) do
-            create(:searchable_resource, locale: subject.locale, resource: build(:dummy_resource))
+          let(:other_searchable) do
+            rsrc= create(:dummy_resource)
+            Decidim::SearchableResource.where(resource: rsrc)
           end
 
-          it "other_resource must be valid" do
-            expect(other_resource).to be_valid
-            expect(other_resource).to be_persisted
+          it "other_searchable must be valid" do
+            expect(other_searchable).to exist
           end
         end
 
         context "when locale is different" do
           let(:other_resource) do
-            create(:searchable_resource, locale: "ca", resource: subject.resource)
+            create(:searchable_resource, locale: "pt", resource: subject.resource)
           end
 
           it "other_resource must be valid" do
