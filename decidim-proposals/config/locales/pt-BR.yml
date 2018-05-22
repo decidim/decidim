@@ -289,6 +289,7 @@ pt-BR:
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:
+          comments: Comentários
           endorse: Endossar
         filters:
           accepted: Aceitaram
