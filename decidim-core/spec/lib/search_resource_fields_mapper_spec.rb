@@ -21,7 +21,6 @@ module Decidim
     describe "#searchable_fields" do
       context "when searchable_fields are correctly setted" do
         context "and resource fields are NOT localized" do
-
           it "correctly resolves untranslatable fields into available_locales" do
             mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
 

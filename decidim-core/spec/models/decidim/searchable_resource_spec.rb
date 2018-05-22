@@ -16,7 +16,7 @@ module Decidim
 
         context "when resource is different" do
           let(:other_searchable) do
-            rsrc= create(:dummy_resource)
+            rsrc = create(:dummy_resource)
             Decidim::SearchableResource.where(resource: rsrc)
           end
 
