@@ -289,6 +289,7 @@ eu:
         endorsement_identities_cabin:
           endorse: gatoz
         endorsements_card_row:
+          comments: Oharrak
           endorse: gatoz
         filters:
           accepted: Onartuta
