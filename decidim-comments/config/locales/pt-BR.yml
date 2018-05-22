@@ -3,7 +3,7 @@ pt-BR:
     models:
       decidim/comments/comment_by_followed_user_event: Comente
       decidim/comments/comment_created_event: Comentário
-      decidim/comments/reply_created_event: Comentário resposta
+      decidim/comments/reply_created_event: Resposta
       decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:
