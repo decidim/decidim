@@ -16,7 +16,7 @@
   <% end %>
   <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
     <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-        <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> <%= @proposal.comments.count %>
+        <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
     <% end %>
   </div>
 </div>
