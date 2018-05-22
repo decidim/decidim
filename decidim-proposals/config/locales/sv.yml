@@ -289,6 +289,7 @@ sv:
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
+          comments: kommentarer
           endorse: Stödja
         filters:
           accepted: Accepterad
