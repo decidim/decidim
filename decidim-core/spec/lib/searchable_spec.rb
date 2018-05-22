@@ -18,7 +18,7 @@ module Decidim
       context "when searchable_fields are correctly setted" do
         before do
           subject.class.include Searchable
-          subject.class.searchable_fields({})
+          subject.class.searchable_fields(participatory_space: { component: :participatory_space })
         end
 
         it "correctly resolves untranslatable fields into available_locales" do

@@ -33,7 +33,7 @@ module Decidim
           end
 
           it "correctly resolves untranslatable fields into available_locales" do
-            mapped_fields = subject.class.search_rsrc_fields_mapper.mapped(subject)
+            mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
 
             expected_fields = {
               decidim_scope_id: resource.scope.id,
@@ -65,7 +65,7 @@ module Decidim
           end
 
           it "correctly resolves untranslatable fields into available_locales" do
-            mapped_fields = subject.class.search_rsrc_fields_mapper.mapped(subject)
+            mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
             expected_fields = {
               decidim_scope_id: resource.scope.id,
               decidim_participatory_space_id: resource.component.participatory_space_id,

@@ -2,7 +2,7 @@
 
 class IndexMeetingsAsSearchableResources < ActiveRecord::Migration[5.1]
   def up
-    Decidim::Meetings::Meeting.find_each(&:add_to_index_as_search_rsrc)
+    Decidim::Meetings::Meeting.find_each(&:add_to_index_as_search_resource)
   end
 
   def down
