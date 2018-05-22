@@ -756,7 +756,7 @@ $datetime-bg: $primary;
   .success &,
   .muted &,
   .warning &,
-  .alert & {
+  .alert &{
     margin-top: ($global-margin * .95) * -1;
 
     &::before{
