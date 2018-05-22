@@ -31,8 +31,7 @@ module Decidim
             title: project.title,
             description: project.description,
             budget: project.budget,
-            component: project.component.name,
-            scope: project.scope.name,
+            scope: project.try(:scope).try(:name),
             reference: project.reference,
             created_at: project.created_at,
             updated_at: project.updated_at

@@ -15,7 +15,7 @@ module Decidim
       name += @organization.name.parameterize
       name += "-"
       name += token
-      name += ".zip"
+      name + ".zip"
     end
 
     def file_path

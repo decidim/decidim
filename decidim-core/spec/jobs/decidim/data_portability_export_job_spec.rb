@@ -20,25 +20,25 @@ module Decidim
       expect(attachment.filename).to match(/^exporter.*\.zip$/)
     end
 
-    describe "CSV" do
-      # it "exports the data portability entities" do
-      #   exporter_double = double(export: true)
-      #   class_double = double(new: exporter_double)
-      #   expect(Decidim::Exporters::CSV)
-      #     .to(receive(:new).with(anything, DummySerializer))
-      #     .and_return(double(export: export_data))
-      #
-      # end
-
-      # let(:export_data) { [ ["contents1", Decidim::Exporters::CSV.new("content", "csv")],["contents2", Decidim::Exporters::CSV.new("content2", "csv")]] }
-      # it "uses the CSV exporter" do
-      #   #TODO make the test exporter
-      #
-      #   expect(ExportMailer)
-      #     .to(receive(:data_portability_export).with(user, anything, export_data))
-      #     .and_return(double(deliver_now: true))
-      #
-      # end
-    end
+    # describe "CSV" do
+    #   # it "exports the data portability entities" do
+    #   #   exporter_double = double(export: true)
+    #   #   class_double = double(new: exporter_double)
+    #   #   expect(Decidim::Exporters::CSV)
+    #   #     .to(receive(:new).with(anything, DummySerializer))
+    #   #     .and_return(double(export: export_data))
+    #   #
+    #   # end
+    #
+    #   # let(:export_data) { [ ["contents1", Decidim::Exporters::CSV.new("content", "csv")],["contents2", Decidim::Exporters::CSV.new("content2", "csv")]] }
+    #   # it "uses the CSV exporter" do
+    #   #   #TODO make the test exporter
+    #   #
+    #   #   expect(ExportMailer)
+    #   #     .to(receive(:data_portability_export).with(user, anything, export_data))
+    #   #     .and_return(double(deliver_now: true))
+    #   #
+    #   # end
+    # end
   end
 end

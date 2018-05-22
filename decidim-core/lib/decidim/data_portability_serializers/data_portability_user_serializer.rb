@@ -14,8 +14,10 @@ module Decidim
           name: resource.name,
           nickname: resource.nickname,
           locale: resource.locale,
-          organization: resource.organization.try(:id),
-          confirmed_at: resource.confirmed_at,
+          organization: {
+            id: resource.organization.try(:id),
+            name: resource.organization.try(:name)
+          },
           newsletter_notifications: resource.newsletter_notifications,
           email_on_notification: resource.email_on_notification,
           admin: resource.admin,
@@ -28,7 +30,6 @@ module Decidim
             id: resource.invited_by_id,
             type: resource.invited_by_type
           },
-          organization: resource.organization.name,
           invitations_count: resource.invitations_count,
           reset_password_sent_at: resource.reset_password_sent_at,
           remember_created_at: resource.remember_created_at,

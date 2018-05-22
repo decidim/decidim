@@ -14,7 +14,9 @@ module Decidim
     def self.data_entities
       ["Decidim::Comments::Comment", "Decidim::Follow", "Decidim::Identity",
        "Decidim::Messaging::Conversation", "Decidim::Notification",
-       "Decidim::ParticipatorySpacePrivateUser", "Decidim::Report", "Decidim::User", "Decidim::UserGroup"] | Decidim.component_manifests.map(&:data_portable_entities).flatten | Decidim.participatory_space_manifests.map(&:data_portable_entities).flatten
+       "Decidim::ParticipatorySpacePrivateUser", "Decidim::Report", "Decidim::User", "Decidim::UserGroup"] |
+        Decidim.component_manifests.map(&:data_portable_entities).flatten |
+        Decidim.participatory_space_manifests.map(&:data_portable_entities).flatten
     end
   end
 end
