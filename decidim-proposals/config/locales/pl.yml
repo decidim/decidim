@@ -299,6 +299,7 @@ pl:
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:
+          comments: Komentarze
           endorse: Podpisać się
         filters:
           accepted: Przyjęty
