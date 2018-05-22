@@ -21,11 +21,11 @@ pt-BR:
       decidim/proposals/admin/update_proposal_category_event: Categoria da proposta alterada
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
       decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
-      decidim/proposals/evaluating_proposal_event: Proposta está sendo avaliada
+      decidim/proposals/evaluating_proposal_event: Esta proposta está sendo avaliada
       decidim/proposals/proposal_endorsed_event: Proposta endossada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
-      decidim/proposals/rejected_proposal_event: Proposta rejeitada
+      decidim/proposals/rejected_proposal_event: Proposta negada
       decidim/proposals/voting_enabled_event: Proposta de votação ativada
   activerecord:
     models:
