@@ -8,8 +8,8 @@ module Decidim
       description "A comment"
 
       interfaces [
-        Decidim::Comments::CommentableInterface,
-        Decidim::Core::AuthorableInterface
+        -> { Decidim::Comments::CommentableInterface },
+        -> { Decidim::Core::AuthorableInterface }
       ]
 
       field :id, !types.ID, "The Comment's unique ID"
