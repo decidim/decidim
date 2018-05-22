@@ -289,6 +289,7 @@ es:
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:
+          comments: Comentarios
           endorse: Adherirse
         filters:
           accepted: Aceptadas
