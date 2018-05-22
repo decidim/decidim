@@ -95,9 +95,18 @@ module Decidim
                        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
-        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
-        gsub_file "Gemfile", /gem "decidim-([A-z]+)".*/, "# gem \"decidim-\\1\", #{gem_modifier}"
-        gsub_file "Gemfile", /(# )?gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
+
+        if current_gem == "decidim"
+          gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
+
+          if options[:demo]
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+          else
+            gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+          end
+        end
 
         Bundler.with_original_env { run "bundle install" }
       end
@@ -122,6 +131,7 @@ module Decidim
           [
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
+            "--skip_gemfile=#{options[:skip_gemfile]}",
             "--app_name=#{app_name}"
           ]
         )
@@ -132,7 +142,7 @@ module Decidim
       def current_gem
         return "decidim" unless options[:path]
 
-        File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
+        @current_gem ||= File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
       end
 
       def gemspec

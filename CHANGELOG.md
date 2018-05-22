@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-generators**: Dummy applications not being correctly generated for external plugins. [\#3470](https://github.com/decidim/decidim/pull/3470)
+
 ## [0.11.1](https://github.com/decidim/decidim/tree/v0.11.1)
 
 **Upgrade notes**:

@@ -26,6 +26,10 @@ module Decidim
                              default: false,
                              desc: "Seed db after installing decidim"
 
+      class_option :skip_gemfile, type: :boolean,
+                                  default: false,
+                                  desc: "Don't generate a Gemfile for the application"
+
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
@@ -146,12 +150,20 @@ module Decidim
 
       # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
-        abort unless system("bin/rails", *args)
+        with_original_env do
+          abort unless system("bin/rails", *args)
+        end
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
-        system("bin/rails", *args, err: File::NULL)
+        with_original_env do
+          system("bin/rails", *args, err: File::NULL)
+        end
+      end
+
+      def with_original_env
+        options[:skip_gemfile] ? yield : Bundler.with_original_env { yield }
       end
 
       def scss_variables
