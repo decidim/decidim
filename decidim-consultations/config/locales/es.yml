@@ -222,7 +222,7 @@ es:
         starting_from: A partir de %{date}
         vote: Votar
       vote_modal:
-        contextual_help: Por favor, selecciona una opción. Ten en cuenta que una vez que hayas confirmado tu apoyo no lo podrás cambiar.
+        contextual_help: Por favor, selecciona una opción.
         title: 'Consulta: soporte de preguntas'
       vote_modal_confirm:
         change: Cambio

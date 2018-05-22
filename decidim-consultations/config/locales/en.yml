@@ -241,7 +241,7 @@ en:
         starting_from: Starting from %{date}
         vote: Vote
       vote_modal:
-        contextual_help: Please, select an option. Keep in mind that once you have confirmed Your support can not be changed.
+        contextual_help: Please, select an option.
         title: 'Consultation: question support'
       vote_modal_confirm:
         change: Change

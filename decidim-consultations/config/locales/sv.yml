@@ -222,7 +222,7 @@ sv:
         starting_from: Börjar från %{date}
         vote: Rösta
       vote_modal:
-        contextual_help: Var god välj ett alternativ. Tänk på att när du har bekräftat Ditt stöd kan inte ändras.
+        contextual_help: Var god välj ett alternativ.
         title: 'Samråd: Frågestöd'
       vote_modal_confirm:
         change: Byta

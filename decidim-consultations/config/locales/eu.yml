@@ -222,7 +222,7 @@ eu:
         starting_from: '%{date}tik hasita'
         vote: Bozkatu
       vote_modal:
-        contextual_help: Aukeratu aukera bat. Gogoan izan behin behin duzula baieztatu Zure laguntza ezin da aldatu.
+        contextual_help: Aukeratu aukera bat.
         title: 'Kontsulta: galdera-laguntza'
       vote_modal_confirm:
         change: Aldaketa
