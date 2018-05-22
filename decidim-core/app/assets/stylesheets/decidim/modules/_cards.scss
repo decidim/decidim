@@ -753,10 +753,10 @@ $datetime-bg: $primary;
     top: $global-margin * .5;
   }
 
-  .success &,
-  .muted &,
-  .warning &,
-  .alert &{
+  .card.success &,
+  .card.muted &,
+  .card.warning &,
+  .card.alert &{
     margin-top: ($global-margin * .95) * -1;
 
     &::before{
