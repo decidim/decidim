@@ -17,7 +17,7 @@ $(() => {
   const checkNewsletter = (check) => {
     $userRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
-    $newsletterModal.foundation('close');
+    $newsletterModal.foundation("close");
     $userRegistrationForm.submit();
   }
 
@@ -30,11 +30,11 @@ $(() => {
   });
 
   $userRegistrationForm.on("submit", (event) => {
-    var newsletterChecked = $userRegistrationForm.find(newsletterSelector);
+    const newsletterChecked = $userRegistrationForm.find(newsletterSelector);
     if (!$newsletterModal.data("continue")) {
       if (!newsletterChecked.prop("checked")) {
         event.preventDefault();
-        $newsletterModal.foundation('open');
+        $newsletterModal.foundation("open");
       }
     }
   });
