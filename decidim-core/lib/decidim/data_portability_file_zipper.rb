@@ -31,7 +31,7 @@ module Decidim
           name = image.split("/").last
           folder_name = image_block.first.parameterize
           my_image_path = Rails.root.join("public/#{image.sub!(%r{^/}, "")}")
-          # next unless File.exist?(my_image_path)
+          next unless File.exist?(my_image_path)
           zipfile.add("#{folder_name}/#{name}", my_image_path)
         end
       end
