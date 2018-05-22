@@ -29,7 +29,7 @@ pt-BR:
         visible: É visível
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
-      decidim/meetings/create_meeting_event: encontro
+      decidim/meetings/create_meeting_event: Encontro
       decidim/meetings/meeting_registrations_enabled_event: Registros habilitados
       decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
       decidim/meetings/upcoming_meeting_event: Próxima reunião
@@ -37,7 +37,7 @@ pt-BR:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: encontro
+        one: Reunião
         other: Reuniões
       decidim/meetings/minutes:
         one: Minutos
