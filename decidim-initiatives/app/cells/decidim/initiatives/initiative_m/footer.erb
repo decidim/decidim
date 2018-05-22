@@ -1,9 +1,19 @@
 <div class="card__footer card__footer--spaces">
   <div class="card__support">
-    <%= link_to(
-      t("decidim.initiatives.initiatives.vote_cabin.vote"),
-      resource_path,
-      class: "card__button button button--sc secondary light small"
-    ) %>
+    <% if model.published? %>
+      <div class="card__support__data">progress bar</div>
+    <% else %>
+      <div class="card__support__data"></div>
+    <% end %>
+
+    <% if model.closed? || model.offline? %>
+      <%= link_to t("initiatives.initiative.check", scope: "layouts.decidim"),
+                  resource_path,
+                  class: "card__button button button--sc small light secondary" %>
+    <% else %>
+      <%= link_to t("initiatives.initiative.check_and_support", scope: "layouts.decidim"),
+                  resource_path,
+                  class: "card__button button button--sc small light secondary" %>
+    <% end %>
   </div>
 </div>
