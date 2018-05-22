@@ -153,6 +153,12 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: "and 1 more"
+        other: "and %{count} more"
+      see_less: (see less)
+      see_more: (see more)
     components:
       dummy:
         actions:
