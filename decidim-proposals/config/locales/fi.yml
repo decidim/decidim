@@ -289,6 +289,7 @@ fi:
         endorsement_identities_cabin:
           endorse: hyväksyä
         endorsements_card_row:
+          comments: Kommentit
           endorse: hyväksyä
         filters:
           accepted: Hyväksytty
