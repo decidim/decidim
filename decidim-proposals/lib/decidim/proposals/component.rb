@@ -55,7 +55,7 @@ Decidim.register_component(:proposals) do |component|
     resource.card = "decidim/proposals/proposal"
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:collaborative_draft) do |resource|
     resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
     resource.card = "decidim/proposals/collaborative_draft"
   end
