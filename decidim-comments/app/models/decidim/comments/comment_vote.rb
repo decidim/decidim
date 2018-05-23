@@ -5,12 +5,18 @@ module Decidim
     # A comment can include user votes. A user should be able to upVote, votes with
     # weight 1 and downVote, votes with weight -1.
     class CommentVote < ApplicationRecord
+      include Decidim::DataPortability
+
       belongs_to :comment, foreign_key: "decidim_comment_id", class_name: "Comment"
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
       validates :comment, uniqueness: { scope: :author }
       validates :weight, inclusion: { in: [-1, 1] }
       validate :author_and_comment_same_organization
+
+      def self.export_serializer
+        Decidim::Comments::CommentVoteSerializer
+      end
 
       private
 

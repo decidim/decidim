@@ -12,7 +12,7 @@ module Decidim
     autoload :DataPortabilityParticipatorySpacePrivateUserSerializer, "decidim/data_portability_serializers/data_portability_participatory_space_private_user_serializer"
 
     def self.data_entities
-      ["Decidim::Comments::Comment", "Decidim::Follow", "Decidim::Identity",
+      ["Decidim::Comments::Comment", "Decidim::Comments::CommentVote", "Decidim::Follow", "Decidim::Identity",
        "Decidim::Messaging::Conversation", "Decidim::Notification",
        "Decidim::ParticipatorySpacePrivateUser", "Decidim::Report", "Decidim::User", "Decidim::UserGroup"] |
         Decidim.component_manifests.map(&:data_portable_entities).flatten |

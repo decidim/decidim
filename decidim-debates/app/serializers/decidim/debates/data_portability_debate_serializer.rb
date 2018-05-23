@@ -8,7 +8,7 @@ module Decidim
         {
           id: resource.id,
           title: resource.title,
-          body: resource.description,
+          description: resource.description,
           instructions: resource.instructions,
           start_time: resource.start_time,
           end_time: resource.end_time,

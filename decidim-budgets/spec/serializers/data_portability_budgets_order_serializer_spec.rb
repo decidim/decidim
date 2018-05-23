@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Budgets
   describe DataPortabilityBudgetsOrderSerializer do
     let(:resource) { create(:order) }
-    let!(:projects) { create_list(:project, 2, component: resource.component, budget: 25000000) }
+    let!(:projects) { create_list(:project, 2, component: resource.component, budget: 25_000_000) }
 
     let(:subject) { described_class.new(resource) }
     let(:serialized) { subject.serialize }
