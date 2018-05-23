@@ -138,6 +138,8 @@ ignore_unused:
   - decidim.initiatives.states.*
   - decidim.initiatives.admin_states.*
   - decidim.initiatives.events.*
+  - decidim.initiatives.initiatives.author_list.hidden_authors_count.*
+  - decidim.collapsible_list.hidden_elements_count.*
   - decidim.events.*
   - doorkeeper.scopes.*
 

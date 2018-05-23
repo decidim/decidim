@@ -239,8 +239,8 @@ en:
           deleted: Deleted
         author_list:
           hidden_authors_count:
-            one: "and 1 more person"
-            other: "and %{count} more people"
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
             one: "%{count} initiative"
