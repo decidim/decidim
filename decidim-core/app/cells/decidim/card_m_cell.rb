@@ -33,6 +33,16 @@ module Decidim
       true
     end
 
+    def has_label?
+      context[:label].presence
+    end
+
+    def label
+      return if [false, "false"].include? context[:label]
+      return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+      context[:label]
+    end
+
     def title
       translated_attribute model.title
     end

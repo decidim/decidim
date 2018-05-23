@@ -1,6 +1,0 @@
-<div id="initiative-<%= initiative.id %>-supports-count" class="card__support__data">
-  <% unless initiative.supports_count.zero? %>
-    <span class="card__support__number"><%= initiative.supports_count %></span>
-    <span><%= t(".count", count: initiative.supports_count) %></span>
-  <% end %>
-</div>
