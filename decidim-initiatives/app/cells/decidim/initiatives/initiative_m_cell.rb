@@ -37,7 +37,7 @@ module Decidim
       end
 
       def authors
-        ([present(model).author] * 3) +
+        [present(model).author] +
           model.committee_members.approved.non_deleted.map { |member| present(member.user) }
       end
     end
