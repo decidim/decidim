@@ -152,6 +152,12 @@ gl:
         name: Autorización de Foo
       granted_at: Concedido en %{timestamp}
       started_at: Comezou en %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: e 1 máis
+        other: e %{count} máis
+      see_less: "(ver menos)"
+      see_more: "(Ver máis)"
     components:
       dummy:
         actions:
