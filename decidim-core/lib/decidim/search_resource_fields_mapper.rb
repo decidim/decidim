@@ -55,13 +55,16 @@ module Decidim
         read_field(intermediate_model, fields, parent_field_name)
       else
         value_field = fields[field_name]
+        return unless value_field
+
         if value_field.is_a?(Array)
           value_field.collect do |vfield_name|
             raise ArgumentError, "nested fields not supported for translations" if vfield_name.is_a?(Hash)
             resource.send(vfield_name.to_sym)
           end
         else
-          resource.send(value_field.to_sym) unless value_field.nil?
+          value_field= value_field.to_sym
+          resource.send(value_field) unless value_field.nil? or !resource.respond_to?(value_field)
         end
       end
     end
