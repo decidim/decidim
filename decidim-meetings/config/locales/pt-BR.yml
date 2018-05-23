@@ -40,8 +40,8 @@ pt-BR:
         one: Reunião
         other: Reuniões
       decidim/meetings/minutes:
-        one: Minutos
-        other: Minutos
+        one: Ata
+        other: Atas
       decidim/meetings/registration:
         one: Cadastro
         other: Inscrições
