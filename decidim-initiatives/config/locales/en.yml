@@ -276,6 +276,9 @@ en:
           offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
           select_identity: Select user identity
+        signatures_count:
+          one: " signature"
+          other: " signatures"
         statistics:
           assistants_count_title: Assistants
           comments_count_title: Comments
@@ -283,9 +286,6 @@ en:
           supports_count_title: Signatures
         supports:
           title: Listing of signatures
-        signatures_count:
-          one: " signature"
-          other: " signatures"
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"
