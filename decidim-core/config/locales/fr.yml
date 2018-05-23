@@ -152,6 +152,12 @@ fr:
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
       started_at: Commencé à %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: et 1 de plus
+        other: et %{count} plus
+      see_less: "(voir moins)"
+      see_more: "(voir plus)"
     components:
       dummy:
         actions:
