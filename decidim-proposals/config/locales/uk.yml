@@ -140,8 +140,6 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
-        identities_listing:
-          title: Перелік підтримок
         index:
           new_proposal: Нова пропозиція
           see_all_withdrawn: Переглянути всі відкликані пропозиції
@@ -169,6 +167,7 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
+          endorsements_list: Перелік підтримок
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
