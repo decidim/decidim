@@ -1,7 +1,16 @@
 <div class="card__footer card__footer--spaces">
   <div class="card__support">
     <% if model.published? %>
-      <div class="card__support__data">progress bar</div>
+      <div class="card__support__data">
+        <%= cell(
+          "decidim/progress_bar",
+          model.supports_count,
+          total: model.scoped_type.supports_required,
+          units_name: "decidim.initiatives.initiatives.signatures_count",
+          element_id: "initiative-#{model.id}-signatures-count",
+          small: true
+        ) %>
+      </div>
     <% else %>
       <div class="card__support__data"></div>
     <% end %>

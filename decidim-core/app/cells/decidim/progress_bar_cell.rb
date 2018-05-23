@@ -41,6 +41,10 @@ module Decidim
       options[:units_name]
     end
 
+    def units_name_text
+      I18n.t(units_name, count: progress)
+    end
+
     def subtitle_text
       options[:subtitle_text]
     end

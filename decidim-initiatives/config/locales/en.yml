@@ -283,10 +283,9 @@ en:
           supports_count_title: Adhesions
         supports:
           title: Listing of adhesions
-        supports_count:
-          count:
-            one: " support"
-            other: " supports"
+        signatures_count:
+          one: " signature"
+          other: " signatures"
         vote_cabin:
           already_voted: Already voted
           supports_required: "%{total_supports} votes required"
