@@ -53,6 +53,22 @@ module Decidim
           icon("bullhorn", class: "icon--small") + " " + model.proposal_endorsements_count.to_s
         end
       end
+
+      def progress_bar_progress
+        model.proposal_votes_count || 0
+      end
+
+      def progress_bar_total
+        model.maximum_votes || 0
+      end
+
+      def progress_bar_subtitle_text
+        if progress_bar_progress >= progress_bar_total
+          t("decidim.proposals.proposals.votes_count.most_popular_proposal")
+        else
+          t("decidim.proposals.proposals.votes_count.need_more_votes")
+        end
+      end
     end
   end
 end
