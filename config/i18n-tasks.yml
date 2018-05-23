@@ -142,6 +142,7 @@ ignore_unused:
   - decidim.collapsible_list.hidden_elements_count.*
   - decidim.events.*
   - doorkeeper.scopes.*
+  - decidim.proposals.proposals.votes_count.count.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
