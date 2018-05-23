@@ -62,10 +62,10 @@ module Decidim
             expect(mapped_fields).to eq expected_fields
           end
         end
+
         context "and scope is not setted" do
           it "correctly resolves fields" do
             resource.scope = nil
-            mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
             expected_fields = {
               decidim_scope_id: nil,
               decidim_participatory_space_id: resource.component.participatory_space_id,
@@ -78,6 +78,8 @@ module Decidim
             resource.component.organization.available_locales.each do |locale|
               i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.address].join(" ") }
             end
+
+            mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
             expect(mapped_fields).to eq expected_fields
           end
         end
