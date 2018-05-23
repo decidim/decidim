@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone d'application
-        name: Singulier
+        name: Titre
         organization: Organisation
       area_type:
-        name: Singulier
+        name: Titre
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -15,14 +15,14 @@ fr:
         file: Fichier
         title: Titre
       attachment_collection:
-        description: La description
-        name: Nom
+        description: Description
+        name: Titre
       category:
         description: Description
-        name: Nom
+        name: Titre
         parent_id: Parent
       component:
-        name: Nom
+        name: Titre
         published_at: Publié à
         weight: Rang d'affichage
       id: ID
