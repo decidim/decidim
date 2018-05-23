@@ -152,6 +152,12 @@ fi:
         name: Foo-tunnistautuminen
       granted_at: Myönnetty %{timestamp}
       started_at: Aloitettu %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: ja vielä 1
+        other: ja vielä %{count}
+      see_less: "(katso vähemmän)"
+      see_more: "(Katso lisää)"
     components:
       dummy:
         actions:
