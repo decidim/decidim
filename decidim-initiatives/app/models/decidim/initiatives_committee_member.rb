@@ -18,6 +18,6 @@ module Decidim
     validates :user, uniqueness: { scope: :initiative }
 
     scope :approved, -> { where(state: :accepted) }
-    scope :non_deleted, -> { includes(:user).where(decidim_users: { deleted_at: nil })}
+    scope :non_deleted, -> { includes(:user).where(decidim_users: { deleted_at: nil }) }
   end
 end
