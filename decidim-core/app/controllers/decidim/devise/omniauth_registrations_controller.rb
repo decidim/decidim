@@ -72,14 +72,13 @@ module Decidim
       private
 
       def oauth_data
-        return {} unless request.env["omniauth.auth"]
-        @oauth_data ||= request.env["omniauth.auth"].slice(:provider, :uid, :info)
+        @oauth_data ||= oauth_hash.slice(:provider, :uid, :info)
       end
 
       # Private: Create form params from omniauth hash
       # Since we are using trusted omniauth data we are generating a valid signature.
       def user_params_from_oauth_hash
-        return nil unless request.env["omniauth.auth"]
+        return nil if oauth_data.empty?
         {
           provider: oauth_data[:provider],
           uid: oauth_data[:uid],
@@ -92,6 +91,13 @@ module Decidim
 
       def verified_email
         @verified_email ||= oauth_data.dig(:info, :email)
+      end
+
+      def oauth_hash
+        raw_hash = request.env["omniauth.auth"]
+        return {} unless raw_hash
+
+        raw_hash.deep_symbolize_keys
       end
     end
   end
