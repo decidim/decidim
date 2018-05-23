@@ -21,6 +21,13 @@ sv:
       timeline_entry:
         description: Beskrivning
         entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Förslaget ingår i ett resultat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultat
   decidim:
     accountability:
       actions:

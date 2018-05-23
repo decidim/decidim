@@ -51,13 +51,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       initiative = Decidim::Initiative.create!(
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),
-        scoped_type: Decidim::InitiativesTypeScope.reorder("RANDOM()").first,
+        scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
         state: "published",
         signature_type: "online",
         signature_start_time: DateTime.current - 7.days,
         signature_end_time:  DateTime.current + 7.days,
         published_at: DateTime.current - 7.days,
-        author: Decidim::User.reorder("RANDOM()").first,
+        author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       )
 

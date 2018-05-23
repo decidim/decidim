@@ -8,6 +8,11 @@ sv:
         description: Beskrivning
         proposal_ids: Relaterade förslag
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        other: projekt
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ sv:
             one: 1 stöd
             other: "%{count} stöder"
           remove: Avlägsna
+          view: Se
         project_budget_button:
           add: Lägg till
           added: Tillagd

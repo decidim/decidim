@@ -35,6 +35,28 @@ pl:
       vote:
         decidim_consultations_response_id:
           not_found: Odpowiedź nie znaleziono.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Konsultacja
+        few: Konsultacje
+        many: Konsultacje
+        other: Konsultacje
+      decidim/consultations/question:
+        one: Pytanie
+        few: pytania
+        many: pytania
+        other: pytania
+      decidim/consultations/response:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+      decidim/consultations/vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     admin:
       actions:
@@ -214,6 +236,10 @@ pl:
         see_finished_consultations: Zobacz poprzednie konsultacje
     menu:
       consultations: Konsultacje
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultacje
     questions:
       results:
         title: Wyniki
@@ -252,7 +278,3 @@ pl:
         unfold: Rozwijać się
       question_header:
         back_to_consultation: Zobacz wszystkie konsultacje
-  pages:
-    home:
-      statistics:
-        consultations_count: Konsultacje

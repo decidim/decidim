@@ -49,7 +49,7 @@ module Decidim
       def self.order_randomly(seed)
         transaction do
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order("RANDOM()").load
+          order(Arel.sql("RANDOM()")).load
         end
       end
 

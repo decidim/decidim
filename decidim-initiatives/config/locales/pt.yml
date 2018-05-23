@@ -32,6 +32,17 @@ pt:
         address: Endereço
         id_document: CIF
         name: Nome completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comitês
+      decidim/initiative_vote:
+        one: Assinatura
+        other: Assinaturas
   decidim:
     admin:
       menu:
@@ -60,10 +71,10 @@ pt:
     events:
       initiatives:
         milestone_completed:
-          email_intro: A iniciativa %{resource_title} alcançou o %{percentage}% de votos!
+          email_intro: A iniciativa %{resource_title} alcançou o %{percentage}% de assinaturas!
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Novo marco concluído!
-          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de votos.
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
     initiatives:
       admin:
         committee_requests:
@@ -221,10 +232,14 @@ pt:
         title: Iniciativas
       initiative_votes:
         create:
-          error: Houve erros ao votar a iniciativa.
+          error: Houve erros ao assinar a iniciativa.
       initiatives:
         author:
           deleted: Excluído
+        author_list:
+          hidden_authors_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
         count:
           title:
             one: "%{count} iniciativa"
@@ -249,7 +264,7 @@ pt:
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: Mais comentado
-          most_voted: Mais votado
+          most_voted: Mais assinado
           random: Aleatória
           recent: Mais recente
         result:
@@ -260,22 +275,21 @@ pt:
           offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
         signature_identities:
           select_identity: Selecione a identidade do usuário
+        signatures_count:
+          one: " assinatura"
+          other: " assinaturas"
         statistics:
           assistants_count_title: Assistentes
           comments_count_title: Comentários
           meetings_count_title: Reuniões
-          supports_count_title: Adesões
+          supports_count_title: Assinaturas
         supports:
-          title: Listagem de aderências
-        supports_count:
-          count:
-            one: " Apoio, suporte"
-            other: " suporta"
+          title: Listagem de assinaturas
         vote_cabin:
-          already_voted: Já votei
-          supports_required: "São necessários %{total_supports} votos"
+          already_voted: Já assinado
+          supports_required: "%{total_supports} assinaturas exigidas"
           vote: Placa
-          votes_blocked: Votação desativada
+          votes_blocked: Assinatura desativada
         votes_count:
           count:
             one: ASSINATURA

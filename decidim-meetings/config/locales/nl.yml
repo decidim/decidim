@@ -27,6 +27,24 @@ nl:
         description: Beschrijving
         video_url: Video URL
         visible: Is zichtbaar
+    models:
+      decidim/meetings/close_meeting_event: Vergadering gesloten
+      decidim/meetings/create_meeting_event: Vergadering
+      decidim/meetings/meeting_registrations_enabled_event: Registraties ingeschakeld
+      decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
+      decidim/meetings/upcoming_meeting_event: Aankomende vergadering
+      decidim/meetings/update_meeting_event: Vergadering bijgewerkt
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Vergadering
+        other: vergaderingen
+      decidim/meetings/minutes:
+        one: Notulen
+        other: Notulen
+      decidim/meetings/registration:
+        one: registratie
+        other: registraties
   decidim:
     admin:
       meeting_copies:

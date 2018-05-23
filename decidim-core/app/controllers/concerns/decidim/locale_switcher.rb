@@ -46,7 +46,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def available_locales
-        @available_locales ||= current_organization.available_locales
+        @available_locales ||= (current_organization || Decidim).public_send(:available_locales)
       end
 
       # The default locale of this organization.

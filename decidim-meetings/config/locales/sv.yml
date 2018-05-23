@@ -27,6 +27,24 @@ sv:
         description: Beskrivning
         video_url: Video-url
         visible: Är synlig
+    models:
+      decidim/meetings/close_meeting_event: Möte avslutat
+      decidim/meetings/create_meeting_event: Möte
+      decidim/meetings/meeting_registrations_enabled_event: Registreringar aktiverade
+      decidim/meetings/meeting_registrations_over_percentage_event: Registreringar över gränsen
+      decidim/meetings/upcoming_meeting_event: Kommande möte
+      decidim/meetings/update_meeting_event: Möte uppdaterat
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Möte
+        other: möten
+      decidim/meetings/minutes:
+        one: Minuter
+        other: Minuter
+      decidim/meetings/registration:
+        one: Registrering
+        other: registreringar
   decidim:
     admin:
       meeting_copies:

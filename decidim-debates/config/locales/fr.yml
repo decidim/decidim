@@ -11,6 +11,15 @@ fr:
         start_time: Commence à
         title: Titre
         user_group_id: Créer un débat en tant que
+    models:
+      decidim/debates/create_debate_event: Débat
+      decidim/debates/creation_disabled_event: Débats désactivés
+      decidim/debates/creation_enabled_event: Débats activés
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Débat
+        other: Débats
   decidim:
     components:
       debates:

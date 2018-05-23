@@ -140,7 +140,7 @@ module Decidim
       def self.order_randomly(seed)
         transaction do
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          select('"decidim_consultations_questions".*, RANDOM()').order("RANDOM()").load
+          select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
         end
       end
     end
