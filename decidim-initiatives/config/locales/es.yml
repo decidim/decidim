@@ -288,6 +288,7 @@ es:
         vote_cabin:
           already_voted: Ha sido firmado
           vote: Firmar
+          votes_blocked: Firma desactivada
         votes_count:
           count:
             one: FIRMA
