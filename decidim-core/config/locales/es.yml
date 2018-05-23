@@ -152,6 +152,12 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: y 1 más
+        other: y %{count} más
+      see_less: "(ver menos)"
+      see_more: "(ver más)"
     components:
       dummy:
         actions:
