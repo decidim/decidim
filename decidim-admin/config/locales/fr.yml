@@ -6,7 +6,7 @@ fr:
         name: Singulier
         organization: Organisation
       area_type:
-        name: Singulier
+        name: Titre
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -15,14 +15,14 @@ fr:
         file: Fichier
         title: Titre
       attachment_collection:
-        description: La description
+        description: Description
         name: Nom
       category:
         description: Description
-        name: Nom
+        name: Titre
         parent_id: Parent
       component:
-        name: Nom
+        name: Titre
         published_at: Publié à
         weight: Rang d'affichage
       id: ID
@@ -48,7 +48,7 @@ fr:
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en avant
+        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
@@ -99,7 +99,7 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Périmètre
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_scope: Objectif
         participatory_structure: Modalités
