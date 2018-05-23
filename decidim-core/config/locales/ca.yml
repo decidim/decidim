@@ -152,6 +152,12 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: i 1 més
+        other: i %{count} més
+      see_less: "(veure menys)"
+      see_more: "(veure més)"
     components:
       dummy:
         actions:
