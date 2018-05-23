@@ -275,12 +275,21 @@ fi:
           offline_method: Tämä kansalaisaloitteet kerää vain kasvotusten tuet.
         signature_identities:
           select_identity: Valitse käyttäjän identiteetti
+        signatures_count:
+          one: " allekirjoitus"
+          other: " allekirjoituksia"
         statistics:
           assistants_count_title: avustajat
           comments_count_title: Kommentit
           meetings_count_title: kokoukset
+          supports_count_title: allekirjoitukset
+        supports:
+          title: Allekirjoitusten luettelo
         vote_cabin:
+          already_voted: Jo allekirjoitettu
+          supports_required: "%{total_supports} allekirjoitusta vaaditaan"
           vote: Merkki
+          votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
           count:
             one: ALLEKIRJOITUS
