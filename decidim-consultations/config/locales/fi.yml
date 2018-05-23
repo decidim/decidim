@@ -35,6 +35,20 @@ fi:
       vote:
         decidim_consultations_response_id:
           not_found: Vastausta ei löytynyt.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: kuuleminen
+        other: kuulemiset
+      decidim/consultations/question:
+        one: kysymys
+        other: kysymykset
+      decidim/consultations/response:
+        one: Vastaus
+        other: Vastaukset
+      decidim/consultations/vote:
+        one: Äänestys
+        other: ääntä
   decidim:
     admin:
       actions:
@@ -204,6 +218,10 @@ fi:
         see_finished_consultations: Katso edelliset neuvottelut
     menu:
       consultations: kuulemiset
+    pages:
+      home:
+        statistics:
+          consultations_count: kuulemiset
     questions:
       results:
         title: tulokset
@@ -242,7 +260,3 @@ fi:
         unfold: avautua
       question_header:
         back_to_consultation: Katso kaikki neuvottelut
-  pages:
-    home:
-      statistics:
-        consultations_count: kuulemiset

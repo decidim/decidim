@@ -44,6 +44,20 @@ sv:
         email: E-post
         name: namn
         role: Roll
+    models:
+      decidim/participatory_process_step_activated_event: Steg aktiverat
+      decidim/participatory_process_step_changed_event: Steget ändrats
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Deltagande process
+        other: Deltagande processer
+      decidim/participatory_process_group:
+        one: Deltagande processgrupp
+        other: Deltagande processgrupper
+      decidim/participatory_process_step:
+        one: Steg
+        other: Steg
   decidim:
     admin:
       actions:

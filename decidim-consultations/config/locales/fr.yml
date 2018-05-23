@@ -35,6 +35,20 @@ fr:
       vote:
         decidim_consultations_response_id:
           not_found: Réponse non trouvée.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consultation
+        other: Consultations
+      decidim/consultations/question:
+        one: Question
+        other: Des questions
+      decidim/consultations/response:
+        one: Réponse
+        other: Réponses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       actions:
@@ -204,6 +218,10 @@ fr:
         see_finished_consultations: Voir les consultations précédentes
     menu:
       consultations: Consultations
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultations
     questions:
       results:
         title: Résultats
@@ -242,7 +260,3 @@ fr:
         unfold: Se dérouler
       question_header:
         back_to_consultation: Voir toutes les consultations
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultations

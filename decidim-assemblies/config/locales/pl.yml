@@ -62,6 +62,23 @@ pl:
         email: E-mail
         name: Nazwa
         role: Rola
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaż
+        few: Złożenia
+        many: Złożenia
+        other: Złożenia
+      decidim/assembly_member:
+        one: Członek zespołu
+        few: Członkowie zgromadzenia
+        many: Członkowie zgromadzenia
+        other: Członkowie zgromadzenia
+      decidim/assembly_user_role:
+        one: Zbierz rolę użytkownika
+        few: Zbierz role użytkowników
+        many: Zbierz role użytkowników
+        other: Zbierz role użytkowników
   decidim:
     admin:
       assemblies:

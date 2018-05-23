@@ -62,6 +62,17 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Asemblea
+        other: Asembleas
+      decidim/assembly_member:
+        one: Membro da asemblea
+        other: Membros da asemblea
+      decidim/assembly_user_role:
+        one: Reproducir rol de usuario
+        other: Asignar roles de usuario
   decidim:
     admin:
       assemblies:

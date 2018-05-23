@@ -44,6 +44,20 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    models:
+      decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
+      decidim/participatory_process_step_changed_event: Vaihe muuttui
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Osallistumisprosessi
+        other: Osallistumisprosessit
+      decidim/participatory_process_group:
+        one: Osallistuva prosessiryhmä
+        other: Osallistuvat prosessiryhmät
+      decidim/participatory_process_step:
+        one: vaihe
+        other: Askeleet
   decidim:
     admin:
       actions:

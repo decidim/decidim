@@ -21,6 +21,13 @@ nl:
       timeline_entry:
         description: Beschrijving
         entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultaat
+        other: resultaten
   decidim:
     accountability:
       actions:

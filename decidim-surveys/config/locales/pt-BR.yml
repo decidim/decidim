@@ -14,6 +14,17 @@ pt-BR:
             choices:
               missing: não estão completos
               too_many: são muitos
+    models:
+      decidim/surveys/closed_survey_event: Estudo finalizado
+      decidim/surveys/opened_survey_event: Enquete iniciada
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquete
+        other: Enquetes
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostas
   decidim:
     components:
       surveys:
