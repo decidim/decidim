@@ -286,7 +286,10 @@ pt-BR:
         supports:
           title: Listagem de assinaturas
         vote_cabin:
+          already_voted: Já assinado
+          supports_required: "%{total_supports} assinaturas exigidas"
           vote: Placa
+          votes_blocked: Assinatura desativada
         votes_count:
           count:
             one: ASSINATURA
