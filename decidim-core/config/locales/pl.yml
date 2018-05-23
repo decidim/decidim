@@ -160,6 +160,14 @@ pl:
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
       started_at: Rozpoczęty pod adresem %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: i 1 więcej
+        few: i %{count} więcej
+        many: i %{count} więcej
+        other: i %{count} więcej
+      see_less: "(patrz mniej)"
+      see_more: "(Zobacz więcej)"
     components:
       dummy:
         actions:
