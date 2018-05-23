@@ -27,6 +27,24 @@ pt-BR:
         description: Descrição
         video_url: URL do vídeo
         visible: É visível
+    models:
+      decidim/meetings/close_meeting_event: Reunião fechada
+      decidim/meetings/create_meeting_event: Encontro
+      decidim/meetings/meeting_registrations_enabled_event: Registros habilitados
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
+      decidim/meetings/upcoming_meeting_event: Próxima reunião
+      decidim/meetings/update_meeting_event: Reunião atualizada
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Reunião
+        other: Reuniões
+      decidim/meetings/minutes:
+        one: Ata
+        other: Atas
+      decidim/meetings/registration:
+        one: Cadastro
+        other: Inscrições
   decidim:
     admin:
       meeting_copies:
