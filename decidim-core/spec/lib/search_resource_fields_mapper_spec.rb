@@ -8,7 +8,7 @@ module Decidim
 
     let(:component) { create(:component, manifest_name: "dummy") }
     let(:scope) { create(:scope, organization: component.organization) }
-    let(:resource) do
+    let!(:resource) do
       Decidim::DummyResources::DummyResource.new(
         scope: scope,
         component: component,
@@ -64,7 +64,7 @@ module Decidim
         end
         context "and scope is not setted" do
           it "correctly resolves fields" do
-            resource.scope= nil
+            resource.scope = nil
             mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
             expected_fields = {
               decidim_scope_id: nil,

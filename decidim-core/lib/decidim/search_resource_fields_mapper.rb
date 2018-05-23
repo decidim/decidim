@@ -63,8 +63,8 @@ module Decidim
             resource.send(vfield_name.to_sym)
           end
         else
-          value_field= value_field.to_sym
-          resource.send(value_field) unless value_field.nil? or !resource.respond_to?(value_field)
+          value_field = value_field.to_sym
+          resource.send(value_field) unless value_field.nil? || !resource.respond_to?(value_field)
         end
       end
     end
