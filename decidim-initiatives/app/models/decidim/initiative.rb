@@ -15,6 +15,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::Initiatives::InitiativeSlug
+    include Decidim::Resourceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

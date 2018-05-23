@@ -15,6 +15,11 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     Decidim::Initiative.where(organization: organization)
   end
 
+  participatory_space.register_resource(:initiative) do |resource|
+    resource.model_class_name = "Decidim::Initiative"
+    resource.card = "decidim/initiatives/initiative"
+  end
+
   participatory_space.model_class_name = "Decidim::Initiative"
   participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 

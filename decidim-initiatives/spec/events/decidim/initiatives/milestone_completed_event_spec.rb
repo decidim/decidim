@@ -35,14 +35,14 @@ describe Decidim::Initiatives::MilestoneCompletedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The initiative #{resource_title} has achieved the 75% of votes!")
+        .to eq("The initiative #{resource_title} has achieved the 75% of signatures!")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has achieved the 75% of votes")
+        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has achieved the 75% of signatures")
     end
   end
 end

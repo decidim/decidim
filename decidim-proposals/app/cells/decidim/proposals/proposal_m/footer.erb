@@ -2,7 +2,17 @@
   <div class="card__footer">
     <div class="card__support">
       <% if actionable? %>
-        <%= render partial: "decidim/proposals/proposals/votes_count.html", locals: { proposal: model, from_proposals_list: true } %>
+        <% if !current_settings.votes_hidden? %>
+          <%= cell(
+            "decidim/progress_bar",
+            progress_bar_progress,
+            total: progress_bar_total,
+            units_name: "decidim.proposals.proposals.votes_count.count",
+            element_id: "proposal-#{model.id}-votes-count",
+            subtitle_text: progress_bar_subtitle_text,
+            small: true
+          ) %>
+        <% end %>
         <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
       <% else %>
         <div class="card__support__data"></div>
