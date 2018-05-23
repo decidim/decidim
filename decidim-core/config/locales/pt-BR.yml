@@ -8,7 +8,7 @@ pt-BR:
       user:
         about: Sobre
         email: Seu e-mail
-        name: O seu nome
+        name: Seu nome
         nickname: Seu identificador curto e exclusivo
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
@@ -192,7 +192,7 @@ pt-BR:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           nickname_help: Seu identificador curto e exclusivo em %{organization}
-          sign_in: Entrar
+          sign_in: Iniciar sessão
           sign_up: Inscrever-se
           sign_up_as:
             legend: Inscrever-se como
@@ -361,7 +361,7 @@ pt-BR:
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
     notifications:
-      no_notifications: Ainda não há notificações.
+      no_notifications: Não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que receber uma notificação.
@@ -383,22 +383,22 @@ pt-BR:
           how_to_participate: Como faço parte de um processo?
           meetings: Encontros
           meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-          more_info: Mais informações
+          more_info: Saiba mais
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
           footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: registo
+          register: Registrar-se
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
         statistics:
           answers_count: Formulário completo
-          assemblies_count: Assembléias
+          assemblies_count: Assembleias
           comments_count: Comentários
           debates_count: Debates
-          endorsements_count: Endossos
+          endorsements_count: Avais
           headline: Estado atual de %{organization}
           meetings_count: Encontros
           orders_count: Votos
@@ -412,7 +412,7 @@ pt-BR:
           users_count: Participantes
           votes_count: Votos
         sub_hero:
-          register: registo
+          register: Registrar-se
       index:
         title: Mais informação
     participatory_space_private_users:
