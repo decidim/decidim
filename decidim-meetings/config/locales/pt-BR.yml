@@ -32,7 +32,7 @@ pt-BR:
       decidim/meetings/create_meeting_event: Encontro
       decidim/meetings/meeting_registrations_enabled_event: Registros habilitados
       decidim/meetings/meeting_registrations_over_percentage_event: Inscrições acima do limite
-      decidim/meetings/upcoming_meeting_event: Próxima reunião
+      decidim/meetings/upcoming_meeting_event: Próximo encontro
       decidim/meetings/update_meeting_event: Reunião atualizada
   activerecord:
     models:
@@ -43,8 +43,8 @@ pt-BR:
         one: Ata
         other: Atas
       decidim/meetings/registration:
-        one: Cadastro
-        other: Inscrições
+        one: Registro
+        other: Registros
   decidim:
     admin:
       meeting_copies:
