@@ -212,7 +212,7 @@ fr:
           success: Document lié mis à jour avec succès.
       autocomplete:
         no_results: Aucun résultat trouvé
-        search_prompt: Tapez au moins trois caractères pour rechercher
+        search_prompt: Renseignez au moins trois caractères pour lancer la recherche
       categories:
         create:
           error: Une erreur s'est produite lors de la création de cette catégorie.
@@ -263,7 +263,7 @@ fr:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
-          success: Le composant a été publié avec succès.
+          success: La fonctionnalité a été publiée avec succès.
         title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
@@ -285,11 +285,11 @@ fr:
             not_managed: Non géré
           filter_by: Filtrer par
           impersonate: Représenter
-          impersonate_new_managed_user: Emprunter l'identité d'un nouvel utilisateur géré
-          managed: Géré
-          name: prénom
+          impersonate_new_managed_user: Représenter un nouvel utilisateur
+          managed: Représenté
+          name: Nom
           needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
-          not_managed: Non géré
+          not_managed: Non représenté
           promote: Promouvoir
           search: Chercher
           status: Statut
