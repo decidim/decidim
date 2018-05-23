@@ -152,6 +152,12 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: och 1 mer
+        other: och %{count} mer
+      see_less: "(se mindre)"
+      see_more: "(se mer)"
     components:
       dummy:
         actions:
