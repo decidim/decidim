@@ -280,9 +280,9 @@ en:
           assistants_count_title: Assistants
           comments_count_title: Comments
           meetings_count_title: Meetings
-          supports_count_title: Adhesions
+          supports_count_title: Signatures
         supports:
-          title: Listing of adhesions
+          title: Listing of signatures
         signatures_count:
           one: " signature"
           other: " signatures"
