@@ -283,6 +283,7 @@ ca:
         scope: Àmbit
         start_date: Data d'inici
         target: Qui participa
+        unspecified: Sense especificar
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
@@ -304,6 +305,7 @@ ca:
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
+          processes_count: 'Processos:'
       participatory_process_widgets:
         show:
           active_step: Fase activa

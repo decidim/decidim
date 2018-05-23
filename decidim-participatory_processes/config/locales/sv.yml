@@ -283,6 +283,7 @@ sv:
         scope: Omfattning
         start_date: Startdatum
         target: Vem deltar
+        unspecified: Ej angivet
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
@@ -304,6 +305,7 @@ sv:
       participatory_process_groups:
         participatory_process_group:
           browse: Bläddra
+          processes_count: 'processer:'
       participatory_process_widgets:
         show:
           active_step: Aktivt steg

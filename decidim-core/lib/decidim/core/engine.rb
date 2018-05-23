@@ -22,7 +22,6 @@ require "rectify"
 require "decidim/rectify_ext"
 
 require "carrierwave"
-require "high_voltage"
 require "rails-i18n"
 require "date_validator"
 require "sprockets/es6"
@@ -38,6 +37,7 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
 
@@ -69,12 +69,6 @@ module Decidim
         end
 
         app.config.assets.debug = true if Rails.env.test?
-      end
-
-      initializer "decidim.high_voltage" do |_app|
-        HighVoltage.configure do |config|
-          config.routes = false
-        end
       end
 
       initializer "decidim.default_form_builder" do |_app|
@@ -266,6 +260,13 @@ module Decidim
       initializer "OAuth inflections" do
         ActiveSupport::Inflector.inflections do |inflect|
           inflect.acronym "OAuth"
+        end
+      end
+
+      initializer "decidim.core.register_resources" do
+        Decidim.register_resource(:user) do |resource|
+          resource.model_class_name = "Decidim::User"
+          resource.card = "decidim/user_profile"
         end
       end
     end

@@ -283,6 +283,7 @@ fr:
         scope: Périmètre d'application
         start_date: Date de début
         target: Participants
+        unspecified: Non précisé
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
@@ -304,6 +305,7 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
+          processes_count: 'Processus'
       participatory_process_widgets:
         show:
           active_step: Etape active

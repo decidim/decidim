@@ -7,7 +7,7 @@
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
-  <%= card_for present(@proposal).author, from: @proposal %>
+  <%= cell "decidim/author", present(@proposal).author, from: @proposal %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -28,6 +28,7 @@
       </div>
     <% end %>
     <%= resource_reference(@proposal) %>
+    <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
@@ -68,12 +69,15 @@
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
+
+    <div class="section">
+      <a name="list-of-endorsements"></a>
+      <%= identities_list_xxs(@proposal.endorsements.for_listing) %>
+    </div>
   </div>
 </div>
 <%= attachments_for @proposal %>
 
-<a name="list-of-endorsements"></a>
-<%= identities_list_xxs(@proposal.endorsements.for_listing) %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

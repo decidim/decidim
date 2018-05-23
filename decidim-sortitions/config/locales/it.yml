@@ -106,8 +106,6 @@ it:
           label: 'Ordina le ordinazioni per:'
           random: Casuale
           recent: Recente
-        proposal:
-          view_proposal: Visualizza proposta
         results_count:
           count:
             one: proposta selezionata
@@ -127,10 +125,11 @@ it:
           time_seed: "(2) seme temporale"
           witnesses: Testimoni
         sortition:
+          random_seed: Seme casuale
           selected_proposals:
             one: 1 proposta selezionata
-            other: "%{count} proposte selezionate"
-          view_sortition: Visualizza la selezione
+            other: '%{count} proposte selezionate'
+          view: vista
         sortition_author:
           deleted: Utente eliminato
         sortition_cancel_author:

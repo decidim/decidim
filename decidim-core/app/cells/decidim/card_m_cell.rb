@@ -29,12 +29,29 @@ module Decidim
       false
     end
 
+    def has_link_to_resource?
+      true
+    end
+
+    def has_label?
+      context[:label].presence
+    end
+
+    def label
+      return if [false, "false"].include? context[:label]
+      return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+      context[:label]
+    end
+
     def title
       translated_attribute model.title
     end
 
     def description
-      decidim_sanitize(translated_attribute(model.description))
+      attribute = model.try(:short_description) || model.description
+      text = translated_attribute(attribute)
+
+      decidim_sanitize(html_truncate(text, length: 100))
     end
 
     def decidim
@@ -75,6 +92,10 @@ module Decidim
       state_classes.concat(["card__text--status"]).join(" ")
     end
 
+    def state_classes
+      ["muted"]
+    end
+
     def comments_count
       model.comments.count
     end
@@ -95,10 +116,16 @@ module Decidim
     end
 
     def comments_count_status
+      return render_comments_count unless has_link_to_resource?
+
       link_to resource_path do
-        with_tooltip t("decidim.comments.comments") do
-          render :comments_counter
-        end
+        render_comments_count
+      end
+    end
+
+    def render_comments_count
+      with_tooltip t("decidim.comments.comments") do
+        render :comments_counter
       end
     end
   end

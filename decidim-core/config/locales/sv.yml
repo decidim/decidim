@@ -6,7 +6,7 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
-        about: Handla om
+        about: Om
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
@@ -35,6 +35,10 @@ sv:
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -61,7 +65,7 @@ sv:
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
       component:
-        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} utrymmet"
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
         publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
         unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
@@ -108,7 +112,15 @@ sv:
         related_documents: Relaterade dokument
       photos:
         related_photos: Relaterade bilder
+    author:
+      comments:
+        one: kommentar
+        other: kommentarer
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
+        fields:
+          passport_number: Passnummer
       dummy_authorization_handler:
         explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
         fields:
@@ -152,7 +164,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplett profil
+          complete_profile: Komplettera profil
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
@@ -240,6 +252,14 @@ sv:
         project: Projekt
         proposal: Förslag
         result: Resultat
+    fingerprint:
+      check: Kontrollera fingeravtryck
+      explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
+      online_calculator_name: MD5-kalkylator online
+      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera klistra in källdata.
+      source: Källa
+      title: Fingeravtryck
+      value: Värde
     follows:
       create:
         button: Följ
@@ -391,8 +411,6 @@ sv:
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
-      author:
-        deleted: Raderad användare
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida

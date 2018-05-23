@@ -35,6 +35,10 @@ it:
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ it:
         related_documents: Documenti Relativi
       photos:
         related_photos: Immagini relative
+    author:
+      comments:
+        one: commento
+        other: Commenti
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
+        fields:
+          passport_number: Numero di passaporto
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
@@ -240,6 +252,14 @@ it:
         project: Progetti
         proposal: Proposte
         result: Votazioni
+    fingerprint:
+      check: Controlla l'impronta digitale
+      explanation: La parte di testo qui sotto è una rappresentazione abbreviata e con hash di questo contenuto. È utile assicurarsi che il contenuto non sia stato manomesso, poiché una singola modifica darebbe un valore completamente diverso.
+      online_calculator_name: Calcolatrice MD5 online
+      replicate_help: Questa impronta digitale viene calcolata utilizzando un algoritmo di hash SHA256. Per replicare tu stesso, puoi usare uno %{online_calculator_link} e copiare e incollare i dati di origine.
+      source: fonte
+      title: impronta digitale
+      value: Valore
     follows:
       create:
         button: Seguire
@@ -391,8 +411,6 @@ it:
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
-      author:
-        deleted: Utente eliminato
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina

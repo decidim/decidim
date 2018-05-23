@@ -35,6 +35,10 @@ pl:
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -100,11 +104,27 @@ pl:
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
       photos:
         related_photos: Powiązane zdjęcia
+    author:
+      comments:
+        one: komentarz
+        few: komentarze
+        many: komentarze
+        other: komentarze
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
+        fields:
+          passport_number: Numer paszportu
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
         fields:
@@ -236,6 +256,14 @@ pl:
         project: Projekty
         proposal: Propozycje
         result: Wyniki
+    fingerprint:
+      check: Sprawdź odcisk palca
+      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      online_calculator_name: Kalkulator MD5 online
+      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      source: Źródło
+      title: Odcisk palca
+      value: Wartość
     follows:
       create:
         button: Postępuj zgodnie z
@@ -387,8 +415,6 @@ pl:
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
-      author:
-        deleted: Usunięty użytkownik
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie

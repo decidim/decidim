@@ -35,6 +35,7 @@ en:
         participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: Private space
         promoted: Promoted
         published_at: Published at
         purpose_of_action: Purpose of action
@@ -43,6 +44,7 @@ en:
         short_description: Short description
         show_statistics: Show statistics
         slug: URL slug
+        special_features: Special features
         subtitle: Subtitle
         target: Target
         title: Title
@@ -61,6 +63,17 @@ en:
         email: Email
         name: Name
         role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assembly
+        other: Assemblies
+      decidim/assembly_member:
+        one: Assembly member
+        other: Assembly members
+      decidim/assembly_user_role:
+        one: Assembly user role
+        other: Assembly user roles
   decidim:
     admin:
       assemblies:
@@ -242,6 +255,9 @@ en:
           highlighted_assemblies:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
+        user_profile:
+          member_of:
+            member_of: Member of
       show:
         area: Area
         assembly_type: Assembly type
@@ -287,7 +303,7 @@ en:
         votes_count: Votes
     assembly_members:
       assembly_member:
-        desiganted_on: Designated on
+        designated_on: Designated on
       index:
         title: Members
     log:

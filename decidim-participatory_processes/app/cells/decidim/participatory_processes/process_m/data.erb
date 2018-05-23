@@ -6,13 +6,15 @@
     <li class="card-data__item">
       <div class="card-data__item--centerblock">
         <strong><%= t("activemodel.attributes.participatory_process.start_date") %></strong>
-        <%= l start_date, format: :decidim_short %>
+        <br />
+        <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %>
       </div>
     </li>
     <li class="card-data__item">
       <div class="card-data__item--centerblock">
         <strong><%= t("activemodel.attributes.participatory_process.end_date") %></strong>
-        <%= l end_date, format: :decidim_short %>
+        <br />
+        <%= end_date ? l(end_date, format: :decidim_short) : t("decidim.participatory_processes.show.unspecified") %>
       </div>
     </li>
   </ul>

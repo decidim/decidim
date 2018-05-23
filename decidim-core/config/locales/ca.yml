@@ -35,6 +35,10 @@ ca:
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ ca:
         related_documents: Documents relacionats
       photos:
         related_photos: Fotos relacionades
+    author:
+      comments:
+        one: comentari
+        other: comentaris
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Obté la verificació introduint un número de passaport que comenci per "A"
+        fields:
+          passport_number: Número de passaport
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
@@ -240,6 +252,14 @@ ca:
         project: Projectes
         proposal: propostes
         result: Resultats
+    fingerprint:
+      check: Verifica l'empremta digital
+      explanation: El text següent és una representació reduïda amb una funció hash d'aquest contingut. És útil per assegurar-se que el contingut no ha estat manipulat, ja que una sola modificació provocaria un valor totalment diferent.
+      online_calculator_name: Calculadora MD5 en línia
+      replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
+      source: Origen
+      title: Empremta digital
+      value: Valor
     follows:
       create:
         button: Seguir
@@ -339,7 +359,7 @@ ca:
     profile:
       deleted: Usuari eliminat
     profiles:
-      default_officialization_text: Aquest participant es verifica públicament. El seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
+      default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         about_me: Sobre mi
         personal_url: Lloc web personal
@@ -391,8 +411,6 @@ ca:
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
-      author:
-        deleted: Usuari eliminat
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina

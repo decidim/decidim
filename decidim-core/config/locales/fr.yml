@@ -35,6 +35,10 @@ fr:
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +112,15 @@ fr:
         related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
+    author:
+      comments:
+        one: commentaire
+        other: commentaires
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Faites-vous vérifier en introduisant un numéro de passeport commençant par "A"
+        fields:
+          passport_number: Numéro de passeport
       dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
@@ -240,6 +252,14 @@ fr:
         project: Projets
         proposal: Propositions
         result: Résultats
+    fingerprint:
+      check: Vérifiez l'empreinte digitale
+      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
+      online_calculator_name: MD5 calculatrice en ligne
+      replicate_help: Cette empreinte est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données source.
+      source: La source
+      title: Empreinte digitale
+      value: Valeur
     follows:
       create:
         button: Suivre
@@ -391,8 +411,6 @@ fr:
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
-      author:
-        deleted: Utilisateur supprimé
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page

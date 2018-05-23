@@ -26,6 +26,11 @@ module Decidim
       initializer "decidim_budgets.assets" do |app|
         app.config.assets.precompile += %w(decidim_budgets_manifest.js)
       end
+
+      initializer "decidim_budgets.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
+      end
     end
   end
 end

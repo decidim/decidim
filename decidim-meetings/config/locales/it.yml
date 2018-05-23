@@ -16,10 +16,17 @@ it:
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        private_meeting: Incontro privato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
         title: Titolo
+        transparent: Trasparente
+      minutes:
+        audio_url: URL audio
+        description: Descrizione
+        video_url: URL del video
+        visible: È visibile
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +90,7 @@ it:
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
+        minutes: Minuti
         new: Nuovo
         preview: Anteprima
         registrations: Iscrizioni
@@ -106,6 +114,9 @@ it:
           edit:
             close: Chiudi
             title: Chiusura meeting
+        meeting_copies:
+          form:
+            select_organizer: Seleziona l'organizzatore
         meetings:
           close:
             invalid: C'è stato un problema durante la chiusura di questo meeting.
@@ -117,6 +128,8 @@ it:
             success: OK, il meeting è stato cancellato.
           edit:
             update: Modifica
+          form:
+            select_organizer: Seleziona l'organizzatore
           index:
             title: Riunioni
           new:
@@ -135,6 +148,18 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
+        minutes:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questi minuti
+            success: Minuti creati con successo
+          edit:
+            update: Aggiornare
+          new:
+            create: Creare
+            title: Crea minuti
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo minuto
+            success: Minuti aggiornati con successo
         models:
           meeting:
             name: Reunione
@@ -159,6 +184,12 @@ it:
           delete: "%{user_name} ha eliminato la riunione %{resource_name} nello spazio %{space_name}"
           export_registrations: "%{user_name} esportate le registrazioni della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato la riunione %{resource_name} sullo spazio %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+        minutes:
+          create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +197,8 @@ it:
         registration_mailer:
           confirmation:
             subject: La tua registrazione alla riunione è stata confermata
+      meeting:
+        not_allowed: Non sei autorizzato a visualizzare questo incontro
       meetings:
         filters:
           category: Categoria
@@ -192,9 +225,11 @@ it:
           contributions: Conteggio dei contributi
           going: Parteciperò
           join: Partecipa alla riunione
+          meeting_minutes: Riunione dei verbali
           meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
+          related_information: Informazioni correlate
           remaining_slots:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
@@ -218,6 +253,9 @@ it:
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
+      types:
+        private_meeting: Incontro privato
+        transparent: Trasparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,6 +266,8 @@ it:
         past_meetings: Incontri passati
         see_all_meetings: Vedi tutte le riunioni
         upcoming_meetings: Prossimi incontri
+      upcoming_meeting_for_card:
+        upcoming_meeting: Prossimo incontro
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Risultati correlati:'

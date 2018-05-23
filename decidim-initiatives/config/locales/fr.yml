@@ -57,6 +57,13 @@ fr:
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de votes!
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle étape franchie!
+          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de votes.
     initiatives:
       admin:
         committee_requests:
@@ -206,9 +213,9 @@ fr:
           email_subject: Nouvelle initiative de %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a approuvé l'initiative suivante, peut-être que vous voulez contribuer à la conversation:"
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a recommandé l'initiative suivante, peut-être que vous voulez contribuer à la conversation:"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Initiative approuvée par %{author_nickname}
+          email_subject: Initiative recommandée par %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été endossée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives

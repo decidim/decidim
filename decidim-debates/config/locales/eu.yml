@@ -66,9 +66,6 @@ eu:
           invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
           success: Debate sortu da behar bezala.
         debate:
-          comments:
-            one: Iruzkina
-            other: Oharrak
           participate: Parte hartu
         filters:
           all: guztiak
@@ -94,9 +91,6 @@ eu:
           close_window: Itxi leihoa
           share: Share
           share_link: Partekatu esteka
-        show:
-          comments: Oharrak
-          report: txostena
       models:
         debate:
           fields:
