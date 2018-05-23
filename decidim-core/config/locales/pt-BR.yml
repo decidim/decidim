@@ -156,7 +156,7 @@ pt-BR:
       hidden_elements_count:
         one: e mais 1
         other: e mais %{count}
-      see_less: "(veja menos)"
+      see_less: "(ver menos)"
       see_more: "(ver mais)"
     components:
       dummy:
@@ -272,7 +272,7 @@ pt-BR:
         result: Resultados
     fingerprint:
       check: Verificar impressão digital
-      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
+      explanation: O trecho abaixo é uma representação curta (ou hashed) deste conteúdo. Ele é útil para garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
       source: Fonte
