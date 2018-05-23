@@ -20,7 +20,7 @@ module Decidim
   #      size: :small
   #    )
   class CollapsibleListCell < Decidim::ViewModel
-    MIN_LENGTH_FOR_SIZE = { small: 3, default: 7 }
+    MIN_LENGTH_FOR_SIZE = { small: 3, default: 7 }.freeze
 
     private
 
