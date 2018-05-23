@@ -27,6 +27,24 @@ eu:
         description: deskribapena
         video_url: Bideoaren URLa
         visible: Ikusgai dago
+    models:
+      decidim/meetings/close_meeting_event: Bilera itxia
+      decidim/meetings/create_meeting_event: Bilera
+      decidim/meetings/meeting_registrations_enabled_event: Erregistroak gaituta
+      decidim/meetings/meeting_registrations_over_percentage_event: Matrikulazioen muga gainditzen dutenak
+      decidim/meetings/upcoming_meeting_event: Hurrengo bilera
+      decidim/meetings/update_meeting_event: Bilera eguneratua
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Bilera
+        other: Bilerak
+      decidim/meetings/minutes:
+        one: Minutu
+        other: Minutu
+      decidim/meetings/registration:
+        one: Izen-ematea
+        other: Izen-emateak
   decidim:
     admin:
       meeting_copies:

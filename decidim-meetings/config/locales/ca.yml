@@ -27,6 +27,24 @@ ca:
         description: Descripció
         video_url: URL del vídeo
         visible: És visible
+    models:
+      decidim/meetings/close_meeting_event: Trobada tancada
+      decidim/meetings/create_meeting_event: Trobada
+      decidim/meetings/meeting_registrations_enabled_event: S'han activat registres
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscripcions per sobre del límit
+      decidim/meetings/upcoming_meeting_event: Propera trobada
+      decidim/meetings/update_meeting_event: Trobada actualitzada
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Trobada
+        other: Trobades
+      decidim/meetings/minutes:
+        one: Acta
+        other: Actes
+      decidim/meetings/registration:
+        one: Inscripció
+        other: Inscripcions
   decidim:
     admin:
       meeting_copies:

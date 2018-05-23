@@ -17,6 +17,10 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/attachment_created_event: gehechtheid
+      decidim/component_published_event: Actieve component
+      decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/user:
+        one: Gebruiker
+        other: gebruikers
+      decidim/user_group:
+        one: Gebruikersgroep
+        other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -121,6 +132,7 @@ nl:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
         fields:
           passport_number: Paspoortnummer
+        name: Een ander voorbeeld toestemming
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
@@ -140,6 +152,12 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: en nog 1
+        other: en %{count} meer
+      see_less: "(zie minder)"
+      see_more: "(Bekijk meer)"
     components:
       dummy:
         actions:
@@ -260,6 +278,10 @@ nl:
       source: Bron
       title: Vingerafdruk
       value: Waarde
+    followers:
+      no_followers: Nog geen volgers.
+    following:
+      no_followings: Nog geen volgers.
     follows:
       create:
         button: Volgen
@@ -338,6 +360,8 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    notifications:
+      no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
@@ -352,17 +376,58 @@ nl:
         rejected: Geweigerd
         verified: Geverifieerd
     pages:
+      home:
+        extended:
+          debates: Debatten
+          debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel?
+          meetings: vergaderingen
+          meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
+          more_info: Meer informatie
+          proposals: voorstellen
+          proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
+        footer_sub_hero:
+          footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+          register: Registreren
+        hero:
+          participate: Deelnemen
+          welcome: Welkom op het portaal van de burgerinspraak %{organization}!
+        statistics:
+          answers_count: Voltooide enquêtes
+          assemblies_count: Events
+          comments_count: Reacties
+          debates_count: Debatten
+          endorsements_count: Aanbevelingen
+          headline: Huidige stand van %{organization}
+          meetings_count: vergaderingen
+          orders_count: stemmen
+          pages_count: Pages
+          processes_count: Thema's
+          projects_count: projecten
+          proposals_accepted: Aanvaarde voorstellen
+          proposals_count: voorstellen
+          results_count: resultaten
+          surveys_count: Enquête
+          users_count: Deelnemers
+          votes_count: stemmen
+        sub_hero:
+          register: Registreren
       index:
         title: Meer informatie
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
+      view: Uitzicht
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
-        about_me: Over mij
-        personal_url: Persoonlijke website
+        followers: Volgers
+        following: Als vervolg op
+        notifications: meldingen
+      user:
+        edit_profile: Bewerk profiel
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -509,8 +574,6 @@ nl:
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
-        no_notifications: Nog geen meldingen.
-        title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
@@ -529,44 +592,6 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-  pages:
-    home:
-      extended:
-        debates: Debatten
-        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel aan een thema?
-        meetings: Events
-        meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
-        more_info: Meer informatie
-        proposals: Voorstellen
-        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
-      footer_sub_hero:
-        footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
-        footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-        register: Registreren
-      hero:
-        participate: Deelnemen
-        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-      statistics:
-        answers_count: Voltooide enquêtes
-        assemblies_count: Events
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelen
-        headline: Huidige stand van %{organization}
-        meetings_count: Events
-        orders_count: stemmen
-        pages_count: Pages
-        processes_count: Thema's
-        projects_count: Projecten
-        proposals_accepted: Aanvaarde voorstellen
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        surveys_count: Enquête
-        users_count: Deelnemers
-        votes_count: Stemmen
-      sub_hero:
-        register: Registeren
   social_share_button:
     delicious: Heerlijk
     douban: Douban

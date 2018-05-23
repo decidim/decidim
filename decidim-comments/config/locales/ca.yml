@@ -1,4 +1,18 @@
 ca:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentari
+      decidim/comments/comment_created_event: Comentari
+      decidim/comments/reply_created_event: Resposta al comentari
+      decidim/comments/user_mentioned_event: Menció
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentari
+        other: Comentaris
+      decidim/comments/comment_vote:
+        one: Votació
+        other: Vots
   decidim:
     comments:
       comments: Comentaris

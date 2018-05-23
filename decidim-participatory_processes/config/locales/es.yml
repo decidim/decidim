@@ -44,6 +44,20 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Fase activada
+      decidim/participatory_process_step_changed_event: La fase ha cambiado
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proceso participativo
+        other: Procesos participativos
+      decidim/participatory_process_group:
+        one: Grupo de procesos participativos
+        other: Grupos de procesos participativos
+      decidim/participatory_process_step:
+        one: Fase
+        other: Fases
   decidim:
     admin:
       actions:

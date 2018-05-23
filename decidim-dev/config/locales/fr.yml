@@ -8,13 +8,17 @@ fr:
         title: Titre
         updated_at: Mis à jour à
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Un autre exemple d'autorisation
     dummy:
       admin:
         exports:
           dummies: Nuls
+    pages:
+      home:
+        statistics:
+          bar: Machin
+          dummies_count_high: Dummies haute
+          dummies_count_medium: Dummies moyen
+          foo: Truc
     participatory_processes:
       statistics:
         dummies_count_high: Super nuls
@@ -22,10 +26,3 @@ fr:
     resource_links:
       test_link:
         dummy_resource_dummy: Référence factice concernée
-  pages:
-    home:
-      statistics:
-        bar: Machin
-        dummies_count_high: Super nuls
-        dummies_count_medium: Moyennement nuls
-        foo: Truc
