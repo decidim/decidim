@@ -61,10 +61,6 @@
               </div>
             </div>
 
-            <p class="lopd-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
-
             <fieldset>
               <div class="field">
                 <%= f.check_box :newsletter, label: t(".newsletter") %>
@@ -74,6 +70,10 @@
                 <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
               </div>
             </fieldset>
+
+            <p class="lopd-text">
+              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
+            </p>
 
             <div class="actions">
               <%= f.submit t("devise.registrations.new.sign_up"), class: "button expanded" %>
