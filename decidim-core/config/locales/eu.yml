@@ -152,6 +152,12 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: eta beste bat
+        other: eta %{count} gehiago
+      see_less: "(ikusi gutxiago)"
+      see_more: "(gehiago ikusi)"
     components:
       dummy:
         actions:
