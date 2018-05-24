@@ -191,6 +191,7 @@ it:
         new:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
+          newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo identificatore univoco breve in %{organization}
           sign_in: Accedi
           sign_up: Iscriviti
@@ -201,6 +202,7 @@ it:
           subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
+          tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
