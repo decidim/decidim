@@ -45,6 +45,8 @@ fr:
             created_at: Créé à
             title: Titre
       posts:
+        show:
+          view: Vue
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Messages les plus commentés
