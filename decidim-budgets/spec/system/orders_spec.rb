@@ -36,7 +36,7 @@ describe "Orders", type: :system do
     before do
       login_as user, scope: :user
     end
-    
+
     context "and has not a pending order" do
       it "adds a project to the current order" do
         visit_component

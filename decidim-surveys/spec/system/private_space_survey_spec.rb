@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-
 describe "Private Space Answer a survey", type: :system do
   let(:manifest_name) { "surveys" }
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
@@ -82,12 +81,10 @@ describe "Private Space Answer a survey", type: :system do
         it "allows answering the survey" do
           visit_component
 
-
           expect(page).to have_i18n_content(survey.title, upcase: true)
           expect(page).to have_i18n_content(survey.description)
 
           fill_in survey_question.body["en"], with: "My first answer"
-
 
           check "survey_tos_agreement"
 
@@ -121,15 +118,9 @@ describe "Private Space Answer a survey", type: :system do
 
             expect(page).to have_selector(".button[disabled]")
           end
-
-
         end
-
       end
-
-
     end
-
   end
 
   context "when the spaces is private and not transparent" do
