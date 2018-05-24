@@ -191,6 +191,7 @@ sv:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
+          newsletter_title: Kontakt tillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
           sign_up: Registrera
@@ -201,6 +202,7 @@ sv:
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
+          tos_title: Användarvillkor
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
       sessions:
         new:
