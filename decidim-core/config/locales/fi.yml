@@ -191,6 +191,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
+          newsletter_title: Yhteydenottolupa
           nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
@@ -201,6 +202,7 @@ fi:
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja tukeaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
+          tos_title: Käyttöehdot
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
