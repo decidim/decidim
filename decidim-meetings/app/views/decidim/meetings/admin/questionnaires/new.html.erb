@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: meeting_questionnaires_path(current_meeting), method: :post, html: { class: "form new_questionnaire" }) do |form| %>
+  <%= render partial: "form", object: form, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+      <%= form.submit t(".create"), class: "button" %>
+  </div>
+<% end %>

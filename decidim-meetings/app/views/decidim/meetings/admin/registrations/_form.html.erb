@@ -13,6 +13,7 @@
           </ul>
         </div>
       <% end %>
+      <%= link_to t(".registration_form"), meeting.registration_form.present? ? edit_meeting_questionnaire_path(meeting_id: meeting.id, id: meeting.registration_form) : new_meeting_questionnaire_path(meeting, type: "registration"), class: "button tiny button--title" %>
     </h2>
   </div>
 

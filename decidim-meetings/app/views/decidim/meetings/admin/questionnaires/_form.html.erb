@@ -1,0 +1,53 @@
+<%= form.hidden_field :questionnaire_type %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+      <div class="button--title">
+        <%= export_dropdown if allowed_to? :export_answers, :questionnaire %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+    <div class="row column">
+      <%= form.translated :editor, :description, toolbar: :full, lines: 30 %>
+    </div>
+    <div class="row column">
+      <%= form.translated :editor, :tos, toolbar: :full, lines: 10 %>
+    </div>
+  </div>
+</div>
+
+<div class="questionnaire-questions">
+  <% if @form.can_edit_questions? %>
+    <template>
+      <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+        <%= render "question", form: question_form, id: tabs_id_for_question(blank_question), editable: @form.can_edit_questions? %>
+      <% end %>
+    </template>
+  <% else %>
+    <div class="callout warning">
+      <%= t(".already_answered_warning") %>
+    </div>
+  <% end %>
+
+  <div class="questionnaire-questions-list">
+    <% @form.questions.each do |question| %>
+      <%= fields_for "questionnaire[questions][]", question do |question_form| %>
+        <%= render "question", form: question_form, id: tabs_id_for_question(question), editable: @form.can_edit_questions? %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if @form.can_edit_questions? %>
+    <button class="button add-question"><%= t(".add_question") %></button>
+  <% end %>
+</div>
+
+<% if @form.can_edit_questions? %>
+  <%= javascript_include_tag "decidim/meetings/admin/questionnaires" %>
+<% end %>

@@ -23,6 +23,7 @@ module Decidim
           resources :attachments
           resources :copies, controller: "meeting_copies", only: [:new, :create]
           resources :minutes, except: [:show, :index]
+          resources :questionnaires, except: [:show, :index]
         end
         root to: "meetings#index"
       end

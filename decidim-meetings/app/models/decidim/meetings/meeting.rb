@@ -19,6 +19,7 @@ module Decidim
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :registration_form, -> { where questionnaire_type: "registration" }, class_name: "Decidim::Meetings::Questionnaire", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"

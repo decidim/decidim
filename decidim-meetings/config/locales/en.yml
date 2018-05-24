@@ -28,6 +28,8 @@ en:
         description: Description
         video_url: Video url
         visible: Is visible
+      questionnaire_question:
+        mandatory: Mandatory
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -179,6 +181,36 @@ en:
           update:
             invalid: There's been a problem updating this minutes
             success: Minutes successfully updated
+        questionnaires:
+          answer_option:
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
+          create:
+            invalid: There's been a problem creating this questionnaire
+            success: Questionnaire successfully created
+          edit:
+            title: Edit questionnaire
+            update: Update
+          form:
+            add_question: Add question
+            already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
+          new:
+            create: Create
+            title: Create questionnaire
+          question:
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
+          update:
+            invalid: There's been a problem updating this questionnaire
+            success: Questionnaire successfully updated
         models:
           meeting:
             name: Meeting
@@ -192,6 +224,7 @@ en:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
               zero: There has not been registrations yet.
+            registration_form: Registration form
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
@@ -263,6 +296,13 @@ en:
             map: Map
             start_time: Start date
             title: Title
+      questionnaires:
+        question_types:
+          long_answer: Long answer
+          multiple_option: Multiple option
+          short_answer: Short answer
+          single_option: Single option
+          sorting: Sorting
       read_more: "(read more)"
       registration_mailer:
         confirmation:

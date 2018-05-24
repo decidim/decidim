@@ -9,6 +9,16 @@ module Decidim
 
           return permission_action if permission_action.scope != :admin
 
+          if permission_action.subject == :questionnaire
+            case permission_action.action
+            when :destroy, :update
+              toggle_allow(questionnaire.present? && questionnaire.meeting.present?)
+            when :create
+              allow!
+            end
+            return permission_action
+          end
+
           return permission_action if permission_action.subject != :meeting
 
           case permission_action.action
@@ -27,6 +37,10 @@ module Decidim
 
         def meeting
           @meeting ||= context.fetch(:meeting, nil)
+        end
+
+        def questionnaire
+          @questionnaire ||= context.fetch(:questionnaire, nil)
         end
       end
     end
