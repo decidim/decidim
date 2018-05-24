@@ -65,9 +65,11 @@
               </div>
             </div>
 
-            <p class="lopd-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
+            <% if terms_and_conditions_page %>
+              <p class="lopd-text">
+                <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
+              </p>
+            <% end %>
 
             <fieldset>
               <div class="field">
