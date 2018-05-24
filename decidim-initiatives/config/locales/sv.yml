@@ -287,7 +287,9 @@ sv:
           title: Förteckning över signaturer
         vote_cabin:
           already_voted: Redan undertecknad
+          supports_required: "%{total_supports} signaturer krävs"
           vote: Skylt
+          votes_blocked: Signering inaktiverad
         votes_count:
           count:
             one: SIGNATUR
