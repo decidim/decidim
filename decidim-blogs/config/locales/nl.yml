@@ -45,6 +45,8 @@ nl:
             created_at: Aangemaakt op
             title: titel
       posts:
+        show:
+          view: Uitzicht
         sidebar_blog:
           comments: reacties
           most_commented_posts: Bericht met meeste reacties
