@@ -8,6 +8,7 @@ sv:
         end_voting_date: Slutdatum
         introductory_image: Inledande bild
         introductory_video_url: Inledande videoadress
+        questions: frågor
         slug: URL slug
         start_voting_date: Start datum
         subtitle: Texta
@@ -215,7 +216,18 @@ sv:
       regular_questions:
         title: Övriga samråd
       show:
+        badge_name:
+          finished: Färdiga
+          open: Öppen
+          open_votes: Öppna röster
+          published_results: Resultat publicerade
+        footer_button_text:
+          debate: Debatt
+          view: Se
+          view_results: Se Resultat
+          vote: Rösta
         see_finished_consultations: Se tidigare samråd
+        unspecified: Ej angivet
     menu:
       consultations: samråd
     pages:
