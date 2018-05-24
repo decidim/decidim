@@ -201,6 +201,7 @@ pl:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
+          newsletter_title: Skontaktuj się z uprawnieniami
           nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
@@ -211,6 +212,7 @@ pl:
           subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
           terms: Warunki korzystania
           tos_agreement: Zarejestrowając się, zgadzasz się na %{link}.
+          tos_title: Warunki usługi
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
