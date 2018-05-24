@@ -8,6 +8,7 @@ eu:
         end_voting_date: Amaiera data
         introductory_image: Sarrera-irudia
         introductory_video_url: Sarrera bideoaren URLa
+        questions: Galderak
         slug: URL slug
         start_voting_date: Hasiera data
         subtitle: azpititulua
@@ -215,7 +216,18 @@ eu:
       regular_questions:
         title: Beste kontsulta batzuk
       show:
+        badge_name:
+          finished: Amaitu
+          open: Open
+          open_votes: Ireki botoak
+          published_results: Argitaratutako emaitzak
+        footer_button_text:
+          debate: Debate
+          view: ikusi
+          view_results: Ikusi emaitzak
+          vote: Bozkatu
         see_finished_consultations: Ikusi aurreko kontsultak
+        unspecified: Zehaztu gabea
     menu:
       consultations: kontsultak
     pages:
