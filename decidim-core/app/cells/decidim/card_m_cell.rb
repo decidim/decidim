@@ -5,8 +5,11 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardMCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
+    include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
     include Decidim::SanitizeHelper
+    include Decidim::CardHelper
+    include Decidim::LayoutHelper
 
     def show
       render
@@ -18,12 +21,37 @@ module Decidim
       resource_locator(model).path
     end
 
+    def resource_image_path
+      nil
+    end
+
+    def has_image?
+      false
+    end
+
+    def has_link_to_resource?
+      true
+    end
+
+    def has_label?
+      context[:label].presence
+    end
+
+    def label
+      return if [false, "false"].include? context[:label]
+      return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+      context[:label]
+    end
+
     def title
       translated_attribute model.title
     end
 
     def description
-      decidim_sanitize model.description
+      attribute = model.try(:short_description) || model.description
+      text = translated_attribute(attribute)
+
+      decidim_sanitize(html_truncate(text, length: 100))
     end
 
     def decidim
@@ -46,8 +74,12 @@ module Decidim
       model.state
     end
 
+    def base_card_class
+      "card--#{dom_class(model)}"
+    end
+
     def card_classes
-      classes = ["card--#{dom_class(model)}"]
+      classes = [base_card_class]
       return classes unless has_state?
       classes.concat(state_classes).join(" ")
     end
@@ -56,12 +88,19 @@ module Decidim
       state_classes.concat(["card__text--status"]).join(" ")
     end
 
+    def state_classes
+      ["muted"]
+    end
+
     def comments_count
       model.comments.count
     end
 
     def statuses
-      [:creation_date, :follow, :comments_count]
+      collection = [:creation_date]
+      collection << :follow if model.is_a?(Decidim::Followable)
+      collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
+      collection
     end
 
     def creation_date_status
@@ -73,10 +112,16 @@ module Decidim
     end
 
     def comments_count_status
+      return render_comments_count unless has_link_to_resource?
+
       link_to resource_path do
-        with_tooltip t("decidim.comments.comments") do
-          render :comments_counter
-        end
+        render_comments_count
+      end
+    end
+
+    def render_comments_count
+      with_tooltip t("decidim.comments.comments") do
+        render :comments_counter
       end
     end
   end

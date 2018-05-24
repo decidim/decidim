@@ -17,6 +17,10 @@ pl:
         user_group_document_number: Numer dokumentu organizacji
         user_group_name: Nazwa organizacji
         user_group_phone: Telefon kontaktowy organizacji
+    models:
+      decidim/attachment_created_event: Załącznik
+      decidim/component_published_event: Aktywny składnik
+      decidim/profile_updated_event: Profil zaktualizowany
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,27 @@ pl:
         user_group_document_number: Numer dokumentu organizacji
         user_group_name: Nazwa organizacji
         user_group_phone: Telefon organizacyjny
+    models:
+      decidim/user:
+        one: Użytkownik
+        few: Użytkownicy
+        many: Użytkownicy
+        other: Użytkownicy
+      decidim/user_group:
+        one: Grupa użytkowników
+        few: Grupy użytkowników
+        many: Grupy użytkowników
+        other: Grupy użytkowników
   booleans:
     'false': 'Nie'
     'true': 'Tak'
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -100,11 +119,28 @@ pl:
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
       photos:
         related_photos: Powiązane zdjęcia
+    author:
+      comments:
+        one: komentarz
+        few: komentarze
+        many: komentarze
+        other: komentarze
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
+        fields:
+          passport_number: Numer paszportu
+        name: Kolejna przykładowa autoryzacja
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
         fields:
@@ -124,6 +160,14 @@ pl:
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
       started_at: Rozpoczęty pod adresem %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: i 1 więcej
+        few: i %{count} więcej
+        many: i %{count} więcej
+        other: i %{count} więcej
+      see_less: "(patrz mniej)"
+      see_more: "(Zobacz więcej)"
     components:
       dummy:
         actions:
@@ -236,6 +280,18 @@ pl:
         project: Projekty
         proposal: Propozycje
         result: Wyniki
+    fingerprint:
+      check: Sprawdź odcisk palca
+      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      online_calculator_name: Kalkulator MD5 online
+      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      source: Źródło
+      title: Odcisk palca
+      value: Wartość
+    followers:
+      no_followers: Brak obserwujących.
+    following:
+      no_followings: Nie ma jeszcze żadnych śladów.
     follows:
       create:
         button: Postępuj zgodnie z
@@ -314,6 +370,8 @@ pl:
         success: Zyskujesz subskrypcję.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
+    notifications:
+      no_notifications: Nie powiadomienia.
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
@@ -328,17 +386,58 @@ pl:
         rejected: Odrzucone
         verified: Zweryfikowane
     pages:
+      home:
+        extended:
+          debates: Debaty
+          debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
+          how_to_participate: Jak wziąć udział w procesie?
+          meetings: Spotkania
+          meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
+          more_info: Więcej informacji
+          proposals: Propozycje
+          proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
+        footer_sub_hero:
+          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
+          footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
+          register: Zarejestrować
+        hero:
+          participate: Uczestniczyć
+          welcome: Witamy w %{organization}!
+        statistics:
+          answers_count: Ankiety zakończone
+          assemblies_count: Złożenia
+          comments_count: Komentarze
+          debates_count: Debaty
+          endorsements_count: Adnotacje
+          headline: Aktualny stan %{organization}
+          meetings_count: Spotkania
+          orders_count: Głosowania
+          pages_count: Strony
+          processes_count: Procesy
+          projects_count: Projektowanie
+          proposals_accepted: Przyjęte propozycje
+          proposals_count: Propozycje
+          results_count: Wyniki
+          surveys_count: Ankiety
+          users_count: Uczestnicy
+          votes_count: Głosowania
+        sub_hero:
+          register: Zarejestrować
       index:
         title: Więcej informacji
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
+      view: Widok
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
-        about_me: O mnie
-        personal_url: Osobista strona internetowa
+        followers: Obserwujący
+        following: Następujący
+        notifications: Powiadomienia
+      user:
+        edit_profile: Edytuj profil
     reported_mailer:
       hide:
         hello: Witaj %{name},
@@ -387,8 +486,6 @@ pl:
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
-      author:
-        deleted: Usunięty użytkownik
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -487,8 +584,6 @@ pl:
         expire_time_html: Sesja wygasa w <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
-        no_notifications: Nie powiadomienia.
-        title: Powiadomienia
       user_menu:
         admin_dashboard: Panel administracyjny
         conversations: Rozmowy
@@ -507,44 +602,6 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: język angielski
-  pages:
-    home:
-      extended:
-        debates: Debaty
-        debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
-        how_to_participate: Jak wziąć udział w procesie?
-        meetings: Spotkania
-        meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
-        more_info: Więcej informacji
-        proposals: Propozycje
-        proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
-      footer_sub_hero:
-        footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
-        footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-        register: Zarejestrować
-      hero:
-        participate: Uczestniczyć
-        welcome: Witamy w %{organization}!
-      statistics:
-        answers_count: Ankiety zakończone
-        assemblies_count: Złożenia
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Adnotacje
-        headline: Aktualny stan %{organization}
-        meetings_count: Spotkania
-        orders_count: Głosowania
-        pages_count: Strony
-        processes_count: Procesy
-        projects_count: Projektowanie
-        proposals_accepted: Przyjęte propozycje
-        proposals_count: Propozycje
-        results_count: wyniki
-        surveys_count: Ankiety
-        users_count: Uczestnicy
-        votes_count: Głosowania
-      sub_hero:
-        register: Zarejestrować
   social_share_button:
     delicious: Pyszne
     douban: Douban

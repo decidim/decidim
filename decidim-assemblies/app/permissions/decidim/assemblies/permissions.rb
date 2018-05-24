@@ -4,11 +4,14 @@ module Decidim
   module Assemblies
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        user_can_enter_space_area?
+
         return permission_action if assembly && !assembly.is_a?(Decidim::Assembly)
 
         if permission_action.scope == :public
           public_list_assemblies_action?
           public_read_assembly_action?
+          public_list_members_action?
           public_report_content_action?
           return permission_action
         end
@@ -19,8 +22,6 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
-
-        user_can_enter_space_area?
 
         if read_admin_dashboard_action?
           user_can_read_admin_dashboard?
@@ -87,6 +88,13 @@ module Decidim
         toggle_allow(can_manage_assembly?)
       end
 
+      def public_list_members_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :members
+
+        allow!
+      end
+
       def public_report_content_action?
         return unless permission_action.action == :create &&
                       permission_action.subject == :moderation
@@ -99,6 +107,7 @@ module Decidim
       # not the assembly groups one.
       def user_can_enter_space_area?
         return unless permission_action.action == :enter &&
+                      permission_action.scope == :admin &&
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :assemblies
 
@@ -182,7 +191,8 @@ module Decidim
           :component_data,
           :moderation,
           :assembly,
-          :assembly_user_role
+          :assembly_user_role,
+          :assembly_member
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -199,6 +209,7 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
+          :assembly_member,
           :space_private_user
         ].include?(permission_action.subject)
         allow! if is_allowed

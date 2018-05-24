@@ -17,6 +17,10 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
+    models:
+      decidim/attachment_created_event: Adjunt
+      decidim/component_published_event: Component actiu
+      decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
+    models:
+      decidim/user:
+        one: Usuari
+        other: Usuaris
+      decidim/user_group:
+        one: Grup d'usuaris
+        other: Grups d'usuaris
   booleans:
     'false': 'No'
     'true': 'Sí'
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +123,16 @@ ca:
         related_documents: Documents relacionats
       photos:
         related_photos: Fotos relacionades
+    author:
+      comments:
+        one: comentari
+        other: comentaris
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Obté la verificació introduint un número de passaport que comenci per "A"
+        fields:
+          passport_number: Número de passaport
+        name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
@@ -128,6 +152,12 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: i 1 més
+        other: i %{count} més
+      see_less: "(veure menys)"
+      see_more: "(veure més)"
     components:
       dummy:
         actions:
@@ -240,6 +270,18 @@ ca:
         project: Projectes
         proposal: propostes
         result: Resultats
+    fingerprint:
+      check: Verifica l'empremta digital
+      explanation: El text següent és una representació reduïda amb una funció hash d'aquest contingut. És útil per assegurar-se que el contingut no ha estat manipulat, ja que una sola modificació provocaria un valor totalment diferent.
+      online_calculator_name: Calculadora MD5 en línia
+      replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
+      source: Origen
+      title: Empremta digital
+      value: Valor
+    followers:
+      no_followers: Encara no hi ha seguidors.
+    following:
+      no_followings: Encara no hi ha ningú seguit.
     follows:
       create:
         button: Seguir
@@ -318,6 +360,8 @@ ca:
         success: Has cancel·lat la subscripció amb èxit.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
+    notifications:
+      no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
@@ -332,17 +376,58 @@ ca:
         rejected: Rebutjades
         verified: Verificada
     pages:
+      home:
+        extended:
+          debates: Debats
+          debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
+          how_to_participate: Com participo en un procés?
+          meetings: Trobades
+          meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
+          more_info: Més informació
+          proposals: Propostes
+          proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
+        footer_sub_hero:
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
+          footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
+          register: Registra't
+        hero:
+          participate: Participa
+          welcome: Benvingut a %{organization}!
+        statistics:
+          answers_count: Enquestes realitzades
+          assemblies_count: Assemblees
+          comments_count: Comentaris
+          debates_count: Debats
+          endorsements_count: Adhesions
+          headline: Estat actual de %{organization}
+          meetings_count: Trobades
+          orders_count: Vots
+          pages_count: Pàgines
+          processes_count: Processos
+          projects_count: Projectes
+          proposals_accepted: Propostes acceptades
+          proposals_count: Propostes
+          results_count: Resultats
+          surveys_count: Enquestes
+          users_count: Participants
+          votes_count: Vots
+        sub_hero:
+          register: Registra't
       index:
         title: Més informació
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
       deleted: Usuari eliminat
+      view: Veure
     profiles:
-      default_officialization_text: Aquest participant es verifica públicament. El seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
+      default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
-        about_me: Sobre mi
-        personal_url: Lloc web personal
+        followers: Seguidors
+        following: Seguint
+        notifications: Notificacions
+      user:
+        edit_profile: Edita el perfil
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -391,8 +476,6 @@ ca:
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
-      author:
-        deleted: Usuari eliminat
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
@@ -492,8 +575,6 @@ ca:
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marca tots com a llegits
-        no_notifications: Encara no hi ha notificacions.
-        title: Notificacions
       user_menu:
         admin_dashboard: Tauler d'administració
         conversations: Converses
@@ -512,44 +593,6 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-  pages:
-    home:
-      extended:
-        debates: Debats
-        debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-        how_to_participate: Com participo en un procés?
-        meetings: Trobades
-        meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-        more_info: Més informació
-        proposals: Propostes
-        proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
-      footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-        register: Registra't
-      hero:
-        participate: Participa
-        welcome: Benvingut a %{organization}!
-      statistics:
-        answers_count: Enquestes realitzades
-        assemblies_count: Assemblees
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        headline: Estat actual de %{organization}
-        meetings_count: Trobades
-        orders_count: Vots
-        pages_count: Pàgines
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_accepted: Propostes acceptades
-        proposals_count: Propostes
-        results_count: Resultats
-        surveys_count: Enquestes
-        users_count: Participants
-        votes_count: Suports
-      sub_hero:
-        register: Registre
   social_share_button:
     delicious: Delicious
     douban: Douban

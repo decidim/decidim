@@ -14,6 +14,17 @@ nl:
             choices:
               missing: zijn niet compleet
               too_many: zijn te veel
+    models:
+      decidim/surveys/closed_survey_event: Enquête beëindigd
+      decidim/surveys/opened_survey_event: Enquête is gestart
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquête
+        other: onderzoeken
+      decidim/surveys/survey_answer:
+        one: Antwoord
+        other: antwoorden
   decidim:
     components:
       surveys:

@@ -9,10 +9,17 @@ es:
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
+    models:
+      decidim/sortitions/create_sortition_event: Sorteo
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteo
+        other: Sorteos
   decidim:
     components:
       sortitions:
-        name: Clases
+        name: Sorteos
         settings:
           global:
             comments_enabled: Comentarios habilitados
@@ -23,6 +30,10 @@ es:
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nuevo sorteo añadida a %{participatory_space_title}
           notification_title: El sorteo <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sorteos
     participatory_processes:
       statistics:
         sortitions_count: Sorteos
@@ -106,8 +117,6 @@ es:
           label: 'Ordena los sorteos por:'
           random: Aleatorio
           recent: Reciente
-        proposal:
-          view_proposal: Ver propuesta
         results_count:
           count:
             one: propuesta seleccionada
@@ -127,10 +136,11 @@ es:
           time_seed: "(2) Tiempo de semilla"
           witnesses: Testigos
         sortition:
+          random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
-            other: "%{count} propuestas seleccionadas"
-          view_sortition: Ver sorteo
+            other: '%{count} propuestas seleccionadas'
+          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:
@@ -139,7 +149,3 @@ es:
           count:
             one: 1 sorteo
             other: "%{count} clasificaciones"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sorteos

@@ -51,6 +51,7 @@ gl:
           success: Autorizouse con éxito.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
             dummy_authorization_handler: Verifique contra o controlador de autorización de exemplo
             dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
             id_documents: Verifique a carga do documento de identidade

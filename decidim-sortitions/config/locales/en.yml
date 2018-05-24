@@ -10,6 +10,13 @@ en:
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
         title: Title
         witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -24,6 +31,10 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New sortition added to %{participatory_space_title}
           notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -130,10 +141,11 @@ en:
           time_seed: "(2) Time seed"
           witnesses: Witnesses
         sortition:
+          random_seed: Random seed
           selected_proposals:
-            one: 1 proposal selected
-            other: "%{count} proposals selected"
-          view_sortition: View sortition
+            one: proposal selected
+            other: proposals selected
+          view: View
         sortition_author:
           deleted: Deleted user
         sortition_cancel_author:
@@ -142,7 +154,3 @@ en:
           count:
             one: 1 sortition
             other: "%{count} sortitions"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

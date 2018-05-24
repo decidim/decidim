@@ -98,13 +98,7 @@ Also, if you want to verify yourself against the default authorization handler u
 | [Sortitions](https://github.com/decidim/decidim/tree/master/decidim-sortitions)                           |  This component makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.                                                                                              |
 | [Consultations](https://github.com/decidim/decidim/tree/master/decidim-consultations)                     |  This module creates a new space for decidim to host consultations: debates around critical questions and a proxy for eVoting                                |
 | [Initiatives](https://github.com/decidim/decidim/tree/master/decidim-initiatives)                                             | Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike participatory processes that must be created by an administrator, Civic initiatives can be created by any user of the platform.                                                                                             |
-| [Blogs](https://github.com/decidim/decidim-module-blogs)                                                  |  This component makes possible to add posts ordered by publication time to spaces.                                                                           |
-
-### Official (on development)
-
-| Module                                                                                                    | Description                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Blogs](https://github.com/decidim/decidim-module-blogs)                                                  |  This component makes possible to add posts ordered by publication time to spaces.                                                                           |
+| [Blogs](https://github.com/decidim/decidim/tree/master/decidim-blogs)                                                  |  This component makes possible to add posts ordered by publication time to spaces.                                                                           |
 
 ### Community
 

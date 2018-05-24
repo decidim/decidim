@@ -39,11 +39,15 @@ module Decidim
       let(:autocomplete_data) { JSON.parse(subject.xpath("//div[@data-autocomplete]/@data-autocomplete").first.value) }
 
       it "sets the plugin data attribute" do
-        expect(subject.css("div.autocomplete-field [data-plugin='autocomplete']")).not_to be_nil
+        expect(subject.css("div[data-plugin='autocomplete']")).not_to be_empty
       end
 
       it "sets the autocomplete data attribute" do
-        expect(subject.css("div.autocomplete-field [data-autocomplete]")).not_to be_nil
+        expect(subject.css("div[data-autocomplete]")).not_to be_empty
+      end
+
+      it "sets the autocomplete_for data attribute" do
+        expect(subject.css("div[data-autocomplete-for='category_id']")).not_to be_empty
       end
 
       context "without selected value" do

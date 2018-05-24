@@ -10,7 +10,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Fill in your application name and click "Create New Facebook App ID" button.
 1. Fill in the contact email info and category.
 1. Validate the captcha.
-1. Ignore the source code and fill in the URL field.
+1. Ignore the source code and fill in the URL field with `https://YOUR_DECIDIM_HOST/users/auth/facebook/callback`
 1. Navigate to the application dashboard and copy the APP_ID and APP_SECRET
 1. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
 

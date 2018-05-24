@@ -2,6 +2,8 @@
 
 require "active_support/concern"
 
+require_dependency "paper_trail/frameworks/active_record"
+
 module Decidim
   # A concern that adds traceabilty capability to the given model. Including this
   # allows you the keep track of changes in the model attributes and changes authorship.

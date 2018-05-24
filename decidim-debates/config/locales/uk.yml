@@ -55,11 +55,6 @@ uk:
         create:
           success: Обговорення успішно створено.
         debate:
-          comments:
-            one: Коментар
-            few: Коментарі
-            many: Коментарів
-            other: Коментарів
           participate: Взяти участь
         filters:
           all: Усі
@@ -85,9 +80,6 @@ uk:
           close_window: Закрити вікно
           share: Поділитися
           share_link: Поділитись посиланням
-        show:
-          comments: Коментарі
-          report: Поскаржитись
       models:
         debate:
           fields:

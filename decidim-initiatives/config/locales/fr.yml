@@ -32,6 +32,17 @@ fr:
         address: Adresse
         id_document: CAF
         name: Nom complet
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initatif
+        other: Initiatives
+      decidim/initiative_comittee:
+        one: Comité
+        other: Comités
+      decidim/initiative_vote:
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ fr:
       titles:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de signatures!
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle étape franchie!
+          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
     initiatives:
       admin:
         committee_requests:
@@ -206,18 +224,22 @@ fr:
           email_subject: Nouvelle initiative de %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a approuvé l'initiative suivante, peut-être que vous voulez contribuer à la conversation:"
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a recommandé l'initiative suivante, peut-être que vous voulez contribuer à la conversation:"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Initiative approuvée par %{author_nickname}
+          email_subject: Initiative recommandée par %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été endossée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
       initiative_votes:
         create:
-          error: Il y a eu des erreurs lors du vote de l'initiative.
+          error: Il y a eu des erreurs lors de la signature de l'initiative.
       initiatives:
         author:
           deleted: Supprimé
+        author_list:
+          hidden_authors_count:
+            one: et 1 autre personne
+            other: et %{count} autres personnes
         count:
           title:
             one: "%{count} initiative"
@@ -242,7 +264,7 @@ fr:
         orders:
           label: 'Trier les initiatives par:'
           most_commented: Le plus commenté
-          most_voted: Le plus voté
+          most_voted: Le plus signé
           random: au hasard
           recent: Le plus récent
         result:
@@ -253,22 +275,15 @@ fr:
           offline_method: Cette initiative citoyenne ne recueille que des soutiens face à face.
         signature_identities:
           select_identity: Sélectionnez l'identité de l'utilisateur
+        signatures_count:
+          one: " Signature"
+          other: " signatures"
         statistics:
           assistants_count_title: Assistants
           comments_count_title: commentaires
           meetings_count_title: Réunions
-          supports_count_title: Adhésions
-        supports:
-          title: Liste des adhérences
-        supports_count:
-          count:
-            one: " soutien"
-            other: " les soutiens"
         vote_cabin:
-          already_voted: Déjà voté
-          supports_required: "%{total_supports} votes requis"
           vote: Signe
-          votes_blocked: Vote désactivé
         votes_count:
           count:
             one: SIGNATURE

@@ -11,6 +11,15 @@ ca:
         start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
+    models:
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debats desactivats
+      decidim/debates/creation_enabled_event: Debats habilitats
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: Debats
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ ca:
           invalid: Hi ha hagut un problema en crear el debat.
           success: Debat creat correctament.
         debate:
-          comments:
-            one: Comentari
-            other: Comentaris
           participate: Participa
         filters:
           all: Tots
@@ -94,9 +100,6 @@ ca:
           close_window: Tanca la finestra
           share: Compartir
           share_link: Comparteix l'enllaç
-        show:
-          comments: Comentaris
-          report: Denuncia
       models:
         debate:
           fields:

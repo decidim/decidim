@@ -6,6 +6,7 @@ module Decidim
     # add more logic to a `Decidim::Notification` and are used to render them in the
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
+      extend ActiveModel::Translation
       include Decidim::TranslatableAttributes
 
       class_attribute :types

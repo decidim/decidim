@@ -88,7 +88,7 @@ module Decidim
                     icon_name: "layers",
                     position: 3,
                     active: :inclusive,
-                    if: allowed_to?(:enter, :space_area, space_name: :processes) && allowed_to?(:manage, :process_group, {}, [Decidim::ParticipatoryProcesses::Permissions])
+                    if: allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
     end

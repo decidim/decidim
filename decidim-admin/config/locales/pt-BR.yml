@@ -50,7 +50,7 @@ pt-BR:
         highlighted_content_banner_action_url: URL do botão de ação
         highlighted_content_banner_enabled: Mostrar o banner de conteúdo destacado
         highlighted_content_banner_image: Imagem
-        highlighted_content_banner_short_description: Pequena descrição
+        highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
         homepage_image: Imagem do site inicial
         instagram_handler: Instagram handler
@@ -59,7 +59,7 @@ pt-BR:
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial
         official_url: URL da organização oficial
-        omnipresent_banner_short_description: Pequena descrição
+        omnipresent_banner_short_description: Descrição curta
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
@@ -171,7 +171,7 @@ pt-BR:
         new:
           create: Criar área
           title: Nova área
-        no_areas: No Areas
+        no_areas: Nenhuma área
         update:
           error: Ocorreu um erro ao atualizar esta área.
           success: Área atualizada com sucesso
@@ -210,6 +210,9 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este anexo.
           success: Anexo atualizado com sucesso.
+      autocomplete:
+        no_results: Nenhum resultado encontrado
+        search_prompt: Digite pelo menos três caracteres para pesquisar
       categories:
         create:
           error: Ocorreu um erro ao criar esta categoria.
@@ -488,7 +491,7 @@ pt-BR:
           officialized: Oficializado
           reofficialize: Reorientar
           search: Pesquisa
-          status: Status
+          status: Situação
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização

@@ -39,7 +39,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
-    resources :notifications, only: [:index, :destroy] do
+    resources :notifications, only: [:destroy] do
       collection do
         delete :read_all
       end
@@ -49,10 +49,13 @@ Decidim::Core::Engine.routes.draw do
   end
 
   resources :profiles, only: [:show], param: :nickname
+  scope "/profiles/:nickname" do
+    get "notifications", to: "profiles#show", as: "profile_notifications", active: "notifications"
+    get "following", to: "profiles#show", as: "profile_following", active: "following"
+    get "followers", to: "profiles#show", as: "profile_followers", active: "followers"
+  end
 
   resources :pages, only: [:index, :show], format: false
-
-  get :organization_users, to: "users#index"
 
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
