@@ -44,6 +44,20 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Stap geactiveerd
+      decidim/participatory_process_step_changed_event: Stap veranderd
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participatief proces
+        other: Participatieve processen
+      decidim/participatory_process_group:
+        one: Participerende procesgroep
+        other: Participerende procesgroepen
+      decidim/participatory_process_step:
+        one: Stap
+        other: Stappen
   decidim:
     admin:
       actions:
@@ -283,11 +297,12 @@ nl:
         scope: Scope
         start_date: Startdatum
         target: Wie neemt deel
+        unspecified: Niet gespecificeerd
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties
         debates_count: Debatten
-        endorsements_count: Goedkeuringen
+        endorsements_count: Aanbevelingen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
@@ -304,6 +319,7 @@ nl:
       participatory_process_groups:
         participatory_process_group:
           browse: Bladeren
+          processes_count: 'Processen:'
       participatory_process_widgets:
         show:
           active_step: Actieve stap

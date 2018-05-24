@@ -32,6 +32,17 @@ es:
         address: Dirección
         id_document: CIF
         name: Nombre completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
+      decidim/initiative_comittee:
+        one: Comité
+        other: Comités
+      decidim/initiative_vote:
+        one: Firma
+        other: Firmas
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ es:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: '¡Nuevo hito completado!'
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ es:
         title: Iniciativas
       initiative_votes:
         create:
-          error: Ha habido errores al apoyar la iniciativa.
+          error: Ha habido errores al firmar la iniciativa.
       initiatives:
         author:
           deleted: Eliminado
+        author_list:
+          hidden_authors_count:
+            one: y 1 persona más
+            other: y %{count} personas más
         count:
           title:
             one: "%{count} iniciativa"
@@ -242,7 +264,7 @@ es:
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
-          most_voted: Los más votados
+          most_voted: La mayoría firmada
           random: Aleatorio
           recent: Más reciente
         result:
@@ -253,22 +275,19 @@ es:
           offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
         signature_identities:
           select_identity: Seleccionar identidad de usuario
+        signatures_count:
+          one: " firma"
+          other: " firmas"
         statistics:
           assistants_count_title: Asistentes
           comments_count_title: Comentarios
           meetings_count_title: Reuniones
-          supports_count_title: Adhesiones
+          supports_count_title: Firmas
         supports:
-          title: Listado de adhesiones
-        supports_count:
-          count:
-            one: " apoyo"
-            other: " apoyos"
+          title: Listado de firmas
         vote_cabin:
-          already_voted: Ya votado
-          supports_required: "Se requieren %{total_supports} votos"
+          already_voted: Ha sido firmado
           vote: Firmar
-          votes_blocked: Votación deshabilitada
         votes_count:
           count:
             one: FIRMA

@@ -16,6 +16,31 @@ eu:
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
         origin_component_id: Proposamenen kopia egiteko osagaia
+    models:
+      decidim/proposals/accepted_proposal_event: Onartutako proposamena
+      decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
+      decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
+      decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
+      decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
+      decidim/proposals/proposal_endorsed_event: Onartutako proposamena
+      decidim/proposals/proposal_mentioned_event: Proposamena aipatua
+      decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
+      decidim/proposals/rejected_proposal_event: Proposamena baztertu da
+      decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposamen
+        other: proposamenak
+      decidim/proposals/proposal_endorsement:
+        one: abal
+        other: Oniritziak
+      decidim/proposals/proposal_note:
+        one: Ohar
+        other: Oharrak
+      decidim/proposals/proposal_vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     components:
       proposals:
@@ -114,16 +139,10 @@ eu:
       participatory_process_groups:
         highlighted_proposals:
           proposals: proposamenak
-        proposal:
-          creation_date: 'Sorkuntza: %{date}'
-          view_proposal: Ikusi proposamena
     participatory_spaces:
       highlighted_proposals:
         proposals: proposamenak
         see_all_proposals: Ikusi proposamen guztiak
-      proposal:
-        creation_date: 'Sorkuntza: %{date}'
-        view_proposal: Ikusi proposamena
     proposals:
       actions:
         answer: Erantzuna
@@ -220,6 +239,7 @@ eu:
             category: Kategoria
             comments: Oharrak
             created_at: Sortutako at
+            endorsements: Oniritziak
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
@@ -269,6 +289,7 @@ eu:
         endorsement_identities_cabin:
           endorse: gatoz
         endorsements_card_row:
+          comments: Oharrak
           endorse: gatoz
         filters:
           accepted: Onartuta

@@ -16,6 +16,31 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
         origin_component_id: Komponent för att kopiera förslagen från
+    models:
+      decidim/proposals/accepted_proposal_event: Förslag accepterat
+      decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
+      decidim/proposals/creation_enabled_event: Förslagstillverkning möjliggjorde
+      decidim/proposals/endorsing_enabled_event: Förslag godkännande aktiverat
+      decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
+      decidim/proposals/proposal_endorsed_event: Förslag godkänd
+      decidim/proposals/proposal_mentioned_event: Förslag som nämns
+      decidim/proposals/publish_proposal_event: Förslag publicerat
+      decidim/proposals/rejected_proposal_event: Förkastat förslag
+      decidim/proposals/voting_enabled_event: Förslag till omröstning aktiverat
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Förslag
+        other: förslag
+      decidim/proposals/proposal_endorsement:
+        one: Godkännande
+        other: påskrifter
+      decidim/proposals/proposal_note:
+        one: Notera
+        other: anteckningar
+      decidim/proposals/proposal_vote:
+        one: Rösta
+        other: röster
   decidim:
     components:
       proposals:
@@ -114,16 +139,10 @@ sv:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Förslag
-        proposal:
-          creation_date: 'Skapelse: %{date}'
-          view_proposal: Visa förslag
     participatory_spaces:
       highlighted_proposals:
         proposals: Förslag
         see_all_proposals: Se alla förslag
-      proposal:
-        creation_date: 'Skapelse: %{date}'
-        view_proposal: Visa förslag
     proposals:
       actions:
         answer: Svara
@@ -220,6 +239,7 @@ sv:
             category: Kategori
             comments: Kommentarer
             created_at: Skapad vid
+            endorsements: påskrifter
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
@@ -269,6 +289,7 @@ sv:
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
+          comments: kommentarer
           endorse: Stödja
         filters:
           accepted: Accepterad

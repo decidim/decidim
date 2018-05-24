@@ -15,6 +15,11 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     Decidim::Initiative.where(organization: organization)
   end
 
+  participatory_space.register_resource(:initiative) do |resource|
+    resource.model_class_name = "Decidim::Initiative"
+    resource.card = "decidim/initiatives/initiative"
+  end
+
   participatory_space.model_class_name = "Decidim::Initiative"
   participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 
@@ -46,13 +51,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       initiative = Decidim::Initiative.create!(
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),
-        scoped_type: Decidim::InitiativesTypeScope.reorder("RANDOM()").first,
+        scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
         state: "published",
         signature_type: "online",
         signature_start_time: DateTime.current - 7.days,
         signature_end_time:  DateTime.current + 7.days,
         published_at: DateTime.current - 7.days,
-        author: Decidim::User.reorder("RANDOM()").first,
+        author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       )
 

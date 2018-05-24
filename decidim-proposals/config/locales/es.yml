@@ -16,6 +16,31 @@ es:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
+    models:
+      decidim/proposals/accepted_proposal_event: Propuesta aceptada
+      decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
+      decidim/proposals/creation_enabled_event: Creación de propuesta habilitada
+      decidim/proposals/endorsing_enabled_event: Aprobación de propuesta habilitada
+      decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
+      decidim/proposals/proposal_endorsed_event: Adherido/a
+      decidim/proposals/proposal_mentioned_event: Propuesta mencionada
+      decidim/proposals/publish_proposal_event: Propuesta publicada
+      decidim/proposals/rejected_proposal_event: Propuesta rechazada
+      decidim/proposals/voting_enabled_event: Votación de propuestas habilitada
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Propuesta
+        other: Propuestas
+      decidim/proposals/proposal_endorsement:
+        one: Adhesión
+        other: Adhesiones
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Notas
+      decidim/proposals/proposal_vote:
+        one: Voto
+        other: Votos
   decidim:
     components:
       proposals:
@@ -114,16 +139,10 @@ es:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propuestas
-        proposal:
-          creation_date: 'Creación: %{date}'
-          view_proposal: Ver propuesta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propuestas
         see_all_proposals: Ver todas las propuestas
-      proposal:
-        creation_date: 'Creación: %{date}'
-        view_proposal: Ver propuesta
     proposals:
       actions:
         answer: Respuesta
@@ -220,6 +239,7 @@ es:
             category: Categoría
             comments: Comentarios
             created_at: Creado el
+            endorsements: Adhesión
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
@@ -269,6 +289,7 @@ es:
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:
+          comments: Comentarios
           endorse: Adherirse
         filters:
           accepted: Aceptadas
@@ -354,7 +375,7 @@ es:
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser aceptado, las propuestas deben llegar a %{limit} apoyos
+            description: Para ser validadas, las propuestas deben llegar a %{limit} apoyos
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.

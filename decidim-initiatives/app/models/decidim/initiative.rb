@@ -15,6 +15,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::Initiatives::InitiativeSlug
+    include Decidim::Resourceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -92,7 +93,7 @@ module Decidim
     def self.order_randomly(seed)
       transaction do
         connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_initiatives".*, RANDOM()').order("RANDOM()").load
+        select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
     end
 

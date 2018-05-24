@@ -41,7 +41,7 @@ Decidim.register_component(:pages) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:page) do |resource|
     resource.model_class_name = "Decidim::Pages::Page"
   end
 

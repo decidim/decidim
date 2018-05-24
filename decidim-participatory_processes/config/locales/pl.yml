@@ -44,6 +44,26 @@ pl:
         email: Adres e-mail
         name: Nazwa
         role: Rola
+    models:
+      decidim/participatory_process_step_activated_event: Aktywowany krok
+      decidim/participatory_process_step_changed_event: Krok zmienił się
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proces partycypacyjny
+        few: Procesy partycypacyjne
+        many: Procesy partycypacyjne
+        other: Procesy partycypacyjne
+      decidim/participatory_process_group:
+        one: Uczestnicza grupa procesowa
+        few: Uczestniczące grupy procesów
+        many: Uczestniczące grupy procesów
+        other: Uczestniczące grupy procesów
+      decidim/participatory_process_step:
+        one: Krok
+        few: Kroki
+        many: Kroki
+        other: Kroki
   decidim:
     admin:
       actions:
@@ -283,6 +303,7 @@ pl:
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
+        unspecified: Nieokreślony
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
@@ -304,6 +325,7 @@ pl:
       participatory_process_groups:
         participatory_process_group:
           browse: Paść się
+          processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
           active_step: Aktywny krok
@@ -311,6 +333,12 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
+        order_by_processes:
+          processes:
+            one: "%{count} proces"
+            few: "%{count} procesów"
+            many: "%{count} procesów"
+            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział

@@ -11,6 +11,15 @@ eu:
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida gisa
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debateak desgaituta daude
+      decidim/debates/creation_enabled_event: Debateak gaituta
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: eztabaidak
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ eu:
           invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
           success: Debate sortu da behar bezala.
         debate:
-          comments:
-            one: Iruzkina
-            other: Oharrak
           participate: Parte hartu
         filters:
           all: guztiak
@@ -94,9 +100,6 @@ eu:
           close_window: Itxi leihoa
           share: Share
           share_link: Partekatu esteka
-        show:
-          comments: Oharrak
-          report: txostena
       models:
         debate:
           fields:

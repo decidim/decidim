@@ -25,19 +25,36 @@
 }
 
 .register-form{
-  margin-top: 2rem;
-
   input[type="text"],
   input[type="email"],
   input[type="password"]{
     height: 3rem;
   }
 
-  .button{
-    margin: 2rem 0;
+  legend{
+    font-size: 1.25em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-align: center;
   }
 
-  legend{
+  label > [type='checkbox']{
     margin-bottom: 1rem;
+  }
+
+  .tos-text{
+    padding: .5rem;
+    border: 1px solid #e8e8e8;
+    margin: 1rem 0;
+    max-height: 10rem;
+    overflow: auto;
+    font-size: .8rem;
+    font-style: italic;
+  }
+
+  #card__tos,
+  #card__newsletter{
+    text-align: center;
   }
 }

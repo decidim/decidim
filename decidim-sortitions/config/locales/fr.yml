@@ -9,6 +9,13 @@ fr:
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions parmi ceux que vous avez choisi précédemment)
         title: Titre
         witnesses: Les témoins
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ fr:
           email_outro: Vous venez de recevoir cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment quitter cet espace participatif en cliquant sur le lien précédent.
           email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
           notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Tirages au sort
@@ -106,8 +117,6 @@ fr:
           label: 'Trier les tirages au sort par :'
           random: Aléatoire
           recent: Récent
-        proposal:
-          view_proposal: Voir la proposition
         results_count:
           count:
             one: propositions sélectionnées
@@ -127,10 +136,11 @@ fr:
           time_seed: "(2) Time seed"
           witnesses: Les témoins
         sortition:
+          random_seed: Graine aléatoire
           selected_proposals:
             one: 1 proposition sélectionnée
-            other: "%{count} propositions sélectionnées"
-          view_sortition: Voir le tirage au sort
+            other: '%{count} propositions sélectionnées'
+          view: Vue
         sortition_author:
           deleted: Utilisateur supprimé
         sortition_cancel_author:
@@ -139,7 +149,3 @@ fr:
           count:
             one: 1 tirage au sort
             other: "%{count} tirage(s) au sort"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Tirages au sort

@@ -12,6 +12,11 @@ uk:
       admin:
         exports:
           dummies: Приклади збереження
+    pages:
+      home:
+        statistics:
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
     participatory_processes:
       statistics:
         dummies_count_high: Приклад найвищої кількості
@@ -19,10 +24,3 @@ uk:
     resource_links:
       test_link:
         dummy_resource_dummy: Приклад пов'язаного ресурсу
-  pages:
-    home:
-      statistics:
-        bar: Приклад змінної 1
-        dummies_count_high: Приклад найвищої кількості
-        dummies_count_medium: Приклад середньої кількості
-        foo: Приклад змінної 2

@@ -8,6 +8,11 @@ gl:
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proxecto
+        other: Proxectos
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ gl:
             one: 1 apoio
             other: "%{count} soporta"
           remove: Quitar
+          view: Ver
         project_budget_button:
           add: Engadir
           added: Engadido

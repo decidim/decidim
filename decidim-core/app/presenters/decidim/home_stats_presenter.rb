@@ -67,7 +67,7 @@ module Decidim
           "&nbsp;".html_safe
         else
           safe_join([
-                      content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+                      content_tag(:h4, I18n.t(name, scope: "decidim.pages.home.statistics"), class: "home-pam__title"),
                       content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
                     ])
         end

@@ -11,6 +11,15 @@ fr:
         start_time: Commence à
         title: Titre
         user_group_id: Créer un débat en tant que
+    models:
+      decidim/debates/create_debate_event: Débat
+      decidim/debates/creation_disabled_event: Débats désactivés
+      decidim/debates/creation_enabled_event: Débats activés
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Débat
+        other: Débats
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ fr:
           invalid: Il y a eu un problème lors de la création du débat.
           success: Débat créé avec succès.
         debate:
-          comments:
-            one: Commentaire
-            other: Commentaires
           participate: Participer
         filters:
           all: Tout
@@ -94,9 +100,6 @@ fr:
           close_window: Fermer la fenêtre
           share: Partager
           share_link: Lien de partage
-        show:
-          comments: Commentaires
-          report: Rapport
       models:
         debate:
           fields:

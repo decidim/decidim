@@ -1,3 +1,3 @@
 <div class="card__author">
-  <%= card_for present(model).author, context: { extra_classes: ["author-data--small"], from: from_context } %>
+  <%= cell "decidim/author", present(model).author, options: { extra_classes: ["author-data--small"] } %>
 </div>

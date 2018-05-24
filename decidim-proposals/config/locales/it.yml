@@ -16,6 +16,31 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+    models:
+      decidim/proposals/accepted_proposal_event: Proposta accettata
+      decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
+      decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
+      decidim/proposals/endorsing_enabled_event: Approvazione proposta abilitata
+      decidim/proposals/evaluating_proposal_event: La proposta è in corso di valutazione
+      decidim/proposals/proposal_endorsed_event: Proposta approvata
+      decidim/proposals/proposal_mentioned_event: Proposta menzionata
+      decidim/proposals/publish_proposal_event: Proposta pubblicata
+      decidim/proposals/rejected_proposal_event: Proposta respinta
+      decidim/proposals/voting_enabled_event: Voto della proposta abilitato
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposta
+        other: proposte
+      decidim/proposals/proposal_endorsement:
+        one: Approvazione
+        other: Riconoscimenti
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Gli appunti
+      decidim/proposals/proposal_vote:
+        one: Votazione
+        other: voti
   decidim:
     components:
       proposals:
@@ -114,16 +139,10 @@ it:
       participatory_process_groups:
         highlighted_proposals:
           proposals: proposte
-        proposal:
-          creation_date: 'Creazione: %{date}'
-          view_proposal: Visualizza proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: proposte
         see_all_proposals: Vedi tutte le proposte
-      proposal:
-        creation_date: 'Creazione: %{date}'
-        view_proposal: Visualizza proposta
     proposals:
       actions:
         answer: Risposta
@@ -220,6 +239,7 @@ it:
             category: Categoria
             comments: Commenti
             created_at: Creato a
+            endorsements: Riconoscimenti
             id: ID
             notes: Gli appunti
             official_proposal: Proposta ufficiale
@@ -269,6 +289,7 @@ it:
         endorsement_identities_cabin:
           endorse: Approvare
         endorsements_card_row:
+          comments: Commenti
           endorse: Approvare
         filters:
           accepted: Accettata

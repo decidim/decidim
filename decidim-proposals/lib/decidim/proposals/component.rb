@@ -6,7 +6,6 @@ Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.icon = "decidim/proposals/icon.svg"
-  component.card = "decidim/proposals/proposal"
 
   component.on(:before_destroy) do |instance|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
@@ -50,9 +49,10 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:proposal) do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
+    resource.card = "decidim/proposals/proposal"
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

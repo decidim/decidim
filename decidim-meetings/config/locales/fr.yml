@@ -16,10 +16,35 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        private_meeting: Réunion privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
+        transparent: Transparent
+      minutes:
+        audio_url: URL audio
+        description: La description
+        video_url: URL de la vidéo
+        visible: Est visible
+    models:
+      decidim/meetings/close_meeting_event: Réunion fermée
+      decidim/meetings/create_meeting_event: Réunion
+      decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscriptions à la limite
+      decidim/meetings/upcoming_meeting_event: Prochaine réunion
+      decidim/meetings/update_meeting_event: Réunion mise à jour
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Réunion
+        other: Réunions
+      decidim/meetings/minutes:
+        one: Minutes
+        other: Minutes
+      decidim/meetings/registration:
+        one: enregistrement
+        other: Inscriptions
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +108,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        minutes: Minutes
         new: Nouvelle
         preview: Aperçu
         registrations: Inscriptions
@@ -106,6 +132,9 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
+        meeting_copies:
+          form:
+            select_organizer: Sélectionnez l'organisateur
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
@@ -117,6 +146,8 @@ fr:
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour
+          form:
+            select_organizer: Sélectionnez l'organisateur
           index:
             title: Rencontres
           new:
@@ -135,6 +166,18 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        minutes:
+          create:
+            invalid: Un problème est survenu lors de la création de ce compte rendu
+            success: Minutes créées avec succès
+          edit:
+            update: Mettre à jour
+          new:
+            create: Créer
+            title: Créer des minutes
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
+            success: Minutes mises à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -159,6 +202,12 @@ fr:
           delete: "%{user_name} a supprimé la réunion %{resource_name} sur l'espace %{space_name}"
           export_registrations: "%{user_name} a exporté les enregistrements de la réunion %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour la réunion %{resource_name} sur l'espace %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+        minutes:
+          create: "%{user_name} a créé le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +215,8 @@ fr:
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
+      meeting:
+        not_allowed: Vous n'êtes pas autorisé à voir cette réunion
       meetings:
         filters:
           category: Catégorie
@@ -192,9 +243,11 @@ fr:
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
+          meeting_minutes: Comptes rendus des réunions
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          related_information: Informations connexes
           remaining_slots:
             one: Il reste 1 place
             other: "Il reste %{count} places"
@@ -218,6 +271,9 @@ fr:
         destroy:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
+      types:
+        private_meeting: Réunion privée
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,6 +284,8 @@ fr:
         past_meetings: Réunions passées
         see_all_meetings: Voir toutes les réunions
         upcoming_meetings: Réunions à venir
+      upcoming_meeting_for_card:
+        upcoming_meeting: Prochaine réunion
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'

@@ -92,6 +92,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the nickname is too long" do
+      let(:nickname) { "verylongnicknamethatcreatesanerror" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the password is not present" do
       let(:password) { nil }
 

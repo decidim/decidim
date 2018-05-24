@@ -49,6 +49,11 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
+    has_many :members,
+             foreign_key: "decidim_assembly_id",
+             class_name: "Decidim::AssemblyMember",
+             dependent: :destroy
+
     has_many :components, as: :participatory_space, dependent: :destroy
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
@@ -89,7 +94,7 @@ module Decidim
     end
 
     def self_and_ancestors
-      self.class.where("#{self.class.table_name}.parents_path @> ?", parents_path).order("string_to_array(#{self.class.table_name}.parents_path::text, '.')")
+      self.class.where("#{self.class.table_name}.parents_path @> ?", parents_path).order(Arel.sql("string_to_array(#{self.class.table_name}.parents_path::text, '.')"))
     end
 
     def ancestors

@@ -34,6 +34,7 @@ fr:
         participatory_processes_ids: Processus participatifs associés
         participatory_scope: Objectif
         participatory_structure: Modalités
+        private_space: Espace privé
         promoted: Mis en avant
         published_at: Publié à
         purpose_of_action: But de l'action
@@ -42,15 +43,36 @@ fr:
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
+        special_features: Particularités
         subtitle: Sous-titre
         target: Participants
         title: Titre
         twitter: Gazouillement
         youtube: Youtube
+      assembly_member:
+        birthday: Anniversaire
+        birthplace: Lieu de naissance
+        ceased_date: Date de cessation
+        designation_date: Date de désignation
+        designation_mode: Mode de désignation
+        full_name: Nom complet
+        gender: Le genre
+        position: Position
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
         role: Fonction
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assemblée
+        other: Assemblées
+      decidim/assembly_member:
+        one: Membre de l'Assemblée
+        other: Membres de l'Assemblée
+      decidim/assembly_user_role:
+        one: Rôle utilisateur de l'assembly
+        other: Rôles utilisateur de l'assembly
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ fr:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer l'assemblée
+      assembly_members:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet assembly.
+          success: Membre créé avec succès pour cet assembly.
+        destroy:
+          success: Membre détruit avec succès pour cet assemblage.
+        edit:
+          title: Mettre à jour le membre de l'assembly
+          update: Mettre à jour
+        index:
+          assembly_members_title: Membres de l'Assemblée
+        new:
+          create: Créer
+          title: Nouveau membre de l'assemblée.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour du membre pour cet assembly.
+          success: Membre mis à jour avec succès pour cet assembly.
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -111,6 +150,7 @@ fr:
         assemblies: Agora
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
+          assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
@@ -128,6 +168,18 @@ fr:
             published: Publié
             title: Titre
           name: Assemblée
+        assembly_member:
+          fields:
+            ceased_date: Date de cessation
+            designation_date: Date de désignation
+            full_name: prénom
+            position: Position
+          name: Membre
+          positions:
+            other: Autre
+            president: Président
+            secretary: secrétaire
+            vice_president: Vice président
         assembly_user_role:
           fields:
             email: Email
@@ -146,6 +198,10 @@ fr:
         publish: "%{user_name} a publié l'agora %{resource_name}"
         unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
         update: "%{user_name} a mis à jour l'agora %{resource_name}"
+      assembly_member:
+        create: "%{user_name} créé le %{resource_name} membre dans l'assemblage %{space_name}"
+        delete: "%{user_name} enlevé le %{resource_name} membre de l'assemblage %{space_name}"
+        update: "%{user_name} mis à jour le %{resource_name} membre de l'assemblée %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
@@ -162,6 +218,23 @@ fr:
         assembly_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+        assembly_members:
+          form:
+            existing_user: Utilisateur existant
+            non_user: Non utilisateur
+            select_a_position: Sélectionnez un poste
+            select_user: Sélectionnez un utilisateur
+            user_type: Type d'utilisateur
+          index:
+            filter:
+              all: Tout
+              ceased: A cessé
+              not_ceased: Pas cessé
+            filter_by: Filtrer par
+            search: Chercher
+      assembly_members:
+        index:
+          members: Membres
       assembly_types:
         commission: Commission
         consultative_advisory: Consultatif / consultatif
@@ -181,6 +254,9 @@ fr:
           highlighted_assemblies:
             active_assemblies: Agora actives
             see_all_assemblies: Voir toutes les agora
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Région
         assembly_type: Type d'assemblage
@@ -224,6 +300,11 @@ fr:
         surveys_count: Enquêtes
         users_count: Participants
         votes_count: Soutiens
+    assembly_members:
+      assembly_member:
+        designated_on: Désigné sur
+      index:
+        title: Membres
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +329,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
+        assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblée
         unfold: Déplier
       assembly_widgets:

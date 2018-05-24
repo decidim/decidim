@@ -7,10 +7,10 @@ module Decidim
       description "A meeting"
 
       interfaces [
-        Decidim::Comments::CommentableInterface,
-        Decidim::Core::CategorizableInterface,
-        Decidim::Core::ScopableInterface,
-        Decidim::Core::AttachableInterface
+        -> { Decidim::Comments::CommentableInterface },
+        -> { Decidim::Core::CategorizableInterface },
+        -> { Decidim::Core::ScopableInterface },
+        -> { Decidim::Core::AttachableInterface }
       ]
 
       field :id, !types.ID

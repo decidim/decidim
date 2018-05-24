@@ -19,9 +19,10 @@ Decidim.register_component(:sortitions) do |component|
   end
 
   # Register an optional resource that can be referenced from other resources.
-  component.register_resource do |resource|
+  component.register_resource(:sortition) do |resource|
     resource.model_class_name = "Decidim::Sortitions::Sortition"
     resource.template = "decidim/sortitions/sortitions/linked_sortitions"
+    resource.card = "decidim/sortitions/sortition"
   end
 
   component.register_stat :sortitions_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

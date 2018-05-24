@@ -1,4 +1,12 @@
 fr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nouveau blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Poster
+        other: Des postes
   decidim:
     blogs:
       actions:
@@ -37,8 +45,6 @@ fr:
             created_at: Créé à
             title: Titre
       posts:
-        author_data:
-          comments: commentaires
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Messages les plus commentés
@@ -60,10 +66,10 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouveau message publié dans %{participatory_space_title}
           notification_title: Le message <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Des postes
     participatory_processes:
-      statistics:
-        posts_count: Des postes
-  pages:
-    home:
       statistics:
         posts_count: Des postes

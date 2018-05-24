@@ -44,6 +44,20 @@ pt:
         email: O email
         name: Nome
         role: Função
+    models:
+      decidim/participatory_process_step_activated_event: Etapa ativada
+      decidim/participatory_process_step_changed_event: Etapa alterada
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Processo participativo
+        other: Processos participativos
+      decidim/participatory_process_group:
+        one: Grupo de processo participativo
+        other: Grupos de processos participativos
+      decidim/participatory_process_step:
+        one: Degrau
+        other: Passos
   decidim:
     admin:
       actions:
@@ -283,6 +297,7 @@ pt:
         scope: Âmbito
         start_date: Data de início
         target: Quem participa
+        unspecified: Não especificado
       statistics:
         answers_count: Respostas
         comments_count: Comentários
@@ -304,6 +319,7 @@ pt:
       participatory_process_groups:
         participatory_process_group:
           browse: Squeaky toy
+          processes_count: 'Processos:'
       participatory_process_widgets:
         show:
           active_step: Passo ativo
