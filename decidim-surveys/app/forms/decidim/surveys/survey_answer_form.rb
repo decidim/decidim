@@ -18,9 +18,7 @@ module Decidim
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
-      def question
-        @question ||= survey.questions.find(question_id)
-      end
+      attr_reader :question
 
       def label(idx)
         base = "#{idx + 1}. #{translated_attribute(question.body)}"
@@ -34,6 +32,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_survey_question_id
+        @question = model.question
 
         self.choices = model.choices.map do |choice|
           SurveyAnswerChoiceForm.from_model(choice)
@@ -45,10 +44,6 @@ module Decidim
       end
 
       private
-
-      def survey
-        @survey ||= Survey.find_by(component: current_component)
-      end
 
       def max_choices
         errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
