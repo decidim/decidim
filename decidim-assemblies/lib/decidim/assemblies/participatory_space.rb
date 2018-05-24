@@ -52,7 +52,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil,
+        scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         purpose_of_action: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
@@ -127,7 +127,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil,
+        scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         parent: assembly
       )
 

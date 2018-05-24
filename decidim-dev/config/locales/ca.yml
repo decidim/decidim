@@ -8,13 +8,17 @@ ca:
         title: Títol
         updated_at: Actualitzat el
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Una altra autorització d'exemple
     dummy:
       admin:
         exports:
           dummies: Maniquins
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Fals alt
+          dummies_count_medium: Fals mitjà
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Prova alt
@@ -22,10 +26,3 @@ ca:
     resource_links:
       test_link:
         dummy_resource_dummy: Fictici relacionat
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Prova alt
-        dummies_count_medium: Prova mig
-        foo: Foo

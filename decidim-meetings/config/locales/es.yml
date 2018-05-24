@@ -27,6 +27,24 @@ es:
         description: Descripción
         video_url: URL del vídeo
         visible: Es visible
+    models:
+      decidim/meetings/close_meeting_event: Encuentro cerrado
+      decidim/meetings/create_meeting_event: Encuentro
+      decidim/meetings/meeting_registrations_enabled_event: Registro habilitado
+      decidim/meetings/meeting_registrations_over_percentage_event: Registros por encima del límite
+      decidim/meetings/upcoming_meeting_event: Próximo encuentro
+      decidim/meetings/update_meeting_event: Encuentro actualizado
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Encuentro
+        other: Encuentros
+      decidim/meetings/minutes:
+        one: Acta
+        other: Actas
+      decidim/meetings/registration:
+        one: Registro
+        other: Registros
   decidim:
     admin:
       meeting_copies:

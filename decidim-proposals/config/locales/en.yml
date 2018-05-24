@@ -395,10 +395,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        identities_listing:
-          see_all: See all
-          see_less: See less
-          title: List of Endorsements
         index:
           collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
@@ -428,6 +424,10 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
+          endorsements_list: List of Endorsements
+          hidden_endorsers_count:
+            one: and 1 more person
+            other: and %{count} more people
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'

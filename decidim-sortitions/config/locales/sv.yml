@@ -9,6 +9,13 @@ sv:
         target_items: Antal förslag som ska väljas (anger antalet förslag som du vill välja genom att dra mycket av gruppen av förslag du tidigare valt)
         title: Titel
         witnesses: Vittnen
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
           email_subject: Ny sortering läggs till %{participatory_space_title}
           notification_title: Sortering <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -138,7 +149,3 @@ sv:
           count:
             one: 1 sortering
             other: "%{count} sorteringar"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

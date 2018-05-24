@@ -27,6 +27,24 @@ fi:
         description: Kuvaus
         video_url: Video url
         visible: Se on näkyvissä
+    models:
+      decidim/meetings/close_meeting_event: Kokous päättyi
+      decidim/meetings/create_meeting_event: Tapaaminen
+      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/upcoming_meeting_event: Tuleva kokous
+      decidim/meetings/update_meeting_event: Kokous päivitettiin
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Tapaaminen
+        other: kokoukset
+      decidim/meetings/minutes:
+        one: Minuutit
+        other: Minuutit
+      decidim/meetings/registration:
+        one: Rekisteröinti
+        other: rekisteröinnit
   decidim:
     admin:
       meeting_copies:

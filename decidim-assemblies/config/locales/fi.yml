@@ -62,6 +62,17 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+  activerecord:
+    models:
+      decidim/assembly:
+        one: kokoonpano
+        other: osat
+      decidim/assembly_member:
+        one: Edustaja
+        other: Edustajat
+      decidim/assembly_user_role:
+        one: Asennuksen käyttäjärooli
+        other: Asennuksen käyttäjäroolit
   decidim:
     admin:
       assemblies:

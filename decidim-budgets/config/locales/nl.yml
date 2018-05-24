@@ -8,6 +8,11 @@ nl:
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: project
+        other: projecten
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ nl:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
           remove: Verwijderen
+          view: Uitzicht
         project_budget_button:
           add: Toevoegen
           added: Toegevoegd

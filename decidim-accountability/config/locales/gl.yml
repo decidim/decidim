@@ -21,6 +21,13 @@ gl:
       timeline_entry:
         description: Descrición
         entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta incluída nun resultado
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultado
+        other: Resultados
   decidim:
     accountability:
       actions:
