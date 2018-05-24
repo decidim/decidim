@@ -264,6 +264,7 @@ nl:
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meest gereageerd
+          most_voted: Meest ondertekend
           random: Willekeurig
           recent: Meest recente
         result:
@@ -274,12 +275,21 @@ nl:
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
         signature_identities:
           select_identity: Selecteer gebruikersidentiteit
+        signatures_count:
+          one: " handtekening"
+          other: " handtekeningen"
         statistics:
           assistants_count_title: assistenten
           comments_count_title: Reacties
           meetings_count_title: Events
+          supports_count_title: handtekeningen
+        supports:
+          title: Lijst van handtekeningen
         vote_cabin:
+          already_voted: Al getekend
+          supports_required: "%{total_supports} handtekeningen vereist"
           vote: Teken
+          votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
           count:
             one: HANDTEKENING
