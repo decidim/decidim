@@ -19,9 +19,9 @@ module Decidim
     end
 
     def file_path
-      directory_name = "tmp/data-portability"
+      directory_name = Rails.root.join("tmp", "data-portability")
       Dir.mkdir(directory_name) unless File.exist?(directory_name)
-      Rails.root.join("#{directory_name}/#{file_name}")
+      directory_name + file_name
     end
 
     def valid_token?
