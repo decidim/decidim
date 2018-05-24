@@ -19,6 +19,11 @@ module Decidim
         resources :posts, only: [:index, :show]
         root to: "posts#index"
       end
+
+      initializer "decidim_blogs.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/views") # for partials
+      end
     end
   end
 end
