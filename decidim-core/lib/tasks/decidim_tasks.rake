@@ -26,6 +26,7 @@ namespace :decidim do
       decidim_system
       decidim_verifications
     ).join(",")
+  end
 
   # RightToBeForgotten ------
   #
