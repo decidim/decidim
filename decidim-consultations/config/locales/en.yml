@@ -9,6 +9,7 @@ en:
         end_voting_date: End date
         introductory_image: Introductory image
         introductory_video_url: Introductory video URL
+        questions: Questions
         slug: URL slug
         start_voting_date: Start date
         subtitle: Subtitle
@@ -216,7 +217,18 @@ en:
       regular_questions:
         title: Other consultations
       show:
+        badge_name:
+          finished: Finished
+          open: Open
+          open_votes: Open votes
+          published_results: Results published
+        footer_button_text:
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
         see_finished_consultations: See previous consultations
+        unspecified: Not specified
     menu:
       consultations: Consultations
     pages:

@@ -20,6 +20,11 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     context.layout = "layouts/decidim/admin/question"
   end
 
+  participatory_space.register_resource(:consultation) do |resource|
+    resource.model_class_name = "Decidim::Consultation"
+    resource.card = "decidim/consultations/consultation"
+  end
+
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first

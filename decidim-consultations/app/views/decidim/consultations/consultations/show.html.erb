@@ -1,4 +1,9 @@
 <%= render partial: "consultation_details", locals: { consultation: current_consultation } %>
+<div class="row">
+  <div class="columns large-up-3">
+    <%= card_for current_consultation %>
+  </div>
+</div>
 <%= render partial: "highlighted_questions", locals: { consultation: current_consultation } %>
 <%= render partial: "regular_questions", locals: { consultation: current_consultation } %>
 

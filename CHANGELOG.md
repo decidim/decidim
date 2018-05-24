@@ -51,6 +51,8 @@ must now set a resource name:
 - **decidim-core**: Add user profile card [\#3444](https://github.com/decidim/decidim/pull/3444)
 - **decidim-budgets**: Add project card [\#3454](https://github.com/decidim/decidim/pull/3454)
 - **decidim-core**: GDPR: Unbundled consent on user registration [\#3483](https://github.com/decidim/decidim/pull/3483)
+- **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
+- **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 
 **Changed**:
 
