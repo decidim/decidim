@@ -78,16 +78,16 @@ module Decidim
       # current consultation.
       def state_data
         @state_data ||= if model.active?
-          { state: :active, badge_name: "open_votes", state_classes: ["success"], button_text: "vote" }
-        elsif model.upcoming?
-          { state: :upcoming, badge_name: "open", state_classes: ["warning"], button_text: "debate" }
-        elsif model.finished?
-          { state: :finished, badge_name: "finished", state_classes: ["muted"], button_text: "view" }
-        elsif model.published_results?
-          { state: :published_results, badge_name: "published_results", state_classes: ["muted"], button_text: "view_results" }
-        else
-          { state: :undefined, badge_name: nil, state_classes: ["muted"], button_text: "view" }
-        end
+                          { state: :active, badge_name: "open_votes", state_classes: ["success"], button_text: "vote" }
+                        elsif model.upcoming?
+                          { state: :upcoming, badge_name: "open", state_classes: ["warning"], button_text: "debate" }
+                        elsif model.finished?
+                          { state: :finished, badge_name: "finished", state_classes: ["muted"], button_text: "view" }
+                        elsif model.published_results?
+                          { state: :published_results, badge_name: "published_results", state_classes: ["muted"], button_text: "view_results" }
+                        else
+                          { state: :undefined, badge_name: nil, state_classes: ["muted"], button_text: "view" }
+                        end
       end
     end
   end
