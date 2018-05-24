@@ -73,7 +73,6 @@ module Decidim
     def actionable?
       return false if options[:has_actions] == false
       return true if user_author? && posts_controller?
-      return true if user_author? && proposals_controller? && posts_controller? && index_action?
       true if withdrawable? || flagable?
     end
 
