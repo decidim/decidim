@@ -27,7 +27,6 @@ module Decidim
         end
 
         expect(data.length).to eq(1)
-
       end
     end
   end
