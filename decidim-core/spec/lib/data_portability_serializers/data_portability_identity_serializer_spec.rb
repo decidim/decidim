@@ -22,8 +22,8 @@ module Decidim
         expect(serialized).to include(provider: resource.provider)
       end
 
-      it "includes the uuid" do
-        expect(serialized).to include(uuid: resource.uuid)
+      it "includes the uid" do
+        expect(serialized).to include(uid: resource.uid)
       end
 
       it "includes the user" do
