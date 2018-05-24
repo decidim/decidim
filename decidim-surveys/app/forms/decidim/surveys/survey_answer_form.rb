@@ -18,7 +18,11 @@ module Decidim
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
-      attr_reader :question
+      attr_accessor :question
+
+      def question
+        @question ||= Decidim::Surveys::SurveyQuestion.find(question_id)
+      end
 
       def label(idx)
         base = "#{idx + 1}. #{translated_attribute(question.body)}"
@@ -32,7 +36,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_survey_question_id
-        @question = model.question
+        self.question = model.question
 
         self.choices = model.choices.map do |choice|
           SurveyAnswerChoiceForm.from_model(choice)
