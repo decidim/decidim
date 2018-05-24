@@ -18,7 +18,7 @@ module Decidim
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
-      attr_accessor :question
+      attr_writer :question
 
       def question
         @question ||= Decidim::Surveys::SurveyQuestion.find(question_id)
