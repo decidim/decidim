@@ -71,8 +71,8 @@ pt-BR:
         one: Membros da assembleia
         other: Membros das assembleias
       decidim/assembly_user_role:
-        one: Função de usuário de montagem
-        other: Funções de usuário de montagem
+        one: Função do usuário da Assembleia
+        other: Funções do usuário da Assembleia
   decidim:
     admin:
       assemblies:
