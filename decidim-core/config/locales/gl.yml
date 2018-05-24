@@ -191,6 +191,7 @@ gl:
         new:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
+          newsletter_title: Permiso de contacto
           nickname_help: O teu identificador breve e único en %{organization}
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
@@ -201,6 +202,7 @@ gl:
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           terms: os termos e condicións de uso
           tos_agreement: Ao rexistrarte, aceptas %{link}.
+          tos_title: Condicións de servicio
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       sessions:
         new:
