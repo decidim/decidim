@@ -2,10 +2,10 @@
   <%= bulk_actions_dropdown %>
 
   <div id="js-other-actions-wrapper">
-    <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if can? :manage, current_component %>
+    <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if allowed_to? :import, :proposals %>
 
-    <% if can? :create, Decidim::Proposals::Proposal %>
-      <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: "button tiny button--simple" if can? :manage, current_component %>
+    <% if allowed_to? :create, :proposal %>
+      <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: "button tiny button--simple" %>
     <% end %>
 
     <%= export_dropdown %>

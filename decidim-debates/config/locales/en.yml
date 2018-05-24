@@ -95,9 +95,6 @@ en:
           close_window: Close window
           share: Share
           share_link: Share link
-        show:
-          comments: Comments
-          report: Report
       models:
         debate:
           fields:

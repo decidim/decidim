@@ -9,12 +9,12 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
 
         def new
-          authorize! :new, Decidim::ParticipatoryProcess
+          enforce_permission_to :create, :process
           @form = form(ParticipatoryProcessCopyForm).from_model(current_participatory_process)
         end
 
         def create
-          authorize! :create, Decidim::ParticipatoryProcess
+          enforce_permission_to :create, :process
           @form = form(ParticipatoryProcessCopyForm).from_params(params)
 
           CopyParticipatoryProcess.call(@form, current_participatory_process) do

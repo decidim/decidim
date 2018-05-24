@@ -6,7 +6,7 @@ module Decidim
       layout "decidim/admin/users"
 
       def index
-        authorize! :index, :authorization_workflows
+        enforce_permission_to :index, :authorization_workflows
 
         @workflows = Decidim::Verifications.admin_workflows
       end

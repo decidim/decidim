@@ -6,6 +6,7 @@ Decidim.register_component(:blogs) do |component|
   component.engine = Decidim::Blogs::Engine
   component.admin_engine = Decidim::Blogs::AdminEngine
   component.icon = "decidim/blogs/icon.svg"
+  component.permissions_class_name = "Decidim::Blog::Permissions"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Blogs::Post.where(component: instance).any?

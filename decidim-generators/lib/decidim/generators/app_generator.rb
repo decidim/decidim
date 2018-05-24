@@ -25,6 +25,10 @@ module Decidim
 
       source_root File.expand_path("app_templates", __dir__)
 
+      class_option :app_name, type: :string,
+                              default: nil,
+                              desc: "The name of the app"
+
       class_option :path, type: :string,
                           default: nil,
                           desc: "Path to the gem"
@@ -135,6 +139,14 @@ module Decidim
       end
 
       private
+
+      def app_name
+        options[:app_name] || super
+      end
+
+      def app_const_base
+        app_name.gsub(/\W/, "_").squeeze("_").camelize
+      end
 
       def current_gem
         return "decidim" unless options[:path]

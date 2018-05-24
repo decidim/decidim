@@ -43,7 +43,7 @@ module Decidim
       end
 
       def new
-        authorize! :create, Proposal
+        enforce_permission_to :create, :proposal
         @step = :step_1
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
@@ -53,7 +53,7 @@ module Decidim
       end
 
       def create
-        authorize! :create, Proposal
+        enforce_permission_to :create, :proposal
         @step = :step_3
         @form = form(ProposalForm).from_params(params)
 
@@ -85,8 +85,9 @@ module Decidim
       end
 
       def complete
-        authorize! :create, Proposal
+        enforce_permission_to :create, :proposal
         @step = :step_3
+
         if params[:proposal].present?
           params[:proposal][:attachment] = form(AttachmentForm).from_params({})
           @form = form(ProposalForm).from_params(params)
@@ -118,14 +119,14 @@ module Decidim
 
       def edit_draft
         @step = :step_3
-        authorize! :edit, Proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update_draft
         @step = :step_1
-        authorize! :edit, @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_params(params)
         UpdateProposal.call(@form, current_user, @proposal) do
@@ -142,7 +143,7 @@ module Decidim
       end
 
       def destroy_draft
-        authorize! :edit, Proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         DestroyProposal.call(@proposal, current_user) do
           on(:ok) do
@@ -159,14 +160,14 @@ module Decidim
 
       def edit
         @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :edit, @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
         @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :edit, @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_params(params)
         UpdateProposal.call(@form, current_user, @proposal) do
@@ -184,7 +185,7 @@ module Decidim
 
       def withdraw
         @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :withdraw, @proposal
+        enforce_permission_to :withdraw, :proposal, proposal: @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do |_proposal|

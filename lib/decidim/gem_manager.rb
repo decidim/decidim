@@ -41,9 +41,14 @@ module Decidim
     end
 
     def run(command, out: STDOUT)
-      Dir.chdir(@dir) do
-        command = command.gsub("%version", version).gsub("%name", name)
-        self.class.run(command, out: out)
+      interpolated_in_folder(command) do |cmd|
+        self.class.run(cmd, out: out)
+      end
+    end
+
+    def capture(command)
+      interpolated_in_folder(command) do |cmd|
+        self.class.capture(cmd)
       end
     end
 
@@ -62,18 +67,24 @@ module Decidim
     end
 
     class << self
-      def run(cmd, out: STDOUT)
-        output, status = Open3.capture2e(cmd)
+      def capture(cmd, env: {})
+        output, status = Open3.capture2e(env, cmd)
 
-        STDOUT.puts output if out == STDOUT || !continue?(status)
-
-        abort unless continue?(status)
+        abort unless continue?(status.success?)
 
         [output, status]
       end
 
+      def run(cmd, out: STDOUT)
+        status = system(cmd, out: out)
+
+        abort unless continue?(status == true)
+
+        status
+      end
+
       def continue?(status)
-        status.success? || ENV["FAIL_FAST"] == "false"
+        status || ENV["FAIL_FAST"] == "false"
       end
 
       def test_participatory_space
@@ -134,6 +145,12 @@ module Decidim
     end
 
     private
+
+    def interpolated_in_folder(command)
+      Dir.chdir(@dir) do
+        yield command.gsub("%version", version).gsub("%name", name)
+      end
+    end
 
     def folder_name
       File.basename(@dir)

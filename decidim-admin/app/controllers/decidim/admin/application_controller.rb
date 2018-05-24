@@ -5,7 +5,7 @@ module Decidim
     # The main application controller that inherits from Rails.
     class ApplicationController < ::DecidimController
       include NeedsOrganization
-      include NeedsAuthorization
+      include NeedsPermission
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo
@@ -23,16 +23,24 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
 
+      default_form_builder Decidim::Admin::FormBuilder
+
       protect_from_forgery with: :exception, prepend: true
+
+      def user_has_no_permission_path
+        decidim_admin.root_path
+      end
 
       def user_not_authorized_path
         decidim_admin.root_path
       end
 
-      # Overwrites `cancancan`'s method to point to the correct ability class,
-      # since the gem expects the ability class to be in the root namespace.
-      def current_ability_klass
-        Decidim::Admin::Abilities::BaseAbility
+      def permission_class_chain
+        [Decidim::Admin::Permissions]
+      end
+
+      def permission_scope
+        :admin
       end
     end
   end

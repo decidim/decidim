@@ -54,6 +54,9 @@ module Decidim
             location_hints: @form.location_hints,
             services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             component: @meeting.component,
+            private_meeting: @form.private_meeting,
+            transparent: @form.transparent,
+            organizer: @form.organizer,
             registrations_enabled: @meeting.registrations_enabled,
             available_slots: @meeting.available_slots,
             registration_terms: @meeting.registration_terms

@@ -27,7 +27,10 @@ module Decidim
             location: :i18n,
             location_hints: :i18n,
             start_date: :date,
-            title: :i18n
+            title: :i18n,
+            private_meeting: :boolean,
+            transparent: :boolean,
+            organizer_id: "Decidim::Meetings::AdminLog::ValueTypes::OrganizerPresenter"
           }
         end
 

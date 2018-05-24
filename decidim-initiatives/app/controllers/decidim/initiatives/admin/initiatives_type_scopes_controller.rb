@@ -9,13 +9,13 @@ module Decidim
 
         # GET /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/new
         def new
-          authorize! :new, Decidim::InitiativesTypeScope
+          enforce_permission_to :create, :initiative_type_scope
           @form = initiative_type_scope_form.instance
         end
 
         # POST /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes
         def create
-          authorize! :create, Decidim::InitiativesTypeScope
+          enforce_permission_to :create, :initiative_type_scope
           @form = initiative_type_scope_form
                   .from_params(params, type_id: params[:initiatives_type_id])
 
@@ -34,13 +34,13 @@ module Decidim
 
         # GET /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/:id/edit
         def edit
-          authorize! :edit, current_initiative_type_scope
+          enforce_permission_to :edit, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope
           @form = initiative_type_scope_form.from_model(current_initiative_type_scope)
         end
 
         # PUT /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/:id
         def update
-          authorize! :update, current_initiative_type_scope
+          enforce_permission_to :update, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope
           @form = initiative_type_scope_form.from_params(params)
 
           UpdateInitiativeTypeScope.call(current_initiative_type_scope, @form) do
@@ -58,7 +58,7 @@ module Decidim
 
         # DELETE /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/:id
         def destroy
-          authorize! :destroy, current_initiative_type_scope
+          enforce_permission_to :destroy, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope
           current_initiative_type_scope.destroy!
 
           redirect_to edit_initiatives_type_path(current_initiative_type_scope.type), flash: {

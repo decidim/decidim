@@ -17,10 +17,6 @@ module Decidim
         def collection_for
           current_participatory_process
         end
-
-        def authorization_object
-          @attachment_collection || AttachmentCollection
-        end
       end
     end
   end
