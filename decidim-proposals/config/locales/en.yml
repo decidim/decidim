@@ -38,6 +38,9 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Collaborative draft
+        other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
         other: Proposals
@@ -287,6 +290,9 @@ en:
           recent: Recent
         show:
           edit: Edit collaborative draft
+          hidden_authors_count:
+            one: and 1 more person
+            other: and %{count} more people
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           of_versions: "(of %{number})"
           publish: Publish

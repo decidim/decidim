@@ -7,7 +7,6 @@ module Decidim
     describe CollaborativeDraftsController, type: :controller do
       routes { Decidim::Proposals::Engine.routes }
 
-
       let(:component) { create(:proposal_component) }
       let(:params) { { component_id: component.id } }
       let(:user) { create(:user, :confirmed, organization: component.organization) }
@@ -20,7 +19,6 @@ module Decidim
       end
 
       describe "GET index" do
-
         context "when invoked without paramters" do
           it "returns a list of open drafts by updated_at" do
             get :index
@@ -38,7 +36,7 @@ module Decidim
         end
 
         it "creates a new access request for the given collaborative_draft" do
-          expect { post :request_access, params: {id: draft.id} }.to change {
+          expect { post :request_access, params: { id: draft.id } }.to change {
             draft.reload
             draft.access_requestors.count
           }.by(1)

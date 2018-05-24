@@ -11,6 +11,7 @@ module Decidim
       include ProposalEndorsementsHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
+      include CollaborativeDraftHelper
 
       # Public: The state of a proposal in a way a human can understand.
       #
@@ -92,6 +93,10 @@ module Decidim
 
       def endorsers_for(proposal)
         proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
+      end
+
+      def authors_for(collaborative_draft)
+        collaborative_draft.authors.map { |author| present(author) }
       end
     end
   end
