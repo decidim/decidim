@@ -60,6 +60,11 @@ module Decidim
         end
       end
 
+      initializer "decidim_consultations.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Consultations::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Consultations::Engine.root}/app/views") # for partials
+      end
+
       initializer "decidim_consultations.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.consultations", scope: "decidim"),
