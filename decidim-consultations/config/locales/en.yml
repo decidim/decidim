@@ -218,9 +218,9 @@ en:
         title: Other consultations
       show:
         badge_name:
+          finished: Finished
           open: Open
           open_votes: Open votes
-          finished: Finished
           published_results: Results published
         footer_button_text:
           debate: Debate
