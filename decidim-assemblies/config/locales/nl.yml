@@ -210,6 +210,8 @@ nl:
       admin:
         assemblies:
           form:
+            duration_help: Als de duur van deze assembly beperkt is, selecteert u de einddatum. Anders zal het verschijnen als onbepaald.
+            included_at_help: Selecteer de datum waarop deze assembly aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
