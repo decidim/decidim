@@ -81,7 +81,7 @@ module Decidim
       def self.export_serializer
         Decidim::Comments::CommentSerializer
       end
-      
+
       private
 
       # Private: Check if commentable can have comments and if not adds
