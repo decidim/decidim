@@ -173,7 +173,7 @@ fr:
           version_index: Version %{index}
     components:
       accountability:
-        name: Responsabilité
+        name: Suivi
         settings:
           global:
             categories_label: Nom pour "Catégories"
