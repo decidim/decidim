@@ -36,6 +36,10 @@ module Decidim
       Decidim::AdminLog::StaticPagePresenter
     end
 
+    def self.sorted_by_i18n_title(locale = I18n.locale)
+      order(["title->? ASC", locale])
+    end
+
     # Whether this is page is a default one or not.
     #
     # Returns Boolean.

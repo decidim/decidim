@@ -64,6 +64,10 @@ module Decidim
       def manifest
         self.class.participatory_space_manifest
       end
+
+      def can_participate?(_user)
+        true
+      end
     end
 
     class_methods do
