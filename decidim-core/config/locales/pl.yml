@@ -219,6 +219,12 @@ pl:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
       shared:
+        newsletter_modal:
+          buttons:
+            check: Sprawdź i kontynuuj
+            uncheck: Pozostaw niezaznaczone
+          notice: Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu? Rozważ ponownie zaznaczenie pola wyboru biuletynu poniżej. Bardzo ważne jest dla nas, że możesz odbierać od czasu do czasu e-maile, by tworzyć ważne ogłoszenia. Zawsze możesz to zmienić na stronie ustawień powiadomień. Jeśli nie zaznaczysz tego pola, być może brakuje odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy. Jeśli nadal chcesz uniknąć otrzymywania biuletynów, doskonale rozumiemy Twoją decyzję. Dziękuję za przeczytanie tego!
+          title: Powiadomienia biuletynu
         omniauth_buttons:
           or: Lub
     doorkeeper:
