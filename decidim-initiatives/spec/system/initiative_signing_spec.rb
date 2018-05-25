@@ -19,12 +19,10 @@ describe "Initiative signing", type: :system do
 
   context "when the user has not signed the initiative yet and signs it" do
     context "when the user has a verified user group" do
-      before do
-        @user_group = create :user_group, :verified, users: [authorized_user], organization: authorized_user.organization
-      end
+      let!(:user_group) { create :user_group, :verified, users: [authorized_user], organization: authorized_user.organization }
 
       it "votes as a user group" do
-        vote_initiative(user_name: @user_group.name)
+        vote_initiative(user_name: user_group.name)
       end
 
       it "votes as themselves" do
@@ -39,14 +37,12 @@ describe "Initiative signing", type: :system do
 
   context "when the user has signed the initiative and unsigns it" do
     context "when the user has a verified user group" do
-      before do
-        @user_group = create :user_group, :verified, users: [authorized_user], organization: authorized_user.organization
-      end
+      let!(:user_group) { create :user_group, :verified, users: [authorized_user], organization: authorized_user.organization }
 
       it "removes the signature" do
-        vote_initiative(user_name: @user_group.name)
+        vote_initiative(user_name: user_group.name)
 
-        click_button @user_group.name
+        click_button user_group.name
 
         within ".view-side" do
           expect(page).to have_content("0\nSIGNATURE")
