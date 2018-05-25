@@ -210,6 +210,8 @@ ca:
       admin:
         assemblies:
           form:
+            duration_help: Si la durada d'aquest ensamblat és limitada, seleccioneu la data de finalització. En cas contrari, apareixerà com a indefinit.
+            included_at_help: Seleccioneu la data en què es va afegir aquest ensamblat a Decidim. No necessàriament ha de ser el mateix que la data de creació.
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus d'assemblea
