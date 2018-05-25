@@ -252,7 +252,7 @@ it:
         starting_from: A partire da %{date}
         vote: Votazione
       vote_modal:
-        contextual_help: Per favore selezionate un'opzione. Ricorda che una volta confermato il tuo supporto non può essere modificato.
+        contextual_help: Per favore selezionate un'opzione.
         title: 'Consultazione: domanda di supporto'
       vote_modal_confirm:
         change: Modificare
