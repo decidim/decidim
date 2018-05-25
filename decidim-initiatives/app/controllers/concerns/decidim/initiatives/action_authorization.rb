@@ -17,7 +17,7 @@ module Decidim
       #
       # Returns an AuthorizationStatus
       def action_authorization(action_name)
-        return AuthorizationStatus.new(:ok) if allowed_to?(action_name.to_sym, :initiative)
+        return AuthorizationStatus.new(:ok) if allowed_to?(action_name.to_sym, :initiative, initiative: current_initiative)
 
         AuthorizationStatus.new(:denied)
       end
