@@ -11,6 +11,8 @@ module Decidim
       has_many :questions, -> { order(:position) }, class_name: "QuestionnaireQuestion", foreign_key: "decidim_meetings_questionnaire_id", dependent: :destroy
       has_many :answers, class_name: "QuestionnaireAnswer", foreign_key: "decidim_meetings_questionnaire_id", dependent: :destroy
 
+      delegate :organization, to: :meeting
+
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         answers.empty?
@@ -18,7 +20,11 @@ module Decidim
 
       # Public: returns whether the questionnaire is answered by the user or not.
       def answered_by?(user)
-        answers.where(user: user).count == questions.length
+        answers_for(user).count == questions.length
+      end
+
+      def answers_for(user)
+        answers.where(user: user)
       end
     end
   end

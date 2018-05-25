@@ -1,0 +1,94 @@
+<% field_id = "questionnaire_answers_#{answer_idx}" %>
+<%= label_tag field_id, answer.label(answer_idx), class: "questionnaire-question" %>
+
+<% if translated_attribute(answer.question.description).present? %>
+  <div class="help-text">
+    <%= decidim_sanitize translated_attribute(answer.question.description) %>
+  </div>
+<% end %>
+
+<% case answer.question.question_type %>
+<% when "short_answer" %>
+  <%= answer_form.text_field :body, label: false, id: field_id %>
+<% when "long_answer" %>
+  <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
+<% when "single_option" %>
+  <div class="radio-button-collection">
+    <% choice = answer.choices.first %>
+
+    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+      <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+      <%= label_tag "#{choice_id}_body" do %>
+        <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
+                             translated_attribute(answer_option.body),
+                             choice.try(:body),
+                             id: "#{choice_id}_body" %>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <% if answer_option.free_text %>
+          <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][][custom_body]",
+                             choice.try(:custom_body),
+                             id: "#{choice_id}_custom_body",
+                             disabled: true %>
+        <% end %>
+
+        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][][answer_option_id]",
+                             answer_option.id,
+                             id: "#{choice_id}_answer_option",
+                             disabled: true %>
+      <% end %>
+    <% end %>
+  </div>
+<% when "multiple_option" %>
+  <div class="check-box-collection">
+    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+
+      <%= label_tag do %>
+        <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+                          translated_attribute(answer_option.body),
+                          choice.present? %>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <% if answer_option.free_text %>
+          <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][custom_body]",
+                             choice.try(:custom_body),
+                             disabled: true %>
+        <% end %>
+
+        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+      <% end %>
+    <% end %>
+  </div>
+<% when "sorting" %>
+  <div class="sortable-check-box-collection">
+    <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+
+      <%= label_tag do %>
+        <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+                          translated_attribute(answer_option.body),
+                          choice.present? %>
+
+        <span class="position"><%= choice.try(:position) %></span>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][position]",
+                             choice.try(:position),
+                             disabled: true %>
+
+        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= answer_form.hidden_field :question_id %>
+
+<% answer.errors.full_messages.each do |msg| %>
+  <small class="form-error is-visible"><%= msg %></small>
+<% end %>

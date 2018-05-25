@@ -8,9 +8,10 @@ module Decidim
       #
       # meeting - The current instance of the meeting to be joined.
       # user - The user joining the meeting.
-      def initialize(meeting, user)
+      def initialize(meeting, user, registration_form)
         @meeting = meeting
         @user = user
+        @registration_form = registration_form
       end
 
       # Creates a meeting registration if the meeting has registrations enabled
@@ -20,6 +21,12 @@ module Decidim
       def call
         meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
+
+          if registration_form
+            return broadcast(:invalid) unless registration_form.valid?
+            answer_registration_form
+          end
+
           create_registration
           send_email_confirmation
           send_notification
@@ -29,7 +36,29 @@ module Decidim
 
       private
 
-      attr_reader :meeting, :user
+      attr_reader :meeting, :user, :registration_form
+
+      def answer_registration_form
+        registration_form.answers.each do |form_answer|
+          answer = QuestionnaireAnswer.new(
+            user: user,
+            questionnaire: meeting.registration_form,
+            question: form_answer.question,
+            body: form_answer.body
+          )
+
+          form_answer.selected_choices.each do |choice|
+            answer.choices.build(
+              body: choice.body,
+              custom_body: choice.custom_body,
+              decidim_meetings_questionnaire_answer_option_id: choice.answer_option_id,
+              position: choice.position
+            )
+          end
+
+          answer.save!
+        end
+      end
 
       def create_registration
         Decidim::Meetings::Registration.create!(meeting: meeting, user: user)

@@ -11,15 +11,25 @@
       <%= t("going", scope: "decidim.meetings.meetings.show") %>
     <% end %>
   <% else %>
-    <%= render :registration_confirm %>
-    <%= action_authorized_button_to(
-      :join,
-      i18n_join_text,
-      "",
-      class: button_classes,
-      disabled: !model.has_available_slots?,
-      data: { open: current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
-    ) %>
+    <% if model.registration_form.present? %>
+      <%= action_authorized_link_to(
+        :join,
+        i18n_join_text,
+        join_meeting_registration_path(model),
+        class: button_classes,
+        disabled: !model.has_available_slots?,
+      ) %>
+    <% else %>
+      <%= render :registration_confirm %>
+      <%= action_authorized_button_to(
+        :join,
+        i18n_join_text,
+        "",
+        class: button_classes,
+        disabled: !model.has_available_slots?,
+        data: { open: current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
+      ) %>
+    <% end %>
   <% end %>
   <% if shows_remaining_slots? %>
     <span><%= t("remaining_slots", scope: "decidim.meetings.meetings.show", count: model.remaining_slots) %></span>

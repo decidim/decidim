@@ -4,6 +4,34 @@ module Decidim
   module Meetings
     # Exposes the registration resource so users can join and leave meetings.
     class RegistrationsController < Decidim::Meetings::ApplicationController
+      include FormFactory
+
+      helper_method :meeting, :questionnaire
+
+      def show
+        enforce_permission_to :join, :meeting, meeting: meeting
+
+        @form = form(QuestionnaireForm).from_model(questionnaire)
+      end
+
+      def answer
+        enforce_permission_to :join, :meeting, meeting: meeting
+
+        @form = form(QuestionnaireForm).from_params(params)
+
+        JoinMeeting.call(meeting, current_user, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
+            redirect_to meeting_path(meeting)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            render :show
+          end
+        end
+      end
+
       def create
         enforce_permission_to :join, :meeting, meeting: meeting
 
@@ -40,6 +68,10 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+      end
+
+      def questionnaire
+        @questionnaire ||= meeting.registration_form
       end
 
       def redirect_after_path

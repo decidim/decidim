@@ -1,0 +1,75 @@
+<% add_decidim_meta_tags({
+  title: translated_attribute(questionnaire.title),
+  description: translated_attribute(questionnaire.description),
+}) %>
+
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row columns">
+  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
+  <div class="row">
+    <div class="columns large-6 medium-centered lead">
+      <%= decidim_sanitize translated_attribute questionnaire.description %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <% if meeting.can_be_joined_by?(current_user) %>
+          <% if current_user %>
+            <% if questionnaire.answered_by?(current_user) %>
+              <div class="section">
+                <div class="callout success">
+                  <h5><%= t(".questionnaire_answered.title") %></h5>
+                  <p><%= t(".questionnaire_answered.body") %></p>
+                </div>
+              </div>
+            <% else %>
+              <div class="answer-questionnaire">
+                <%= decidim_form_for(@form, url: submit_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
+                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                    <div class="row column">
+                      <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
+                        <%= render "decidim/meetings/shared/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx %>
+                      <% end %>
+                    </div>
+                  <% end %>
+
+                  <div class="row column tos-agreement">
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement" %>
+                    <div class="help-text">
+                      <%= decidim_sanitize translated_attribute questionnaire.tos %>
+                    </div>
+                  </div>
+
+                  <div class="button--double form-general-submit">
+                    <%= form.submit t(".submit"), class: "button", data: { confirm: t(".are_you_sure"), disable: true } %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="answer-questionnaire">
+              <h5 class="section-heading"><%= t(".answer_questionnaire.title") %></h5>
+              <p>
+                <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
+              </p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="section">
+            <div class="callout warning">
+              <h5><%= t(".questionnaire_closed.title") %></h5>
+              <p><%= t(".questionnaire_closed.body") %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/meetings/questionnaires" %>

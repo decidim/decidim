@@ -195,7 +195,7 @@ en:
             update: Update
           form:
             add_question: Add question
-            already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
+            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
           new:
             create: Create
             title: Create questionnaire
@@ -315,6 +315,21 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+      shared:
+        questionnaires:
+          show:
+            answer_questionnaire:
+              anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
+              title: Answer the questionnaire
+            are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+            submit: Submit
+            questionnaire_answered:
+              body: You have already answered this questionnaire.
+              title: Questionnaire answered
+            questionnaire_closed:
+              body: The questionnaire is closed and cannot be answered.
+              title: Questionnaire closed
+            tos_agreement: By submitting this form you accept its Terms of Service
       types:
         private_meeting: Private meeting
         transparent: Transparent
