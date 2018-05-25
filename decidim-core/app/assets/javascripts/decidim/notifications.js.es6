@@ -1,4 +1,5 @@
 $(() => {
+  const $notificationsBellIcon = $(".title-bar .topbar__notifications");
   const $wrapper = $(".tabs-content");
   const $section = $wrapper.find("#notifications");
   const $noNotificationsText = $(".empty-notifications");
@@ -24,6 +25,7 @@ $(() => {
   $wrapper.on("click", ".mark-all-as-read-button", () => {
     $section.fadeOut(FADEOUT_TIME, () => {
       $pagination.remove();
+      $notificationsBellIcon.removeClass("is-active");
       $wrapper.find(".card--widget").remove();
       emptyNotifications();
     });
