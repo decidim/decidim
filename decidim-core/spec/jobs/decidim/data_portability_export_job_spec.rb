@@ -8,15 +8,11 @@ module Decidim
     let!(:user) { create(:user, organization: organization) }
 
     it "sends an email with the result of the export" do
-      DataPortabilityExportJob.perform_now(user, "exporter", "CSV")
+      DataPortabilityExportJob.perform_now(user, "CSV")
 
       email = last_email
-      expect(email.subject).to include("exporter")
-      attachment = email.attachments.first
-
-      expect(attachment.read.length).to be_positive
-      expect(attachment.mime_type).to eq("application/zip")
-      expect(attachment.filename).to match(/^exporter.*\.zip$/)
+      expect(email.subject).to include("export")
+      expect(email.body.encoded).to match("Download")
     end
   end
 end
