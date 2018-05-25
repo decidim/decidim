@@ -209,6 +209,12 @@ pt-BR:
           are_you_new?: Você é novo na plataforma?
           register: Criar uma conta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verifique e continue
+            uncheck: Manter desmarcado
+          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
