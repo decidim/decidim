@@ -9,14 +9,14 @@ fr:
         proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
-        available_slots: Places disponibles pour cette réunion
+        available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
-        private_meeting: Réunion privée
+        private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
@@ -29,16 +29,16 @@ fr:
         visible: Est visible
     models:
       decidim/meetings/close_meeting_event: Réunion fermée
-      decidim/meetings/create_meeting_event: Réunion
+      decidim/meetings/create_meeting_event: Rencontre
       decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
       decidim/meetings/meeting_registrations_over_percentage_event: Inscriptions à la limite
-      decidim/meetings/upcoming_meeting_event: Prochaine réunion
-      decidim/meetings/update_meeting_event: Réunion mise à jour
+      decidim/meetings/upcoming_meeting_event: Prochaine rencontre
+      decidim/meetings/update_meeting_event: Rencontre mise à jour
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Réunion
-        other: Réunions
+        one: Rencontre
+        other: Rencontre
       decidim/meetings/minutes:
         one: Minutes
         other: Minutes
@@ -49,17 +49,17 @@ fr:
     admin:
       meeting_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette assemblée.
-          success: Cette assemblée a été dupliquée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette rencontre.
+          success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer une assemblée
+          title: Dupliquer une rencontre
     components:
       meetings:
         actions:
           join: Rejoindre
-        name: Réunions
+        name: Rencontres
         settings:
           global:
             announcement: Annonce
@@ -71,9 +71,9 @@ fr:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La réunion "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La réunion "%{resource_title}" a été fermée
+          email_intro: 'La rencontre "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_subject: La rencontre "%{resource_title}" a été fermée
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_created:
           email_intro: La réunion "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
