@@ -83,6 +83,17 @@ module Decidim
 
             expect { command.call }.to change(User, :count).by(1)
           end
+
+          describe "when user keep uncheck newsletter" do
+            let(:newsletter) { "0" }
+
+            it "creates a user with no newsletter notifications" do
+              expect do
+                command.call
+                expect(User.last.newsletter_notifications).to eq(false)
+              end.to change(User, :count).by(1)
+            end
+          end
         end
 
         describe "when the user is signing up as a user group" do
