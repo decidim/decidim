@@ -109,4 +109,7 @@ fr:
           survey_closed:
             body: L'enquête est fermée et n'accepte plus de réponse.
             title: Enquête fermée
+          survey_for_private_users:
+            body: L'enquête est disponible uniquement pour les utilisateurs privés
+            title: Enquête fermée
           tos_agreement: En participant à ce sondage, vous acceptez ses conditions d'utilisation
