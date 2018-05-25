@@ -254,6 +254,7 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+          view: View
       models:
         meeting:
           fields:
