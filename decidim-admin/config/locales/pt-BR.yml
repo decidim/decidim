@@ -63,7 +63,7 @@ pt-BR:
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
-        show_statistics: Mostre estatisticas
+        show_statistics: Exibir estatisticas
         twitter_handler: Manipulador do Twitter
         welcome_text: Texto de boas-vindas
         youtube_handler: Manipulador do YouTube
@@ -125,7 +125,7 @@ pt-BR:
         title: Título
       doorkeeper/application:
         authorize_url: Autorizar URL
-        client_id: ID do Cliente
+        client_id: ID do cliente
         client_secret: Segredo do cliente
         organization_name: Nome da organização
         organization_url: URL da organização
