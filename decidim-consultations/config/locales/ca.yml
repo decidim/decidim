@@ -252,7 +252,7 @@ ca:
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
-        contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
+        contextual_help: Seleccioneu una opció.
         title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
