@@ -1,0 +1,15 @@
+<p><%= t ".body", organization_name: h(@organization.name) %></p>
+
+<table class="button radius" style="margin: 16px auto;">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <%= link_to t(".button"), decidim.newsletters_opt_in_url(token: @token, host: @organization.host), class: "button",  target: "_blank" %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

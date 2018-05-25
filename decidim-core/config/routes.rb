@@ -46,6 +46,9 @@ Decidim::Core::Engine.routes.draw do
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
+
+    get "/newsletters_opt_in/:token", to: "newsletters_opt_in#show", as: :newsletters_opt_in
+    put "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in_update
   end
 
   resources :profiles, only: [:show], param: :nickname

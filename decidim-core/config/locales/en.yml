@@ -363,6 +363,21 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    newsletters_opt_in:
+      unathorized: Sorry, this link is no longer available
+      show:
+        button: Update newsletter setting
+        header: Newsletter header
+        newsletter: Receive an occasional newsletter with relevant information
+        newsletter_title: Contact permission
+      update:
+        success: Newsletter settings updated successfully
+        error: Something wrong happened
+    newsletters_opt_in_mailer:
+      notify:
+        body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta nisl in diam iaculis accumsan. Donec quis metus ipsum. Cras porta, lacus bibendum bibendum venenatis, velit nisi vulputate urna, sed rutrum eros tortor vestibulum urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vulputate leo et mauris viverra feugiat. Mauris venenatis dictum diam, efficitur scelerisque turpis aliquet ut. Vestibulum at fermentum neque, pharetra malesuada sem. Aenean volutpat cursus ante, vitae mollis massa dapibus ut. Nullam risus ex, egestas in leo a, ultrices semper ligula. Suspendisse ultricies augue vitae eros cursus commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum id nulla ac hendrerit. Aliquam finibus nibh at mi luctus vehicula vitae ac magna. Aenean egestas, lectus a faucibus auctor, metus arcu accumsan dui, quis vestibulum mauris justo vel odio. Maecenas eget urna nec nibh feugiat aliquet.
+        button: Check newsletter setting
+        subject: Newsletter Opt-in
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:

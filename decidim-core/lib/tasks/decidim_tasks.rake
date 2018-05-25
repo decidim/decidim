@@ -27,4 +27,9 @@ namespace :decidim do
       decidim_verifications
     ).join(",")
   end
+
+  desc "Check and notify users to update her newsletter notifications settings"
+  task check_users_newsletter_opt_in: :environment do
+    Decidim::User.where(newsletter_notifications: true).each(&:newsletter_opt_in_notify)
+  end
 end
