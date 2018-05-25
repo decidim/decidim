@@ -210,6 +210,8 @@ fr:
       admin:
         assemblies:
           form:
+            duration_help: Si la durée de cet assemblage est limitée, sélectionnez la date de fin. Sinon, il apparaîtra comme indéfini.
+            included_at_help: Sélectionnez la date à laquelle cet assembly a été ajouté à Decidim. Il ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créé par
             select_an_area: Sélectionnez une région
             select_an_assembly_type: Sélectionnez un type d'assemblage
