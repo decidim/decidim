@@ -251,6 +251,7 @@ fr:
           remaining_slots:
             one: Il reste 1 place
             other: "Il reste %{count} places"
+          view: Vue
       models:
         meeting:
           fields:
