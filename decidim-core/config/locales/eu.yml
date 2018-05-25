@@ -209,6 +209,12 @@ eu:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
       shared:
+        newsletter_modal:
+          buttons:
+            check: Egiaztatu eta jarraitu
+            uncheck: Mantendu uncheck
+          notice: Kaixo, ziur zaude buletin bat jaso nahi duzula? Berriro begiratu berriro buletina kontrol-laukia markatuta. Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, zure jakinarazpenen ezarpenen orrian alda dezakezu beti. Kutxa markatzen ez baduzu, parte hartzaileen aukera berriei buruzko informazio garrantzitsua falta zaizu plataforman. Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu. Eskerrik asko irakurri hau!
+          title: Buletina jakinarazpenak
         omniauth_buttons:
           or: Edo
     doorkeeper:
