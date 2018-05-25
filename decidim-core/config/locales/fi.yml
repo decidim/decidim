@@ -209,6 +209,12 @@ fi:
           are_you_new?: Alustan uusi käyttäjä?
           register: Luo käyttäjätili
       shared:
+        newsletter_modal:
+          buttons:
+            check: Tarkista ja jatka
+            uncheck: Poista valinta
+          notice: Hei, oletko varma et halua vastaanottaa uutiskirjeitä? Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla. Meille on erittäin tärkeää, että saat satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen, voit aina muuttaa ilmoituksesi asetussivulla. Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla. Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi. Kiitos, kun olet lukenut tämän!
+          title: Ilmoitusten ilmoitukset
         omniauth_buttons:
           or: Tai
     doorkeeper:
