@@ -209,6 +209,12 @@ fr:
           are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
+        newsletter_modal:
+          buttons:
+            check: Vérifiez et continuez
+            uncheck: Désactiver
+          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter? S'il vous plaît considérer encore en cochant la case à cocher newsletter ci-dessous. Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour faire des annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous voulez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ça!
+          title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
