@@ -164,7 +164,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          success: La zone d'application a bien été supprimée.
+          success: La zone d'application a bien été détruite.
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -352,7 +352,7 @@ fr:
         attachment:
           fields:
             collection: Dossier
-            content_type: Type de contenus
+            content_type: Type de contenu
             file_size: Taille
             title: Titre
           name: Document lié
@@ -374,7 +374,7 @@ fr:
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
-          name: Newsletter
+          name: Bulletin d'information (newsletter)
         oauth_application:
           fields:
             created_at: Créé le
@@ -589,7 +589,7 @@ fr:
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
-        impersonations: Utilisateurs représentés
+        impersonations: Représentations d'utilisateurs
         officializations: Validation d'utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
