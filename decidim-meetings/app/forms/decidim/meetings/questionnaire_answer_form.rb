@@ -18,6 +18,8 @@ module Decidim
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
+      attr_writer :question
+
       def question
         @question ||= QuestionnaireQuestion.find(question_id)
       end
@@ -34,6 +36,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.question_id = model.decidim_meetings_questionnaire_question_id
+        self.question = model.question
 
         self.choices = model.choices.map do |choice|
           QuestionnaireAnswerChoiceForm.from_model(choice)

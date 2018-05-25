@@ -71,7 +71,7 @@ module Decidim
       end
 
       def questionnaire
-        @questionnaire ||= meeting.registration_form
+        @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(meeting: meeting.id, questionnaire_type: "registration")
       end
 
       def redirect_after_path

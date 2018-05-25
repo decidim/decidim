@@ -39,7 +39,7 @@ module Decidim
       attr_reader :meeting, :user, :registration_form
 
       def answer_registration_form
-        registration_form.answers.each do |form_answer|
+        registration_form.questionnaire_answers.each do |form_answer|
           answer = QuestionnaireAnswer.new(
             user: user,
             questionnaire: meeting.registration_form,

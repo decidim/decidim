@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     # This class holds a Form to answer a meeting questionnaire from Decidim's public page.
     class QuestionnaireForm < Decidim::Form
-      attribute :answers, Array[QuestionnaireAnswerForm]
+      attribute :questionnaire_answers, Array[QuestionnaireAnswerForm]
 
       attribute :tos_agreement, Boolean
       validates :tos_agreement, allow_nil: false, acceptance: true
@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns nothing.
       def map_model(model)
-        self.answers = model.questions.map do |question|
+        self.questionnaire_answers = model.questions.map do |question|
           QuestionnaireAnswerForm.from_model(QuestionnaireAnswer.new(question: question))
         end
       end

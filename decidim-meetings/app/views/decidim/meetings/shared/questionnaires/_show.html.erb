@@ -30,9 +30,9 @@
             <% else %>
               <div class="answer-questionnaire">
                 <%= decidim_form_for(@form, url: submit_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
-                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                  <% @form.questionnaire_answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
-                      <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
+                      <%= fields_for "questionnaire[questionnaire_answers][#{answer_idx}]", answer do |answer_form| %>
                         <%= render "decidim/meetings/shared/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx %>
                       <% end %>
                     </div>
