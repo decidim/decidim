@@ -18,7 +18,7 @@
   <div class="columns large-6 medium-centered">
     <div class="card">
       <div class="card__content">
-        <% if meeting.can_be_joined_by?(current_user) %>
+        <% if meeting.can_be_joined_by?(current_user) && meeting.has_available_slots? %>
           <% if current_user %>
             <% if questionnaire.answered_by?(current_user) %>
               <div class="section">

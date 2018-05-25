@@ -71,4 +71,54 @@ FactoryBot.define do
     visible true
     meeting
   end
+
+  factory :questionnaire, class: Decidim::Meetings::Questionnaire do
+    title { Decidim::Faker::Localized.sentence }
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.sentence(4)
+      end
+    end
+    tos { Decidim::Faker::Localized.sentence(4) }
+    questionnaire_type { "registration" }
+    meeting
+  end
+
+  factory :questionnaire_question, class: Decidim::Meetings::QuestionnaireQuestion do
+    transient do
+      answer_options []
+    end
+
+    body { Decidim::Faker::Localized.sentence }
+    mandatory false
+    position 0
+    question_type { Decidim::Meetings::QuestionnaireQuestion::TYPES.first }
+    questionnaire
+
+    before(:create) do |question, evaluator|
+      evaluator.answer_options.each do |answer_option|
+        question.answer_options.build(
+          body: answer_option["body"],
+          free_text: answer_option["free_text"]
+        )
+      end
+    end
+  end
+
+  factory :questionnaire_answer, class: Decidim::Meetings::QuestionnaireAnswer do
+    body { "Hi" }
+    questionnaire
+    question { create(:questionnaire_question, questionnaire: questionnaire) }
+    user { create(:user, organization: questionnaire.meeting.organization) }
+  end
+
+  factory :questionnaire_answer_option, class: Decidim::Meetings::QuestionnaireAnswerOption do
+    body { Decidim::Faker::Localized.sentence }
+    question { create(:questionnaire_question) }
+  end
+
+  factory :questionnaire_answer_choice, class: Decidim::Meetings::QuestionnaireAnswerChoice do
+    answer { create(:questionnaire_answer) }
+    answer_option { create(:questionnaire_answer_option, question: answer.question) }
+  end
 end

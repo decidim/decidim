@@ -8,7 +8,7 @@ module Decidim
       #
       # meeting - The current instance of the meeting to be joined.
       # user - The user joining the meeting.
-      def initialize(meeting, user, registration_form)
+      def initialize(meeting, user, registration_form = nil)
         @meeting = meeting
         @user = user
         @registration_form = registration_form

@@ -181,6 +181,9 @@ en:
           update:
             invalid: There's been a problem updating this minutes
             success: Minutes successfully updated
+        models:
+          meeting:
+            name: Meeting
         questionnaires:
           answer_option:
             answer_option: Answer option
@@ -211,20 +214,17 @@ en:
           update:
             invalid: There's been a problem updating this questionnaire
             success: Questionnaire successfully updated
-        models:
-          meeting:
-            name: Meeting
         registrations:
           edit:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invite_user: Invite user
+            registration_form: Registration form
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
               zero: There has not been registrations yet.
-            registration_form: Registration form
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
@@ -297,6 +297,8 @@ en:
             start_time: Start date
             title: Title
       questionnaires:
+        question:
+          max_choices: Maximum number of choices
         question_types:
           long_answer: Long answer
           multiple_option: Multiple option
@@ -322,13 +324,13 @@ en:
               anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
               title: Answer the questionnaire
             are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
-            submit: Submit
             questionnaire_answered:
               body: You have already answered this questionnaire.
               title: Questionnaire answered
             questionnaire_closed:
               body: The questionnaire is closed and cannot be answered.
               title: Questionnaire closed
+            submit: Submit
             tos_agreement: By submitting this form you accept its Terms of Service
       types:
         private_meeting: Private meeting

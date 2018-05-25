@@ -11,6 +11,8 @@ module Decidim
       def show
         enforce_permission_to :join, :meeting, meeting: meeting
 
+        redirect_to meeting_path(meeting) and return unless questionnaire
+
         @form = form(QuestionnaireForm).from_model(questionnaire)
       end
 
@@ -78,6 +80,10 @@ module Decidim
         referer = request.headers["Referer"]
         return redirect_to(meeting_path(meeting)) if referer =~ /invitation_token/
         redirect_back fallback_location: meeting_path(meeting)
+      end
+
+      def user_has_no_permission_path
+        meeting_path(meeting)
       end
     end
   end
