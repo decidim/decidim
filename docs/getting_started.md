@@ -81,11 +81,7 @@ You can now start your server!
 bin/rails s
 ```
 
-Visit [http://localhost:3000
-
-
-
-http://localhost:3000) to see your app running.
+Visit [http://localhost:3000](http://localhost:3000) to see your app running.
 
 ## Configuration & setup
 
