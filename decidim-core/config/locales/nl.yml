@@ -209,6 +209,12 @@ nl:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
+        newsletter_modal:
+          buttons:
+            check: Controleer en ga door
+            uncheck: Blijf uitgeschakeld
+          notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
+          title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
     doorkeeper:
