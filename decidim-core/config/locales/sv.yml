@@ -209,6 +209,12 @@ sv:
           are_you_new?: Ny på plattformen?
           register: Skapa ett konto
       shared:
+        newsletter_modal:
+          buttons:
+            check: Kontrollera och fortsätt
+            uncheck: Håll avmarkeringen
+          notice: Hej, är du säker på att du inte vill få ett nyhetsbrev? Tänk på att markera kryssrutan nyhetsbrev nedan. Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra detta på sidan Meddelandeinställningar. Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen. Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt. Tack för att du läste detta!
+          title: Nyhetsbrev anmälningar
         omniauth_buttons:
           or: Eller
     doorkeeper:
