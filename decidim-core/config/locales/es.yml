@@ -209,6 +209,12 @@ es:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verificar y continuar
+            uncheck: Mantener desmarcado
+          notice: Oye, ¿estás seguro de que no quieres recibir un boletín informativo? Considere volver a marcar la casilla de verificación del boletín de abajo. Es muy importante para nosotros que pueda recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puede cambiar esto en la página de configuración de notificaciones. Si no marca la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma. Si aún desea evitar recibir boletines, entendemos perfectamente su decisión. ¡Gracias por leer esto!
+          title: Notificaciones de boletines
         omniauth_buttons:
           or: O
     doorkeeper:
