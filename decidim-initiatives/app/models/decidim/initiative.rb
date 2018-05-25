@@ -79,12 +79,12 @@ module Decidim
     scope :public_spaces, -> { published }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
-    scope :order_by_supports, -> { order("initiative_votes_count + coalesce(offline_votes, 0) desc") }
+    scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
         .left_joins(:comments)
         .group("decidim_initiatives.id")
-        .order("count(decidim_comments_comments.id) desc")
+        .order(Arel.sql("count(decidim_comments_comments.id) desc"))
     }
 
     after_save :notify_state_change
