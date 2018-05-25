@@ -13,7 +13,7 @@ module Decidim
       let!(:survey_question) { create(:survey_question, survey: survey) }
 
       it "builds empty answers for each question" do
-        expect(subject.answers.length).to eq(1)
+        expect(subject.survey_answers.length).to eq(1)
       end
 
       context "when tos_agreement is not accepted" do
