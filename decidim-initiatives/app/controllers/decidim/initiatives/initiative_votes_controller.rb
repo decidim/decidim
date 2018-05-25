@@ -8,9 +8,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper Decidim::ActionAuthorizationHelper
       helper InitiativeHelper
-      include Decidim::Initiatives::ActionAuthorization
 
       # POST /initiatives/:initiative_id/initiative_vote
       def create
