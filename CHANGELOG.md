@@ -133,6 +133,7 @@ administrators should keep in mind updating the help texts for each step.
 - **decidim**: Fix the dependency of `high_voltage` to `v3.0.0` [\#3383](https://github.com/decidim/decidim/pull/3383)
 - **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3360](https://github.com/decidim/decidim/pull/3360)
 - **decidim-admin**: Fixes the validation uniqueness name of area, scoped with organization and area_type [\#3350](https://github.com/decidim/decidim/pull/3350)
+- **decidim-surveys**: Fix a N+1 in surveys [\#333493](https://github.com/decidim/decidim/pull/3493)
 
 **Removed**:
 

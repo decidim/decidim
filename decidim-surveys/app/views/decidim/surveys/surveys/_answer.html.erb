@@ -20,7 +20,7 @@
       <% choice_id = "#{field_id}_choices_#{idx}" %>
 
       <%= label_tag "#{choice_id}_body" do %>
-        <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]",
+        <%= radio_button_tag "survey[survey_answers][#{answer_idx}][choices][][body]",
                              translated_attribute(answer_option.body),
                              choice.try(:body),
                              id: "#{choice_id}_body" %>
@@ -28,13 +28,13 @@
         <%= translated_attribute(answer_option.body) %>
 
         <% if answer_option.free_text %>
-          <%= text_field_tag "survey[answers][#{answer_idx}][choices][][custom_body]",
+          <%= text_field_tag "survey[survey_answers][#{answer_idx}][choices][][custom_body]",
                              choice.try(:custom_body),
                              id: "#{choice_id}_custom_body",
                              disabled: true %>
         <% end %>
 
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][answer_option_id]",
+        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][][answer_option_id]",
                              answer_option.id,
                              id: "#{choice_id}_answer_option",
                              disabled: true %>
@@ -47,19 +47,19 @@
       <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
       <%= label_tag do %>
-        <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
+        <%= check_box_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][body]",
                           translated_attribute(answer_option.body),
                           choice.present? %>
 
         <%= translated_attribute(answer_option.body) %>
 
         <% if answer_option.free_text %>
-          <%= text_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][custom_body]",
+          <%= text_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][custom_body]",
                              choice.try(:custom_body),
                              disabled: true %>
         <% end %>
 
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
       <% end %>
     <% end %>
   </div>
@@ -69,7 +69,7 @@
       <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
       <%= label_tag do %>
-        <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
+        <%= check_box_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][body]",
                           translated_attribute(answer_option.body),
                           choice.present? %>
 
@@ -77,11 +77,11 @@
 
         <%= translated_attribute(answer_option.body) %>
 
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][position]",
+        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][position]",
                              choice.try(:position),
                              disabled: true %>
 
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
       <% end %>
     <% end %>
   </div>
