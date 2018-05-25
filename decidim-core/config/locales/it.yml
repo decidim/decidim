@@ -209,6 +209,12 @@ it:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
+        newsletter_modal:
+          buttons:
+            check: Controlla e continua
+            uncheck: Continua a deselezionare
+          notice: Ehi, sei sicuro di non voler ricevere una newsletter? Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto. Per noi è molto importante che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche. Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma. Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione. Grazie per aver letto questo!
+          title: Notifiche alla newsletter
         omniauth_buttons:
           or: O
     doorkeeper:
