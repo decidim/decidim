@@ -389,7 +389,7 @@ fr:
           debates: Débats
           debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
           how_to_participate: Comment participer ?
-          meetings: Réunions
+          meetings: Rencontres
           meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
           more_info: En savoir plus
           proposals: Les propositions
@@ -408,7 +408,7 @@ fr:
           debates_count: Débats
           endorsements_count: Recommandations
           headline: État actuel de %{organization}
-          meetings_count: Réunions
+          meetings_count: Rencontres
           orders_count: Soutiens
           pages_count: Pages
           processes_count: Processus participatifs
