@@ -6,13 +6,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
-        about: A propos
+        about: A propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: URL personnelle
+        personal_url: Site internel personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -23,8 +23,9 @@ fr:
         current_password: Mot de passe actuel
         email: Email
         name: Nom d'utilisateur
+        nickname: Votre pseudonyme
         password: Mot de passe
-        password_confirmation: Confirmation mot de passe
+        password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
@@ -118,15 +119,15 @@ fr:
         other: commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Faites-vous vérifier en introduisant un numéro de passeport commençant par "A"
+        explanation: Obtenir une vérification en saisissant un numéro de document
         fields:
           passport_number: Numéro de passeport
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document
         fields:
           document_number: Numéro de document
           postal_code: Code postal
-        name: Exemple d'autorisation
+        name: Formulaire de vérification d'identité
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
@@ -145,12 +146,12 @@ fr:
         actions:
           bar: Bar
           foo: Foo
-        name: Composant factice
+        name: Fonctionnalité factice
         settings:
           global:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut fictif 2
+            dummy_global_attribute_2: Attribut factice 2
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
@@ -162,10 +163,10 @@ fr:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse de email
+          email_already_exists: Un autre compte utilise la même adresse mail
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant unique et court sur cette plateforme (ne pas utiliser d'espace).
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -173,7 +174,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant unique et court sur cette plateforme (ne pas utiliser d'espace).
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -186,7 +187,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme?
+          are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -223,10 +224,10 @@ fr:
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'La fonctionnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -297,7 +298,7 @@ fr:
       expired_session: La session de connexion a expiré.
     menu:
       home: Accueil
-      more_information: Plus d'information
+      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:
@@ -340,7 +341,7 @@ fr:
         unsubscribe: Se désabonner
     notifications_settings:
       show:
-        email_on_notification: Je veux recevoir un email chaque fois que je reçois une notification.
+        email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
@@ -443,8 +444,8 @@ fr:
     invitations:
       edit:
         header: Définir votre mot de passe
-        nickname_help: Votre identifiant unique dans %{organization}.
-        submit_button: sauvegarder
+        nickname_help: Votre identifiant court et unique sur cette plateforme (ne pas utiliser d'espace).
+        submit_button: Sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
@@ -478,7 +479,7 @@ fr:
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_manifest: Manifeste invalide
-      invalid_participatory_process: Processus participatif invalide
+      invalid_participatory_process: Concertation invalide
       long_words: Contient des mots trop longs
       must_start_with_caps: Doit commencer par des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
@@ -497,7 +498,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé par Open Source Politics grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé par <a target="_blank" href="http://www.opensourcepolitics.eu/">Open Source Politics</a> grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -536,13 +537,13 @@ fr:
         debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
         how_to_participate: Comment participer ?
         meetings: Rencontres
-        meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
+        meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
         more_info: En savoir plus
         proposals: Propositions
         proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
         footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
+        footer_sub_hero_headline: Bienvenue sur %{organization}.
         register: S'inscrire
       hero:
         participate: Participez
@@ -557,7 +558,7 @@ fr:
         meetings_count: Rencontres
         orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus participatifs
+        processes_count: Concertations
         projects_count: Projets
         proposals_accepted: Propositions acceptées
         proposals_count: Propositions
@@ -581,7 +582,7 @@ fr:
     reddit: Reddit
     share_to: Partager sur %{name}
     tumblr: Tumblr
-    twitter: Gazouillement
+    twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".

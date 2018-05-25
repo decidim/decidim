@@ -3,35 +3,35 @@ fr:
     attributes:
       assembly:
         area_id: Zone d'application
-        assembly_type: Type d'assemblage
-        assembly_type_other: Type d'assemblage autre
+        assembly_type: Type d'agora
+        assembly_type_other: Autre type d'agora
         banner_image: Image d'en-tête
         closing_date: Date de clôture
-        closing_date_reason: Raison de la date de fermeture
+        closing_date_reason: Raison de la date de clôture
         composition: Composition
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
-        created_by_other: Créé par d'autres
-        creation_date: Date créée
+        created_by_other: Si "autres", précisez
+        creation_date: Date de création
         decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
         domain: Domaine
-        duration: Durée
+        duration: Durée du mandat
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        included_at: Inclus à
+        included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Est transparent
-        local_area: Périmètre
+        local_area: Espace d'organisation
         meta_scope: Échelle
-        participatory_processes_ids: Processus participatifs associés
+        participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Espace privé
@@ -47,7 +47,7 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Gazouillement
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Anniversaire
@@ -66,85 +66,85 @@ fr:
     admin:
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
+          error: Une erreur s'est produite lors de la création d'une nouvelle agora.
           success: Agora créée avec succès.
         destroy:
-          success: Assemblée supprimée avec succès.
+          success: Agora supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
           title: Informations générales
         index:
-          not_published: Non publié
-          private: Privé
+          not_published: Non publiée
+          private: Privée
           public: Publique
-          published: Publié
+          published: Publiée
         new:
           create: Créer
-          title: Nouvelle assemblée
+          title: Nouvelle agora
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
+          error: Une erreur s'est produite lors de la mise à jour de cet agora.
           success: Agora mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cet assemblée.
-          success: L'assemblée a été copiée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cet agora.
+          success: L'agora a été copiée avec succès.
       assembly_copies:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'assemblée
+          title: Dupliquer l'agora
       assembly_members:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet assembly.
-          success: Membre créé avec succès pour cet assembly.
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
+          success: Membre créé avec succès pour cette agora.
         destroy:
-          success: Membre détruit avec succès pour cet assemblage.
+          success: Membre détruit avec succès pour cette agora.
         edit:
-          title: Mettre à jour le membre de l'assembly
+          title: Mettre à jour l'utilisateur de l'agora
           update: Mettre à jour
         index:
-          assembly_members_title: Membres de l'Assemblée
+          assembly_members_title: Membres de l'agora
         new:
           create: Créer
-          title: Nouveau membre de l'assemblée.
+          title: Nouveau membre de l'agora.
         update:
-          error: Une erreur s'est produite lors de la mise à jour du membre pour cet assembly.
-          success: Membre mis à jour avec succès pour cet assembly.
+          error: Une erreur s'est produite lors de la mise à jour du membre pour cette agora.
+          success: Membre mis à jour avec succès pour cette agora.
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette assemblée.
-          success: Assemblée publiée avec succès.
+          error: Une erreur s'est produite lors de la publication de cette agora.
+          success: Agora publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
-          success: Assemblée dépubliée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette agora.
+          success: Agora dépubliée avec succès.
       assembly_user_roles:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
           success: Utilisateur créé avec succès pour cette agora.
         destroy:
-          success: Utilisateur supprimé avec succès pour cette assemblée.
+          success: Utilisateur supprimé avec succès pour cette agora.
         edit:
-          title: Mettre à jour l'utilisateur de l'assemblée.
+          title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
         index:
-          assembly_admins_title: Utilisateurs de l'assemblée
+          assembly_admins_title: Administrateurs de l'agora
         new:
           create: Créer
-          title: Nouvel utilisateur d'assemblée.
+          title: Nouvel utilisateur d'agora.
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
           success: Utilisateur mis à jour avec succès pour cette agora.
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'assemblée
+          assembly_admins: Administrateurs de l'agora
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -156,25 +156,25 @@ fr:
             promoted: Mis en évidence
             published: Publié
             title: Titre
-          name: Assemblée
+          name: Agora
         assembly_member:
           fields:
             ceased_date: Date de cessation
             designation_date: Date de désignation
-            full_name: prénom
+            full_name: Nom et prénom
             position: Position
           name: Membre
           positions:
             other: Autre
             president: Président
-            secretary: secrétaire
+            secretary: Secrétaire
             vice_president: Vice président
         assembly_user_role:
           fields:
             email: Email
             name: Nom
             role: Rôle
-          name: Utilisateur de l'assemblée
+          name: Utilisateur de l'agora
           roles:
             admin: Administrateur
             collaborator: Collaborateur
@@ -188,9 +188,9 @@ fr:
         unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
         update: "%{user_name} a mis à jour l'agora %{resource_name}"
       assembly_member:
-        create: "%{user_name} créé le %{resource_name} membre dans l'assemblage %{space_name}"
-        delete: "%{user_name} enlevé le %{resource_name} membre de l'assemblage %{space_name}"
-        update: "%{user_name} mis à jour le %{resource_name} membre de l'assemblée %{space_name}"
+        create: "%{user_name} créé le %{resource_name} membre dans l'agora %{space_name}"
+        delete: "%{user_name} enlevé le %{resource_name} membre de l'agora %{space_name}"
+        update: "%{user_name} mis à jour le %{resource_name} membre de l'agora %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
@@ -199,26 +199,26 @@ fr:
       admin:
         assemblies:
           form:
-            select_a_created_by: Sélectionnez un créé par
-            select_an_area: Sélectionnez une région
-            select_an_assembly_type: Sélectionnez un type d'assemblage
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
-            social_handlers: Social
+            select_a_created_by: Sélectionnez un auteur
+            select_an_area: Sélectionnez une zone
+            select_an_assembly_type: Sélectionnez un type d'agora
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
             non_user: Non utilisateur
-            select_a_position: Sélectionnez un poste
+            select_a_position: Sélectionnez une position
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
           index:
             filter:
               all: Tout
               ceased: A cessé
-              not_ceased: Pas cessé
+              not_ceased: En cours
             filter_by: Filtrer par
             search: Chercher
       assembly_members:
@@ -226,7 +226,7 @@ fr:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Consultatif / consultatif
+        consultative_advisory: Comité consultatif
         executive: Exécutif
         government: Gouvernement
         others: Autres
@@ -235,7 +235,7 @@ fr:
       created_by:
         city_council: Conseil municipal
         others: Autres
-        public: Publique
+        public: Public
       index:
         title: Agora
       pages:
@@ -247,8 +247,8 @@ fr:
           member_of:
             member_of: Membre de
       show:
-        area: Région
-        assembly_type: Type d'assemblage
+        area: Zone
+        assembly_type: Type d'agora
         children: Agora
         closing_date: Date de clôture
         composition: Composition
@@ -256,20 +256,20 @@ fr:
         creation_date: Date créée
         developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
+        included_at: Intégrée à la plateforme le
         indefinite_duration: Indéfini
         internal_organisation: Organisation interne
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Périmètre
+        local_area: Espace d'organisation
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
         purpose_of_action: But de l'action
         read_less: Lire moins
         read_more: Lire la suite
-        related_participatory_processes: Processus participatifs associés
+        related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
         target: Participants
@@ -280,7 +280,7 @@ fr:
         debates_count: Débats
         endorsements_count: Recommandations
         headline: Activité
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Soutiens
         pages_count: Pages
         projects_count: Projets
@@ -319,8 +319,8 @@ fr:
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
-        unfold: Déplier
+        assembly_menu_item: Présentation
+        unfold: Voir la suite
       assembly_widgets:
         show:
           take_part: Participer

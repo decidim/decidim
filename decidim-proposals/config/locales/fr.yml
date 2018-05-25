@@ -40,7 +40,7 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Assistant d'offre de proposition "Complete" étape texte d'aide
+            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Finaliser" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
@@ -52,8 +52,8 @@ fr:
             endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Soutiens bloqués
-            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
-            votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
+            votes_enabled: Activer le module de votes "Soutiens"
+            votes_hidden: Cacher les soutiens/votes (si les soutiens/votes sont activés, le compte des soutiens/votes sera caché)
     events:
       proposals:
         creation_enabled:
@@ -64,7 +64,7 @@ fr:
         endorsing_enabled:
           email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: La promotion des différentes propositions a commencé pour %{participatory_space_title}
+          email_subject: La recommandation des différentes propositions est activée pour %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">recommander les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
@@ -114,10 +114,16 @@ fr:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propositions
+        proposal:
+          creation_date: 'Création : %{date}'
+          view_proposal: Voir la proposition
     participatory_spaces:
       highlighted_proposals:
         proposals: Les propositions
         see_all_proposals: Voir toutes les propositions
+      proposal:
+        creation_date: 'Création : %{date}'
+        view_proposal: Voir la proposition
     proposals:
       actions:
         answer: Répondre
@@ -156,7 +162,7 @@ fr:
             success: La réponse à la proposition a publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
-            success: Proposition créée avec succès
+            success: Proposition créée avec succès.
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -214,7 +220,6 @@ fr:
             category: Catégorie
             comments: Commentaires
             created_at: Créé le
-            endorsements: Les avenants
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -232,7 +237,7 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Recommandé
+          already_endorsed: Déjà recommandée
           endorse: Recommander
       proposal_votes:
         create:
@@ -249,6 +254,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
+            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
         edit:
@@ -288,10 +294,10 @@ fr:
         identities_listing:
           see_all: Tout voir
           see_less: Voir moins
-          title: Liste des promoteurs
+          title: Liste des recommandations
         index:
           new_proposal: Nouvelle proposition
-          see_all_withdrawn: Voir toutes les propositions retirées
+          see_all_withdrawn: Voir toutes les propositions retirées par leurs auteurs
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -308,8 +314,8 @@ fr:
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
-            one: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
-            other: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            one: Vous avez la possibilité de modifier cette proposition au cours d' %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            other: Vous avez la possibilité de modifier cette proposition au cours des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publiez votre proposition
         proposal:
@@ -324,7 +330,7 @@ fr:
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: s'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune recommandation vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
@@ -350,19 +356,19 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le soutien est soumis aux règles suivantes:'
+          title: 'La participation est soumise aux règles suivantes:'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
             votes: Soutiens
         wizard_aside:
-          back: Arrière
+          back: Retour
           info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           see_steps: voir les étapes
           step_1: Créez votre proposition
-          step_2: Comparer
-          step_3: Achevée
+          step_2: Comparez avec les autres propositions
+          step_3: Finalisez votre proposition
           step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:

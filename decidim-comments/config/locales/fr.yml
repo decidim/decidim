@@ -31,7 +31,7 @@ fr:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
           close: Fermer
-          description: Ce contenu est-il inapproprié?
+          description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
             does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
