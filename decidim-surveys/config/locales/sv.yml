@@ -109,4 +109,7 @@ sv:
           survey_closed:
             body: Undersökningen är stängd och kan inte besvaras.
             title: Undersökningen stängd
+          survey_for_private_users:
+            body: Undersökningen är endast tillgänglig för privata användare
+            title: Undersökningen stängd
           tos_agreement: Genom att delta i denna undersökning accepterar du användarvillkoren
