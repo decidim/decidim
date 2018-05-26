@@ -23,10 +23,17 @@ uk:
         parent_id: Батьківський об'єкт
       component:
         name: Ім'я
+        published_at: 'Опубліковано:'
+        weight: Вага
       id: Псевдонім
       newsletter:
         body: Основний текст
         subject: Тема
+      oauth_application:
+        name: Ім'я
+        organization_logo: Логотип організації (квадрат)
+        organization_name: Назва організації
+        organization_url: Адреса сайту організації
       organization:
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
@@ -63,7 +70,9 @@ uk:
         code: Код
         name: Назва
         organization: Організація
+        parent_id: Батьківський об'єкт
         scope_type: Різновид терену
+        scope_type_id: Різновид терену
       scope_type:
         name: Назва
         organization: Організація
@@ -107,6 +116,10 @@ uk:
         content: Вміст
         slug: Скорочена URL-адреса
         title: Заголовок
+      doorkeeper/application:
+        organization_name: Назва організації
+        organization_url: Адреса сайту організації
+        site: Сайт
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -186,6 +199,9 @@ uk:
         update:
           error: При оновленні цього вкладеного файлу сталася помилка.
           success: Вкладений файл успішно оновлено.
+      autocomplete:
+        no_results: Нічого не знайдено
+        search_prompt: Введіть принаймні три символи для пошуку
       categories:
         create:
           error: При створенні цього розділу сталася помилка.
@@ -205,6 +221,44 @@ uk:
         update:
           error: При оновленні цього розділу сталася помилка.
           success: Розділ успішно оновлено.
+      component_permissions:
+        edit:
+          everyone: Будь-хто
+          submit: Зберегти права доступу
+          title: Редагувати права доступу
+        update:
+          success: Права доступу успішно оновлено.
+      components:
+        create:
+          error: При створенні цієї складової сталася помилка.
+          success: Складову успішно створено.
+        destroy:
+          error: При видаленні цієї складової сталася помилка.
+          success: Складову успішно видалено.
+        edit:
+          title: Редагувати складову
+          update: Оновити
+        form:
+          default_step_settings: Налаштування за замовчуванням для кроків
+          global_settings: Загальні налаштування
+          step_settings: Налаштування кроку
+        index:
+          add: Додати складову
+          headers:
+            actions: Дії
+            name: Назва складової
+            type: Різновид складової
+        new:
+          add: Додати складову
+          title: 'Додати складову: %{name}'
+        publish:
+          success: Складову було успішно опубліковано.
+        title: Складові
+        unpublish:
+          success: Публікацію складової було успішно скасовано.
+        update:
+          error: При оновленні цієї складової сталася помилка.
+          success: Цю складову було успішно оновлено.
       dashboard:
         show:
           view_more_logs: Переглянути інші журнали
@@ -214,6 +268,8 @@ uk:
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       impersonatable_users:
         index:
+          filter:
+            all: Усі
           impersonate: Виступити в ролі учасника
           needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
           view_logs: Переглянути журнали
