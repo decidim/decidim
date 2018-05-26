@@ -380,6 +380,8 @@ uk:
             created_at: 'Створено:'
             name: Ім'я
           name: Додаток OAuth
+        participatory_space_private_user:
+          name: Прихований учасник простору співучасті
         scope:
           fields:
             name: Ім'я
@@ -502,6 +504,12 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      participatory_space_private_users:
+        create:
+          error: При спробі додати прихованого учасника до цього простору співучасті сталася помилка.
+          success: Успішно створено доступ прихованих учасників до простору співучасті.
+        destroy:
+          success: Успішно скасовано доступ прихованих учасників до простору співучасті.
       scope_types:
         create:
           error: При створенні нового різновиду терену сталася помилка.
