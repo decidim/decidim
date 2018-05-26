@@ -223,14 +223,24 @@ uk:
           buttons:
             check: Поставити галочку та продовжити
             uncheck: Не ставити галочку
+          notice: Привіт, ви впевнені, що не хочете отримувати розсилання новин? Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання. Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень. Якщо ви не поставите цю галочку, ви можете прогледіти свіжі можливості участі в платформі. Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення. Дякуємо, що прочитали це!
+          title: Сповіщення про розсилання новин
         omniauth_buttons:
           or: Або
     doorkeeper:
       authorizations:
         new:
           authorize: Підтвердити додаток
+          by_organization_link_html: <small class="heading-small">на %{link}</small>
+          cancel: Скасувати
+          connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
+          publish_content: Публікувати за вас вміст
+          see_email: Бачити вашу електронну пошту
+          see_name: Бачити ваше ім'я
+          see_username: Бачити ваше користувацьке ім'я
           this_application_will_be_able_to: 'Цей додаток зможе:'
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
+          update_profile: Оновлювати ваш профіль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
     errors:
       internal_server_error:
