@@ -18,7 +18,7 @@ fr:
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
     models:
-      decidim/attachment_created_event: Attachement
+      decidim/attachment_created_event: Document joint
       decidim/component_published_event: Composant actif
       decidim/profile_updated_event: Profil mis à jour
   activerecord:
@@ -129,7 +129,7 @@ fr:
         other: commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Faites-vous vérifier en introduisant un numéro de passeport commençant par "A"
+        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
         fields:
           passport_number: Numéro de passeport
         name: Un autre exemple d'autorisation
@@ -155,7 +155,7 @@ fr:
     collapsible_list:
       hidden_elements_count:
         one: et 1 de plus
-        other: et %{count} plus
+        other: et %{count} de plus
       see_less: "(voir moins)"
       see_more: "(voir plus)"
     components:
@@ -213,7 +213,7 @@ fr:
           buttons:
             check: Vérifiez et continuez
             uncheck: Désactiver
-          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter? S'il vous plaît considérer encore en cochant la case à cocher newsletter ci-dessous. Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour faire des annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous voulez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ça!
+          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter? Nous vous prions de bien réfléchir. Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour les annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous souhaitez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ça!
           title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
@@ -281,9 +281,9 @@ fr:
     fingerprint:
       check: Vérifiez l'empreinte digitale
       explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
-      online_calculator_name: MD5 calculatrice en ligne
-      replicate_help: Cette empreinte est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données source.
-      source: La source
+      online_calculator_name: calculateur de hash MD5 en ligne
+      replicate_help: Cette empreinte est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
+      source: Source
       title: Empreinte digitale
       value: Valeur
     followers:
