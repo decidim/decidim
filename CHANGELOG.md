@@ -22,6 +22,8 @@
 - **decidim-core**: Fix form builder upload field multiple errors display [\#4715](https://github.com/decidim/decidim/pull/4715)
 - **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4733](https://github.com/decidim/decidim/pull/4733)
 - **decidim-core**: Ignore blank permission options in action authorizer [\#4744](https://github.com/decidim/decidim/pull/4744)
+- **decidim-core**: Date field form inputs failing to highlight errors on some edge cases. [\#3515](https://github.com/decidim/decidim/pull/3515)
+- **decidim-core**: Datetime field form inputs failing to highlight errors on some edge cases. [\#3515](https://github.com/decidim/decidim/pull/3515)
 
 **Removed**:
 
