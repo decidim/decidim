@@ -284,12 +284,12 @@ fr:
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
-      title: Empreinte digitale
+      title: Empreinte numérique
       value: Valeur
     followers:
       no_followers: Aucun abonné pour le moment.
     following:
-      no_followings: Pas encore de suite.
+      no_followings: Aucun abonnement pour le moment.
     follows:
       create:
         button: Suivre
@@ -392,7 +392,7 @@ fr:
           meetings: Rencontres
           meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
           more_info: En savoir plus
-          proposals: Les propositions
+          proposals: Propositions
           proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
         footer_sub_hero:
           footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
@@ -414,7 +414,7 @@ fr:
           processes_count: Processus participatifs
           projects_count: Projets
           proposals_accepted: Propositions acceptées
-          proposals_count: Les propositions
+          proposals_count: Propositions
           results_count: Résultats
           surveys_count: Enquêtes
           users_count: Participants
@@ -427,12 +427,12 @@ fr:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
       deleted: Utilisateur supprimé
-      view: Vue
+      view: Voir
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
-        followers: Suiveurs
-        following: Suivant
+        followers: Abonnés
+        following: Abonnements
         notifications: Notifications
       user:
         edit_profile: Editer le profil
