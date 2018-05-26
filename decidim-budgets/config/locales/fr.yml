@@ -104,7 +104,7 @@ fr:
             one: 1 soutien
             other: "%{count} soutiens"
           remove: Supprimer
-          view: Vue
+          view: Voir
         project_budget_button:
           add: Ajouter
           added: Ajouté
