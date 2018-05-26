@@ -105,7 +105,7 @@ pt-BR:
         participatory_structure: Estrutura participativa
         promoted: Destacado
         scope: Âmbito
-        short_description: Breve descrição
+        short_description: Descrição curta
         slug: Texto curto de URL
         start_date: Data de início
         subtitle: Subtítulo
@@ -304,7 +304,7 @@ pt-BR:
         form:
           authorization_method: Método de autorização
           name: Nome
-          reason: Razão
+          reason: Motivo
         new:
           impersonate: Representar
           impersonate_existing_managed_user: Representar usuário gerenciado "%{name}"
@@ -329,7 +329,7 @@ pt-BR:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
+        dashboard: Painel de controle
         impersonations: Imitações
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
@@ -397,7 +397,7 @@ pt-BR:
         user:
           fields:
             created_at: Data de criação
-            email: O email
+            email: E-mail
             last_sign_in_at: Última data de início de sessão
             name: Nome
             role: Função
@@ -411,9 +411,9 @@ pt-BR:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
-            phone: telefone
+            phone: Telefone
             state: Estado
-            users_count: Contagem de usuários
+            users_count: Total de usuários
       moderations:
         index:
           title: Moderação
