@@ -264,7 +264,7 @@ pt-BR:
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: Mais comentado
-          most_voted: Mais assinado
+          most_voted: Mais assinadas
           random: Aleatória
           recent: Mais recente
         result:
@@ -286,7 +286,7 @@ pt-BR:
         supports:
           title: Listagem de assinaturas
         vote_cabin:
-          already_voted: Já assinado
+          already_voted: Já assinadas
           supports_required: "São necessárias %{total_supports} assinaturas"
           vote: Placa
           votes_blocked: Assinatura desativada
