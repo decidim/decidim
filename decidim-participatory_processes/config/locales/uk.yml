@@ -67,12 +67,14 @@ uk:
           categories: Розділи
           info: Інформація
           moderations: Дії з модерації
+          private_users: Приховані учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
         participatory_process:
           fields:
             created_at: 'Додано:'
+            private: Приватний
             promoted: Висвітлено
             published: Опубліковано
             title: Заголовок
@@ -179,6 +181,7 @@ uk:
           title: Загальна інформація
         index:
           not_published: Не опубліковано
+          private: Приватний
           published: Опубліковано
         new:
           create: Створити
@@ -244,6 +247,7 @@ uk:
         local_area: Терен організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
+        private_space: Це приватний процес
         scope: Терен
         start_date: Дата початку
         target: Хто бере участь
