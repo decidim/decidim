@@ -202,7 +202,7 @@ pt-BR:
           subtitle: Inscreva-se para participar de discussões e apoiar propostas.
           terms: termos e condições de uso
           tos_agreement: Ao se inscrever, você está de acordo com %{link}.
-          tos_title: Termos de serviço
+          tos_title: Termos de Serviço
           username_help: Nome público que aparece em suas publicações. Com o objetivo de garantir o anonimato, você pode escolher qualquer nome.
       sessions:
         new:
@@ -211,7 +211,7 @@ pt-BR:
       shared:
         newsletter_modal:
           buttons:
-            check: Verifique e continue
+            check: Verificar e continuar
             uncheck: Manter desmarcado
           notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
           title: Notificações de boletim informativo
