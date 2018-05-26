@@ -213,8 +213,8 @@ pt-BR:
           buttons:
             check: Verificar e continuar
             uncheck: Manter desmarcado
-          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
-          title: Notificações de boletim informativo
+          notice: Ei, deseja mesmo não receber a newsletter? Por favor, pense mais um pouco no botão abaixo. É muito importante para nós que você receba e-mails sobre avisos importantes, você pode alterar isso na sua página de configurações de notificações quando quiser. Ao não selecionar o botão abaixo, você pode perder informações importantes sobre novas oportunidades e processos participativos na plataforma. Se você quiser continuar não recebendo boletins, compreendemos perfeitamente a sua decisão. Muito obrigado por ler!
+          title: Notificações de newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
