@@ -2,6 +2,8 @@ uk:
   activemodel:
     attributes:
       assembly:
+        assembly_type: Різновид зборів
+        assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
         copy_features: Скопіювати складові
@@ -14,6 +16,7 @@ uk:
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
+        private_space: Приватний простір
         promoted: Рекламується
         scope_id: Терен
         scopes_enabled: Ввімкнені терени
@@ -22,6 +25,23 @@ uk:
         subtitle: Підзаголовок
         target: Мета
         title: Заголовок
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Збори
+        few: Зібрань
+        many: Зібрань
+        other: Зібрань
+      decidim/assembly_member:
+        one: Учасник зборів
+        few: Учасників зборів
+        many: Учасників зборів
+        other: Учасників зборів
+      decidim/assembly_user_role:
+        one: Роль учасника зборів
+        few: Ролей учасників зборів
+        many: Ролей учасників зборів
+        other: Ролей учасників зборів
   decidim:
     admin:
       assemblies:
@@ -36,6 +56,7 @@ uk:
           title: Загальні відомості
         index:
           not_published: Не опубліковано
+          private: Приховані
           published: Опубліковано
         new:
           create: Додати
@@ -78,10 +99,12 @@ uk:
           categories: Розділи
           info: Відомості
           moderations: Дії з модерації
+          private_users: Приховані учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
+            private: Приховані
             promoted: Висвітлено
             published: Опубліковано
             title: Заголовок
@@ -120,6 +143,7 @@ uk:
         local_area: Терен
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
+        private_space: Це приватні збори
         scope: Терен
         target: Мета
       statistics:
