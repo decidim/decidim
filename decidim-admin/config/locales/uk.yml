@@ -290,18 +290,29 @@ uk:
           name: Ім'я
           needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
           not_managed: Не керовані
+          promote: Підвищити в статусі
+          search: Шукати
+          status: Статус
           view_logs: Переглянути журнали
       impersonations:
         close_session:
           error: При закритті поточного сеансу уособлення сталася помилка.
           success: Поточний сеанс виступу в ролі учасника успішно завершено.
         create:
+          error: При виступі в ролі цього учасника сталася помилка.
           success: Керованого учасника було успішно створено.
+        form:
+          authorization_method: Метод підтвердження особи
+          name: Ім'я
+          reason: Причина
         new:
           impersonate: Виступити в ролі учасника
           impersonate_existing_managed_user: Виступити в ролі керованого користувача "%{name}"
           impersonate_existing_user: Виступити в ролі користувача "%{name}"
           impersonate_new_managed_user: Виступити в ролі нового керованого користувача
+      logs:
+        logs_list:
+          no_logs_yet: Ще немає журналів
       managed_users:
         promotion:
           error: При підвищенні керованого учасника сталася помилка.
@@ -310,7 +321,7 @@ uk:
           new:
             explanation: Керованих учасників можна підвищувати до звичайних учасників. Це означає, що вони будуть запрошені до застосунку, і ви не зможете виступити в їх ролі знову. Запрошений учасник отримає електронного листа з проханням прийняти ваше запрошення.
             new_managed_user_promotion: Нове підвищення керованого учасника
-            promote: Підвищити
+            promote: Підвищити в статусі
       menu:
         admin_log: Журнал діяльності адміністратора
         admins: Адміністратори
@@ -319,7 +330,9 @@ uk:
         areas: Терени
         configuration: Конфігурація
         dashboard: Приладна дошка
+        impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
+        oauth_applications: Додатки OAuth
         officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени
@@ -352,6 +365,7 @@ uk:
             admin: Адміністратор
             ended_at: 'Завершено:'
             expired_at: 'Термін дії закінчився:'
+            reason: Причина
             started_at: Започатковано о
             user: Учасник
         newsletter:
@@ -361,6 +375,11 @@ uk:
             sent_at: 'Надіслане:'
             subject: Тема
           name: Випуск новин
+        oauth_application:
+          fields:
+            created_at: 'Створено:'
+            name: Ім'я
+          name: Додаток OAuth
         scope:
           fields:
             name: Ім'я
