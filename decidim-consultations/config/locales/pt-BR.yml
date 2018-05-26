@@ -8,7 +8,7 @@ pt-BR:
         end_voting_date: Data final
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
-        questions: Questões
+        questions: Perguntas
         slug: Lesma de URL
         start_voting_date: Data de início
         subtitle: Legenda
@@ -43,7 +43,7 @@ pt-BR:
         other: Consultas
       decidim/consultations/question:
         one: Pergunta
-        other: Questões
+        other: Perguntas
       decidim/consultations/response:
         one: Resposta
         other: Respostas
@@ -225,7 +225,7 @@ pt-BR:
           debate: Debate
           view: Visualizar
           view_results: Ver resultados
-          vote: Voto
+          vote: Votar
         see_finished_consultations: Veja as consultas anteriores
         unspecified: Não especificado
     menu:
@@ -252,7 +252,7 @@ pt-BR:
         starting_from: A partir de %{date}
         vote: Voto
       vote_modal:
-        contextual_help: Por favor selecione uma opção.
+        contextual_help: Selecione uma opção.
         title: 'Consulta: suporte a perguntas'
       vote_modal_confirm:
         change: mudança
