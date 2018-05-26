@@ -61,6 +61,8 @@ uk:
         delete: "%{user_name} видалив розсилання %{resource_name}"
         deliver: "%{user_name} надіслав розсилання %{resource_name}"
         update: "%{user_name} оновив розсилання %{resource_name}"
+      oauth_application:
+        create: "%{user_name} створив додаток OAuth %{resource_name}"
       organization:
         update: "%{user_name} оновив налаштування організації"
       static_page:
