@@ -136,6 +136,11 @@ uk:
         many: коментарів
         other: коментарів
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з символу "А"
+        fields:
+          passport_number: Номер паспорта
+        name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
         explanation: Підтвердьте особу, ввівши номер документа, що закінчується символом "X"
         fields:
@@ -155,6 +160,29 @@ uk:
         name: Приклад підтвердження своєї особи
       granted_at: 'Надано: %{timestamp}'
       started_at: 'Розпочато: %{timestamp}'
+    collapsible_list:
+      hidden_elements_count:
+        one: і ще 1
+        few: і ще %{count}
+        many: і ще %{count}
+        other: і ще %{count}
+      see_less: "(бачити менше)"
+      see_more: "(побачити більше)"
+    components:
+      dummy:
+        actions:
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад складової
+        settings:
+          global:
+            comments_enabled: Коментарі ввімкнено
+            dummy_global_attribute_1: Приклад властивості 1
+            dummy_global_attribute_2: Приклад властивості 2
+          step:
+            comments_blocked: Коментарі вимкнено
+            dummy_step_attribute_1: Приклад 1 властивості кроку
+            dummy_step_attribute_2: Приклад 2 властивості кроку
     contact: Зв'язатися
     core:
       actions:
