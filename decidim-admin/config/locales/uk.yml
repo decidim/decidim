@@ -34,6 +34,7 @@ uk:
         organization_logo: Логотип організації (квадрат)
         organization_name: Назва організації
         organization_url: Адреса сайту організації
+        redirect_uri: URI перенаправлення
       organization:
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
@@ -82,6 +83,12 @@ uk:
         organization: Організація
         slug: Скорочена URL-адреса
         title: Заголовок
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI перенаправлення має бути SSL URI
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -117,8 +124,12 @@ uk:
         slug: Скорочена URL-адреса
         title: Заголовок
       doorkeeper/application:
+        authorize_url: Підтвердити URL-адресу
+        client_id: Ідентифікатор клієнта
+        client_secret: Таємниця клієнта
         organization_name: Назва організації
         organization_url: Адреса сайту організації
+        redirect_uri: URI перенаправлення
         site: Сайт
   date:
     formats:
@@ -270,8 +281,15 @@ uk:
         index:
           filter:
             all: Усі
+            managed: Керовані
+            not_managed: Не керовані
+          filter_by: 'Відібрати за ознакою:'
           impersonate: Виступити в ролі учасника
+          impersonate_new_managed_user: Виступити в ролі нового керованого користувача
+          managed: Керовані
+          name: Ім'я
           needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
+          not_managed: Не керовані
           view_logs: Переглянути журнали
       impersonations:
         close_session:
@@ -281,6 +299,9 @@ uk:
           success: Керованого учасника було успішно створено.
         new:
           impersonate: Виступити в ролі учасника
+          impersonate_existing_managed_user: Виступити в ролі керованого користувача "%{name}"
+          impersonate_existing_user: Виступити в ролі користувача "%{name}"
+          impersonate_new_managed_user: Виступити в ролі нового керованого користувача
       managed_users:
         promotion:
           error: При підвищенні керованого учасника сталася помилка.
@@ -557,6 +578,10 @@ uk:
         new:
           create: Запросити
           title: Запросити учасника в якості адміністратора
+    forms:
+      errors:
+        impersonate_user:
+          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого користувача
     moderations:
       actions:
         hidden: Приховано
