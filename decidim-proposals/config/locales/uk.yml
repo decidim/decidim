@@ -66,6 +66,9 @@ uk:
             created_at: Дата створення
             proposal_votes_count: Кількість голосів
             proposals: Пропозиції
+      admin_log:
+        proposal_note:
+          create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:
         accepted: Прийнято
         evaluating: Розглядається
