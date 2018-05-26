@@ -44,6 +44,7 @@ uk:
           success: Ви успішно підтвердили свою особу.
         first_login:
           actions:
+            another_dummy_authorization_handler: Підтвердьте, порівнявши з іншим прикладом підтвердження своєї особи
             dummy_authorization_handler: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
             dummy_authorization_workflow: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
             id_documents: Підтвердіть особу, завантаживши ваш документ
