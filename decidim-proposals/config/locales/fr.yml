@@ -20,7 +20,7 @@ fr:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/creation_enabled_event: Création de proposition activée
-      decidim/proposals/endorsing_enabled_event: Approbation de la proposition activée
+      decidim/proposals/endorsing_enabled_event: Approbation de proposition activée
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
       decidim/proposals/proposal_endorsed_event: Proposition approuvée
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
