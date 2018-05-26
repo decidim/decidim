@@ -21,6 +21,8 @@ uk:
         description: Опис
         name: Ім'я
         parent_id: Батьківський об'єкт
+      component:
+        name: Ім'я
       id: Псевдонім
       newsletter:
         body: Основний текст
