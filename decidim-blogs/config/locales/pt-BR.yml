@@ -46,7 +46,7 @@ pt-BR:
             title: título
       posts:
         show:
-          view: Visão
+          view: Visualizar
         sidebar_blog:
           comments: comentários
           most_commented_posts: Posts mais comentados
