@@ -36,8 +36,8 @@ pt-BR:
         one: Aval
         other: Avais
       decidim/proposals/proposal_note:
-        one: Nota
-        other: Notas
+        one: Anotação
+        other: Anotações
       decidim/proposals/proposal_vote:
         one: Voto
         other: Votos
