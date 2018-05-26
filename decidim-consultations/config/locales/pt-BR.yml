@@ -218,7 +218,7 @@ pt-BR:
       show:
         badge_name:
           finished: Acabado
-          open: Aberto
+          open: Abrir
           open_votes: Votos abertos
           published_results: Resultados publicados
         footer_button_text:
