@@ -287,6 +287,7 @@ es:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
+          supports_required: "Se requieren %{total_supports} firmas"
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
