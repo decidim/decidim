@@ -279,10 +279,10 @@ fr:
         proposal: Propositions
         result: Résultats
     fingerprint:
-      check: Vérifiez l'empreinte digitale
+      check: Vérifiez l'empreinte numérique
       explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
       online_calculator_name: calculateur de hash MD5 en ligne
-      replicate_help: Cette empreinte est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
+      replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
       title: Empreinte digitale
       value: Valeur
