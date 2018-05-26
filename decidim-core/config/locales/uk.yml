@@ -6,14 +6,21 @@ uk:
       report:
         details: Додаткові коментарі
       user:
+        about: Про учасника
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
+        nickname: Ваш короткий, унікальний псевдонім
         password: Новий пароль
         password_confirmation: Підтвердьте свій новий пароль
+        personal_url: Особиста URL-адреса
         remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
         user_group_phone: Телефон організації
+    models:
+      decidim/attachment_created_event: Вкладений файл
+      decidim/component_published_event: Опублікована складова
+      decidim/profile_updated_event: Профіль оновлено
   activerecord:
     attributes:
       decidim/user:
@@ -26,12 +33,26 @@ uk:
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
         user_group_phone: Телефон організації
+    models:
+      decidim/user:
+        one: Учасник
+        few: Учасників
+        many: Учасників
+        other: Учасників
+      decidim/user_group:
+        one: Група учасників
+        few: Груп учасників
+        many: Груп учасників
+        other: Груп учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
   carrierwave:
     errors:
       image_too_big: Зображення завелике
+  date:
+    formats:
+      decidim_short: "%d.%m.%Y"
   decidim:
     account:
       delete:
@@ -63,6 +84,8 @@ uk:
         update: "%{user_name} оновив розсилання %{resource_name}"
       oauth_application:
         create: "%{user_name} створив додаток OAuth %{resource_name}"
+        delete: "%{user_name} видалив додаток OAuth %{resource_name}"
+        update: "%{user_name} оновив додаток OAuth %{resource_name}"
       organization:
         update: "%{user_name} оновив налаштування організації"
       static_page:
@@ -143,6 +166,13 @@ uk:
       shared:
         omniauth_buttons:
           or: Або
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Підтвердити додаток
+          this_application_will_be_able_to: 'Цей додаток зможе:'
+          this_application_will_not_be_able_to: 'Цей додаток не зможе:'
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
     errors:
       internal_server_error:
         title: Виникла проблема з нашим сервером
