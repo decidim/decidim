@@ -16,6 +16,7 @@ uk:
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
@@ -154,6 +155,8 @@ uk:
         destroy:
           invalid: При спробі скасувати реєстрацію на цю зустріч виникла проблема.
           success: Ви успішно скасували реєстрацію на зустріч.
+      types:
+        private_meeting: Приватна зустріч
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
