@@ -76,8 +76,8 @@ module Decidim
 
         def update_questionnaire
           @questionnaire.update!(title: @form.title,
-                          description: @form.description,
-                          tos: @form.tos)
+                                 description: @form.description,
+                                 tos: @form.tos)
         end
       end
     end

@@ -110,7 +110,7 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-             current_organization: organization
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(form, meeting) }

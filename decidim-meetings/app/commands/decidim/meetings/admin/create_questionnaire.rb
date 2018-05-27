@@ -47,7 +47,7 @@ module Decidim
               position: form_question.position,
               mandatory: form_question.mandatory,
               question_type: form_question.question_type,
-              max_choices: form_question.max_choices,
+              max_choices: form_question.max_choices
             )
 
             form_question.options_to_persist.each do |form_answer_option|

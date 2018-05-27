@@ -11,7 +11,7 @@ module Decidim
       def show
         enforce_permission_to :join, :meeting, meeting: meeting
 
-        redirect_to meeting_path(meeting) and return unless questionnaire
+        return redirect_to meeting_path(meeting) unless questionnaire
 
         @form = form(QuestionnaireForm).from_model(questionnaire)
       end

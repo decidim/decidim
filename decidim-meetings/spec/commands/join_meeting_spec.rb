@@ -32,7 +32,6 @@ module Decidim::Meetings
         let(:questionnaire) { create(:questionnaire, meeting: meeting, questionnaire_type: "registration") }
         let(:questionnaire_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 0) }
 
-
         context "and the form is invalid" do
           let(:registration_form) do
             QuestionnaireForm.from_params({})
@@ -46,7 +45,7 @@ module Decidim::Meetings
         context "and the form is valid" do
           let(:registration_form) do
             QuestionnaireForm.from_params(
-              "questionnaire" => { "questionnaire_answers" => [ { "body" => "This is my first answer", "question_id" => questionnaire_question.id } ], "tos_agreement" => "1" }
+              "questionnaire" => { "questionnaire_answers" => [{ "body" => "This is my first answer", "question_id" => questionnaire_question.id }], "tos_agreement" => "1" }
             )
           end
 

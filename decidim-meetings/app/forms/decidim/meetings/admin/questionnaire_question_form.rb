@@ -30,7 +30,6 @@ module Decidim
           answer_options.size
         end
 
-
         def options_to_persist
           answer_options.reject(&:deleted)
         end
