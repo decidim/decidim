@@ -27,7 +27,7 @@ uk:
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
       participatory_process_group:
         description: Опис
         hero_image: Зображення
@@ -38,7 +38,7 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
@@ -77,7 +77,7 @@ uk:
             private: Приватний
             promoted: Висвітлено
             published: Опубліковано
-            title: Заголовок
+            title: Назва
           name: Рух співучасті
         participatory_process_group:
           fields:
@@ -87,7 +87,7 @@ uk:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
-            title: Заголовок
+            title: Назва
           name: Крок руху співучасті
         participatory_process_user_role:
           fields:
