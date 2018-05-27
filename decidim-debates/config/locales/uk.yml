@@ -8,7 +8,7 @@ uk:
         information_updates: Оновлення відомостей
         instructions: Вказівки до участі
         start_time: 'Розпочато: '
-        title: Заголовок
+        title: Назва
         user_group_id: Створити обговорення як
   decidim:
     components:
@@ -86,7 +86,7 @@ uk:
             end_time: Дата закінчення
             official_debate: Офіційне обговорення
             start_time: Дата початку
-            title: Заголовок
+            title: Назва
     events:
       debates:
         create_debate_event:
