@@ -61,7 +61,7 @@ pt-BR:
       assembly_user_role:
         email: O email
         name: Nome
-        role: Função
+        role: Cargo
   activerecord:
     models:
       decidim/assembly:
@@ -71,7 +71,7 @@ pt-BR:
         one: Membros da assembleia
         other: Membros das assembleias
       decidim/assembly_user_role:
-        one: Função do usuário da Assembleia
+        one: Cargo do usuário da Assembleia
         other: Funções do usuário da Assembleia
   decidim:
     admin:
@@ -184,7 +184,7 @@ pt-BR:
           fields:
             email: O email
             name: Nome
-            role: Função
+            role: Cargo
           name: Usuário de montagem
           roles:
             admin: Administrador
