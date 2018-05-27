@@ -24,7 +24,7 @@ uk:
         slug: Скорочена веб-адреса
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
   activerecord:
     models:
       decidim/assembly:
@@ -107,7 +107,7 @@ uk:
             private: Приховані
             promoted: Висвітлено
             published: Опубліковано
-            title: Заголовок
+            title: Назва
           name: Збори
         assembly_user_role:
           fields:
