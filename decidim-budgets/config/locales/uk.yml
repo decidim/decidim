@@ -7,7 +7,7 @@ uk:
         decidim_scope_id: Терен
         description: Опис
         proposal_ids: Супутні пропозиції
-        title: Заголовок
+        title: Назва
   decidim:
     budgets:
       actions:
@@ -45,7 +45,7 @@ uk:
       models:
         project:
           fields:
-            title: Заголовок
+            title: Назва
       projects:
         budget_confirm:
           are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його потім змінити.
