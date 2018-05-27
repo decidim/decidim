@@ -1,4 +1,17 @@
 uk:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Коментар
+      decidim/comments/comment_created_event: Коментар
+      decidim/comments/reply_created_event: Відповідь на коментар
+      decidim/comments/user_mentioned_event: Згадка
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Коментар
+        few: Коментаря
+        many: Коментарів
+        other: Коментарів
   decidim:
     comments:
       votes:
