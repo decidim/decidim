@@ -173,7 +173,7 @@ pt-BR:
           edit:
             update: Atualizar
           new:
-            create: Crio
+            create: Criar
             title: Crie minutos
           update:
             invalid: Houve um problema ao atualizar esta ata
@@ -260,7 +260,7 @@ pt-BR:
             map: Mapa
             start_time: Data de início
             title: Título
-      read_more: "(consulte Mais informação)"
+      read_more: "(saiba mais)"
       registration_mailer:
         confirmation:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
