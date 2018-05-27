@@ -9,7 +9,7 @@ uk:
         progress: Перебіг
         project_ids: Включені проекти
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
         updated_at: 'Оновлено:'
       status:
         description: Опис
@@ -100,7 +100,7 @@ uk:
             progress: Перебіг
             start_date: Дата початку
             status: Стан
-            title: Заголовок
+            title: Назва
         status:
           fields:
             description: Опис
