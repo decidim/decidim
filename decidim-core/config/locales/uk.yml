@@ -12,7 +12,7 @@ uk:
         nickname: Ваш короткий, унікальний псевдонім
         password: Новий пароль
         password_confirmation: Підтвердьте свій новий пароль
-        personal_url: Особиста URL-адреса
+        personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
