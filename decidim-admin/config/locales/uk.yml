@@ -51,7 +51,7 @@ uk:
         highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
-        highlighted_content_banner_title: Заголовок
+        highlighted_content_banner_title: Назва
         homepage_image: Зображення головної сторінки
         instagram_handler: Адреса Instagram
         logo: Логотип
@@ -82,7 +82,7 @@ uk:
         content: Вміст
         organization: Організація
         slug: Скорочена веб-адреса
-        title: Заголовок
+        title: Назва
     errors:
       models:
         oauth_application:
@@ -110,7 +110,7 @@ uk:
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
       decidim/participatory_process_group:
         description: Опис
         hero_image: Зображення головної сторінки
@@ -122,7 +122,7 @@ uk:
       decidim/static_page:
         content: Вміст
         slug: Скорочена веб-адреса
-        title: Заголовок
+        title: Назва
       doorkeeper/application:
         authorize_url: Підтвердити веб-адресу
         client_id: Ідентифікатор клієнта
@@ -354,7 +354,7 @@ uk:
             collection: Збірка
             content_type: Різновид
             file_size: Розмір
-            title: Заголовок
+            title: Назва
           name: Вкладений файл
         attachment_collection:
           name: Збірка
