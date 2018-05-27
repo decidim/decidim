@@ -317,8 +317,18 @@ uk:
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
+        create_with_space: "%{user_name} створив %{resource_name} у %{space_name}"
         delete: "%{user_name} видалив %{resource_name}"
+        delete_with_space: "%{user_name} видалив %{resource_name} у %{space_name}"
+        unknown_action: "%{user_name} виконав якусь дію у %{resource_name}"
+        unknown_action_with_space: "%{user_name} виконав якусь дію з %{resource_name} у %{space_name}"
         update: "%{user_name} оновив %{resource_name}"
+        update_with_space: "%{user_name} оновив %{resource_name} у %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Цей різновид терену не знайдено в базі даних (ID: %{id})'
     managed_users:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
