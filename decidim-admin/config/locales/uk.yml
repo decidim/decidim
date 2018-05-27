@@ -47,7 +47,7 @@ uk:
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
         highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
         highlighted_content_banner_action_title: Заголовок кнопки дії
-        highlighted_content_banner_action_url: URL-адреса кнопки дії
+        highlighted_content_banner_action_url: Веб-адреса кнопки дії
         highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
@@ -58,10 +58,10 @@ uk:
         name: Назва
         official_img_footer: Нижній колонтитул офіційного логотипу
         official_img_header: Заголовок офіційного логотипу
-        official_url: Офіційна URL-адреса організації
+        official_url: Офіційна веб-адреса організації
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
-        omnipresent_banner_url: URL-адреса
+        omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         show_statistics: Показувати статистику
         twitter_handler: Адреса Twitter
@@ -124,7 +124,7 @@ uk:
         slug: Скорочена URL-адреса
         title: Заголовок
       doorkeeper/application:
-        authorize_url: Підтвердити URL-адресу
+        authorize_url: Підтвердити веб-адресу
         client_id: Ідентифікатор клієнта
         client_secret: Таємниця клієнта
         organization_name: Назва організації
@@ -655,9 +655,9 @@ uk:
             hidden_at: 'Приховано:'
             report_count: Кількість
             reportable: Тип скарги
-            reported_content_url: URL-адреса оскарженого вмісту
+            reported_content_url: Веб-адреса оскарженого вмісту
             reports: Скарги
-            visit_url: Відвідайте URL-адресу
+            visit_url: Відвідайте веб-адресу
   errors:
     messages:
       invalid_json: Неприпустимий JSON
