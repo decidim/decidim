@@ -47,16 +47,44 @@ uk:
         many: Протоколів
         other: Протоколів
       decidim/meetings/registration:
-        one: Реєстрація
-        few: Реєстрації
-        many: Реєстрацій
-        other: Реєстрацій
+        one: Зареєстрований
+        few: Зареєстрованих
+        many: Зареєстрованих
+        other: Зареєстрованих
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: При створенні копії цієї зустрічі сталася помилка.
+          success: Успішно створено копію зустрічі.
+        new:
+          copy: Скопіювати
+          select: Оберіть дані, копію яких ви хотіли б створити
+          title: Створити копію зустрічі
+    components:
+      meetings:
+        actions:
+          join: Долучитись
+        name: Зустрічі
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі ввімкнено
+            default_registration_terms: Умови реєстрації за умовчанням
+          step:
+            announcement: Оголошення
+            comments_blocked: Коментарі вимкнено
     events:
       meetings:
         meeting_closed:
           email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" було завершено
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
+        meeting_created:
+          email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана зустріч "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: До %{participatory_space_title} додано нову зустріч
     meetings:
       actions:
         attachment_collections: Збірки
