@@ -20,7 +20,7 @@ uk:
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
-        title: Заголовок
+        title: Назва
         transparent: Прозорий
       minutes:
         audio_url: Веб-адреса аудіозапису
@@ -163,11 +163,19 @@ uk:
             description: Опис
             down: Донизу
             remove: Вилучити
-            service: Послуги
+            service: Послуга
             title: Назва
+            up: Догори
+          services:
+            add_service: Додати послугу
+            services: Послуги
           update:
             invalid: При спробі оновити цю зустріч виникла проблема
             success: Зустріч успішно оновлено
+        minutes:
+          create:
+            invalid: При спробі створити цей протокол виникла проблема
+            success: Протокол успішно створено
         models:
           meeting:
             name: Зустріч
@@ -233,7 +241,7 @@ uk:
             end_time: Дата закінчення
             map: Мапа
             start_time: Дата початку
-            title: Заголовок
+            title: Назва
       read_more: "(читати далі)"
       registration_mailer:
         confirmation:
