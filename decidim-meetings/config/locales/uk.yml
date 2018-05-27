@@ -24,7 +24,33 @@ uk:
         transparent: Прозорий
       minutes:
         audio_url: Веб-адреса аудіозапису
+        description: Опис
         video_url: Веб-адреса відеозапису
+        visible: Видний
+    models:
+      decidim/meetings/close_meeting_event: Зустріч закрито
+      decidim/meetings/create_meeting_event: Зустріч
+      decidim/meetings/meeting_registrations_enabled_event: Реєстрацію відкрито
+      decidim/meetings/meeting_registrations_over_percentage_event: Перевищено межу кількості зареєстрованих
+      decidim/meetings/upcoming_meeting_event: Прийдешня зустріч
+      decidim/meetings/update_meeting_event: Зустріч оновлено
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Зустріч
+        few: Зустрічі
+        many: Зустрічей
+        other: Зустрічей
+      decidim/meetings/minutes:
+        one: Протокол
+        few: Протоколи
+        many: Протоколів
+        other: Протоколів
+      decidim/meetings/registration:
+        one: Реєстрація
+        few: Реєстрації
+        many: Реєстрацій
+        other: Реєстрацій
   decidim:
     events:
       meetings:
