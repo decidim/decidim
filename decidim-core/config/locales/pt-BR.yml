@@ -58,7 +58,7 @@ pt-BR:
           close: Fechar janela
           ok: Sim, eu quero cancelar minha conta
           question: Tem certeza de que deseja cancelar sua conta?
-          title: Eliminar minha conta
+          title: Excluir minha conta
         explanation: Por favor, preencha o motivo pelo qual deseja cancelar sua conta (opcional).
       destroy:
         error: Ocorreu um erro ao cancelar sua conta.
@@ -125,7 +125,7 @@ pt-BR:
         related_photos: Fotos relacionadas
     author:
       comments:
-        one: Comente
+        one: comentário
         other: comentários
     authorization_handlers:
       another_dummy_authorization_handler:
