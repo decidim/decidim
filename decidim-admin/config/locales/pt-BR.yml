@@ -446,7 +446,7 @@ pt-BR:
         show:
           confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
-          preview: Visualização
+          preview: Pré-visualização
           subject: Sujeito
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
