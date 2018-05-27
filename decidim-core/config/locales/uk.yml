@@ -373,6 +373,7 @@ uk:
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:
+        check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
         error: При спробі скасування підписки сталася помилка
         success: Ви успішно скасували підписку.
         token_error: Термін дії посилання закінчився.
@@ -398,8 +399,10 @@ uk:
           debates: Обговорення
           debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
           how_to_participate: Як я можу взяти участь у русі?
+          meetings: Зустрічі
           meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
           more_info: Дізнатися більше
+          proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
           footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
@@ -415,10 +418,14 @@ uk:
           debates_count: Обговорення
           endorsements_count: Підтримало
           headline: Поточний стан %{organization}
+          meetings_count: Зустрічі
           orders_count: Голоси
           pages_count: Сторінки
           processes_count: Рухи
+          projects_count: Проекти
           proposals_accepted: Прийняті пропозиції
+          proposals_count: Пропозиції
+          results_count: Підсумків
           surveys_count: Опитування
           users_count: Учасники
           votes_count: Голоси
@@ -428,6 +435,9 @@ uk:
         title: Дізнатися більше
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
+    profile:
+      deleted: Видалений учасник
+      view: Переглянути
     profiles:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
