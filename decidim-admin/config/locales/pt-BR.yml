@@ -508,7 +508,7 @@ pt-BR:
           social_handlers: Social
           twitter: Twitter
           url: Url
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
@@ -577,7 +577,7 @@ pt-BR:
           title: Editar página
           update: Atualizar
         new:
-          create: Crio
+          create: Criar
           title: Nova página
         update:
           error: Ocorreu um erro ao atualizar esta página.
