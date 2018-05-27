@@ -2,4 +2,4 @@
 
 fail_fast=${FAIL_FAST:-false}
 
-docker-compose run --rm -e "FAIL_FAST=$fail_fast" decidim bash -c "bundle exec rake $*"
+docker-compose run --rm -e "FAIL_FAST=$fail_fast" decidim bash -c "bin/rake $*"
