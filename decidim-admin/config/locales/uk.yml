@@ -13,7 +13,7 @@ uk:
         attachment_collection_id: Збірка
         description: Опис
         file: Файл
-        title: Заголовок
+        title: Назва
       attachment_collection:
         description: Опис
         name: Назва
