@@ -298,6 +298,8 @@ uk:
       value: Значення
     followers:
       no_followers: Ще нема тих, хто стежить.
+    following:
+      no_followings: Ще ні за ким не стежить.
     follows:
       create:
         button: Стежити
