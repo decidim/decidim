@@ -257,6 +257,12 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{resource_title}
           notification_title: До <a href="%{attached_to_url}">%{resource_title}</a> додано <a href="%{resource_path}">новий документ</a>
+      components:
+        component_published:
+          email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
+          notification_title: Приведено в дію складову %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
