@@ -48,7 +48,7 @@ pt-BR:
         target: Alvo
         title: Título
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Aniversário
         birthplace: Berço
@@ -59,7 +59,7 @@ pt-BR:
         gender: Gênero
         position: Posição
       assembly_user_role:
-        email: O email
+        email: E-mail
         name: Nome
         role: Cargo
   activerecord:
@@ -68,8 +68,8 @@ pt-BR:
         one: Assembleia
         other: Assembleias
       decidim/assembly_member:
-        one: Membros da assembleia
-        other: Membros das assembleias
+        one: Membro da assembleia
+        other: Membros da assembleia
       decidim/assembly_user_role:
         one: Cargo do usuário da Assembleia
         other: Funções do usuário da Assembleia
@@ -92,7 +92,7 @@ pt-BR:
           published: Publicados
         new:
           create: Criar
-          title: Nova assembléia
+          title: Nova assembleia
         update:
           error: Ocorreu um erro ao atualizar este assembly.
           success: Assembléia atualizada com sucesso.
@@ -102,7 +102,7 @@ pt-BR:
           success: Assembléia duplicada com sucesso.
       assembly_copies:
         new:
-          copy: cópia de
+          copy: Cópia
           select: Selecione os dados que você gostaria de duplicar
           title: Duplicar assembléia
       assembly_members:
@@ -117,7 +117,7 @@ pt-BR:
         index:
           assembly_members_title: Membros da Assembléia
         new:
-          create: Crio
+          create: Criar
           title: Novo membro do assembly.
         update:
           error: Houve um erro ao atualizar o membro para este assembly.
@@ -141,7 +141,7 @@ pt-BR:
         index:
           assembly_admins_title: Usuários da assembléia
         new:
-          create: Crio
+          create: Criar
           title: Novo usuário de montagem.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
