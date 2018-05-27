@@ -108,7 +108,7 @@ pt-BR:
         short_description: Descrição curta
         slug: Texto curto de URL
         start_date: Data de início
-        subtitle: Subtítulo
+        subtitle: Legenda
         target: Público alvo
         title: Título
       decidim/participatory_process_group:
@@ -188,7 +188,7 @@ pt-BR:
           attachment_collection_used: Esta coleção não pode ser removida porque está em uso.
           attachment_collections_title: Coleções de anexos
         new:
-          create: Crio
+          create: Criar
           title: Nova coleção
         update:
           error: Ocorreu um erro ao atualizar essa coleção.
@@ -212,7 +212,7 @@ pt-BR:
           success: Anexo atualizado com sucesso.
       autocomplete:
         no_results: Nenhum resultado encontrado
-        search_prompt: Digite pelo menos três caracteres para pesquisar
+        search_prompt: Digite, no mínimo, três caracteres para pesquisar
       categories:
         create:
           error: Ocorreu um erro ao criar esta categoria.
@@ -280,7 +280,7 @@ pt-BR:
       impersonatable_users:
         index:
           filter:
-            all: Todos
+            all: Tudo
             managed: Gerenciou
             not_managed: Não gerenciado
           filter_by: Filtrar por
@@ -291,8 +291,8 @@ pt-BR:
           needs_authorization_warning: Você precisa de pelo menos uma autorização habilitada para esta organização.
           not_managed: Não gerenciado
           promote: Promover
-          search: Pesquisa
-          status: Status
+          search: Buscar
+          status: Estado
           view_logs: Ver registros
       impersonations:
         close_session:
@@ -312,7 +312,7 @@ pt-BR:
           impersonate_new_managed_user: Representar novo usuário gerenciado
       logs:
         logs_list:
-          no_logs_yet: Ainda não há logs
+          no_logs_yet: Ainda não há registros
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
@@ -321,17 +321,17 @@ pt-BR:
           new:
             explanation: Os usuários gerenciados podem ser promovidos para usuários padrão. Isso significa que eles serão convidados para o aplicativo e você não poderá representá-los novamente. O usuário convidado receberá um e-mail para aceitar seu convite.
             new_managed_user_promotion: Nova promoção de usuário gerenciado
-            promote: Destacar
+            promote: Promover
       menu:
         admin_log: Log de atividade de administração
-        admins: Administradores
+        admins: Admins
         appearance: Aparência
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controle
         impersonations: Imitações
-        newsletters: Boletins informativos
+        newsletters: Newsletters
         oauth_applications: Aplicações OAuth
         officializations: Oficializações
         scope_types: Tipos de âmbito
