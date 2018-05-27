@@ -2,10 +2,13 @@ uk:
   activemodel:
     attributes:
       proposal:
+        answer: Відповідь
+        answered_at: 'Отримано відповідь:'
         body: Основний текст
         category_id: Розділ
         has_address: Має адресу
         scope_id: Терен
+        state: Стан
         title: Назва
         user_group_id: Внести пропозицію як
       proposal_answer:
