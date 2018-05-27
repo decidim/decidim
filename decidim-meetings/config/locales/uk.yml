@@ -85,6 +85,27 @@ uk:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана зустріч "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: До %{participatory_space_title} додано нову зустріч
+          notification_title: До %{participatory_space_title} була додано зустріч <a href="%{resource_path}">%{resource_title}</a>
+        meeting_registrations_over_percentage:
+          email_intro: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць.
+          email_outro: Ви отримали це сповіщення, оскільки ви адміністратор простору співучасті цієї зустрічі.
+          email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
+          notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
+        meeting_updated:
+          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" було оновлено
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
+        registrations_enabled:
+          email_intro: 'Розпочалася реєстрація на зустріч "%{resource_title}". Ви можете зареєструватися на сторінці:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Розпочато реєстрацію на зустріч "%{resource_title}".
+          notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
       actions:
         attachment_collections: Збірки
@@ -93,6 +114,7 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
+        minutes: Протокол
         new: Нова
         preview: Попередній перегляд
         registrations: Реєстрації
@@ -116,6 +138,9 @@ uk:
           edit:
             close: Закрити
             title: Закрити зустріч
+        meeting_copies:
+          form:
+            select_organizer: Оберіть організатора
         meetings:
           close:
             invalid: При спробі закрити цю зустріч виникла проблема
@@ -127,11 +152,19 @@ uk:
             success: Зустріч успішно видалено
           edit:
             update: Оновити
+          form:
+            select_organizer: Оберіть організатора
           index:
             title: Зустрічі
           new:
             create: Створити
             title: Додати зустріч
+          service:
+            description: Опис
+            down: Донизу
+            remove: Вилучити
+            service: Послуги
+            title: Назва
           update:
             invalid: При спробі оновити цю зустріч виникла проблема
             success: Зустріч успішно оновлено
