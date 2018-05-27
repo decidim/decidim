@@ -289,7 +289,7 @@ uk:
         proposal: Пропозиції
         result: Підсумки
     fingerprint:
-      check: Перевірте контрольну суму
+      check: Перевірте контрольний підсумок
     follows:
       create:
         button: Стежити
