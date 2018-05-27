@@ -288,6 +288,8 @@ uk:
         project: Проекти
         proposal: Пропозиції
         result: Підсумки
+    fingerprint:
+      check: Перевірте контрольну суму
     follows:
       create:
         button: Стежити
