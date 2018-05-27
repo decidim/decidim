@@ -130,7 +130,7 @@ pt-BR:
             update: Atualizar
           new:
             back: Costas
-            create: Crio
+            create: Criar
             title: Criar escopo de tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -150,7 +150,7 @@ pt-BR:
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
           new:
-            create: Crio
+            create: Criar
             title: Novo tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -326,8 +326,8 @@ pt-BR:
           components: Componentes
           information: Em formação
       initiative_creation_header:
-        fill_data: Crio
-        finish: Terminar
+        fill_data: Criar
+        finish: Finalizar
         previous_form: Começar
         promotal_committee: Comitê Promocional
         select_initiative_type: Escolher
