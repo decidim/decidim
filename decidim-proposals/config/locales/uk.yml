@@ -6,7 +6,7 @@ uk:
         category_id: Розділ
         has_address: Має адресу
         scope_id: Терен
-        title: Заголовок
+        title: Назва
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
@@ -89,7 +89,7 @@ uk:
             official_proposal: Офіційна пропозиція
             scope: Терен
             state: Стан
-            title: Заголовок
+            title: Назва
             votes: Голоси
       new:
         limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
