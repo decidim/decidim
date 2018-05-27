@@ -145,7 +145,7 @@ pt-BR:
           destroy:
             success: Reunião excluída com êxito
           edit:
-            update: Actualizar
+            update: Atualizar
           form:
             select_organizer: Selecione o organizador
           index:
