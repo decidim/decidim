@@ -442,6 +442,10 @@ uk:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
         followers: Ті, хто стежить
+        following: Відстежує
+        notifications: Сповіщення
+      user:
+        edit_profile: Редагувати профіль
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -522,6 +526,7 @@ uk:
     invitations:
       edit:
         header: Встановіть свій пароль
+        nickname_help: Ваш унікальний псевдонім в %{organization}.
         submit_button: Зберегти
     mailer:
       invitation_instructions:
@@ -547,6 +552,9 @@ uk:
         greeting: Доброго дня, %{recipient}!
         message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
         subject: Пароль змінено
+  doorkeeper:
+    scopes:
+      public: Публічні відомості про вас.
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
