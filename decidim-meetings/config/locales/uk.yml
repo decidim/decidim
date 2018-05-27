@@ -21,6 +21,10 @@ uk:
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
         title: Заголовок
+        transparent: Прозорий
+      minutes:
+        audio_url: Веб-адреса аудіозапису
+        video_url: Веб-адреса відеозапису
   decidim:
     events:
       meetings:
