@@ -40,7 +40,7 @@ module Decidim
 
       context "when basic search works" do
         it "request returns OK" do
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "result has id" do
