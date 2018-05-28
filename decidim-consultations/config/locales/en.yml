@@ -198,9 +198,6 @@ en:
         filter: Filter
         filter_by: Filter by
         unfold: Unfold
-      finished:
-        active_consultations: Active consultations
-        past_consultations: Past consultations
       highlighted_questions:
         title: Questions from %{scope_name}
       index:
