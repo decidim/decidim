@@ -20,20 +20,42 @@ uk:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розділ пропозиції змінено
       decidim/proposals/creation_enabled_event: Створення пропозицій ввімкнено
-      decidim/proposals/endorsing_enabled_event: Схвалення пропозицій увімкнено
+      decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
+      decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
       decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
+      decidim/proposals/proposal_mentioned_event: Пропозицію було згадано
+      decidim/proposals/publish_proposal_event: Пропозицію опубліковано
+      decidim/proposals/rejected_proposal_event: Пропозицію відхилено
+      decidim/proposals/voting_enabled_event: Увімкнене голосування по пропозиціям
   activerecord:
     models:
+      decidim/proposals/proposal:
+        one: Пропозиція
+        few: Пропозиції
+        many: Пропозицій
+        other: Пропозицій
       decidim/proposals/proposal_endorsement:
         one: Підтримав
         few: Підтримало
         many: Підтримало
         other: Підтримало
+      decidim/proposals/proposal_note:
+        one: Примітка
+        few: Примітки
+        many: Приміток
+        other: Приміток
+      decidim/proposals/proposal_vote:
+        one: Голос
+        few: Голоси
+        many: Голосів
+        other: Голосів
   decidim:
     components:
       proposals:
         actions:
+          create: Створити
           endorse: Підтримати
+          vote: Голосувати
         settings:
           step:
             endorsements_blocked: Надання підтримки вимкнене
@@ -43,7 +65,7 @@ uk:
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: У %{participatory_space_title} почалась підтримка пропозицій
+          email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
           notification_title: Тепер ви можете почати <a href="%{resource_path}">підтримувати пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, за яким ви стежите, щойно підтримав пропозицію, яка може бути цікавою для вас, подивіться її та зробіть свій внесок:"
@@ -142,6 +164,7 @@ uk:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Підтримано
+          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
@@ -216,7 +239,7 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
-          endorsements_list: Перелік підтримок
+          endorsements_list: Перелік тих, хто підтримав
           hidden_endorsers_count:
             one: і ще 1 особа
             few: і ще %{count} людей
