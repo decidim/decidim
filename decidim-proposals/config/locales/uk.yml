@@ -387,6 +387,8 @@ uk:
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Кожну пропозицію можуть підтримувати більше ніж %{limit} людей
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
           title: 'Голосування регулюється наступними правилами:'
