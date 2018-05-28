@@ -7,6 +7,7 @@ module Decidim::Proposals
     controller Decidim::Proposals::ProposalsController
 
     subject { my_cell.call }
+
     let(:my_cell) { cell("decidim/proposals/proposal_m", proposal) }
     let!(:proposal) { create(:proposal) }
     let(:user) { create :user, organization: proposal.participatory_space.organization }

@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe Decidim::AuthorCell, type: :cell do
   subject { my_cell.call }
+
   let(:my_cell) { cell("decidim/author", model) }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
