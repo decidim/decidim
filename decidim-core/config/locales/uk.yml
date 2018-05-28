@@ -111,9 +111,9 @@ uk:
         update: "%{user_name} оновив статичну сторінку %{resource_name}"
       user:
         invite: "%{user_name} запросив учасника %{resource_name} на роль: %{role}"
-        officialize: "%{user_name} офіційно зареєстрував учасника %{resource_name}"
+        officialize: "%{user_name} надав службовий статус учаснику %{resource_name}"
         remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
-        unofficialize: "%{user_name} скасував офіційну реєстрацію учасника %{resource_name}"
+        unofficialize: "%{user_name} скасував службовий статус учасника %{resource_name}"
       user_group:
         reject: "%{user_name} відхилив підтвердження групи користувачів %{resource_name}"
         verify: "%{user_name} підтвердив групу користувачів %{resource_name}"
