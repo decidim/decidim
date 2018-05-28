@@ -27,11 +27,17 @@
               <% end %>
             </div>
             <div class="row collapse mb-sm">
-              <div class="text-medium" data-toggle="textarea textarea-icon-bottom textarea-icon-right">
+              <% content_for :label, flush: true do %>
+                Contenido neto
+              <% end %>
+              <%= render layout: "public/components/toggle", locals: { } do %>
+                <textarea id="textarea" rows="8" cols="80" data-toggler=".hide"></textarea>
+              <% end %>
+              <!-- <div data-toggle="textarea textarea-icon-bottom textarea-icon-right">
                 <span id="textarea-icon-bottom" class="" data-toggler="hide"><%= icon "caret-bottom", class: "icon--small" %></span>
                 <span id="textarea-icon-right" class="hide" data-toggler="hide"><%= icon "caret-right", class: "icon--small" %></span>
                 Customize invitation message</div>
-              <textarea id="textarea" rows="8" cols="80" data-toggler=".hide"></textarea>
+              <textarea id="textarea" rows="8" cols="80" data-toggler=".hide"></textarea> -->
             </div>
             <button type="submit" class="button expanded">Invitar</button>
           </form>

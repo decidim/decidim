@@ -1,0 +1,9 @@
+<% random = Random.rand(9999) %>
+<div data-toggle="textarea textarea-icon-bottom textarea-icon-right">
+  <span id="textarea-icon-bottom" class="" data-toggler="hide"><%= icon "caret-bottom", class: "icon--small" %></span>
+  <span id="textarea-icon-right" class="hide" data-toggler="hide"><%= icon "caret-right", class: "icon--small" %></span>
+  <%= yield :label %></div>
+<div>
+  <%= yield %>
+</div>
+<!-- <textarea id="textarea" rows="8" cols="80" data-toggler=".hide"></textarea> -->
