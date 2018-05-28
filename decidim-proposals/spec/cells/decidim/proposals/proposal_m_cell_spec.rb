@@ -14,7 +14,6 @@ module Decidim::Proposals
 
     before do
       allow(controller).to receive(:current_user).and_return(user)
-      allow(my_cell).to receive(:user_signed_in?).and_return(false)
     end
 
     context "when rendering" do
