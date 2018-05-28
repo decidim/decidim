@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 if !Rails.env.production? || ENV["SEED"]
+  print "Creating seeds for decidim-core...\n" unless Rails.env.test?
+
   require "decidim/faker/localized"
 
   seeds_root = File.join(__dir__, "seeds")
