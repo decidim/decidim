@@ -20,7 +20,7 @@ uk:
         promoted: Рекламується
         published_at: 'Опубліковано:'
         scope_id: Терен
-        scopes_enabled: Ввімкнені терени
+        scopes_enabled: Терени увімкнено
         short_description: Стислий опис
         show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
