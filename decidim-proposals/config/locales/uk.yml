@@ -391,6 +391,8 @@ uk:
             description: Кожну пропозицію можуть підтримувати більше ніж %{limit} людей
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
+          threshold_per_proposal:
+            description: Для того, щоб пропозиції були підтверджені, їм мають надати підтримку %{limit} людей
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
@@ -398,11 +400,16 @@ uk:
             votes: Голоси
         wizard_aside:
           back: Назад
+          info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
           see_steps: переглянути кроки
           step_1: Внести власну пропозицію
           step_2: Порівняти
+          step_3: Завершити
+          step_4: Оприлюднити свою пропозицію
+          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
       publish:
+        error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.
       update:
         error: При збереженні цієї пропозиції сталися помилки.
@@ -414,7 +421,7 @@ uk:
       copied_from_component:
         proposal_proposals: Супутні пропозиції
       included_projects:
-        project_results: 'Підсумки, які є в цьому проекті:'
+        project_results: 'Підсумки цього задуму:'
       included_proposals:
-        proposal_projects: 'Пропозиція є в таких проектах:'
+        proposal_projects: 'Пропозиція є в таких задумах:'
         proposal_results: 'Пропозиція є в таких підсумках:'
