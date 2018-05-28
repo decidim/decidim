@@ -333,7 +333,7 @@ uk:
         impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
-        officializations: Надання офіційного статусу
+        officializations: Надання службового статусу
         scope_types: Різновиди терену
         scopes: Терени
         settings: Налаштування
@@ -472,7 +472,7 @@ uk:
           success: Додаток успішно оновлено.
       officializations:
         create:
-          success: Учаснику успішно надано офіційний статус
+          success: Учаснику успішно надано службовий статус
         destroy:
           success: Офіційний статус учасника успішно скасовано
         index:
