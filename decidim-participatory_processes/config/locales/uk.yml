@@ -56,7 +56,7 @@ uk:
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
-        unpublish: Скасувати публікацію
+        unpublish: Скасувати оприлюднення
       menu:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
@@ -122,11 +122,11 @@ uk:
           success: Групу рухів співучасті успішно оновлено.
       participatory_process_publications:
         create:
-          error: При публікації цього руху співучасті сталася помилка.
+          error: При оприлюдненні цього руху співучасті сталася помилка.
           success: Рух співучасті успішно оприлюднено.
         destroy:
-          error: При скасуванні публікації цього руху співучасті сталася помилка.
-          success: Публікацію руху співучасті успішно скасовано.
+          error: При скасуванні оприлюднення цього руху співучасті сталася помилка.
+          success: Оприлюднення руху співучасті успішно скасовано.
       participatory_process_step_activations:
         create:
           error: При започаткуванні цього кроку руху співучасті сталася помилка.
@@ -180,9 +180,9 @@ uk:
         form:
           title: Загальна інформація
         index:
-          not_published: Не опубліковано
+          not_published: Не оприлюднено
           private: Приватний
-          published: Опубліковано
+          published: Оприлюднено
         new:
           create: Створити
           title: Новий рух співучасті
