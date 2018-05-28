@@ -55,9 +55,9 @@ uk:
         form:
           title: Загальні відомості
         index:
-          not_published: Не опубліковано
+          not_published: Не оприлюднено
           private: Приховані
-          published: Опубліковано
+          published: Оприлюднено
         new:
           create: Додати
           title: Нові збори
@@ -76,7 +76,7 @@ uk:
       assembly_publications:
         create:
           error: Під час публікації цих зборів сталася помилка.
-          success: Збори успішно опубліковано.
+          success: Збори успішно оприлюднено.
         destroy:
           error: При скасуванні публікації цих зборів сталася помилка.
           success: Публікацію зборів успішно скасовано.
@@ -106,7 +106,7 @@ uk:
             created_at: 'Додано:'
             private: Приховані
             promoted: Висвітлено
-            published: Опубліковано
+            published: Оприлюднено
             title: Назва
           name: Збори
         assembly_user_role:
