@@ -42,7 +42,7 @@ module Decidim
       end
     end
 
-    context ".sorted_by_i18n_title" do
+    describe ".sorted_by_i18n_title" do
       let!(:page1) { create :static_page, title: { ca: "Bcde", en: "Afgh" } }
       let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
 
