@@ -7,7 +7,7 @@ uk:
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
-        project_ids: Включені проекти
+        project_ids: Включені задуми
         start_date: Дата початку
         title: Назва
         updated_at: 'Оновлено:'
@@ -159,6 +159,6 @@ uk:
           version_index: Версія %{index}
     resource_links:
       included_projects:
-        result_projects: Проекти, включені до цих підсумків
+        result_projects: Задуми, включені до цих підсумків
       included_proposals:
         result_proposals: Пропозиції, включені до цих підсумків
