@@ -19,7 +19,7 @@ uk:
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
-      decidim/proposals/creation_enabled_event: Створення пропозицій увімкнено
+      decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
       decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
       decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
@@ -65,13 +65,13 @@ uk:
             can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
             comments_enabled: Коментарі увімкнено
             geocoding_enabled: Геокодування увімкнено
-            new_proposal_help_text: Підказки зі створення нової пропозиції
-            official_proposals_enabled: Офіційні пропозиції увімкнено
+            new_proposal_help_text: Підказки зі внесення нової пропозиції
+            official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Максимальна довжина основного тексту пропозиції
             proposal_limit: Максимальна кількість пропозицій на одного учасника
-            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
+            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             threshold_per_proposal: Поріг на кожну пропозицію
@@ -79,7 +79,7 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Створення пропозицій увімкнено
+            creation_enabled: Внесення пропозицій увімкнено
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
@@ -89,7 +89,7 @@ uk:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Тепер ви можете створювати нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_intro: 'Тепер ви можете вносити нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер наявні пропозиції
           notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -237,6 +237,9 @@ uk:
       create:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
+      destroy_draft:
+        error: При видаленні чернетки цієї пропозиції сталися помилки.
+        success: Чернетку пропозиції успішно знищено.
       models:
         proposal:
           fields:
@@ -246,13 +249,13 @@ uk:
             endorsements: Підтримало
             id: Псевдонім
             notes: Примітки
-            official_proposal: Офіційна пропозиція
+            official_proposal: Службова пропозиція
             scope: Терен
             state: Стан
             title: Назва
             votes: Голоси
       new:
-        limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
+        limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
       proposal_endorsements:
         create:
           error: При спробі надати підтримку цій пропозиції виникла помилка.
@@ -271,6 +274,11 @@ uk:
           mine_is_different: Моя пропозиція відрізняється
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
+        complete:
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
+          select_a_category: Будь ласка, оберіть розряд
+          send: Надіслати
+          title: Завершіть свою пропозицію
         count:
           proposals_count:
             one: 1 пропозиція
@@ -283,6 +291,7 @@ uk:
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
+          discard: Відхилити цю чернетку
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
         endorsement_identities_cabin:
@@ -298,7 +307,7 @@ uk:
           category_prompt: Оберіть розряд
           citizens: Громадяни
           evaluating: Розглядається
-          official: Офіційне
+          official: Службове
           origin: Походження
           rejected: Відхилено
           related_to: Пов'язане з
