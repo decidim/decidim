@@ -18,7 +18,7 @@ uk:
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
-        published_at: 'Опубліковано:'
+        published_at: 'Оприлюднено:'
         scope_id: Терен
         scopes_enabled: Терени увімкнено
         short_description: Стислий опис
@@ -54,7 +54,7 @@ uk:
         edit: Редагувати
         new: Додати
         preview: Попередній перегляд
-        publish: Опублікувати
+        publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
         unpublish: Скасувати публікацію
       menu:
@@ -76,7 +76,7 @@ uk:
             created_at: 'Додано:'
             private: Приватний
             promoted: Висвітлено
-            published: Опубліковано
+            published: Оприлюднено
             title: Назва
           name: Рух співучасті
         participatory_process_group:
@@ -123,7 +123,7 @@ uk:
       participatory_process_publications:
         create:
           error: При публікації цього руху співучасті сталася помилка.
-          success: Рух співучасті успішно опубліковано.
+          success: Рух співучасті успішно оприлюднено.
         destroy:
           error: При скасуванні публікації цього руху співучасті сталася помилка.
           success: Публікацію руху співучасті успішно скасовано.
