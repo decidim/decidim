@@ -134,6 +134,22 @@ uk:
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Адміністратор оновив розряд вашої пропозиції "%{resource_title}", перевірте його:'
+          email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
+          email_subject: Розряд пропозиції %{resource_title} було оновлено
+          notification_title: Адміністратор оновив розряд пропозиції <a href="%{resource_path}">%{resource_title}</a>.
+        voting_enabled:
+          email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
+          notification_title: Тепер ви можете почати <a href="%{resource_path}">голосувати щодо пропозицій</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Пропозиції
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Пропозиції
+        see_all_proposals: Переглянути всі пропозиції
     proposals:
       actions:
         answer: Відповісти
@@ -159,6 +175,7 @@ uk:
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           create:
+            error: При спробі додати примітку до цієї пропозиції сталася помилка
             success: Примітку до пропозиції успішно створено
           form:
             note: Примітка
@@ -167,10 +184,10 @@ uk:
           title: Приватні примітки
         proposals:
           answer:
-            invalid: При спробі відповісти на цю пропозицію виникла проблема
+            invalid: При спробі відповісти на цю пропозицію сталася помилка
             success: Успішно дано відповідь на пропозицію
           create:
-            invalid: При спробі внести цю пропозицію виникла проблема
+            invalid: При спробі внести цю пропозицію сталася помилка
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
