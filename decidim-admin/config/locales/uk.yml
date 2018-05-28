@@ -474,29 +474,29 @@ uk:
         create:
           success: Учаснику успішно надано службовий статус
         destroy:
-          success: Офіційний статус учасника успішно скасовано
+          success: Службовий статус учасника успішно скасовано
         index:
           actions: Дії
           badge: Відзнака
           created_at: 'Створено:'
           filter:
             all: Усі
-            not_officialized: Не має офіційного статусу
-            officialized: Має офіційний статус
+            not_officialized: Не має службового статусу
+            officialized: Має службовий статус
           filter_by: 'Відібрати за ознакою:'
           name: Ім'я
           nickname: Псевдонім
-          not_officialized: Не має офіційного статусу
-          officialize: Надати офіційний статус
-          officialized: Має офіційний статус
-          reofficialize: Знову надати офіційний статус
+          not_officialized: Не має службового статусу
+          officialize: Надати службовий статус
+          officialized: Має службовий статус
+          reofficialize: Знову надати службовий статус
           search: Шукати
           status: Стан
-          unofficialize: Скасувати офіційний статус
+          unofficialize: Скасувати службовий статус
         new:
-          badge: Відзнака надання офіційного статусу
-          officialize: Надати офіційний статус
-          title: Надати офіційний статус учаснику "%{name}"
+          badge: Відзнака надання службового статусу
+          officialize: Надати службовий статус
+          title: Надати службовий статус учаснику "%{name}"
       organization:
         edit:
           title: Редагувати організацію
@@ -590,7 +590,7 @@ uk:
         dashboard: Приладна дошка
         impersonatable_users: Користувачі, в ролі яких можна виступати
         impersonations: Виступи в ролі учасника
-        officializations: Надання офіційного статусу
+        officializations: Надання службового статусу
         scope_types: Різновиди терену
         scopes: Терени
         static_pages: Сторінки
