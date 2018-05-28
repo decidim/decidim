@@ -133,6 +133,7 @@ ignore_unused:
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
   - decidim.consultations.consultations.orders.*
+  - decidim.consultations.show.badge_name.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*

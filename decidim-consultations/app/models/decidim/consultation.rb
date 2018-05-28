@@ -5,6 +5,7 @@ module Decidim
   class Consultation < ApplicationRecord
     include Decidim::Participable
     include Decidim::Publicable
+    include Decidim::Resourceable
     include Decidim::Consultations::PublicableResults
 
     belongs_to :organization,

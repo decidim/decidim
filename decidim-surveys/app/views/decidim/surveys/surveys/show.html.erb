@@ -29,24 +29,33 @@
               </div>
             <% else %>
               <div class="answer-survey">
+                <% unless current_participatory_space.can_participate?(current_user) %>
+                  <div class="section">
+                    <div class="callout alert">
+                      <h5><%= t(".survey_for_private_users.title") %></h5>
+                      <p><%= t(".survey_for_private_users.body") %></p>
+                    </div>
+                  </div>
+                <% end %>
+
                 <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
-                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                  <% @form.survey_answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
-                      <%= fields_for "survey[answers][#{answer_idx}]", answer do |answer_form| %>
-                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx %>
+                      <%= fields_for "survey[survey_answers][#{answer_idx}]", answer do |answer_form| %>
+                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>
                     </div>
                   <% end %>
 
                   <div class="row column tos-agreement">
-                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                     <div class="help-text">
                       <%= decidim_sanitize translated_attribute survey.tos %>
                     </div>
                   </div>
 
                   <div class="button--double form-general-submit">
-                    <%= form.submit t(".submit"), class: "button", data: { confirm: t(".are_you_sure"), disable: true } %>
+                    <%= form.submit t(".submit"), class: "button", disabled: !current_participatory_space.can_participate?(current_user), data: { confirm: t(".are_you_sure"), disable: true } %>
                   </div>
                 <% end %>
               </div>

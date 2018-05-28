@@ -192,6 +192,7 @@ en:
         new:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
+          newsletter_title: Contact permission
           nickname_help: Your short, unique identifier in %{organization}
           sign_in: Log in
           sign_up: Sign up
@@ -202,12 +203,19 @@ en:
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
+          tos_title: Terms of Service
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
           are_you_new?: New to the platform?
           register: Create an account
       shared:
+        newsletter_modal:
+          buttons:
+            check: Check and continue
+            uncheck: Keep uncheck
+          notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
+          title: Newsletter notifications
         omniauth_buttons:
           or: Or
     doorkeeper:

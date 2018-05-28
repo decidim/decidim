@@ -1,8 +1,5 @@
 #!/bin/bash
 
-gem=${1%%/*}
-spec=${1#*/}
 fail_fast=${FAIL_FAST:-false}
-folder=${gem:-.}
 
-docker-compose run --rm -e "FAIL_FAST=$fail_fast" decidim bash -c "cd $folder && bundle exec rspec $spec"
+docker-compose run --rm -e "FAIL_FAST=$fail_fast" decidim bash -c "bin/rspec $*"

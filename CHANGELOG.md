@@ -51,6 +51,11 @@ must now set a resource name:
 - **decidim-core**: Adds fingerprinting capabilities to resources. [\#3351](https://github.com/decidim/decidim/pull/3351)
 - **decidim-core**: Add user profile card [\#3444](https://github.com/decidim/decidim/pull/3444)
 - **decidim-budgets**: Add project card [\#3454](https://github.com/decidim/decidim/pull/3454)
+- **decidim-core**: GDPR: Unbundled consent on user registration [\#3483](https://github.com/decidim/decidim/pull/3483)
+- **decidim-core**: GDPR: Right to be Forgotten  [\#3315](https://github.com/decidim/decidim/issues/3315)
+- **decidim-core**: GDPR: Newsletter checkbox unchecked by default [\3316](https://github.com/decidim/decidim/issues/3316)
+- **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
+- **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 
 **Changed**:
 
@@ -89,6 +94,7 @@ must now set a resource name:
 
 **Fixed**:
 
+- **decidim-assembly**: Fix Non private users can participate to a private, transparent assembly [\#3438](https://github.com/decidim/decidim/pull/3438)
 - **decidim-proposals**: Fixes artificial margin between proposal "header" and list of endorsements. [\#2893](https://github.com/decidim/decidim/pull/2893)
 - **decidim-proposals**: Use translations for hardcoded text. [\#3464](https://github.com/decidim/decidim/pull/3464)
 - **decidim-core**: Include datepicker locales in front pages too. [\#3448](https://github.com/decidim/decidim/pull/3448)
@@ -101,6 +107,13 @@ must now set a resource name:
 - **decidim-participatory_processes**: Remove duplicated space title on page meta tags [\#3278](https://github.com/decidim/decidim/pull/3278)
 - **decidim-assemblies**: Remove duplicated space title on page meta tags [\#3278](https://github.com/decidim/decidim/pull/3278)
 - **decidim-core**: Add validation to nickname's length. [\#3342](https://github.com/decidim/decidim/pull/3342)
+- **decidim-core**: Deactivate notifications bell when marking all as read [\#3509](https://github.com/decidim/decidim/pull/3509)
+- **decidim-surveys**: Fix a N+1 in surveys [\#3497](https://github.com/decidim/decidim/pull/3497)
+- **decidim-initiatives**: Fix user signing of initiatives [\#3513](https://github.com/decidim/decidim/pull/3513)
+- **decidim-core**: Make admin link on user menu stop disappearing [\#3508](https://github.com/decidim/decidim/pull/3508)
+- **decidim-core**: Sort static pages by title [\#3479](https://github.com/decidim/decidim/pull/3479)
+- **decidim-core**: Data picker form inputs having no bottom margin. [\#3463](https://github.com/decidim/decidim/pull/3463)
+- **decidim-core**: Make signup forms show the password confirmation field as required[\#3521](https://github.com/decidim/decidim/pull/3521)
 
 **Removed**:
 
