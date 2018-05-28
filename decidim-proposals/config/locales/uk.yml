@@ -206,6 +206,7 @@ uk:
             invalid: 'Ці пропозиції вже відносились до розряду %{category}: %{proposals}.'
             select_a_category: Будь ласка, оберіть розряд
             select_a_proposal: Будь ласка, оберіть пропозицію
+            success: 'Пропозиції успішно перенесені до розряду %{category}: %{proposals}.'
         proposals_imports:
           new:
             create: Запозичити пропозиції
