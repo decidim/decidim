@@ -69,7 +69,7 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі ввімкнено
+            comments_enabled: Коментарі увімкнено
             default_registration_terms: Умови реєстрації за умовчанням
           step:
             announcement: Оголошення
