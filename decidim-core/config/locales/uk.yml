@@ -19,7 +19,7 @@ uk:
         user_group_phone: Телефон організації
     models:
       decidim/attachment_created_event: Вкладений файл
-      decidim/component_published_event: Опублікована складова
+      decidim/component_published_event: Оприлюднена складова
       decidim/profile_updated_event: Профіль оновлено
   activerecord:
     attributes:
@@ -82,7 +82,7 @@ uk:
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
         delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
-        publish: "%{user_name} опублікував складову %{resource_name} у просторі %{space_name}"
+        publish: "%{user_name} оприлюднив складову %{resource_name} у просторі %{space_name}"
         unpublish: "%{user_name} скасував публікацію складової %{resource_name} у просторі %{space_name}"
       moderation:
         hide: "%{user_name} приховав ресурс типу %{resource_type} у просторі %{space_name}"
@@ -234,7 +234,7 @@ uk:
           by_organization_link_html: <small class="heading-small">на %{link}</small>
           cancel: Скасувати
           connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
-          publish_content: Публікувати за вас вміст
+          publish_content: Оприлюднювати за вас вміст
           see_email: Бачити вашу електронну пошту
           see_name: Бачити ваше ім'я
           see_username: Бачити ваше користувацьке ім'я
