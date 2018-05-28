@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Розділ
+        decidim_category_id: Розряд
         decidim_scope_id: Терен
         description: Опис
         end_date: Дата закінчення
@@ -122,8 +122,8 @@ uk:
           all: Усі
           scopes: Терени
         home:
-          categories_label: Розділи
-          subcategories_label: Підрозділи
+          categories_label: Розряди
+          subcategories_label: Підрозряди
         home_header:
           global_status: Загальний стан виконання
         nav_breadcrumb:
