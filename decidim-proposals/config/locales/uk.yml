@@ -19,7 +19,7 @@ uk:
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розділ пропозиції змінено
-      decidim/proposals/creation_enabled_event: Створення пропозицій ввімкнено
+      decidim/proposals/creation_enabled_event: Створення пропозицій увімкнено
       decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
       decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
@@ -56,7 +56,18 @@ uk:
           create: Створити
           endorse: Підтримати
           vote: Голосувати
+          withdraw: Відкликати голос
+        name: Пропозиції
         settings:
+          global:
+            announcement: Оголошення
+            attachments_allowed: Дозволити вкладення
+            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
+            comments_enabled: Коментарі увімкнено
+            geocoding_enabled: Геокодування увімкнено
+            new_proposal_help_text: Підказки зі створення нової пропозиції
+            official_proposals_enabled: Офіційні пропозиції увімкнено
+            proposal_answering_enabled: Увімкнено відповіді на пропозиції
           step:
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
