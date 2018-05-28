@@ -40,6 +40,7 @@ uk:
             create: Створити
             title: Нові підсумки
           update:
+            invalid: При спробі оновити цей проект сталася помилка
             success: Проект успішно оновлено
       models:
         project:
