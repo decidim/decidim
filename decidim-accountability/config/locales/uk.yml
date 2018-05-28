@@ -27,7 +27,7 @@ uk:
         edit: Редагувати
         new: Додати %{name}
         preview: Попередній перегляд
-        timeline_entries: Розвиток проекту
+        timeline_entries: Розвиток задуму
         title: Дії
       admin:
         exports:
@@ -86,7 +86,7 @@ uk:
             title: Редагувати запис
             update: Оновити запис
           index:
-            title: Записи на лінії часу проекту
+            title: Записи на лінії часу задуму
           new:
             create: Створити запис
             title: Новий запис
@@ -148,7 +148,7 @@ uk:
             version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
             votes: Підтримує
         timeline:
-          title: Розвиток проекту
+          title: Розвиток задуму
       versions:
         index:
           changes_at_title: Зміни в "%{title}"
