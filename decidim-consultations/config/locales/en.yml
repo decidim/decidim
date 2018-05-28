@@ -202,7 +202,7 @@ en:
         active_consultations: Active consultations
         past_consultations: Past consultations
       highlighted_questions:
-        title: Consultations from %{scope_name}
+        title: Questions from %{scope_name}
       index:
         title: Consultations
       question:
@@ -215,7 +215,7 @@ en:
         create:
           error: There have been errors when voting the question
       regular_questions:
-        title: Other consultations
+        title: Questions for this consultation
       show:
         badge_name:
           finished: Finished
