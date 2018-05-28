@@ -119,6 +119,9 @@ uk:
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, оприлюднив нову пропозицію. Прочитайте її та зробіть свій внесок:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Нова пропозиція від %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оприлюднив пропозицію <a href="%{resource_path}">%{resource_title}</a>.
     proposals:
       actions:
         answer: Відповісти
