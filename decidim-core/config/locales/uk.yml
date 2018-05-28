@@ -99,7 +99,7 @@ uk:
       organization:
         update: "%{user_name} оновив налаштування організації"
       scope:
-        create: "%{user_name} створив терен %{resource_name}"
+        create: "%{user_name} додав терен %{resource_name}"
         create_with_parent: "%{user_name} створив терен %{resource_name} всередині терену %{parent_scope}"
         delete: "%{user_name} видалив терен %{resource_name}"
         delete_with_parent: "%{user_name} видалив терен %{resource_name} всередині терену %{parent_scope}"
