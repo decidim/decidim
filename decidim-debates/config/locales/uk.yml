@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       debate:
-        category_id: Розділ
+        category_id: Розряд
         description: Опис
         end_time: 'Завершується:'
         information_updates: Оновлення відомостей
@@ -15,7 +15,7 @@ uk:
       debates:
         settings:
           global:
-            comments_enabled: Коментарі ввімкнено
+            comments_enabled: Коментарі увімкнено
           step:
             comments_blocked: Коментарі вимкнено
             creation_enabled: Увімкнено створення обговорень учасниками
@@ -58,8 +58,8 @@ uk:
           participate: Взяти участь
         filters:
           all: Усі
-          category: Розділ
-          category_prompt: Оберіть розділ
+          category: Розряд
+          category_prompt: Оберіть розряд
           citizens: Громадяни
           official: Офіційне
           origin: Походження
@@ -74,7 +74,7 @@ uk:
         new:
           back: Назад
           create: Створити
-          select_a_category: Будь ласка, оберіть розділ
+          select_a_category: Будь ласка, оберіть розряд
           title: Нове обговорення
         share:
           close_window: Закрити вікно
