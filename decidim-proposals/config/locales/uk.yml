@@ -348,7 +348,7 @@ uk:
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
         proposal:
-          creation_date: 'Створено: %{date}'
+          creation_date: 'Внесено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
