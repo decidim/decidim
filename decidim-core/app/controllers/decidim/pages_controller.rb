@@ -12,9 +12,7 @@ module Decidim
 
     def index
       enforce_permission_to :read, :public_page
-      @pages = current_organization.static_pages.all.to_a.sort do |a, b|
-        a.title[I18n.locale.to_s] <=> b.title[I18n.locale.to_s]
-      end
+      @pages = current_organization.static_pages.sorted_by_i18n_title
     end
 
     def show
