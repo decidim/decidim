@@ -13,11 +13,20 @@ uk:
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
+      proposals_copy:
+        copy_proposals: Я розумію, що при цьому всі пропозиції з обраної складової будуть запозичені до поточної складової, і що цю дію не можна буде потім скасувати.
+        origin_component_id: Складова, звідки потрібно скопіювати пропозиції
+    models:
+      decidim/proposals/accepted_proposal_event: Пропозиція прийнята
+      decidim/proposals/admin/update_proposal_category_event: Розділ пропозиції змінено
+      decidim/proposals/creation_enabled_event: Створення пропозицій ввімкнено
+      decidim/proposals/endorsing_enabled_event: Схвалення пропозицій увімкнено
+      decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
   decidim:
     proposals:
       actions:
         answer: Відповісти
-        import: Імпортувати з іншої складової
+        import: Запозичити з іншої складової
         new: Нова
         private_notes: Приватні примітки
         title: Дії
@@ -62,7 +71,7 @@ uk:
             title: Внести пропозицію
         proposals_imports:
           new:
-            create: Імпортувати пропозиції
+            create: Запозичити пропозиції
         shared:
           info_proposal:
             body: Основний текст
