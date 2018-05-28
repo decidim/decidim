@@ -54,6 +54,11 @@ Rails/Output:
     - decidim-*/config/**/*.rb
     - decidim-*/db/**/*.rb
     - decidim-*/lib/**/*.rb
+  Exclude:
+    - decidim-core/db/seeds.rb
+    - decidim-core/lib/decidim/component_manifest.rb
+    - decidim-core/lib/decidim/participatory_space_manifest.rb
+    - decidim-system/db/seeds.rb
 
 Rails/OutputSafety:
   Enabled: false
