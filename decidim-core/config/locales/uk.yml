@@ -176,7 +176,7 @@ uk:
         name: Приклад складової
         settings:
           global:
-            comments_enabled: Коментарі ввімкнено
+            comments_enabled: Коментарі увімкнено
             dummy_global_attribute_1: Приклад властивості 1
             dummy_global_attribute_2: Приклад властивості 2
           step:
