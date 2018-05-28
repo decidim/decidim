@@ -23,7 +23,7 @@ uk:
         parent_id: Батьківський об'єкт
       component:
         name: Ім'я
-        published_at: 'Опубліковано:'
+        published_at: 'Оприлюднено:'
         weight: Вага
       id: Псевдонім
       newsletter:
@@ -263,7 +263,7 @@ uk:
           add: Додати складову
           title: 'Додати складову: %{name}'
         publish:
-          success: Складову було успішно опубліковано.
+          success: Складову було успішно оприлюднено.
         title: Складові
         unpublish:
           success: Публікацію складової було успішно скасовано.
