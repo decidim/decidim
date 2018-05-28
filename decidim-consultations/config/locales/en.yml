@@ -227,7 +227,6 @@ en:
           view: View
           view_results: View results
           vote: Vote
-        see_finished_consultations: See previous consultations
         unspecified: Not specified
     menu:
       consultations: Consultations

@@ -29,20 +29,7 @@ module Decidim
         enforce_permission_to :read, :consultation, consultation: current_consultation
       end
 
-      def finished
-        enforce_permission_to :read, :consultation
-        render layout: "layouts/decidim/consultation_choose"
-      end
-
       private
-
-      def finished_consultations
-        @finished_consultations ||= OrganizationConsultations.for(current_organization).finished.published
-      end
-
-      def active_consultations
-        @active_consultations ||= OrganizationConsultations.for(current_organization).active.published
-      end
 
       def consultations
         @consultations = search.results
