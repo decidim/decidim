@@ -23,7 +23,6 @@ module Decidim
 
       def index
         enforce_permission_to :read, :consultation_list
-        redirect_to consultation_path(active_consultations.first) if active_consultations.count == 1
       end
 
       def show
