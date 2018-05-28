@@ -208,8 +208,14 @@ uk:
             select_a_proposal: Будь ласка, оберіть пропозицію
             success: 'Пропозиції успішно перенесені до розряду %{category}: %{proposals}.'
         proposals_imports:
+          create:
+            invalid: При запозиченні цих пропозицій сталася помилка
+            success: "%{number} пропозицій успішно запозичено"
           new:
             create: Запозичити пропозиції
+            no_components: У цьому просторі співучасті немає інших складових, звідки можна було б запозичити пропозиції.
+            select_component: Будь ласка, оберіть складову
+            select_states: Зазначте стани пропозицій, які бажаєте запозичити
         shared:
           info_proposal:
             body: Основний текст
@@ -217,6 +223,9 @@ uk:
             proposal_votes_count: Кількість голосів
             proposals: Пропозиції
       admin_log:
+        proposal:
+          answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
+          create: "%{user_name} вніс пропозицію %{resource_name} у просторі %{space_name} як службову"
         proposal_note:
           create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:
