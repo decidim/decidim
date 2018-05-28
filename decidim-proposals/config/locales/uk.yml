@@ -21,8 +21,27 @@ uk:
       decidim/proposals/admin/update_proposal_category_event: Розділ пропозиції змінено
       decidim/proposals/creation_enabled_event: Створення пропозицій ввімкнено
       decidim/proposals/endorsing_enabled_event: Схвалення пропозицій увімкнено
-      decidim/proposals/proposal_endorsed_event: Пропозицію підтримано
+      decidim/proposals/proposal_endorsed_event: Пропозицію схвалено
+  activerecord:
+    models:
+      decidim/proposals/proposal_endorsement:
+        one: Схвалення
+        few: Схвалення
+        many: Схвалень
+        other: Схвалень
   decidim:
+    components:
+      proposals:
+        actions:
+          endorse: Схвалити
+        settings:
+          step:
+            endorsements_blocked: Схвалення вимкнене
+            endorsements_enabled: Схвалення увімкнено
+    events:
+      proposals:
+        endorsing_enabled:
+          email_intro: 'Ви можете схвалювати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
     proposals:
       actions:
         answer: Відповісти
