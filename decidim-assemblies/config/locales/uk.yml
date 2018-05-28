@@ -5,7 +5,7 @@ uk:
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
-        copy_categories: Скопіювати розділи
+        copy_categories: Скопіювати розряди
         copy_features: Скопіювати складові
         description: Опис
         developer_group: Група зачинальників
@@ -96,7 +96,7 @@ uk:
           attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
-          categories: Розділи
+          categories: Розряди
           info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
