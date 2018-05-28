@@ -193,7 +193,12 @@ uk:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
             select_a_category: Оберіть розряд
           index:
+            actions: Дії
+            cancel: Скасувати
+            change_category: Змінити розряд
+            selected: обрані
             title: Пропозиції
+            update: Оновити
           new:
             create: Внести
             title: Внести пропозицію
