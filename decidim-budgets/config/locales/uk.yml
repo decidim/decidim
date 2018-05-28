@@ -8,12 +8,19 @@ uk:
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Задум
+        few: Задуми
+        many: Задумів
+        other: Задумів
   decidim:
     budgets:
       actions:
         attachment_collections: Збірки
         attachments: Вкладені файли
-        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
+        confirm_destroy: Ви дійсно бажаєте видалити цей задум?
         destroy: Видалити
         edit: Редагувати
         new: Нові
@@ -22,10 +29,10 @@ uk:
       admin:
         models:
           project:
-            name: Проект
+            name: Задум
         projects:
           create:
-            invalid: При спробі створити цей проект сталася помилка
+            invalid: При спробі створити цей задум сталася помилка
             success: Проект успішно додано
           destroy:
             success: Проект успішно видалено
@@ -40,7 +47,7 @@ uk:
             create: Створити
             title: Нові підсумки
           update:
-            invalid: При спробі оновити цей проект сталася помилка
+            invalid: При спробі оновити цей задум сталася помилка
             success: Проект успішно оновлено
       models:
         project:
