@@ -146,7 +146,7 @@ uk:
             invalid: При спробі закрити цю зустріч сталася помилка
             success: Зустріч успішно завершено
           create:
-            invalid: При спробі створити цю зустріч сталася помилка
+            invalid: При спробі додати цю зустріч сталася помилка
             success: Зустріч успішно додано
           destroy:
             success: Зустріч успішно видалено
@@ -157,7 +157,7 @@ uk:
           index:
             title: Зустрічі
           new:
-            create: Створити
+            create: Додати
             title: Додати зустріч
           service:
             description: Опис
@@ -206,7 +206,7 @@ uk:
       admin_log:
         meeting:
           close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
-          create: "%{user_name} створив зустріч %{resource_name} у просторі %{space_name}"
+          create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
           delete: "%{user_name} видалив зустріч %{resource_name} у просторі %{space_name}"
           export_registrations: "%{user_name} запозичив список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
           update: "%{user_name} оновив зустріч %{resource_name} у просторі %{space_name}"
