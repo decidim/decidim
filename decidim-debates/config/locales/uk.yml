@@ -61,7 +61,7 @@ uk:
           category: Розряд
           category_prompt: Оберіть розряд
           citizens: Громадяни
-          official: Офіційне
+          official: Службове
           origin: Походження
           search: Шукати
         filters_small_view:
@@ -84,7 +84,7 @@ uk:
         debate:
           fields:
             end_time: Дата закінчення
-            official_debate: Офіційне обговорення
+            official_debate: Службове обговорення
             start_time: Дата початку
             title: Назва
     events:
