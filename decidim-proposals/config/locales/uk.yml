@@ -68,6 +68,11 @@ uk:
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
+            proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
+            proposal_length: Максимальна довжина основного тексту пропозиції
+            proposal_limit: Максимальна кількість пропозицій на одного учасника
+            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
+            proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
           step:
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
