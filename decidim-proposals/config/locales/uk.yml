@@ -42,6 +42,7 @@ uk:
       proposals:
         endorsing_enabled:
           email_intro: 'Ви можете схвалювати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_subject: У %{participatory_space_title} почалося схвалення пропозицій
     proposals:
       actions:
         answer: Відповісти
@@ -127,9 +128,6 @@ uk:
       proposal_endorsements:
         identities:
           select_identity: Оберіть особу
-      proposal_endorsements_helper:
-        endorsement_button:
-          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
