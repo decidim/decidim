@@ -202,6 +202,10 @@ uk:
           new:
             create: Внести
             title: Внести пропозицію
+          update_category:
+            invalid: 'Ці пропозиції вже відносились до розряду %{category}: %{proposals}.'
+            select_a_category: Будь ласка, оберіть розряд
+            select_a_proposal: Будь ласка, оберіть пропозицію
         proposals_imports:
           new:
             create: Запозичити пропозиції
