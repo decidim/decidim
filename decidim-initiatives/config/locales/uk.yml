@@ -3,3 +3,9 @@ uk:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+  decidim:
+    initiatives:
+      events:
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступну ініціятиву. Чи не бажаєте ви зробити свій внесок у розмову:"
+          email_subject: '%{author_nickname} підтримав ініціятиву'
