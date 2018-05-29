@@ -530,10 +530,10 @@ fr:
         destroy:
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
-          title: Espace participatif privé de l'utilisateur
+          title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
-          title: Nouvel utilisateur de l'espace participatif.
+          title: Nouvel utilisateur privé de l'espace participatif.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
@@ -598,7 +598,7 @@ fr:
         users: Utilisateurs
       user_group:
         reject:
-          invalid: Une erreur s'est produite lors du rejet de ce groupe d'utilisateurs.
+          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
         verify:
           invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
@@ -633,7 +633,7 @@ fr:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur non représenté
+          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
         hidden: Masqués
