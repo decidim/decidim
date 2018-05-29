@@ -24,7 +24,7 @@ module Decidim
       subject { processor.render("This text contains *lorem* and *ipsum* and another *lorem*") }
 
       it "executes all registered parsers" do
-        expect(subject).to eq("This text contains <em>neque dicta enim quasi</em> and <em>illo qui voluptas</em> and another <em>neque dicta enim quasi</em>")
+        expect(subject).to eq("<p>This text contains <em>neque dicta enim quasi</em> and <em>illo qui voluptas</em> and another <em>neque dicta enim quasi</em></p>")
       end
     end
   end
