@@ -96,7 +96,7 @@ module Decidim
       end
 
       def authors_for(collaborative_draft)
-        collaborative_draft.authors.map { |author| present(author) }
+        collaborative_draft.identities.map { |identity| present(identity) }
       end
     end
   end

@@ -40,10 +40,7 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          attributes,
-          extra: {
-            parent_name: "This test"
-          }
+          attributes
         )
       end
 
@@ -53,15 +50,10 @@ module Decidim
           body: @form.body,
           category: @form.category,
           scope: @form.scope,
-          decidim_user_group_id: user_group.try(:id),
           address: @form.address,
           latitude: @form.latitude,
           longitude: @form.longitude
         }
-      end
-
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization: organization, id: form.user_group_id)
       end
 
       def organization

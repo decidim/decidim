@@ -67,7 +67,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       end
     end
 
-    context "whith open state" do
+    context "with open state" do
       let(:collaborative_draft) { create(:collaborative_draft, :open, component: component) }
 
       it "renders the card with the .success class" do
@@ -81,7 +81,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       end
     end
 
-    context "whith closed state" do
+    context "with closed state" do
       let(:collaborative_draft) { create(:collaborative_draft, :closed, component: component) }
 
       it "renders the card with the .alert class" do
@@ -95,7 +95,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       end
     end
 
-    context "whith published state" do
+    context "with published state" do
       let(:collaborative_draft) { create(:collaborative_draft, :published, component: component) }
 
       it "renders the card with the .secondary class" do

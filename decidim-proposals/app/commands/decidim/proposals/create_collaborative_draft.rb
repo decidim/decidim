@@ -65,7 +65,7 @@ module Decidim
         @attachment = Attachment.new(
           title: form.attachment.title,
           file: form.attachment.file,
-          attached_to: @proposal
+          attached_to: @collaborative_draft
         )
       end
 
@@ -81,7 +81,7 @@ module Decidim
       end
 
       def create_attachment
-        attachment.attached_to = proposal
+        attachment.attached_to = @collaborative_draft
         attachment.save!
       end
 

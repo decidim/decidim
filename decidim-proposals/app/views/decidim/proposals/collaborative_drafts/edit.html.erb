@@ -25,7 +25,7 @@
 
           <% if component_settings.geocoding_enabled? %>
             <div class="field">
-              <%= form.check_box :has_address %>
+              <%= form.check_box :has_address, class: "has_address" %>
             </div>
 
             <div class="field" id="address_input">

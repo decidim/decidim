@@ -4,7 +4,11 @@
   url: collaborative_draft_url(@collaborative_draft.id)
 }) %>
 <%# if !(current_user and @collaborative_draft.authorship?(current_user)) %>
-  <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+<div class="row">
+  <div class="columns">
+    <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+  </div>
+</div>
 <%# end %>
 
 <div class="row">
@@ -107,10 +111,15 @@
 
       <%= simple_format @collaborative_draft.body %>
 
+      <% if component_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
+      <% end %>
+
       <%= cell "decidim/tags", @collaborative_draft, context: {extra_classes: ["tags--proposal"]} %>
     </div>
   </div>
 </div>
+
 <%= attachments_for @collaborative_draft %>
 
 <%= comments_for @collaborative_draft %>
@@ -125,3 +134,5 @@
     url: decidim.report_path(sgid: @collaborative_draft.to_sgid.to_s)
   }
 %>
+
+<% console %>
