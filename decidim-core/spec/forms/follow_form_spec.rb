@@ -10,7 +10,7 @@ module Decidim
     let(:followable) { create :dummy_resource }
     let(:params) do
       {
-        followable_gid: followable.to_sgid,
+        followable_gid: followable.to_sgid
       }
     end
 
@@ -31,7 +31,7 @@ module Decidim
     context "when the followable_gid is not present" do
       let(:params) do
         {
-          followable_gid: nil,
+          followable_gid: nil
         }
       end
 
