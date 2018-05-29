@@ -251,6 +251,7 @@ ca:
           remaining_slots:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
+          view: Veure
       models:
         meeting:
           fields:
