@@ -459,13 +459,13 @@ fr:
           error: Une erreur s'est produite lors de la suppression de cette application.
           success: Application supprimée avec succès.
         edit:
-          save: sauvegarder
+          save: Sauvegarder
           title: Modifier l'application
         index:
-          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application?
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
           title: Applications OAuth
         new:
-          save: sauvegarder
+          save: Sauvegarder
           title: Nouvelle application
         update:
           error: Une erreur est survenue lors de la mise à jour de cette application.
@@ -474,7 +474,7 @@ fr:
         create:
           success: Utilisateur validé avec succès
         destroy:
-          success: Utilisateur non validé avec succès
+          success: Validation de l'utilisateur supprimée avec succès
         index:
           actions: Actions
           badge: Badge
