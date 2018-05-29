@@ -24,7 +24,7 @@ pt-BR:
     components:
       debates:
         actions:
-          create: Crio
+          create: Criar
         name: Debates
         settings:
           global:
@@ -93,7 +93,7 @@ pt-BR:
           new_debate: Novo debate
         new:
           back: Costas
-          create: Crio
+          create: Criar
           select_a_category: Por favor, selecione uma categoria
           title: Novo debate
         share:

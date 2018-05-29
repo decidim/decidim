@@ -191,6 +191,7 @@ es:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
+          newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
           sign_in: Entra
           sign_up: Regístrate
@@ -201,12 +202,19 @@ es:
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
+          tos_title: Términos de servicio
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verificar y continuar
+            uncheck: Mantener desmarcado
+          notice: Oye, ¿estás seguro de que no quieres recibir un boletín informativo? Considera volver a marcar la casilla de verificación del boletín de abajo. Es muy importante para nosotros que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes. Siempre puedes cambiar esto en la página de configuración de notificaciones. Si no marca la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma. Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión. ¡Gracias por leer esto!
+          title: Notificaciones de boletines
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -281,7 +289,7 @@ es:
     followers:
       no_followers: Aún no hay seguidores.
     following:
-      no_followings: No sigue a nadie.
+      no_followings: No sigue a nadie ni a nada todavía.
     follows:
       create:
         button: Seguir
@@ -424,7 +432,7 @@ es:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         followers: Seguidores
-        following: Siguiendo
+        following: Sigue
         notifications: Notificaciones
       user:
         edit_profile: Editar perfil

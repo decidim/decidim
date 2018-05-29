@@ -8,6 +8,7 @@ it:
         end_voting_date: Data di fine
         introductory_image: Immagine introduttiva
         introductory_video_url: URL video introduttivo
+        questions: Domande
         slug: Slug URL
         start_voting_date: Data d'inizio
         subtitle: Sottotitolo
@@ -215,7 +216,18 @@ it:
       regular_questions:
         title: Altre consultazioni
       show:
+        badge_name:
+          finished: Finito
+          open: Aperto
+          open_votes: Voti aperti
+          published_results: Risultati pubblicati
+        footer_button_text:
+          debate: Discussione
+          view: vista
+          view_results: Vedi i risultati
+          vote: Votazione
         see_finished_consultations: Vedi consultazioni precedenti
+        unspecified: Non specificato
     menu:
       consultations: consultazioni
     pages:
@@ -240,7 +252,7 @@ it:
         starting_from: A partire da %{date}
         vote: Votazione
       vote_modal:
-        contextual_help: Per favore selezionate un'opzione. Ricorda che una volta confermato il tuo supporto non può essere modificato.
+        contextual_help: Per favore selezionate un'opzione.
         title: 'Consultazione: domanda di supporto'
       vote_modal_confirm:
         change: Modificare

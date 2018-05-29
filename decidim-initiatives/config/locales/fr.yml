@@ -282,8 +282,14 @@ fr:
           assistants_count_title: Assistants
           comments_count_title: commentaires
           meetings_count_title: Réunions
+          supports_count_title: Signatures
+        supports:
+          title: Liste des signatures
         vote_cabin:
+          already_voted: Déjà signé
+          supports_required: "%{total_supports} signatures requises"
           vote: Signe
+          votes_blocked: Signature désactivée
         votes_count:
           count:
             one: SIGNATURE

@@ -3,18 +3,18 @@ fr:
     attributes:
       assembly:
         area_id: Zone d'application
-        assembly_type: Type d'assemblage
-        assembly_type_other: Type d'assemblage autre
+        assembly_type: Type d'assemblée
+        assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
         closing_date: Date de clôture
-        closing_date_reason: Raison de la date de fermeture
+        closing_date_reason: Raison de la date de clôture
         composition: Composition
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
         created_by_other: Créé par d'autres
-        creation_date: Date créée
+        creation_date: Date de création
         decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -25,7 +25,7 @@ fr:
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        included_at: Inclus à
+        included_at: Inclus le
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Est transparent
@@ -47,16 +47,16 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Gazouillement
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
-        birthday: Anniversaire
+        birthday: Date de naissance
         birthplace: Lieu de naissance
         ceased_date: Date de cessation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
         full_name: Nom complet
-        gender: Le genre
+        gender: Genre
         position: Position
       assembly_user_role:
         email: E-mail
@@ -172,13 +172,13 @@ fr:
           fields:
             ceased_date: Date de cessation
             designation_date: Date de désignation
-            full_name: prénom
+            full_name: Nom
             position: Position
           name: Membre
           positions:
             other: Autre
             president: Président
-            secretary: secrétaire
+            secretary: Secrétaire
             vice_president: Vice président
         assembly_user_role:
           fields:
@@ -210,6 +210,8 @@ fr:
       admin:
         assemblies:
           form:
+            duration_help: Si la durée de cet assemblage est limitée, sélectionnez la date de fin. Sinon, il apparaîtra comme indéfini.
+            included_at_help: Sélectionnez la date à laquelle cet assembly a été ajouté à Decidim. Il ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créé par
             select_an_area: Sélectionnez une région
             select_an_assembly_type: Sélectionnez un type d'assemblage
@@ -246,7 +248,7 @@ fr:
       created_by:
         city_council: Conseil municipal
         others: Autres
-        public: Publique
+        public: Public
       index:
         title: Agora
       pages:
@@ -259,12 +261,12 @@ fr:
             member_of: Membre de
       show:
         area: Région
-        assembly_type: Type d'assemblage
+        assembly_type: Type d'assemblée
         children: Agora
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
-        creation_date: Date créée
+        creation_date: Date de création
         developer_group: Organisateur
         duration: Durée
         included_at: Inclus à
@@ -302,7 +304,7 @@ fr:
         votes_count: Soutiens
     assembly_members:
       assembly_member:
-        designated_on: Désigné sur
+        designated_on: Désigné le
       index:
         title: Membres
     log:

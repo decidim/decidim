@@ -45,6 +45,8 @@ sv:
             created_at: Skapad vid
             title: titel
       posts:
+        show:
+          view: Se
         sidebar_blog:
           comments: kommentarer
           most_commented_posts: Mest kommenterade inlägg

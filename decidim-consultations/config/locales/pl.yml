@@ -8,6 +8,7 @@ pl:
         end_voting_date: Data końcowa
         introductory_image: Obraz wprowadzający
         introductory_video_url: Wprowadzający adres URL filmu
+        questions: pytania
         slug: Strumień URL
         start_voting_date: Data rozpoczęcia
         subtitle: Podtytuł
@@ -233,7 +234,18 @@ pl:
       regular_questions:
         title: Inne konsultacje
       show:
+        badge_name:
+          finished: Skończone
+          open: otwarty
+          open_votes: Otwarte głosy
+          published_results: Wyniki opublikowane
+        footer_button_text:
+          debate: Debata
+          view: Widok
+          view_results: Pokaż wyniki
+          vote: Głosować
         see_finished_consultations: Zobacz poprzednie konsultacje
+        unspecified: Nieokreślony
     menu:
       consultations: Konsultacje
     pages:
@@ -258,7 +270,7 @@ pl:
         starting_from: Począwszy od %{date}
         vote: Głosować
       vote_modal:
-        contextual_help: Proszę wybrać opcję. Pamiętaj, że po potwierdzeniu Twoja pomoc techniczna nie może zostać zmieniona.
+        contextual_help: Proszę wybrać opcję.
         title: 'Konsultacje: wsparcie pytania'
       vote_modal_confirm:
         change: Zmiana

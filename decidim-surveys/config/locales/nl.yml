@@ -109,4 +109,7 @@ nl:
           survey_closed:
             body: De enquête is gesloten en kan niet worden beantwoord.
             title: Enquête gesloten
+          survey_for_private_users:
+            body: De enquête is alleen beschikbaar voor privé-gebruikers
+            title: Enquête gesloten
           tos_agreement: Door deel te nemen aan dit onderzoek accepteert u de gebruiksvoorwaarden

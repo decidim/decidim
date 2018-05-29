@@ -7,14 +7,14 @@ pt-BR:
         details: Comentários adicionais
       user:
         about: Sobre
-        email: Seu e-mail
-        name: O seu nome
+        email: O seu email
+        name: Seu nome
         nickname: Seu identificador curto e exclusivo
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
-        user_group_document_number: Número de documento da organização
+        user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
     models:
@@ -25,12 +25,12 @@ pt-BR:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: E-mail
+        email: Email
         name: Nome de usuário
         password: Senha
-        password_confirmation: Confirmação da senha
-        remember_me: Lembre-me
-        user_group_document_number: Número de documento da organização
+        password_confirmation: Confirmação de senha
+        remember_me: Recorde-me
+        user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
     models:
@@ -45,7 +45,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é muito grande
+      image_too_big: A imagem é demasiado grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -53,23 +53,23 @@ pt-BR:
   decidim:
     account:
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar sua conta, não será possível fazer login novamente.
+        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero cancelar minha conta
-          question: Tem certeza de que deseja cancelar sua conta?
-          title: Eliminar minha conta
-        explanation: Por favor, preencha o motivo pelo qual deseja cancelar sua conta (opcional).
+          ok: Sim, eu quero cancelar a minha conta
+          question: Tem certeza de que deseja cancelar a sua conta?
+          title: Excluir minha conta
+        explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
       destroy:
-        error: Ocorreu um erro ao cancelar sua conta.
+        error: Ocorreu um erro ao cancelar a sua conta.
         success: Sua conta foi cancelada com sucesso.
       show:
-        change_password: Alterar senha
+        change_password: Mudar senha
         update_account: Atualizar conta
       update:
-        error: Ocorreu um erro ao atualizar sua conta.
-        success: A sua conta foi atualizada com sucesso.
-        success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail de confirmação de seu novo endereço de e-mail.
+        error: Ocorreu um erro ao actualizar a sua conta.
+        success: A sua conta foi actualizada com sucesso.
+        success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     admin_log:
       area:
         create: "%{user_name} criou a área %{resource_name}"
@@ -125,7 +125,7 @@ pt-BR:
         related_photos: Fotos relacionadas
     author:
       comments:
-        one: Comente
+        one: comentário
         other: comentários
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -134,15 +134,15 @@ pt-BR:
           passport_number: Número do passaporte
         name: Outro exemplo de autorização
       dummy_authorization_handler:
-        explanation: Para verificar sua conta, introduza um número de documento que termine com "X"
+        explanation: Seja verificado através da introdução de um número de documento que termina com "X"
         fields:
-          document_number: Número de documento
-          postal_code: CEP
+          document_number: Número do documento
+          postal_code: Código postal
         name: Exemplo de autorização
       dummy_authorization_workflow:
-        name: Falha na autorização de fluxo de trabalho
+        name: Fluxo de trabalho de autorização falsa
       errors:
-        duplicate_authorization: Um usuário já está registrado com estes mesmos dados.
+        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -156,7 +156,7 @@ pt-BR:
       hidden_elements_count:
         one: e mais 1
         other: e mais %{count}
-      see_less: "(veja menos)"
+      see_less: "(ver menos)"
       see_more: "(ver mais)"
     components:
       dummy:
@@ -176,37 +176,45 @@ pt-BR:
     contact: Contato
     core:
       actions:
-        unauthorized: Você não está autorizado a realizar esta ação
+        unauthorized: Não está autorizado a realizar esta ação
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Este endereço de e-mail já está registrado em outra contra
+          email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
-          complete_profile: Perfil completo
+          complete_profile: Complete o seu perfil
           nickname_help: Seu identificador curto e exclusivo em %{organization}
-          sign_up: Por favor, complete seu perfil
-          subtitle: Por favor, preencha o formulário seguinte para completar a inscrição
-          username_help: Nome público que aparece em suas publicações. Para garantir o anonimato, você pode escolher qualquer nome.
+          sign_up: Por favor, complete o seu perfil
+          subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
+          username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
         new:
-          already_have_an_account?: Você já tem uma conta?
+          already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
+          newsletter_title: Permissão de contato
           nickname_help: Seu identificador curto e exclusivo em %{organization}
-          sign_in: Entrar
-          sign_up: Inscrever-se
+          sign_in: Iniciar sessão
+          sign_up: Inscreva-se
           sign_up_as:
-            legend: Inscrever-se como
-            user: Pessoa física
+            legend: Inscreva-se como
+            user: Individual
             user_group: Organização / Coletivo
-          subtitle: Inscreva-se para participar de discussões e apoiar propostas.
-          terms: termos e condições de uso
-          tos_agreement: Ao se inscrever, você está de acordo com %{link}.
-          username_help: Nome público que aparece em suas publicações. Com o objetivo de garantir o anonimato, você pode escolher qualquer nome.
+          subtitle: Inscreva-se para participar de discussões e propostas de suporte.
+          terms: os termos e condições de uso
+          tos_agreement: Ao se inscrever, aceita %{link}.
+          tos_title: Termos de Serviço
+          username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
-          are_you_new?: Você é novo na plataforma?
+          are_you_new?: Novo na plataforma?
           register: Criar uma conta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verificar e continuar
+            uncheck: Manter desmarcado
+          notice: Ei, deseja mesmo não receber a newsletter? Por favor, pense mais um pouco no botão abaixo. É muito importante para nós que você receba e-mails sobre avisos importantes, você pode alterar isso na sua página de configurações de notificações quando quiser. Ao não selecionar o botão abaixo, você pode perder informações importantes sobre novas oportunidades e processos participativos na plataforma. Se você quiser continuar não recebendo boletins, compreendemos perfeitamente a sua decisão. Muito obrigado por ler!
+          title: Notificações de newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -226,12 +234,12 @@ pt-BR:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     errors:
       internal_server_error:
-        title: Problema de comunicação com o servidor
+        title: Houve um problema com o nosso servidor
         try_later: Por favor, tente novamente mais tarde.
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
-        title: A página que você busca não foi encontrada
+        title: A página que você procura não pode ser encontrada
     events:
       attachments:
         attachment_created:
@@ -247,9 +255,9 @@ pt-BR:
           notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Olá %{user_name},
-        email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
-        email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Se desejar parar de segui-la, clique no link anterior.
-        email_subject: Há uma atualização em %{resource_title}
+        email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+        email_subject: Uma atualização para %{resource_title}
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -260,19 +268,19 @@ pt-BR:
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       export:
-        ready: Uma versão comprimida do documento exportado está em anexo.
-      subject: Seu documento "%{name}" foi exportado
+        ready: Encontre em anexo uma versão com zíper da sua exportação.
+      subject: Sua exportação "%{name}" está pronta
     filters:
       linked_classes:
         all: Todos
-        dummyresource: Recursos de prova
-        meeting: Reuniões
+        dummyresource: Recursos falsos
+        meeting: Encontros
         project: Projetos
         proposal: Propostas
         result: Resultados
     fingerprint:
       check: Verificar impressão digital
-      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
+      explanation: O trecho abaixo é uma representação curta (ou hashed) deste conteúdo. Ele é útil para garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
       source: Fonte
@@ -281,21 +289,21 @@ pt-BR:
     followers:
       no_followers: Nenhum seguidor.
     following:
-      no_followings: Não há seguidores ainda.
+      no_followings: Não segue ninguém ou nada ainda.
     follows:
       create:
         button: Seguir
-        error: Ocorreu um erro ao tentar seguir este recurso
+        error: Ocorreu um erro ao seguir este recurso.
       destroy:
         button: Parar de seguir
-        error: Ocorreu um erro ao tentar de deixar de seguir esse recurso.
+        error: Ocorreu um erro ao seguir esse recurso.
     forms:
-      current_file: Arquivo atual
-      current_image: Imagem atual
-      default_image: Imagem (default)
+      current_file: Ficheiro atual
+      current_image: Imagem actual
+      default_image: Imagem por defeito
       errors:
         error: Há um erro neste campo.
-      remove_this_file: Remover este arquivo
+      remove_this_file: Remover este ficheiro
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -316,41 +324,41 @@ pt-BR:
         scope_type_presenter:
           not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
-      expired_session: Esta sessão expirou.
+      expired_session: A sessão de representação atual expirou.
     menu:
-      home: Início
+      home: Inicio
       more_information: Mais informação
     messaging:
       conversation_mailer:
         new_conversation:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-la:"
-          outro: Desfrute do decidim!
+          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
+          outro: Aproveite decidim!
           subject: "%{sender} iniciou uma conversa com você"
         new_message:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-las:"
-          outro: Desfrute do decidim!
+          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
+          outro: Aproveite decidim!
           subject: Você tem novas mensagens de %{sender}
       conversations:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
-          no_conversations: Você ainda não tem nenhuma conversa
+          no_conversations: Ainda não há conversas
           title: Conversas
         reply:
           send: Enviar
-          title: Responder
+          title: Resposta
         show:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Iniciar uma conversa
+          title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
     newsletter_mailer:
       newsletter:
-        note: Você recebeu este e-mail porque ativou o recebimento de newsletters em %{organization_name}. Você pode alterar suas configurações em <a href="%{link}">notifications page</a>.
+        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
         see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletters:
@@ -361,20 +369,20 @@ pt-BR:
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
     notifications:
-      no_notifications: Ainda não há notificações.
+      no_notifications: Não há notificações.
     notifications_settings:
       show:
-        email_on_notification: Quero receber um email sempre que receber uma notificação.
+        email_on_notification: Quero receber um email sempre que recebo uma notificação.
         newsletter_notifications: Quero receber boletins informativos
-        update_notifications_settings: Salvar alterações
+        update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
     own_user_groups:
       index:
-        pending: Pendentes
+        pending: Pendente
         rejected: Rejeitadas
-        verified: Verificadas
+        verified: Verificado
     pages:
       home:
         extended:
@@ -383,22 +391,22 @@ pt-BR:
           how_to_participate: Como faço parte de um processo?
           meetings: Encontros
           meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-          more_info: Mais informações
+          more_info: Saiba mais
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
           footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: registo
+          register: Registrar-se
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
         statistics:
-          answers_count: Formulário completo
-          assemblies_count: Assembléias
+          answers_count: Inquéritos concluídos
+          assemblies_count: Assembleias
           comments_count: Comentários
           debates_count: Debates
-          endorsements_count: Endossos
+          endorsements_count: Avais
           headline: Estado atual de %{organization}
           meetings_count: Encontros
           orders_count: Votos
@@ -412,33 +420,33 @@ pt-BR:
           users_count: Participantes
           votes_count: Votos
         sub_hero:
-          register: registo
+          register: Registrar-se
       index:
-        title: Mais informação
+        title: Mais informações
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
-      deleted: Usuário deletado
+      deleted: Usuário excluído
       view: Vista
     profiles:
-      default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
+      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         followers: Seguidores
-        following: Seguindo
+        following: Segue
         notifications: Notificações
       user:
         edit_profile: Editar perfil
     reported_mailer:
       hide:
         hello: Olá %{name},
-        manage_moderations: Administrar moderações
-        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi ocultado automaticamente
+        manage_moderations: Gerenciar moderações
+        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Administrar moderações
-        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
-        subject: Um recurso foi reportado
+        manage_moderations: Gerir moderações
+        report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
+        subject: Um recurso foi relatado
     reports:
       create:
         error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
@@ -447,44 +455,44 @@ pt-BR:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        choose: Selecionar
-        title: Selecionar %{field}
-      prompt: Selecionar um escopo
+        choose: Selecione
+        title: Selecione %{field}
+      prompt: Selecione um escopo
       scopes: Escopos
     shared:
       action_authorization_modal:
         expired:
-          authorize: Autorizar novamente com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser autorizado(a) novamente com "%{authorization}".
-          title: Autorização expirada
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
         incomplete:
           cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", é necessário que autorize novamente porque faltam os seguintes dados:'
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
           invalid_field: "%{field}"
-          reauthorize: Autorizar novamente
-          title: Por favor, autorize novamente
+          reauthorize: Reautorizar
+          title: Por favor reautorize
         missing:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
         pending:
           explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o progresso de sua autorização "%{authorization}"
+          resume: Verifique o seu progresso de autorização "%{authorization}"
           title: A autorização ainda está em progresso
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: Ok
+          ok: OK
           title: Não autorizado
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
-        embed_link: Incorporar
+        embed_link: Embutir
       flag_modal:
-        already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
+        already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
-        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outro aspecto que você acha que não pertence ao %{organization_name}.
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou script bots.
@@ -500,8 +508,8 @@ pt-BR:
         label: 'Resultados por página:'
       share_modal:
         close_window: Fechar janela
-        share: Compartilhar
-        share_link: Compartilhar link
+        share: Partilhar
+        share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
   devise:
@@ -513,7 +521,7 @@ pt-BR:
     mailer:
       invitation_instructions:
         accept: Aceitar convite
-        accept_until: Este convite expira em %{due_date}.
+        accept_until: Este convite será devido em %{due_date}.
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
@@ -595,7 +603,7 @@ pt-BR:
   social_share_button:
     delicious: Delicioso
     douban: Douban
-    email: O email
+    email: E-mail
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+

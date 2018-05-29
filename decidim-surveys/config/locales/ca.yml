@@ -109,4 +109,7 @@ ca:
           survey_closed:
             body: L'enquesta està tancada i no s'hi pot participar.
             title: Enquesta tancada
+          survey_for_private_users:
+            body: L'enquesta només està disponible per a usuaris privats
+            title: Enquesta tancada
           tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei

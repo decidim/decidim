@@ -36,8 +36,8 @@ pt-BR:
         one: Aval
         other: Avais
       decidim/proposals/proposal_note:
-        one: Nota
-        other: Notas
+        one: Anotação
+        other: Anotações
       decidim/proposals/proposal_vote:
         one: Voto
         other: Votos
@@ -45,7 +45,7 @@ pt-BR:
     components:
       proposals:
         actions:
-          create: Crio
+          create: Criar
           endorse: Endossar
           vote: Voto
           withdraw: retirar o
@@ -311,10 +311,6 @@ pt-BR:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        identities_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de avais
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
@@ -343,6 +339,10 @@ pt-BR:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de avais
+          hidden_endorsers_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'

@@ -210,6 +210,8 @@ ca:
       admin:
         assemblies:
           form:
+            duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus d'assemblea

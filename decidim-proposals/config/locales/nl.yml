@@ -311,10 +311,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Uitvouwen
-        identities_listing:
-          see_all: Alles bekijken
-          see_less: Minder bekijken
-          title: Lijst met aanbevelingen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
@@ -343,6 +339,10 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
+          endorsements_list: Lijst met aanbevelingen
+          hidden_endorsers_count:
+            one: en nog 1 persoon
+            other: en nog %{count} mensen
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
