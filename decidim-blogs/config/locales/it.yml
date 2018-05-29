@@ -45,6 +45,8 @@ it:
             created_at: Creato a
             title: titolo
       posts:
+        show:
+          view: vista
         sidebar_blog:
           comments: Commenti
           most_commented_posts: La maggior parte dei post commentati
