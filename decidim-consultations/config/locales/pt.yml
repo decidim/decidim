@@ -8,6 +8,7 @@ pt:
         end_voting_date: Data final
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
+        questions: Questões
         slug: Lesma de URL
         start_voting_date: Data de início
         subtitle: Legenda
@@ -215,7 +216,18 @@ pt:
       regular_questions:
         title: Outras consultas
       show:
+        badge_name:
+          finished: Acabado
+          open: Aberto
+          open_votes: Votos abertos
+          published_results: Resultados publicados
+        footer_button_text:
+          debate: Debate
+          view: Visão
+          view_results: Ver resultados
+          vote: Voto
         see_finished_consultations: Veja as consultas anteriores
+        unspecified: Não especificado
     menu:
       consultations: Consultas
     pages:
@@ -240,7 +252,7 @@ pt:
         starting_from: A partir de %{date}
         vote: Voto
       vote_modal:
-        contextual_help: Por favor selecione uma opção. Tenha em mente que uma vez que você confirmou seu apoio não pode ser alterado.
+        contextual_help: Por favor selecione uma opção.
         title: 'Consulta: suporte a perguntas'
       vote_modal_confirm:
         change: mudança
