@@ -141,7 +141,7 @@ module Decidim
     end
 
     def self.data_portability_images(user)
-      user_collection(user).map(&:avatar_url)
+      user_collection(user).map(&:avatar)
     end
 
     protected

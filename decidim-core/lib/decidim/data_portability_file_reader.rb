@@ -28,16 +28,7 @@ module Decidim
 
     # Returns a String with the absolute file_path to be read or generate.
     def file_path
-      # uploader = Decidim::DataPortabilityUploader.new
-      # uploader.store!(file_name)
-      #
-      # uploader.retrieve_from_store!(file_name)
-      # Decidim::DataPortabilityUploader.new().store_dir + file_name
-
-      # (Decidim::DataPortabilityUploader.new().store_dir + file_name).to_s
-
-      # directory_name = Rails.root.join("tmp", "data-portability")
-      directory_name =  Decidim::DataPortabilityUploader.new().store_dir
+      directory_name = Decidim::DataPortabilityUploader.new.store_dir
       Dir.mkdir(directory_name) unless File.exist?(directory_name)
       directory_name + file_name
     end

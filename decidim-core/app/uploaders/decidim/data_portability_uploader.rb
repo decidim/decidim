@@ -10,7 +10,7 @@ module Decidim
     # end
 
     def store_dir
-      default_path = "/tmp/data-portability/"
+      default_path = "tmp/data-portability/"
 
       return File.join(Decidim.base_uploads_path, default_path) if Decidim.base_uploads_path.present?
       default_path
