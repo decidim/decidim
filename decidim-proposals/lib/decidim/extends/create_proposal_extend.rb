@@ -9,7 +9,6 @@ module CreateProposalExtend
       resource: @proposal,
       recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@proposal.author]).pluck(:id),
       extra: {
-        moderation_event: @proposal.moderation.upstream_activated? ? true : false,
         new_content: true,
         process_slug: @proposal.feature.participatory_space.slug
       }

@@ -15,12 +15,11 @@ module Decidim
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
-      def index # this method has been extended
+      def index
         @proposals = search
                       .results
                       .published
                       .not_hidden
-                      .authorized
                       .includes(:author)
                       .includes(:category)
                       .includes(:scope)
@@ -64,11 +63,8 @@ module Decidim
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
-            if proposal.component.settings.upstream_moderation_enabled
-              flash[:notice] = I18n.t("proposals.create.moderation.success", scope: "decidim")
-            else
-              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-            end
+            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+
             compare_path = Decidim::ResourceLocatorPresenter.new(proposal).path + "/preview"
             redirect_to compare_path
           end

@@ -216,9 +216,6 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
-        moderation:
-          email_intro: 'There is a new content to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       feature_published_event:
         email_intro: 'Komponent %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
         email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.

@@ -14,8 +14,6 @@ module Decidim
       scope :reported, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:report_count].gt(0)) }
       scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
       scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
-      scope :authorized, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:upstream_moderation].eq "authorized") }
-
 
       # Public: Check if the user has reported the reportable.
       #

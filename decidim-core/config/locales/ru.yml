@@ -125,9 +125,6 @@ ru:
         email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
-        moderation:
-          email_intro: 'There is a new content to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
     export_mailer:

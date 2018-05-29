@@ -8,9 +8,6 @@ it:
             email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
             email_subject: C'è un nuovo commento da parte di %{author_name} al link %{resource_title}
             notification_title: C'è un nuovo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: Il "%{resource_title}" è stato commentato
             email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.

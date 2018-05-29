@@ -178,7 +178,6 @@ fr:
           global:
             categories_label: Nom pour "Catégories"
             comments_enabled: Activer le module de commentaire
-            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
             display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"

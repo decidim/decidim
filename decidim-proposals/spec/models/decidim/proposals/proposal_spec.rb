@@ -83,7 +83,7 @@ module Decidim
         it { is_expected.to be_rejected }
       end
 
-      describe "#users_to_notify_on_comment_authorized" do
+      describe "#users_to_notify_on_comment_created" do
         let!(:follows) { create_list(:follow, 3, followable: subject) }
         let(:followers) { follows.map(&:user) }
         let(:participatory_space) { subject.component.participatory_space }
@@ -96,13 +96,13 @@ module Decidim
           let(:proposal) { build(:proposal, :official) }
 
           it "returns the followers and the component's participatory space admins" do
-            expect(subject.users_to_notify_on_comment_authorized).to match_array(followers.concat([participatory_process_admin]))
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([participatory_process_admin]))
           end
         end
 
         context "when the proposal is not official" do
           it "returns the followers" do
-            expect(subject.users_to_notify_on_comment_authorized).to match_array(followers)
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers)
           end
         end
       end

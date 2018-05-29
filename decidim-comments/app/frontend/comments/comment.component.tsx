@@ -121,6 +121,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           {this._renderVoteButtons()}
         </div>
         {this._renderReplies()}
+        {this._renderAdditionalReplyButton()}
         {this._renderReplyForm()}
       </article>
     );
@@ -235,26 +236,26 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
-  // private _renderAdditionalReplyButton() {
-  //   const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
+  private _renderAdditionalReplyButton() {
+    const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
 
-  //   if (session && acceptsNewComments) {
-  //     if (hasComments && isRootComment) {
-  //       return (
-  //         <div className="comment__additionalreply">
-  //           <button
-  //             className="comment__reply muted-link"
-  //             aria-controls="comment1-reply"
-  //             onClick={this.toggleReplyForm}
-  //           >
-  //             {I18n.t("components.comment.reply")}
-  //           </button>
-  //         </div>
-  //       );
-  //     }
-  //   }
-  //   return null;
-  // }
+    if (session && acceptsNewComments) {
+      if (hasComments && isRootComment) {
+        return (
+          <div className="comment__additionalreply">
+            <button
+              className="comment__reply muted-link"
+              aria-controls="comment1-reply"
+              onClick={this.toggleReplyForm}
+            >
+              {I18n.t("components.comment.reply")}
+            </button>
+          </div>
+        );
+      }
+    }
+    return null;
+  }
 
   /**
    * Render upVote and downVote buttons when the comment is votable

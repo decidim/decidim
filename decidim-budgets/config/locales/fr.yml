@@ -117,7 +117,6 @@ fr:
             projects_per_page: Projets par page
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
-            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
           step:
             announcement: Message d'annonce
             comments_blocked: Bloquer la création de nouveaux commentaires

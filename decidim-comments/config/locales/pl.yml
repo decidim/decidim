@@ -8,9 +8,6 @@ pl:
             email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
             email_subject: Istnieje nowy komentarz z %{author_name} w %{resource_title}
             notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: '"Skomentował" %{resource_title} "'
             email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.

@@ -25,8 +25,6 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :upstream_moderation_enabled, type: :boolean, default: false
-    settings.attribute :comments_upstream_moderation_enabled, type: :boolean, default: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -56,7 +54,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.except_withdrawn.not_hidden.authorized.count
+    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.except_withdrawn.not_hidden.count
   end
 
   component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

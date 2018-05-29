@@ -18,7 +18,6 @@ Decidim.register_component(:blogs) do |component|
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_upstream_moderation_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|

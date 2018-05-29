@@ -118,7 +118,6 @@ en:
             projects_per_page: Projects per page
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
-            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

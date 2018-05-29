@@ -8,9 +8,6 @@ fi:
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seurannan edellisestä linkistä.
             email_subject: Uusi kommentti henkilöltä %{author_name} kohteeseen %{resource_title}
             notification_title: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: Kohdetta "%{resource_title}" on kommentoitu
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen edellisestä linkistä.

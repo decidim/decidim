@@ -221,9 +221,6 @@ en:
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
-        moderation:
-          email_intro: 'There is a new content to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       feature_published_event:
         email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
         email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.

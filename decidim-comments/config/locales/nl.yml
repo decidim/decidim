@@ -8,9 +8,6 @@ nl:
             email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
             email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
             notification_title: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: '"%{resource_title}" heeft een nieuwe reactie gekregen'
             email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met volgen via vorige link.

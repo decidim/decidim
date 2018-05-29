@@ -69,9 +69,6 @@ en:
           categories: Categories
           components: Components
           info: Info
-          moderation:
-            downstream: Downstream
-            upstream: Upstream
           moderations: Moderations
           private_users: Private Users
           process_admins: Process users

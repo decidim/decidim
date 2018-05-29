@@ -9,9 +9,6 @@ es:
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
             email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
             notification_title: Hay un nuevo comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: Se ha comentado en "%{resource_title}"
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
