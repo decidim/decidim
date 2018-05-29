@@ -15,6 +15,17 @@ en:
             choices:
               missing: are not complete
               too_many: are too many
+    models:
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Survey
+        other: Surveys
+      decidim/surveys/survey_answer:
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:
@@ -98,5 +109,8 @@ en:
             title: Survey answered
           survey_closed:
             body: The survey is closed and cannot be answered.
+            title: Survey closed
+          survey_for_private_users:
+            body: The survey is available only for private users
             title: Survey closed
           tos_agreement: By participating in this survey you accept its Terms of Service

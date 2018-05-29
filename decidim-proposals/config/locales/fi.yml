@@ -16,6 +16,31 @@ fi:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
         origin_component_id: Komponentti kopioida ehdotukset osoitteesta
+    models:
+      decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
+      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
+      decidim/proposals/creation_enabled_event: Ehdotuksen luominen käyttöön
+      decidim/proposals/endorsing_enabled_event: Ehdotuksen hyväksyminen käytössä
+      decidim/proposals/evaluating_proposal_event: Ehdotus arvioidaan
+      decidim/proposals/proposal_endorsed_event: Ehdotus hyväksyttiin
+      decidim/proposals/proposal_mentioned_event: Mainittu ehdotus
+      decidim/proposals/publish_proposal_event: Ehdotus julkaistaan
+      decidim/proposals/rejected_proposal_event: Ehdotus hylättiin
+      decidim/proposals/voting_enabled_event: Ehdotus äänestys sallittu
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Ehdotus
+        other: ehdotukset
+      decidim/proposals/proposal_endorsement:
+        one: merkintä
+        other: merkintöjen
+      decidim/proposals/proposal_note:
+        one: Huomautus
+        other: Huomautuksia
+      decidim/proposals/proposal_vote:
+        one: Äänestys
+        other: ääntä
   decidim:
     components:
       proposals:
@@ -114,16 +139,10 @@ fi:
       participatory_process_groups:
         highlighted_proposals:
           proposals: ehdotukset
-        proposal:
-          creation_date: 'Luominen: %{date}'
-          view_proposal: Näytä ehdotus
     participatory_spaces:
       highlighted_proposals:
         proposals: ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
-      proposal:
-        creation_date: 'Luominen: %{date}'
-        view_proposal: Näytä ehdotus
     proposals:
       actions:
         answer: Vastaa
@@ -220,6 +239,7 @@ fi:
             category: Aihepiiri
             comments: Kommentit
             created_at: Luontipäivämäärä
+            endorsements: merkintöjen
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
@@ -269,6 +289,7 @@ fi:
         endorsement_identities_cabin:
           endorse: hyväksyä
         endorsements_card_row:
+          comments: Kommentit
           endorse: hyväksyä
         filters:
           accepted: Hyväksytty

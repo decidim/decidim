@@ -19,25 +19,57 @@ references:
   attach_workspace: &attach_workspace
     attach_workspace:
       at: /app
-  restore_cache: &restore_cache
+  restore_ruby_cache: &restore_ruby_cache
     restore_cache:
       keys:
         - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+  restore_npm_cache: &restore_npm_cache
+    restore_cache:
+      keys:
+        - npm-dependencies-{{ checksum "package-lock.json" }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
       command: bundle install
+  install_npm_dependencies: &install_npm_dependencies
+    run:
+      name: Install npm dependencies
+      command: npm install
+  save_ruby_cache: &save_ruby_cache
+    save_cache:
+      key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      paths:
+        - /usr/local/bundle/
+  save_npm_cache: &save_npm_cache
+    save_cache:
+      key: npm-dependencies-{{ checksum "package-lock.json" }}
+      paths:
+        - node_modules
   wait_for_db: &wait_for_db
     run:
       name: Wait for db
       command: dockerize -wait tcp://localhost:5432 -timeout 2m
+  install_test_reporter: &install_test_reporter
+    run:
+      name: Install CodeClimate test reporter
+      command: /app/.circleci/install_cc_test_reporter.sh
   create_test_db: &create_test_db
     run:
       name: Create test DB
       command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-  store_artifacts: &store_artifacts
+  extract_failure_logs: &extract_failure_logs
+    run:
+      name: Extract failure logs
+      command: |
+        mkdir -p /app/spec/decidim_dummy_app/tmp/logs/
+        tail -1000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
+      when: on_fail
+  store_screenshot_artifacts: &store_screenshot_artifacts
     store_artifacts:
       path: /app/spec/decidim_dummy_app/tmp/screenshots
+  store_log_artifacts: &store_log_artifacts
+    store_artifacts:
+      path: /app/spec/decidim_dummy_app/tmp/logs
   store_test_results: &store_test_results
     store_test_results:
       path: ~/rspec
@@ -60,19 +92,17 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
+      - *restore_npm_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *install_npm_dependencies
+      - *save_ruby_cache
+      - *save_npm_cache
       - *wait_for_db
       - run:
           name: Generate test app
           command: bundle exec rake test_app
-      - run:
-          name: Install CodeClimate test reporter
-          command: /app/.circleci/install_cc_test_reporter.sh
+      - *install_test_reporter
       - persist_to_workspace:
           root: /app
           paths:
@@ -82,12 +112,9 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *save_ruby_cache
       - *wait_for_db
       - run:
           name: Run main folder RSpec
@@ -98,260 +125,293 @@ jobs:
       - run:
           name: Run erb_lint
           command: bundle exec erblint --lint-all
+      - run:
+          name: Run erb_lint on cells views
+          command: bundle exec erblint **/app/cells/**/*.erb
       - *store_test_results
   generators:
     <<: *defaults
     steps:
       - *attach_workspace
       - checkout
-      - *restore_cache
+      - *restore_ruby_cache
       - *install_ruby_dependencies
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
+      - *save_ruby_cache
       - *wait_for_db
       - *run_rspec
+      - *install_test_reporter
+      - *format_test_coverage
       - *store_test_results
+      - *persist_coverage_to_workspace
   core:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   assemblies:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   initiatives:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   api:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   participatory_processes:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   admin:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_npm_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   system:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   proposals:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   comments:
     <<: *defaults
     steps:
       - *attach_workspace
-      - restore_cache:
-          keys:
-            - npm-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install npm dependencies
-          command: npm install
-      - save_cache:
-          key: npm-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+      - *restore_npm_cache
       - run:
           name: Run main folder lint & tests
           command: npm run test:ci
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   meetings:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   pages:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   accountability:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   budgets:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   surveys:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   verifications:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   debates:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   sortitions:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   blogs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   consultations:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_cache
+      - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
       - *run_rspec
       - *format_test_coverage
-      - *store_artifacts
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
   build_design_app:
@@ -381,7 +441,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 19 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 20 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -393,25 +453,21 @@ workflows:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - build_test_app:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - main:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - generators:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - core:
           requires:
             - build_test_app

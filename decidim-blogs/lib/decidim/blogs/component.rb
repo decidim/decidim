@@ -26,8 +26,9 @@ Decidim.register_component(:blogs) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
+    resource.card = "decidim/blogs/post"
   end
 
   component.seeds do |participatory_space|

@@ -48,8 +48,7 @@ module Decidim
 
         scope = manifest.resource_scope(component)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
-
-        scope
+        scope.includes(:component).where.not(decidim_components: { published_at: nil })
       end
 
       # Links the given resources to this model, replaces any previous links with the same name.
@@ -81,6 +80,8 @@ module Decidim
           end
         end
       end
+
+      delegate :resource_manifest, to: :class
     end
 
     class_methods do

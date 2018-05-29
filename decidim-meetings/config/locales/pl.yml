@@ -16,10 +16,41 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
         title: Tytuł
+        transparent: Przezroczysty
+      minutes:
+        audio_url: Adres audio
+        description: Opis
+        video_url: URL wideo
+        visible: Jest widoczny
+    models:
+      decidim/meetings/close_meeting_event: Spotkanie zamknięte
+      decidim/meetings/create_meeting_event: Spotkanie
+      decidim/meetings/meeting_registrations_enabled_event: Rejestracje włączone
+      decidim/meetings/meeting_registrations_over_percentage_event: Rejestracje ponad limit
+      decidim/meetings/upcoming_meeting_event: Najbliższe spotkanie
+      decidim/meetings/update_meeting_event: Spotkanie zaktualizowane
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Spotkanie
+        few: Spotkania
+        many: Spotkania
+        other: Spotkania
+      decidim/meetings/minutes:
+        one: Minuty
+        few: Minuty
+        many: Minuty
+        other: Minuty
+      decidim/meetings/registration:
+        one: Rejestracja
+        few: Rejestracje
+        many: Rejestracje
+        other: Rejestracje
   decidim:
     admin:
       meeting_copies:
@@ -83,6 +114,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
+        minutes: Minuty
         new: Nowe
         preview: Podgląd
         registrations: Rejestracje
@@ -106,6 +138,9 @@ pl:
           edit:
             close: Zamknij
             title: Zamknij spotkanie
+        meeting_copies:
+          form:
+            select_organizer: Wybierz organizatora
         meetings:
           close:
             invalid: Wystąpił problem podczas zamykania tego spotkania
@@ -117,6 +152,8 @@ pl:
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             update: Aktualizuj
+          form:
+            select_organizer: Wybierz organizatora
           index:
             title: Spotkania
           new:
@@ -135,6 +172,18 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił problem
             success: Spotkanie zostało pomyślnie zaktualizowane
+        minutes:
+          create:
+            invalid: Podczas tworzenia tej minuty wystąpił problem
+            success: Udało się utworzyć minuty
+          edit:
+            update: Aktualizacja
+          new:
+            create: Stwórz
+            title: Twórz minuty
+          update:
+            invalid: Podczas aktualizowania tych minut wystąpił problem
+            success: Minuty zostały pomyślnie zaktualizowane
         models:
           meeting:
             name: Spotkanie
@@ -144,6 +193,11 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invite_user: Zaproś użytkownika
+            registrations_count:
+              one: Została 1 rejestracja.
+              few: Rejestrowano %{count}.
+              many: Zarejestrowano %{count} rejestracji.
+              other: Rejestrowano %{count}.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
           update:
@@ -156,6 +210,12 @@ pl:
           delete: "%{user_name} usunął spotkanie %{resource_name} na przestrzeni %{space_name}"
           export_registrations: "%{user_name} wyeksportował zapisy spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował spotkanie %{resource_name} na przestrzeni %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Organizatora nie znaleziono w bazie danych (ID: %{id})'
+        minutes:
+          create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -163,6 +223,8 @@ pl:
         registration_mailer:
           confirmation:
             subject: Swoje spotkania rejestracja zostanie potwierdzona
+      meeting:
+        not_allowed: Nie możesz zobaczyć tego spotkania
       meetings:
         filters:
           category: Kategoria
@@ -189,9 +251,16 @@ pl:
           contributions: Liczba składek
           going: Chodzenie
           join: Dołącz do spotkania
+          meeting_minutes: Protokół ze spotkań
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
+          related_information: Powiązana informacja
+          remaining_slots:
+            one: Pozostało 1 gniazdo
+            few: "Pozostało %{count}"
+            many: "Pozostało %{count} gniazd"
+            other: "Pozostało %{count}"
       models:
         meeting:
           fields:
@@ -212,6 +281,9 @@ pl:
         destroy:
           invalid: Wystąpił problem z tym spotkaniem.
           success: Opuściłeś spotkanie pomyślnie.
+      types:
+        private_meeting: Prywatne spotkanie
+        transparent: Przezroczysty
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -222,6 +294,8 @@ pl:
         past_meetings: Poprzednie spotkania
         see_all_meetings: Zobacz wszystkie spotkania
         upcoming_meetings: Nadchodzące spotkania
+      upcoming_meeting_for_card:
+        upcoming_meeting: Najbliższe spotkanie
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Powiązane wyniki:'

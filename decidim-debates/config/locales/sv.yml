@@ -11,6 +11,15 @@ sv:
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
+    models:
+      decidim/debates/create_debate_event: Debatt
+      decidim/debates/creation_disabled_event: Debatter inaktiverade
+      decidim/debates/creation_enabled_event: Debatter aktiverade
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debatt
+        other: debatter
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ sv:
           invalid: Det har varit ett problem under debatten.
           success: Debatt skapades framgångsrikt.
         debate:
-          comments:
-            one: Kommentar
-            other: Kommentarer
           participate: Delta
         filters:
           all: Alla
@@ -94,9 +100,6 @@ sv:
           close_window: Stäng fönstret
           share: Dela
           share_link: Dela länk
-        show:
-          comments: Kommentarer
-          report: Rapportera
       models:
         debate:
           fields:

@@ -17,17 +17,26 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
+      belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
       validates :title, presence: true
+      validate :organizer_belongs_to_organization
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+
+      scope :visible_meeting_for, lambda { |user|
+                                    joins("LEFT JOIN decidim_meetings_registrations ON
+                                    decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
+                                      .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
+                                    or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
+                                  }
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
@@ -79,10 +88,30 @@ module Decidim
         followers
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
       def can_participate?(user)
-        return true unless participatory_space.try(:private_space?)
-        return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
-        return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
+        return true unless participatory_space.try(:private_space?) || private_meeting?
+        return true if (participatory_space.try(:private_space?) &&
+                        participatory_space.users.include?(user)) ||
+                       (private_meeting? && registrations.exists?(decidim_user_id: user.try(:id)))
+        return false if (participatory_space.try(:private_space?) &&
+                        participatory_space.try(:transparent?)) ||
+                        (private_meeting? && transparent?)
+      end
+      # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+
+      def organizer_belongs_to_organization
+        return if !organizer || !organization
+        errors.add(:organizer, :invalid) unless organizer.organization == organization
+      end
+
+      def official?
+        organizer.nil?
+      end
+
+      def current_user_can_visit_meeting?(current_user)
+        (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
+          !private_meeting? || (private_meeting? && transparent?)
       end
     end
   end

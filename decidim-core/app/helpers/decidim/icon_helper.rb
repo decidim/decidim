@@ -3,6 +3,8 @@
 module Decidim
   # Helpers related to icons
   module IconHelper
+    include Decidim::LayoutHelper
+
     # Public: Returns an icon given an instance of a Component. It defaults to
     # a question mark when no icon is found.
     #

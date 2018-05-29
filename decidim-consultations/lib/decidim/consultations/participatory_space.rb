@@ -20,6 +20,11 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     context.layout = "layouts/decidim/admin/question"
   end
 
+  participatory_space.register_resource(:consultation) do |resource|
+    resource.model_class_name = "Decidim::Consultation"
+    resource.card = "decidim/consultations/consultation"
+  end
+
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first
@@ -37,7 +42,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       end_voting_date: Time.zone.today + 1.month,
       banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
       introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
-      decidim_highlighted_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
+      decidim_highlighted_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
       organization: organization
     )
 
@@ -45,7 +50,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       question = Decidim::Consultations::Question.create!(
         consultation: consultation,
         slug: Faker::Internet.unique.slug(nil, "-"),
-        decidim_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
+        decidim_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
         title: Decidim::Faker::Localized.sentence(3),
         subtitle: Decidim::Faker::Localized.sentence(3),
         what_is_decided: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -100,7 +105,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       end_voting_date: Time.zone.today - 1.month,
       banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
       introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
-      decidim_highlighted_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
+      decidim_highlighted_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
       organization: organization
     )
 
@@ -108,7 +113,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       question = Decidim::Consultations::Question.create!(
         consultation: consultation,
         slug: Faker::Internet.unique.slug(nil, "-"),
-        decidim_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
+        decidim_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
         title: Decidim::Faker::Localized.sentence(3),
         subtitle: Decidim::Faker::Localized.sentence(3),
         what_is_decided: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

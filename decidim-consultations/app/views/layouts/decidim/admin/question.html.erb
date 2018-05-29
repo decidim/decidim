@@ -65,8 +65,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= translated_attribute(current_participatory_space.consultation.title) %>
+      <%= link_to translated_attribute(current_participatory_space.consultation.title), decidim_consultations.consultation_path(current_participatory_space.consultation), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

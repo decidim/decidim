@@ -35,6 +35,20 @@ eu:
       vote:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: kontsultak
+      decidim/consultations/question:
+        one: Galdera
+        other: Galderak
+      decidim/consultations/response:
+        one: Erantzun
+        other: Erantzunak
+      decidim/consultations/vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     admin:
       actions:
@@ -204,6 +218,10 @@ eu:
         see_finished_consultations: Ikusi aurreko kontsultak
     menu:
       consultations: kontsultak
+    pages:
+      home:
+        statistics:
+          consultations_count: kontsultak
     questions:
       results:
         title: Emaitzak
@@ -242,7 +260,3 @@ eu:
         unfold: Zabaldu
       question_header:
         back_to_consultation: Ikusi kontsulta guztiak
-  pages:
-    home:
-      statistics:
-        consultations_count: kontsultak

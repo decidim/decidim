@@ -211,6 +211,9 @@ en:
         update:
           error: There was an error when updating this attachment.
           success: Attachment updated successfully.
+      autocomplete:
+        no_results: No results found
+        search_prompt: Type at least three characters to search
       categories:
         create:
           error: There was an error creating this category.

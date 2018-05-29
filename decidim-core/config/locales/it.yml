@@ -17,6 +17,10 @@ it:
         user_group_document_number: Numero del documento dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Telefono dell'organizzazione
+    models:
+      decidim/attachment_created_event: attaccamento
+      decidim/component_published_event: Componente attivo
+      decidim/profile_updated_event: profilo aggiornato
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ it:
         user_group_document_number: Numero del documento dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Numero di telefono dell'organizzazione
+    models:
+      decidim/user:
+        one: Utente
+        other: utenti
+      decidim/user_group:
+        one: Gruppo di utenti
+        other: Gruppi di utenti
   booleans:
     'false': 'No'
     'true': 'Si'
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +123,16 @@ it:
         related_documents: Documenti Relativi
       photos:
         related_photos: Immagini relative
+    author:
+      comments:
+        one: commento
+        other: Commenti
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
+        fields:
+          passport_number: Numero di passaporto
+        name: Un'altra autorizzazione di esempio
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
@@ -128,6 +152,12 @@ it:
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
       started_at: Iniziato a %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: e 1 altro
+        other: e altri %{count}
+      see_less: "(vedi meno)"
+      see_more: "(Vedi altro)"
     components:
       dummy:
         actions:
@@ -240,6 +270,18 @@ it:
         project: Progetti
         proposal: Proposte
         result: Votazioni
+    fingerprint:
+      check: Controlla l'impronta digitale
+      explanation: La parte di testo qui sotto è una rappresentazione abbreviata e con hash di questo contenuto. È utile assicurarsi che il contenuto non sia stato manomesso, poiché una singola modifica darebbe un valore completamente diverso.
+      online_calculator_name: Calcolatrice MD5 online
+      replicate_help: Questa impronta digitale viene calcolata utilizzando un algoritmo di hash SHA256. Per replicare tu stesso, puoi usare uno %{online_calculator_link} e copiare e incollare i dati di origine.
+      source: fonte
+      title: impronta digitale
+      value: Valore
+    followers:
+      no_followers: Nessun follower ancora.
+    following:
+      no_followings: Ancora nessun seguito.
     follows:
       create:
         button: Seguire
@@ -318,6 +360,8 @@ it:
         success: Hai annullato l'iscrizione.
         token_error: Il link è scaduto.
         unsubscribe: Annulla l'iscrizione
+    notifications:
+      no_notifications: Nessuna notifica.
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
@@ -332,17 +376,58 @@ it:
         rejected: Respinta
         verified: Verificato
     pages:
+      home:
+        extended:
+          debates: Dibattiti
+          debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
+          how_to_participate: Come posso partecipare ad un processo?
+          meetings: incontri
+          meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
+          more_info: Maggiori informazioni
+          proposals: proposte
+          proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
+        footer_sub_hero:
+          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
+          footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
+          register: Registrati
+        hero:
+          participate: Partecipa
+          welcome: Benvenuto su %{organization}!
+        statistics:
+          answers_count: Sondaggi completati
+          assemblies_count: assemblee
+          comments_count: Commenti
+          debates_count: Dibattiti
+          endorsements_count: Riconoscimenti
+          headline: Stato attuale dell'organizzazione %{organization}
+          meetings_count: incontri
+          orders_count: Voti
+          pages_count: Pagine
+          processes_count: Processi
+          projects_count: progetti
+          proposals_accepted: Proposte accettate
+          proposals_count: proposte
+          results_count: risultati
+          surveys_count: indagini
+          users_count: Partecipanti
+          votes_count: Voti
+        sub_hero:
+          register: Registrati
       index:
         title: Informazione
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
       deleted: Utente eliminato
+      view: vista
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
-        about_me: A proposito di me
-        personal_url: Sito web personale
+        followers: Seguaci
+        following: A seguire
+        notifications: notifiche
+      user:
+        edit_profile: Modifica Profilo
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -391,8 +476,6 @@ it:
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
-      author:
-        deleted: Utente eliminato
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
@@ -491,8 +574,6 @@ it:
         expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
-        no_notifications: Nessuna notifica.
-        title: Notifiche
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
         conversations: conversazioni
@@ -511,44 +592,6 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-  pages:
-    home:
-      extended:
-        debates: Dibattiti
-        debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
-        how_to_participate: Come posso partecipare ad un processo?
-        meetings: Incontri, meeting
-        meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
-        more_info: Maggiori informazioni
-        proposals: Proposte
-        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
-      footer_sub_hero:
-        footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
-        footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-        register: Registrati
-      hero:
-        participate: Partecipa
-        welcome: Benvenuto su %{organization}!
-      statistics:
-        answers_count: Sondaggi completati
-        assemblies_count: assemblee
-        comments_count: Commenti
-        debates_count: dibattiti
-        endorsements_count: Riconoscimenti
-        headline: Stato attuale dell'organizzazione %{organization}
-        meetings_count: Meeting
-        orders_count: Voti
-        pages_count: Pagine
-        processes_count: Processi
-        projects_count: Progetti
-        proposals_accepted: Proposte accettate
-        proposals_count: Proposte
-        results_count: Resultati
-        surveys_count: indagini
-        users_count: Partecipanti
-        votes_count: Voti
-      sub_hero:
-        register: Registrati
   social_share_button:
     delicious: Delicious
     douban: Douban

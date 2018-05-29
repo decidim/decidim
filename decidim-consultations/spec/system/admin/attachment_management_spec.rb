@@ -12,7 +12,7 @@ describe "question attachments", type: :system do
 
   before do
     switch_to_host(organization.host)
-    login_as user, scope: :user, run_callbacks: false
+    login_as user, scope: :user
     visit decidim_admin_consultations.edit_question_path(question)
     click_link "Attachments"
   end

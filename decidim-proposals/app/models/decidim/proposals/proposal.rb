@@ -16,6 +16,9 @@ module Decidim
       include Decidim::Proposals::CommentableProposal
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Fingerprintable
+
+      fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"
 
@@ -37,7 +40,7 @@ module Decidim
       def self.order_randomly(seed)
         transaction do
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order("RANDOM()").load
+          order(Arel.sql("RANDOM()")).load
         end
       end
 
@@ -60,11 +63,18 @@ module Decidim
         endorsements.where(author: user, user_group: user_group).any?
       end
 
+      # Public: Checks if the proposal has been published or not.
+      #
+      # Returns Boolean.
+      def published?
+        published_at.present?
+      end
+
       # Public: Checks if the organization has given an answer for the proposal.
       #
       # Returns Boolean.
       def answered?
-        answered_at.present?
+        answered_at.present? && state.present?
       end
 
       # Public: Checks if the organization has accepted a proposal.

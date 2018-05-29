@@ -9,6 +9,13 @@ pt:
         target_items: Número de propostas a serem selecionadas (indica o número de propostas que você deseja selecionar sorteando o grupo de propostas que você escolheu anteriormente)
         title: Título
         witnesses: Testemunhas
+    models:
+      decidim/sortitions/create_sortition_event: Sorteio
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteio
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: Nova classificação adicionada a %{participatory_space_title}
           notification_title: A classificação <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -106,8 +117,6 @@ pt:
           label: 'Ordenar ordenações por:'
           random: Aleatória
           recent: Recente
-        proposal:
-          view_proposal: Ver proposta
         results_count:
           count:
             one: proposta selecionada
@@ -127,10 +136,11 @@ pt:
           time_seed: "(2) semente do tempo"
           witnesses: Testemunhas
         sortition:
+          random_seed: Semente aleatória
           selected_proposals:
             one: 1 proposta selecionada
-            other: "%{count} propostas selecionadas"
-          view_sortition: Ver ordenação
+            other: '%{count} propostas selecionadas'
+          view: Visão
         sortition_author:
           deleted: Usuário deletado
         sortition_cancel_author:
@@ -139,7 +149,3 @@ pt:
           count:
             one: 1 ordenação
             other: "%{count} ordenações"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

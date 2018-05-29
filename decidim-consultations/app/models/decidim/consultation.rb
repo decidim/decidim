@@ -5,6 +5,7 @@ module Decidim
   class Consultation < ApplicationRecord
     include Decidim::Participable
     include Decidim::Publicable
+    include Decidim::Resourceable
     include Decidim::Consultations::PublicableResults
 
     belongs_to :organization,
@@ -72,7 +73,7 @@ module Decidim
     def self.order_randomly(seed)
       transaction do
         connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_consultations".*, RANDOM()').order("RANDOM()").load
+        select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
     end
   end

@@ -9,6 +9,13 @@ it:
         target_items: Numero di proposte da selezionare (indica il numero di proposte che si desidera selezionare tracciando lotti del gruppo di proposte che si è scelto in precedenza)
         title: Titolo
         witnesses: Testimoni
+    models:
+      decidim/sortitions/create_sortition_event: sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova sortizione aggiunta a %{participatory_space_title}
           notification_title: La sortition <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -106,8 +117,6 @@ it:
           label: 'Ordina le ordinazioni per:'
           random: Casuale
           recent: Recente
-        proposal:
-          view_proposal: Visualizza proposta
         results_count:
           count:
             one: proposta selezionata
@@ -127,10 +136,11 @@ it:
           time_seed: "(2) seme temporale"
           witnesses: Testimoni
         sortition:
+          random_seed: Seme casuale
           selected_proposals:
             one: 1 proposta selezionata
-            other: "%{count} proposte selezionate"
-          view_sortition: Visualizza la selezione
+            other: '%{count} proposte selezionate'
+          view: vista
         sortition_author:
           deleted: Utente eliminato
         sortition_cancel_author:
@@ -139,7 +149,3 @@ it:
           count:
             one: 1 sortition
             other: "%{count} sortizioni"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

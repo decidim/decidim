@@ -210,6 +210,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
+      autocomplete:
+        no_results: nessun risultato trovato
+        search_prompt: Digitare almeno tre caratteri da cercare
       categories:
         create:
           error: Si è verificato un errore durante la creazione di questa categoria.

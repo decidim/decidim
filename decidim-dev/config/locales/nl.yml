@@ -8,13 +8,17 @@ nl:
         title: Titel
         updated_at: Bijgewerkt op
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Een ander voorbeeld van goedkeuring
     dummy:
       admin:
         exports:
           dummies: Dummies
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies hoog
+          dummies_count_medium: Dummies medium
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies hoog
@@ -22,10 +26,3 @@ nl:
     resource_links:
       test_link:
         dummy_resource_dummy: Gerelateerde dummy
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Dummies hoog
-        dummies_count_medium: Dummies medium
-        foo: Foo

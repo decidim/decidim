@@ -6,10 +6,7 @@ module Decidim
     class CommitteeRequestsController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
 
-      helper Decidim::ActionAuthorizationHelper
       helper InitiativeHelper
-
-      include Decidim::Initiatives::ActionAuthorization
 
       layout "layouts/decidim/application"
 

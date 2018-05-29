@@ -1,6 +1,21 @@
 fr:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commentaire
+      decidim/comments/comment_created_event: Commentaire
+      decidim/comments/reply_created_event: Commentaire Répondre
+      decidim/comments/user_mentioned_event: Mention
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commentaire
+        other: commentaires
+      decidim/comments/comment_vote:
+        one: Vote
+        other: Votes
   decidim:
     comments:
+      comments: commentaires
       votes:
         create:
           error: Une erreur s'est produite lors du soutien du commentaire.

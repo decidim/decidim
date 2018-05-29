@@ -17,15 +17,35 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
+        transparent: Transparent
       minutes:
         audio_url: Audio url
         description: Description
         video_url: Video url
         visible: Is visible
+    models:
+      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+      decidim/meetings/upcoming_meeting_event: Upcoming meeting
+      decidim/meetings/update_meeting_event: Meeting updated
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Meeting
+        other: Meetings
+      decidim/meetings/minutes:
+        one: Minutes
+        other: Minutes
+      decidim/meetings/registration:
+        one: Registration
+        other: Registrations
   decidim:
     admin:
       meeting_copies:
@@ -113,6 +133,9 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There's been a problem closing this meeting
@@ -124,6 +147,8 @@ en:
             success: Meeting successfully deleted
           edit:
             update: Update
+          form:
+            select_organizer: Select the organizer
           index:
             title: Meetings
           new:
@@ -179,6 +204,9 @@ en:
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          value_types:
+            organizer_presenter:
+              not_found: 'The organizer was not found on the database (ID: %{id})'
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
@@ -189,6 +217,8 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
+      meeting:
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
           category: Category
@@ -224,6 +254,7 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+          view: View
       models:
         meeting:
           fields:
@@ -244,6 +275,9 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+      types:
+        private_meeting: Private meeting
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -254,6 +288,8 @@ en:
         past_meetings: Past meetings
         see_all_meetings: See all meetings
         upcoming_meetings: Upcoming meetings
+      upcoming_meeting_for_card:
+        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Related results:'
