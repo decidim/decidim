@@ -45,6 +45,8 @@ pt:
             created_at: Criado em
             title: título
       posts:
+        show:
+          view: Visão
         sidebar_blog:
           comments: comentários
           most_commented_posts: Posts mais comentados
