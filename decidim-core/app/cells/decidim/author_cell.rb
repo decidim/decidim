@@ -12,6 +12,8 @@ module Decidim
 
     property :profile_path
 
+    delegate :current_user, to: :controller, prefix: false
+
     def show
       render
     end
