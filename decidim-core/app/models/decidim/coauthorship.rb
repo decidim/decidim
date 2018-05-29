@@ -8,6 +8,10 @@ module Decidim
 
     validates :coauthorable, presence: true
 
+    def identity
+      user_group || author
+    end
+
     private
 
     # As it is used to validate by comparing to author.organization

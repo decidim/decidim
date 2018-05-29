@@ -5,7 +5,7 @@ module Decidim
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Authorable
+      include Decidim::Coauthorable
       include Decidim::HasComponent
       include Decidim::ScopableComponent
       include Decidim::HasReference
@@ -112,7 +112,7 @@ module Decidim
 
       # Public: Whether the proposal is official or not.
       def official?
-        author.nil?
+        authors.empty?
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
