@@ -6,13 +6,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
-        about: A propos
+        about: A propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: URL personnelle
+        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -57,7 +57,7 @@ fr:
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
-          question: Êtes-vous sûr de vouloir supprimer votre compte?
+          question: Êtes-vous sûr de vouloir supprimer votre compte ?
           title: Supprimer mon compte
         explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
       destroy:
@@ -82,7 +82,7 @@ fr:
         unpublish: "%{user_name} a dépublié le module %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
-        unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
+        unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
         create: "%{user_name} a créé la newsletter %{resource_name}"
         delete: "%{user_name} a supprimé la newsletter %{resource_name}"
@@ -168,7 +168,7 @@ fr:
           global:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut fictif 2
+            dummy_global_attribute_2: Attribut factice 2
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
@@ -183,7 +183,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant court et unique sur %{organization} (ne pas utiliser d'espace).
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -192,7 +192,7 @@ fr:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant court et unique sur %{organization}  (ne pas utiliser d'espace).
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
