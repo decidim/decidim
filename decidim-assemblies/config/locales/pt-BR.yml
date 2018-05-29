@@ -46,11 +46,11 @@ pt-BR:
         target: Alvo
         title: Título
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_user_role:
-        email: O email
+        email: E-mail
         name: Nome
-        role: Função
+        role: Cargo
   decidim:
     admin:
       assemblies:
@@ -70,7 +70,7 @@ pt-BR:
           published: Publicados
         new:
           create: Criar
-          title: Nova assembléia
+          title: Nova assembleia
         update:
           error: Ocorreu um erro ao atualizar este assembly.
           success: Assembléia atualizada com sucesso.
@@ -80,7 +80,7 @@ pt-BR:
           success: Assembléia duplicada com sucesso.
       assembly_copies:
         new:
-          copy: cópia de
+          copy: Cópia
           select: Selecione os dados que você gostaria de duplicar
           title: Duplicar assembléia
       assembly_publications:
@@ -102,7 +102,7 @@ pt-BR:
         index:
           assembly_admins_title: Usuários da assembléia
         new:
-          create: Crio
+          create: Criar
           title: Novo usuário de montagem.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
@@ -132,7 +132,7 @@ pt-BR:
           fields:
             email: O email
             name: Nome
-            role: Função
+            role: Cargo
           name: Usuário de montagem
           roles:
             admin: Administrador
