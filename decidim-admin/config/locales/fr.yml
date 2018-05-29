@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone
+        area_type: Type de zone d'application
         name: Titre
         organization: Organisation
       area_type:
@@ -19,10 +19,10 @@ fr:
         name: Titre
       category:
         description: Description
-        name: Nom
+        name: Titre
         parent_id: Parent
       component:
-        name: Nom
+        name: Titre
         published_at: Publié à
         weight: Rang d'affichage
       id: ID
@@ -30,7 +30,7 @@ fr:
         body: Corps de texte
         subject: Objet
       oauth_application:
-        name: Nom
+        name: Titre
         organization_logo: Logo de l'organisation (carré)
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
@@ -52,7 +52,7 @@ fr:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
-        homepage_image: Image d'accueil
+        homepage_image: Image de la page d'accueil
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         name: Nom
@@ -149,7 +149,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
           success: Le type de zone d'application a été créé avec succès.
         destroy:
-          success: Type de zone d'application détruit avec succès
+          success: Le type de zone d'application a bien été supprimé.
         edit:
           title: Modifier le type de zone d'application
           update: Mettre à jour
@@ -158,13 +158,13 @@ fr:
           title: Nouveau type de zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: Type de zone d'application mis à jour avec succès
+          success: Le type de zone d'application a été mis à jour avec succès.
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
-          success: Zone d'application créée avec succès.
+          success: La zone d'application a été créée avec succès.
         destroy:
-          success: Zone d'application détruite avec succès
+          success: La zone d'application a bien été détruite.
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -324,8 +324,8 @@ fr:
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un courriel pour accepter votre invitation.
-            new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
-            promote: Transformer
+            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
+            promote: Promouvoir
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
@@ -349,7 +349,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone
+            area_type: Type de zone d'application
             name: Titre
         area_type:
           fields:
@@ -387,14 +387,14 @@ fr:
             name: Singulier
           name: Application OAuth
         participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
+          name: Utilisateur privé de l'espace participatif
         scope:
           fields:
             name: Nom
             scope_type: Type de périmètre d'application
         scope_type:
           fields:
-            name: Singulier
+            name: Titre
             plural: Pluriel
         static_page:
           fields:
@@ -497,13 +497,13 @@ fr:
           error: Une erreur s'est produite lors de la suppression de cette application.
           success: Application supprimée avec succès.
         edit:
-          save: sauvegarder
+          save: Sauvegarder
           title: Modifier l'application
         index:
-          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application?
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
           title: Applications OAuth
         new:
-          save: sauvegarder
+          save: Sauvegarder
           title: Nouvelle application
         update:
           error: Une erreur est survenue lors de la mise à jour de cette application.
@@ -512,7 +512,7 @@ fr:
         create:
           success: Utilisateur validé avec succès
         destroy:
-          success: Utilisateur non validé avec succès
+          success: Validation de l'utilisateur supprimée avec succès
         index:
           actions: Actions
           badge: Badge
