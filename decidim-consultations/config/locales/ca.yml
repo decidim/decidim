@@ -217,8 +217,8 @@ ca:
         title: Altres consultes
       show:
         badge_name:
-          finished: Acabat
-          open: Obert
+          finished: Acabada
+          open: Oberta
           open_votes: Obre els vots
           published_results: Resultats publicats
         footer_button_text:
@@ -252,7 +252,7 @@ ca:
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
-        contextual_help: Seleccioneu una opció.
+        contextual_help: Selecciona una opció.
         title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
