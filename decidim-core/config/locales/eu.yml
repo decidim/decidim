@@ -289,7 +289,7 @@ eu:
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
     following:
-      no_followings: Ez dago jarraikirik oraindik.
+      no_followings: Ez du inork edo ezer oraindik jarraitzen.
     follows:
       create:
         button: Jarraitu
@@ -432,7 +432,7 @@ eu:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         followers: Jarraitzaileak
-        following: Jarraitzen
+        following: honako hau
         notifications: jakinarazpenak
       user:
         edit_profile: Editatu profila
