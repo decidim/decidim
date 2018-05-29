@@ -33,7 +33,7 @@ module Decidim
       def heading_parent_level_results(count)
         text = translated_attribute(component_settings.heading_parent_level_results).presence
         if text
-          "#{count} #{text}"
+          pluralize(count, text)
         else
           t("results.count.results_count", scope: "decidim.accountability", count: count)
         end
@@ -42,7 +42,7 @@ module Decidim
       def heading_leaf_level_results(count)
         text = translated_attribute(component_settings.heading_leaf_level_results).presence
         if text
-          "#{count} #{text}"
+          pluralize(count, text)
         else
           t("results.count.results_count", scope: "decidim.accountability", count: count)
         end
