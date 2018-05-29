@@ -109,4 +109,7 @@ gl:
           survey_closed:
             body: A enquisa está pechada e non se pode responder.
             title: Enquisa pechada
+          survey_for_private_users:
+            body: A enquisa só está dispoñible para usuarios privados
+            title: Enquisa pechada
           tos_agreement: Ao participar nesta enquisa aceptas as Condicións de servizo
