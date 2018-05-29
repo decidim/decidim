@@ -191,6 +191,7 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso buletin bat noizbehinka informazio garrantzitsu batekin
+          newsletter_title: Harremanetarako baimena
           nickname_help: Zure identifikatzaile labur eta berezia %{organization} zenbakian
           sign_in: Sartu
           sign_up: Erregistratu
@@ -201,12 +202,19 @@ eu:
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
+          tos_title: Zerbitzu-baldintzak
           username_help: Izen publikoa, zure mezuetan agertzekoa Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
       shared:
+        newsletter_modal:
+          buttons:
+            check: Egiaztatu eta jarraitu
+            uncheck: Mantendu uncheck
+          notice: Kaixo, ziur zaude buletin bat jaso nahi duzula? Berriro begiratu berriro buletina kontrol-laukia markatuta. Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, zure jakinarazpenen ezarpenen orrian alda dezakezu beti. Kutxa markatzen ez baduzu, parte hartzaileen aukera berriei buruzko informazio garrantzitsua falta zaizu plataforman. Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu. Eskerrik asko irakurri hau!
+          title: Buletina jakinarazpenak
         omniauth_buttons:
           or: Edo
     doorkeeper:
@@ -281,7 +289,7 @@ eu:
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
     following:
-      no_followings: Ez dago jarraikirik oraindik.
+      no_followings: Ez du inork edo ezer oraindik jarraitzen.
     follows:
       create:
         button: Jarraitu
@@ -424,7 +432,7 @@ eu:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         followers: Jarraitzaileak
-        following: Jarraitzen
+        following: honako hau
         notifications: jakinarazpenak
       user:
         edit_profile: Editatu profila
