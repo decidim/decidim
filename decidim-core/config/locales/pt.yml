@@ -289,7 +289,7 @@ pt:
     followers:
       no_followers: Ainda não há seguidores
     following:
-      no_followings: Não há seguidores ainda.
+      no_followings: Não segue ninguém ou nada ainda.
     follows:
       create:
         button: Seguir
