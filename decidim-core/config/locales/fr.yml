@@ -539,7 +539,7 @@ fr:
       organization_admin_invitation_instructions:
         subject: Vous avez été invité à gérer %{organization}
       password_change:
-        greeting: Bonjour %{recipient}!
+        greeting: Bonjour %{recipient} !
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
   doorkeeper:
@@ -570,7 +570,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé par Open Source Politics grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -614,7 +614,7 @@ fr:
     reddit: Reddit
     share_to: Partager sur %{name}
     tumblr: Tumblr
-    twitter: Gazouillement
+    twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
