@@ -2,14 +2,14 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Розділ
+        decidim_category_id: Розряд
         decidim_scope_id: Терен
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
-        project_ids: Включені проекти
+        project_ids: Включені задуми
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
         updated_at: 'Оновлено:'
       status:
         description: Опис
@@ -27,7 +27,7 @@ uk:
         edit: Редагувати
         new: Додати %{name}
         preview: Попередній перегляд
-        timeline_entries: Розвиток проекту
+        timeline_entries: Розвиток задуму
         title: Дії
       admin:
         exports:
@@ -41,7 +41,7 @@ uk:
             name: Запис на лінії часу
         results:
           create:
-            invalid: При спробі створити ці підсумки виникла проблема
+            invalid: При спробі створити ці підсумки сталася помилка
             success: Підсумки успішно створено
           destroy:
             success: Підсумки успішно видалено
@@ -54,14 +54,14 @@ uk:
             create: Створити підсумки
             title: Нові підсумки
           update:
-            invalid: При спробі оновити ці підсумки виникла проблема
+            invalid: При спробі оновити ці підсумки сталася помилка
             success: Підсумки успішно оновлено
         shared:
           subnav:
             statuses: Стани
         statuses:
           create:
-            invalid: При спробі створити цей стан виникла проблема
+            invalid: При спробі створити цей стан сталася помилка
             success: Стан успішно створено
           destroy:
             success: Стан успішно видалено
@@ -74,11 +74,11 @@ uk:
             create: Створити стан
             title: Новий стан
           update:
-            invalid: При спробі оновити цей стан виникла проблема
+            invalid: При спробі оновити цей стан сталася помилка
             success: Стан успішно оновлено
         timeline_entries:
           create:
-            invalid: Виникла проблема зі створенням цього запису
+            invalid: При спробі створити цей запис сталася помилка
             success: Запис успішно створено
           destroy:
             success: Запис успішно видалено
@@ -86,12 +86,12 @@ uk:
             title: Редагувати запис
             update: Оновити запис
           index:
-            title: Записи на лінії часу проекту
+            title: Записи на лінії часу задуму
           new:
             create: Створити запис
             title: Новий запис
           update:
-            invalid: Під час оновлення цього запису виникла проблема
+            invalid: Під час оновлення цього запису сталася помилка
             success: Запис успішно оновлено
       models:
         result:
@@ -100,7 +100,7 @@ uk:
             progress: Перебіг
             start_date: Дата початку
             status: Стан
-            title: Заголовок
+            title: Назва
         status:
           fields:
             description: Опис
@@ -122,8 +122,8 @@ uk:
           all: Усі
           scopes: Терени
         home:
-          categories_label: Розділи
-          subcategories_label: Підрозділи
+          categories_label: Розряди
+          subcategories_label: Підрозряди
         home_header:
           global_status: Загальний стан виконання
         nav_breadcrumb:
@@ -148,7 +148,7 @@ uk:
             version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
             votes: Підтримує
         timeline:
-          title: Розвиток проекту
+          title: Розвиток задуму
       versions:
         index:
           changes_at_title: Зміни в "%{title}"
@@ -159,6 +159,6 @@ uk:
           version_index: Версія %{index}
     resource_links:
       included_projects:
-        result_projects: Проекти, включені до цих підсумків
+        result_projects: Задуми, включені до цих підсумків
       included_proposals:
         result_proposals: Пропозиції, включені до цих підсумків
