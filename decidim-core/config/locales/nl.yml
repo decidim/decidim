@@ -289,7 +289,7 @@ nl:
     followers:
       no_followers: Nog geen volgers.
     following:
-      no_followings: Nog geen volgers.
+      no_followings: Volgt nog niemand of wat dan ook.
     follows:
       create:
         button: Volgen
@@ -432,7 +432,7 @@ nl:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         followers: Volgers
-        following: Als vervolg op
+        following: volgt
         notifications: meldingen
       user:
         edit_profile: Bewerk profiel
