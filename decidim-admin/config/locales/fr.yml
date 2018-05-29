@@ -16,7 +16,7 @@ fr:
         title: Titre
       attachment_collection:
         description: Description
-        name: Nom
+        name: Titre
       category:
         description: Description
         name: Titre
@@ -30,7 +30,7 @@ fr:
         body: Corps de texte
         subject: Objet
       oauth_application:
-        name: Nom
+        name: Titre
         organization_logo: Logo de l'organisation (carré)
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
@@ -52,12 +52,12 @@ fr:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
-        homepage_image: Image d'accueil
+        homepage_image: Image de la page d'accueil
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         name: Nom
-        official_img_footer: Logo officiel du pied de page
-        official_img_header: Logo officiel d'en-tête
+        official_img_footer: Logo officiel - pied de page
+        official_img_header: Logo officiel - barre de navigation
         official_url: URL officielle de l'organisation
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
@@ -146,7 +146,7 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
           success: Le type de zone d'application a été créé avec succès.
         destroy:
           success: Le type de zone d'application a bien été supprimé.
@@ -456,13 +456,13 @@ fr:
           error: Une erreur s'est produite lors de la suppression de cette application.
           success: Application supprimée avec succès.
         edit:
-          save: sauvegarder
+          save: Sauvegarder
           title: Modifier l'application
         index:
-          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application?
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
           title: Applications OAuth
         new:
-          save: sauvegarder
+          save: Sauvegarder
           title: Nouvelle application
         update:
           error: Une erreur est survenue lors de la mise à jour de cette application.
@@ -471,7 +471,7 @@ fr:
         create:
           success: Utilisateur validé avec succès
         destroy:
-          success: Utilisateur non validé avec succès
+          success: Validation de l'utilisateur supprimée avec succès
         index:
           actions: Actions
           badge: Badge
@@ -527,10 +527,10 @@ fr:
         destroy:
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
-          title: Espace participatif privé de l'utilisateur
+          title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
-          title: Nouvel utilisateur de l'espace participatif.
+          title: Nouvel utilisateur privé de l'espace participatif.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
@@ -595,7 +595,7 @@ fr:
         users: Utilisateurs
       user_group:
         reject:
-          invalid: Une erreur s'est produite lors du rejet de ce groupe d'utilisateurs.
+          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
         verify:
           invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
@@ -630,7 +630,7 @@ fr:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur non représenté
+          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
         hidden: Masqués
