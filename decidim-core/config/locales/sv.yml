@@ -289,7 +289,7 @@ sv:
     followers:
       no_followers: Inga följare än.
     following:
-      no_followings: Inga följder än.
+      no_followings: Följ inte någon eller något än.
     follows:
       create:
         button: Följ
@@ -432,7 +432,7 @@ sv:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         followers: anhängare
-        following: Följande
+        following: följer
         notifications: anmälningar
       user:
         edit_profile: Redigera profil
