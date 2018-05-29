@@ -264,7 +264,7 @@ es:
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
-          most_voted: La mayoría firmada
+          most_voted: Más firmadas
           random: Aleatorio
           recent: Más reciente
         result:
