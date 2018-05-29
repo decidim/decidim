@@ -1,5 +1,8 @@
 uk:
   decidim:
+    admin_log:
+      page:
+        update: "%{user_name} оновив сторінку %{resource_name} у %{space_name}"
     components:
       pages:
         name: Сторінка
