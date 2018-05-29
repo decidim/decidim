@@ -146,7 +146,7 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
           success: Le type de zone d'application a été créé avec succès.
         destroy:
           success: Le type de zone d'application a bien été supprimé.
