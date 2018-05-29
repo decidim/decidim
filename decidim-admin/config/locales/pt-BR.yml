@@ -63,7 +63,7 @@ pt-BR:
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
-        show_statistics: Mostre estatisticas
+        show_statistics: Exibir estatisticas
         twitter_handler: Manipulador do Twitter
         welcome_text: Texto de boas-vindas
         youtube_handler: Manipulador do YouTube
@@ -105,10 +105,10 @@ pt-BR:
         participatory_structure: Estrutura participativa
         promoted: Destacado
         scope: Âmbito
-        short_description: Breve descrição
+        short_description: Descrição curta
         slug: Texto curto de URL
         start_date: Data de início
-        subtitle: Subtítulo
+        subtitle: Legenda
         target: Público alvo
         title: Título
       decidim/participatory_process_group:
@@ -125,7 +125,7 @@ pt-BR:
         title: Título
       doorkeeper/application:
         authorize_url: Autorizar URL
-        client_id: ID do Cliente
+        client_id: ID do cliente
         client_secret: Segredo do cliente
         organization_name: Nome da organização
         organization_url: URL da organização
@@ -188,7 +188,7 @@ pt-BR:
           attachment_collection_used: Esta coleção não pode ser removida porque está em uso.
           attachment_collections_title: Coleções de anexos
         new:
-          create: Crio
+          create: Criar
           title: Nova coleção
         update:
           error: Ocorreu um erro ao atualizar essa coleção.
@@ -201,7 +201,7 @@ pt-BR:
           success: Anexo apagado com sucesso.
         edit:
           title: Editar anexo
-          update: Actualizar
+          update: Atualizar
         index:
           attachments_title: Anexos
         new:
@@ -212,7 +212,7 @@ pt-BR:
           success: Anexo atualizado com sucesso.
       autocomplete:
         no_results: Nenhum resultado encontrado
-        search_prompt: Digite pelo menos três caracteres para pesquisar
+        search_prompt: Digite, no mínimo, três caracteres para pesquisar
       categories:
         create:
           error: Ocorreu um erro ao criar esta categoria.
@@ -280,7 +280,7 @@ pt-BR:
       impersonatable_users:
         index:
           filter:
-            all: Todos
+            all: Tudo
             managed: Gerenciou
             not_managed: Não gerenciado
           filter_by: Filtrar por
@@ -291,8 +291,8 @@ pt-BR:
           needs_authorization_warning: Você precisa de pelo menos uma autorização habilitada para esta organização.
           not_managed: Não gerenciado
           promote: Promover
-          search: Pesquisa
-          status: Status
+          search: Buscar
+          status: Estado
           view_logs: Ver registros
       impersonations:
         close_session:
@@ -304,7 +304,7 @@ pt-BR:
         form:
           authorization_method: Método de autorização
           name: Nome
-          reason: Razão
+          reason: Motivo
         new:
           impersonate: Representar
           impersonate_existing_managed_user: Representar usuário gerenciado "%{name}"
@@ -312,7 +312,7 @@ pt-BR:
           impersonate_new_managed_user: Representar novo usuário gerenciado
       logs:
         logs_list:
-          no_logs_yet: Ainda não há logs
+          no_logs_yet: Ainda não há registros
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
@@ -321,17 +321,17 @@ pt-BR:
           new:
             explanation: Os usuários gerenciados podem ser promovidos para usuários padrão. Isso significa que eles serão convidados para o aplicativo e você não poderá representá-los novamente. O usuário convidado receberá um e-mail para aceitar seu convite.
             new_managed_user_promotion: Nova promoção de usuário gerenciado
-            promote: Destacar
+            promote: Promover
       menu:
         admin_log: Log de atividade de administração
-        admins: Administradores
+        admins: Admins
         appearance: Aparência
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
+        dashboard: Painel de controle
         impersonations: Imitações
-        newsletters: Boletins informativos
+        newsletters: Newsletters
         oauth_applications: Aplicações OAuth
         officializations: Oficializações
         scope_types: Tipos de âmbito
@@ -339,7 +339,7 @@ pt-BR:
         settings: Configurações
         static_pages: Páginas
         user_groups: Grupos de usuários
-        users: Utilizadores
+        users: Usuários
       models:
         area:
           fields:
@@ -355,26 +355,26 @@ pt-BR:
             content_type: Tipo
             file_size: Tamanho
             title: Título
-          name: Anexo
+          name: Em anexo
         attachment_collection:
           name: Coleção
         category:
           name: Categoria
         impersonation_log:
           fields:
-            admin: Administrador
+            admin: Admin
             ended_at: Terminou em
             expired_at: Expirou em
-            reason: Razão
+            reason: Motivo
             started_at: Começou em
-            user: Do utilizador
+            user: Usuário
         newsletter:
           fields:
             created_at: Criado em
-            progress: Progresso
+            progress: Andamento
             sent_at: Enviado em
             subject: Sujeito
-          name: Boletim de Notícias
+          name: Newsletter
         oauth_application:
           fields:
             created_at: Criado em
@@ -397,12 +397,12 @@ pt-BR:
         user:
           fields:
             created_at: Data de criação
-            email: O email
+            email: E-mail
             last_sign_in_at: Última data de início de sessão
             name: Nome
-            role: Função
+            role: Cargo
             roles:
-              admin: Administrador
+              admin: Admin
               user_manager: Gerente de usuário
           name: Do utilizador
         user_group:
@@ -411,16 +411,16 @@ pt-BR:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
-            phone: telefone
-            state: Estado
-            users_count: Contagem de usuários
+            phone: Telefone
+            state: Situação
+            users_count: Total de usuários
       moderations:
         index:
           title: Moderação
         report:
           reasons:
             does_not_belong: Não pertence
-            offensive: Ofensiva
+            offensive: Ofensivo
             spam: Spam
       newsletters:
         create:
@@ -439,14 +439,14 @@ pt-BR:
           interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
           confirm_delete: Tem certeza de que deseja excluir esta newsletter?
-          title: boletins informativos
+          title: Newsletters
         new:
-          save: Salve 
+          save: Salvar
           title: Novo boletim informativo
         show:
           confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
-          preview: Visualização
+          preview: Pré-visualização
           subject: Sujeito
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
@@ -459,13 +459,13 @@ pt-BR:
           error: Houve um erro ao destruir este aplicativo.
           success: Aplicativo destruído com sucesso.
         edit:
-          save: Salve 
+          save: Salvar
           title: Editar aplicativo
         index:
           confirm_delete: Tem certeza de que deseja excluir este aplicativo?
           title: Aplicações OAuth
         new:
-          save: Salve 
+          save: Salvar
           title: Nova aplicação
         update:
           error: Houve um erro ao atualizar este aplicativo.
@@ -477,10 +477,10 @@ pt-BR:
           success: Usuário não oficializado com sucesso
         index:
           actions: Ações
-          badge: Distintivo
+          badge: Badge
           created_at: Criado em
           filter:
-            all: Todos
+            all: Tudo
             not_officialized: Não oficializado
             officialized: Oficializado
           filter_by: Filtrar por
@@ -500,7 +500,7 @@ pt-BR:
       organization:
         edit:
           title: Editar organização
-          update: Actualizar
+          update: Atualizar
         form:
           facebook: Facebook
           github: GitHub
@@ -508,13 +508,13 @@ pt-BR:
           social_handlers: Social
           twitter: Twitter
           url: Url
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
       organization_appearance:
         edit:
-          update: Actualizar
+          update: Atualizar
         form:
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
@@ -532,7 +532,7 @@ pt-BR:
         index:
           title: Espaço participativo usuário particular
         new:
-          create: Crio
+          create: Criar
           title: Novo usuário particular do Espaço Participativo.
       scope_types:
         create:
@@ -542,7 +542,7 @@ pt-BR:
           success: Tipo de âmbito destruído com sucesso
         edit:
           title: Editar tipo de âmbito
-          update: Actualizar
+          update: Atualizar
         new:
           create: Criar tipo de âmbito
           title: Novo âmbito
@@ -557,7 +557,7 @@ pt-BR:
           success: Âmbito destruído com sucesso
         edit:
           title: Editar o âmbito
-          update: Actualizar
+          update: Atualizar
         new:
           create: Criar âmbito
           title: Novo âmbito
@@ -574,10 +574,10 @@ pt-BR:
         destroy:
           success: Página destruída com sucesso
         edit:
-          title: Editar Página
-          update: Actualizar
+          title: Editar página
+          update: Atualizar
         new:
-          create: Crio
+          create: Criar
           title: Nova página
         update:
           error: Ocorreu um erro ao atualizar esta página.
@@ -595,7 +595,7 @@ pt-BR:
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
-        users: Utilizadores
+        users: Usuários
       user_group:
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
@@ -606,12 +606,12 @@ pt-BR:
       user_groups:
         index:
           filter:
-            all: Todos
+            all: Tudo
             pending: Pendente
             rejected: Rejeitado
             verified: Verificado
           filter_by: Filtrar por
-          search: Pesquisa
+          search: Buscar
           state:
             pending: Pendente
             rejected: Rejeitado
@@ -624,9 +624,9 @@ pt-BR:
           error: Ocorreu um erro ao tentar excluir esse usuário.
           success: O usuário não é mais um administrador.
         form:
-          email: O email
+          email: E-mail
           name: Nome
-          role: Função
+          role: Cargo
         new:
           create: Convite
           title: Convide o usuário como administrador
@@ -636,8 +636,8 @@ pt-BR:
           reason: Você precisa fornecer um motivo ao representar um usuário não gerenciado
     moderations:
       actions:
-        hidden: Escondido
-        hide: ocultar
+        hidden: Oculto
+        hide: Ocultar
         not_hidden: Não oculto
         title: Ações
         unreport: Unreport
