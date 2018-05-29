@@ -17,7 +17,7 @@ module Decidim
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
-          "answers" => [
+          "survey_answers" => [
             {
               "body" => "This is my first answer",
               "question_id" => survey_question_1.id

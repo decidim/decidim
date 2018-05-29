@@ -3,7 +3,7 @@
     <%= render partial: "count" %>
   </h2>
   <% if allowed_to? :create, :initiative %>
-    <%= action_authorized_link_to :create, create_initiative_path(:select_initiative_type), class: "title-action__action button small hollow" do %>
+    <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small hollow" do %>
         <%= t(".new_initiative") %>
         <%= icon "plus" %>
     <% end %>

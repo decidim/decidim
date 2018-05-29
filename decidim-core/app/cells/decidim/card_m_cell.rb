@@ -48,7 +48,7 @@ module Decidim
     end
 
     def description
-      attribute = model.try(:short_description) || model.description
+      attribute = model.try(:short_description) || model.try(:body) || model.description
       text = translated_attribute(attribute)
 
       decidim_sanitize(html_truncate(text, length: 100))
@@ -62,8 +62,16 @@ module Decidim
       model.is_a?(Decidim::Authorable)
     end
 
+    def author
+      present(model).author
+    end
+
     def has_authors?
       model.is_a?(Decidim::Coauthorable)
+    end
+
+    def has_actions?
+      true
     end
 
     def has_state?
