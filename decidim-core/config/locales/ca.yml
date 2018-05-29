@@ -289,7 +289,7 @@ ca:
     followers:
       no_followers: Encara no hi ha seguidors.
     following:
-      no_followings: Encara no hi ha ningú seguit.
+      no_followings: No segueix cap persona ni res.
     follows:
       create:
         button: Seguir
@@ -432,7 +432,7 @@ ca:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         followers: Seguidors
-        following: Seguint
+        following: Segueix
         notifications: Notificacions
       user:
         edit_profile: Edita el perfil
