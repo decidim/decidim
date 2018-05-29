@@ -209,7 +209,7 @@ es:
         view_results: Ver resultados
         votes_out_of:
           one: votar fuera de
-          other: votos fuera de
+          other: votos de
       question_votes:
         create:
           error: Ha habido errores al votar la pregunta
