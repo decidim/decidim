@@ -15,7 +15,7 @@ module Decidim
       end
 
       def display_count(count)
-        heading_leaf_level_results(count)
+        heading_parent_level_results(count)
       end
 
       def active_class_if_current(scope)
