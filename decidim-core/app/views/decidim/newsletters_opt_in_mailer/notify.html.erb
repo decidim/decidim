@@ -1,4 +1,8 @@
-<p><%= t ".body", organization_name: h(@organization.name) %></p>
+<p><%= t ".hello" %></p>
+
+<p><%= t ".body_1", organization_name: h(@organization.name) %></p>
+
+<p><%= t ".body_2" %></p>
 
 <table class="button radius" style="margin: 16px auto;">
   <tr>
@@ -6,10 +10,14 @@
       <table>
         <tr>
           <td>
-            <%= link_to t(".button"), decidim.newsletters_opt_in_url(token: @token, host: @organization.host), class: "button",  target: "_blank" %>
+            <%= link_to t(".button"), decidim.newsletters_opt_in_url(token: @token, host: @organization.host), method: "PUT", class: "button",  target: "_blank" %>
           </td>
         </tr>
       </table>
     </td>
   </tr>
 </table>
+
+<p><%= t ".body_3" %></p>
+
+<p><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

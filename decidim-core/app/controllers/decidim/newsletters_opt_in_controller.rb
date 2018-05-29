@@ -7,34 +7,24 @@ module Decidim
 
     before_action :check_current_user_with_token
 
-    def show
-      enforce_permission_to :read, :user, current_user: current_user
-      @notifications_settings = form(NotificationsSettingsForm).from_model(current_user)
-    end
-
     def update
       enforce_permission_to :update, :user, current_user: current_user
-      @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
-      UpdateNotificationsSettings.call(current_user, @notifications_settings) do
-        on(:ok) do
-          current_user.newsletter_opt_in_validate
-          flash[:notice] = t(".success")
-          redirect_to decidim.root_path(host: current_organization)
-        end
-
-        on(:invalid) do
-          flash.now[:alert] = t(".error")
-          render :show
-        end
+      current_user.assign_attributes(newsletter_notifications: true)
+      current_user.newsletter_opt_in_validate
+      if current_user.save
+        flash[:notice] = t(".success")
+      else
+        flash[:alert] = t(".error")
       end
+      redirect_to decidim.root_path(host: current_organization)
     end
 
     private
 
     def check_current_user_with_token
       unless current_user.newsletter_token == params[:token]
-        flash[:error] = t(".unathorized")
+        flash[:alert] = t(".unathorized")
         redirect_to decidim.root_path(host: current_organization)
       end
     end
