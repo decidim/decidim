@@ -298,7 +298,10 @@ pl:
         supports:
           title: Lista podpisów
         vote_cabin:
+          already_voted: Już podpisane
+          supports_required: "Wymagane %{total_supports} podpisów"
           vote: Znak
+          votes_blocked: Podpisywanie wyłączone
         votes_count:
           count:
             one: PODPIS
