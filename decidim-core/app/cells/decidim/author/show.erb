@@ -1,6 +1,7 @@
 <div class="<%= author_classes %>">
   <div class="author-data__main">
     <%= render :profile %>
+    <%= render :contact %>
   </div>
 
   <% if actionable? %>
@@ -10,8 +11,6 @@
       <%= render :comments %>
 
       <%= render :flag %>
-
-      <%= render :contact %>
 
       <%= render :withdraw %>
     </div>
