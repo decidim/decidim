@@ -503,7 +503,7 @@ fr:
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       reference:
-        reference: 'Référence: %{reference}'
+        reference: 'Référence : %{reference}'
       results_per_page:
         label: 'Résultats par page :'
       share_modal:
@@ -517,7 +517,7 @@ fr:
       edit:
         header: Définir votre mot de passe
         nickname_help: Votre identifiant unique dans %{organization}.
-        submit_button: sauvegarder
+        submit_button: Sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
@@ -529,7 +529,7 @@ fr:
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Quelqu'un vous a invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
-        someone_invited_you_as_private_user: Quelqu'un vous a invité en tant que private_user de %{application}, vous pouvez l'accepter via le lien ci-dessous.
+        someone_invited_you_as_private_user: Quelqu'un vous a invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
