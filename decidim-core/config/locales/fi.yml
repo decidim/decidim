@@ -289,7 +289,7 @@ fi:
     followers:
       no_followers: Ei seuraajia vielä.
     following:
-      no_followings: Ei seuraa vielä.
+      no_followings: Ei seuraa ketään tai mitään vielä.
     follows:
       create:
         button: Seuraa
@@ -432,7 +432,7 @@ fi:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         followers: seuraajaa
-        following: Seurata
+        following: seuraa
         notifications: ilmoitukset
       user:
         edit_profile: Muokkaa profiilia
