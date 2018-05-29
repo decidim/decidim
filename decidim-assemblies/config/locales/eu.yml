@@ -210,6 +210,8 @@ eu:
       admin:
         assemblies:
           form:
+            duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            included_at_help: Hautatu muntaia hau Decidim-era gehitu denean. Ez du derrigorrez sorkuntzako data izan behar.
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
