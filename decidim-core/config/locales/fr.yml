@@ -206,14 +206,14 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme?
+          are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
       shared:
         newsletter_modal:
           buttons:
             check: Vérifiez et continuez
             uncheck: Désactiver
-          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter? Nous vous prions de bien réfléchir. Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour les annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous souhaitez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ça!
+          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter ? Nous vous prions de bien réfléchir. Il est très important pour nous que vous puissiez recevoir des emails occasionnels pour les annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous souhaitez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ce message !
           title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
@@ -228,8 +228,8 @@ fr:
           see_email: Voir votre email
           see_name: Voir votre nom
           see_username: Voir votre nom d'utilisateur
-          this_application_will_be_able_to: 'Cette application sera capable de:'
-          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de:'
+          this_application_will_be_able_to: 'Cette application sera capable de :'
+          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
@@ -243,16 +243,16 @@ fr:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
           email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{resource_title}
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'La fonctinnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -289,7 +289,7 @@ fr:
     followers:
       no_followers: Aucun abonné pour le moment.
     following:
-      no_followings: Aucun abonnement pour le moment.
+      no_followings: Ne suit personne ou quoi que ce soit pour le moment.
     follows:
       create:
         button: Suivre
@@ -432,7 +432,7 @@ fr:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         followers: Abonnés
-        following: Abonnements
+        following: Suit
         notifications: Notifications
       user:
         edit_profile: Editer le profil
