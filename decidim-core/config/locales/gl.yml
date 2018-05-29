@@ -289,7 +289,7 @@ gl:
     followers:
       no_followers: Aínda non hai seguidores.
     following:
-      no_followings: Aínda non hai seguidores.
+      no_followings: Aínda non segue a ninguén nin a nada.
     follows:
       create:
         button: Segue
@@ -432,7 +432,7 @@ gl:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
         followers: Seguidores
-        following: A continuación
+        following: Segue
         notifications: Notificacións
       user:
         edit_profile: Editar perfil
