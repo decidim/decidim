@@ -289,7 +289,7 @@ it:
     followers:
       no_followers: Nessun follower ancora.
     following:
-      no_followings: Ancora nessun seguito.
+      no_followings: Non segue nessuno o niente ancora.
     follows:
       create:
         button: Seguire
@@ -432,7 +432,7 @@ it:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         followers: Seguaci
-        following: A seguire
+        following: segue
         notifications: notifiche
       user:
         edit_profile: Modifica Profilo
