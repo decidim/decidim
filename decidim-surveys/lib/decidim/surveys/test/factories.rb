@@ -52,4 +52,7 @@ FactoryBot.define do
   factory :survey_answer_option, class: Decidim::Surveys::SurveyAnswerOption do
     body { Decidim::Faker::Localized.sentence }
   end
+
+  factory :survey_answer_choice, class: Decidim::Surveys::SurveyAnswerChoice do
+  end
 end
