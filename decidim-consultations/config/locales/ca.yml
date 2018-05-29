@@ -8,6 +8,7 @@ ca:
         end_voting_date: Data de finalització
         introductory_image: Imatge introductòria
         introductory_video_url: URL de vídeo introductori
+        questions: Preguntes
         slug: Nom curt d'URL
         start_voting_date: Data d'inici
         subtitle: Subtítol
@@ -215,7 +216,18 @@ ca:
       regular_questions:
         title: Altres consultes
       show:
+        badge_name:
+          finished: Acabada
+          open: Oberta
+          open_votes: Obre els vots
+          published_results: Resultats publicats
+        footer_button_text:
+          debate: Debat
+          view: Veure
+          view_results: Veure resultats
+          vote: Votació
         see_finished_consultations: Veure consultes prèvies
+        unspecified: Sense especificar
     menu:
       consultations: Consultes
     pages:
@@ -240,7 +252,7 @@ ca:
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
-        contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
+        contextual_help: Selecciona una opció.
         title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
