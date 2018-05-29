@@ -251,6 +251,7 @@ es:
           remaining_slots:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
+          view: Ver
       models:
         meeting:
           fields:
