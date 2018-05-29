@@ -331,14 +331,14 @@ fr:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir:"
-          outro: Profitez de decidim!
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
+          outro: Profitez de cette plateforme !
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:
-          greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir:"
-          outro: Profitez de decidim!
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
+          outro: Profitez de cette plateforme !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
         create:
@@ -358,9 +358,9 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet e-mail correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
-        unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">page configuration</a>
@@ -372,7 +372,7 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
-        email_on_notification: Je veux recevoir un email chaque fois que je reçois une notification.
+        email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
@@ -390,7 +390,7 @@ fr:
           debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
           how_to_participate: Comment participer ?
           meetings: Rencontres
-          meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
+          meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
           more_info: En savoir plus
           proposals: Propositions
           proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
@@ -422,7 +422,7 @@ fr:
         sub_hero:
           register: S'inscrire
       index:
-        title: Plus d'information
+        title: Plus d'informations
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -432,7 +432,7 @@ fr:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         followers: Abonnés
-        following: Suit
+        following: Est abonné à
         notifications: Notifications
       user:
         edit_profile: Editer le profil
@@ -467,7 +467,7 @@ fr:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
           reauthorize: Réautoriser
           title: Veuillez réautoriser
@@ -476,9 +476,9 @@ fr:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
         pending:
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours.
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
           resume: Vérifiez votre progression d'autorisation "%{authorization}"
-          title: L'autorisation est toujours en cours
+          title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           invalid_field: "%{field} valeur %{value} n'est pas valide."
