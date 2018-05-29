@@ -179,8 +179,8 @@ module Decidim
   end
 
   # Time that data portability files are available in server
-  config_accessor :time_data_portability_files_available do
-    7
+  config_accessor :data_portability_expiry_time do
+    7.days
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.

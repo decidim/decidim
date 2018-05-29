@@ -3,13 +3,24 @@
 require "zip"
 
 module Decidim
+  # This class performs a task: Creating a Zip file of all DataPortability classes. Originally
+  # meant for DataPortability functionality and adding user images to this file, but other usage can be found.
   class DataPortabilityFileZipper < Decidim::DataPortabilityFileReader
+    # Public: Initializes the zipper with a user, data, and images to
+    # be zipped.
+    #
+    # user     - The user of data portability to be zipped.
+    # data     - An array of all data to be zipped.
+    # images   - An array of image urls to be inclueded in the zipped file.
     def initialize(user, data, images, token = nil)
       super(user, token)
       @export_data = data
       @export_images = images
     end
 
+    # Public: Zips the file.
+    #
+    # Returns a String with the zipped version of the file.
     def make_zip
       Zip::OutputStream.open(file_path) do |zos|
         @export_data.each do |element|
@@ -30,7 +41,7 @@ module Decidim
         image_block.last.each do |image|
           name = image.split("/").last
           folder_name = image_block.first.parameterize
-          my_image_path = Rails.root.join("public/#{image.sub!(%r{^/}, "")}")
+          my_image_path = Decidim::ApplicationUploader.retrieve_from_store!(file_name)  Rails.root.join("public/#{image.sub!(%r{^/}, "")}")
           next unless File.exist?(my_image_path)
           zipfile.add("#{folder_name}/#{name}", my_image_path)
         end
