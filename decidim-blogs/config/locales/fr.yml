@@ -1,49 +1,49 @@
 fr:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Nouveau blog
+      decidim/blogs/create_post_event: Nouvel article
   activerecord:
     models:
       decidim/blogs/post:
-        one: Poster
-        other: Des postes
+        one: Article
+        other: Articles
   decidim:
     blogs:
       actions:
-        confirm_destroy: Es-tu sur de vouloir supprimer cette annonce?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
         destroy: Effacer
-        edit: modifier
+        edit: Modifier
         new: Nouveau
-        title: actes
+        title: Actions
       admin:
         models:
           components:
-            body: Corps
+            body: Corps du texte
           post:
-            name: Poster
+            name: Publier
         posts:
           create:
-            invalid: Un problème est survenu lors de la création de ce post
-            success: Poste créé avec succès
+            invalid: Un problème est survenu lors de la création de cet article
+            success: Article créé avec succès
           destroy:
-            success: Message supprimé avec succès
+            success: Article supprimé avec succès
           edit:
             save: Mettre à jour
           index:
-            title: Des postes
+            title: Articles
           new:
             create: Créer
-            title: Créer un post
+            title: Créer un article
           update:
-            invalid: Il y a eu des erreurs lors de l'enregistrement du message.
-            success: Message enregistré avec succès
+            invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
+            success: Article enregistré avec succès
       models:
         post:
           fields:
             author: Auteur
-            body: Corps
+            body: Corps du texte
             created_at: Créé à
-            title: Titre
+            title: titre
       posts:
         show:
           view: Vue
@@ -53,7 +53,7 @@ fr:
       read_more: Lire la suite
     components:
       blogs:
-        name: Blog
+        name: Actualités
         settings:
           global:
             announcement: Annonce
@@ -64,14 +64,14 @@ fr:
     events:
       blogs:
         post_created:
-          email_intro: Le message "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
+          email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
-          email_subject: Nouveau message publié dans %{participatory_space_title}
-          notification_title: Le message <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
+          email_subject: Nouvel article publié dans %{participatory_space_title}
+          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Des postes
+          posts_count: Articles
     participatory_processes:
       statistics:
-        posts_count: Des postes
+        posts_count: Articles
