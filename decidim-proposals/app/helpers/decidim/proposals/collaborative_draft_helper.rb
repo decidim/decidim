@@ -17,6 +17,18 @@ module Decidim
       def render_edit_btn?
         allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft)
       end
+
+      def collaborative_drafts_states_collection
+        scope = "decidim.proposals.collaborative_drafts.filters"
+        @collaborative_drafts_states_collection ||= begin
+          collection = []
+          collection << ["all", t("all", scope: scope)]
+          collection << ["open", t("open", scope: scope)]
+          collection << ["closed", t("closed", scope: scope)]
+          collection << ["published", t("published", scope: scope)]
+          collection
+        end
+      end
     end
   end
 end

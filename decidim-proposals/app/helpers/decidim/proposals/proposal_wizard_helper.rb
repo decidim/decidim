@@ -116,6 +116,24 @@ module Decidim
         end
       end
 
+      def wizard_aside_info_text
+        case type_of
+        when :collaborative_drafts
+          t("info", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
+        else
+          t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+        end
+      end
+
+      def wizard_aside_back_text
+        case type_of
+        when :collaborative_drafts
+          t("back", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
+        else
+          t("back", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+        end
+      end
+
       def type_of
         if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
           :collaborative_drafts

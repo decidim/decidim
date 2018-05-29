@@ -318,6 +318,12 @@ en:
           step_2: Compare with collaborative drafts
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
+      create:
+        error: There's been errors when saving the proposal.
+        success: Proposal created successfully. Saved as a Draft.
+      destroy_draft:
+        error: There's been errors deleting the proposal draft.
+        success: Proposal draft was successfully destroyed.
       models:
         collaborative_draft:
           fields:
@@ -492,17 +498,17 @@ en:
         error: There's been errors when saving the proposal draft.
         success: Proposal draft updated successfully.
       versions:
+        changes_at_title: Changes at "%{title}"
         index:
-          changes_at_title: Changes at "%{title}"
           title: Versions
-        show:
-          changes_at_title: Changes at "%{title}"
-          stats:
-            back_to_result: Go back to collaborative draft
-            number_of_versions: Versions
-            show_all_versions: Show all versions
-            version_number: Version number
-            version_number_out_of_total: "%{current_version} out of %{total_count}"
+        stats:
+          back_to_collaborative_draft: Go back to collaborative draft
+          number_of_versions: Versions
+          show_all_versions: Show all versions
+          version_author: Version author
+          version_created_at: Version created at
+          version_number: Version number
+          version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
           version_index: Version %{index}
     resource_links:
