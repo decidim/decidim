@@ -45,7 +45,7 @@ pt-BR:
     components:
       proposals:
         actions:
-          create: Crio
+          create: Criar
           endorse: Endossar
           vote: Voto
           withdraw: retirar o
