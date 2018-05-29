@@ -44,6 +44,20 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    models:
+      decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
+      decidim/participatory_process_step_changed_event: Vaihe muuttui
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Osallistumisprosessi
+        other: Osallistumisprosessit
+      decidim/participatory_process_group:
+        one: Osallistuva prosessiryhmä
+        other: Osallistuvat prosessiryhmät
+      decidim/participatory_process_step:
+        one: vaihe
+        other: Askeleet
   decidim:
     admin:
       actions:
@@ -283,6 +297,7 @@ fi:
         scope: Konteksti
         start_date: Aloitusaika
         target: Kuka osallistuu
+        unspecified: Ei määritelty
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
@@ -304,6 +319,7 @@ fi:
       participatory_process_groups:
         participatory_process_group:
           browse: Selaa
+          processes_count: 'Prosessit:'
       participatory_process_widgets:
         show:
           active_step: Aktiivinen vaihe

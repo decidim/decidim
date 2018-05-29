@@ -7,6 +7,10 @@ module Decidim
     class MeetingMCell < Decidim::CardMCell
       include MeetingCellsHelper
 
+      def date
+        render
+      end
+
       private
 
       def resource_icon
@@ -38,7 +42,7 @@ module Decidim
         model.end_time.to_date
       end
 
-      def shows_footer?
+      def can_join?
         model.can_be_joined_by?(current_user)
       end
     end

@@ -189,6 +189,8 @@ ru:
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
+    notifications:
+      no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
@@ -202,6 +204,36 @@ ru:
         rejected: Отклонено
         verified: Проверено
     pages:
+      home:
+        extended:
+          debates: Дебаты
+          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
+          how_to_participate: Как принять участие в движении?
+          meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
+          more_info: Узнать больше
+          proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
+        footer_sub_hero:
+          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
+          footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+          register: Зарегистрироваться
+        hero:
+          participate: Принять участие
+          welcome: Добро пожаловать в %{organization}!
+        statistics:
+          answers_count: Завершенные опросы
+          assemblies_count: Собрания
+          comments_count: Комментарии
+          debates_count: Дебаты
+          headline: Текущее состояние %{organization}
+          orders_count: Голоса
+          pages_count: Страницы
+          processes_count: Движения
+          proposals_accepted: Принятые предложения
+          surveys_count: Опросы
+          users_count: Участники
+          votes_count: Голоса
+        sub_hero:
+          register: Зарегистрироваться
       index:
         title: Узнать больше
     profiles:
@@ -252,8 +284,6 @@ ru:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
           ok: Хорошо
           title: Не подтвердили свою личность
-      author:
-        deleted: Удаленный участник
       embed_modal:
         close_window: Закрыть окно
         embed: Пожалуйста, вставьте этот код в свою страницу
@@ -344,8 +374,6 @@ ru:
         expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
-        no_notifications: Пока нет уведомлений.
-        title: Уведомления
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
@@ -364,42 +392,6 @@ ru:
         see_more: Узнать больше
   locale:
     name: Русский
-  pages:
-    home:
-      extended:
-        debates: Дебаты
-        debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
-        how_to_participate: Как принять участие в движении?
-        meetings: Встречи
-        meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-        more_info: Узнать больше
-        proposals: Предложения
-        proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
-      footer_sub_hero:
-        footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
-        footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
-        register: Зарегистрироваться
-      hero:
-        participate: Принять участие
-        welcome: Добро пожаловать в %{organization}!
-      statistics:
-        answers_count: Завершенные опросы
-        assemblies_count: Собрания
-        comments_count: Комментарии
-        headline: Текущее состояние %{organization}
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        processes_count: Движения
-        projects_count: Проекты
-        proposals_accepted: Принятые предложения
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
-      sub_hero:
-        register: Зарегистрироваться
   social_share_button:
     delicious: Delicious
     douban: Douban

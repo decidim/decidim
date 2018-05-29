@@ -35,6 +35,20 @@ ca:
       vote:
         decidim_consultations_response_id:
           not_found: La resposta no s'ha trobat.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: Consultes
+      decidim/consultations/question:
+        one: Pregunta
+        other: Preguntes
+      decidim/consultations/response:
+        one: Resposta
+        other: Respostes
+      decidim/consultations/vote:
+        one: Vot
+        other: Vots
   decidim:
     admin:
       actions:
@@ -190,7 +204,7 @@ ca:
       index:
         title: Consultes
       question:
-        take_part: Formar part
+        take_part: Participar
         view_results: Veure resultats
         votes_out_of:
           one: vot d'un total de
@@ -204,6 +218,10 @@ ca:
         see_finished_consultations: Veure consultes prèvies
     menu:
       consultations: Consultes
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultes
     questions:
       results:
         title: Resultats
@@ -242,7 +260,3 @@ ca:
         unfold: Desplegar
       question_header:
         back_to_consultation: Veure totes les consultes
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultes

@@ -17,6 +17,10 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/attachment_created_event: eranskina
+      decidim/component_published_event: Osagai aktiboa
+      decidim/profile_updated_event: Profila eguneratu da
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/user:
+        one: Erabiltzaileak
+        other: erabiltzaileak
+      decidim/user_group:
+        one: Erabiltzaile taldea
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +123,16 @@ eu:
         related_documents: Honekin lotutako agiriak
       photos:
         related_photos: Honekin lotutako argazkiak
+    author:
+      comments:
+        one: iruzkin
+        other: iruzkinak
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Egiaztatu pasaportearen zenbakia "A"
+        fields:
+          passport_number: Pasaporte zenbakia
+        name: Beste adibide bat baimena
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
@@ -128,6 +152,12 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: eta beste bat
+        other: eta %{count} gehiago
+      see_less: "(ikusi gutxiago)"
+      see_more: "(gehiago ikusi)"
     components:
       dummy:
         actions:
@@ -240,6 +270,18 @@ eu:
         project: Proiektuak
         proposal: Proposamenak
         result: Emaitzak
+    fingerprint:
+      check: Egiaztatu hatz-marka
+      explanation: Beheko testu zatiak eduki honen ordezkaritza laburtu bat du. Oso erabilgarria da edukia ez dela manipulatu, aldaketa bakar bat balioa erabat desberdina izango delako.
+      online_calculator_name: MD5 kalkulagailua linean
+      replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
+      source: Iturria
+      title: Hatz
+      value: Balio
+    followers:
+      no_followers: Ez da jarraitzailerik oraindik.
+    following:
+      no_followings: Ez dago jarraikirik oraindik.
     follows:
       create:
         button: Jarraitu
@@ -318,6 +360,8 @@ eu:
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
+    notifications:
+      no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -332,17 +376,58 @@ eu:
         rejected: Ukatua
         verified: Egiaztatuta
     pages:
+      home:
+        extended:
+          debates: Eztabaidak
+          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          how_to_participate: Nola har dezaket parte prozesu batean?
+          meetings: Bilerak
+          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
+          more_info: Argibide gehiago
+          proposals: proposamenak
+          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
+        footer_sub_hero:
+          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          register: Erregistroa
+        hero:
+          participate: Parte hartu
+          welcome: Ongi etorri %{organization} erakundera!
+        statistics:
+          answers_count: Amaitutako inkestak
+          assemblies_count: Batzar
+          comments_count: Iruzkinak
+          debates_count: Eztabaidak
+          endorsements_count: Oniritziak
+          headline: '%{organization} erakundearen egungo egoera'
+          meetings_count: Bilerak
+          orders_count: Euskarriak
+          pages_count: Orriak
+          processes_count: Prozesuak
+          projects_count: Proiektuak
+          proposals_accepted: Onartutako proposamenak
+          proposals_count: proposamenak
+          results_count: Emaitzak
+          surveys_count: Inkestak
+          users_count: Parte-hartzaileak
+          votes_count: Euskarriak
+        sub_hero:
+          register: Erregistroa
       index:
         title: Argibide gehiago
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
       deleted: Erabiltzailea ezabatua
+      view: ikusi
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
-        about_me: Niri buruz
-        personal_url: Webgune pertsonala
+        followers: Jarraitzaileak
+        following: Jarraitzen
+        notifications: jakinarazpenak
+      user:
+        edit_profile: Editatu profila
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -391,8 +476,6 @@ eu:
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
-      author:
-        deleted: Erabiltzailea ezabatua
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
@@ -491,8 +574,6 @@ eu:
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
-        no_notifications: Oraindik ez dago jakinarazpenik.
-        title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
@@ -511,44 +592,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  pages:
-    home:
-      extended:
-        debates: Eztabaidak
-        debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-        how_to_participate: Nola har dezaket parte prozesu batean?
-        meetings: Topaketa-zerrenda
-        meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-        more_info: Argibide gehiago
-        proposals: Proposamenak
-        proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
-      footer_sub_hero:
-        footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
-        footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-        register: Erregistroa
-      hero:
-        participate: Parte hartu
-        welcome: Ongi etorri %{organization} erakundera!
-      statistics:
-        answers_count: Amaitutako inkestak
-        assemblies_count: Batzar
-        comments_count: Iruzkinak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: '%{organization} erakundearen egungo egoera'
-        meetings_count: Topaketak
-        orders_count: Euskarriak
-        pages_count: Orriak
-        processes_count: Prozesuak
-        projects_count: Proiektuak
-        proposals_accepted: Onartutako proposamenak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
-      sub_hero:
-        register: Erregistratu
   social_share_button:
     delicious: Delicious
     douban: Douban

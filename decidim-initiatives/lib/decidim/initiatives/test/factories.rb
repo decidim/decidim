@@ -25,7 +25,7 @@ FactoryBot.define do
     published_at { Time.current }
     state "published"
     signature_type "online"
-    signature_start_time { Time.now.utc }
+    signature_start_time { Time.now.utc - 1.hour }
     signature_end_time { Time.now.utc + 120.days }
 
     scoped_type do

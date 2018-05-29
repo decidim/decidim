@@ -94,6 +94,14 @@ describe Decidim::Assemblies::Permissions do
       it { is_expected.to eq true }
     end
 
+    context "when listing assembly members" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :members }
+      end
+
+      it { is_expected.to eq true }
+    end
+
     context "when reporting a resource" do
       let(:action) do
         { scope: :public, action: :create, subject: :moderation }
@@ -278,6 +286,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :assembly
+      it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
     end
 
@@ -314,6 +323,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :assembly
+      it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
       it_behaves_like "allows any action on subject", :space_private_user
     end

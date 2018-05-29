@@ -17,6 +17,10 @@ pt-BR:
         user_group_document_number: Número de documento da organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Componente ativo
+      decidim/profile_updated_event: Perfil atualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ pt-BR:
         user_group_document_number: Número de documento da organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/user:
+        one: Usuário
+        other: Usuários
+      decidim/user_group:
+        one: Grupo de usuários
+        other: Grupos de usuários
   booleans:
     'false': 'Não'
     'true': 'Sim'
   carrierwave:
     errors:
       image_too_big: A imagem é muito grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +123,16 @@ pt-BR:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
+    author:
+      comments:
+        one: Comente
+        other: comentários
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Seja verificado introduzindo um número de passaporte começando com "A"
+        fields:
+          passport_number: Número do passaporte
+        name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Para verificar sua conta, introduza um número de documento que termine com "X"
         fields:
@@ -128,6 +152,12 @@ pt-BR:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: e mais 1
+        other: e mais %{count}
+      see_less: "(veja menos)"
+      see_more: "(ver mais)"
     components:
       dummy:
         actions:
@@ -240,6 +270,18 @@ pt-BR:
         project: Projetos
         proposal: Propostas
         result: Resultados
+    fingerprint:
+      check: Verificar impressão digital
+      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 online
+      replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
+      source: Fonte
+      title: Impressão digital
+      value: Valor
+    followers:
+      no_followers: Nenhum seguidor.
+    following:
+      no_followings: Não há seguidores ainda.
     follows:
       create:
         button: Seguir
@@ -318,6 +360,8 @@ pt-BR:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    notifications:
+      no_notifications: Ainda não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que receber uma notificação.
@@ -332,17 +376,58 @@ pt-BR:
         rejected: Rejeitadas
         verified: Verificadas
     pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço parte de um processo?
+          meetings: Encontros
+          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+          more_info: Mais informações
+          proposals: Propostas
+          proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+          footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: registo
+        hero:
+          participate: Participar
+          welcome: Bem-vindo ao %{organization}!
+        statistics:
+          answers_count: Formulário completo
+          assemblies_count: Assembléias
+          comments_count: Comentários
+          debates_count: Debates
+          endorsements_count: Endossos
+          headline: Estado atual de %{organization}
+          meetings_count: Encontros
+          orders_count: Votos
+          pages_count: Páginas
+          processes_count: Processos
+          projects_count: Projetos
+          proposals_accepted: Propostas aceitas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: pesquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: registo
       index:
         title: Mais informação
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
       deleted: Usuário deletado
+      view: Vista
     profiles:
       default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
       show:
-        about_me: Sobre mim
-        personal_url: Site pessoal
+        followers: Seguidores
+        following: Seguindo
+        notifications: Notificações
+      user:
+        edit_profile: Editar perfil
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -391,8 +476,6 @@ pt-BR:
           invalid_field: "%{field} valor %{value} não é válido."
           ok: Ok
           title: Não autorizado
-      author:
-        deleted: Usuário deletado
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -491,8 +574,6 @@ pt-BR:
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
-        no_notifications: Ainda não há notificações.
-        title: Notificações
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
@@ -511,44 +592,6 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-  pages:
-    home:
-      extended:
-        debates: Debates
-        debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
-        how_to_participate: Como faço parte de um processo?
-        meetings: Reuniões
-        meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-        more_info: Mais informações
-        proposals: Propostas
-        proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
-      footer_sub_hero:
-        footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
-        footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-        register: registo
-      hero:
-        participate: Participar
-        welcome: Bem-vindo ao %{organization}!
-      statistics:
-        answers_count: Formulário completo
-        assemblies_count: Assembléias
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Estado atual de %{organization}
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        processes_count: Processos
-        projects_count: Projetos
-        proposals_accepted: Propostas aceitas
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
-      sub_hero:
-        register: registo
   social_share_button:
     delicious: Delicioso
     douban: Douban

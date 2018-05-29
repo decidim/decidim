@@ -32,6 +32,9 @@ module Decidim
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can
@@ -71,6 +74,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
+      print "Creating seeds for the #{name} space...\n" unless Rails.env.test?
       @seeds&.call
     end
 
@@ -97,6 +101,20 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Registers a resource. Exposes a DSL defined by
+    # `Decidim::ResourceManifest`.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This way resources can be linked between them.
+    #
+    # name - A name for that resource. Should be singular (ie not plural).
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(name, &block)
+      Decidim.register_resource(name, &block)
     end
   end
 end

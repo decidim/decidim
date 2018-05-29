@@ -210,6 +210,9 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här bilagan.
           success: Bilagan uppdaterades framgångsrikt.
+      autocomplete:
+        no_results: Inga resultat funna
+        search_prompt: Skriv minst tre tecken att söka
       categories:
         create:
           error: Det uppstod ett fel vid skapandet av den här kategorin.

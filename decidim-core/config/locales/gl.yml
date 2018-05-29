@@ -17,6 +17,10 @@ gl:
         user_group_document_number: Número de documento da organización
         user_group_name: Nome da Organización
         user_group_phone: Teléfono da organización
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Compoñente activo
+      decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ gl:
         user_group_document_number: Número de documento da organización
         user_group_name: Nome da organización
         user_group_phone: Organización do teléfono
+    models:
+      decidim/user:
+        one: Usuario
+        other: Usuarios
+      decidim/user_group:
+        one: Grupo de usuarios
+        other: Grupos de usuarios
   booleans:
     'false': 'Non'
     'true': 'Si'
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -108,7 +123,16 @@ gl:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
+    author:
+      comments:
+        one: comentario
+        other: comentarios
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
+        fields:
+          passport_number: Número de pasaporte
+        name: Outra autorización de exemplo
       dummy_authorization_handler:
         explanation: Verifique a introdución dun número de documento que acabe con "X"
         fields:
@@ -128,6 +152,12 @@ gl:
         name: Autorización de Foo
       granted_at: Concedido en %{timestamp}
       started_at: Comezou en %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: e 1 máis
+        other: e %{count} máis
+      see_less: "(ver menos)"
+      see_more: "(Ver máis)"
     components:
       dummy:
         actions:
@@ -240,6 +270,18 @@ gl:
         project: Proxectos
         proposal: Propostas
         result: Resultados
+    fingerprint:
+      check: Verifique a pegada dixital
+      explanation: A parte de texto a continuación é unha representación reducida e enxurrada deste contido. É útil asegurar que o contido non foi manipulado, xa que unha modificación única resultaría nun valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 en liña
+      replicate_help: Esta pegada calcúlase usando un algoritmo de hash SHA256. Para replicalo por si mesmo, pode usar un %{online_calculator_link} e copiar e pegar os datos fonte.
+      source: Fonte
+      title: Impresión dixital
+      value: Valor
+    followers:
+      no_followers: Aínda non hai seguidores.
+    following:
+      no_followings: Aínda non hai seguidores.
     follows:
       create:
         button: Segue
@@ -318,6 +360,8 @@ gl:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
         unsubscribe: Anular a suscripción
+    notifications:
+      no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
@@ -332,17 +376,58 @@ gl:
         rejected: Rexeitado
         verified: Verificado
     pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
+          how_to_participate: '¿Como participo nun proceso?'
+          meetings: Reunións
+          meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
+          more_info: Máis información
+          proposals: Propostas
+          proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
+          footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
+          register: Rexistrarse
+        hero:
+          participate: Participar
+          welcome: Benvido a %{organization}.
+        statistics:
+          answers_count: Enquisas concluídas
+          assemblies_count: Asembleas
+          comments_count: Comentarios
+          debates_count: Debates
+          endorsements_count: Aprobacións
+          headline: Estado actual de %{organization}
+          meetings_count: Reunións
+          orders_count: Votos
+          pages_count: Páxinas
+          processes_count: Procesos
+          projects_count: Proxectos
+          proposals_accepted: Propostas aceptadas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: Enquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: Rexistrarse
       index:
         title: Máis información
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
       deleted: Usuario eliminado
+      view: Ver
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
-        about_me: Sobre min
-        personal_url: Sitio web persoal
+        followers: Seguidores
+        following: A continuación
+        notifications: Notificacións
+      user:
+        edit_profile: Editar perfil
     reported_mailer:
       hide:
         hello: Ola %{name},
@@ -391,8 +476,6 @@ gl:
           invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
-      author:
-        deleted: Usuario eliminado
       embed_modal:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina
@@ -491,8 +574,6 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
-        no_notifications: Aínda non hai notificacións.
-        title: Notificacións
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
@@ -511,44 +592,6 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
-  pages:
-    home:
-      extended:
-        debates: Debates
-        debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-        how_to_participate: '¿Como participo nun proceso?'
-        meetings: Reunións
-        meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
-        more_info: Máis información
-        proposals: Propostas
-        proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
-      footer_sub_hero:
-        footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
-        footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-        register: Rexistrarse
-      hero:
-        participate: Participar
-        welcome: Benvido a %{organization}.
-      statistics:
-        answers_count: Enquisas concluídas
-        assemblies_count: Asembleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        headline: Estado actual de %{organization}
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        processes_count: Procesos
-        projects_count: Proxectos
-        proposals_accepted: Propostas aceptadas
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
-      sub_hero:
-        register: Rexistrarse
   social_share_button:
     delicious: Delicioso
     douban: Douban

@@ -43,6 +43,44 @@ module Decidim
 
           command.call
         end
+
+        context "when a new milestone is completed" do
+          let(:organization) { create(:organization) }
+          let(:initiative) do
+            create(:initiative,
+                   organization: organization,
+                   scoped_type: create(
+                     :initiatives_type_scope,
+                     supports_required: 4,
+                     type: create(:initiatives_type, organization: organization)
+                   ))
+          end
+
+          before do
+            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative: initiative)
+          end
+
+          it "notifies the followers" do
+            follower = create(:user, organization: initiative.organization)
+            create(:follow, followable: initiative, user: follower)
+
+            expect(Decidim::EventsManager).to receive(:publish)
+              .with(kind_of(Hash))
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.initiatives.milestone_completed",
+                event_class: Decidim::Initiatives::MilestoneCompletedEvent,
+                resource: initiative,
+                recipient_ids: [follower.id],
+                extra: { percentage: 75 }
+              )
+
+            command.call
+          end
+        end
       end
 
       describe "Organization supports initiative" do

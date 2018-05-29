@@ -6,7 +6,7 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
-        about: Handla om
+        about: Om
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
@@ -17,6 +17,10 @@ sv:
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
+    models:
+      decidim/attachment_created_event: Bilaga
+      decidim/component_published_event: Aktiv komponent
+      decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
       decidim/user:
@@ -29,12 +33,23 @@ sv:
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
+    models:
+      decidim/user:
+        one: Användare
+        other: användare
+      decidim/user_group:
+        one: Användargrupp
+        other: Användargrupper
   booleans:
     'false': 'Nej'
     'true': 'Ja'
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -61,7 +76,7 @@ sv:
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
       component:
-        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} utrymmet"
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
         publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
         unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
@@ -108,7 +123,16 @@ sv:
         related_documents: Relaterade dokument
       photos:
         related_photos: Relaterade bilder
+    author:
+      comments:
+        one: kommentar
+        other: kommentarer
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
+        fields:
+          passport_number: Passnummer
+        name: Ett annat exempel godkännande
       dummy_authorization_handler:
         explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
         fields:
@@ -128,6 +152,12 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: och 1 mer
+        other: och %{count} mer
+      see_less: "(se mindre)"
+      see_more: "(se mer)"
     components:
       dummy:
         actions:
@@ -152,7 +182,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplett profil
+          complete_profile: Komplettera profil
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
@@ -240,6 +270,18 @@ sv:
         project: Projekt
         proposal: Förslag
         result: Resultat
+    fingerprint:
+      check: Kontrollera fingeravtryck
+      explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
+      online_calculator_name: MD5-kalkylator online
+      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera klistra in källdata.
+      source: Källa
+      title: Fingeravtryck
+      value: Värde
+    followers:
+      no_followers: Inga följare än.
+    following:
+      no_followings: Inga följder än.
     follows:
       create:
         button: Följ
@@ -318,6 +360,8 @@ sv:
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
+    notifications:
+      no_notifications: Inga notiser ännu.
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
@@ -332,17 +376,58 @@ sv:
         rejected: avvisade
         verified: Verifierad
     pages:
+      home:
+        extended:
+          debates: Debatter
+          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+          how_to_participate: Hur deltar jag i en process?
+          meetings: möten
+          meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
+          more_info: Mer information
+          proposals: förslag
+          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+        footer_sub_hero:
+          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
+          register: Registrera
+        hero:
+          participate: Delta
+          welcome: Välkommen till %{organization}!
+        statistics:
+          answers_count: Avslutade Undersökningar
+          assemblies_count: Assemblies
+          comments_count: Kommentarer
+          debates_count: Debatter
+          endorsements_count: påskrifter
+          headline: Aktuellt tillstånd %{organization}
+          meetings_count: möten
+          orders_count: Röster
+          pages_count: Sidor
+          processes_count: Processer
+          projects_count: projekt
+          proposals_accepted: Godkända förslag
+          proposals_count: förslag
+          results_count: Resultat
+          surveys_count: Undersökningar
+          users_count: Deltagare
+          votes_count: Röster
+        sub_hero:
+          register: Registrera
       index:
         title: Mer information
     participatory_space_private_users:
       not_allowed: Du får inte se det här innehållet
     profile:
       deleted: Ta bort användare
+      view: Se
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
-        about_me: Om mig
-        personal_url: Personlig webbplats
+        followers: anhängare
+        following: Följande
+        notifications: anmälningar
+      user:
+        edit_profile: Redigera profil
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -391,8 +476,6 @@ sv:
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
-      author:
-        deleted: Raderad användare
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
@@ -491,8 +574,6 @@ sv:
         expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera alla som lästa
-        no_notifications: Inga notiser ännu.
-        title: Notiser
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
@@ -511,44 +592,6 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
-  pages:
-    home:
-      extended:
-        debates: Debatter
-        debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
-        how_to_participate: Hur deltar jag i en process?
-        meetings: Möten
-        meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
-        more_info: Mer information
-        proposals: Förslag
-        proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
-      footer_sub_hero:
-        footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-        footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-        register: Registrera
-      hero:
-        participate: Delta
-        welcome: Välkommen till %{organization}!
-      statistics:
-        answers_count: Avslutade Undersökningar
-        assemblies_count: Assemblies
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: påskrifter
-        headline: Aktuellt tillstånd %{organization}
-        meetings_count: Möten
-        orders_count: Röster
-        pages_count: Sidor
-        processes_count: Processer
-        projects_count: Projekt
-        proposals_accepted: Godkända förslag
-        proposals_count: Förslag
-        results_count: Resultat
-        surveys_count: Undersökningar
-        users_count: Deltagare
-        votes_count: Röster
-      sub_hero:
-        register: Registrera
   social_share_button:
     delicious: Delicious
     douban: Douban

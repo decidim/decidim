@@ -35,6 +35,7 @@ en:
         participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: Private space
         promoted: Promoted
         published_at: Published at
         purpose_of_action: Purpose of action
@@ -43,15 +44,36 @@ en:
         short_description: Short description
         show_statistics: Show statistics
         slug: URL slug
+        special_features: Special features
         subtitle: Subtitle
         target: Target
         title: Title
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Birthday
+        birthplace: Birthplace
+        ceased_date: Ceased date
+        designation_date: Designation date
+        designation_mode: Designation mode
+        full_name: Full name
+        gender: Gender
+        position: Position
       assembly_user_role:
         email: Email
         name: Name
         role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assembly
+        other: Assemblies
+      decidim/assembly_member:
+        one: Assembly member
+        other: Assembly members
+      decidim/assembly_user_role:
+        one: Assembly user role
+        other: Assembly user roles
   decidim:
     admin:
       assemblies:
@@ -84,6 +106,23 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_members:
+        create:
+          error: There was an error adding a member for this assembly.
+          success: Member created successfully for this assembly.
+        destroy:
+          success: Member destroyed successfully for this assembly.
+        edit:
+          title: Update assembly member.
+          update: Update
+        index:
+          assembly_members_title: Assembly members
+        new:
+          create: Create
+          title: New assembly member.
+        update:
+          error: There was an error updating the member for this assembly.
+          success: Member updated successfully for this assembly.
       assembly_publications:
         create:
           error: There was an error publishing this assembly.
@@ -112,6 +151,7 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          assembly_members: Members
           attachment_collections: Collections
           attachment_files: Files
           attachments: Attachments
@@ -129,6 +169,18 @@ en:
             published: Published
             title: Title
           name: Assembly
+        assembly_member:
+          fields:
+            ceased_date: Ceased date
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          name: Member
+          positions:
+            other: Other
+            president: President
+            secretary: Secretary
+            vice_president: Vice president
         assembly_user_role:
           fields:
             email: Email
@@ -147,6 +199,10 @@ en:
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_member:
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
@@ -155,6 +211,8 @@ en:
       admin:
         assemblies:
           form:
+            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
@@ -163,6 +221,23 @@ en:
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existing user
+            non_user: Non user
+            select_a_position: Select a position
+            select_user: Select an user
+            user_type: User type
+          index:
+            filter:
+              all: All
+              ceased: Ceased
+              not_ceased: Not ceased
+            filter_by: Filter by
+            search: Search
+      assembly_members:
+        index:
+          members: Members
       assembly_types:
         commission: Comission
         consultative_advisory: Consultative/Advisory
@@ -182,6 +257,9 @@ en:
           highlighted_assemblies:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
+        user_profile:
+          member_of:
+            member_of: Member of
       show:
         area: Area
         assembly_type: Assembly type
@@ -225,6 +303,11 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    assembly_members:
+      assembly_member:
+        designated_on: Designated on
+      index:
+        title: Members
     log:
       value_types:
         assembly_presenter:
@@ -249,6 +332,7 @@ en:
           more_info: More info
           take_part: Take part
       assembly_header:
+        assembly_member_menu_item: Members
         assembly_menu_item: The assembly
         unfold: Unfold
       assembly_widgets:

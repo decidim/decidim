@@ -242,6 +242,8 @@ uk:
         success: Ви успішно скасували підписку.
         token_error: Термін дії посилання закінчився.
         unsubscribe: Скасувати підписку
+    notifications:
+      no_notifications: Ще немає сповіщень.
     notifications_settings:
       show:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
@@ -256,13 +258,41 @@ uk:
         rejected: Відхилено
         verified: Перевірено
     pages:
+      home:
+        extended:
+          debates: Обговорення
+          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
+          how_to_participate: Як я можу взяти участь у русі?
+          meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
+          more_info: Дізнатися більше
+          proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
+        footer_sub_hero:
+          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
+          footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
+          register: Зареєструватися
+        hero:
+          participate: Взяти участь
+          welcome: Ласкаво просимо до %{organization}!
+        statistics:
+          answers_count: Пройдено опитувань
+          assemblies_count: Збори
+          comments_count: Коментарі
+          debates_count: Обговорення
+          endorsements_count: Підтримало
+          headline: Поточний стан %{organization}
+          orders_count: Голоси
+          pages_count: Сторінки
+          processes_count: Рухи
+          proposals_accepted: Прийняті пропозиції
+          surveys_count: Опитування
+          users_count: Учасники
+          votes_count: Голоси
+        sub_hero:
+          register: Зареєструватися
       index:
         title: Дізнатися більше
     profiles:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
-      show:
-        about_me: Про мене
-        personal_url: Особистий веб-сайт
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -311,8 +341,6 @@ uk:
           invalid_field: "Для поля %{field} значення %{value} недійсне."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
-      author:
-        deleted: Видалений учасник
       embed_modal:
         close_window: Закрити вікно
         embed: Будь ласка, вставте цей код на свою сторінку
@@ -403,8 +431,6 @@ uk:
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
-        no_notifications: Ще немає сповіщень.
-        title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
         conversations: Бесіди
@@ -423,43 +449,6 @@ uk:
         see_more: Переглянути інші
   locale:
     name: Українська
-  pages:
-    home:
-      extended:
-        debates: Обговорення
-        debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
-        how_to_participate: Як я можу взяти участь у русі?
-        meetings: Зустрічі
-        meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-        more_info: Дізнатися більше
-        proposals: Пропозиції
-        proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
-      footer_sub_hero:
-        footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
-        footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
-        register: Зареєструватися
-      hero:
-        participate: Взяти участь
-        welcome: Ласкаво просимо до %{organization}!
-      statistics:
-        answers_count: Пройдено опитувань
-        assemblies_count: Збори
-        comments_count: Коментарі
-        endorsements_count: Підтримало
-        headline: Поточний стан %{organization}
-        meetings_count: Зустрічі
-        orders_count: Голоси
-        pages_count: Сторінки
-        processes_count: Рухи
-        projects_count: Проекти
-        proposals_accepted: Прийняті пропозиції
-        proposals_count: Пропозиції
-        results_count: Підсумки
-        surveys_count: Опитування
-        users_count: Учасники
-        votes_count: Голоси
-      sub_hero:
-        register: Зареєструватися
   social_share_button:
     delicious: Delicious
     douban: Douban

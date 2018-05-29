@@ -11,6 +11,17 @@ pl:
         start_time: Zaczyna się o
         title: Tytuł
         user_group_id: Utwórz debatę jako
+    models:
+      decidim/debates/create_debate_event: Debata
+      decidim/debates/creation_disabled_event: Debaty wyłączone
+      decidim/debates/creation_enabled_event: Debaty włączone
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debata
+        few: Debaty
+        many: Debaty
+        other: Debaty
   decidim:
     components:
       debates:
@@ -58,6 +69,12 @@ pl:
           create: "%{user_name} stworzył %{resource_name} debatę na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni %{space_name}"
       debates:
+        count:
+          debates_count:
+            one: "%{count} debata"
+            few: "%{count} debat"
+            many: "%{count} debaty"
+            other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
           success: Debatę utworzono pomyślnie.
@@ -87,9 +104,6 @@ pl:
           close_window: Zamknij okno
           share: Dzielić
           share_link: Udostępnij link
-        show:
-          comments: Komentarze
-          report: Raport
       models:
         debate:
           fields:

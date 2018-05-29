@@ -24,7 +24,7 @@ describe "Notifications", type: :system do
         find("a.topbar__notifications").click
       end
 
-      expect(page).to have_current_path decidim.notifications_path
+      expect(page).to have_current_path decidim.profile_notifications_path(user.nickname)
       expect(page).to have_no_content("No notifications yet")
       expect(page).to have_content("An event occured")
     end
@@ -40,7 +40,7 @@ describe "Notifications", type: :system do
           find("a.topbar__notifications").click
         end
 
-        expect(page).to have_current_path decidim.notifications_path
+        expect(page).to have_current_path decidim.profile_notifications_path(user.nickname)
         expect(page).to have_content("No notifications yet")
       end
     end
@@ -69,7 +69,7 @@ describe "Notifications", type: :system do
     let!(:notification) { nil }
 
     before do
-      page.visit decidim.notifications_path
+      page.visit decidim.profile_notifications_path(user.nickname)
     end
 
     it "doesn't show any notification" do
@@ -80,11 +80,11 @@ describe "Notifications", type: :system do
 
   context "with notifications" do
     it "shows the notifications" do
-      expect(page).to have_selector("section#notifications-list .card--list__item")
+      expect(page).to have_selector(".card.card--widget")
     end
 
     before do
-      page.visit decidim.notifications_path
+      page.visit decidim.profile_notifications_path(user.nickname)
     end
 
     context "when setting a single notification as read" do
@@ -101,8 +101,13 @@ describe "Notifications", type: :system do
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
         click_link "Mark all as read"
-        expect(page).not_to have_selector("#notifications-list")
+        expect(page).not_to have_selector("#notifications")
         expect(page).to have_content("No notifications yet")
+
+        within ".title-bar" do
+          expect(page).to have_css(".topbar__notifications")
+          expect(page).not_to have_css(".topbar__notifications.is-active")
+        end
       end
     end
   end

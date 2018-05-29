@@ -10,7 +10,7 @@
   <p><%= t "questions.vote_modal_confirm.contextual_help", scope: "decidim" %></p>
   <div class="card card--secondary">
     <div class="card__content">
-      <h4 class="heading5 text-center"><%= translated_attribute question.title %></h4>
+      <h4 class="heading5 text-center"><%= translated_attribute(question.title).html_safe %></h4>
       <h5 class="heading6 text-center" id="question-vote-confirm-modal-question-title"></h5>
     </div>
   </div>

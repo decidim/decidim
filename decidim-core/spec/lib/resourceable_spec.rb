@@ -74,6 +74,23 @@ module Decidim
             expect(resource.sibling_scope(:dummy)).not_to include(other_resource)
           end
         end
+
+        context "when the target component is unpublished" do
+          let(:participatory_process) { create(:participatory_process) }
+
+          let!(:resource) { create(:dummy_resource, component: current_component) }
+          let!(:current_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
+          let!(:target_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
+          let!(:target_resource) { create(:dummy_resource, component: target_component) }
+
+          before do
+            target_component.unpublish!
+          end
+
+          it "doesn't return anything from that component" do
+            expect(resource.sibling_scope(:dummy)).to be_empty
+          end
+        end
       end
 
       context "when there's no resource manifest" do

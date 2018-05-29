@@ -1,0 +1,17 @@
+<div id="<%= element_id %>" class="progress__bar<%= " progress__bar--vertical" unless small? %>">
+  <div class="progress__bar__title">
+    <span class="progress__bar__number"><%= progress %></span><%= "/#{total}" if total != 0 %>
+    <span class="progress__bar__text"><%= units_name_text %></span>
+  </div>
+  <% if total != 0 %>
+    <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuetext="<%= percentage %> percent" aria-valuemax="100">
+      <div class="progress-meter progress__bar__bar--complete" style="width: <%= percentage %>%"></div>
+      <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percentage %>%);"></div>
+    </div>
+    <% if subtitle_text.present? %>
+      <div class="progress__bar__subtitle">
+        <%= subtitle_text %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

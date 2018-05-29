@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Status
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -21,6 +21,13 @@ pt-BR:
       timeline_entry:
         description: Descrição
         entry_date: Encontro
+    models:
+      decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultado
+        other: Resultados
   decidim:
     accountability:
       actions:

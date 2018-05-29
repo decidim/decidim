@@ -33,7 +33,7 @@ module Decidim
       private
 
       def survey
-        @survey ||= Survey.find_by(component: current_component)
+        @survey ||= Survey.includes(questions: :answer_options).find_by(component: current_component)
       end
     end
   end

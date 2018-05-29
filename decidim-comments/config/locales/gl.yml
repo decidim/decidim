@@ -1,6 +1,21 @@
 gl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentario
+      decidim/comments/comment_created_event: Comentario
+      decidim/comments/reply_created_event: Comentario de resposta
+      decidim/comments/user_mentioned_event: Mención
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentario
+        other: Comentarios
+      decidim/comments/comment_vote:
+        one: Vota
+        other: Votos
   decidim:
     comments:
+      comments: Comentarios
       votes:
         create:
           error: Houbo erros ao votar o comentario.

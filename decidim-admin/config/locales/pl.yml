@@ -210,6 +210,9 @@ pl:
         update:
           error: Podczas aktualizowania tego załącznika wystąpił błąd.
           success: Załącznik został zaktualizowany.
+      autocomplete:
+        no_results: Nie znaleziono wyników
+        search_prompt: Wpisz co najmniej trzy znaki do wyszukania
       categories:
         create:
           error: Podczas tworzenia tej kategorii wystąpił błąd.

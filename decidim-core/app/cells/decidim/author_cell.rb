@@ -12,6 +12,8 @@ module Decidim
 
     property :profile_path
 
+    delegate :current_user, to: :controller, prefix: false
+
     def show
       render
     end
@@ -27,9 +29,7 @@ module Decidim
     private
 
     def from_context
-      from_context = options[:from] if options[:from].present?
-      from_context = context[:from] if context[:from].present?
-      from_context
+      options[:from].presence || context[:from].presence
     end
 
     def from_context_path
@@ -73,8 +73,8 @@ module Decidim
     end
 
     def actionable?
+      return false if options[:has_actions] == false
       return true if user_author? && posts_controller?
-      true if user_author? && proposals_controller? && posts_controller? && index_action?
       true if withdrawable? || flagable?
     end
 
