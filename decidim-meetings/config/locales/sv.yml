@@ -251,6 +251,7 @@ sv:
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"
+          view: Se
       models:
         meeting:
           fields:
