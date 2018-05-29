@@ -116,7 +116,7 @@ pt-BR:
           destroy:
             success: Reunião excluída com êxito
           edit:
-            update: Actualizar
+            update: Atualizar
           index:
             title: Reuniões
           new:
@@ -206,7 +206,7 @@ pt-BR:
             map: Mapa
             start_time: Data de início
             title: Título
-      read_more: "(consulte Mais informação)"
+      read_more: "(saiba mais)"
       registration_mailer:
         confirmation:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
