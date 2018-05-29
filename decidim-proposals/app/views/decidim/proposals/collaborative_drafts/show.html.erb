@@ -3,13 +3,13 @@
   title: @collaborative_draft.title,
   url: collaborative_draft_url(@collaborative_draft.id)
 }) %>
-<%# if !(current_user and @collaborative_draft.authorship?(current_user)) %>
-<div class="row">
-  <div class="columns">
-    <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+<% if current_user.nil? || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+  <div class="row">
+    <div class="columns">
+      <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+    </div>
   </div>
-</div>
-<%# end %>
+<% end %>
 
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -51,19 +51,18 @@
           <%= link_to t(".request_access"), request_access_collaborative_draft_path(@collaborative_draft), method: "POST", class: "button expanded button--sc mt-s" %>
         <% end %>
 
-        <% if !allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) && !allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-          <button class="button secondary light expanded button--sc mt-s"><%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %></button>
+        <% if @collaborative_draft.access_requestors.include? current_user %>
+          <button type="button" class="button secondary light expanded button--sc mt-s">
+            <%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %>
+          </button>
         <% end %>
-
       </div>
 
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= link_to "#" do %>
-              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
-                <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.authors.count}" %>
-              <% end %>
+            <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
+              <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.authors.count}" %>
             <% end %>
           </li>
 
@@ -84,6 +83,8 @@
         </ul>
       </div>
     </div>
+
+    <%= render partial: "collaboration_requests" %>
 
     <%= resource_reference(@collaborative_draft) %>
 
@@ -134,5 +135,3 @@
     url: decidim.report_path(sgid: @collaborative_draft.to_sgid.to_s)
   }
 %>
-
-<% console %>

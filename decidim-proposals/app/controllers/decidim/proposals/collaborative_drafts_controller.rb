@@ -14,6 +14,7 @@ module Decidim
 
       helper_method :geocoded_collaborative_draft
       before_action :authenticate_user!, only: [:new, :create, :complete]
+      before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :request_access, :request_accept, :request_reject]
 
       def index
         @collaborative_drafts = search
@@ -27,7 +28,6 @@ module Decidim
       end
 
       def show
-        retrieve_collaborative_draft
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -87,14 +87,12 @@ module Decidim
       end
 
       def edit
-        retrieve_collaborative_draft
         enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_model(@collaborative_draft)
       end
 
       def update
-        retrieve_collaborative_draft
         enforce_permission_to :edit, :collaborative_draft, collaborative_draft: @collaborative_draft
 
         @form = form(CollaborativeDraftForm).from_params(params)
@@ -113,8 +111,25 @@ module Decidim
       end
 
       def request_access
-        retrieve_collaborative_draft
         @collaborative_draft.access_requestors << current_user
+        flash[:notice] = t("access_requested", scope: "decidim.proposals.collaborative_drafts.requests")
+        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
+      end
+
+      def request_accept
+        @collaborative_draft.access_requestors.delete requested_user
+        Decidim::Coauthorship.create(
+          coauthorable: @collaborative_draft,
+          author: requested_user,
+          decidim_user_group_id: nil
+        )
+        flash[:notice] = t("accepted_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requested_user.nickname)
+        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
+      end
+
+      def request_reject
+        @collaborative_draft.access_requestors.delete requested_user
+        flash[:notice] = t("rejected_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requested_user.nickname)
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
@@ -140,6 +155,10 @@ module Decidim
           scope_id: nil,
           related_to: ""
         }
+      end
+
+      def requested_user
+        Decidim::User.find params[:user_id]
       end
     end
   end

@@ -37,6 +37,8 @@ module Decidim
           get :compare, on: :collection
           get :complete, on: :collection
           post :request_access, on: :member
+          post :request_accept, on: :member
+          post :request_reject, on: :member
           resources :versions, only: [:show, :index]
         end
         root to: "proposals#index"

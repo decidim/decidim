@@ -288,6 +288,14 @@ en:
           most_contributed: Most contributed
           random: Random
           recent: Recent
+        requests:
+          accepted_request: "@%{user} has been added as a collaborator successfully"
+          access_requested: Your request to collaborate has been sent successfully
+          collaboration_requests:
+            accept_request: Accept
+            reject_request: Reject
+            title: Collaboration requests
+          rejected_request: "@%{user} has been rejected as a collaborator"
         show:
           edit: Edit collaborative draft
           hidden_authors_count:

@@ -29,6 +29,14 @@ module Decidim
           collection
         end
       end
+
+      def accept_request_btn_lbl
+        t("accept_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
+      end
+
+      def reject_request_btn_lbl
+        t("reject_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
+      end
     end
   end
 end
