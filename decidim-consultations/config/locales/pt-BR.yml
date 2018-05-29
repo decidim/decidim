@@ -84,7 +84,7 @@ pt-BR:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova consulta
         update:
           error: Ocorreu um erro ao atualizar esta consulta.
@@ -144,7 +144,7 @@ pt-BR:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova pergunta
         update:
           error: Ocorreu um erro ao atualizar esta questão.
@@ -161,7 +161,7 @@ pt-BR:
         form:
           title: Informação geral
         new:
-          create: Crio
+          create: Criar
           title: Nova resposta
         update:
           error: Houve um erro ao atualizar essa resposta.
