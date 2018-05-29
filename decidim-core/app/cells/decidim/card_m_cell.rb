@@ -106,7 +106,7 @@ module Decidim
 
     def statuses
       collection = [:creation_date]
-      collection << :follow if model.is_a?(Decidim::Followable)
+      collection << :follow if model.is_a?(Decidim::Followable) && model != try(:current_user)
       collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
       collection
     end

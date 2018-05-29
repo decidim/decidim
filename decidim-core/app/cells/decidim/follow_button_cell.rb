@@ -6,6 +6,7 @@ module Decidim
     include LayoutHelper
 
     def show
+      return if model == current_user
       render
     end
 
