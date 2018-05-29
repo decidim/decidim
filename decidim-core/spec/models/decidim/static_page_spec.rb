@@ -42,6 +42,22 @@ module Decidim
       end
     end
 
+    describe ".sorted_by_i18n_title" do
+      let!(:page1) { create :static_page, title: { ca: "Bcde", en: "Afgh" } }
+      let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
+
+      before { I18n.locale = :ca }
+      after { I18n.locale = :en }
+
+      it "orders by the title in the current locale" do
+        expect(described_class.sorted_by_i18n_title).to eq [page2, page1]
+      end
+
+      it "orders by the title in the specified locale" do
+        expect(described_class.sorted_by_i18n_title(:en)).to eq [page1, page2]
+      end
+    end
+
     describe "#to_param" do
       subject { page.to_param }
 

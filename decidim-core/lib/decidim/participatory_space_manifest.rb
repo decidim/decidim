@@ -78,6 +78,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
+      print "Creating seeds for the #{name} space...\n" unless Rails.env.test?
       @seeds&.call
     end
 

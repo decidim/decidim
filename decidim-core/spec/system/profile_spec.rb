@@ -81,7 +81,7 @@ describe "Profile", type: :system do
 
       it "shows the number of followers and following" do
         expect(page).to have_link("Followers 1")
-        expect(page).to have_link("Following 2")
+        expect(page).to have_link("Follows 2")
       end
 
       it "lists the followers" do
@@ -91,7 +91,7 @@ describe "Profile", type: :system do
       end
 
       it "lists the followings" do
-        click_link "Following"
+        click_link "Follows"
 
         expect(page).to have_content(other_user.name)
         expect(page).to have_content(user_to_follow.name)
