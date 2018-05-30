@@ -77,7 +77,7 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, component: component, author: nil) }
+      let!(:official_proposal) { create(:proposal, :official, component: component) }
 
       it "shows the author as official" do
         visit_component

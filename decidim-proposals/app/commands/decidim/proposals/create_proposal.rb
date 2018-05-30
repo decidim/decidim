@@ -111,13 +111,11 @@ module Decidim
       end
 
       def current_user_proposals
-        ids= Decidim::Coauthorship.where(author: @current_user, coauthorable_type: "Decidim::Proposals::Proposal").pluck(:coauthorable_id)
-        Proposal.where(id: ids, component: form.current_component).except_withdrawn
+        Proposal.from_author(@current_user).where(component: form.current_component).except_withdrawn
       end
 
       def user_group_proposals
-        ids= Decidim::Coauthorship.where(user_group: @user_group, coauthorable_type: "Decidim::Proposals::Proposal").pluck(:coauthorable_id)
-        Proposal.where(id: ids, component: form.current_component).except_withdrawn
+        Proposal.from_user_group(@user_group).where(component: form.current_component).except_withdrawn
       end
     end
   end

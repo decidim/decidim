@@ -72,13 +72,11 @@ module Decidim
       end
 
       def current_user_proposals
-        ids= Decidim::Coauthorship.where(coauthorable_type: "Decidim::Proposals::Proposal", author: current_user).pluck(:coauthorable_id)
-        Proposal.where(id: ids, component: form.current_component).published.where.not(id: proposal.id)
+        Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id)
       end
 
       def user_group_proposals
-        ids= Decidim::Coauthorship.where(coauthorable_type: "Decidim::Proposals::Proposal", user_group: user_group).pluck(:coauthorable_id)
-        Proposal.where(id: ids, component: form.current_component).published.where.not(id: proposal.id)
+        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id)
       end
     end
   end

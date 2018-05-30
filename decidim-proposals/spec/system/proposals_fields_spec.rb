@@ -99,7 +99,7 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Oriol for president", body: "He will not solve everything") }
 
           it "creates a new proposal", :slow do
             visit complete_proposal_path(component)
@@ -129,7 +129,7 @@ describe "Proposals", type: :system do
 
         context "when the user has verified organizations" do
           let(:user_group) { create(:user_group, :verified) }
-          let(:user_group_proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Clara for president", body: "She will solve everything") }
+          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Clara for president", body: "She will solve everything") }
 
           before do
             create(:user_group_membership, user: user, user_group: user_group)
@@ -167,7 +167,7 @@ describe "Proposals", type: :system do
                      participatory_space: participatory_process)
             end
 
-            let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Oriol for president", body: "He will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
               visit complete_proposal_path(component)
@@ -224,7 +224,7 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
             visit complete_proposal_path(component)
@@ -264,7 +264,7 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, author: user, component: component, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component: component, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
 
         before do
           visit_component
