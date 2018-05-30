@@ -403,9 +403,9 @@ sv:
         success: Förslagsförslaget uppdateras framgångsrikt.
     resource_links:
       copied_from_component:
-        proposal_proposals: Relaterade förslag
+        proposal_proposal: Relaterade förslag
       included_projects:
-        project_results: 'Resultat som visas i detta projekt:'
+        project_result: 'Resultat som visas i detta projekt:'
       included_proposals:
-        proposal_projects: 'Förslag som framgår av dessa projekt:'
-        proposal_results: 'Förslag som visas i dessa resultat:'
+        proposal_project: 'Förslag som framgår av dessa projekt:'
+        proposal_result: 'Förslag som visas i dessa resultat:'
