@@ -29,8 +29,8 @@ module Decidim
       if params[:token].present?
         file_reader = Decidim::DataPortabilityFileReader.new(current_user, params[:token])
         if file_reader.valid_token?
-          file = file_reader.file_path_reader
-          if file.exists?
+          file = File.open(file_reader.file_path)
+          if File.exist?(file)
             send_file file, type: "application/zip", disposition: "attachment"
           else
             flash[:error] = t("decidim.account.data_portability_export.file_no_exists")

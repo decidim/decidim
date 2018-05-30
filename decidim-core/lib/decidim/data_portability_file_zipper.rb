@@ -39,10 +39,11 @@ module Decidim
       @export_images.each do |image_block|
         next if image_block.last.nil?
         image_block.last.each do |image|
+          next if image.file.nil?
           folder_name = image_block.first.parameterize
           uploader = Decidim::ApplicationUploader.new(image.model, image.mounted_as)
           uploader.cache!(File.open(image.file.file))
-          uploader.retrieve_from_store!(image.file.filename) # users.map(&:avatar).first.file.filename)
+          uploader.retrieve_from_store!(image.file.filename)
           my_image_path = File.open(image.file.file)
           next unless File.exist?(my_image_path)
           zipfile.add("#{folder_name}/#{image.file.filename}", my_image_path)
