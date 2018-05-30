@@ -308,6 +308,7 @@ uk:
           category_prompt: Оберіть розряд
           citizens: Громадяни
           evaluating: Розглядається
+          except_rejected: Усі, окрім відхилених
           official: Службове
           origin: Походження
           rejected: Відхилено
