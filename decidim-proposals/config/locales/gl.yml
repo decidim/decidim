@@ -299,6 +299,7 @@ gl:
           category_prompt: Selecciona unha categoría
           citizens: Cidadáns
           evaluating: Avaliación
+          except_rejected: Todos excepto rexeitados
           official: Oficial
           origin: Orixe
           rejected: Rexeitado
@@ -311,10 +312,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        identities_listing:
-          see_all: Ver todo
-          see_less: Vexa menos
-          title: Lista de avales
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
@@ -343,6 +340,10 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de avales
+          hidden_endorsers_count:
+            one: e 1 persoa máis
+            other: e %{count} persoas máis
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
@@ -402,9 +403,9 @@ gl:
         success: O proxecto de proposta actualizouse con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen neste proxecto:'
+        project_result: 'Resultados que aparecen neste proxecto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nestes proxectos:'
-        proposal_results: 'Proposta que aparece nestes resultados:'
+        proposal_project: 'Proposta que aparece nestes proxectos:'
+        proposal_result: 'Proposta que aparece nestes resultados:'
