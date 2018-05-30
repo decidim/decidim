@@ -253,19 +253,19 @@ uk:
     events:
       attachments:
         attachment_created:
-          email_intro: 'До %{resource_title} був доданий новий документ. Ви можете побачити його на цій сторінці:'
+          email_intro: 'До %{resource_title} був доданий новий документ. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{resource_title}
           notification_title: До <a href="%{attached_to_url}">%{resource_title}</a> додано <a href="%{resource_path}">новий документ</a>
       components:
         component_published:
-          email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'
+          email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете переглянути її на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
           notification_title: Приведено в дію складову %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
-        email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
+        email_intro: '"%{resource_title}" було оновлено. Ви можете переглянути його на сторінці:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
       notification_event:
@@ -347,7 +347,7 @@ uk:
           subject: "%{sender} почав з вами бесіду"
         new_message:
           greeting: Доброго дня, %{recipient}!
-          intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб побачити їх:"
+          intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
           outro: Насолоджуйтесь Десідім!
           subject: Ви отримали нові повідомлення від %{sender}
       conversations:
@@ -369,7 +369,7 @@ uk:
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
-        see_on_website: Не вдається до пуття побачити це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
+        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:
