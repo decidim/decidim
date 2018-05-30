@@ -299,6 +299,7 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
+          except_rejected: Tous sauf rejeté
           official: Propositions officielles
           origin: Auteurs
           rejected: Non retenue
