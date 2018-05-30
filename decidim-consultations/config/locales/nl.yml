@@ -8,6 +8,7 @@ nl:
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
         introductory_video_url: Introductievideo-URL
+        questions: vragen
         slug: URL pad
         start_voting_date: Startdatum
         subtitle: Ondertitel
@@ -215,7 +216,18 @@ nl:
       regular_questions:
         title: Andere burgerinspraken
       show:
+        badge_name:
+          finished: Afgewerkt
+          open: Open
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
+        footer_button_text:
+          debate: Debat
+          view: Uitzicht
+          view_results: Bekijk resultaten
+          vote: Stemmen
         see_finished_consultations: Bekijk vorige burgerinspraken
+        unspecified: Niet gespecificeerd
     menu:
       consultations: Burgerinspraak
     pages:
@@ -240,7 +252,7 @@ nl:
         starting_from: Te beginnen op %{date}
         vote: Stem
       vote_modal:
-        contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je je stem niet meer kan wijzigen.
+        contextual_help: Maak een keuze a.u.b.
         title: 'Overleg: vraagondersteuning'
       vote_modal_confirm:
         change: Wijzigen

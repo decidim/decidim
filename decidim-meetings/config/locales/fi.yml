@@ -251,6 +251,7 @@ fi:
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
+          view: näkymä
       models:
         meeting:
           fields:

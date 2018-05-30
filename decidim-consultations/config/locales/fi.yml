@@ -8,6 +8,7 @@ fi:
         end_voting_date: Päättymispäivä
         introductory_image: Alustava kuva
         introductory_video_url: Alkuperäisen videon URL-osoite
+        questions: kysymykset
         slug: URL-linkki
         start_voting_date: Aloituspäivämäärä
         subtitle: alaotsikko
@@ -215,7 +216,18 @@ fi:
       regular_questions:
         title: Muut neuvottelut
       show:
+        badge_name:
+          finished: Valmiit
+          open: Avata
+          open_votes: Avaa ääniä
+          published_results: Tulokset julkaistu
+        footer_button_text:
+          debate: Keskustelu
+          view: näkymä
+          view_results: Näytä tulokset
+          vote: Äänestys
         see_finished_consultations: Katso edelliset neuvottelut
+        unspecified: Ei määritelty
     menu:
       consultations: kuulemiset
     pages:
@@ -240,7 +252,7 @@ fi:
         starting_from: Alk. %{date}
         vote: Äänestys
       vote_modal:
-        contextual_help: Ole hyvä ja valitse vaihtoehto. Muista, että kun olet vahvistanut tuen, sitä ei voi muuttaa.
+        contextual_help: Ole hyvä ja valitse vaihtoehto.
         title: 'Kuuleminen: kysymystuki'
       vote_modal_confirm:
         change: Muuttaa

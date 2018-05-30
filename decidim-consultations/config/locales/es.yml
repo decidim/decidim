@@ -8,6 +8,7 @@ es:
         end_voting_date: Fecha final
         introductory_image: Imagen introductoria
         introductory_video_url: URL de vídeo introductoria
+        questions: Preguntas
         slug: URL slug
         start_voting_date: Fecha de inicio
         subtitle: Subtitular
@@ -208,14 +209,25 @@ es:
         view_results: Ver resultados
         votes_out_of:
           one: votar fuera de
-          other: votos fuera de
+          other: votos de
       question_votes:
         create:
           error: Ha habido errores al votar la pregunta
       regular_questions:
         title: Otras consultas
       show:
+        badge_name:
+          finished: Terminado
+          open: Abierta
+          open_votes: Votos abiertos
+          published_results: Resultados publicados
+        footer_button_text:
+          debate: Debate
+          view: Ver
+          view_results: Ver resultados
+          vote: Votar
         see_finished_consultations: Ver consultas previas
+        unspecified: No especificado
     menu:
       consultations: Consultas
     pages:
@@ -240,7 +252,7 @@ es:
         starting_from: A partir de %{date}
         vote: Votar
       vote_modal:
-        contextual_help: Por favor, selecciona una opción. Ten en cuenta que una vez que hayas confirmado tu apoyo no lo podrás cambiar.
+        contextual_help: Por favor, selecciona una opción.
         title: 'Consulta: soporte de preguntas'
       vote_modal_confirm:
         change: Cambio

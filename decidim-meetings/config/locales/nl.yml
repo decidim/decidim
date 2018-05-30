@@ -251,6 +251,7 @@ nl:
           remaining_slots:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
+          view: Uitzicht
       models:
         meeting:
           fields:

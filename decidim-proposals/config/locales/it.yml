@@ -311,10 +311,6 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
-        identities_listing:
-          see_all: Vedi tutto
-          see_less: Vedi di meno
-          title: Elenco di approvazioni
         index:
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
@@ -343,6 +339,10 @@ it:
           view_proposal: Visualizza la proposta
         show:
           edit_proposal: Modifica la proposta
+          endorsements_list: Elenco di approvazioni
+          hidden_endorsers_count:
+            one: e 1 altra persona
+            other: e altre %{count} persone
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'

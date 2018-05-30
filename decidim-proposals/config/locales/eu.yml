@@ -299,6 +299,7 @@ eu:
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak
           evaluating: Ebaluatzen
+          except_rejected: Guztiak baztertuak izan ezik
           official: Ofiziala
           origin: Jatorria
           rejected: Ukatua
@@ -311,10 +312,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        identities_listing:
-          see_all: Dena ikusi
-          see_less: Ikusi gutxiago
-          title: Onarpenen zerrenda
         index:
           new_proposal: Proposamen berria
           see_all_withdrawn: Ikusi guztiak kendutako proposamenak
@@ -343,6 +340,10 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
+          endorsements_list: Onarpenen zerrenda
+          hidden_endorsers_count:
+            one: eta beste 1 pertsona
+            other: eta beste %{count} pertsona
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'

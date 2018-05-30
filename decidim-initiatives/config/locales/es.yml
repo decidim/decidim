@@ -264,7 +264,7 @@ es:
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
-          most_voted: La mayoría firmada
+          most_voted: Más firmadas
           random: Aleatorio
           recent: Más reciente
         result:
@@ -287,7 +287,9 @@ es:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
+          supports_required: "Se requieren %{total_supports} firmas"
           vote: Firmar
+          votes_blocked: Firma desactivada
         votes_count:
           count:
             one: FIRMA

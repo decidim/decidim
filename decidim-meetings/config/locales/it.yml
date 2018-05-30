@@ -251,6 +251,7 @@ it:
           remaining_slots:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
+          view: vista
       models:
         meeting:
           fields:

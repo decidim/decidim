@@ -2,8 +2,10 @@ uk:
   activemodel:
     attributes:
       assembly:
+        assembly_type: Різновид зборів
+        assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
-        copy_categories: Скопіювати розділи
+        copy_categories: Скопіювати розряди
         copy_features: Скопіювати складові
         description: Опис
         developer_group: Група зачинальників
@@ -14,19 +16,37 @@ uk:
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
+        private_space: Приватний простір
         promoted: Рекламується
         scope_id: Терен
-        scopes_enabled: Ввімкнені терени
+        scopes_enabled: Терени увімкнено
         short_description: Стислий опис
-        slug: Скорочена URL-адреса
+        slug: Скорочена веб-адреса
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Збори
+        few: Зібрань
+        many: Зібрань
+        other: Зібрань
+      decidim/assembly_member:
+        one: Учасник зборів
+        few: Учасників зборів
+        many: Учасників зборів
+        other: Учасників зборів
+      decidim/assembly_user_role:
+        one: Роль учасника зборів
+        few: Ролей учасників зборів
+        many: Ролей учасників зборів
+        other: Ролей учасників зборів
   decidim:
     admin:
       assemblies:
         create:
-          error: При створенні нових зборів сталася помилка.
+          error: При додаванні нових зборів сталася помилка.
           success: Збори успішно додано.
         destroy:
           success: Збори успішно видалено.
@@ -35,8 +55,9 @@ uk:
         form:
           title: Загальні відомості
         index:
-          not_published: Не опубліковано
-          published: Опубліковано
+          not_published: Не оприлюднено
+          private: Приховані
+          published: Оприлюднено
         new:
           create: Додати
           title: Нові збори
@@ -54,11 +75,11 @@ uk:
           title: Створити копію зборів
       assembly_publications:
         create:
-          error: Під час публікації цих зборів сталася помилка.
-          success: Збори успішно опубліковано.
+          error: Під час оприлюднення цих зборів сталася помилка.
+          success: Збори успішно оприлюднено.
         destroy:
-          error: При скасуванні публікації цих зборів сталася помилка.
-          success: Публікацію зборів успішно скасовано.
+          error: При скасуванні оприлюднення цих зборів сталася помилка.
+          success: Оприлюднення зборів успішно скасовано.
       assembly_user_roles:
         edit:
           title: Оновити учасника зборів.
@@ -75,16 +96,18 @@ uk:
           attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
-          categories: Розділи
+          categories: Розряди
           info: Відомості
           moderations: Дії з модерації
+          private_users: Приховані учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
+            private: Приховані
             promoted: Висвітлено
-            published: Опубліковано
-            title: Заголовок
+            published: Оприлюднено
+            title: Назва
           name: Збори
         assembly_user_role:
           fields:
@@ -103,10 +126,10 @@ uk:
         assemblies:
           form:
             select_an_area: Оберіть терен
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         assembly_copies:
           form:
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Збори
       pages:
@@ -120,17 +143,19 @@ uk:
         local_area: Терен
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
+        private_space: Це приватні збори
         scope: Терен
         target: Мета
       statistics:
         answers_count: Відповіді
         assemblies_count: Збори
         comments_count: Коментарі
+        endorsements_count: Підтримали
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
-        projects_count: Проекти
+        projects_count: Задуми
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування

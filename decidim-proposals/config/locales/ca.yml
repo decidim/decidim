@@ -312,10 +312,6 @@ ca:
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
-        identities_listing:
-          see_all: Veure tot
-          see_less: Veure menys
-          title: Llista d'adhesions
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
@@ -344,6 +340,10 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Llista d'adhesions
+          hidden_endorsers_count:
+            one: i 1 persona més
+            other: i %{count} persones més
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'

@@ -311,10 +311,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        identities_listing:
-          see_all: Ver todo
-          see_less: Vexa menos
-          title: Lista de avales
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
@@ -343,6 +339,10 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de avales
+          hidden_endorsers_count:
+            one: e 1 persoa máis
+            other: e %{count} persoas máis
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'

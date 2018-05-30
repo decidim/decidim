@@ -4,7 +4,7 @@ uk:
       participatory_process:
         announcement: Оголошення
         banner_image: Банерне зображення
-        copy_categories: Скопіювати розділи
+        copy_categories: Скопіювати розряди
         copy_steps: Скопіювати кроки
         description: Опис
         developer_group: Група зачинальників
@@ -18,16 +18,16 @@ uk:
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
-        published_at: 'Опубліковано:'
+        published_at: 'Оприлюднено:'
         scope_id: Терен
-        scopes_enabled: Ввімкнені терени
+        scopes_enabled: Терени увімкнено
         short_description: Стислий опис
         show_statistics: Показувати статистику
-        slug: Скорочена URL-адреса
+        slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
       participatory_process_group:
         description: Опис
         hero_image: Зображення
@@ -38,7 +38,7 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
@@ -54,9 +54,9 @@ uk:
         edit: Редагувати
         new: Додати
         preview: Попередній перегляд
-        publish: Опублікувати
+        publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
-        unpublish: Скасувати публікацію
+        unpublish: Скасувати оприлюднення
       menu:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
@@ -64,18 +64,20 @@ uk:
           attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
-          categories: Розділи
+          categories: Розряди
           info: Інформація
           moderations: Дії з модерації
+          private_users: Приховані учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
         participatory_process:
           fields:
             created_at: 'Додано:'
+            private: Приватний
             promoted: Висвітлено
-            published: Опубліковано
-            title: Заголовок
+            published: Оприлюднено
+            title: Назва
           name: Рух співучасті
         participatory_process_group:
           fields:
@@ -85,7 +87,7 @@ uk:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
-            title: Заголовок
+            title: Назва
           name: Крок руху співучасті
         participatory_process_user_role:
           fields:
@@ -120,11 +122,11 @@ uk:
           success: Групу рухів співучасті успішно оновлено.
       participatory_process_publications:
         create:
-          error: При публікації цього руху співучасті сталася помилка.
-          success: Рух співучасті успішно опубліковано.
+          error: При оприлюдненні цього руху співучасті сталася помилка.
+          success: Рух співучасті успішно оприлюднено.
         destroy:
-          error: При скасуванні публікації цього руху співучасті сталася помилка.
-          success: Публікацію руху співучасті успішно скасовано.
+          error: При скасуванні оприлюднення цього руху співучасті сталася помилка.
+          success: Оприлюднення руху співучасті успішно скасовано.
       participatory_process_step_activations:
         create:
           error: При започаткуванні цього кроку руху співучасті сталася помилка.
@@ -145,7 +147,7 @@ uk:
         index:
           steps_title: Кроки
         new:
-          create: Створити
+          create: Додати
           title: Новий крок руху співучасті
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
@@ -163,7 +165,7 @@ uk:
         index:
           process_admins_title: Учасники руху співучасті
         new:
-          create: Створити
+          create: Додати
           title: Новий учасник руху співучасті.
         update:
           success: Учасника цього руху співучасті успішно оновлено.
@@ -178,8 +180,9 @@ uk:
         form:
           title: Загальна інформація
         index:
-          not_published: Не опубліковано
-          published: Опубліковано
+          not_published: Не оприлюднено
+          private: Приватний
+          published: Оприлюднено
         new:
           create: Створити
           title: Новий рух співучасті
@@ -215,11 +218,11 @@ uk:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Рухи співучасті
       order_by_processes:
@@ -244,6 +247,7 @@ uk:
         local_area: Терен організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
+        private_space: Це приватний процес
         scope: Терен
         start_date: Дата початку
         target: Хто бере участь
@@ -256,7 +260,7 @@ uk:
         orders_count: Голоси
         pages_count: Сторінки
         processes_count: Рухи
-        projects_count: Проекти
+        projects_count: Задуми
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування

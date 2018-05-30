@@ -251,6 +251,7 @@ eu:
           remaining_slots:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
+          view: ikusi
       models:
         meeting:
           fields:

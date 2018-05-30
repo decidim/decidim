@@ -251,6 +251,7 @@ gl:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+          view: Ver
       models:
         meeting:
           fields:

@@ -261,6 +261,7 @@ pl:
             few: "Pozostało %{count}"
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
+          view: Widok
       models:
         meeting:
           fields:

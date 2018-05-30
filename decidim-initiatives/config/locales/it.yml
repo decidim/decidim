@@ -283,8 +283,13 @@ it:
           comments_count_title: Commenti
           meetings_count_title: incontri
           supports_count_title: firme
+        supports:
+          title: Elenco delle firme
         vote_cabin:
+          already_voted: Già firmato
+          supports_required: "%{total_supports} firme richieste"
           vote: Cartello
+          votes_blocked: Firma disabilitata
         votes_count:
           count:
             one: FIRMA

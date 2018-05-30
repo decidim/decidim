@@ -311,10 +311,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        identities_listing:
-          see_all: Se alla
-          see_less: Se mindre
-          title: Förteckning över godkännanden
         index:
           new_proposal: Nytt förslag
           see_all_withdrawn: Se alla återtagna förslag
@@ -343,6 +339,10 @@ sv:
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
+          endorsements_list: Förteckning över godkännanden
+          hidden_endorsers_count:
+            one: och ytterligare 1 person
+            other: och %{count} fler personer
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'

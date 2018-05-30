@@ -251,6 +251,7 @@ pt:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+          view: Visão
       models:
         meeting:
           fields:

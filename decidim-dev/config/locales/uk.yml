@@ -5,7 +5,7 @@ uk:
         created_at: 'Створено:'
         field: Моє поле
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
         updated_at: 'Оновлено:'
   decidim:
     dummy:
