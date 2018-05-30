@@ -8,6 +8,7 @@ pt-BR:
         end_voting_date: Data final
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
+        questions: Perguntas
         slug: Lesma de URL
         start_voting_date: Data de início
         subtitle: Legenda
@@ -42,7 +43,7 @@ pt-BR:
         other: Consultas
       decidim/consultations/question:
         one: Pergunta
-        other: Questões
+        other: Perguntas
       decidim/consultations/response:
         one: Resposta
         other: Respostas
@@ -83,7 +84,7 @@ pt-BR:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova consulta
         update:
           error: Ocorreu um erro ao atualizar esta consulta.
@@ -143,7 +144,7 @@ pt-BR:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova pergunta
         update:
           error: Ocorreu um erro ao atualizar esta questão.
@@ -160,7 +161,7 @@ pt-BR:
         form:
           title: Informação geral
         new:
-          create: Crio
+          create: Criar
           title: Nova resposta
         update:
           error: Houve um erro ao atualizar essa resposta.
@@ -196,11 +197,8 @@ pt-BR:
         filter: Filtro
         filter_by: Filtrar por
         unfold: Desdobrar
-      finished:
-        active_consultations: Consultas ativas
-        past_consultations: Consultas anteriores
       highlighted_questions:
-        title: Consultas de %{scope_name}
+        title: Perguntas de %{scope_name}
       index:
         title: Consultas
       question:
@@ -213,9 +211,19 @@ pt-BR:
         create:
           error: Houve erros ao votar a questão
       regular_questions:
-        title: Outras consultas
+        title: Perguntas para esta consulta
       show:
-        see_finished_consultations: Veja as consultas anteriores
+        badge_name:
+          finished: Acabado
+          open: Abrir
+          open_votes: Votos abertos
+          published_results: Resultados publicados
+        footer_button_text:
+          debate: Debate
+          view: Visualizar
+          view_results: Ver resultados
+          vote: Votar
+        unspecified: Não especificado
     menu:
       consultations: Consultas
     pages:
@@ -240,7 +248,7 @@ pt-BR:
         starting_from: A partir de %{date}
         vote: Voto
       vote_modal:
-        contextual_help: Por favor selecione uma opção. Tenha em mente que uma vez que você confirmou seu apoio não pode ser alterado.
+        contextual_help: Selecione uma opção.
         title: 'Consulta: suporte a perguntas'
       vote_modal_confirm:
         change: mudança

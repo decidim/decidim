@@ -109,4 +109,7 @@ eu:
           survey_closed:
             body: Inkesta itxita dago eta ezin da erantzun.
             title: Inkesta itxia
+          survey_for_private_users:
+            body: Iragarkia erabiltzaile pribatuentzako soilik dago erabilgarri
+            title: Inkesta itxia
           tos_agreement: Inkestan parte hartuz, Zerbitzu-baldintzak onartzen dituzu

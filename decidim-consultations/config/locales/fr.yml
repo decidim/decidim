@@ -8,6 +8,7 @@ fr:
         end_voting_date: Date de fin
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
+        questions: Des questions
         slug: URL slug
         start_voting_date: Date de début
         subtitle: Sous-titre
@@ -196,11 +197,8 @@ fr:
         filter: Filtre
         filter_by: Filtrer par
         unfold: Se dérouler
-      finished:
-        active_consultations: Consultations actives
-        past_consultations: Consultations antérieures
       highlighted_questions:
-        title: Consultations de %{scope_name}
+        title: Questions de %{scope_name}
       index:
         title: Consultations
       question:
@@ -213,9 +211,19 @@ fr:
         create:
           error: Il y a eu des erreurs lors du vote de la question
       regular_questions:
-        title: Autres consultations
+        title: Questions pour cette consultation
       show:
-        see_finished_consultations: Voir les consultations précédentes
+        badge_name:
+          finished: Fini
+          open: Ouvrir
+          open_votes: Votes ouverts
+          published_results: Résultats publiés
+        footer_button_text:
+          debate: Débat
+          view: Vue
+          view_results: Voir les résultats
+          vote: Vote
+        unspecified: Non précisé
     menu:
       consultations: Consultations
     pages:
@@ -240,7 +248,7 @@ fr:
         starting_from: À partir de %{date}
         vote: Vote
       vote_modal:
-        contextual_help: Veuillez sélectionner une option. Gardez à l'esprit qu'une fois que vous avez confirmé votre soutien ne peut pas être changé.
+        contextual_help: Veuillez sélectionner une option.
         title: 'Consultation: soutien aux questions'
       vote_modal_confirm:
         change: Changement

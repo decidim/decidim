@@ -9,14 +9,14 @@ fr:
         proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
-        available_slots: Places disponibles pour cette réunion
+        available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
-        private_meeting: Réunion privée
+        private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
@@ -28,17 +28,17 @@ fr:
         video_url: URL de la vidéo
         visible: Est visible
     models:
-      decidim/meetings/close_meeting_event: Réunion fermée
-      decidim/meetings/create_meeting_event: Réunion
+      decidim/meetings/close_meeting_event: Rencontre fermée
+      decidim/meetings/create_meeting_event: Rencontre
       decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
       decidim/meetings/meeting_registrations_over_percentage_event: Inscriptions à la limite
-      decidim/meetings/upcoming_meeting_event: Prochaine réunion
-      decidim/meetings/update_meeting_event: Réunion mise à jour
+      decidim/meetings/upcoming_meeting_event: Prochaine rencontre
+      decidim/meetings/update_meeting_event: Rencontre mise à jour
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Réunion
-        other: Réunions
+        one: Rencontre
+        other: Rencontre
       decidim/meetings/minutes:
         one: Minutes
         other: Minutes
@@ -49,17 +49,17 @@ fr:
     admin:
       meeting_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette assemblée.
-          success: Cette assemblée a été dupliquée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette rencontre.
+          success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer une assemblée
+          title: Dupliquer une rencontre
     components:
       meetings:
         actions:
           join: Rejoindre
-        name: Réunions
+        name: Rencontres
         settings:
           global:
             announcement: Annonce
@@ -71,35 +71,35 @@ fr:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La réunion "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La réunion "%{resource_title}" a été fermée
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été fermée.
+          email_intro: 'La rencontre "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_subject: La rencontre "%{resource_title}" a été fermée
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_created:
-          email_intro: La réunion "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
+          email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: Nouvelle réunion ajoutée à %{participatory_space_title}
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
+          email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: Le nombre de places occupées par la réunion "%{resource_title}" est supérieur à %{percentage}%.
-          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la réunion.
-          email_subject: Les places occupées par la réunion "%{resource_title}" sont au-dessus de %{percentage}%
-          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de réunion occupées occupent plus de %{percentage}%.
+          email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
+          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la rencontre.
+          email_subject: Les places occupées par la rencontre "%{resource_title}" sont au-dessus de %{percentage}%
+          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre occupées occupent plus de %{percentage}%.
         meeting_updated:
-          email_intro: 'La réunion "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La réunion "%{resource_title}" a été mise à jour
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_subject: La rencontre "%{resource_title}" a été mise à jour
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registrations_enabled:
-          email_intro: 'La réunion "%{resource_title}" a activé les enregistrements. Vous pouvez vous inscrire sur sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La réunion "%{resource_title}" a activé les enregistrements.
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a activé les enregistrements.
+          email_intro: 'La rencontre "%{resource_title}" a activé les enregistrements. Vous pouvez vous inscrire sur sa page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_subject: La rencontre "%{resource_title}" a activé les enregistrements.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a activé les enregistrements.
         upcoming_meeting:
-          email_intro: La réunion "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La réunion "%{resource_title}" commencera dans moins de 48h.
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+          email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     meetings:
       actions:
         attachment_collections: Dossier
@@ -197,26 +197,26 @@ fr:
             success: Les paramètres d'inscriptions ont été enregistrés avec succès.
       admin_log:
         meeting:
-          close: "%{user_name} a fermé la réunion %{resource_name} sur l'espace %{space_name}"
-          create: "%{user_name} a créé la réunion %{resource_name} sur l'espace %{space_name}"
-          delete: "%{user_name} a supprimé la réunion %{resource_name} sur l'espace %{space_name}"
-          export_registrations: "%{user_name} a exporté les enregistrements de la réunion %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour la réunion %{resource_name} sur l'espace %{space_name}"
+          close: "%{user_name} a fermé la rencontre %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a créé la rencontre %{resource_name} sur l'espace %{space_name}"
+          delete: "%{user_name} a supprimé la rencontre %{resource_name} sur l'espace %{space_name}"
+          export_registrations: "%{user_name} a exporté les enregistrements de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour la rencontre %{resource_name} sur l'espace %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
         minutes:
-          create: "%{user_name} a créé le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le procès-verbal de la réunion %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a créé le procès-verbal de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le procès-verbal de la rencontre %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitation à participer à une réunion
+            subject: Invitation à participer à une rencontre
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
       meeting:
-        not_allowed: Vous n'êtes pas autorisé à voir cette réunion
+        not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meetings:
         filters:
           category: Catégorie
@@ -234,7 +234,7 @@ fr:
           view_meeting: Voir la rencontre
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
-          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontre planifiées, mais ici, vous trouverez une liste de toutes les réunions passées.
+          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées, mais ici, vous trouverez une liste de toutes les rencontres passées.
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -243,7 +243,7 @@ fr:
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
-          meeting_minutes: Comptes rendus des réunions
+          meeting_minutes: Comptes rendus des rencontre
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
@@ -251,6 +251,7 @@ fr:
           remaining_slots:
             one: Il reste 1 place
             other: "Il reste %{count} places"
+          view: Vue
       models:
         meeting:
           fields:
@@ -272,28 +273,28 @@ fr:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       types:
-        private_meeting: Réunion privée
+        private_meeting: Rencontre privée
         transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Réunions passées
-          upcoming_meetings: Réunions à venir
+          past_meetings: Rencontres passées
+          upcoming_meetings: Rencontres à venir
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Réunions passées
-        see_all_meetings: Voir toutes les réunions
-        upcoming_meetings: Réunions à venir
+        past_meetings: Rencontres passées
+        see_all_meetings: Voir toutes les rencontres
+        upcoming_meetings: Rencontres à venir
       upcoming_meeting_for_card:
-        upcoming_meeting: Prochaine réunion
+        upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Résultats associés :'
-        result_meetings: 'Rencontres associées :'
+        meeting_result: 'Résultats associés :'
+        result_meeting: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposals: 'Propositions créées lors de cette rencontre :'
-        proposal_meetings: 'Rencontre associées :'
+        meeting_proposal: 'Propositions créées lors de cette rencontre :'
+        proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:
       join_meeting:
-        subject: Invitation à participer à une réunion
+        subject: Invitation à participer à une rencontre

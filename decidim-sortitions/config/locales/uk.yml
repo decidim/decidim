@@ -3,11 +3,11 @@ uk:
     attributes:
       sortition:
         additional_info: Жеребкування інформації
-        title: Заголовок
+        title: Назва
   decidim:
     sortitions:
       admin:
         models:
           sortition:
             fields:
-              title: Заголовок
+              title: Назва

@@ -36,7 +36,7 @@ pt-BR:
             success: Projeto destruído com sucesso
           edit:
             title: Editar projeto
-            update: Actualizar
+            update: Atualizar
           index:
             finished_orders: Votos finais
             pending_orders: Votações pendentes
@@ -137,7 +137,7 @@ pt-BR:
         success: Seu voto foi cancelado com sucesso
     resource_links:
       included_proposals:
-        project_proposals: 'Propostas incluídas neste projeto:'
+        project_proposal: 'Propostas incluídas neste projeto:'
   index:
     confirmed_orders_count: Contagem de votos
   total_budget: Orçamento total

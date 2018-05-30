@@ -2,22 +2,37 @@ uk:
   activemodel:
     attributes:
       debate:
-        category_id: Розділ
+        category_id: Розряд
+        decidim_category_id: Розряд
         description: Опис
         end_time: 'Завершується:'
         information_updates: Оновлення відомостей
         instructions: Вказівки до участі
         start_time: 'Розпочато: '
-        title: Заголовок
+        title: Назва
         user_group_id: Створити обговорення як
+    models:
+      decidim/debates/create_debate_event: Обговорення
+      decidim/debates/creation_disabled_event: Обговорення вимкнене
+      decidim/debates/creation_enabled_event: Обговорення увімкнене
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Обговорення
+        few: Обговорення
+        many: Обговорень
+        other: Обговорень
   decidim:
     components:
       debates:
+        actions:
+          create: Створити
+        name: Обговорення
         settings:
           global:
-            comments_enabled: Коментарі ввімкнено
+            comments_enabled: Коментарі увімкнено
           step:
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
             creation_enabled: Увімкнено створення обговорень учасниками
     debates:
       actions:
@@ -29,6 +44,7 @@ uk:
       admin:
         debates:
           create:
+            invalid: При спробі створити обговорення сталася помилка.
             success: Обговорення успішно створено.
           destroy:
             success: Обговорення успішно видалено.
@@ -41,10 +57,15 @@ uk:
             create: Створити обговорення
             title: Нове обговорення
           update:
+            invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
         models:
           debate:
             name: Обговорення
+      admin_log:
+        debate:
+          create: "%{user_name} додав обговорення %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив обговорення %{resource_name} у просторі %{space_name}"
       debates:
         count:
           debates_count:
@@ -53,15 +74,16 @@ uk:
             many: "%{count} обговорень"
             other: "%{count} обговорень"
         create:
+          invalid: При спробі створити обговорення сталася помилка.
           success: Обговорення успішно створено.
         debate:
           participate: Взяти участь
         filters:
           all: Усі
-          category: Розділ
-          category_prompt: Оберіть розділ
+          category: Розряд
+          category_prompt: Оберіть розряд
           citizens: Громадяни
-          official: Офіційне
+          official: Службове
           origin: Походження
           search: Шукати
         filters_small_view:
@@ -74,7 +96,7 @@ uk:
         new:
           back: Назад
           create: Створити
-          select_a_category: Будь ласка, оберіть розділ
+          select_a_category: Будь ласка, оберіть розряд
           title: Нове обговорення
         share:
           close_window: Закрити вікно
@@ -84,13 +106,23 @@ uk:
         debate:
           fields:
             end_time: Дата закінчення
-            official_debate: Офіційне обговорення
+            official_debate: Службове обговорення
             start_time: Дата початку
-            title: Заголовок
+            title: Назва
     events:
       debates:
         create_debate_event:
           space_followers:
+            email_intro: |-
+              Доброго дня!,
+              В просторі співучасті %{space_title} розпочалось нове обговорення. Прочитайте його та зробіть свій внесок:
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за простором співучасті %{space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
             email_subject: Нове обговорення у %{space_title}
+            notification_title: <a href="%{space_path}">%{space_title} </a> розпочав обговорення у <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
+            email_intro: |-
+              Доброго дня! 
+              %{author_name} %{author_nickname}, за яким ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій внесок:
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
             email_subject: Нове обговорення, створене %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.

@@ -113,4 +113,7 @@ pl:
           survey_closed:
             body: Ankieta jest zamknięta i nie można jej odpowiedzieć.
             title: Ankieta zamknięta
+          survey_for_private_users:
+            body: Ankieta jest dostępna tylko dla użytkowników prywatnych
+            title: Ankieta została zamknięta
           tos_agreement: Uczestnicząc w tym ankiecie akceptujesz Warunki korzystania z usługi

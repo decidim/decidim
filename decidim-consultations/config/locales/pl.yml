@@ -8,6 +8,7 @@ pl:
         end_voting_date: Data końcowa
         introductory_image: Obraz wprowadzający
         introductory_video_url: Wprowadzający adres URL filmu
+        questions: pytania
         slug: Strumień URL
         start_voting_date: Data rozpoczęcia
         subtitle: Podtytuł
@@ -212,11 +213,8 @@ pl:
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwijać się
-      finished:
-        active_consultations: Aktywne konsultacje
-        past_consultations: Wcześniejsze konsultacje
       highlighted_questions:
-        title: Konsultacje od %{scope_name}
+        title: Pytania od %{scope_name}
       index:
         title: Konsultacje
       question:
@@ -231,9 +229,19 @@ pl:
         create:
           error: Wystąpiły błędy podczas głosowania na pytanie
       regular_questions:
-        title: Inne konsultacje
+        title: Pytania do tej konsultacji
       show:
-        see_finished_consultations: Zobacz poprzednie konsultacje
+        badge_name:
+          finished: Skończone
+          open: otwarty
+          open_votes: Otwarte głosy
+          published_results: Wyniki opublikowane
+        footer_button_text:
+          debate: Debata
+          view: Widok
+          view_results: Pokaż wyniki
+          vote: Głosować
+        unspecified: Nieokreślony
     menu:
       consultations: Konsultacje
     pages:
@@ -258,7 +266,7 @@ pl:
         starting_from: Począwszy od %{date}
         vote: Głosować
       vote_modal:
-        contextual_help: Proszę wybrać opcję. Pamiętaj, że po potwierdzeniu Twoja pomoc techniczna nie może zostać zmieniona.
+        contextual_help: Proszę wybrać opcję.
         title: 'Konsultacje: wsparcie pytania'
       vote_modal_confirm:
         change: Zmiana
