@@ -145,7 +145,7 @@ uk:
         success: Ваш голос було успішно скасовано
     resource_links:
       included_proposals:
-        project_proposals: 'Пропозиції, включені до цього задуму:'
+        project_proposal: 'Пропозиції, включені до цього задуму:'
   index:
     confirmed_orders_count: Кількість голосів
   total_budget: Загальний кошторис
