@@ -9,6 +9,13 @@ uk:
         document_type: Тип вашого документа
         user: Учасник
         verification_attachment: Сканована копія вашого документа
+      postal_letter_address:
+        full_address: Повна адреса
+      postal_letter_confirmation:
+        verification_code: Перевірочний код
+      postal_letter_postage:
+        full_address: Повна адреса
+        verification_code: Перевірочний код
   decidim:
     admin:
       menu:
