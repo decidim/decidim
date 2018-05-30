@@ -73,7 +73,7 @@ pt-BR:
             success: Resultado atualizado com sucesso
         shared:
           subnav:
-            statuses: Status
+            statuses: Statuses
         statuses:
           create:
             invalid: Tem havido um problema ao criar esse status
@@ -133,7 +133,7 @@ pt-BR:
         timeline_entry:
           fields:
             description: Descrição
-            entry_date: Encontro
+            entry_date: Data
       results:
         count:
           results_count:
@@ -157,7 +157,7 @@ pt-BR:
             back_to_result: Volte ao resultado
             comments: Comentários
             contributions: Contribuições
-            last_edited_by: Última edição por
+            last_edited_by: Editado pela última vez por
             last_updated_at: Última atualização em
             meetings: Reuniões
             number_of_versions: Versões
@@ -209,6 +209,6 @@ pt-BR:
         see_all_results: Ver todos os resultados
     resource_links:
       included_projects:
-        result_projects: Projetos incluídos neste resultado
+        result_project: Projetos incluídos neste resultado
       included_proposals:
-        result_proposals: Propostas incluídas neste resultado
+        result_proposal: Propostas incluídas neste resultado
