@@ -5,7 +5,6 @@ module Decidim
     # The data store for question's votes in the Decidim::Consultations component.
     class Vote < ApplicationRecord
       include Authorable
-      include Decidim::DataPortability
 
       belongs_to :question,
                  foreign_key: "decidim_consultation_question_id",
@@ -22,14 +21,6 @@ module Decidim
       validates :author, uniqueness: { scope: [:decidim_user_group_id, :question] }
 
       delegate :organization, to: :question
-
-      def self.user_collection(user)
-        where(decidim_author_id: user.id)
-      end
-
-      def self.export_serializer
-        Decidim::Consultations::DataPortabilityVoteSerializer
-      end
     end
   end
 end

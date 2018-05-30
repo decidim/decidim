@@ -14,7 +14,8 @@ module Decidim
 
     describe "#make_zip" do
       let(:make_zip) { subject.make_zip }
-      let(:file_path) { subject.file_path.to_s }
+      let(:token) { SecureRandom.base58(10) }
+      let(:file_path) { Decidim::DataPortabilityUploader.new.store_dir + "#{user.nickname}-#{user.organization.name.parameterize}-#{token}.zip" }
 
       it "zips a file" do
         Zip::InputStream.open(StringIO.new(file_path)) do |io|

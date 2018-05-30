@@ -7,7 +7,7 @@ module Decidim
     subject { DataPortabilityFileReader.new(user, token) }
 
     let(:user) { create :user }
-    let(:token) { Digest::SHA256.hexdigest(Time.current.to_s)[0..9] }
+    let(:token) { SecureRandom.base58(10) }
 
     describe "#file_name" do
       it "expects the filename" do
@@ -17,7 +17,7 @@ module Decidim
 
     describe "#file_path" do
       it "expects the full path of file" do
-        Rails.root.join("tmp", "data-portability", "#{user.nickname}-#{user.organization.name.parameterize}-#{token}.zip")
+        Decidim::DataPortabilityUploader.new.store_dir + "#{user.nickname}-#{user.organization.name.parameterize}-#{token}.zip"
       end
     end
 
