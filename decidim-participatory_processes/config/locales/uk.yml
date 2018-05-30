@@ -13,13 +13,13 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцева ділянка
-        meta_scope: Метадані терену
+        meta_scope: Метадані обсягу
         participatory_process_group_id: Група рухів
-        participatory_scope: Терен співучасті
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
         published_at: 'Оприлюднено:'
-        scope_id: Терен
+        scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         show_statistics: Показувати статистику
@@ -252,7 +252,7 @@ uk:
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний процес
-        scope: Терен
+        scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
         unspecified: Не визначено
