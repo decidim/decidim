@@ -83,10 +83,17 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "updates the collaborative_draft" do
+          it "updates the collaborative draft" do
             expect do
               command.call
             end.to change(collaborative_draft, :title)
+          end
+
+          it "creates a new version for the collaborative draft", versioning: true do
+            expect do
+              command.call
+            end.to change { collaborative_draft.versions.count }.by(1)
+            expect(collaborative_draft.versions.last.whodunnit).to eq author.to_gid.to_s
           end
 
           context "with an author" do
