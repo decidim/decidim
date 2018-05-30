@@ -21,14 +21,16 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        @organization = nil
+        invite_form = nil
 
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
           invite_form = invite_user_form(@organization)
           return broadcast(:invalid) if invite_form.invalid?
-          Decidim::InviteUser.call(invite_form)
         end
+        Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
