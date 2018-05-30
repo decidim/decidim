@@ -89,14 +89,18 @@ uk:
         new:
           create: Створити
           title: Новий учасник зборів.
+        update:
+          success: Учасника цих зборів успешно оновлено.
       menu:
         assemblies: Збори
         assemblies_submenu:
           assembly_admins: Учасники зборів
+          assembly_members: Президія
           attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розряди
+          components: Складові
           info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
@@ -109,6 +113,18 @@ uk:
             published: Оприлюднено
             title: Назва
           name: Збори
+        assembly_member:
+          fields:
+            ceased_date: Дата припинення повноважень
+            designation_date: Дата призначення
+            full_name: Ім'я
+            position: Посада
+          name: Член президії
+          positions:
+            other: Інше
+            president: Головуючий
+            secretary: Секретар
+            vice_president: Заступник головуючого
         assembly_user_role:
           fields:
             email: Адреса електронної пошти
@@ -121,6 +137,12 @@ uk:
             moderator: Модератор
       titles:
         assemblies: Збори
+    admin_log:
+      assembly:
+        create: "%{user_name} додав збори %{resource_name}"
+        publish: "%{user_name} оприлюднив збори %{resource_name}"
+        unpublish: "%{user_name} скасував оприлюднення зборів %{resource_name}"
+        update: "%{user_name} оновив збори %{resource_name}"
     assemblies:
       admin:
         assemblies:
