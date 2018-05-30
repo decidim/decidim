@@ -421,9 +421,9 @@ pl:
         success: Projekt propozycji został pomyślnie zaktualizowany.
     resource_links:
       copied_from_component:
-        proposal_proposals: Powiązane propozycje
+        proposal_proposal: Powiązane propozycje
       included_projects:
-        project_results: 'Wyniki pojawiające się w tym projekcie:'
+        project_result: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:
-        proposal_projects: 'Propozycja występująca w tych projektach:'
-        proposal_results: 'Propozycja pojawiająca się w tych wynikach:'
+        proposal_project: 'Propozycja występująca w tych projektach:'
+        proposal_result: 'Propozycja pojawiająca się w tych wynikach:'
