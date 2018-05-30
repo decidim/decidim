@@ -289,11 +289,11 @@ nl:
         upcoming_meeting: Aankomende vergadering
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Gerelateerde resultaten:'
-        result_meetings: 'Gerelateerde vergaderingen:'
+        meeting_result: 'Gerelateerde resultaten:'
+        result_meeting: 'Gerelateerde vergaderingen:'
       proposals_from_meeting:
-        meeting_proposals: 'Gerelateerde voorstellen:'
-        proposal_meetings: 'Gerelateerde vergaderingen:'
+        meeting_proposal: 'Gerelateerde voorstellen:'
+        proposal_meeting: 'Gerelateerde vergaderingen:'
   devise:
     mailer:
       join_meeting:
