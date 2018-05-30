@@ -299,6 +299,7 @@ eu:
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak
           evaluating: Ebaluatzen
+          except_rejected: Guztiak baztertuak izan ezik
           official: Ofiziala
           origin: Jatorria
           rejected: Ukatua
