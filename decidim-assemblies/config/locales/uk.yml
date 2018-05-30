@@ -30,7 +30,7 @@ uk:
         internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
         local_area: Місцева ділянка
-        meta_scope: Метадані обсягу
+        meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
@@ -109,7 +109,7 @@ uk:
       assembly_copies:
         new:
           copy: Скопіювати
-          select: Оберіть дані, копію яких ви хотіли б створити
+          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зборів
       assembly_members:
         create:
