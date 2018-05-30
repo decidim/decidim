@@ -299,6 +299,7 @@ fi:
           category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           evaluating: Arvioitavana
+          except_rejected: Kaikki paitsi hylätty
           official: Virallinen
           origin: Alkuperä
           rejected: Hylätty
