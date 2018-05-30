@@ -299,6 +299,7 @@ es:
           category_prompt: Selecciona una categoría
           citizens: Ciudadanía
           evaluating: En evaluación
+          except_rejected: Todos excepto rechazados
           official: Oficial
           origin: Origen
           rejected: Rechazadas
