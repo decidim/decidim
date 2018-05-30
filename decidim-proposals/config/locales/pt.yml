@@ -403,9 +403,9 @@ pt:
         success: Rascunho da proposta atualizado com sucesso.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecem neste projeto:'
+        project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nesses projetos:'
-        proposal_results: 'Proposta que aparece nesses resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'
