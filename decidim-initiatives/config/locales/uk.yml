@@ -3,8 +3,33 @@ uk:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        scope_id: Обсяг
   decidim:
+    admin:
+      models:
+        initiatives_type_scope:
+          fields:
+            scope: Обсяг
+          name: Обсяг разновиду почину
     initiatives:
+      admin:
+        initiatives_type_scopes:
+          create:
+            success: Було створено новий обсяг для даного різновиду почину
+          destroy:
+            success: Обсяг було успішно вилучено
+          edit:
+            title: Редагувати обсяг разновиду почину
+          new:
+            title: Створити обсяг разновиду почину
+          update:
+            success: Обсяг було успішно оновлено
+        initiatives_types:
+          initiative_type_scopes:
+            title: Обсяги для цього різновиду почину
+      create_initiative:
+        fill_data:
+          select_scope: Оберіть обсяг
       events:
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступну ініціятиву. Чи не бажаєте ви зробити свій внесок у розмову:"
