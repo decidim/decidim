@@ -43,12 +43,12 @@ module Decidim
           body: form.body,
           category: form.category,
           scope: form.scope,
-          author: current_user,
-          decidim_user_group_id: user_group.try(:id),
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
         )
+        @proposal.coauthorships.clear
+        @proposal.add_coauthor(current_user, decidim_user_group_id: user_group&.id)
       end
 
       def proposal_limit_reached?
@@ -72,11 +72,13 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: current_user, component: form.current_component).published.where.not(id: proposal.id)
+        ids= Decidim::Coauthorship.where(coauthorable_type: "Decidim::Proposals::Proposal", author: current_user).pluck(:coauthorable_id)
+        Proposal.where(id: ids, component: form.current_component).published.where.not(id: proposal.id)
       end
 
       def user_group_proposals
-        Proposal.where(user_group: user_group, component: form.current_component).published.where.not(id: proposal.id)
+        ids= Decidim::Coauthorship.where(coauthorable_type: "Decidim::Proposals::Proposal", user_group: user_group).pluck(:coauthorable_id)
+        Proposal.where(id: ids, component: form.current_component).published.where.not(id: proposal.id)
       end
     end
   end

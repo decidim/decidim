@@ -55,11 +55,7 @@ module Decidim
           latitude: form.latitude,
           longitude: form.longitude
         )
-        Decidim::Coauthorship.create(
-          coauthorable: @proposal,
-          author: @current_user,
-          decidim_user_group_id: form.user_group_id
-        )
+        proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
       end
 
       def build_attachment
@@ -115,11 +111,13 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: @current_user, component: form.current_component).except_withdrawn
+        ids= Decidim::Coauthorship.where(author: @current_user, coauthorable_type: "Decidim::Proposals::Proposal").pluck(:coauthorable_id)
+        Proposal.where(id: ids, component: form.current_component).except_withdrawn
       end
 
       def user_group_proposals
-        Proposal.where(user_group: @user_group, component: form.current_component).except_withdrawn
+        ids= Decidim::Coauthorship.where(user_group: @user_group, coauthorable_type: "Decidim::Proposals::Proposal").pluck(:coauthorable_id)
+        Proposal.where(id: ids, component: form.current_component).except_withdrawn
       end
     end
   end

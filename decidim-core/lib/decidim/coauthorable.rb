@@ -30,6 +30,27 @@ module Decidim
       def identities
         coauthorships.collect(&:identity)
       end
+
+      # Syntactic sugar to access first coauthor
+      def creator_author
+        authors.first
+      end
+
+      # Syntactic sugar to access first coauthor
+      def creator_user_group
+        user_groups.first
+      end
+
+      # Adds a new coauthor to the list of coauthors. The coauthorship is created with
+      # current object as coauthorable and `user` param as author. To set the user group
+      # use `extra_attrs` either with `user_group` or `decidim_user_group_id` keys.
+      #
+      # @param user: The new coauthor.
+      # @extra_attrs: Extra
+      def add_coauthor(user, extra_attrs={})
+        attrs= {coauthorable: self, author: user,}
+        Decidim::Coauthorship.create!(attrs.merge(extra_attrs))
+      end
     end
   end
 end

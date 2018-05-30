@@ -177,7 +177,7 @@ shared_examples "a proposal form" do |options|
 
   if options && options[:user_group_check]
     it "properly maps user group id from model" do
-      proposal = create(:proposal, component: component, author: author, decidim_user_group_id: user_group_id)
+      proposal = create(:proposal, component: component, users: [author], decidim_user_group_id: user_group_id)
 
       expect(described_class.from_model(proposal).user_group_id).to eq(user_group_id)
     end
