@@ -248,7 +248,13 @@ uk:
       participatory_process:
         step_activated:
           email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
+          notification_title: Започатковано крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
+          email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
           notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
