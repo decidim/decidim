@@ -76,8 +76,7 @@ uk:
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
       area:
-        create: "%{user_name} додав терен %{resource_name}"
-        delete: "%{user_name} видалив терен %{resource_name}"
+        create: "%{user_name} додав ділянку %{resource_name}"
         update: "%{user_name} оновив терен %{resource_name}"
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
