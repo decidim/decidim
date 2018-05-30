@@ -191,6 +191,7 @@ it:
         new:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
+          newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo identificatore univoco breve in %{organization}
           sign_in: Accedi
           sign_up: Iscriviti
@@ -201,12 +202,19 @@ it:
           subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
+          tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
+        newsletter_modal:
+          buttons:
+            check: Controlla e continua
+            uncheck: Continua a deselezionare
+          notice: Ehi, sei sicuro di non voler ricevere una newsletter? Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto. Per noi è molto importante che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche. Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma. Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione. Grazie per aver letto questo!
+          title: Notifiche alla newsletter
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -281,7 +289,7 @@ it:
     followers:
       no_followers: Nessun follower ancora.
     following:
-      no_followings: Ancora nessun seguito.
+      no_followings: Non segue nessuno o niente ancora.
     follows:
       create:
         button: Seguire
@@ -424,7 +432,7 @@ it:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         followers: Seguaci
-        following: A seguire
+        following: segue
         notifications: notifiche
       user:
         edit_profile: Modifica Profilo
