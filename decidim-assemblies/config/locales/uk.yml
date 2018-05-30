@@ -2,23 +2,33 @@ uk:
   activemodel:
     attributes:
       assembly:
+        area_id: Ділянка
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
+        closing_date: Дата закриття
+        closing_date_reason: Причина дати закриття
+        composition: Склад
         copy_categories: Скопіювати розряди
+        copy_components: Копіювати складові
         copy_features: Скопіювати складові
+        created_by: 'Створено:'
+        created_by_other: Створено кимось іншим
+        creation_date: Дата створення
+        decidim_area_id: Ділянка
+        decidim_scope_id: Обсяг
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Терен
-        meta_scope: Метадані терену
-        participatory_scope: Терен співучасті
+        local_area: Місцева ділянка
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
-        scope_id: Терен
-        scopes_enabled: Терени увімкнено
+        scope_id: Обсяг
+        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         subtitle: Підзаголовок
@@ -71,6 +81,8 @@ uk:
         new:
           create: Створити
           title: Новий учасник зборів.
+        update:
+          success: Учасника цих зборів успешно оновлено.
       menu:
         assemblies: Збори
         assemblies_submenu:
@@ -79,6 +91,7 @@ uk:
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розряди
+          components: Складові
           info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
@@ -103,15 +116,40 @@ uk:
             moderator: Модератор
       titles:
         assemblies: Збори
+    admin_log:
+      assembly:
+        create: "%{user_name} додав збори %{resource_name}"
+        publish: "%{user_name} оприлюднив збори %{resource_name}"
+        unpublish: "%{user_name} скасував оприлюднення зборів %{resource_name}"
+        update: "%{user_name} оновив збори %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} запросив %{resource_name} до зборів %{space_name}"
+        delete: "%{user_name} видалив учасника %{resource_name} зі зборів %{space_name}"
+        update: "%{user_name} змінив роль %{resource_name} у зборах %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Оберіть терен
+            select_a_created_by: Оберіть, ким створені
+            select_an_area: Оберіть ділянку
+            select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            social_handlers: Соціальні мережі
         assembly_copies:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+      assembly_types:
+        commission: Комісія
+        consultative_advisory: Дорадчі / Консультативні
+        executive: Виконавчі
+        government: Урядові
+        others: Інші
+        participatory: Співучасні
+        working_group: Робоча група
+      created_by:
+        city_council: Міська рада
+        others: Інше
+        public: Громадяни
       index:
         title: Збори
       pages:
@@ -120,13 +158,14 @@ uk:
             active_assemblies: Започаті збори
             see_all_assemblies: Переглянути всі збори
       show:
-        area: Терен
+        area: Ділянка
+        assembly_type: Різновид зборів
         developer_group: Група зачинальників
-        local_area: Терен
-        participatory_scope: Терен співучасті
+        local_area: Місцева ділянка
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
-        scope: Терен
+        scope: Обсяг
         target: Мета
       statistics:
         answers_count: Відповіді
