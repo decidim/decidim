@@ -420,9 +420,9 @@ uk:
         success: Чернетку пропозиції успішно оновлено.
     resource_links:
       copied_from_component:
-        proposal_proposals: Супутні пропозиції
+        proposal_proposal: Супутні пропозиції
       included_projects:
-        project_results: 'Підсумки цього задуму:'
+        project_result: 'Підсумки цього задуму:'
       included_proposals:
-        proposal_projects: 'Пропозиція є в таких задумах:'
-        proposal_results: 'Пропозиція є в таких підсумках:'
+        proposal_project: 'Пропозиція є в таких задумах:'
+        proposal_result: 'Пропозиція є в таких підсумках:'
