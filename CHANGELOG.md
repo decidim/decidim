@@ -91,6 +91,7 @@ must now set a resource name:
 - **decidim-sortitions**: Update card layout [\#3405](https://github.com/decidim/decidim/pull/3405)
 - **decidim**: Changes on how to register resources. Resources from a component now they need a specific reference to the component manifest, and all resources need a name. [\#3416](https://github.com/decidim/decidim/pull/3416)
 - **decidim-consultations**: Improve overall navigation [\#3524](https://github.com/decidim/decidim/pull/3524)
+- **decidim-comments**: Let comments have paragraphs to increase readability [\#3538](https://github.com/decidim/decidim/pull/3538)
 
 **Fixed**:
 
@@ -114,6 +115,12 @@ must now set a resource name:
 - **decidim-core**: Sort static pages by title [\#3479](https://github.com/decidim/decidim/pull/3479)
 - **decidim-core**: Data picker form inputs having no bottom margin. [\#3463](https://github.com/decidim/decidim/pull/3463)
 - **decidim-core**: Make signup forms show the password confirmation field as required[\#3521](https://github.com/decidim/decidim/pull/3521)
+- **decidim-core**: Fix default page creation so they get scoped to the actual organization [\#3526](https://github.com/decidim/decidim/pull/3526)
+- **decidim-consultations**: Do not allow votes on upcoming consultations [\#3529](https://github.com/decidim/decidim/pull/3529)
+- **decidim-surveys**: Fix answer exporter for single/multi-choice questions [\#3535](https://github.com/decidim/decidim/pull/3535)
+- **decidim-core**: Do not allow users to follow themselves [\#3536](https://github.com/decidim/decidim/pull/3536)
+- **decidim-system**: Fix new organization admin not being invited properly [\#3543](https://github.com/decidim/decidim/pull/3543)
+- **decidim-proposals**: Hide supports on linked proposals if theya re supposed to be hidden [\#3544](https://github.com/decidim/decidim/pull/3544)
 
 **Removed**:
 

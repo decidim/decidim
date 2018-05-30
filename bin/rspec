@@ -9,7 +9,8 @@ require "rubygems"
 require "bundler/setup"
 
 if ARGV[0]
-  argument_parts = ARGV[0].split("/")
+  cleaned_file_path = ARGV[0].split("./").last
+  argument_parts = cleaned_file_path.split("/")
 
   first_part = argument_parts[0]
 

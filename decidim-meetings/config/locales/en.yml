@@ -292,11 +292,11 @@ en:
         upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Related results:'
-        result_meetings: 'Related meetings:'
+        meeting_result: 'Related results:'
+        result_meeting: 'Related meetings:'
       proposals_from_meeting:
-        meeting_proposals: 'Related proposals:'
-        proposal_meetings: 'Related meetings:'
+        meeting_proposal: 'Related proposals:'
+        proposal_meeting: 'Related meetings:'
   devise:
     mailer:
       join_meeting:

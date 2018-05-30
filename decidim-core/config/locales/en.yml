@@ -290,7 +290,7 @@ en:
     followers:
       no_followers: No followers yet.
     following:
-      no_followings: No followings yet.
+      no_followings: Doesn't follow anyone or anything yet.
     follows:
       create:
         button: Follow
@@ -433,7 +433,7 @@ en:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
         followers: Followers
-        following: Following
+        following: Follows
         notifications: Notifications
       user:
         edit_profile: Edit profile

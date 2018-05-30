@@ -215,7 +215,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "not_withdrawn",
+          state: "except_rejected",
           scope_id: nil,
           related_to: ""
         }
