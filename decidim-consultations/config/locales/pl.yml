@@ -213,11 +213,8 @@ pl:
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwijać się
-      finished:
-        active_consultations: Aktywne konsultacje
-        past_consultations: Wcześniejsze konsultacje
       highlighted_questions:
-        title: Konsultacje od %{scope_name}
+        title: Pytania od %{scope_name}
       index:
         title: Konsultacje
       question:
@@ -232,7 +229,7 @@ pl:
         create:
           error: Wystąpiły błędy podczas głosowania na pytanie
       regular_questions:
-        title: Inne konsultacje
+        title: Pytania do tej konsultacji
       show:
         badge_name:
           finished: Skończone
@@ -244,7 +241,6 @@ pl:
           view: Widok
           view_results: Pokaż wyniki
           vote: Głosować
-        see_finished_consultations: Zobacz poprzednie konsultacje
         unspecified: Nieokreślony
     menu:
       consultations: Konsultacje
