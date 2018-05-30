@@ -115,6 +115,9 @@ uk:
           create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
           delete: "%{user_name} видалив підсумок %{resource_name} у %{space_name}"
           update: "%{user_name} оновив підсумок %{resource_name} у %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Батьківський об''єкт не знайдено в базі даних (ID: %{id})'
       models:
         result:
           fields:
@@ -179,6 +182,14 @@ uk:
           changes_at_title: Зміни в "%{title}"
         version:
           version_index: Версія %{index}
+    components:
+      accountability:
+        name: Звітність
+        settings:
+          global:
+            categories_label: Назва для "Розряди"
+            comments_enabled: Коментарі увімкнено
+            display_progress_enabled: Показувати перебіг
     resource_links:
       included_projects:
         result_project: Задуми, включені до цих підсумків
