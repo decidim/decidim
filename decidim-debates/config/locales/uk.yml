@@ -44,6 +44,7 @@ uk:
       admin:
         debates:
           create:
+            invalid: При спробі створити обговорення сталася помилка.
             success: Обговорення успішно створено.
           destroy:
             success: Обговорення успішно видалено.
@@ -56,10 +57,15 @@ uk:
             create: Створити обговорення
             title: Нове обговорення
           update:
+            invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
         models:
           debate:
             name: Обговорення
+      admin_log:
+        debate:
+          create: "%{user_name} додав обговорення %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив обговорення %{resource_name} у просторі %{space_name}"
       debates:
         count:
           debates_count:
@@ -68,6 +74,7 @@ uk:
             many: "%{count} обговорень"
             other: "%{count} обговорень"
         create:
+          invalid: При спробі створити обговорення сталася помилка.
           success: Обговорення успішно створено.
         debate:
           participate: Взяти участь
