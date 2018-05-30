@@ -50,3 +50,4 @@ uk:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       initiatives_mailer:
         progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
+        progress_report_for: 'Стислий виклад почину: %{title}'
