@@ -197,11 +197,8 @@ ca:
         filter: Filtre
         filter_by: Filtra per
         unfold: Desplegar
-      finished:
-        active_consultations: Consultes actives
-        past_consultations: Consultes passades
       highlighted_questions:
-        title: Consultes de %{scope_name}
+        title: Preguntes de %{scope_name}
       index:
         title: Consultes
       question:
@@ -214,7 +211,7 @@ ca:
         create:
           error: Hi ha hagut errors en votar la pregunta
       regular_questions:
-        title: Altres consultes
+        title: Preguntes per a aquesta consulta
       show:
         badge_name:
           finished: Acabada
@@ -226,7 +223,6 @@ ca:
           view: Veure
           view_results: Veure resultats
           vote: Votació
-        see_finished_consultations: Veure consultes prèvies
         unspecified: Sense especificar
     menu:
       consultations: Consultes
