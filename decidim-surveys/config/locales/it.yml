@@ -109,4 +109,7 @@ it:
           survey_closed:
             body: L'indagine è chiusa e non è più possibile rispondere.
             title: Questionario chiuso
+          survey_for_private_users:
+            body: Il sondaggio è disponibile solo per gli utenti privati
+            title: Sondaggio chiuso
           tos_agreement: Partecipando a questo sondaggio, accetti le sue condizioni di servizio
