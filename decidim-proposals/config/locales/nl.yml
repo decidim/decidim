@@ -403,9 +403,9 @@ nl:
         success: Concept succesvol bijgewerkt.
     resource_links:
       copied_from_component:
-        proposal_proposals: Verwante voorstellen
+        proposal_proposal: Verwante voorstellen
       included_projects:
-        project_results: 'Resultaten die in dit project verschijnen:'
+        project_result: 'Resultaten die in dit project verschijnen:'
       included_proposals:
-        proposal_projects: 'Voorstel in deze projecten:'
-        proposal_results: 'Voorstel dat in deze resultaten voorkomt:'
+        proposal_project: 'Voorstel in deze projecten:'
+        proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
