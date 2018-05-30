@@ -73,7 +73,7 @@ uk:
         organization: Організація
         parent_id: Батьківський об'єкт
         scope_type: Різновид терену
-        scope_type_id: Різновид терену
+        scope_type_id: Різновид обсягу
       scope_type:
         name: Назва
         organization: Організація
