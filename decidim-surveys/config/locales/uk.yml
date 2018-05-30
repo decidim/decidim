@@ -56,7 +56,7 @@ uk:
     forms:
       errors:
         survey_answer:
-          body: Основний текст не може бути пустим
+          body: Основний текст не може бути порожнім
     surveys:
       admin:
         exports:
