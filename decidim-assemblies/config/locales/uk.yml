@@ -165,6 +165,18 @@ uk:
         assembly_copies:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+        assembly_members:
+          form:
+            existing_user: Чинний учасник
+            non_user: Не учасник
+            select_a_position: Оберіть посаду
+            select_user: Оберіть учасника
+            user_type: Різновид учасника
+          index:
+            filter:
+              all: Усі
+              ceased: Повноваження припинені
+              not_ceased: Повноваження не припинені
       index:
         title: Збори
       pages:
