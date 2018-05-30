@@ -166,8 +166,8 @@ uk:
         few: і ще %{count}
         many: і ще %{count}
         other: і ще %{count}
-      see_less: "(бачити менше)"
-      see_more: "(побачити більше)"
+      see_less: "(читати менше)"
+      see_more: "(читати далі)"
     components:
       dummy:
         actions:
@@ -607,7 +607,7 @@ uk:
         title: Налаштування учасника
         user_groups: Організації
       widget:
-        see_more: Переглянути інші
+        see_more: Читати далі
   locale:
     name: Українська
   social_share_button:
