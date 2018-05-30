@@ -177,6 +177,23 @@ uk:
               all: Усі
               ceased: Повноваження припинені
               not_ceased: Повноваження не припинені
+            filter_by: 'Відібрати за ознакою:'
+            search: Шукати
+      assembly_members:
+        index:
+          members: Президія
+      assembly_types:
+        commission: Комісія
+        consultative_advisory: Дорадчі / Консультативні
+        executive: Виконавчі
+        government: Урядові
+        others: Інші
+        participatory: Співучасні
+        working_group: Робоча група
+      created_by:
+        city_council: Міська рада
+        others: Інше
+        public: Громадяни
       index:
         title: Збори
       pages:
