@@ -131,7 +131,7 @@ module Decidim
         end
 
         it "returns the body sanitized and processed" do
-          expect(comment.formatted_body).to eq("bold text <em>neque dicta enim quasi</em> link")
+          expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
         end
       end
     end
