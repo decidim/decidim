@@ -300,6 +300,7 @@ en:
           category_prompt: Select a category
           citizens: Citizens
           evaluating: Evaluating
+          except_rejected: All except rejected
           official: Official
           origin: Origin
           rejected: Rejected

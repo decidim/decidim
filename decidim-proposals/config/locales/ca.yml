@@ -299,6 +299,7 @@ ca:
           category_prompt: Selecciona una categoria
           citizens: Ciutadania
           evaluating: En avaluació
+          except_rejected: Totes menys les refusades
           official: Oficial
           origin: Origen
           rejected: Rebutjades
