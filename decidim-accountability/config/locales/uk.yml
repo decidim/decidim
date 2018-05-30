@@ -2,12 +2,14 @@ uk:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Стан
         decidim_category_id: Розряд
-        decidim_scope_id: Терен
+        decidim_scope_id: Обсяг
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
         project_ids: Включені задуми
+        proposals: Включені пропозиції
         start_date: Дата початку
         title: Назва
         updated_at: 'Оновлено:'
@@ -48,11 +50,17 @@ uk:
           edit:
             title: Редагувати підсумки
             update: Оновити підсумки
+          form:
+            add_proposal: Додати пропозицію
           index:
             title: Підсумки
           new:
             create: Створити підсумки
             title: Нові підсумки
+          proposals:
+            close: Закрити
+            current_selection: Поточний вибір
+            select: Оберіть
           update:
             invalid: При спробі оновити ці підсумки сталася помилка
             success: Підсумки успішно оновлено
@@ -93,6 +101,11 @@ uk:
           update:
             invalid: Під час оновлення цього запису сталася помилка
             success: Запис успішно оновлено
+      admin_log:
+        result:
+          create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
+          delete: "%{user_name} видалив підсумок %{resource_name} у %{space_name}"
+          update: "%{user_name} оновив підсумок %{resource_name} у %{space_name}"
       models:
         result:
           fields:
@@ -120,7 +133,7 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-          scopes: Терени
+          scopes: Обсяги
         home:
           categories_label: Розряди
           subcategories_label: Підрозряди
