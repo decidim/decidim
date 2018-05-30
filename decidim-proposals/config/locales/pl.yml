@@ -309,6 +309,7 @@ pl:
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           evaluating: Ocena
+          except_rejected: Wszystkie oprócz odrzuconych
           official: Urzędnik
           origin: Pochodzenie
           rejected: Odrzucone
