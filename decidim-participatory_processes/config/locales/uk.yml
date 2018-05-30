@@ -14,7 +14,7 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцева ділянка
-        meta_scope: Метадані обсягу
+        meta_scope: Метавідомості обсягу
         participatory_process_group_id: Група рухів
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
@@ -128,7 +128,7 @@ uk:
       participatory_process_copies:
         new:
           copy: Скопіювати
-          select: Оберіть дані, копію яких ви хотіли б створити
+          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію руху співучасті
       participatory_process_groups:
         destroy:
@@ -243,8 +243,11 @@ uk:
       participatory_process_user_role:
         create: "%{user_name} запросив учасника %{resource_name} до руху співучасті %{space_name}"
         delete: "%{user_name} видалив учасника %{resource_name} з руху співучасті %{space_name}"
+        update: "%{user_name} змінів роль учасника %{resource_name} у русі співучасті %{space_name}"
     events:
       participatory_process:
+        step_activated:
+          email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
         step_changed:
           notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
