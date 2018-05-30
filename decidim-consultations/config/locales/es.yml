@@ -197,11 +197,8 @@ es:
         filter: Filtrar
         filter_by: Filtrado por
         unfold: Desplegar
-      finished:
-        active_consultations: Consultas activas
-        past_consultations: Consultas pasadas
       highlighted_questions:
-        title: Consultas de %{scope_name}
+        title: Preguntas de %{scope_name}
       index:
         title: Consultas
       question:
@@ -214,7 +211,7 @@ es:
         create:
           error: Ha habido errores al votar la pregunta
       regular_questions:
-        title: Otras consultas
+        title: Preguntas para esta consulta
       show:
         badge_name:
           finished: Terminado
@@ -226,7 +223,6 @@ es:
           view: Ver
           view_results: Ver resultados
           vote: Votar
-        see_finished_consultations: Ver consultas previas
         unspecified: No especificado
     menu:
       consultations: Consultas
