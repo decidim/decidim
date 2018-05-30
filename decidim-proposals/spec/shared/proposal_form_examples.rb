@@ -9,7 +9,8 @@ shared_examples "a proposal form" do |options|
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }
   let(:author) { create(:user, organization: organization) }
-  let(:user_group_id) { create(:user_group, :verified, users: [author], organization: organization).id }
+  let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
+  let(:user_group_id) { user_group.id }
   let(:category) { create(:category, participatory_space: participatory_space) }
   let(:scope) { create(:scope, organization: organization) }
   let(:category_id) { category.try(:id) }
@@ -177,7 +178,7 @@ shared_examples "a proposal form" do |options|
 
   if options && options[:user_group_check]
     it "properly maps user group id from model" do
-      proposal = create(:proposal, component: component, users: [author], decidim_user_group_id: user_group_id)
+      proposal = create(:proposal, component: component, users: [author], user_groups: [user_group])
 
       expect(described_class.from_model(proposal).user_group_id).to eq(user_group_id)
     end

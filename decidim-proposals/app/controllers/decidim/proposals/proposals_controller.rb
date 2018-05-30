@@ -20,7 +20,6 @@ module Decidim
                      .results
                      .published
                      .not_hidden
-                     .includes(:author)
                      .includes(:category)
                      .includes(:scope)
 

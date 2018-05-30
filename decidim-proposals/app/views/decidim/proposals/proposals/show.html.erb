@@ -7,14 +7,7 @@
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
-    <%= cell(
-          "decidim/collapsible_list",
-          authors_for(@proposal),
-          cell_name: "decidim/author",
-          cell_options: { extra_classes: ["author-data--small"] },
-          hidden_elements_count_i18n_key: "decidim.proposals.proposal.show.hidden_authors_count",
-          size: :small
-        ) %>
+    <%= proposal_coauthors_cell(@proposal) %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">

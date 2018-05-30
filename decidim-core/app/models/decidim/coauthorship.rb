@@ -4,7 +4,7 @@ module Decidim
   class Coauthorship < ApplicationRecord
     include Decidim::Authorable
 
-    belongs_to :coauthorable, polymorphic: true
+    belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
     validates :coauthorable, presence: true
 

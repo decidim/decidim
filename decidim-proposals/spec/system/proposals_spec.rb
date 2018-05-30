@@ -50,7 +50,7 @@ describe "Proposals", type: :system do
 
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
-      expect(page).to have_author(proposal.author.name)
+      expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
       expect(page).to have_creation_date(I18n.l(proposal.created_at, format: :decidim_short))
     end
@@ -193,7 +193,7 @@ describe "Proposals", type: :system do
       let(:proposal) { proposals.first }
 
       before do
-        Decidim::DestroyAccount.call(proposal.author, Decidim::DeleteAccountForm.from_params({}))
+        Decidim::DestroyAccount.call(proposal.creator_author, Decidim::DeleteAccountForm.from_params({}))
       end
 
       it "the user is displayed as a deleted user" do
