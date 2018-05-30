@@ -306,7 +306,7 @@ fr:
           related_to: Liée à
           search: Rechercher
           state: État
-          voted: Soutenues
+          voted: Ne montrer que les propositions que j'ai soutenues
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
