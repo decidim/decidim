@@ -197,11 +197,8 @@ fi:
         filter: Suodattaa
         filter_by: Suodata
         unfold: avautua
-      finished:
-        active_consultations: Aktiiviset neuvottelut
-        past_consultations: Aiemmat kuulemiset
       highlighted_questions:
-        title: Neuvottelut %{scope_name}
+        title: Kysymykset %{scope_name}
       index:
         title: kuulemiset
       question:
@@ -214,7 +211,7 @@ fi:
         create:
           error: Kysymystä äänestäessä on ollut virheitä
       regular_questions:
-        title: Muut neuvottelut
+        title: Kysymyksiä tästä kuulemisesta
       show:
         badge_name:
           finished: Valmiit
@@ -226,7 +223,6 @@ fi:
           view: näkymä
           view_results: Näytä tulokset
           vote: Äänestys
-        see_finished_consultations: Katso edelliset neuvottelut
         unspecified: Ei määritelty
     menu:
       consultations: kuulemiset
