@@ -299,6 +299,7 @@ gl:
           category_prompt: Selecciona unha categoría
           citizens: Cidadáns
           evaluating: Avaliación
+          except_rejected: Todos excepto rexeitados
           official: Oficial
           origin: Orixe
           rejected: Rexeitado
