@@ -403,9 +403,9 @@ fr:
         success: Le projet de proposition a été mis à jour
     resource_links:
       copied_from_component:
-        proposal_proposals: Propositions associées
+        proposal_proposal: Propositions associées
       included_projects:
-        project_results: 'Résultats apparaissant dans ce projet :'
+        project_result: 'Résultats apparaissant dans ce projet :'
       included_proposals:
-        proposal_projects: 'Proposition figurant dans ces projets :'
-        proposal_results: 'Proposition figurant dans ces résultats :'
+        proposal_project: 'Proposition figurant dans ces projets :'
+        proposal_result: 'Proposition figurant dans ces résultats :'
