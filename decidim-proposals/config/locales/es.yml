@@ -89,7 +89,7 @@ es:
         endorsing_enabled:
           email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La reivindicación de propuestas ha comenzado para %{participatory_space_title}
+          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
@@ -277,7 +277,7 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          back: Atrás
+          back: Volver
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
@@ -383,7 +383,7 @@ es:
             left: Restante
             votes: Votos
         wizard_aside:
-          back: Atrás
+          back: Volver
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
