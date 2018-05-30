@@ -305,7 +305,6 @@ en:
           of_versions: "(of %{number})"
           publish: Publish
           publish_info: Publish this version of the draft
-          report: Report
           request_access: Request access
           requested_access: Access requested
           see_other_versions: see other versions

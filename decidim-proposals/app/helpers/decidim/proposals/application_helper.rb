@@ -46,7 +46,7 @@ module Decidim
       #
       # Returns a String.
       def humanize_collaborative_draft_state(state)
-        I18n.t(state, scope: "decidim.proposals.collaborative_drafts.states", default: :open)
+        I18n.t("decidim.proposals.collaborative_drafts.states.#{state}", default: :open)
       end
 
       # Public: The css class applied based on the collaborative draft state.
