@@ -299,6 +299,7 @@ nl:
           category_prompt: Kies een categorie
           citizens: Burgers
           evaluating: Aan het beoordelen
+          except_rejected: Alles behalve afgewezen
           official: Officieel
           origin: Oorsprong
           rejected: Geweigerd
