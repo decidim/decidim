@@ -68,6 +68,8 @@ uk:
         surveys:
           answer_option:
             answer_option: Варіант відповіді
+            free_text: Довільний текст
+            remove: Вилучити
             statement: Висловлювання
           edit:
             save: Зберегти
@@ -77,8 +79,13 @@ uk:
             already_answered_warning: Деякі учасники вже відповіли на це опитування, тому ви не можете змінювати його питання.
           question:
             add_answer_option: Додати варіант відповіді
+            any: Будь-який
+            description: Опис
+            down: Донизу
             question: Питання
+            remove: Вилучити
             statement: Висловлювання
+            up: Догори
           update:
             invalid: При збереженні цього опитування сталися помилки.
             success: Опитування успішно збережено.
@@ -87,10 +94,13 @@ uk:
         multiple_option: Кілька варіантів
         short_answer: Коротка відповідь
         single_option: Єдиний варіант
+        sorting: Впорядкування
       surveys:
         answer:
           invalid: При відповідях на опитування сталися помилки.
           success: Опитування успішно пройдено.
+        question:
+          max_choices: 'Максимальна кількість варантів: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
