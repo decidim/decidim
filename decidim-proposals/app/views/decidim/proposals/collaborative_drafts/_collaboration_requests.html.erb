@@ -6,7 +6,7 @@
       </span>
     </div>
     <% @collaborative_draft.access_requestors.each do |requestor| %>
-      <div class="definition-data__item expanded">
+      <div class="definition-data__item expanded" id="requestor_<%= requestor.id %>">
         <%= cell "decidim/author", present(requestor), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
 
         <div>

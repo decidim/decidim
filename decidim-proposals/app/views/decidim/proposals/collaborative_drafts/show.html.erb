@@ -15,9 +15,9 @@
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
 
     <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-      <div class="card text-center">
+      <div class="card text-center" id="collaborative_draft_publish">
           <div class="card__content">
-            <%= link_to t("publish", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc" %>
+            <%= button_to t("publish", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc" %>
 
             <small>
               <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
@@ -44,11 +44,11 @@
         </div>
 
         <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-          <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button--sc mt-s" %>
+          <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button--sc mt-s", id: "collaborative_draft_edit"%>
         <% end %>
 
         <% if allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-          <%= link_to t(".request_access"), request_access_collaborative_draft_path(@collaborative_draft), method: "POST", class: "button expanded button--sc mt-s" %>
+          <%= button_to t(".request_access"), request_access_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc mt-s" %>
         <% end %>
 
         <% if @collaborative_draft.access_requestors.include? current_user %>
@@ -116,7 +116,7 @@
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
       <% end %>
 
-      <%= cell "decidim/tags", @collaborative_draft, context: {extra_classes: ["tags--proposal"]} %>
+      <%= cell "decidim/tags", @collaborative_draft, context: {extra_classes: ["tags--collaborative-draft"]} %>
     </div>
   </div>
 </div>
