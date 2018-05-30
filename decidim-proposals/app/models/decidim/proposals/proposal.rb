@@ -35,6 +35,7 @@ module Decidim
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where.not(published_at: nil) }
 
