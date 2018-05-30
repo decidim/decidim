@@ -299,6 +299,7 @@ sv:
           category_prompt: Välj en kategori
           citizens: Medborgare
           evaluating: utvärdera
+          except_rejected: Alla utom avvisas
           official: Officiell
           origin: Ursprung
           rejected: avvisade
