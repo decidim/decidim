@@ -53,6 +53,15 @@ uk:
         birthday: День народження
         birthplace: Місце народження
         ceased_date: Дата припинення повноважень
+        designation_date: Дата надання повноважень
+        designation_mode: Різновид повноважень
+        full_name: Повне ім'я
+        gender: Стать
+        position: Посада
+      assembly_user_role:
+        email: Адреса електронної пошти
+        name: Ім'я
+        role: Роль
   activerecord:
     models:
       decidim/assembly:
@@ -85,6 +94,7 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приховані
+          public: Публічні
           published: Оприлюднено
         new:
           create: Додати
@@ -144,7 +154,7 @@ uk:
         assembly_member:
           fields:
             ceased_date: Дата припинення повноважень
-            designation_date: Дата призначення
+            designation_date: Дата надання повноважень
             full_name: Ім'я
             position: Посада
           name: Член президії
