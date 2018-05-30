@@ -11,7 +11,7 @@ uk:
         address: Адреса
         available_slots: Наявні місця на цю зустріч
         decidim_category_id: Розряд
-        decidim_scope_id: Терен
+        decidim_scope_id: Обсяг
         description: Опис
         end_time: Час завершення
         location: Розташування
