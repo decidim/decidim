@@ -49,7 +49,7 @@ fr:
           view: Vue
         sidebar_blog:
           comments: commentaires
-          most_commented_posts: Messages les plus commentés
+          most_commented_posts: Articles les plus commentés
       read_more: Lire la suite
     components:
       blogs:
@@ -67,7 +67,7 @@ fr:
           email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
+          notification_title: Le message <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
     pages:
       home:
         statistics:
