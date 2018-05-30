@@ -4,7 +4,7 @@ uk:
       result:
         decidim_accountability_status_id: Стан
         decidim_category_id: Розряд
-        decidim_scope_id: Терен
+        decidim_scope_id: Обсяг
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
@@ -142,7 +142,7 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-          scopes: Терени
+          scopes: Обсяги
         home:
           categories_label: Розряди
           subcategories_label: Підрозряди
