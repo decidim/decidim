@@ -289,7 +289,7 @@ fr:
     followers:
       no_followers: Aucun abonné pour le moment.
     following:
-      no_followings: Ne suit personne ou quoi que ce soit pour le moment.
+      no_followings: Aucun abonnement
     follows:
       create:
         button: Suivre
