@@ -299,6 +299,7 @@ pt:
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
           official: Oficial
           origin: Origem
           rejected: Rejeitado
@@ -311,10 +312,6 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        identities_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de endossos
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
@@ -343,6 +340,10 @@ pt:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de endossos
+          hidden_endorsers_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -402,9 +403,9 @@ pt:
         success: Rascunho da proposta atualizado com sucesso.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecem neste projeto:'
+        project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nesses projetos:'
-        proposal_results: 'Proposta que aparece nesses resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'
