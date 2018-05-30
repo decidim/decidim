@@ -23,12 +23,12 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцева ділянка
-        meta_scope: Метадані терену
-        participatory_scope: Терен співучасті
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Приватний простір
         promoted: Рекламується
-        scope_id: Терен
+        scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
@@ -219,10 +219,10 @@ uk:
         assembly_type: Різновид зборів
         developer_group: Група зачинальників
         local_area: Місцева ділянка
-        participatory_scope: Терен співучасті
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
-        scope: Терен
+        scope: Обсяг
         target: Мета
       statistics:
         answers_count: Відповіді
