@@ -410,3 +410,6 @@ en:
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
         proposal_results: 'Proposal appearing in these results:'
+    search:
+      filter:
+        component: Component
