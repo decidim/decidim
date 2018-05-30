@@ -4,7 +4,7 @@ uk:
       project:
         budget: Кошторис
         decidim_category_id: Розряд
-        decidim_scope_id: Терен
+        decidim_scope_id: Обсяг
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
@@ -42,6 +42,11 @@ uk:
           update:
             invalid: При спробі оновити цей задум сталася помилка
             success: Задум успішно оновлено
+      admin_log:
+        project:
+          create: "%{user_name} додав задум %{resource_name} у просторі %{space_name}"
+          delete: "%{user_name} видалив задум %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив задум %{resource_name} у просторі %{space_name}"
       models:
         project:
           fields:
@@ -106,6 +111,23 @@ uk:
         show:
           budget: Кошторис
           view_all_projects: Переглянути всi задуми
+    components:
+      budgets:
+        actions:
+          vote: Проголосувати
+        name: Кошториси
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі увімкнено
+            projects_per_page: Задумів на сторінку
+            total_budget: Загальний кошторис
+            vote_threshold_percent: Мінімальний відсоток бюджету для голосування
+          step:
+            announcement: Оголошення
+            comments_blocked: Коментарі вимкнено
+            show_votes: Показати голоси
+            votes_enabled: Голосування увімкнене
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка
