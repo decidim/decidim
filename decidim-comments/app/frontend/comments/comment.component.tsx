@@ -113,7 +113,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <div className="comment__content">
           <div>
             {this._renderAlignmentBadge()}
-            <div dangerouslySetInnerHTML={{__html: formattedBody}}></div>
+            <div dangerouslySetInnerHTML={{__html: formattedBody}} />
           </div>
         </div>
         <div className="comment__footer">
