@@ -145,7 +145,7 @@ pl:
         success: Twój głos został pomyślnie zakończony
     resource_links:
       included_proposals:
-        project_proposals: 'Propozycje zawarte w tym projekcie:'
+        project_proposal: 'Propozycje zawarte w tym projekcie:'
   index:
     confirmed_orders_count: Liczba głosów
   total_budget: Cały budżet
