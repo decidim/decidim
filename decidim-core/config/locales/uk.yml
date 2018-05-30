@@ -77,7 +77,8 @@ uk:
     admin_log:
       area:
         create: "%{user_name} додав ділянку %{resource_name}"
-        update: "%{user_name} оновив терен %{resource_name}"
+        delete: "%{user_name} видалив ділянку %{resource_name}"
+        update: "%{user_name} оновив ділянку %{resource_name}"
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
         delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
@@ -99,7 +100,7 @@ uk:
         update: "%{user_name} оновив налаштування організації"
       scope:
         create: "%{user_name} додав терен %{resource_name}"
-        create_with_parent: "%{user_name} створив терен %{resource_name} всередині терену %{parent_scope}"
+        create_with_parent: "%{user_name} створив обсяг %{resource_name} всередині обсягу %{parent_scope}"
         delete: "%{user_name} видалив терен %{resource_name}"
         delete_with_parent: "%{user_name} видалив терен %{resource_name} всередині терену %{parent_scope}"
         update: "%{user_name} оновив терен %{resource_name}"
@@ -325,9 +326,9 @@ uk:
         update_with_space: "%{user_name} оновив %{resource_name} у %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цю ділянку не знайдено в базі даних (ID: %{id})'
         area_type_presenter:
-          not_found: 'Цей різновид терену не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид ділянки не знайдено в базі даних (ID: %{id})'
         scope_presenter:
           not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
