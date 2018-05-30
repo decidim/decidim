@@ -2,11 +2,13 @@ uk:
   activemodel:
     attributes:
       assembly:
+        area_id: Ділянка
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
         copy_categories: Скопіювати розряди
         copy_features: Скопіювати складові
+        decidim_area_id: Ділянка
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
