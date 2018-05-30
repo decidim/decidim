@@ -403,9 +403,9 @@ gl:
         success: O proxecto de proposta actualizouse con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen neste proxecto:'
+        project_result: 'Resultados que aparecen neste proxecto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nestes proxectos:'
-        proposal_results: 'Proposta que aparece nestes resultados:'
+        proposal_project: 'Proposta que aparece nestes proxectos:'
+        proposal_result: 'Proposta que aparece nestes resultados:'
