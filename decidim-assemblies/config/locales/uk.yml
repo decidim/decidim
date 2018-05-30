@@ -201,8 +201,12 @@ uk:
           highlighted_assemblies:
             active_assemblies: Започаті збори
             see_all_assemblies: Переглянути всі збори
+        user_profile:
+          member_of:
+            member_of: 'Входить у склад:'
       show:
         area: Терен
+        assembly_type: Різновид зборів
         developer_group: Група зачинальників
         local_area: Терен
         participatory_scope: Терен співучасті
