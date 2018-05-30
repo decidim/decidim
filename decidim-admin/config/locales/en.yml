@@ -421,8 +421,6 @@ en:
       moderations:
         index:
           title: Moderations
-          moderated: Moderated
-          unmoderated: Unmoderated
         report:
           reasons:
             does_not_belong: Does not belong
