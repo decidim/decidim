@@ -299,6 +299,7 @@ pt-BR:
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
           official: Oficial
           origin: Origem
           rejected: Rejeitado
