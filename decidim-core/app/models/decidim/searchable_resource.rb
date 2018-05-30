@@ -15,7 +15,7 @@ module Decidim
   # - content_d: The less relevant textual content.
   # - datetime:  The timestamp that places this resource in the line of time. Used as second criteria (first is text relevance) for sorting.
   #
-  class SearchableRsrc < ApplicationRecord
+  class SearchableResource < ApplicationRecord
     include PgSearch
 
     belongs_to :organization,

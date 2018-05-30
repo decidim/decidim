@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchableRsrc do
+  describe SearchableResource do
     subject { searchable_rsrc }
 
-    let(:searchable_rsrc) { build(:searchable_rsrc, locale: "en") }
+    let(:searchable_rsrc) { build(:searchable_resource, locale: "en") }
 
     it { is_expected.to be_valid }
 
@@ -16,7 +16,7 @@ module Decidim
 
         context "when resource is different" do
           let(:other_rsrc) do
-            create(:searchable_rsrc, locale: subject.locale, resource: build(:dummy_resource))
+            create(:searchable_resource, locale: subject.locale, resource: build(:dummy_resource))
           end
 
           it "other_rsrc must be valid" do
@@ -27,7 +27,7 @@ module Decidim
 
         context "when locale is different" do
           let(:other_rsrc) do
-            create(:searchable_rsrc, locale: "ca", resource: subject.resource)
+            create(:searchable_resource, locale: "ca", resource: subject.resource)
           end
 
           it "other_rsrc must be valid" do
@@ -39,7 +39,7 @@ module Decidim
         context "when resource and locale are the same" do
           it "other_rsrc must NOT be valid" do
             expect do
-              create(:searchable_rsrc, locale: subject.locale, resource: subject.resource)
+              create(:searchable_resource, locale: subject.locale, resource: subject.resource)
             end.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Locale has already been taken")
           end
         end

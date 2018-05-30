@@ -398,7 +398,7 @@ FactoryBot.define do
     scopes { "public" }
   end
 
-  factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
+  factory :searchable_resource, class: "Decidim::SearchableResource" do
     resource { build(:dummy_resource) }
     resource_id { resource.id }
     resource_type { resource.class.name }

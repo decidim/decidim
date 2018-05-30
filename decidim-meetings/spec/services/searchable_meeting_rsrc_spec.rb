@@ -22,15 +22,15 @@ module Decidim
 
     describe "Indexing of meetings" do
       context "when implementing Searchable" do
-        it "inserts a SearchableRsrc after Meeting creation" do
+        it "inserts a SearchableResource after Meeting creation" do
           organization.available_locales.each do |locale|
-            searchable = SearchableRsrc.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
             expect_searchable_rsrc_to_correspond_to_meeting(searchable, meeting, locale)
           end
         end
 
-        it "updates the associated SearchableRsrc after Meeting update" do
-          searchable = SearchableRsrc.find_by(resource_type: meeting.class.name, resource_id: meeting.id)
+        it "updates the associated SearchableResource after Meeting update" do
+          searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id)
           created_at = searchable.created_at
           updated_title = organization.available_locales.inject({}) do |modifs, locale|
             meeting.title[locale] += locale.upcase
@@ -40,16 +40,16 @@ module Decidim
           meeting.save!
 
           organization.available_locales.each do |locale|
-            searchable = SearchableRsrc.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
             expect(searchable.content_a).to eq updated_title[locale]
             expect(searchable.updated_at).to be > created_at
           end
         end
 
-        it "destroys the associated SearchableRsrc after Meeting destroy" do
+        it "destroys the associated SearchableResource after Meeting destroy" do
           meeting.destroy
 
-          searchables = SearchableRsrc.where(resource_type: meeting.class.name, resource_id: meeting.id)
+          searchables = SearchableResource.where(resource_type: meeting.class.name, resource_id: meeting.id)
 
           expect(searchables.any?).to be false
         end

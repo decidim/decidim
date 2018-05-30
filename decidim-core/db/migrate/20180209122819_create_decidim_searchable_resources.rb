@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateDecidimSearchableRsrcs < ActiveRecord::Migration[5.1]
+class CreateDecidimSearchableResources < ActiveRecord::Migration[5.1]
   def change
-    create_table :decidim_searchable_rsrcs do |t|
+    create_table :decidim_searchable_resources do |t|
       t.text :content_a
       t.text :content_b
       t.text :content_c

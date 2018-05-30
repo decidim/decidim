@@ -21,15 +21,15 @@ module Decidim
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
-        it "inserts a SearchableRsrc after Proposal creation" do
+        it "inserts a SearchableResource after Proposal creation" do
           organization.available_locales.each do |locale|
-            searchable = SearchableRsrc.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
             expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
           end
         end
 
-        it "updates the associated SearchableRsrc after Proposal update" do
-          searchable = SearchableRsrc.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
+        it "updates the associated SearchableResource after Proposal update" do
+          searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
           created_at = searchable.created_at
           updated_title = "Brand new title"
           proposal.update(title: updated_title)
@@ -37,16 +37,16 @@ module Decidim
           proposal.save!
 
           organization.available_locales.each do |locale|
-            searchable = SearchableRsrc.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
             expect(searchable.content_a).to eq updated_title
             expect(searchable.updated_at).to be > created_at
           end
         end
 
-        it "destroys the associated SearchableRsrc after Proposal destroy" do
+        it "destroys the associated SearchableResource after Proposal destroy" do
           proposal.destroy
 
-          searchables = SearchableRsrc.where(resource_type: proposal.class.name, resource_id: proposal.id)
+          searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
 
           expect(searchables.any?).to be false
         end

@@ -23,7 +23,7 @@ module Decidim
     #
     # Returns nothing.
     def call
-      query = SearchableRsrc.where(organization: @organization, locale: I18n.locale)
+      query = SearchableResource.where(organization: @organization, locale: I18n.locale)
       @filters.each_pair do |attribute_name, value|
         query = query.where(attribute_name => value) if permit_filter?(attribute_name, value)
       end
