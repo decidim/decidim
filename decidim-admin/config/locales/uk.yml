@@ -72,7 +72,7 @@ uk:
         name: Назва
         organization: Організація
         parent_id: Батьківський об'єкт
-        scope_type: Різновид терену
+        scope_type: Різновид обсягу
         scope_type_id: Різновид обсягу
       scope_type:
         name: Назва
@@ -100,11 +100,11 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцева ділянка
-        meta_scope: Метадані терену
-        participatory_scope: Терен співучасті
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
-        scope: Терен
+        scope: Обсяг
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
@@ -334,8 +334,8 @@ uk:
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
         officializations: Надання службового статусу
-        scope_types: Різновиди терену
-        scopes: Терени
+        scope_types: Різновиди обсягу
+        scopes: Обсяги
         settings: Налаштування
         static_pages: Сторінки
         user_groups: Групи учасників
@@ -385,7 +385,7 @@ uk:
         scope:
           fields:
             name: Ім'я
-            scope_type: Різновид терену
+            scope_type: Різновид обсягу
         scope_type:
           fields:
             name: Ім'я
@@ -536,31 +536,31 @@ uk:
           title: Новий прихований учасник простору співучасті.
       scope_types:
         create:
-          error: При створенні нового різновиду терену сталася помилка.
-          success: Різновид терену успішно створено.
+          error: При створенні нового різновиду обсягу сталася помилка.
+          success: Різновид обсягу успішно створено.
         destroy:
-          success: Різновид терену успішно видалено
+          success: Різновид обсягу успішно видалено
         edit:
-          title: Редагувати різновид терену
+          title: Редагувати різновид обсягу
           update: Оновити
         new:
-          create: Створити різновид терену
-          title: Новий терен
+          create: Створити різновид обсягу
+          title: Новий обсяг
         update:
-          error: При оновленні цього різновиду терену сталася помилка.
-          success: Різновид терену успішно оновлено
+          error: При оновленні цього різновиду обсягу сталася помилка.
+          success: Різновид обсягу успішно оновлено
       scopes:
         create:
-          error: При створенні нового терену сталася помилка.
-          success: Терен успішно створено.
+          error: При створенні нового обсягу сталася помилка.
+          success: Обсяг успішно створено.
         destroy:
-          success: Терен успішно видалено
+          success: Обсяг успішно видалено
         edit:
-          title: Редагувати терен
+          title: Редагувати обсяг
           update: Оновити
         new:
-          create: Створити терен
-          title: Новий терен
+          create: Створити обсяг
+          title: Новий обсяг
         no_scopes: На цьому рівні немає теренів.
         update:
           error: При оновленні цього терену сталася помилка.
