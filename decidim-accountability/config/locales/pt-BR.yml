@@ -209,6 +209,6 @@ pt-BR:
         see_all_results: Ver todos os resultados
     resource_links:
       included_projects:
-        result_projects: Projetos incluídos neste resultado
+        result_project: Projetos incluídos neste resultado
       included_proposals:
-        result_proposals: Propostas incluídas neste resultado
+        result_proposal: Propostas incluídas neste resultado
