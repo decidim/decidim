@@ -3,6 +3,7 @@ uk:
     attributes:
       debate:
         category_id: Розряд
+        decidim_category_id: Розряд
         description: Опис
         end_time: 'Завершується:'
         information_updates: Оновлення відомостей
@@ -10,9 +11,23 @@ uk:
         start_time: 'Розпочато: '
         title: Назва
         user_group_id: Створити обговорення як
+    models:
+      decidim/debates/create_debate_event: Обговорення
+      decidim/debates/creation_disabled_event: Обговорення вимкнене
+      decidim/debates/creation_enabled_event: Обговорення увімкнене
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Обговорення
+        few: Обговорення
+        many: Обговорень
+        other: Обговорень
   decidim:
     components:
       debates:
+        actions:
+          create: Створити
+        name: Обговорення
         settings:
           global:
             comments_enabled: Коментарі увімкнено
