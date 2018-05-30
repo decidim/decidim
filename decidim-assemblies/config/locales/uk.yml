@@ -143,6 +143,14 @@ uk:
         publish: "%{user_name} оприлюднив збори %{resource_name}"
         unpublish: "%{user_name} скасував оприлюднення зборів %{resource_name}"
         update: "%{user_name} оновив збори %{resource_name}"
+      assembly_member:
+        create: "%{user_name} додав члена президії %{resource_name} до зборів %{space_name}"
+        delete: "%{user_name} видалив члена президії %{resource_name} зі зборів %{space_name}"
+        update: "%{user_name} оновив члена президії %{resource_name} зборів %{space_name}"
+      assembly_user_role:
+        create: "%{user_name} запросив %{resource_name} до зборів %{space_name}"
+        delete: "%{user_name} видалив учасника %{resource_name} зі зборів %{space_name}"
+        update: "%{user_name} змінив роль %{resource_name} у зборах %{space_name}"
     assemblies:
       admin:
         assemblies:
