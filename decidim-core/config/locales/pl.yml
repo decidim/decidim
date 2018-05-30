@@ -201,6 +201,7 @@ pl:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
+          newsletter_title: Skontaktuj się z uprawnieniami
           nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
@@ -211,12 +212,19 @@ pl:
           subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
           terms: Warunki korzystania
           tos_agreement: Zarejestrowając się, zgadzasz się na %{link}.
+          tos_title: Warunki usługi
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
       shared:
+        newsletter_modal:
+          buttons:
+            check: Sprawdź i kontynuuj
+            uncheck: Pozostaw niezaznaczone
+          notice: Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu? Rozważ ponownie zaznaczenie pola wyboru biuletynu poniżej. Bardzo ważne jest dla nas, że możesz odbierać od czasu do czasu e-maile, by tworzyć ważne ogłoszenia. Zawsze możesz to zmienić na stronie ustawień powiadomień. Jeśli nie zaznaczysz tego pola, być może brakuje odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy. Jeśli nadal chcesz uniknąć otrzymywania biuletynów, doskonale rozumiemy Twoją decyzję. Dziękuję za przeczytanie tego!
+          title: Powiadomienia biuletynu
         omniauth_buttons:
           or: Lub
     doorkeeper:
@@ -291,7 +299,7 @@ pl:
     followers:
       no_followers: Brak obserwujących.
     following:
-      no_followings: Nie ma jeszcze żadnych śladów.
+      no_followings: Nie śledzi nikogo ani niczego jeszcze.
     follows:
       create:
         button: Postępuj zgodnie z
@@ -434,7 +442,7 @@ pl:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
         followers: Obserwujący
-        following: Następujący
+        following: Podąża
         notifications: Powiadomienia
       user:
         edit_profile: Edytuj profil
