@@ -197,11 +197,8 @@ nl:
         filter: Sorteer
         filter_by: Sorteren op
         unfold: Uitklappen
-      finished:
-        active_consultations: Huidige burgerinspraak
-        past_consultations: Afgelopen burgerinspraken
       highlighted_questions:
-        title: Burgerinspraak over %{scope_name}
+        title: Vragen vanaf %{scope_name}
       index:
         title: Burgerinspraak
       question:
@@ -214,7 +211,7 @@ nl:
         create:
           error: Er zijn fouten opgetreden bij het stemmen op de vraag
       regular_questions:
-        title: Andere burgerinspraken
+        title: Vragen voor dit consult
       show:
         badge_name:
           finished: Afgewerkt
@@ -226,7 +223,6 @@ nl:
           view: Uitzicht
           view_results: Bekijk resultaten
           vote: Stemmen
-        see_finished_consultations: Bekijk vorige burgerinspraken
         unspecified: Niet gespecificeerd
     menu:
       consultations: Burgerinspraak
