@@ -123,13 +123,13 @@ es:
           destroy:
             success: El alcance ha sido eliminado con éxito
           edit:
-            back: Espalda
+            back: Volver
             confirm_destroy: '¿Estás seguro?'
             destroy: Destruir
             title: Editar alcance del tipo de iniciativa
             update: Actualizar
           new:
-            back: Espalda
+            back: Volver
             create: Crear
             title: Crear alcance del tipo de iniciativa
           update:
@@ -183,7 +183,7 @@ es:
           more_information: "(Más información)"
           select_scope: Seleccione un alcance
         finish:
-          back: Espalda
+          back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
           go_to_my_initiatives: Ir a mis iniciativas
@@ -196,16 +196,16 @@ es:
           initiatives_page_link: Puedes buscar toda esta información en el %{link} dedicado a informar sobre iniciativas.
           page: página
         previous_form:
-          back: Atrás
+          back: Volver
           continue: Continuar
           help: '¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta.'
           more_information: "(Más información)"
         promotal_committee:
-          back: Atrás
+          back: Volver
           individual_help_text: Las iniciativas ciudadanas requieren una Comisión Promotora compuesta por al menos tres personas (certificadores). Debe compartir el siguiente enlace con las otras personas que forman parte de esta iniciativa. Cuando sus contactos reciban este enlace, deberán seguir los pasos indicados.
           more_information: "(Más información)"
         select_initiative_type:
-          back: Atrás
+          back: Volver
           more_information: "(Más información)"
           select: Escoger
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
@@ -213,7 +213,7 @@ es:
           continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que serán parte del comité promoto
         show_similar_initiatives:
-          back: Atrás
+          back: Volver
           compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
           continue: Mi iniciativa es diferente
           more_information: "(Más información)"
