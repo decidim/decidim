@@ -17,7 +17,8 @@ module Decidim
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
-                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email]
+                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
+                          confirmation_keys: [:decidim_organization_id, :email]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
