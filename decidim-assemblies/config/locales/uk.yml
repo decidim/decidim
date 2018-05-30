@@ -319,6 +319,9 @@ uk:
           not_found: 'Ці збори не знайдено в базі даних (ID: %{id})'
     menu:
       assemblies: Збори
+  errors:
+    messages:
+      cannot_be_blank: не може бути порожнім
   layouts:
     decidim:
       assemblies:
