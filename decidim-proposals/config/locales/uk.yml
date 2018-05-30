@@ -7,7 +7,7 @@ uk:
         body: Основний текст
         category_id: Розряд
         has_address: Має адресу
-        scope_id: Терен
+        scope_id: Обсяг
         state: Стан
         title: Назва
         user_group_id: Внести пропозицію як
@@ -222,7 +222,7 @@ uk:
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
-            scope: Терен
+            scope: Обсяг
             state: Стан
             title: Назва
             votes: Голоси
