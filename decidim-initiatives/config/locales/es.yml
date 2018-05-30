@@ -176,7 +176,7 @@ es:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
       create_initiative:
         fill_data:
-          back: Espalda
+          back: Volver
           continue: Continuar
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿Distrito de la ciudad?</li> </ul>"
           initiative_type: Tipo de iniciativa
