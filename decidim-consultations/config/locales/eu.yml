@@ -197,11 +197,8 @@ eu:
         filter: Filter
         filter_by: Iragazi arabera
         unfold: Zabaldu
-      finished:
-        active_consultations: Aholkularitza aktiboak
-        past_consultations: Azkeneko kontsultak
       highlighted_questions:
-        title: '%{scope_name} kontsultak'
+        title: '%{scope_name}galdera'
       index:
         title: kontsultak
       question:
@@ -214,7 +211,7 @@ eu:
         create:
           error: Arazoak izan dira galdera hautapenean
       regular_questions:
-        title: Beste kontsulta batzuk
+        title: Kontsulta honi buruzko galderak
       show:
         badge_name:
           finished: Amaitu
@@ -226,7 +223,6 @@ eu:
           view: ikusi
           view_results: Ikusi emaitzak
           vote: Bozkatu
-        see_finished_consultations: Ikusi aurreko kontsultak
         unspecified: Zehaztu gabea
     menu:
       consultations: kontsultak
