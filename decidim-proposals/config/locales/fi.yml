@@ -403,9 +403,9 @@ fi:
         success: Ehdotusluonnos on päivitetty onnistuneesti.
     resource_links:
       copied_from_component:
-        proposal_proposals: Vastaavat ehdotukset
+        proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_results: 'Tässä projektissa näkyvät tulokset:'
+        project_result: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
-        proposal_projects: 'Ehdotus esiintyy näissä projekteissa:'
-        proposal_results: 'Ehdotus esiintyy näissä tuloksissa:'
+        proposal_project: 'Ehdotus esiintyy näissä projekteissa:'
+        proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
