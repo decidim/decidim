@@ -57,9 +57,9 @@ uk:
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
       area:
-        create: "%{user_name} додав терен %{resource_name}"
-        delete: "%{user_name} видалив терен %{resource_name}"
-        update: "%{user_name} оновив терен %{resource_name}"
+        create: "%{user_name} додав ділянку %{resource_name}"
+        delete: "%{user_name} видалив ділянку %{resource_name}"
+        update: "%{user_name} оновив ділянку %{resource_name}"
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
         delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
@@ -80,12 +80,12 @@ uk:
       organization:
         update: "%{user_name} оновив налаштування організації"
       scope:
-        create: "%{user_name} додав терен %{resource_name}"
-        create_with_parent: "%{user_name} створив терен %{resource_name} всередині терену %{parent_scope}"
-        delete: "%{user_name} видалив терен %{resource_name}"
-        delete_with_parent: "%{user_name} видалив терен %{resource_name} всередині терену %{parent_scope}"
-        update: "%{user_name} оновив терен %{resource_name}"
-        update_with_parent: "%{user_name} оновив терен %{resource_name} всередині терену %{parent_scope}"
+        create: "%{user_name} додав обсяг %{resource_name}"
+        create_with_parent: "%{user_name} створив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+        delete: "%{user_name} видалив обсяг %{resource_name}"
+        delete_with_parent: "%{user_name} видалив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+        update: "%{user_name} оновив обсяг %{resource_name}"
+        update_with_parent: "%{user_name} оновив обсяг %{resource_name} всередині обсягу %{parent_scope}"
       static_page:
         create: "%{user_name} створив статичну сторінку %{resource_name}"
         delete: "%{user_name} видалив статичну сторінку %{resource_name}"
@@ -268,13 +268,13 @@ uk:
         update_with_space: "%{user_name} оновив %{resource_name} у %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цю ділянку не знайдено в базі даних (ID: %{id})'
         area_type_presenter:
-          not_found: 'Цей різновид терену не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид ділянки не знайдено в базі даних (ID: %{id})'
         scope_presenter:
-          not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Цей різновид терену не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид обсягу не знайдено в базі даних (ID: %{id})'
     managed_users:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
@@ -361,13 +361,13 @@ uk:
         error: Під час створення скарги сталася помилка. Будь ласка, спробуйте зробити це знову.
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
     scopes:
-      global: Загальний терен
+      global: Всеохоплюючий обсяг
       picker:
         cancel: Скасувати
         choose: Оберіть
         title: Оберіть %{field}
-      prompt: Оберіть терен
-      scopes: Терени
+      prompt: Оберіть обсяг
+      scopes: Обсяги
     shared:
       action_authorization_modal:
         expired:
@@ -459,7 +459,7 @@ uk:
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: батько терену не може бути одним з його нащадків
+      cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
       invalid_participatory_process: Неприпустимий рух співучасті
