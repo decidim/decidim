@@ -197,11 +197,8 @@ it:
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
-      finished:
-        active_consultations: Consultazioni attive
-        past_consultations: Consultazioni precedenti
       highlighted_questions:
-        title: Consultazioni da %{scope_name}
+        title: Domande da %{scope_name}
       index:
         title: consultazioni
       question:
@@ -214,7 +211,7 @@ it:
         create:
           error: Ci sono stati errori nel votare la domanda
       regular_questions:
-        title: Altre consultazioni
+        title: Domande per questa consultazione
       show:
         badge_name:
           finished: Finito
@@ -226,7 +223,6 @@ it:
           view: vista
           view_results: Vedi i risultati
           vote: Votazione
-        see_finished_consultations: Vedi consultazioni precedenti
         unspecified: Non specificato
     menu:
       consultations: consultazioni
