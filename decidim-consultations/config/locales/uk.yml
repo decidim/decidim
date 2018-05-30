@@ -7,8 +7,10 @@ uk:
         slug: Скорочена веб-адреса
         title: Назва
       question:
+        decidim_scope_id: Ділянка міста
         i_frame_url: Веб-адреса зовнішньої системи голосування
         origin_url: Веб-адреса джерела
+        scope: Ділянка міста
         slug: Скорочена веб-адреса
   decidim:
     admin:
