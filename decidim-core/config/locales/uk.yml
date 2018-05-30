@@ -298,6 +298,8 @@ uk:
       value: Значення
     followers:
       no_followers: Ще нема тих, хто стежить.
+    following:
+      no_followings: Ще ні за ким та ні за чим не стежить.
     follows:
       create:
         button: Стежити
@@ -440,6 +442,7 @@ uk:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
         followers: Ті, хто стежить
+        following: 'Стежить за:'
         notifications: Сповіщення
       user:
         edit_profile: Редагувати профіль
