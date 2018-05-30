@@ -87,6 +87,10 @@ module Decidim
       def endorsers_for(proposal)
         proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
       end
+
+      def authors_for(coauthorable)
+        coauthorable.identities.map { |identity| present(identity) }
+      end
     end
   end
 end
