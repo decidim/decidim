@@ -12,15 +12,15 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Терен
-        meta_scope: Метадані терену
+        local_area: Місцева ділянка
+        meta_scope: Метадані обсягу
         participatory_process_group_id: Група рухів
-        participatory_scope: Терен співучасті
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
         published_at: 'Оприлюднено:'
-        scope_id: Терен
-        scopes_enabled: Терени увімкнено
+        scope_id: Обсяг
+        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
@@ -204,6 +204,10 @@ uk:
         resend_invitation:
           error: При повторному надсиланні запрошення сталася помилка.
           success: Запрошення успішно знову надіслане.
+    events:
+      participatory_process:
+        step_changed:
+          notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
     participatory_process_groups:
@@ -244,16 +248,17 @@ uk:
       show:
         developer_group: Група зачинальників
         end_date: Дата закінчення
-        local_area: Терен організації
+        local_area: Ділянка організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний процес
-        scope: Терен
+        scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
+        debates_count: Обговорення
         endorsements_count: Підтримало
         headline: Діяльність
         meetings_count: Зустрічі
