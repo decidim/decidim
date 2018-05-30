@@ -6,15 +6,23 @@ uk:
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
+        closing_date: Дата закриття
+        closing_date_reason: Причина дати закриття
+        composition: Склад
         copy_categories: Скопіювати розряди
+        copy_components: Копіювати складові
         copy_features: Скопіювати складові
+        created_by: 'Створено:'
+        created_by_other: Створено кимось іншим
+        creation_date: Дата створення
         decidim_area_id: Ділянка
+        decidim_scope_id: Обсяг
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Терен
+        local_area: Місцева ділянка
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
@@ -160,7 +168,7 @@ uk:
             duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку ця дата відображатиметься як невизначена.
             included_at_help: Оберіть дату, коли ці збори були додані до Десідім. Вона не обов'язково має бути тою самою ж, що і дата створення.
             select_a_created_by: Оберіть, ким створені
-            select_an_area: Оберіть терен
+            select_an_area: Оберіть ділянку
             select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
@@ -207,10 +215,10 @@ uk:
           member_of:
             member_of: 'Входить у склад:'
       show:
-        area: Терен
+        area: Ділянка
         assembly_type: Різновид зборів
         developer_group: Група зачинальників
-        local_area: Терен
+        local_area: Місцева ділянка
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
