@@ -403,9 +403,9 @@ es:
         success: Borrador de propuesta actualizado con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propuestas relacionadas
+        proposal_proposal: Propuestas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen en este proyecto:'
+        project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_projects: 'Propuesta formulada en estos proyectos:'
-        proposal_results: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta formulada en estos proyectos:'
+        proposal_result: 'Propuesta formulada en estos resultados:'
