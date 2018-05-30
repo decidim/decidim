@@ -5,7 +5,14 @@ uk:
         body: Відповісти
       survey_question:
         mandatory: Обов’язкове поле
+        max_choices: Максимальна кількість варіантів
         question_type: Різновид
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: деяких не вистачає
   decidim:
     surveys:
       admin:
