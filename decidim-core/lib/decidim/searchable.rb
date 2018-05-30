@@ -19,7 +19,7 @@ module Decidim
     included do
       has_many :searchable_resources, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
       after_create :add_to_index_as_search_resource
-      after_update :update_index_for_search_rersource
+      after_update :update_index_for_search_resource
 
       # Public: after_create callback to index the model as a SearchableResource.
       #
