@@ -181,6 +181,6 @@ uk:
           version_index: Версія %{index}
     resource_links:
       included_projects:
-        result_projects: Задуми, включені до цих підсумків
+        result_project: Задуми, включені до цих підсумків
       included_proposals:
-        result_proposals: Пропозиції, включені до цих підсумків
+        result_proposal: Пропозиції, включені до цих підсумків
