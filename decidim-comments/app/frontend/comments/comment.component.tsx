@@ -111,10 +111,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
           </div>
         </div>
         <div className="comment__content">
-          <p>
+          <div>
             {this._renderAlignmentBadge()}
-            <span dangerouslySetInnerHTML={{__html: formattedBody}} />
-          </p>
+            <div dangerouslySetInnerHTML={{__html: formattedBody}} />
+          </div>
         </div>
         <div className="comment__footer">
           {this._renderReplyButton()}
