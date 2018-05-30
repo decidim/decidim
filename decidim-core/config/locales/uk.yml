@@ -99,12 +99,12 @@ uk:
       organization:
         update: "%{user_name} оновив налаштування організації"
       scope:
-        create: "%{user_name} додав терен %{resource_name}"
+        create: "%{user_name} додав обсяг %{resource_name}"
         create_with_parent: "%{user_name} створив обсяг %{resource_name} всередині обсягу %{parent_scope}"
-        delete: "%{user_name} видалив терен %{resource_name}"
-        delete_with_parent: "%{user_name} видалив терен %{resource_name} всередині терену %{parent_scope}"
-        update: "%{user_name} оновив терен %{resource_name}"
-        update_with_parent: "%{user_name} оновив терен %{resource_name} всередині терену %{parent_scope}"
+        delete: "%{user_name} видалив обсяг %{resource_name}"
+        delete_with_parent: "%{user_name} видалив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+        update: "%{user_name} оновив обсяг %{resource_name}"
+        update_with_parent: "%{user_name} оновив обсяг %{resource_name} всередині обсягу %{parent_scope}"
       static_page:
         create: "%{user_name} створив статичну сторінку %{resource_name}"
         delete: "%{user_name} видалив статичну сторінку %{resource_name}"
@@ -330,9 +330,9 @@ uk:
         area_type_presenter:
           not_found: 'Цей різновид ділянки не знайдено в базі даних (ID: %{id})'
         scope_presenter:
-          not_found: 'Цей терен не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Цей різновид терену не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид обсягу не знайдено в базі даних (ID: %{id})'
     managed_users:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
