@@ -204,6 +204,10 @@ uk:
         resend_invitation:
           error: При повторному надсиланні запрошення сталася помилка.
           success: Запрошення успішно знову надіслане.
+    events:
+      participatory_process:
+        step_changed:
+          notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
     participatory_process_groups:
@@ -251,9 +255,11 @@ uk:
         scope: Терен
         start_date: Дата початку
         target: Хто бере участь
+        unspecified: Не визначено
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
+        debates_count: Обговорення
         endorsements_count: Підтримало
         headline: Діяльність
         meetings_count: Зустрічі
@@ -271,6 +277,7 @@ uk:
       participatory_process_groups:
         participatory_process_group:
           browse: Огляд
+          processes_count: 'Рухи:'
       participatory_process_widgets:
         show:
           active_step: Започатий крок
