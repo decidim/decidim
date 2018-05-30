@@ -289,11 +289,11 @@ ca:
         upcoming_meeting: Propera reunió
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Resultats relacionats:'
-        result_meetings: 'Trobades relacionades:'
+        meeting_result: 'Resultats relacionats:'
+        result_meeting: 'Trobades relacionades:'
       proposals_from_meeting:
-        meeting_proposals: 'Propostes relacionades:'
-        proposal_meetings: 'Trobades relacionades:'
+        meeting_proposal: 'Propostes relacionades:'
+        proposal_meeting: 'Trobades relacionades:'
   devise:
     mailer:
       join_meeting:
