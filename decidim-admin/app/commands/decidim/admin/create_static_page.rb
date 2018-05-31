@@ -9,6 +9,7 @@ module Decidim
       # form - A form object with the params.
       def initialize(form)
         @form = form
+        @page = nil
       end
 
       # Executes the command. Broadcasts these events:
@@ -21,6 +22,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_page
+        update_organization_tos_version
         broadcast(:ok)
       end
 
@@ -29,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def create_page
-        Decidim.traceability.create!(
+        @page = Decidim.traceability.create!(
           StaticPage,
           form.current_user,
           title: form.title,
@@ -37,6 +39,10 @@ module Decidim
           content: form.content,
           organization: form.organization
         )
+      end
+
+      def update_organization_tos_version
+        UpdateOrganizationTosVersion.call(@form.organization, @page, @form)
       end
     end
   end
