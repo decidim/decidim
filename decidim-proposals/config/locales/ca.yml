@@ -16,6 +16,12 @@ ca:
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
         origin_component_id: Component des d'on copiar les propostes
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita tornar a connectar-se
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
