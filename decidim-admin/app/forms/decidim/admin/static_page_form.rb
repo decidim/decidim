@@ -9,6 +9,7 @@ module Decidim
       attribute :slug, String
       translatable_attribute :title, String
       translatable_attribute :content, String
+      attribute :changed_notably, Boolean
 
       mimic :static_page
 
