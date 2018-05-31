@@ -16,6 +16,12 @@ uk:
       proposals_copy:
         copy_proposals: Я розумію, що при цьому всі пропозиції з обраної складової будуть запозичені до поточної складової, і що цю дію не можна буде потім скасувати.
         origin_component_id: Складова, звідки потрібно скопіювати пропозиції
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Необхідно повторно додати вкладений файл
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
