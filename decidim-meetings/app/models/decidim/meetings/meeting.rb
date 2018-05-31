@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
 
@@ -30,6 +31,14 @@ module Decidim
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: [:description, :address],
+        datetime: :start_time
+      )
 
       scope :visible_meeting_for, lambda { |user|
                                     joins("LEFT JOIN decidim_meetings_registrations ON
