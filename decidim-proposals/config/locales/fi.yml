@@ -16,6 +16,12 @@ fi:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
         origin_component_id: Komponentti kopioida ehdotukset osoitteesta
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Tarvitaan uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
       decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
