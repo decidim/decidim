@@ -25,6 +25,13 @@ uk:
         settings:
           global:
             comments_enabled: Коментарі увімкнено
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: До "%{participatory_space_title}", за яким ви стежите, було додане жеребкування "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: До %{participatory_space_title} додано нове жеребкування
+          notification_title: До %{participatory_space_title} була додано жеребкування <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:
         statistics:
@@ -44,4 +51,35 @@ uk:
             fields:
               category: Розряд
               created_at: Дата створення
+              decidim_proposals_component: Складова пропозицій
+              dice: Гральна кістка
+              reference: Посилання на джерело
+              request_timestamp: Час кидання жеребу
+              seed: Початкове число
+              target_items: Наймення до вибору
               title: Назва
+            name:
+              one: Жеребкування
+              few: Жеребкування
+              many: Жеребкувань
+              other: Жеребкувань
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Ви дійсно бажаєте скасувати це жеребкування?
+            destroy: Скасувати жеребкування
+            title: Скасування жеребкування
+          create:
+            error: При створенні нового жеребкування сталася помилка.
+            success: Жеребкування успішно створено
+          destroy:
+            error: Неможливо скасувати це жеребкування.
+            success: Жеребкування успішно скасовано
+          edit:
+            title: Оновити відомості про жеребкування
+            update: Оновити
+          form:
+            all_categories: Усі розряди
+            select_proposal_component: Оберіть набір пропозицій
+            title: Нове жеребкування для пропозицій
+          index:
+            title: Жеребкування
