@@ -137,7 +137,7 @@ sv:
         success: Din röst har avbrutits framgångsrikt
     resource_links:
       included_proposals:
-        project_proposals: 'Förslag som ingår i detta projekt:'
+        project_proposal: 'Förslag som ingår i detta projekt:'
   index:
     confirmed_orders_count: Antal röster
   total_budget: Total budget

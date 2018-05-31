@@ -45,6 +45,8 @@ ca:
             created_at: Creat el
             title: títol
       posts:
+        show:
+          view: Veure
         sidebar_blog:
           comments: comentaris
           most_commented_posts: Publicacions més comentades

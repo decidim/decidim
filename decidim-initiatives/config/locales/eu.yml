@@ -264,6 +264,7 @@ eu:
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkinik gehien
+          most_voted: Gehien sinatuta
           random: Random
           recent: Berrienak
         result:
@@ -274,12 +275,21 @@ eu:
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
         signature_identities:
           select_identity: Hautatu erabiltzailearen identitatea
+        signatures_count:
+          one: " sinadura"
+          other: " sinadurak"
         statistics:
           assistants_count_title: laguntzaileak
           comments_count_title: Oharrak
           meetings_count_title: Bilerak
+          supports_count_title: sinadurak
+        supports:
+          title: Sinadura zerrenda
         vote_cabin:
+          already_voted: Dagoeneko sinatuta
+          supports_required: "%{total_supports} sinadura beharrezkoa da"
           vote: Saioa
+          votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
             one: SIGNATURE

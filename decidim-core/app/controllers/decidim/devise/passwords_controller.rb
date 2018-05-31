@@ -14,7 +14,7 @@ module Decidim
       # Setting the organization ID here will be used by Devise internally to
       # find the correct user.
       #
-      # Note that in orther for this to work we need to define the `reset_password_keys`
+      # Note that in order for this to work we need to define the `reset_password_keys`
       # Devise attribute in the `Decidim::User` model to include the
       # `decidim_organization_id` attribute.
       def resource_params

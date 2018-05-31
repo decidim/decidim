@@ -152,7 +152,7 @@ ru:
         success: Предложение успешно обновлено.
     resource_links:
       included_projects:
-        project_results: 'Итоги, представленные в этом проекте:'
+        project_result: 'Итоги, представленные в этом проекте:'
       included_proposals:
-        proposal_projects: 'Предложение представлено в проектах:'
-        proposal_results: 'Предложения, представленные в этих итогах:'
+        proposal_project: 'Предложение представлено в проектах:'
+        proposal_result: 'Предложения, представленные в этих итогах:'
