@@ -34,7 +34,7 @@ module Decidim
     end
 
     def file_path_reader
-      Decidim::DataPortabilityUploader.new().retrieve_from_store!(file_name)
+      Decidim::DataPortabilityUploader.new.retrieve_from_store!(file_name)
     end
 
     # Check if token is present and length equal 10
