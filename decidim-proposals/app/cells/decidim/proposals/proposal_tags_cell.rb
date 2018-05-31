@@ -13,15 +13,10 @@ module Decidim
       property :scope
 
       def show
-        return unless has_category_or_scopes?
-        render
+        render if has_category_or_scopes?
       end
 
       private
-
-      def category
-        nil
-      end
 
       def show_previous_category?
         options[:show_previous_category].to_s != "false"
