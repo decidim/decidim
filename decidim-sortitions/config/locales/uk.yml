@@ -7,10 +7,37 @@ uk:
         decidim_proposals_component_id: Набір пропозицій
         dice: Результат жеребкування. Киньте шостигранну гральну кістку, або знайдіть якийсь інший спосіб виробити випадкове число від 1 до 6, і введіть тут. На відміну від пасивного засвідчення готового результату, це сприяє якості та гарантує випадковість результату
         title: Назва
+        witnesses: Свідки
+    models:
+      decidim/sortitions/create_sortition_event: Жеребкування
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Жеребкування
+        few: Жеребкування
+        many: Жеребкувань
+        other: Жеребкувань
   decidim:
+    components:
+      sortitions:
+        name: Жеребкування
+    pages:
+      home:
+        statistics:
+          sortitions_count: Жеребкувань
+    participatory_processes:
+      statistics:
+        sortitions_count: Жеребкувань
     sortitions:
       admin:
+        actions:
+          destroy: Скасувати жеребкування
+          edit: Редагувати
+          new: Додати
+          show: Подробиці жеребкування
         models:
           sortition:
             fields:
+              category: Розряд
+              created_at: Дата створення
               title: Назва
