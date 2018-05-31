@@ -98,7 +98,7 @@ uk:
           email_intro: 'Тепер ви можете вносити нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер наявні пропозиції
-          notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер ви можете вносити <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
