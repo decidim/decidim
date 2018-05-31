@@ -16,6 +16,12 @@ eu:
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
         origin_component_id: Proposamenen kopia egiteko osagaia
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Berriro uzteko beharra
     models:
       decidim/proposals/accepted_proposal_event: Onartutako proposamena
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
