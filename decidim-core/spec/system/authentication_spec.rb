@@ -3,12 +3,11 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, :with_tos) }
   let(:last_user) { Decidim::User.last }
 
   before do
     switch_to_host(organization.host)
-    create(:static_page, slug: "terms-and-conditions", organization: organization)
     visit decidim.root_path
   end
 

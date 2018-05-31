@@ -5,8 +5,10 @@ module Decidim
     # This controller customizes the behaviour of Devise::Invitiable.
     class InvitationsController < ::Devise::InvitationsController
       include Decidim::DeviseControllers
+      include NeedsTosAccepted
 
       before_action :configure_permitted_parameters
+      helper_method :terms_and_conditions_page
 
       # We don't users to create invitations, so we just redirect them to the
       # homepage.
@@ -25,13 +27,14 @@ module Decidim
       def accept_resource
         resource = resource_class.accept_invitation!(update_resource_params)
         resource.update!(managed: false) if resource.managed?
+        resource.update!(accepted_tos_version: resource.organization.tos_version)
         resource
       end
 
       protected
 
       def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:accept_invitation, keys: [:nickname])
+        devise_parameter_sanitizer.permit(:accept_invitation, keys: [:nickname, :tos_agreement, :newsletter_notifications])
       end
     end
   end

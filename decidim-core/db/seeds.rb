@@ -102,6 +102,7 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(2)
+    # accepted_tos_version: Time.current
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
@@ -117,6 +118,7 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(2)
+    # accepted_tos_version: Time.current
   )
 
   Decidim::Messaging::Conversation.start!(

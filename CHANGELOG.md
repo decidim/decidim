@@ -56,6 +56,7 @@ must now set a resource name:
 - **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-core**: GDPR: Track TOS page version in Organization [\#3491](https://github.com/decidim/decidim/pull/3491)
+- **decidim-core**: GDPR: User must review TOS when updated [\#3494](https://github.com/decidim/decidim/pull/3494)
 
 **Changed**:
 
