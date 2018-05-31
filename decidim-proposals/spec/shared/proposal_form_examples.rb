@@ -48,6 +48,11 @@ shared_examples "a proposal form" do |options|
     let(:title) { nil }
 
     it { is_expected.to be_invalid }
+
+    it "only adds errors to this field" do
+      subject.valid?
+      expect(subject.errors.keys).to eq [:title]
+    end
   end
 
   context "when there's no body" do
@@ -192,5 +197,15 @@ shared_examples "a proposal form" do |options|
     end
 
     it { is_expected.to be_valid }
+
+    context "when the form has some errors" do
+      let(:title) { nil }
+
+      it "adds an error to the `:attachment` field" do
+        expect(subject).not_to be_valid
+        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
+        expect(subject.errors.keys).to match_array([:title, :attachment])
+      end
+    end
   end
 end

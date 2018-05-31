@@ -45,13 +45,20 @@
           <% if component_settings.attachments_allowed? %>
             <fieldset>
               <legend><%= t(".attachment_legend") %></legend>
-              <%= form.fields_for :attachment, @form.attachment do |form| %>
+              <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
                 <div class="field">
-                  <%= form.text_field :title %>
+                  <%= nested_form.text_field :title %>
                 </div>
 
                 <div class="field">
-                  <%= form.upload :file, optional: false %>
+                  <%= nested_form.upload :file, optional: false %>
+                  <% if @form.errors[:attachment].present? %>
+                    <% @form.errors[:attachment].each do |message| %>
+                      <small class="form-error is-visible">
+                        <%= message %>
+                      </small>
+                    <% end %>
+                  <% end %>
                 </div>
               <% end %>
             </fieldset>
