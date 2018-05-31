@@ -55,6 +55,7 @@ must now set a resource name:
 - **decidim-core**: GDPR: Newsletter checkbox unchecked by default [\3316](https://github.com/decidim/decidim/issues/3316)
 - **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
+- **decidim-core**: GDPR: Track TOS page version in Organization [\#3491](https://github.com/decidim/decidim/pull/3491)
 
 **Changed**:
 
