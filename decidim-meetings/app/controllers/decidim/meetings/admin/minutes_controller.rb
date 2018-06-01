@@ -8,10 +8,14 @@ module Decidim
         helper_method :current_meeting, :minutes
 
         def new
+          enforce_permission_to :create, :minutes, meeting: current_meeting
+
           @form = form(MinutesForm).instance
         end
 
         def create
+          enforce_permission_to :create, :minutes, meeting: current_meeting
+
           @form = form(MinutesForm).from_params(params)
 
           CreateMinutes.call(@form, current_meeting) do
@@ -28,10 +32,14 @@ module Decidim
         end
 
         def edit
+          enforce_permission_to :update, :minutes, minutes: minutes, meeting: current_meeting
+
           @form = form(MinutesForm).from_model(minutes)
         end
 
         def update
+          enforce_permission_to :update, :minutes, minutes: minutes, meeting: current_meeting
+
           @form = form(MinutesForm).from_params(params)
           UpdateMinutes.call(@form, current_meeting, minutes) do
             on(:ok) do

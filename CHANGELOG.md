@@ -96,6 +96,7 @@ must now set a resource name:
 
 **Fixed**:
 
+- **decidim-meetings**: Enforce permissions when managing meeting minutes. [\#3560](https://github.com/decidim/decidim/pull/3560)
 - **decidim-assembly**: Fix Non private users can participate to a private, transparent assembly [\#3438](https://github.com/decidim/decidim/pull/3438)
 - **decidim-proposals**: Fixes artificial margin between proposal "header" and list of endorsements. [\#2893](https://github.com/decidim/decidim/pull/2893)
 - **decidim-proposals**: Use translations for hardcoded text. [\#3464](https://github.com/decidim/decidim/pull/3464)
