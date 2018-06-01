@@ -129,12 +129,12 @@ fr:
           candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
           category: de la catégorie %{category}
           dice_result: "(1) Résultat du tirage de dé"
-          introduction: 'Cette page contient les résultats du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} résultats ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus des résultats, les détails affichés sur cette page fournissent toutes les informations nécessaires pour maximiser les garanties et reproduire les résultats. La clé de la réussite de ce tirage au sort est le double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La time seed pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "incontrôlable" pour garantir un résultat juste.  '
+          introduction: 'Cette page contient le résultat du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} éléments ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus du résultat, cette page fournit toutes les informations nécessaires pour maximiser les garanties et permettre de reproduire le résultat. Le tirage au sort résulte d''un double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La variable temporelle pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "infalsifiable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
           proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
           sortition_reproducibility_details: Détails de reproductibilité du tirage au sort
-          time_seed: "(2) Time seed"
-          witnesses: Les témoins
+          time_seed: "(2) Date et Heure"
+          witnesses: Témoins
         sortition:
           random_seed: Graine aléatoire
           selected_proposals:
