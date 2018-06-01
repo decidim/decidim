@@ -549,15 +549,15 @@ en:
       public: Your public information.
   errors:
     messages:
-      content_type_whitelist_error: The file type is not valid
+      content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: Contains words that are too long
-      must_start_with_caps: Must start with caps
+      long_words: contains words that are too long
+      must_start_with_caps: must start with caps
       nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: Is using too many marks
-      too_much_caps: Is using too much caps
-      too_short: Is too short
+      too_many_marks: is using too many marks
+      too_much_caps: is using too much caps
+      too_short: is too short
   forms:
     required: Required
   invisible_captcha:
