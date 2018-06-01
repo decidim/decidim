@@ -20,6 +20,8 @@ module Decidim::Accountability
     let(:end_date) { Date.tomorrow }
     let(:status) { create :status, component: result.component, key: "finished", name: { en: "Finished" } }
     let(:progress) { 95 }
+    let(:external_id) { "external-id" }
+    let(:weight) { 0.3 }
 
     let(:meeting) do
       create(
@@ -61,7 +63,9 @@ module Decidim::Accountability
         decidim_accountability_status_id: status.id,
         progress: progress,
         current_user: user,
-        parent_id: nil
+        parent_id: nil,
+        external_id: external_id,
+        weight: weight
       )
     end
     let(:invalid) { false }
@@ -129,6 +133,16 @@ module Decidim::Accountability
         linked_meetings = result.linked_resources(:meetings, "meetings_through_proposals")
 
         expect(linked_meetings).to eq [meeting]
+      end
+
+      it "sets the external_id" do
+        subject.call
+        expect(result.external_id).to eq external_id
+      end
+
+      it "sets the weight" do
+        subject.call
+        expect(result.weight).to eq weight
       end
     end
   end
