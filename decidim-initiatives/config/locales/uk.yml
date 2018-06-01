@@ -23,7 +23,7 @@ uk:
         post_code: Поштовий індекс
         province: Область
       initiatives_committee_member:
-        user: Член комітету
+        user: Член робочого гурту
       initiatives_type:
         banner_image: Банерне зображення
         description: Опис
@@ -40,10 +40,10 @@ uk:
         many: Починів
         other: Починів
       decidim/initiative_comittee:
-        one: Комітет
-        few: Комітети
-        many: Комітетів
-        other: Комітетів
+        one: Робочий гурт
+        few: Робочих гурти
+        many: Робочих гуртів
+        other: Робочих гуртів
       decidim/initiative_vote:
         one: Підпис
         few: Підписи
@@ -87,10 +87,10 @@ uk:
           index:
             approve: Затвердити
             confirm_revoke: Ви впевнені?
-            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до комітету з просування
-            no_members_yet: У комітеті з просування нема жодного члена
+            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до робочого гурту з просування
+            no_members_yet: У робочого гурту з просування нема жодного члена
             revoke: Відкликати
-            title: Члени комітету
+            title: Члени робочого гурту
         initiatives:
           edit:
             accept: Прийняти почин
@@ -140,6 +140,9 @@ uk:
       admin_states:
         discarded: Відкинуті
         rejected: Відхилені
+      committee_requests:
+        new:
+          help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
       create_initiative:
         fill_data:
           fill_data_help: "<ul> <li>Перегляньте зміст вашого почину. Чи легко розуміти його заголовок? Ясна мета вашого почину?</li> <li>Ви маєте обрати різновид підпису. На особистій зустрічі, в Інтернеті або і там, і там</li> <li>Який географічний обсяг почину? Місто, район?</li> </ul>"
