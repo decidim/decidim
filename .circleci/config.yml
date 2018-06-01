@@ -138,7 +138,9 @@ jobs:
       - *install_ruby_dependencies
       - *save_ruby_cache
       - *wait_for_db
-      - *run_rspec
+      - run:
+          name: Run main folder RSpec
+          command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - *install_test_reporter
       - *format_test_coverage
       - *store_test_results
