@@ -1,12 +1,38 @@
 uk:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Новий допис у блозі
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Допис
+        few: Дописи
+        many: Дописів
+        other: Дописів
   decidim:
     blogs:
       actions:
         confirm_destroy: Ви дійсно бажаєте видалити цей задум?
         destroy: Видалити
+        edit: Редагувати
+        new: Додати
+        title: Дії
       admin:
+        models:
+          components:
+            body: Основний текст
+          post:
+            name: Допис
         posts:
+          edit:
+            save: Оновити
+          index:
+            title: Дописи
+          new:
+            create: Створити
+            title: Створити допис
           update:
+            invalid: При збереженні цього допису сталися помилки.
             success: Допис успішно збережено
       models:
         post:
