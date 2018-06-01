@@ -52,7 +52,7 @@ fr:
       assembly_member:
         birthday: Date de naissance
         birthplace: Lieu de naissance
-        ceased_date: Date de cessation
+        ceased_date: Date de radiation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
         full_name: Nom complet
@@ -310,9 +310,9 @@ fr:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
-      assemblies: Agora
+      assemblies: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -322,11 +322,11 @@ fr:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Agora mises en avant
+          promoted_assemblies: Assemblées mises en avant
         order_by_assemblies:
           assemblies:
-            one: "%{count} agora"
-            other: "%{count} agora"
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
