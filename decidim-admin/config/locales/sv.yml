@@ -64,6 +64,7 @@ sv:
         omnipresent_banner_url: URL
         reference_prefix: Referensprefix
         show_statistics: Visa statistik
+        tos_version: Användarvillkor version
         twitter_handler: Twitter-hanterare
         welcome_text: Välkomsttext
         youtube_handler: YouTube-hanterare
@@ -79,6 +80,7 @@ sv:
         organization: Organisation
         plural: Flertal
       static_page:
+        changed_notably: Det har förekommit märkbara förändringar.
         content: Innehåll
         organization: Organisation
         slug: URL slug
@@ -574,8 +576,11 @@ sv:
         destroy:
           success: Sidan förstördes framgångsrikt
         edit:
+          changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
           title: Redigera sida
           update: Uppdatera
+        index:
+          last_notable_change: Senast anmärkningsvärda förändring
         new:
           create: Skapa
           title: Ny sida

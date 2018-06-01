@@ -8,6 +8,7 @@ fi:
         end_voting_date: Päättymispäivä
         introductory_image: Alustava kuva
         introductory_video_url: Alkuperäisen videon URL-osoite
+        questions: kysymykset
         slug: URL-linkki
         start_voting_date: Aloituspäivämäärä
         subtitle: alaotsikko
@@ -196,11 +197,8 @@ fi:
         filter: Suodattaa
         filter_by: Suodata
         unfold: avautua
-      finished:
-        active_consultations: Aktiiviset neuvottelut
-        past_consultations: Aiemmat kuulemiset
       highlighted_questions:
-        title: Neuvottelut %{scope_name}
+        title: Kysymykset %{scope_name}
       index:
         title: kuulemiset
       question:
@@ -213,9 +211,19 @@ fi:
         create:
           error: Kysymystä äänestäessä on ollut virheitä
       regular_questions:
-        title: Muut neuvottelut
+        title: Kysymyksiä tästä kuulemisesta
       show:
-        see_finished_consultations: Katso edelliset neuvottelut
+        badge_name:
+          finished: Valmiit
+          open: Avata
+          open_votes: Avaa ääniä
+          published_results: Tulokset julkaistu
+        footer_button_text:
+          debate: Keskustelu
+          view: näkymä
+          view_results: Näytä tulokset
+          vote: Äänestys
+        unspecified: Ei määritelty
     menu:
       consultations: kuulemiset
     pages:
@@ -240,7 +248,7 @@ fi:
         starting_from: Alk. %{date}
         vote: Äänestys
       vote_modal:
-        contextual_help: Ole hyvä ja valitse vaihtoehto. Muista, että kun olet vahvistanut tuen, sitä ei voi muuttaa.
+        contextual_help: Ole hyvä ja valitse vaihtoehto.
         title: 'Kuuleminen: kysymystuki'
       vote_modal_confirm:
         change: Muuttaa

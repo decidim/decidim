@@ -210,6 +210,8 @@ fi:
       admin:
         assemblies:
           form:
+            duration_help: Jos kokoonpanon kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            included_at_help: Valitse päivämäärä, jolloin kokoonpano lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
             select_a_created_by: Valitse luoma
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse kokoonpanotyyppi

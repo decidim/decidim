@@ -51,7 +51,7 @@ fr:
           success: Vous avez été autorisé avec succès.
         first_login:
           actions:
-            another_dummy_authorization_handler: Vérifier par rapport à un autre exemple de gestionnaire d'autorisation
+            another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
             dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Soyez vérifié en téléchargeant votre document d'identité

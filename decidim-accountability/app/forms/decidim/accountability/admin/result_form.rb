@@ -20,9 +20,10 @@ module Decidim
         attribute :progress, Float
         attribute :decidim_accountability_status_id, Integer
         attribute :parent_id, Integer
+        attribute :external_id, String
+        attribute :weight, Float
 
         validates :title, translatable_presence: true
-        validates :description, translatable_presence: true
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }

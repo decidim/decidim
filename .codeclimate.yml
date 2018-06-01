@@ -97,6 +97,7 @@ plugins:
 
     exclude_patterns:
       - "decidim_app-design/**/*"
+      - "**/*/locales/*.yml"
 
 
   markdownlint:

@@ -251,6 +251,7 @@ eu:
           remaining_slots:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
+          view: ikusi
       models:
         meeting:
           fields:
@@ -288,11 +289,11 @@ eu:
         upcoming_meeting: Hurrengo bilera
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Topaketaren emaitzak:'
-        result_meetings: 'Proposamenarekin lotutako topaketak:'
+        meeting_result: 'Topaketaren emaitzak:'
+        result_meeting: 'Proposamenarekin lotutako topaketak:'
       proposals_from_meeting:
-        meeting_proposals: 'Topaketari dagozkion proposamenak:'
-        proposal_meetings: 'Proposamenarekin lotutako topaketak:'
+        meeting_proposal: 'Topaketari dagozkion proposamenak:'
+        proposal_meeting: 'Proposamenarekin lotutako topaketak:'
   devise:
     mailer:
       join_meeting:

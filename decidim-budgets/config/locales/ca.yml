@@ -137,7 +137,7 @@ ca:
         success: El seu vot ha estat cancel·lat correctament
     resource_links:
       included_proposals:
-        project_proposals: 'Propostes incloses en aquest projecte:'
+        project_proposal: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Recompte de vots
   total_budget: Pressupost total

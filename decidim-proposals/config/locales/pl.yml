@@ -16,6 +16,12 @@ pl:
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent do skopiowania propozycji z
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Musi zostać ponownie podłączony
     models:
       decidim/proposals/accepted_proposal_event: Wniosek przyjęty
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię oferty
@@ -309,6 +315,7 @@ pl:
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           evaluating: Ocena
+          except_rejected: Wszystkie oprócz odrzuconych
           official: Urzędnik
           origin: Pochodzenie
           rejected: Odrzucone
@@ -321,10 +328,6 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
-        identities_listing:
-          see_all: Widzieć wszystko
-          see_less: Zobacz mniej
-          title: Lista rekomendacji
         index:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
@@ -357,6 +360,12 @@ pl:
           view_proposal: Wyświetl propozycję
         show:
           edit_proposal: Edytuj propozycję
+          endorsements_list: Lista rekomendacji
+          hidden_endorsers_count:
+            one: i jeszcze 1 osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
@@ -418,9 +427,9 @@ pl:
         success: Projekt propozycji został pomyślnie zaktualizowany.
     resource_links:
       copied_from_component:
-        proposal_proposals: Powiązane propozycje
+        proposal_proposal: Powiązane propozycje
       included_projects:
-        project_results: 'Wyniki pojawiające się w tym projekcie:'
+        project_result: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:
-        proposal_projects: 'Propozycja występująca w tych projektach:'
-        proposal_results: 'Propozycja pojawiająca się w tych wynikach:'
+        proposal_project: 'Propozycja występująca w tych projektach:'
+        proposal_result: 'Propozycja pojawiająca się w tych wynikach:'

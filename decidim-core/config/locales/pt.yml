@@ -191,6 +191,7 @@ pt:
         new:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
+          newsletter_title: Permissão de contato
           nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -201,12 +202,19 @@ pt:
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
+          tos_title: Termos de serviço
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verifique e continue
+            uncheck: Manter desmarcado
+          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -281,7 +289,7 @@ pt:
     followers:
       no_followers: Ainda não há seguidores
     following:
-      no_followings: Não há seguidores ainda.
+      no_followings: Não segue ninguém ou nada ainda.
     follows:
       create:
         button: Seguir
