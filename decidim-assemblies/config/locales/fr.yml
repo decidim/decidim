@@ -28,7 +28,7 @@ fr:
         included_at: Inclus le
         instagram: Instagram
         internal_organisation: Organisation interne
-        is_transparent: Est transparent
+        is_transparent: Visible par les non-membres
         local_area: Zone d'application locale
         meta_scope: Métadonnée de la zone d’application
         participatory_processes_ids: Processus participatifs associés
@@ -45,7 +45,7 @@ fr:
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
-        target: Participants
+        target: Pour qui ?
         title: Titre
         twitter: Twitter
         youtube: Youtube
