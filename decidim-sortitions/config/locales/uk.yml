@@ -141,3 +141,23 @@ uk:
           mathematical_result: Вислід (1) x (2)
           proposals_selected_by_sortition: Пропозиції, обрані киданням жеребу
           sortition_reproducibility_details: Подробиці відтворюваності жеребкування
+          time_seed: "(2) Час як початкове число"
+          witnesses: Свідки
+        sortition:
+          random_seed: Випадкове початкове число
+          selected_proposals:
+            one: обрана пропозиція
+            few: обрані пропозиції
+            many: обраних пропозицій
+            other: обраних пропозицій
+          view: Переглянути
+        sortition_author:
+          deleted: Видалений учасник
+        sortition_cancel_author:
+          deleted: Видалений учасник
+        sortitions_count:
+          count:
+            one: 1 жеребкування
+            few: "%{count} жеребкування"
+            many: "%{count} жеребкувань"
+            other: "%{count} жеребкувань"
