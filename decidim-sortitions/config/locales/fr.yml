@@ -119,7 +119,7 @@ fr:
           recent: Récent
         results_count:
           count:
-            one: propositions sélectionnées
+            one: proposition sélectionnée
             other: propositions sélectionnées
         show:
           algorithm: Code de l'algorithme de tirage au sort
