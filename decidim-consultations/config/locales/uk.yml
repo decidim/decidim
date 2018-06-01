@@ -123,6 +123,50 @@ uk:
             created_at: 'Створено:'
             published: Оприлюднено
             title: Назва
+          name:
+            one: Питання
+            few: Питання
+            many: Питань
+            other: Питань
+        response:
+          fields:
+            created_at: 'Створено:'
+            title: Назва
+          name:
+            one: Відповідь
+            few: Відповіді
+            many: Відповідей
+            other: Відповідей
+      question_publications:
+        create:
+          error: Під час оприлюднення цього питання сталася помилка.
+          success: Питання успішно оприлюднено.
+        destroy:
+          error: Під час скасування оприлюднення цього питання сталася помилка.
+          success: Оприлюднення питання успішно скасовано.
+      questions:
+        create:
+          error: При спробі додати нове питання сталася помилка.
+          success: Питання успішно додано.
+        destroy:
+          success: Питання успішно видалено.
+        edit:
+          update: Оновити
+        form:
+          title: Загальні відомості
+        index:
+          not_published: Не оприлюднено
+          published: Оприлюднено
+        new:
+          create: Додати
+          title: Додати питання
+        update:
+          error: При оновленні цього питання сталася помилка.
+          success: Питання успішно оновлено.
+      responses:
+        create:
+          error: При створенні нової відповіді сталася помилка.
+          success: Відповідь успішно створено.
     consultations:
       highlighted_questions:
         title: Питання від %{scope_name}
