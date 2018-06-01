@@ -29,7 +29,14 @@ module Decidim
     end
 
     context "with a default static page" do
-      let(:slug) { Decidim::StaticPage::DEFAULT_PAGES.sample }
+      let(:slug) { Decidim::StaticPage::DEFAULT_PAGES.without("terms-and-conditions").sample }
+      let(:allowed?) { false }
+
+      it { is_expected.not_to include("slug") }
+    end
+
+    context "with the TOS static page" do
+      let(:slug) { "terms-and-conditions" }
       let(:allowed?) { false }
 
       it { is_expected.not_to include("slug") }

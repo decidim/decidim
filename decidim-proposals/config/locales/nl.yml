@@ -16,6 +16,12 @@ nl:
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
@@ -299,6 +305,7 @@ nl:
           category_prompt: Kies een categorie
           citizens: Burgers
           evaluating: Aan het beoordelen
+          except_rejected: Alles behalve afgewezen
           official: Officieel
           origin: Oorsprong
           rejected: Geweigerd
@@ -311,10 +318,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Uitvouwen
-        identities_listing:
-          see_all: Alles bekijken
-          see_less: Minder bekijken
-          title: Lijst met aanbevelingen
         index:
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
@@ -343,6 +346,10 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
+          endorsements_list: Lijst met aanbevelingen
+          hidden_endorsers_count:
+            one: en nog 1 persoon
+            other: en nog %{count} mensen
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
@@ -402,9 +409,9 @@ nl:
         success: Concept succesvol bijgewerkt.
     resource_links:
       copied_from_component:
-        proposal_proposals: Verwante voorstellen
+        proposal_proposal: Verwante voorstellen
       included_projects:
-        project_results: 'Resultaten die in dit project verschijnen:'
+        project_result: 'Resultaten die in dit project verschijnen:'
       included_proposals:
-        proposal_projects: 'Voorstel in deze projecten:'
-        proposal_results: 'Voorstel dat in deze resultaten voorkomt:'
+        proposal_project: 'Voorstel in deze projecten:'
+        proposal_result: 'Voorstel dat in deze resultaten voorkomt:'

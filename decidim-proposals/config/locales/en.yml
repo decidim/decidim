@@ -17,6 +17,12 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -404,9 +410,9 @@ en:
         success: Proposal draft updated successfully.
     resource_links:
       copied_from_component:
-        proposal_proposals: Related proposals
+        proposal_proposal: Related proposals
       included_projects:
-        project_results: 'Results appearing in this project:'
+        project_result: 'Results appearing in this project:'
       included_proposals:
-        proposal_projects: 'Proposal appearing in these projects:'
-        proposal_results: 'Proposal appearing in these results:'
+        proposal_project: 'Proposal appearing in these projects:'
+        proposal_result: 'Proposal appearing in these results:'

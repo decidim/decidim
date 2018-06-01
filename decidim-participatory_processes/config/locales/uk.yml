@@ -4,7 +4,8 @@ uk:
       participatory_process:
         announcement: Оголошення
         banner_image: Банерне зображення
-        copy_categories: Скопіювати розділи
+        copy_categories: Скопіювати розряди
+        copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
         developer_group: Група зачинальників
@@ -12,22 +13,22 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Терен
-        meta_scope: Метадані терену
+        local_area: Місцева ділянка
+        meta_scope: Метавідомості обсягу
         participatory_process_group_id: Група рухів
-        participatory_scope: Терен співучасті
+        participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
-        published_at: 'Опубліковано:'
-        scope_id: Терен
-        scopes_enabled: Ввімкнені терени
+        published_at: 'Оприлюднено:'
+        scope_id: Обсяг
+        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         show_statistics: Показувати статистику
-        slug: Скорочена URL-адреса
+        slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Заголовок
+        title: Назва
       participatory_process_group:
         description: Опис
         hero_image: Зображення
@@ -38,11 +39,31 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
         role: Роль
+    models:
+      decidim/participatory_process_step_activated_event: Крок започато
+      decidim/participatory_process_step_changed_event: Крок змінено
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Рух співучасті
+        few: Рухи співучасті
+        many: Рухів співучасті
+        other: Рухів співучасті
+      decidim/participatory_process_group:
+        one: Група руху співучасті
+        few: Групи руху співучасті
+        many: Груп руху співучасті
+        other: Груп руху співучасті
+      decidim/participatory_process_step:
+        one: Крок
+        few: Кроки
+        many: Кроків
+        other: Кроків
   decidim:
     admin:
       actions:
@@ -54,9 +75,9 @@ uk:
         edit: Редагувати
         new: Додати
         preview: Попередній перегляд
-        publish: Опублікувати
+        publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
-        unpublish: Скасувати публікацію
+        unpublish: Скасувати оприлюднення
       menu:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
@@ -64,18 +85,21 @@ uk:
           attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
-          categories: Розділи
+          categories: Розряди
+          components: Складові
           info: Інформація
           moderations: Дії з модерації
+          private_users: Приховані учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
         participatory_process:
           fields:
             created_at: 'Додано:'
+            private: Приватний
             promoted: Висвітлено
-            published: Опубліковано
-            title: Заголовок
+            published: Оприлюднено
+            title: Назва
           name: Рух співучасті
         participatory_process_group:
           fields:
@@ -85,7 +109,7 @@ uk:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
-            title: Заголовок
+            title: Назва
           name: Крок руху співучасті
         participatory_process_user_role:
           fields:
@@ -104,7 +128,7 @@ uk:
       participatory_process_copies:
         new:
           copy: Скопіювати
-          select: Оберіть дані, копію яких ви хотіли б створити
+          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію руху співучасті
       participatory_process_groups:
         destroy:
@@ -120,11 +144,11 @@ uk:
           success: Групу рухів співучасті успішно оновлено.
       participatory_process_publications:
         create:
-          error: При публікації цього руху співучасті сталася помилка.
-          success: Рух співучасті успішно опубліковано.
+          error: При оприлюдненні цього руху співучасті сталася помилка.
+          success: Рух співучасті успішно оприлюднено.
         destroy:
-          error: При скасуванні публікації цього руху співучасті сталася помилка.
-          success: Публікацію руху співучасті успішно скасовано.
+          error: При скасуванні оприлюднення цього руху співучасті сталася помилка.
+          success: Оприлюднення руху співучасті успішно скасовано.
       participatory_process_step_activations:
         create:
           error: При започаткуванні цього кроку руху співучасті сталася помилка.
@@ -145,7 +169,7 @@ uk:
         index:
           steps_title: Кроки
         new:
-          create: Створити
+          create: Додати
           title: Новий крок руху співучасті
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
@@ -154,6 +178,7 @@ uk:
           success: Крок руху співучасті успішно оновлено.
       participatory_process_user_roles:
         create:
+          error: При додаванні учасника в цей рух співучасті сталася помилка.
           success: До цього руху співучасті успішно додано учасника.
         destroy:
           success: З цього руху співучасті успішно видалено учасника.
@@ -163,9 +188,10 @@ uk:
         index:
           process_admins_title: Учасники руху співучасті
         new:
-          create: Створити
+          create: Додати
           title: Новий учасник руху співучасті.
         update:
+          error: При оновленні учасника цього руху співучасті сталася помилка.
           success: Учасника цього руху співучасті успішно оновлено.
       participatory_processes:
         create:
@@ -178,8 +204,10 @@ uk:
         form:
           title: Загальна інформація
         index:
-          not_published: Не опубліковано
-          published: Опубліковано
+          not_published: Не оприлюднено
+          private: Приватний
+          public: Публічні
+          published: Оприлюднено
         new:
           create: Створити
           title: Новий рух співучасті
@@ -201,6 +229,33 @@ uk:
         resend_invitation:
           error: При повторному надсиланні запрошення сталася помилка.
           success: Запрошення успішно знову надіслане.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} створив рух співучасті %{resource_name}"
+        publish: "%{user_name} оприлюднив рух співучасті %{resource_name}"
+        unpublish: "%{user_name} скасував оприлюднення руху співучасті %{resource_name}"
+        update: "%{user_name} оновив рух співучасті %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} започаткував крок %{resource_name} у русі співучасті %{space_name}"
+        create: "%{user_name} створив крок %{resource_name} у русі співучасті %{space_name}"
+        delete: "%{user_name} видалив крок %{resource_name} у русі співучасті %{space_name}"
+        update: "%{user_name} оновив крок %{resource_name} у русі співучасті %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} запросив учасника %{resource_name} до руху співучасті %{space_name}"
+        delete: "%{user_name} видалив учасника %{resource_name} з руху співучасті %{space_name}"
+        update: "%{user_name} змінів роль учасника %{resource_name} у русі співучасті %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
+          notification_title: Започатковано крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
+          notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
     participatory_process_groups:
@@ -215,11 +270,11 @@ uk:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
-            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Рухи співучасті
       order_by_processes:
@@ -241,22 +296,25 @@ uk:
       show:
         developer_group: Група зачинальників
         end_date: Дата закінчення
-        local_area: Терен організації
+        local_area: Ділянка організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        scope: Терен
+        private_space: Це приватний процес
+        scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
+        unspecified: Не визначено
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
+        debates_count: Обговорення
         endorsements_count: Підтримало
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
         processes_count: Рухи
-        projects_count: Проекти
+        projects_count: Задуми
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування
@@ -267,6 +325,7 @@ uk:
       participatory_process_groups:
         participatory_process_group:
           browse: Огляд
+          processes_count: 'Рухи:'
       participatory_process_widgets:
         show:
           active_step: Започатий крок

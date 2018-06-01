@@ -191,6 +191,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
+          newsletter_title: Yhteydenottolupa
           nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
@@ -201,12 +202,19 @@ fi:
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja tukeaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
+          tos_title: Käyttöehdot
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
           are_you_new?: Alustan uusi käyttäjä?
           register: Luo käyttäjätili
       shared:
+        newsletter_modal:
+          buttons:
+            check: Tarkista ja jatka
+            uncheck: Poista valinta
+          notice: Hei, oletko varma et halua vastaanottaa uutiskirjeitä? Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla. Meille on erittäin tärkeää, että saat satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen, voit aina muuttaa ilmoituksesi asetussivulla. Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla. Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi. Kiitos, kun olet lukenut tämän!
+          title: Ilmoitusten ilmoitukset
         omniauth_buttons:
           or: Tai
     doorkeeper:
@@ -281,7 +289,7 @@ fi:
     followers:
       no_followers: Ei seuraajia vielä.
     following:
-      no_followings: Ei seuraa vielä.
+      no_followings: Ei seuraa ketään tai mitään vielä.
     follows:
       create:
         button: Seuraa
@@ -424,7 +432,7 @@ fi:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         followers: seuraajaa
-        following: Seurata
+        following: seuraa
         notifications: ilmoitukset
       user:
         edit_profile: Muokkaa profiilia

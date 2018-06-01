@@ -16,6 +16,12 @@ pt-BR:
       proposals_copy:
         copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser recolocado
     models:
       decidim/proposals/accepted_proposal_event: Proposta aceita
       decidim/proposals/admin/update_proposal_category_event: Categoria da proposta alterada
@@ -36,8 +42,8 @@ pt-BR:
         one: Aval
         other: Avais
       decidim/proposals/proposal_note:
-        one: Nota
-        other: Notas
+        one: Anotação
+        other: Anotações
       decidim/proposals/proposal_vote:
         one: Voto
         other: Votos
@@ -45,7 +51,7 @@ pt-BR:
     components:
       proposals:
         actions:
-          create: Crio
+          create: Criar
           endorse: Endossar
           vote: Voto
           withdraw: retirar o
@@ -299,6 +305,7 @@ pt-BR:
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
           official: Oficial
           origin: Origem
           rejected: Rejeitado
@@ -311,10 +318,6 @@ pt-BR:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        identities_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de avais
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
@@ -343,6 +346,10 @@ pt-BR:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de avais
+          hidden_endorsers_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -402,9 +409,9 @@ pt-BR:
         success: Rascunho da proposta atualizado com sucesso.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecem neste projeto:'
+        project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nesses projetos:'
-        proposal_results: 'Proposta que aparece nesses resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'

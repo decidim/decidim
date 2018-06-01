@@ -26,6 +26,8 @@ module Decidim
       validate :proposal_length
       validate :scope_belongs_to_participatory_space_scope
 
+      validate :notify_missing_attachment_if_errored
+
       delegate :categories, to: :current_component
 
       def map_model(model)
@@ -71,6 +73,14 @@ module Decidim
 
       def scope_belongs_to_participatory_space_scope
         errors.add(:scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
+      end
+
+      # This method will add an error to the `attachment` field only if there's
+      # any error in any other field. This is needed because when the form has
+      # an error, the attachment is lost, so we need a way to inform the user of
+      # this problem.
+      def notify_missing_attachment_if_errored
+        errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
       end
     end
   end

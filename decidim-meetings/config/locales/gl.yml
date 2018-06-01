@@ -251,6 +251,7 @@ gl:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+          view: Ver
       models:
         meeting:
           fields:
@@ -288,11 +289,11 @@ gl:
         upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Resultados relacionados:'
-        result_meetings: 'Reunións relacionadas:'
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Reunións relacionadas:'
       proposals_from_meeting:
-        meeting_proposals: 'Propostas relacionadas:'
-        proposal_meetings: 'Reunións relacionadas:'
+        meeting_proposal: 'Propostas relacionadas:'
+        proposal_meeting: 'Reunións relacionadas:'
   devise:
     mailer:
       join_meeting:

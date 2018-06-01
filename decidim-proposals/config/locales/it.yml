@@ -16,6 +16,12 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Ha bisogno di essere ricollegato
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
       decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
@@ -299,6 +305,7 @@ it:
           category_prompt: Scegli una categoria
           citizens: Cittadini
           evaluating: Valutando
+          except_rejected: Tutto tranne rifiutato
           official: Ufficiale
           origin: Origine
           rejected: Rifiutata
@@ -311,10 +318,6 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
-        identities_listing:
-          see_all: Vedi tutto
-          see_less: Vedi di meno
-          title: Elenco di approvazioni
         index:
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
@@ -343,6 +346,10 @@ it:
           view_proposal: Visualizza la proposta
         show:
           edit_proposal: Modifica la proposta
+          endorsements_list: Elenco di approvazioni
+          hidden_endorsers_count:
+            one: e 1 altra persona
+            other: e altre %{count} persone
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
@@ -402,9 +409,9 @@ it:
         success: Bozza proposta aggiornata correttamente.
     resource_links:
       copied_from_component:
-        proposal_proposals: Proposte correlate
+        proposal_proposal: Proposte correlate
       included_projects:
-        project_results: 'Risultati che appaiono in questo progetto:'
+        project_result: 'Risultati che appaiono in questo progetto:'
       included_proposals:
-        proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
-        proposal_results: 'Le proposte compaiono nei seguenti risultati:'
+        proposal_project: 'Le proposte compaiono nei seguenti progetti:'
+        proposal_result: 'Le proposte compaiono nei seguenti risultati:'

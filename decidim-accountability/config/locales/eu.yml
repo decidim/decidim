@@ -209,6 +209,6 @@ eu:
         see_all_results: Ikusi emaitza guztiak
     resource_links:
       included_projects:
-        result_projects: Emaitza honetan sartutako proiektuak
+        result_project: Emaitza honetan sartutako proiektuak
       included_proposals:
-        result_proposals: Emaitza honetan jasotako proposamenak
+        result_proposal: Emaitza honetan jasotako proposamenak
