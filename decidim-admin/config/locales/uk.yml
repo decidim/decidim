@@ -64,6 +64,7 @@ uk:
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         show_statistics: Показувати статистику
+        tos_version: Версія умови надання послуг
         twitter_handler: Адреса Twitter
         welcome_text: Текст привітання
         youtube_handler: Адреса YouTube
@@ -79,6 +80,7 @@ uk:
         organization: Організація
         plural: Множина
       static_page:
+        changed_notably: Було внесено помітні зміни.
         content: Вміст
         organization: Організація
         slug: Скорочена веб-адреса
@@ -574,8 +576,11 @@ uk:
         destroy:
           success: Сторінку успішно видалено
         edit:
+          changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов надання послуг.
           title: Редагувати сторінку
           update: Оновити
+        index:
+          last_notable_change: Остання помітна зміна
         new:
           create: Створити
           title: Нова сторінка

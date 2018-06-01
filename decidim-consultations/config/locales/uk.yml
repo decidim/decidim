@@ -4,13 +4,23 @@ uk:
       consultation:
         banner_image: Банер зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
+        description: Опис
+        end_voting_date: Дата закінчення
+        introductory_image: Вступне зображення
         introductory_video_url: Веб-адреса вступного відео
+        questions: Питання
         slug: Скорочена веб-адреса
+        start_voting_date: Дата початку
+        subtitle: Підзаголовок
         title: Назва
       question:
+        banner_image: Банерне зображення
         decidim_scope_id: Ділянка міста
+        hashtag: Хештег
+        hero_image: Зображення головної сторінки
         i_frame_url: Веб-адреса зовнішньої системи голосування
         origin_scope: Обсяг
+        origin_title: Джерело
         origin_url: Веб-адреса джерела
         participatory_scope: Обсяг співучасті
         scope: Ділянка міста

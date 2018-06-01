@@ -64,6 +64,7 @@ pt:
         omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
         show_statistics: Mostre estatisticas
+        tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         welcome_text: Texto de boas-vindas
         youtube_handler: Manipulador do YouTube
@@ -79,6 +80,7 @@ pt:
         organization: Organização
         plural: Plural
       static_page:
+        changed_notably: Houve mudanças notáveis.
         content: Conteúdo
         organization: Organização
         slug: Texto curto de URL
@@ -574,8 +576,11 @@ pt:
         destroy:
           success: Página destruída com sucesso
         edit:
+          changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar Página
           update: Actualizar
+        index:
+          last_notable_change: Última alteração notável
         new:
           create: Crio
           title: Nova página
