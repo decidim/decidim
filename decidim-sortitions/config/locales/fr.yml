@@ -5,7 +5,7 @@ fr:
         additional_info: Informations sur le tirage au sort
         decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat du jet dés (lancer un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre entre 1 et 6) et entrer le résultat ici. Cela contribue à la qualité et aux garanties de l'aléatoire du résultat
+        dice: Résultat du dé. Lancez un dé à 6 faces, ou recherchez une autre façon aléatoire de générer un nombre de 1 à 6, et entrez ici le nombre résultant devant certains témoins. Cela contribue à la qualité et à la garantie du caractère aléatoire du résultat
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions parmi ceux que vous avez choisi précédemment)
         title: Titre
         witnesses: Les témoins
@@ -87,7 +87,7 @@ fr:
             selected_proposals: Propositions sélectionnées pour le tirage
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tirage au sort a bien été mis à jour
+            success: Le tri a bien été mis à jour
       admin_log:
         sortition:
           create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
