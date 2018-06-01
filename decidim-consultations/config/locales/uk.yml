@@ -211,5 +211,31 @@ uk:
       filters_small_view:
         close_modal: Закрити вікно
         filter: Відібрати
+        filter_by: 'Відібрати за ознакою:'
+        unfold: Розгорнути
       highlighted_questions:
         title: Питання від %{scope_name}
+      index:
+        title: Консультації
+      question:
+        take_part: Взяти участь
+        view_results: Переглянути підсумки
+        votes_out_of:
+          one: голос з
+          few: голоси з
+          many: голосів з
+          other: голосів з
+      question_votes:
+        create:
+          error: При голосуванні щодо питання сталися помилки
+      regular_questions:
+        title: Питання цієї консультації
+      show:
+        badge_name:
+          finished: Завершені
+          open: Відкриті
+          open_votes: Відкрите голосування
+          published_results: Підсумки оприлюднено
+        footer_button_text:
+          debate: Обговорення
+          view: Переглянути
