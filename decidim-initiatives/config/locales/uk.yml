@@ -87,6 +87,24 @@ uk:
           index:
             approve: Затвердити
             confirm_revoke: Ви впевнені?
+            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до комітету з просування
+            no_members_yet: У комітеті з просування нема жодного члена
+            revoke: Відкликати
+            title: Члени комітету
+        initiatives:
+          edit:
+            accept: Прийняти почин
+            confirm: Ви впевнені?
+            discard: Відкинути почин
+            export_votes: Зберегти у вигляді файлу список тих, хто підтримує
+            reject: Відхилити почин
+            send_to_technical_validation: Надіслати на технічну перевірку
+            success: Почин був відправлений на технічну перевірку
+            update: Оновити
+          form:
+            title: Загальні відомості
+          index:
+            actions_title: Дія
         initiatives_type_scopes:
           create:
             error: Сталася помилка
