@@ -95,11 +95,11 @@ fr:
           title: Nouvelle assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
-          success: Agora mise à jour avec succès.
+          success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cet assemblée.
-          success: L'assemblée a été copiée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette assemblée.
+          success: L'assemblée a été dupliquée avec succès.
       assembly_copies:
         new:
           copy: Copier
@@ -107,12 +107,12 @@ fr:
           title: Dupliquer l'assemblée
       assembly_members:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un membre pour cet assembly.
-          success: Membre créé avec succès pour cet assembly.
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
+          success: Membre créé avec succès pour cette assemblée.
         destroy:
-          success: Membre détruit avec succès pour cet assemblage.
+          success: Membre supprimé avec succès pour cette assemblée.
         edit:
-          title: Mettre à jour le membre de l'assembly
+          title: Mettre à jour le membre de l'assemblée.
           update: Mettre à jour
         index:
           assembly_members_title: Membres de l'Assemblée
@@ -120,8 +120,8 @@ fr:
           create: Créer
           title: Nouveau membre de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour du membre pour cet assembly.
-          success: Membre mis à jour avec succès pour cet assembly.
+          error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
+          success: Membre mis à jour avec succès pour cette assemblée.
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -132,7 +132,7 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
-          success: Utilisateur créé avec succès pour cette agora.
+          success: Utilisateur créé avec succès pour cette assemblée.
         destroy:
           success: Utilisateur supprimé avec succès pour cette assemblée.
         edit:
@@ -142,12 +142,12 @@ fr:
           assembly_admins_title: Utilisateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel utilisateur d'assemblée.
+          title: Nouvel utilisateur de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
-          success: Utilisateur mis à jour avec succès pour cette agora.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
+          success: Utilisateur mis à jour avec succès pour cette assemblée.
       menu:
-        assemblies: Agora
+        assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
           assembly_members: Membres
