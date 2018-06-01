@@ -239,3 +239,19 @@ uk:
         footer_button_text:
           debate: Обговорення
           view: Переглянути
+          view_results: Переглянути підсумки
+          vote: Голосувати
+        unspecified: Не вказано
+    menu:
+      consultations: Консультації
+    pages:
+      home:
+        statistics:
+          consultations_count: Консультації
+    questions:
+      results:
+        title: Підсумки
+      show:
+        read_more: Читати далі
+      statistics:
+        assistants_count_title: Помічники
