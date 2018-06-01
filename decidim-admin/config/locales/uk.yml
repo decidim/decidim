@@ -96,7 +96,7 @@ uk:
       decidim/participatory_process:
         banner_image: Банерне зображення
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт допомагачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -340,7 +340,7 @@ uk:
         scopes: Обсяги
         settings: Налаштування
         static_pages: Сторінки
-        user_groups: Групи учасників
+        user_groups: Гурти учасників
         users: Учасники
       models:
         area:
@@ -599,15 +599,15 @@ uk:
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
-        user_groups: Групи учасників
+        user_groups: Гурти учасників
         users: Учасники
       user_group:
         reject:
-          invalid: При відхиленні цієї групи учасників сталася помилка.
-          success: Групу учасників успішно відхилено
+          invalid: При відхиленні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно відхилено
         verify:
-          invalid: При підтвердженні цієї групи учасників сталася помилка.
-          success: Групу учасників успішно підтверджено
+          invalid: При підтвердженні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно підтверджено
       user_groups:
         index:
           filter:
