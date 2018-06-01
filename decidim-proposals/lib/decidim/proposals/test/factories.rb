@@ -149,10 +149,9 @@ FactoryBot.define do
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
-
     after(:build) do |proposal, evaluator|
       if proposal.component
-        users= evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
+        users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
           Decidim::Coauthorship.create(author: user, user_group: user_group, coauthorable: proposal)

@@ -92,7 +92,7 @@ module Decidim
         coauthorable.identities.map { |identity| present(identity) }
       end
 
-      def proposal_coauthors_cell(proposal, size=:small)
+      def proposal_coauthors_cell(proposal, _size = :small)
         return if proposal.official?
 
         cell(

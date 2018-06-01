@@ -105,7 +105,7 @@ module Decidim
               command.call
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(proposal.authored_by?(author)).to be_truthy
+              expect(proposal).to be_authored_by(author)
               expect(proposal.identities.include?(user_group)).to be false
             end
           end
@@ -115,8 +115,8 @@ module Decidim
               command.call
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(proposal.authored_by?(author)).to be_truthy
-              expect(proposal.identities.include?(user_group)).to be_truthy
+              expect(proposal).to be_authored_by(author)
+              expect(proposal.identities).to include(user_group)
             end
           end
 

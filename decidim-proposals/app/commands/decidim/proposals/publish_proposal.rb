@@ -56,11 +56,10 @@ module Decidim
         )
       end
 
-
-      def coauthors_followers(proposal)
-        followers_ids= []
+      def coauthors_followers(_proposal)
+        followers_ids = []
         @proposal.authors.each do |author|
-          followers_ids+= author.followers.pluck(:id)
+          followers_ids += author.followers.pluck(:id)
         end
         followers_ids
       end

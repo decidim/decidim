@@ -16,8 +16,8 @@ module Decidim
       has_many :authors, through: :coauthorships, class_name: "Decidim::User"
       has_many :user_groups, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
 
-      scope :from_author, ->(author) { joins(:coauthorships).where(:"decidim_coauthorships.decidim_author_id" => author.id) }
-      scope :from_user_group, ->(user_group) { joins(:coauthorships).where(:"decidim_coauthorships.decidim_user_group_id" => user_group.id) }
+      scope :from_author, ->(author) { joins(:coauthorships).where("decidim_coauthorships.decidim_author_id": author.id) }
+      scope :from_user_group, ->(user_group) { joins(:coauthorships).where("decidim_coauthorships.decidim_user_group_id": user_group.id) }
 
       # Checks whether the user is author of the given proposal, either directly
       # authoring it or via a user group.
@@ -50,8 +50,8 @@ module Decidim
       #
       # @param user: The new coauthor.
       # @extra_attrs: Extra
-      def add_coauthor(user, extra_attrs={})
-        attrs= {coauthorable: self, author: user,}
+      def add_coauthor(user, extra_attrs = {})
+        attrs = { coauthorable: self, author: user }
         Decidim::Coauthorship.create!(attrs.merge(extra_attrs))
       end
     end
