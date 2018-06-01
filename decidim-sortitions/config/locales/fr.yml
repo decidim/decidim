@@ -49,11 +49,11 @@ fr:
             fields:
               category: Catégorie
               created_at: Date de création
-              decidim_proposals_component: Fonctionnalité "Propositions"
+              decidim_proposals_component: Fonctionnalité (Propositions)
               dice: Dé
               reference: Référence
-              request_timestamp: Définir la composante temps
-              seed: Composante temps du tirage
+              request_timestamp: Date et Heure
+              seed: Générateur
               target_items: Eléments à sélectionner
               title: Titre
             name:
