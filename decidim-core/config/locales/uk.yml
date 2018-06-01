@@ -40,10 +40,10 @@ uk:
         many: Учасників
         other: Учасників
       decidim/user_group:
-        one: Група учасників
-        few: Груп учасників
-        many: Груп учасників
-        other: Груп учасників
+        one: Гурт учасників
+        few: Гурти учасників
+        many: Гуртів учасників
+        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -115,8 +115,8 @@ uk:
         remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
         unofficialize: "%{user_name} скасував службовий статус учасника %{resource_name}"
       user_group:
-        reject: "%{user_name} відхилив підтвердження групи користувачів %{resource_name}"
-        verify: "%{user_name} підтвердив групу користувачів %{resource_name}"
+        reject: "%{user_name} відхилив підтвердження гурту учасників %{resource_name}"
+        verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
       collection:
