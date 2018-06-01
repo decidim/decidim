@@ -2,10 +2,10 @@ fr:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informations sur le tirage au sort
-        decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
+        additional_info: Information sur le tirage au sort
+        decidim_category_id: Catégories des propositions sur lesquelles vous souhaitez appliquer le tirage au sort
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat de votre tirage aléatoire. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat
+        dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez tirer au sort parmi celles du groupe de propositions que vous avez choisi précédemment)
         title: Titre
         witnesses: Témoins
@@ -15,7 +15,7 @@ fr:
     models:
       decidim/sortitions/sortition:
         one: Tirage au sort
-        other: Sortitions
+        other: Tirages au sort
   decidim:
     components:
       sortitions:
@@ -53,12 +53,12 @@ fr:
               dice: Dé
               reference: Référence
               request_timestamp: Date et Heure
-              seed: Générateur
+              seed: Valeur aléatoire
               target_items: Eléments à sélectionner
               title: Titre
             name:
               one: Tirage au sort
-              other: Tirage au sort
+              other: Tirages au sort
         sortitions:
           confirm_destroy:
             confirm_destroy: Êtes-vous sûr de vouloir annuler ce tirage au sort ?
