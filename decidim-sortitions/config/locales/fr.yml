@@ -52,9 +52,9 @@ fr:
               decidim_proposals_component: Fonctionnalité "Propositions"
               dice: Dé
               reference: Référence
-              request_timestamp: Définir le temps
-              seed: Seed
-              target_items: Articles à sélectionner
+              request_timestamp: Définir la composante temps
+              seed: Composante temps du tirage
+              target_items: Eléments à sélectionner
               title: Titre
             name:
               one: Tirage au sort
