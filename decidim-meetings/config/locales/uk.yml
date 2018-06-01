@@ -162,7 +162,7 @@ uk:
           service:
             description: Опис
             down: Донизу
-            remove: Вилучити
+            remove: Видалити
             service: Послуга
             title: Назва
             up: Догори
