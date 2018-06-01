@@ -13,9 +13,9 @@ describe "UserTosAcceptance", type: :system do
     switch_to_host(organization.host)
   end
 
-  describe "When TOS are updated" do
+  describe "When the Organization TOS version is updated" do
     before do
-      tos_page.update!(title: { en: "Terms of service" }, content: { en: "Updated terms of services" })
+      organization.update!(tos_version: Time.current)
       login_as user, scope: :user
       visit decidim.root_path
     end
@@ -24,7 +24,7 @@ describe "UserTosAcceptance", type: :system do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page))
         expect(page).to have_content translated(tos_page.title)
-        expect(page).to have_content translated(tos_page.content)
+        expect(page).to have_content strip_tags(translated(tos_page.content))
       end
 
       it "renders an announcement requiring to review the TOS" do
