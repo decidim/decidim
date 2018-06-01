@@ -106,6 +106,9 @@ uk:
           create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
           delete: "%{user_name} видалив підсумок %{resource_name} у %{space_name}"
           update: "%{user_name} оновив підсумок %{resource_name} у %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Батьківський об''єкт не знайдено в базі даних (ID: %{id})'
       models:
         result:
           fields:
@@ -146,7 +149,7 @@ uk:
         show:
           stats:
             attendees: Учасники
-            back_to_result: Повернутися до результату
+            back_to_result: Повернутися до підсумків
             comments: Коментарі
             contributions: Внесені пропозиції
             last_edited_by: Останній раз редагувалося
@@ -170,6 +173,35 @@ uk:
           changes_at_title: Зміни в "%{title}"
         version:
           version_index: Версія %{index}
+    components:
+      accountability:
+        name: Звітність
+        settings:
+          global:
+            categories_label: Назва для "Розряди"
+            comments_enabled: Коментарі увімкнено
+            display_progress_enabled: Показувати перебіг
+            heading_leaf_level_results: Назва для "Задуми"
+            heading_parent_level_results: Назва для "Підсумки"
+            intro: Вступ
+            subcategories_label: Назва для "Підрозряди"
+          step:
+            comments_blocked: Коментарі вимкнено
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Пропозиція "%{proposal_title}" була включена до підсумку. Ви можете переглянути її на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{proposal_title}". Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{proposal_title}
+          notification_title: Пропозиція <a href="%{proposal_path}">%{proposal_title}</a> була включена до підсумку <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Підсумки
+    participatory_spaces:
+      highlighted_results:
+        results: Підсумки
+        see_all_results: Переглянути всі підсумки
     resource_links:
       included_projects:
         result_projects: Задуми, включені до цих підсумків
