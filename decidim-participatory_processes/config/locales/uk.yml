@@ -303,7 +303,7 @@ uk:
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
-        unspecified: Не визначено
+        unspecified: Не вказано
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
