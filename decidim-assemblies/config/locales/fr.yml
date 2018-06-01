@@ -278,22 +278,22 @@ fr:
         local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Ceci est une agora privée
+        private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
-        read_less: Lire moins
-        read_more: Lire la suite
+        read_less: Voire moins
+        read_more: Voire la suite
         related_participatory_processes: Processus participatifs associés
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        target: Participants
+        target: Pour qui ?
       statistics:
         answers_count: Réponses
-        assemblies_count: Agora
+        assemblies_count: Assemblées
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Recommandations
         headline: Activité
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Soutiens
         pages_count: Pages
         projects_count: Projets
