@@ -8,7 +8,7 @@ uk:
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт допомагачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -55,10 +55,10 @@ uk:
         many: Рухів співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
-        one: Група руху співучасті
-        few: Групи руху співучасті
-        many: Груп руху співучасті
-        other: Груп руху співучасті
+        one: Гурт руху співучасті
+        few: Гурти руху співучасті
+        many: Гуртів руху співучасті
+        other: Гуртів руху співучасті
       decidim/participatory_process_step:
         one: Крок
         few: Кроки
