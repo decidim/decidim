@@ -86,7 +86,7 @@ es:
         index:
           new_debate: Nuevo debate
         new:
-          back: Atrás
+          back: Volver
           create: Crear
           select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
