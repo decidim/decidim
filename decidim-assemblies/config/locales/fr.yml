@@ -68,8 +68,8 @@ fr:
         one: Assemblée
         other: Assemblées
       decidim/assembly_member:
-        one: Membre de l'Assemblée
-        other: Membres de l'Assemblée
+        one: Membre de l'assemblée
+        other: Membres de l'assemblée
       decidim/assembly_user_role:
         one: Fonction du membre dans l'assemblée
         other: Fonctions du membre dans l'assemblée
@@ -115,7 +115,7 @@ fr:
           title: Mettre à jour le membre de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_members_title: Membres de l'Assemblée
+          assembly_members_title: Membres de l'assemblée
         new:
           create: Créer
           title: Nouveau membre de l'assemblée.
@@ -170,7 +170,7 @@ fr:
           name: Assemblée
         assembly_member:
           fields:
-            ceased_date: Date de cessation
+            ceased_date: Date de radiation
             designation_date: Date de désignation
             full_name: Nom
             position: Statut
