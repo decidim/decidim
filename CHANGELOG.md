@@ -99,6 +99,7 @@ must now set a resource name:
 - **decidim-assembly**: Fix Non private users can participate to a private, transparent assembly [\#3438](https://github.com/decidim/decidim/pull/3438)
 - **decidim-proposals**: Fixes artificial margin between proposal "header" and list of endorsements. [\#2893](https://github.com/decidim/decidim/pull/2893)
 - **decidim-proposals**: Use translations for hardcoded text. [\#3464](https://github.com/decidim/decidim/pull/3464)
+- **decidim-core**: Don't send notifications to users without access to the space. [\#3542](https://github.com/decidim/decidim/pull/3542)
 - **decidim-core**: Include datepicker locales in front pages too. [\#3448](https://github.com/decidim/decidim/pull/3448)
 - **decidim-core**: Uses current organization scopes in scopes picker. [\#3386](https://github.com/decidim/decidim/pull/3386)
 - **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3329](https://github.com/decidim/decidim/pull/3329)
