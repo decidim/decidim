@@ -167,6 +167,49 @@ uk:
         create:
           error: При створенні нової відповіді сталася помилка.
           success: Відповідь успішно створено.
+        destroy:
+          error: При видаленні відповіді сталася помилка.
+          success: Відповідь успішно видалено.
+        edit:
+          update: Оновити
+        form:
+          title: Загальні відомості
+        new:
+          create: Створити
+          title: Додати відповідь
+        update:
+          error: При оновленні цієї відповіді сталася помилка.
+          success: Відповідь успішно оновлено.
+      titles:
+        consultations: Консультації
+        questions: Питання
+        responses: Відповіді
     consultations:
+      consultation:
+        start_voting_date: Голосування починається
+        view_results: Переглянути підсумки
+      consultation_card:
+        view_results: Переглянути підсумки
+      consultations:
+        orders:
+          label: 'Впорядкувати консультації за ознакою:'
+          random: Довільно
+          recent: Найновіші
+      count:
+        title:
+          one: "%{count} консультація"
+          few: "%{count} консультації"
+          many: "%{count} консультацій"
+          other: "%{count} консультацій"
+      filters:
+        active: Започатковані
+        all: Усі
+        finished: Завершені
+        search: Шукати
+        state: Стан
+        upcoming: Прийдешні
+      filters_small_view:
+        close_modal: Закрити вікно
+        filter: Відібрати
       highlighted_questions:
         title: Питання від %{scope_name}
