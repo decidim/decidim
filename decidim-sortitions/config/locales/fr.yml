@@ -136,9 +136,9 @@ fr:
           time_seed: "(2) Date et Heure"
           witnesses: Témoins
         sortition:
-          random_seed: Graine aléatoire
+          random_seed: Valeur aléatoire
           selected_proposals:
-            one: 1 proposition sélectionnée
+            one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
           view: Vue
         sortition_author:
