@@ -53,14 +53,40 @@ uk:
     admin:
       menu:
         initiatives: Почини
+        initiatives_types: Різновиди починів
       models:
+        initiatives:
+          fields:
+            created_at: 'Створено:'
+            state: Стан
+            supports_count: Людей підтримують
+            title: Почини
         initiatives_type_scope:
           fields:
             scope: Обсяг
             supports_required: Необхідна підтримка
-          name: Обсяг разновиду почину
+          name: Обсяг різновиду почину
+        initiatives_types:
+          fields:
+            created_at: 'Створено:'
+            title: Різновиди починів
+          name: Різновид почину
+      titles:
+        initiatives: Почини
+        initiatives_types: Різновиди починів
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Досягнута нова віха!
+          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
     initiatives:
       admin:
+        committee_requests:
+          index:
+            approve: Затвердити
+            confirm_revoke: Ви впевнені?
         initiatives_type_scopes:
           create:
             error: Сталася помилка
@@ -71,12 +97,12 @@ uk:
             back: Назад
             confirm_destroy: Ви впевнені?
             destroy: Видалити
-            title: Редагувати обсяг разновиду почину
+            title: Редагувати обсяг різновиду почину
             update: Оновити
           new:
             back: Назад
             create: Створити
-            title: Створити обсяг разновиду почину
+            title: Створити обсяг різновиду почину
           update:
             error: Сталася помилка
             success: Обсяг було успішно оновлено
