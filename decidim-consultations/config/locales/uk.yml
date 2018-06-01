@@ -23,6 +23,8 @@ uk:
         origin_title: Джерело
         origin_url: Веб-адреса джерела
         participatory_scope: Обсяг співучасті
+        promoter_group: Гурт допомагачів
+        question_context: Контекст
         scope: Ділянка міста
         slug: Скорочена веб-адреса
   decidim:
