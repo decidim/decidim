@@ -81,7 +81,7 @@ uk:
         update: "%{user_name} оновив ділянку %{resource_name}"
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
-        delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
+        delete: "%{user_name} видалив складову %{resource_name} з простору %{space_name}"
         publish: "%{user_name} оприлюднив складову %{resource_name} у просторі %{space_name}"
         unpublish: "%{user_name} скасував оприлюднення складової %{resource_name} у просторі %{space_name}"
       moderation:
@@ -248,7 +248,7 @@ uk:
         try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
-        content_doesnt_exist: Ця адреса невірна або була вилучена.
+        content_doesnt_exist: Ця адреса невірна або була видалена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
       attachments:
