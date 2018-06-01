@@ -213,25 +213,25 @@ fr:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajouté à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
-            select_an_area: Sélectionnez une région
-            select_an_assembly_type: Sélectionnez un type d'assemblage
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
-            social_handlers: Social
+            select_an_area: Sélectionnez une zone d'application
+            select_an_assembly_type: Sélectionnez un type d'assemblée
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
-            non_user: Non utilisateur
-            select_a_position: Sélectionnez un poste
+            non_user: Utilisateur inconnu
+            select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
           index:
             filter:
               all: Tout
-              ceased: A cessé
-              not_ceased: Pas cessé
+              ceased: Validité terminée
+              not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Chercher
       assembly_members:
