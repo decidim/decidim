@@ -18,3 +18,12 @@
     <% end %>
   </div>
 <% end %>
+<% if actionable? %>
+  <div class="author-data__extra">
+    <%= render :date %>
+
+    <%= render :flag %>
+
+    <%= render :withdraw %>
+  </div>
+<% end %>

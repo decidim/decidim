@@ -93,16 +93,19 @@ module Decidim
       end
 
       def proposal_coauthors_cell(proposal, _size = :small)
-        return if proposal.official?
-
-        cell(
-          "decidim/collapsible_list",
-          authors_for(proposal),
-          cell_name: "decidim/author",
-          cell_options: { extra_classes: ["author-data--small"] },
-          hidden_elements_count_i18n_key: "decidim.proposals.proposal.show.hidden_authors_count",
-          size: :small
-        )
+        if proposal.official?
+          cell "decidim/author", present(proposal).author, from: proposal
+        else
+          cell(
+            "decidim/collapsible_list",
+            authors_for(proposal),
+            cell_name: "decidim/author",
+            cell_options: { extra_classes: ["author-data--small"] },
+            hidden_elements_count_i18n_key: "decidim.proposals.proposal.show.hidden_authors_count",
+            size: :small,
+            from: proposal
+          )
+        end
       end
     end
   end

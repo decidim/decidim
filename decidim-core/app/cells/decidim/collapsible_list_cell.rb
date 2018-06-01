@@ -19,7 +19,7 @@ module Decidim
   #      hidden_elements_count_i18n_key: "my.custom.key",
   #      size: :small
   #    )
-  class CollapsibleListCell < Decidim::ViewModel
+  class CollapsibleListCell < AuthorCell
     MIN_LENGTH_FOR_SIZE = { small: 3, default: 7 }.freeze
 
     private
@@ -61,6 +61,11 @@ module Decidim
 
     def seed
       @seed ||= Random.rand(9999)
+    end
+
+    def actionable?
+      return false if options[:has_actions] == false
+      true if withdrawable? || flagable?
     end
   end
 end
