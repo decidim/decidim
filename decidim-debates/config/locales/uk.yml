@@ -3,22 +3,26 @@ uk:
     attributes:
       debate:
         category_id: Розряд
+        decidim_category_id: Розряд
         description: Опис
         end_time: 'Завершується:'
         information_updates: Оновлення відомостей
         instructions: Вказівки до участі
         start_time: 'Розпочато: '
         title: Назва
-        user_group_id: Створити обговорення як
+        user_group_id: Започаткувати обговорення як
   decidim:
     components:
       debates:
+        actions:
+          create: Започаткувати
+        name: Обговорення
         settings:
           global:
             comments_enabled: Коментарі увімкнено
           step:
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Увімкнено створення обговорень учасниками
+            creation_enabled: Започаткування обговорень учасниками увімкнено
     debates:
       actions:
         confirm_destroy: Ви впевнені?
@@ -29,7 +33,8 @@ uk:
       admin:
         debates:
           create:
-            success: Обговорення успішно створено.
+            invalid: При спробі започаткувати обговорення сталася помилка.
+            success: Обговорення успішно започатковано.
           destroy:
             success: Обговорення успішно видалено.
           edit:
@@ -38,13 +43,18 @@ uk:
           index:
             title: Обговорення
           new:
-            create: Створити обговорення
+            create: Започаткувати обговорення
             title: Нове обговорення
           update:
+            invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
         models:
           debate:
             name: Обговорення
+      admin_log:
+        debate:
+          create: "%{user_name} започаткував обговорення %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив обговорення %{resource_name} у просторі %{space_name}"
       debates:
         count:
           debates_count:
@@ -53,7 +63,8 @@ uk:
             many: "%{count} обговорень"
             other: "%{count} обговорень"
         create:
-          success: Обговорення успішно створено.
+          invalid: При спробі започаткувати обговорення сталася помилка.
+          success: Обговорення успішно започатковано.
         debate:
           comments:
             one: Коментар
@@ -67,7 +78,7 @@ uk:
           category_prompt: Оберіть розряд
           citizens: Громадяни
           official: Службове
-          origin: Походження
+          origin: Джерело
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
@@ -78,7 +89,7 @@ uk:
           new_debate: Нове обговорення
         new:
           back: Назад
-          create: Створити
+          create: Започаткувати
           select_a_category: Будь ласка, оберіть розряд
           title: Нове обговорення
         share:
@@ -110,5 +121,15 @@ uk:
               Доброго дня!
               %{author_name} %{author_nickname}, за яким ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій внесок:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-            email_subject: Нове обговорення, створене %{author_nickname}
+            email_subject: Нове обговорення, започатковане %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'В %{participatory_space_title} вже не можна започатковувати обговорення. Ви можете взяти участь у вже початих обговореннях на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: У %{participatory_space_title} вимкнено започаткування обговорень
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> вимкнено започаткування обговорень
+        creation_enabled:
+          email_intro: 'Тепер ви можете започатковувати нові обговорення у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: В %{participatory_space_title} тепер наявні обговорення
+          notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові обговорення</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
