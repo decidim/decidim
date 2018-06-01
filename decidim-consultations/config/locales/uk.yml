@@ -25,10 +25,54 @@ uk:
         participatory_scope: Обсяг співучасті
         promoter_group: Гурт допомагачів
         question_context: Контекст
+        reference: Посилання на джерело
         scope: Ділянка міста
         slug: Скорочена веб-адреса
+        subtitle: Підзаголовок
+        title: Заголовок
+        vote: Зовнішня система голосування
+        what_is_decided: Що вирішується
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Відповідь не знайдено.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Консультація
+        few: Консультації
+        many: Консультацій
+        other: Консультацій
+      decidim/consultations/question:
+        one: Питання
+        few: Питання
+        many: Питань
+        other: Питань
+      decidim/consultations/response:
+        one: Відповідь
+        few: Відповіді
+        many: Відповідей
+        other: Відповідей
+      decidim/consultations/vote:
+        one: Голос
+        few: Голоси
+        many: Голосів
+        other: Голосів
   decidim:
     admin:
+      actions:
+        publish_results: Оприлюднити підсумки
+        unpublish_results: Скасувати оприлюднення підсумків
+      consultation_publications:
+        create:
+          error: Під час оприлюднення цієї консультації сталася помилка.
+          success: Консультацію успішно оприлюднено.
+        destroy:
+          error: Під час скасування оприлюднення цієї консультації сталася помилка.
+          success: Оприлюднення консультації успішно скасовано.
+      consultation_results_publications:
+        create:
+          error: Під час оприлюднення підсумків цієї консультації сталася помилка.
       consultations:
         form:
           slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цю консультацію. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
