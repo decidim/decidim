@@ -15,7 +15,7 @@ fr:
         created_by: Créé par
         created_by_other: Créé par d'autres
         creation_date: Date de création
-        decidim_area_id: Zone d'application
+        decidim_area_id: Zone d'application locale
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
@@ -29,8 +29,8 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Est transparent
-        local_area: Périmètre
-        meta_scope: Échelle
+        local_area: Zone d'application locale
+        meta_scope: Métadonnée de la zone d’application
         participatory_processes_ids: Processus participatifs associés
         participatory_scope: Objectif
         participatory_structure: Modalités
