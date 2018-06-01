@@ -108,9 +108,9 @@ fr:
           state: Etat
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
-          filter: Filtre
+          filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Déplier
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
@@ -122,13 +122,13 @@ fr:
             one: propositions sélectionnées
             other: propositions sélectionnées
         show:
-          algorithm: Code d'algorithme du tirage au sort
+          algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
-          candidate_proposals_info: 'Le tri a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
+          candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
           category: de la catégorie %{category}
-          dice_result: "(1) Résultat du dé"
+          dice_result: "(1) Résultat du tirage de dé"
           introduction: 'Cette page contient les résultats du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} résultats ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus des résultats, les détails affichés sur cette page fournissent toutes les informations nécessaires pour maximiser les garanties et reproduire les résultats. La clé de la réussite de ce tirage au sort est le double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La time seed pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "incontrôlable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
           proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
