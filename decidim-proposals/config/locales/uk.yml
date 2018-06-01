@@ -297,8 +297,8 @@ uk:
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
-          discard: Відхилити цю чернетку
-          discard_confirmation: Ви дійсно бажаєте відхилити чернетку цієї пропозиції?
+          discard: Відкинути цю чернетку
+          discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
         endorsement_identities_cabin:
