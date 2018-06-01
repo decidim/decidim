@@ -5,7 +5,7 @@ fr:
         additional_info: Informations sur le tirage au sort
         decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat du dé. Lancez un dé à 6 faces, ou recherchez une autre façon aléatoire de générer un nombre de 1 à 6, et entrez ici le nombre résultant devant certains témoins. Cela contribue à la qualité et à la garantie du caractère aléatoire du résultat
+        dice: Résultat de votre tirage aléatoire. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions parmi ceux que vous avez choisi précédemment)
         title: Titre
         witnesses: Les témoins
