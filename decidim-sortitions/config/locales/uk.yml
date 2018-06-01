@@ -97,3 +97,35 @@ uk:
           create: "%{user_name} створив жеребкування %{resource_name} у %{space_name}"
           delete: "%{user_name} скасував жеребкування %{resource_name} у %{space_name}"
           update: "%{user_name} оновив жеребкування %{resource_name} у %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 пропозиція
+            few: "%{count} пропозиції"
+            many: "%{count} пропозицій"
+            other: "%{count} пропозицій"
+        filters:
+          active: Започатковані
+          all: Усі
+          cancelled: Скасовані
+          category: Розряд
+          category_prompt: Оберіть розряд
+          search: Шукати
+          state: Стан
+        filters_small_view:
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
+        linked_sortitions:
+          selected_proposals: Вибрані пропозиції
+        orders:
+          label: 'Впорядкувати жеребкування за ознакою:'
+          random: Довільно
+          recent: Нещодавні
+        results_count:
+          count:
+            one: вибрана пропозиція
+            few: вибрані пропозиції
+            many: вибраних пропозицій
+            other: вибраних пропозицій
