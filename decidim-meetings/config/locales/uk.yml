@@ -208,7 +208,7 @@ uk:
           close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
           create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
           delete: "%{user_name} видалив зустріч %{resource_name} у просторі %{space_name}"
-          export_registrations: "%{user_name} запозичив список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
+          export_registrations: "%{user_name} зберіг у вигляді файлу список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
           update: "%{user_name} оновив зустріч %{resource_name} у просторі %{space_name}"
           value_types:
             organizer_presenter:
