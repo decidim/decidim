@@ -12,7 +12,7 @@ uk:
         copy_categories: Скопіювати розряди
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
-        created_by: 'Створено:'
+        created_by: 'Створив:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Ділянка
@@ -20,20 +20,37 @@ uk:
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
+        duration: Тривалість
+        facebook: Фейсбук
+        github: ГітХаб
         hashtag: Хештег
         hero_image: Зображення головної сторінки
+        included_at: Включено в
+        instagram: Інстаграм
+        internal_organisation: Внутрішня організація
+        is_transparent: Є прозорими
         local_area: Місцева ділянка
-        meta_scope: Метадані обсягу
+        meta_scope: Метавідомості обсягу
+        participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
+        published_at: 'Оприлюднено:'
+        purpose_of_action: Мета дії
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
+        show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
         subtitle: Підзаголовок
         target: Мета
         title: Назва
+        twitter: Твіттер
+        youtube: ЮТуб
+      assembly_user_role:
+        email: Адреса електронної пошти
+        name: Ім'я
+        role: Роль
   decidim:
     admin:
       assemblies:
@@ -49,6 +66,7 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приховані
+          public: Публічні
           published: Оприлюднено
         new:
           create: Додати
@@ -63,7 +81,7 @@ uk:
       assembly_copies:
         new:
           copy: Скопіювати
-          select: Оберіть дані, копію яких ви хотіли б створити
+          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зборів
       assembly_publications:
         create:
@@ -73,6 +91,11 @@ uk:
           error: При скасуванні оприлюднення цих зборів сталася помилка.
           success: Оприлюднення зборів успішно скасовано.
       assembly_user_roles:
+        create:
+          error: При спробі додати учасника цих зборів сталася помилка.
+          success: Учасника цих зборів успішно додано.
+        destroy:
+          success: Учасника цих зборів успішно видалено.
         edit:
           title: Оновити учасника зборів.
           update: Оновити
@@ -82,7 +105,8 @@ uk:
           create: Створити
           title: Новий учасник зборів.
         update:
-          success: Учасника цих зборів успешно оновлено.
+          error: При спробі оновити учасника цих зборів сталася помилка.
+          success: Учасника цих зборів успішно оновлено.
       menu:
         assemblies: Збори
         assemblies_submenu:
@@ -148,7 +172,7 @@ uk:
         working_group: Робоча група
       created_by:
         city_council: Міська рада
-        others: Інше
+        others: Інші
         public: Громадяни
       index:
         title: Збори
@@ -160,17 +184,35 @@ uk:
       show:
         area: Ділянка
         assembly_type: Різновид зборів
+        children: Збори
+        closing_date: Дата закриття
+        composition: Склад
+        created_by: 'Створив:'
+        creation_date: Дата створення
         developer_group: Група зачинальників
+        duration: Тривалість
+        included_at: Включено в
+        indefinite_duration: Невизначена
+        internal_organisation: Внутрішня організація
+        is_transparent:
+          'false': непрозорі
+          'true': прозорі
         local_area: Місцева ділянка
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
+        purpose_of_action: Мета дії
+        read_less: Читати менше
+        read_more: Читати далі
+        related_participatory_processes: Пов'язані рухи співучасті
         scope: Обсяг
+        social_networks: Соціальні мережі
         target: Мета
       statistics:
         answers_count: Відповіді
         assemblies_count: Збори
         comments_count: Коментарі
+        debates_count: Обговорення
         endorsements_count: Підтримали
         headline: Діяльність
         meetings_count: Зустрічі
@@ -182,8 +224,15 @@ uk:
         surveys_count: Опитування
         users_count: Учасники
         votes_count: Голоси
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Ці збори не знайдено в базі даних (ID: %{id})'
     menu:
       assemblies: Збори
+  errors:
+    messages:
+      cannot_be_blank: не може бути порожнім
   layouts:
     decidim:
       assemblies:
