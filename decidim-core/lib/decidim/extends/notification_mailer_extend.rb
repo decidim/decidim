@@ -1,17 +1,15 @@
 Decidim::NotificationMailer.class_eval do
   def new_content_received(event, event_class_name, resource, user, extra)
-    @moderation = extra[:moderation_event]
     with_user(user) do
       @organization = resource.organization
       event_class = event_class_name.constantize
       @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra)
       @slug = extra[:process_slug]
       @locale = locale.to_s
-      subject = @moderation ? @event_instance.email_moderation_subject : @event_instance.email_subject
+      subject = @event_instance.email_subject
       @parent_title = parent_title(resource, event_class)
       @resource_title = resource.try(:title)
       @body = body(event_class, resource, extra)
-      @moderation_url = moderation_url
       @is_comment = is_comment?(event_class)
       @translatable =
         if resource.is_a?(Decidim::Budgets::Project) || resource.is_a?(Decidim::Meetings::Meeting)
@@ -26,7 +24,6 @@ Decidim::NotificationMailer.class_eval do
       mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
     end
   end
-
 
   def is_comment?(event_class)
     event_class == Decidim::Comments::CommentCreatedEvent
@@ -46,9 +43,5 @@ Decidim::NotificationMailer.class_eval do
     else
       resource.body
     end
-  end
-
-  def moderation_url
-    "http://" + @organization.host + "/admin/participatory_processes/" + @slug + "/moderations?locale=" + @locale + "&moderation_type=upstream"
   end
 end
