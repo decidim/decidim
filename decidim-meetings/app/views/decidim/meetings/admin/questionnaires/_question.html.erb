@@ -1,0 +1,115 @@
+<% question = form.object %>
+
+<div class="card questionnaire-question" id="<%= id %>-field">
+  <div class="card-divider question-divider">
+    <h2 class="card-title">
+    <span>
+      <% if editable %>
+        <%== "#{icon("move")} #{t(".question")}" %>
+      <% else %>
+        <%= t(".question") %>
+      <% end %>
+    </span>
+
+    <% if editable %>
+      <button class="button small alert hollow move-up-question button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-question button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
+      <button class="button small alert hollow remove-question button--title">
+        <%= t(".remove") %>
+      </button>
+    <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%=
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: id,
+          label: t(".statement"),
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.check_box(
+          :mandatory,
+          disabled: !editable,
+          label: t("activemodel.attributes.questionnaire_question.mandatory")
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.select(
+          :question_type,
+          options_from_collection_for_select(question_types, :first, :last, question.question_type),
+          {},
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <% if question.persisted? %>
+      <%= form.hidden_field :id, disabled: !editable %>
+    <% end %>
+
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+    <%= form.hidden_field :deleted, disabled: !editable %>
+
+    <div class="questionnaire-question-answer-options">
+      <template>
+        <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
+          <%= render "answer_option", form: answer_option_form, question: question, editable: editable %>
+        <% end %>
+      </template>
+
+      <div class="questionnaire-question-answer-options-list">
+        <% question.answer_options.each do |answer_option| %>
+          <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
+            <%= render "answer_option", form: answer_option_form, question: question, editable: editable %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if editable %>
+        <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
+      <% end %>
+    </div>
+
+    <div class="row column questionnaire-question-max-choices">
+      <%=
+        form.select(
+          :max_choices,
+          (2..question.number_of_options),
+          { prompt: t(".any") },
+          disabled: !editable
+        )
+      %>
+    </div>
+  </div>
+</div>

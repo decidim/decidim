@@ -20,6 +20,7 @@ module Decidim
       def call
         @meeting.with_lock do
           return broadcast(:invalid) unless registration
+          destroy_registration_form
           destroy_registration
         end
         broadcast(:ok)
@@ -33,6 +34,10 @@ module Decidim
 
       def destroy_registration
         registration.destroy!
+      end
+
+      def destroy_registration_form
+        @meeting.registration_form.answers_for(@user).destroy_all if @meeting.registration_form&.answered_by?(@user)
       end
     end
   end

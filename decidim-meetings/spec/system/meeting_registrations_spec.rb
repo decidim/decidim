@@ -84,23 +84,53 @@ describe "Meeting registrations", type: :system do
           login_as user, scope: :user
         end
 
-        it "they can join the meeting" do
-          visit_meeting
+        context "and the meeting have a registration form" do
+          let!(:questionnaire) { create(:questionnaire, meeting: meeting, questionnaire_type: "registration") }
+          let!(:questionnaire_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
 
-          within ".card.extra" do
-            click_button "Join meeting"
+          it "they can join the meeting" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_link "Join meeting"
+            end
+
+            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+
+            fill_in questionnaire_question.body["en"], with: "My first answer"
+
+            check "questionnaire_tos_agreement"
+
+            accept_confirm { click_button "Submit" }
+
+            expect(page).to have_content("successfully")
+
+            within ".card.extra" do
+              expect(page).to have_css(".button", text: "GOING")
+              expect(page).to have_text("19 slots remaining")
+            end
           end
+        end
 
-          within "#meeting-registration-confirm-#{meeting.id}" do
-            expect(page).to have_content "A legal text"
-            page.find(".button.expanded").click
-          end
+        context "and the meeting does not have a registration form" do
+          it "they can join the meeting" do
+            visit_meeting
 
-          expect(page).to have_content("successfully")
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
 
-          within ".card.extra" do
-            expect(page).to have_css(".button", text: "GOING")
-            expect(page).to have_text("19 slots remaining")
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "A legal text"
+              page.find(".button.expanded").click
+            end
+
+            expect(page).to have_content("successfully")
+
+            within ".card.extra" do
+              expect(page).to have_css(".button", text: "GOING")
+              expect(page).to have_text("19 slots remaining")
+            end
           end
         end
       end

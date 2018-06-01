@@ -28,6 +28,8 @@ en:
         description: Description
         video_url: Video url
         visible: Is visible
+      questionnaire_question:
+        mandatory: Mandatory
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -182,12 +184,43 @@ en:
         models:
           meeting:
             name: Meeting
+        questionnaires:
+          answer_option:
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
+          create:
+            invalid: There's been a problem creating this questionnaire
+            success: Questionnaire successfully created
+          edit:
+            title: Edit questionnaire
+            update: Update
+          form:
+            add_question: Add question
+            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
+          new:
+            create: Create
+            title: Create questionnaire
+          question:
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
+          update:
+            invalid: There's been a problem updating this questionnaire
+            success: Questionnaire successfully updated
         registrations:
           edit:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invite_user: Invite user
+            registration_form: Registration form
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -263,6 +296,15 @@ en:
             map: Map
             start_time: Start date
             title: Title
+      questionnaires:
+        question:
+          max_choices: Maximum number of choices
+        question_types:
+          long_answer: Long answer
+          multiple_option: Multiple option
+          short_answer: Short answer
+          single_option: Single option
+          sorting: Sorting
       read_more: "(read more)"
       registration_mailer:
         confirmation:
@@ -275,6 +317,21 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+      shared:
+        questionnaires:
+          show:
+            answer_questionnaire:
+              anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
+              title: Answer the questionnaire
+            are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+            questionnaire_answered:
+              body: You have already answered this questionnaire.
+              title: Questionnaire answered
+            questionnaire_closed:
+              body: The questionnaire is closed and cannot be answered.
+              title: Questionnaire closed
+            submit: Submit
+            tos_agreement: By submitting this form you accept its Terms of Service
       types:
         private_meeting: Private meeting
         transparent: Transparent

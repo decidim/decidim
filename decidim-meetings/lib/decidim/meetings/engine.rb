@@ -18,14 +18,20 @@ module Decidim
 
       routes do
         resources :meetings, only: [:index, :show] do
-          resource :registration, only: [:create, :destroy] do
+          resource :registration, only: [:create, :destroy, :show] do
             collection do
               get :create
+              get :join, action: :show
+              post :answer
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
 
       initializer "decidim_meetings.view_hooks" do

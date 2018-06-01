@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: meeting_questionnaire_path(current_meeting, questionnaire), html: { class: "form edit_questionnaire" }) do |form| %>
+  <%= render partial: "form", object: form, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".update"), class: "button" %>
+  </div>
+<% end %>

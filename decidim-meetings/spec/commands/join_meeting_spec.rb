@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe JoinMeeting do
-    subject { described_class.new(meeting, user) }
+    subject { described_class.new(meeting, user, registration_form) }
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
@@ -14,6 +14,7 @@ module Decidim::Meetings
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
     let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots }
     let(:user) { create :user, :confirmed, organization: organization }
+    let(:registration_form) { nil }
 
     context "when everything is ok" do
       it "broadcasts ok" do
@@ -25,6 +26,37 @@ module Decidim::Meetings
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
         expect(last_registration.meeting).to eq(meeting)
+      end
+
+      context "and meeting have a registration form" do
+        let(:questionnaire) { create(:questionnaire, meeting: meeting, questionnaire_type: "registration") }
+        let(:questionnaire_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 0) }
+
+        context "and the form is invalid" do
+          let(:registration_form) do
+            QuestionnaireForm.from_params({})
+          end
+
+          it "broadcasts invalid" do
+            expect { subject.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "and the form is valid" do
+          let(:registration_form) do
+            QuestionnaireForm.from_params(
+              "questionnaire" => { "questionnaire_answers" => [{ "body" => "This is my first answer", "question_id" => questionnaire_question.id }], "tos_agreement" => "1" }
+            )
+          end
+
+          it "saves the answers to the questionnaire" do
+            expect { subject.call }.to change(QuestionnaireAnswer, :count).by(1)
+            last_answer = QuestionnaireAnswer.last
+            expect(last_answer.user).to eq(user)
+            expect(last_answer.question).to eq(questionnaire_question)
+            expect(last_answer.questionnaire).to eq(questionnaire)
+          end
+        end
       end
 
       it "sends an email confirming the registration" do

@@ -43,6 +43,7 @@ must now set a resource name:
 - **decidim-core**: Added the user_profile_bottom view hook to the public profiel page. [\#3410](https://github.com/decidim/decidim/pull/3410)
 - **decidim-meetings**: Add organizer to meeting and meeting types [\#3136](https://github.com/decidim/decidim/pull/3136)
 - **decidim-meetings**: Add Minutes entity to manage Minutes. [\#3213](https://github.com/decidim/decidim/pull/3213)
+- **decidim-meetings**: Add questionnaire to join a meeting. [\#3331](https://github.com/decidim/decidim/pull/3331)
 - **decidim-initiatives**: Notify initiatives milestones [\#3341](https://github.com/decidim/decidim/pull/3341)
 - **decidim-admin**: Links to participatory space index & show pages from the admin dashboard. [\#3325](https://github.com/decidim/decidim/pull/3325)
 - **decidim-admin**: Add autocomplete field with customizable url to fetch results. [\#3301](https://github.com/decidim/decidim/pull/3301)

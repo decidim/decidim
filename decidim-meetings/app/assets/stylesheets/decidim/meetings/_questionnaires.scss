@@ -1,0 +1,31 @@
+form.answer-questionnaire{
+  .radio-button-collection,
+  .check-box-collection,
+  .sortable-check-box-collection{
+    margin: 0 0 1rem;
+  }
+
+  .tos-agreement{
+    margin: 1rem 0 0;
+
+    .help-text{
+      margin: .2rem 0 0;
+    }
+  }
+
+  label.questionnaire-question{
+    font-weight: bold;
+  }
+
+  .help-text{
+    margin-top: .5em;
+
+    .ql-video{
+      margin: .5em auto;
+    }
+  }
+
+  .last-sorted{
+    margin-bottom: 1rem;
+  }
+}

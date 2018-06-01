@@ -16,6 +16,14 @@ module Decidim
         def tabs_id_for_service(service)
           "meeting_service_#{service.to_param}"
         end
+
+        def tabs_id_for_question(question)
+          "questionnaire_question_#{question.to_param}"
+        end
+
+        def tabs_id_for_question_answer_option(question, answer_option)
+          "questionnaire_question_#{question.to_param}_answer_option_#{answer_option.to_param}"
+        end
       end
     end
   end

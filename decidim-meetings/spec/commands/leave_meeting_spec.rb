@@ -24,6 +24,19 @@ module Decidim::Meetings
       it "destroys the registration for the meeting and the user" do
         expect { subject.call }.to change(Registration, :count).by(-1)
       end
+
+      context "and meeting has a registration form" do
+        let(:questionnaire) { create(:questionnaire, meeting: meeting, questionnaire_type: "registration") }
+        let(:questionnaire_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+
+        before do
+          create(:questionnaire_answer, questionnaire: questionnaire, question: questionnaire_question, user: user)
+        end
+
+        it "destroy the registration form for the meeting and the user" do
+          expect { subject.call }.to change(QuestionnaireAnswer, :count).by(-1)
+        end
+      end
     end
 
     context "when the user has not joined the meeting" do
