@@ -270,3 +270,18 @@ uk:
       vote_modal_confirm:
         change: Змінити
         confirm: Підтвердити
+        contextual_help: Будь ласка, підтвердьте обраний варіант.
+        title: 'Консультація: підтвердьте підтримку'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Вкладені файли
+          categories: Розряди
+      consultation_voting_data:
+        start_voting_date: Голосування починається
+      question_components:
+        question_menu_item: Питання
+        unfold: Розгорнути
+      question_header:
+        back_to_consultation: Переглянути всі консультації
