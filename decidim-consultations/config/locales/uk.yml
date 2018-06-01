@@ -83,8 +83,46 @@ uk:
           success: Консультацію успішно створено.
         destroy:
           success: Консультацію успішно видалено.
+        edit:
+          update: Оновити
         form:
           slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цю консультацію. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+          title: Загальні відомості
+        index:
+          not_published: Не оприлюднено
+          published: Оприлюднено
+        new:
+          create: Створити
+          title: Нова консультація
+        update:
+          error: При оновленні цієї консультації сталася помилка.
+          success: Консультацію успішно оновлено.
+      menu:
+        consultations: Консультації
+        consultations_submenu:
+          info: Відомості
+          questions: Питання
+        questions_submenu:
+          components: Складові
+          consultation: Консультація
+          info: Відомості
+          responses: Відповіді
+      models:
+        consultation:
+          fields:
+            created_at: 'Створено:'
+            published: Оприлюднено
+            title: Назва
+          name:
+            one: Консультація
+            few: Консультації
+            many: Консультацій
+            other: Консультацій
+        question:
+          fields:
+            created_at: 'Створено:'
+            published: Оприлюднено
+            title: Назва
     consultations:
       highlighted_questions:
         title: Питання від %{scope_name}
