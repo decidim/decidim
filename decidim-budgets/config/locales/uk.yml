@@ -111,7 +111,7 @@ uk:
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
             other: "%{count} людей підтримують"
-          remove: Вилучити
+          remove: Видалити
           view: Переглянути
         project_budget_button:
           add: Додати
