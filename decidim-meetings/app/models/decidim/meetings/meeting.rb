@@ -115,8 +115,9 @@ module Decidim
           !private_meeting? || (private_meeting? && transparent?)
       end
 
+      # Return the duration of the meeting in minutes
       def meeting_duration
-        @meeting_duration ||= ((end_time - start_time) * 24 * 60).to_i
+        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
       end
     end
   end
