@@ -105,6 +105,13 @@ uk:
             title: Загальні відомості
           index:
             actions_title: Дія
+            filter:
+              accepted: Прийнято
+              all: Усі
+              created: Створені
+              discarded: Відкинуті
+              published: Оприлюднені
+              rejected: Відхилені
         initiatives_type_scopes:
           create:
             error: Сталася помилка
@@ -127,6 +134,12 @@ uk:
         initiatives_types:
           initiative_type_scopes:
             title: Обсяги для цього різновиду почину
+      admin_log:
+        initiative:
+          unpublish: "%{user_name} відкинув почин %{resource_name}"
+      admin_states:
+        discarded: Відкинуті
+        rejected: Відхилені
       create_initiative:
         fill_data:
           fill_data_help: "<ul> <li>Перегляньте зміст вашого почину. Чи легко розуміти його заголовок? Ясна мета вашого почину?</li> <li>Ви маєте обрати різновид підпису. На особистій зустрічі, в Інтернеті або і там, і там</li> <li>Який географічний обсяг почину? Місто, район?</li> </ul>"
@@ -139,6 +152,9 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: '%{author_nickname} підтримав почин'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
+      initiatives:
+        result:
+          initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
       initiatives_mailer:
         progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
         progress_report_for: 'Стислий виклад почину: %{title}'
