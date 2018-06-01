@@ -87,7 +87,7 @@ uk:
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
-          info: Інформація
+          info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
           process_admins: Учасники руху
@@ -202,7 +202,7 @@ uk:
         edit:
           update: Оновити
         form:
-          title: Загальна інформація
+          title: Загальні відомості
         index:
           not_published: Не оприлюднено
           private: Приватний
