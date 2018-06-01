@@ -20,6 +20,7 @@ module Decidim
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
@@ -112,6 +113,10 @@ module Decidim
       def current_user_can_visit_meeting?(current_user)
         (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
           !private_meeting? || (private_meeting? && transparent?)
+      end
+
+      def meeting_duration
+        @meeting_duration ||= ((end_time - start_time) * 24 * 60).to_i
       end
     end
   end
