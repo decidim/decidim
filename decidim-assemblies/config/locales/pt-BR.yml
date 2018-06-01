@@ -56,9 +56,9 @@ pt-BR:
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
-          success: Assembléia criada com sucesso.
+          success: Assembleia criada com sucesso.
         destroy:
-          success: Assembléia destruída com sucesso.
+          success: Assembleia destruída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -73,11 +73,11 @@ pt-BR:
           title: Nova assembleia
         update:
           error: Ocorreu um erro ao atualizar este assembly.
-          success: Assembléia atualizada com sucesso.
+          success: Assembleia atualizada com sucesso.
       assemblies_copies:
         create:
           error: Ocorreu um erro ao duplicar este assembly.
-          success: Assembléia duplicada com sucesso.
+          success: Assembleia duplicada com sucesso.
       assembly_copies:
         new:
           copy: Cópia
@@ -89,7 +89,7 @@ pt-BR:
           success: Assembleia publicada com sucesso.
         destroy:
           error: Ocorreu um erro ao atualizar esta assembléia.
-          success: Assembléia não publicada com sucesso.
+          success: Assembleia não publicada com sucesso.
       assembly_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esta montagem.
@@ -108,7 +108,7 @@ pt-BR:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
       menu:
-        assemblies: Assembléias
+        assemblies: Assembleias
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
           attachment_collections: Coleções
@@ -127,7 +127,7 @@ pt-BR:
             promoted: Em destaque
             published: Publicados
             title: Título
-          name: Assembléia
+          name: Assembleia
         assembly_user_role:
           fields:
             email: O email
@@ -139,7 +139,7 @@ pt-BR:
             collaborator: Colaborador
             moderator: Moderador
       titles:
-        assemblies: Assembléias
+        assemblies: Assembleias
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
@@ -175,7 +175,7 @@ pt-BR:
         others: Outras
         public: Público
       index:
-        title: Assembléias
+        title: Assembleias
       pages:
         home:
           highlighted_assemblies:
@@ -210,7 +210,7 @@ pt-BR:
         target: Alvo
       statistics:
         answers_count: Respostas
-        assemblies_count: Assembléias
+        assemblies_count: Assembleias
         comments_count: Comentários
         debates_count: Debates
         endorsements_count: Endossos
@@ -229,7 +229,7 @@ pt-BR:
         assembly_presenter:
           not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
     menu:
-      assemblies: Assembléias
+      assemblies: Assembleias
   errors:
     messages:
       cannot_be_blank: nao pode estar em branco
