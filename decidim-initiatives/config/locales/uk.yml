@@ -30,8 +30,29 @@ uk:
         title: Назва
       organization_data:
         address: Адреса
+        id_document: CIF
+        name: Повне ім'я
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Почин
+        few: Почини
+        many: Починів
+        other: Починів
+      decidim/initiative_comittee:
+        one: Комітет
+        few: Комітети
+        many: Комітетів
+        other: Комітетів
+      decidim/initiative_vote:
+        one: Підпис
+        few: Підписи
+        many: Підписів
+        other: Підписів
   decidim:
     admin:
+      menu:
+        initiatives: Почини
       models:
         initiatives_type_scope:
           fields:
