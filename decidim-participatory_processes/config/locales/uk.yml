@@ -8,7 +8,7 @@ uk:
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Гурт допомагачів
+        developer_group: Гурт просувачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -294,7 +294,7 @@ uk:
         index:
           loading: Завантаження підсумків...
       show:
-        developer_group: Гурт допомагачів
+        developer_group: Гурт просувачів
         end_date: Дата закінчення
         local_area: Ділянка організації
         participatory_scope: Що вирішується
