@@ -183,15 +183,15 @@ fr:
         assembly_user_role:
           fields:
             email: Email
-            name: Nom
-            role: Rôle
+            name: prénom
+            role: Fonction
           name: Utilisateur de l'assemblée
           roles:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
       titles:
-        assemblies: Agora
+        assemblies: Assemblées
     admin_log:
       assembly:
         create: "%{user_name} a créé l'agora %{resource_name}"
