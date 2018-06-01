@@ -239,7 +239,7 @@ fr:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Consultatif / consultatif
+        consultative_advisory: Consultatif
         executive: Exécutif
         government: Gouvernement
         others: Autres
@@ -250,19 +250,19 @@ fr:
         others: Autres
         public: Public
       index:
-        title: Agora
+        title: Assemblées
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Agora actives
-            see_all_assemblies: Voir toutes les agora
+            active_assemblies: Assemblées actives
+            see_all_assemblies: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
       show:
-        area: Région
+        area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Agora
+        children: Assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
@@ -273,9 +273,9 @@ fr:
         indefinite_duration: Indéfini
         internal_organisation: Organisation interne
         is_transparent:
-          'false': opaque
-          'true': transparent
-        local_area: Périmètre
+          'false': non-visible
+          'true': visible
+        local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
