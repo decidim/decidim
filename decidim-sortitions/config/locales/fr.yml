@@ -84,10 +84,10 @@ fr:
             create: Créer
             title: Nouveau tirage au sort
           show:
-            selected_proposals: Propositions sélectionnées pour le tirage
+            selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tri a bien été mis à jour
+            success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
           create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
@@ -99,7 +99,7 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
         filters:
-          active: actif
+          active: Actif
           all: Tout
           cancelled: Annulé
           category: Catégorie
