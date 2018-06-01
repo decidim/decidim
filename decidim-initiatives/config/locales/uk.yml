@@ -6,6 +6,30 @@ uk:
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
+        signature_end_time: Конець проміжку збору підписів
+        signature_start_time: Початок проміжку збору підписів
+        signature_type: Різновид підпису
+        signature_type_values:
+          any: Змішані
+          offline: На особистих зустрічах
+          online: Онлайн
+        title: Назва
+      initiative_author:
+        address: Адреса
+        city: Місто
+        id_document: ІПН / РНОКПП
+        name: Ім'я та прізвище
+        phone_number: Номер телефону
+        post_code: Поштовий індекс
+        province: Область
+      initiatives_committee_member:
+        user: Член комітету
+      initiatives_type:
+        banner_image: Банерне зображення
+        description: Опис
+        title: Назва
+      organization_data:
+        address: Адреса
   decidim:
     admin:
       models:
