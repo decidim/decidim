@@ -128,13 +128,13 @@ uk:
           destroy:
             success: Обсяг було успішно видалено
           edit:
-            back: Назад
+            back: Повернутись
             confirm_destroy: Ви впевнені?
             destroy: Видалити
             title: Редагувати обсяг різновиду почину
             update: Оновити
           new:
-            back: Назад
+            back: Повернутись
             create: Створити
             title: Створити обсяг різновиду почину
           update:
@@ -161,17 +161,39 @@ uk:
             error: Сталася помилка
       admin_log:
         initiative:
+          publish: "%{user_name} оприлюднив почин %{resource_name}"
+          send_to_technical_validation: "%{user_name} надіслав почин %{resource_name} на технічну перевірку"
           unpublish: "%{user_name} відкинув почин %{resource_name}"
+          update: "%{user_name} оновив почин %{resource_name}"
       admin_states:
+        accepted: Прийняті
+        created: Створені
         discarded: Відкинуті
+        published: Оприлюднені
         rejected: Відхилені
+        validating: Технічна перевірка
       committee_requests:
         new:
+          continue: Продовжити
           help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
+        spawn:
+          success: Ваш запит було надіслано автору почину.
       create_initiative:
         fill_data:
+          back: Повернутись
+          continue: Продовжити
           fill_data_help: "<ul> <li>Перегляньте зміст вашого почину. Чи легко розуміти його заголовок? Ясна мета вашого почину?</li> <li>Ви маєте обрати різновид підпису. На особистій зустрічі, в Інтернеті або і там, і там</li> <li>Який географічний обсяг почину? Місто, район?</li> </ul>"
+          initiative_type: Різновид почину
+          more_information: "(Додаткові відомості)"
           select_scope: Оберіть обсяг
+        finish:
+          back: Повернутись
+          back_to_initiatives: Повернутися до починів
+          callout_text: Вітаємо! Ваш громадський почин було успішно додано.
+          go_to_my_initiatives: Перейти до моїх починів
+          more_information: "(Додаткові відомості)"
+        finish_help:
+          access_reminder: Пам'ятайте, що ви завжди зможете отримати доступ до ваших починів через меню учасника.
       events:
         create_initiative_event:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> створив почин <a href="%{resource_path}">%{resource_title}</a>.
