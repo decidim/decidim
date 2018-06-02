@@ -316,3 +316,39 @@ uk:
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочої групи з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
+        technical_validation_body_for: Почин %{title} подав запит на технічну перевірку.
+        technical_validation_for: Почин %{title} подав запит на технічну перевірку.
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Започаті почини
+            see_all_initiatives: Переглянути всі почини
+      states:
+        accepted: Прийняті
+        expired: Строк дії яких закінчився
+    menu:
+      initiatives: Почини
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Вкладені файли
+          committee_members: Члени робочого гурту
+          components: Складові
+          information: Відомості
+      initiative_creation_header:
+        fill_data: Внести
+        finish: Завершити
+        previous_form: Почати
+        promotal_committee: Робочий гурт з просування
+        select_initiative_type: Обрати
+        show_similar_initiatives: Порівняти
+      initiative_header:
+        initiative_menu_item: Почин
+        unfold: Розгорнути
+      initiatives:
+        initiative:
+          check: Перевірте ще раз
+          check_and_support: Перевірте ще раз і підпишіться
+        no_initiatives_yet:
+          no_initiatives_yet: Ще нема жодного почину!
