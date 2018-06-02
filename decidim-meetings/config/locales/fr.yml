@@ -73,28 +73,28 @@ fr:
         meeting_closed:
           email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte-rendu sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" a été fermée
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été fermée.
+          email_subject: La rencontre "%{resource_title}" est terminée
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la rencontre.
-          email_subject: Les places occupées par la rencontre "%{resource_title}" sont au-dessus de %{percentage}%
-          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre occupées occupent plus de %{percentage}%.
+          email_subject: Les places occupées par la rencontre "%{resource_title}" dépassent %{percentage}%
+          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre sont occupées à plus de %{percentage}%.
         meeting_updated:
           email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registrations_enabled:
-          email_intro: 'La rencontre "%{resource_title}" a activé les enregistrements. Vous pouvez vous inscrire sur sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La rencontre "%{resource_title}" a activé les enregistrements.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a activé les enregistrements.
+          email_intro: 'La rencontre "%{resource_title}" a ouvert les inscriptions. Vous pouvez vous inscrire sur sa page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" a ouvert les inscriptions.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a ouvert les inscriptions.
         upcoming_meeting:
           email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
