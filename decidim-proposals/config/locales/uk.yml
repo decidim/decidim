@@ -80,6 +80,7 @@ uk:
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
+            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Максимальна кількість голосів для одного користувача
           step:
@@ -292,7 +293,7 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
-          back: Назад
+          back: Повернутись
           select_a_category: Будь ласка, оберіть розряд
           send: Надіслати
           title: Редагувати пропозицію
@@ -406,7 +407,7 @@ uk:
             left: Залишилось
             votes: Голоси
         wizard_aside:
-          back: Назад
+          back: Повернутись
           info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
           see_steps: переглянути кроки
