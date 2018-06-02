@@ -72,7 +72,7 @@ fr:
             title: Titre
           form:
             add_question: Ajouter une question
-            already_answered_warning: L'enquête ayant déjà reçu des réponses, vous ne pouvez donc pas modifier les questions.
+            already_answered_warning: L'enquête ayant déjà reçu des réponses, vous ne pouvez plus modifier les questions.
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
@@ -83,7 +83,7 @@ fr:
             statement: Déclaration
             up: Monter
           update:
-            invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
+            invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
       question_types:
         long_answer: Réponse longue
@@ -101,15 +101,15 @@ fr:
           answer_survey:
             anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .
             title: Participer à l'enquête
-          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez plus modifier vos réponses. Êtes-vous prêt à valider votre participation ?
           submit: Envoyer
           survey_answered:
             body: Vous avez déjà participé à cette enquête.
             title: Enquête complétée
           survey_closed:
-            body: L'enquête est fermée et n'accepte plus de réponse.
-            title: Enquête fermée
+            body: L'enquête est terminée et n'accepte plus de réponse.
+            title: Enquête terminée
           survey_for_private_users:
             body: L'enquête est disponible uniquement pour les utilisateurs privés
-            title: Enquête fermée
-          tos_agreement: En participant à ce sondage, vous acceptez ses conditions d'utilisation
+            title: Enquête terminée
+          tos_agreement: En participant à cette enquête, vous acceptez ses conditions d'utilisation
