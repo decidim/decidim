@@ -41,18 +41,18 @@ fr:
       surveys:
         survey_closed:
           email_intro: L'enquête %{resource_title} proposée dans %{participatory_space_title} est maintenant terminée.
-          email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu une notification venant de %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: L'enquête du processus participatif %{participatory_space_title} est terminée
-          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
+          notification_title: L'enquête <a href="%{resource_path}">%{resource_title}</a> lancée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminée.
         survey_opened:
           email_intro: 'L''enquête %{resource_title} est désormais ouverte sur le processus participatif %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une nouvelle enquête vient d'être créée depuis %{participatory_space_title}
+          email_outro: Vous avez reçu cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
+          email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     forms:
       errors:
         survey_answer:
-          body: Cet espace ne peut pas être vide
+          body: Ce champ ne peut pas être vide
     surveys:
       admin:
         exports:
@@ -72,7 +72,7 @@ fr:
             title: Titre
           form:
             add_question: Ajouter une question
-            already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
+            already_answered_warning: L'enquête ayant déjà reçu des réponses, vous ne pouvez donc pas modifier les questions.
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
