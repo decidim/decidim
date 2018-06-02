@@ -108,7 +108,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Minutes
+        minutes: Compte-rendu
         new: Nouvelle
         preview: Aperçu
         registrations: Inscriptions
@@ -154,22 +154,22 @@ fr:
             create: Créer
             title: Créer une rencontre
           service:
-            description: La description
+            description: Description
             down: Vers le bas
             remove: Retirer
-            service: Un service
+            service: Service
             title: Titre
-            up: Up
+            up: Vers le haut
           services:
             add_service: Ajouter un service
-            services: Prestations de service
+            services: Services
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
         minutes:
           create:
             invalid: Un problème est survenu lors de la création de ce compte rendu
-            success: Minutes créées avec succès
+            success: Compte-rendu créé avec succès
           edit:
             update: Mettre à jour
           new:
