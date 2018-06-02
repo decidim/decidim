@@ -366,7 +366,7 @@ uk:
           fields:
             admin: Адміністратор
             ended_at: 'Завершено:'
-            expired_at: 'Термін дії закінчився:'
+            expired_at: 'Строк дії закінчився:'
             reason: Причина
             started_at: Започатковано о
             user: Учасник
