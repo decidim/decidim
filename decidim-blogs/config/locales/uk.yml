@@ -24,6 +24,9 @@ uk:
           post:
             name: Допис
         posts:
+          create:
+            invalid: При спробі додати цей допис сталася помилка
+            success: Допис успішно додано
           edit:
             save: Оновити
           index:
