@@ -27,6 +27,8 @@ uk:
           create:
             invalid: При спробі додати цей допис сталася помилка
             success: Допис успішно додано
+          destroy:
+            success: Допис успішно видалено
           edit:
             save: Оновити
           index:
