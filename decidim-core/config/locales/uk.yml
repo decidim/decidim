@@ -151,8 +151,8 @@ uk:
         name: Приклад шляху підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
-      expired_at: Термін дії закінчився %{timestamp}
-      expires_at: Термін дії закінчується %{timestamp}
+      expired_at: Строк дії закінчився %{timestamp}
+      expires_at: Строк дії закінчується %{timestamp}
       foo_authorization:
         fields:
           bar: Приклад змінної 1
@@ -376,7 +376,7 @@ uk:
         check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
         error: При спробі скасування підписки сталася помилка
         success: Ви успішно скасували підписку.
-        token_error: Термін дії посилання закінчився.
+        token_error: Строк дії посилання закінчився.
         unsubscribe: Скасувати підписку
     notifications:
       no_notifications: Ще немає сповіщень.
@@ -473,8 +473,8 @@ uk:
       action_authorization_modal:
         expired:
           authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
-          explanation: Термін дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
-          title: Термін дії підтвердження особи вичерпався
+          explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
+          title: Строк дії підтвердження особи вичерпався
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
@@ -531,7 +531,7 @@ uk:
     mailer:
       invitation_instructions:
         accept: Прийняти запрошення
-        accept_until: Термін дії цього запрошення закінчується %{due_date}.
+        accept_until: Строк дії цього запрошення закінчується %{due_date}.
         hello: Доброго дня, %{email}%!
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
@@ -589,7 +589,7 @@ uk:
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
-        expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
+        expire_time_html: Строк дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
       user_menu:
