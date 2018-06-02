@@ -336,7 +336,7 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_header:
         assembly_member_menu_item: Члени президії
