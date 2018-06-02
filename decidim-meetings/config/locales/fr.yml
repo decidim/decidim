@@ -21,29 +21,29 @@ fr:
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
-        transparent: Visible
+        transparent: Visible par les non-membres
       minutes:
-        audio_url: URL audio
-        description: La description
-        video_url: URL de la vidéo
+        audio_url: Lien vers l'audio
+        description: Description
+        video_url: Lien vers la vidéo
         visible: Est visible
     models:
-      decidim/meetings/close_meeting_event: Rencontre fermée
+      decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
       decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
-      decidim/meetings/meeting_registrations_over_percentage_event: Inscriptions à la limite
+      decidim/meetings/meeting_registrations_over_percentage_event: Les inscriptions ont atteint la limite fixée
       decidim/meetings/upcoming_meeting_event: Prochaine rencontre
       decidim/meetings/update_meeting_event: Rencontre mise à jour
   activerecord:
     models:
       decidim/meetings/meeting:
         one: Rencontre
-        other: Rencontre
+        other: Rencontres
       decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
+        one: Compte-rendu
+        other: Comptes-rendus
       decidim/meetings/registration:
-        one: enregistrement
+        one: Inscription
         other: Inscriptions
   decidim:
     admin:
