@@ -112,6 +112,15 @@ uk:
               discarded: Відкинуті
               published: Оприлюднені
               rejected: Відхилені
+              validating: Технічна перевірка
+            filter_by: 'Відібрати за ознакою:'
+            preview: Попередній перегляд
+            print: Друк
+          show:
+            print: Друк
+          update:
+            error: Сталася помилка
+            success: Громадський почин було успішно оновлено
         initiatives_type_scopes:
           create:
             error: Сталася помилка
@@ -132,8 +141,24 @@ uk:
             error: Сталася помилка
             success: Обсяг було успішно оновлено
         initiatives_types:
+          create:
+            error: Сталася помилка
+            success: Був успішно створений новий різновид почину
+          destroy:
+            success: Різновид почину було успішно видалено
+          edit:
+            confirm_destroy: Ви впевнені?
+            destroy: Видалити
+            update: Оновити
+          form:
+            title: Загальні відомості
           initiative_type_scopes:
             title: Обсяги для цього різновиду почину
+          new:
+            create: Додати
+            title: Новий різновид почину
+          update:
+            error: Сталася помилка
       admin_log:
         initiative:
           unpublish: "%{user_name} відкинув почин %{resource_name}"
