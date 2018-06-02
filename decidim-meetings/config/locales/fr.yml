@@ -21,7 +21,7 @@ fr:
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
-        transparent: Transparent
+        transparent: Visible
       minutes:
         audio_url: URL audio
         description: La description
