@@ -194,6 +194,7 @@ uk:
           more_information: "(Додаткові відомості)"
         finish_help:
           access_reminder: Пам'ятайте, що ви завжди зможете отримати доступ до ваших починів через меню учасника.
+          help_in_person_signatures: Якщо ви вирішили збирати підписи на особистих зустрічах або в поєднанні зі збором онлайн, вам доведеться завантажити необхідні відомості.
       events:
         create_initiative_event:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> створив почин <a href="%{resource_path}">%{resource_title}</a>.
