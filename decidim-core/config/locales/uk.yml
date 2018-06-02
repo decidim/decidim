@@ -337,7 +337,7 @@ uk:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
-      more_information: Дізнатися більше
+      more_information: Додаткові відомості
     messaging:
       conversation_mailer:
         new_conversation:
@@ -401,7 +401,7 @@ uk:
           how_to_participate: Як я можу взяти участь у русі?
           meetings: Зустрічі
           meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
@@ -432,7 +432,7 @@ uk:
         sub_hero:
           register: Зареєструватися
       index:
-        title: Дізнатися більше
+        title: Додаткові відомості
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
