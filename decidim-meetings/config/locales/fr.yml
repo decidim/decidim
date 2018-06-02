@@ -63,16 +63,16 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Activer le module de commentaire
-            default_registration_terms: Conditions d'enregistrement par défaut
+            comments_enabled: Commentaires activés
+            default_registration_terms: Conditions d'inscription par défaut
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La rencontre "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte-rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été fermée
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_created:
