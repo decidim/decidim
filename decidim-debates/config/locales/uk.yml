@@ -30,8 +30,10 @@ uk:
         name: Обговорення
         settings:
           global:
+            announcement: Оголошення
             comments_enabled: Коментарі увімкнено
           step:
+            announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             creation_enabled: Започаткування обговорень учасниками увімкнено
     debates:
@@ -94,7 +96,7 @@ uk:
         index:
           new_debate: Нове обговорення
         new:
-          back: Назад
+          back: Повернутись
           create: Започаткувати
           select_a_category: Будь ласка, оберіть розряд
           title: Нове обговорення
