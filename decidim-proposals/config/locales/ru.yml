@@ -10,6 +10,8 @@ ru:
         user_group_id: Внести предложение как
       proposal_answer:
         answer: Ответить
+      proposals_copy:
+        copy_proposals: Я понимаю, что при этом все предложения из выбранной составляющей будут позаимствованы в текущую, и что это действие нельзя будет отменить.
   decidim:
     proposals:
       actions:
@@ -47,6 +49,9 @@ ru:
           new:
             create: Внести
             title: Внести предложение
+        proposals_imports:
+          new:
+            select_component: Пожалуйста, выберите составляющую
       answers:
         accepted: Принято
         evaluating: Рассматривается
