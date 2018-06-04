@@ -39,7 +39,6 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
             default_registration_terms: Conditions d'enregistrement par défaut
           step:
             announcement: Annonce

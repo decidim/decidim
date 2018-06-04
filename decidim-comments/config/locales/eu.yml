@@ -8,9 +8,6 @@ eu:
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
             email_subject: 'Iruzkin berri bat dago, %{author_name} iruzkingilearena, hemen: %{resource_title}'
             notification_title: '%{author_name}-en iruzkin berri bat dago <a href="%{resource_path}">%{resource_title}</a>'
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: '"%{resource_title}" iruzkindu da'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.

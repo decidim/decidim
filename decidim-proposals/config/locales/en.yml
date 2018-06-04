@@ -45,8 +45,6 @@ en:
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
-            upstream_moderation_enabled: Upstream moderation for proposals enabled
-            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -63,10 +61,6 @@ en:
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: "Comment's url : %{resource_url}"
         email_subject: 'New proposal from %{author_name}'
-        moderation:
-          email_intro: '%{author_name} published a new proposal in'
-          moderation_url: "You can moderate it here : %{moderation_url}"
-          email_subject: 'New proposal from %{author_name} waiting for moderation'
       proposals:
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'

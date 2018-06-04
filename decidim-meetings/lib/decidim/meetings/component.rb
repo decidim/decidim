@@ -32,7 +32,6 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_upstream_moderation_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|

@@ -220,9 +220,6 @@ nl:
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
-        moderation:
-          email_intro: 'There is a new content to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       feature_published_event:
         email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
         email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.

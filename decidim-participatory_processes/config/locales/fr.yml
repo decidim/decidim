@@ -69,10 +69,6 @@ fr:
           components: Fonctionnalités
           info: Information
           moderations: Modérations
-
-          moderation:
-            upstream: A priori
-            downstream: A posteriori
           private_users: Utilisateurs
           process_admins: Administrateurs de la concertation
           steps: Etapes

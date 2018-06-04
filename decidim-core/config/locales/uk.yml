@@ -161,9 +161,6 @@ uk:
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
-        moderation:
-          email_intro: 'There is a new content to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       features:
         feature_published:
           email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'

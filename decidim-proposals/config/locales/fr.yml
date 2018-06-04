@@ -44,8 +44,6 @@ fr:
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
-            upstream_moderation_enabled: Modération a priori des propositions activée
-            comments_upstream_moderation_enabled: Modération a priori des commentaires activée
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -62,10 +60,6 @@ fr:
         notification_title: Nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
         url: "Url de la proposition : %{resource_url}"
         email_subject: 'Nouvelle proposition de %{author_name}'
-        moderation:
-          email_intro: "%{author_name} a publié une nouvelle proposition dans"
-          moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
-          email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
       proposals:
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'

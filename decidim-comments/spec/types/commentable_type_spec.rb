@@ -36,12 +36,6 @@ module Decidim
       end
 
       describe "comments" do
-        before do
-          model.comments.each do |comment|
-            comment.moderation.update_attributes(upstream_moderation: "authorized")
-          end
-        end
-
         let(:query) { "{ comments { id } }" }
 
         it "returns the commentable comments" do

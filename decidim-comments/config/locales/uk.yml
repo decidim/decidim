@@ -8,9 +8,6 @@ uk:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
             email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
             notification_title: Надійшов новий коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: '"%{resource_title}" прокоментували'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.

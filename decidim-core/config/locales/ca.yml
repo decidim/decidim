@@ -221,9 +221,6 @@ ca:
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
         email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
         email_subject: Una actualització a %{resource_title}
-        moderation:
-          email_intro: 'There is a new event to moderate. You can see it from this page:'
-          email_subject: New content waiting for moderation
       feature_published_event:
         email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
         email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.

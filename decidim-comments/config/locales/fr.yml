@@ -57,16 +57,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez désabonner de cet utilisateur depuis sa page de profil.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
-        # comment_created:
-        #   email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page:"
-        #   email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner depuis le lien précédant.
-        #   email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
-        #   notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
-        # reply_created:
-        #   email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
-        #   email_outro: Vous venez de recevoir une notification à votre commentaire.
-        #   email_subject: "%{author_name} a répondu à votre commentaire dans %{resource_title}"
-        #   notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagit à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         comment_authorized:
           comment:
             email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
@@ -87,20 +77,12 @@ fr:
             email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
             notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
-            moderation:
-              email_intro: "%{author_name} a publié un nouveau commentaire sur"
-              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           reply:
             email_intro: '"%{resource_title}" a été commenté'
             email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
             email_subject: Il y a une nouvelle réponse à votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
-            moderation:
-              email_intro: "%{author_name} a publié un nouveau commentaire sur"
-              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: Vous pouvez modérer le contenu en suivant ce lien %{moderation_url}
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.

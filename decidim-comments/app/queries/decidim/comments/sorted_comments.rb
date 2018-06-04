@@ -29,7 +29,7 @@ module Decidim
       # Finds the Comments for a resource that can have comments and eager
       # loads comments replies. It uses Comment's MAX_DEPTH to load a maximum
       # level of nested replies.
-      def query # this method has been extended
+      def query
         scope = Comment
                 .where(commentable: commentable)
                 .not_hidden

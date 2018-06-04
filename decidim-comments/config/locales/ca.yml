@@ -9,9 +9,6 @@ ca:
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
             email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
             notification_title: Hi ha un nou comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new comment have been posted, you can moderate it in this page:'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: S'ha comentat "%{resource_title}"
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.

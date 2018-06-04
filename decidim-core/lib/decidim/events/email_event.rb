@@ -33,14 +33,6 @@ module Decidim
         def email_outro
           I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
         end
-
-        def email_moderation
-          I18n.t("decidim.events.email_event.moderation.email_intro", resource_title: resource_title)
-        end
-
-        def email_moderation_subject
-          I18n.t("decidim.events.email_event.moderation.email_subject", resource_title: resource_title)
-        end
       end
     end
   end

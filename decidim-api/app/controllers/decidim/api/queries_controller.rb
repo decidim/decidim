@@ -6,7 +6,6 @@ module Decidim
     # the Schema to be executed, later returning the response as JSON.
     class QueriesController < Api::ApplicationController
       skip_authorization_check
-      around_action :store_current_user
 
       def create
         query_string = params[:query]
@@ -32,13 +31,6 @@ module Decidim
         else
           query_variables
         end
-      end
-
-      def store_current_user
-        Thread.current[:current_user] = current_user
-        yield
-        ensure
-        Thread.current[:current_user] = nil
       end
     end
   end

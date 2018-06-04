@@ -1,4 +1,4 @@
-<p><%= @event_instance.email_moderation_intro %>
+<p><%= @event_instance.email_intro %>
   <% if @translatable %>
     <em><%= translated_attribute(@parent_title) %></em> <!-- Translate title if object is a proposal a meeting or a project -->
   <% else %>
@@ -14,9 +14,4 @@
 <!-- link to show  -->
 <p>
   <%= @event_instance.email_url %>
-</p>
-
-<!-- link to dashboard moderation  -->
-<p>
-  <%= @event_instance.email_moderation_url(@moderation_url) if @moderation %>
 </p>

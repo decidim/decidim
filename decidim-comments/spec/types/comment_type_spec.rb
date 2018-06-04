@@ -60,12 +60,6 @@ module Decidim
         let!(:replies) { Array.new(3) { |n| FactoryBot.create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
-        before do
-          replies.each do |reply|
-            reply.moderation.update_attributes(upstream_moderation: "authorized")
-          end
-        end
-
 
         it "return comment's comments comments data" do
           replies.each do |reply|
