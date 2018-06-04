@@ -2,9 +2,11 @@ ru:
   activemodel:
     attributes:
       assembly:
+        area_id: Участок
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
         copy_features: Копировать составляющие
+        decidim_area_id: Участок
         description: Описание
         developer_group: Группа зачинателей
         domain: Домен
@@ -62,6 +64,7 @@ ru:
       menu:
         assemblies: Собрания
         assemblies_submenu:
+          attachment_collections: Сборы
           attachments: Вложения
           categories: Категории
           info: Информация
@@ -80,6 +83,7 @@ ru:
       admin:
         assemblies:
           form:
+            select_an_area: Выберите участок
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         assembly_copies:
           form:
@@ -92,6 +96,7 @@ ru:
             active_assemblies: Начатые собрания
             see_all_assemblies: Просмотреть все собрания
       show:
+        area: Участок
         developer_group: Группа зачинателей
         local_area: Местный участок
         participatory_scope: Охват соучастия
