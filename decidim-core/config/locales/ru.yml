@@ -6,10 +6,13 @@ ru:
       report:
         details: Дополнительные комментарии
       user:
+        about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
+        nickname: Ваш короткий, уникальный псевдоним
         password: Новый пароль
         password_confirmation: Подтвердите свой новый пароль
+        personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
@@ -62,6 +65,20 @@ ru:
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
         publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
         unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+      moderation:
+        hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
+        unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
+      newsletter:
+        create: "%{user_name} создал рассылку %{resource_name}"
+        delete: "%{user_name} удалил рассылку %{resource_name}"
+        deliver: "%{user_name} разослал рассылку %{resource_name}"
+        update: "%{user_name} обновил рассылку %{resource_name}"
+      oauth_application:
+        create: "%{user_name} создал приложение OAuth %{resource_name}"
+        delete: "%{user_name} удалил приложение OAuth %{resource_name}"
+        update: "%{user_name} обновил приложение OAuth %{resource_name}"
+      organization:
+        update: "%{user_name} обновил настройки организации"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -69,6 +86,18 @@ ru:
         delete_with_parent: "%{user_name} удалил охват %{resource_name} внутри охвата %{parent_scope}"
         update: "%{user_name} обновил охват %{resource_name}"
         update_with_parent: "%{user_name} обновил охват %{resource_name} внутри охвата %{parent_scope}"
+      static_page:
+        create: "%{user_name} создал статическую страницу %{resource_name}"
+        delete: "%{user_name} удалил статическую страницу %{resource_name}"
+        update: "%{user_name} обновил статическую страницу %{resource_name}"
+      user:
+        invite: "%{user_name} пригласил участника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} предоставил служебный статус участнику %{resource_name}"
+        remove_from_admin: "%{user_name} удалил участника %{resource_name} с ролью: %{role}"
+        unofficialize: "%{user_name} отменил служебный статус участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
+        verify: "%{user_name} подтвердил группу участников %{resource_name}"
     anonymous_user: Анонимный
     application:
       collection:
@@ -355,7 +384,7 @@ ru:
         subject: Пароль изменен
   errors:
     messages:
-      content_type_whitelist_error: Тип файла не является допустимым
+      content_type_whitelist_error: Этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
       invalid_manifest: Недопустимый манифест
@@ -404,7 +433,7 @@ ru:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
         notifications_settings: Настройки уведомлений
-        title: Пользовательские настройки
+        title: Настройки участника
         user_groups: Организации
       widget:
         see_more: Узнать больше
