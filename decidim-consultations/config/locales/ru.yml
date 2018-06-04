@@ -11,6 +11,12 @@ ru:
         participatory_scope: Охват соучастия
         scope: Участок города
   decidim:
+    admin:
+      menu:
+        questions_submenu:
+          components: Составляющие
     consultations:
+      filters:
+        active: Действующие
       highlighted_questions:
         title: Вопросы из %{scope_name}
