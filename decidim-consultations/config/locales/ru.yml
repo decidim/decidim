@@ -4,3 +4,6 @@ ru:
       consultation:
         banner_image: Изображение баннера
         title: Название
+      question:
+        decidim_scope_id: Участок города
+        scope: Участок города
