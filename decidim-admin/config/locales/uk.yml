@@ -287,7 +287,7 @@ uk:
             not_managed: Не керовані
           filter_by: 'Відібрати за ознакою:'
           impersonate: Виступити в ролі учасника
-          impersonate_new_managed_user: Виступити в ролі нового керованого користувача
+          impersonate_new_managed_user: Виступити в ролі нового керованого учасника
           managed: Керовані
           name: Ім'я
           needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
@@ -309,9 +309,9 @@ uk:
           reason: Причина
         new:
           impersonate: Виступити в ролі учасника
-          impersonate_existing_managed_user: Виступити в ролі керованого користувача "%{name}"
-          impersonate_existing_user: Виступити в ролі користувача "%{name}"
-          impersonate_new_managed_user: Виступити в ролі нового керованого користувача
+          impersonate_existing_managed_user: Виступити в ролі керованого учасника "%{name}"
+          impersonate_existing_user: Виступити в ролі учасника "%{name}"
+          impersonate_new_managed_user: Виступити в ролі нового керованого учасника
       logs:
         logs_list:
           no_logs_yet: Ще немає журналів
@@ -593,7 +593,7 @@ uk:
         areas: Дільниці
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
-        impersonatable_users: Користувачі, в ролі яких можна виступати
+        impersonatable_users: Учасники, в ролі яких можна виступати
         impersonations: Виступи в ролі учасника
         officializations: Надання службового статусу
         scope_types: Різновиди обсягу
@@ -638,7 +638,7 @@ uk:
     forms:
       errors:
         impersonate_user:
-          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого користувача
+          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
     moderations:
       actions:
         hidden: Приховано
