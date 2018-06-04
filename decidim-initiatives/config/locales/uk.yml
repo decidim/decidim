@@ -324,7 +324,7 @@ uk:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Започаті почини
+            active_initiatives: Діючі почини
             see_all_initiatives: Переглянути всі почини
       states:
         accepted: Прийняті
