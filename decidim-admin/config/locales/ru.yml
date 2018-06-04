@@ -2,7 +2,7 @@ ru:
   activemodel:
     attributes:
       area:
-        area_type: Тип участка
+        area_type: Вид участка
         name: Имя
         organization: Организация
       area_type:
@@ -74,7 +74,7 @@ ru:
         organization: Организация
         parent_id: Родитель
         scope_type: Тип охвата
-        scope_type_id: Тип охвата
+        scope_type_id: Вид охвата
       scope_type:
         name: Имя
         organization: Организация
@@ -148,19 +148,19 @@ ru:
         verify: Подтвердить личность
       area_types:
         create:
-          error: При создании нового типа участка произошла ошибка.
-          success: Тип участка успешно создан.
+          error: При создании нового вида участка произошла ошибка.
+          success: Вид участка успешно создан.
         destroy:
-          success: Тип участка успешно удален
+          success: Вид участка успешно удален
         edit:
-          title: Изменить тип участка
+          title: Изменить вид участка
           update: Обновить
         new:
-          create: Создать тип участка
-          title: Новый тип участка
+          create: Создать вид участка
+          title: Новый вид участка
         update:
-          error: При обновлении этого типа участка произошла ошибка.
-          success: Тип участка успешно обновлен
+          error: При обновлении этого вида участка произошла ошибка.
+          success: Вид участка успешно обновлен
       areas:
         create:
           error: При создании нового участка произошла ошибка.
@@ -255,6 +255,23 @@ ru:
           default_step_settings: Настройки шага по умолчанию
           global_settings: Всеобщие настройки
           step_settings: Настройки шага
+        index:
+          add: Добавить составляющую
+          headers:
+            actions: Действия
+            name: Название составляющей
+            type: Вид составляющей
+        new:
+          add: Добавить составляющую
+          title: 'Добавить составляющую: %{name}'
+        publish:
+          success: Эта составляющая успешно опубликована.
+        title: Составляющие
+        unpublish:
+          success: Публикация этой составляющей успешно отменена.
+        update:
+          error: При обновлении этой составляющей произошла ошибка.
+          success: Эта составляющая была успешно обновлена.
       dashboard:
         show:
           welcome: Добро пожаловать в админ-панель Десидим!
@@ -286,7 +303,7 @@ ru:
       menu:
         admins: Администраторы
         appearance: Внешний вид
-        area_types: Типы участков
+        area_types: Виды участков
         areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
@@ -301,7 +318,7 @@ ru:
       models:
         area:
           fields:
-            area_type: Тип участка
+            area_type: Вид участка
         attachment:
           fields:
             collection: Папка
@@ -494,7 +511,7 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
-        area_types: Типы участков
+        area_types: Виды участков
         areas: Участки
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
