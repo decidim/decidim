@@ -5,7 +5,7 @@ ru:
         body: Ответить
       survey_question:
         mandatory: Обязательно
-        question_type: Тип
+        question_type: Вид
   decidim:
     surveys:
       admin:
