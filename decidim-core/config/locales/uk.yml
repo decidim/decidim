@@ -557,17 +557,9 @@ uk:
       public: Публічні відомості про вас.
   errors:
     messages:
-      content_type_whitelist_error: Неприпустимий тип файлу
       cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
-      invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий рух співучасті
-      long_words: Містить занадто довгі слова
-      must_start_with_caps: Має починатися з великих літер
       nesting_too_deep: не може бути всередині підрозряду
-      too_many_marks: Містить забагато знаків оклику або питання
-      too_much_caps: Містить забагато великих літер
-      too_short: Занадто короткий
   forms:
     required: Обов'язкове поле
   invisible_captcha:
