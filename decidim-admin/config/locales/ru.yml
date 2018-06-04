@@ -1,36 +1,96 @@
 ru:
   activemodel:
     attributes:
+      area:
+        area_type: Тип участка
+        name: Имя
+        organization: Организация
+      area_type:
+        name: Имя
+        organization: Организация
+        plural: Множественное число
       attachment:
+        attachment_collection_id: Папка
         description: Описание
         file: Файл
         title: Название
+      attachment_collection:
+        description: Описание
+        name: Название
       category:
         description: Описание
         name: Имя
         parent_id: Родитель
+      component:
+        name: Название
+        published_at: 'Опубликовано:'
+        weight: Вес
       id: Псевдоним
       newsletter:
         body: Основной текст
         subject: Тема
+      oauth_application:
+        name: Название
+        organization_logo: Логотип организации (квадрат)
+        organization_name: Название организации
+        organization_url: Веб-адрес организации
+        redirect_uri: URI перенаправления
       organization:
+        cta_button_path: Путь кнопки "Призвать к действию"
+        cta_button_text: Текст кнопки «Призвать к действию»
         default_locale: Язык по умолчанию
+        description: Описание
+        enable_omnipresent_banner: Показывать вездесущий баннер
+        facebook_handler: Обработчик Facebook
+        favicon: Значок
+        github_handler: Обработчик GitHub
+        header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
+        highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
+        highlighted_content_banner_action_title: Заголовок кнопки действия
+        highlighted_content_banner_action_url: Веб-адрес кнопки действия
+        highlighted_content_banner_enabled: Показывать баннер рекомендуемого содержимого
+        highlighted_content_banner_image: Изображение
+        highlighted_content_banner_short_description: Краткое описание
+        highlighted_content_banner_title: Заголовок
+        homepage_image: Изображение главной страницы
+        instagram_handler: Обработчик Instagram
+        logo: Логотип
         name: Имя
+        official_img_footer: Нижний колонтитул официального логотипа
+        official_img_header: Заголовок официального логотипа
+        official_url: Официальный веб-адрес организации
+        omnipresent_banner_short_description: Краткое описание
+        omnipresent_banner_title: Заголовок
+        omnipresent_banner_url: Веб-адрес
         reference_prefix: Справочный префикс
+        show_statistics: Показывать статистику
+        tos_version: Версия условий предоставления услуг
+        twitter_handler: Обработчик Twitter
+        welcome_text: Текст приветствия
+        youtube_handler: Обработчик YouTube
       scope:
         code: Код
         name: Имя
         organization: Организация
+        parent_id: Родитель
         scope_type: Тип охвата
+        scope_type_id: Тип охвата
       scope_type:
         name: Имя
         organization: Организация
         plural: Множественное число
       static_page:
+        changed_notably: Произошли заметные изменения.
         content: Содержание
         organization: Организация
         slug: Сокращенный URL-адрес
         title: Название
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI перенаправления должен быть SSL URI
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -41,7 +101,7 @@ ru:
         end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местность
+        local_area: Местный участок
         meta_scope: Метаданные охвата
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
@@ -65,6 +125,14 @@ ru:
         content: Содержание
         slug: Сокращенный URL-адрес
         title: Название
+      doorkeeper/application:
+        authorize_url: Подтвердить веб-адрес
+        client_id: Идентификатор клиента
+        client_secret: Секрет клиента
+        organization_name: Название организации
+        organization_url: Веб-адрес организации
+        redirect_uri: URI перенаправления
+        site: Сайт
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -78,6 +146,55 @@ ru:
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
+      area_types:
+        create:
+          error: При создании нового типа участка произошла ошибка.
+          success: Тип участка успешно создан.
+        destroy:
+          success: Тип участка успешно удален
+        edit:
+          title: Изменить тип участка
+          update: Обновить
+        new:
+          create: Создать тип участка
+          title: Новый тип участка
+        update:
+          error: При обновлении этого типа участка произошла ошибка.
+          success: Тип участка успешно обновлен
+      areas:
+        create:
+          error: При создании нового участка произошла ошибка.
+          success: Участок успешно создан.
+        destroy:
+          success: Участок успешно удален
+        edit:
+          title: Редактировать участок
+          update: Обновить
+        new:
+          create: Создать участок
+          title: Новый участок
+        no_areas: Нет участков
+        update:
+          error: При обновлении этого участка произошла ошибка.
+          success: Участок успешно обновлен
+      attachment_collections:
+        create:
+          error: При создании новой папки произошла ошибка.
+          success: Папка успешно создана.
+        destroy:
+          success: Папка успешно удалена.
+        edit:
+          title: Изменить папку
+          update: Обновить
+        index:
+          attachment_collection_used: Эту папку нельзя удалить, так как она используется.
+          attachment_collections_title: Папки вложений
+        new:
+          create: Создать
+          title: Создать папку
+        update:
+          error: При обновлении этой папки произошла ошибка.
+          success: Папка успешно обновлена.
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
@@ -95,6 +212,9 @@ ru:
         update:
           error: При обновлении этого вложенного файла произошла ошибка.
           success: Вложенный файл успешно обновлен.
+      autocomplete:
+        no_results: Ничего не найдено
+        search_prompt: Введите не менее трех символов для поиска
       categories:
         create:
           error: При создании этой категории произошла ошибка.
@@ -114,6 +234,27 @@ ru:
         update:
           error: При обновлении этой категории произошла ошибка.
           success: Категория успешно обновлена.
+      component_permissions:
+        edit:
+          everyone: Все
+          submit: Сохранить права доступа
+          title: Редактировать права доступа
+        update:
+          success: Права доступа успешно обновлены.
+      components:
+        create:
+          error: При создании этой составляющей произошла ошибка.
+          success: Составляющая успешно создана.
+        destroy:
+          error: При удалении этой составляющей произошла ошибка.
+          success: Составляющая успешно удалена.
+        edit:
+          title: Редактировать составляющую
+          update: Обновить
+        form:
+          default_step_settings: Настройки шага по умолчанию
+          global_settings: Всеобщие настройки
+          step_settings: Настройки шага
       dashboard:
         show:
           welcome: Добро пожаловать в админ-панель Десидим!
@@ -145,6 +286,8 @@ ru:
       menu:
         admins: Администраторы
         appearance: Внешний вид
+        area_types: Типы участков
+        areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
         newsletters: Рассылки новостей
@@ -156,11 +299,17 @@ ru:
         user_groups: Группы участников
         users: Участники
       models:
+        area:
+          fields:
+            area_type: Тип участка
         attachment:
           fields:
+            collection: Папка
             content_type: Тип
             title: Название
           name: Вложение
+        attachment_collection:
+          name: Папка
         category:
           name: Категория
         impersonation_log:
@@ -345,6 +494,8 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
+        area_types: Типы участков
+        areas: Участки
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
         impersonations: Выступления в роли участника

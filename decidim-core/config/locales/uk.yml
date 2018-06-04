@@ -40,10 +40,10 @@ uk:
         many: Учасників
         other: Учасників
       decidim/user_group:
-        one: Група учасників
-        few: Груп учасників
-        many: Груп учасників
-        other: Груп учасників
+        one: Гурт учасників
+        few: Гурти учасників
+        many: Гуртів учасників
+        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -76,12 +76,12 @@ uk:
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
       area:
-        create: "%{user_name} додав ділянку %{resource_name}"
-        delete: "%{user_name} видалив ділянку %{resource_name}"
-        update: "%{user_name} оновив ділянку %{resource_name}"
+        create: "%{user_name} додав дільницю %{resource_name}"
+        delete: "%{user_name} видалив дільницю %{resource_name}"
+        update: "%{user_name} оновив дільницю %{resource_name}"
       component:
         create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
-        delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
+        delete: "%{user_name} видалив складову %{resource_name} з простору %{space_name}"
         publish: "%{user_name} оприлюднив складову %{resource_name} у просторі %{space_name}"
         unpublish: "%{user_name} скасував оприлюднення складової %{resource_name} у просторі %{space_name}"
       moderation:
@@ -115,8 +115,8 @@ uk:
         remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
         unofficialize: "%{user_name} скасував службовий статус учасника %{resource_name}"
       user_group:
-        reject: "%{user_name} відхилив підтвердження групи користувачів %{resource_name}"
-        verify: "%{user_name} підтвердив групу користувачів %{resource_name}"
+        reject: "%{user_name} відхилив підтвердження гурту учасників %{resource_name}"
+        verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
       collection:
@@ -151,8 +151,8 @@ uk:
         name: Приклад шляху підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
-      expired_at: Термін дії закінчився %{timestamp}
-      expires_at: Термін дії закінчується %{timestamp}
+      expired_at: Строк дії закінчився %{timestamp}
+      expires_at: Строк дії закінчується %{timestamp}
       foo_authorization:
         fields:
           bar: Приклад змінної 1
@@ -248,7 +248,7 @@ uk:
         try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
-        content_doesnt_exist: Ця адреса невірна або була вилучена.
+        content_doesnt_exist: Ця адреса невірна або була видалена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
       attachments:
@@ -326,9 +326,9 @@ uk:
         update_with_space: "%{user_name} оновив %{resource_name} у %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Цю ділянку не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цю дільницю не знайдено в базі даних (ID: %{id})'
         area_type_presenter:
-          not_found: 'Цей різновид ділянки не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид дільниці не знайдено в базі даних (ID: %{id})'
         scope_presenter:
           not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
@@ -337,7 +337,7 @@ uk:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
-      more_information: Дізнатися більше
+      more_information: Додаткові відомості
     messaging:
       conversation_mailer:
         new_conversation:
@@ -376,7 +376,7 @@ uk:
         check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
         error: При спробі скасування підписки сталася помилка
         success: Ви успішно скасували підписку.
-        token_error: Термін дії посилання закінчився.
+        token_error: Строк дії посилання закінчився.
         unsubscribe: Скасувати підписку
     notifications:
       no_notifications: Ще немає сповіщень.
@@ -401,7 +401,7 @@ uk:
           how_to_participate: Як я можу взяти участь у русі?
           meetings: Зустрічі
           meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
@@ -432,7 +432,7 @@ uk:
         sub_hero:
           register: Зареєструватися
       index:
-        title: Дізнатися більше
+        title: Додаткові відомості
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
@@ -473,8 +473,8 @@ uk:
       action_authorization_modal:
         expired:
           authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
-          explanation: Термін дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
-          title: Термін дії підтвердження особи вичерпався
+          explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
+          title: Строк дії підтвердження особи вичерпався
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
@@ -502,7 +502,7 @@ uk:
         already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
         close: Закрити
         description: Чи цей вміст неприпустимий?
-        does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
+        does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
         offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
@@ -531,7 +531,7 @@ uk:
     mailer:
       invitation_instructions:
         accept: Прийняти запрошення
-        accept_until: Термін дії цього запрошення закінчується %{due_date}.
+        accept_until: Строк дії цього запрошення закінчується %{due_date}.
         hello: Доброго дня, %{email}%!
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
@@ -557,17 +557,15 @@ uk:
       public: Публічні відомості про вас.
   errors:
     messages:
-      content_type_whitelist_error: Неприпустимий тип файлу
+      content_type_whitelist_error: цей тип файлу неприпустимий
       cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
-      invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий рух співучасті
-      long_words: Містить занадто довгі слова
-      must_start_with_caps: Має починатися з великих літер
+      long_words: містить занадто довгі слова
+      must_start_with_caps: має починатися з великих літер
       nesting_too_deep: не може бути всередині підрозряду
-      too_many_marks: Містить забагато знаків оклику або питання
-      too_much_caps: Містить забагато великих літер
-      too_short: Занадто короткий
+      too_many_marks: містить забагато знаків оклику або питання
+      too_much_caps: містить забагато великих літер
+      too_short: занадто короткий
   forms:
     required: Обов'язкове поле
   invisible_captcha:
@@ -589,7 +587,7 @@ uk:
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
-        expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
+        expire_time_html: Строк дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
       user_menu:

@@ -547,17 +547,15 @@ gl:
       public: A túa información pública.
   errors:
     messages:
-      content_type_whitelist_error: O tipo de ficheiro non é válido
+      content_type_whitelist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
-      invalid_manifest: Manifesto non válido
-      invalid_participatory_process: Proceso participativo non válido
-      long_words: Contén palabras que son demasiado longas
-      must_start_with_caps: Debe comezar con tapas
+      long_words: contén palabras que son demasiado longas
+      must_start_with_caps: debe comezar con tapas
       nesting_too_deep: non pode estar dentro dunha subcategoría
-      too_many_marks: Está a usar demasiadas marcas
-      too_much_caps: Está a usar demasiadas tapas
-      too_short: É moi curto
+      too_many_marks: está a usar demasiadas marcas
+      too_much_caps: está a usar demasiadas tapas
+      too_short: é demasiado curto
   forms:
     required: Requerido
   invisible_captcha:
