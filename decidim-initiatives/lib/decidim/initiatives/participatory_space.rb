@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
+  participatory_space.stylesheet = "decidim/initiatives/initiatives"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Initiatives::Engine
     context.layout = "layouts/decidim/initiative"
