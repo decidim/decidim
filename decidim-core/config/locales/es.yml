@@ -548,17 +548,15 @@ es:
       public: Tu información pública
   errors:
     messages:
-      content_type_whitelist_error: El tipo de archivo no es válido
+      content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      invalid_manifest: Manifiesto inválido
-      invalid_participatory_process: Proceso participativo inválido
-      long_words: Contiene palabras que son demasiado largas
-      must_start_with_caps: Debe comenzar con mayúsculas
+      long_words: contiene palabras que son demasiado largas
+      must_start_with_caps: debe comenzar con mayúsculas
       nesting_too_deep: no puede estar dentro de una subcategoría
-      too_many_marks: Está utilizando demasiados símbolos de interrogación o exclamación
-      too_much_caps: Está usando demasiadas mayúsculas
-      too_short: Es demasiado corto
+      too_many_marks: está usando demasiadas marcas
+      too_much_caps: está usando demasiadas tapas
+      too_short: es demasiado corto
   forms:
     required: Obligatorio
   invisible_captcha:
