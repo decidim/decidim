@@ -260,7 +260,7 @@ uk:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Започаті збори
+            active_assemblies: Діючі збори
             see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
