@@ -6,16 +6,21 @@ ru:
       report:
         details: Дополнительные комментарии
       user:
+        about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
+        nickname: Ваш короткий, уникальный псевдоним
         password: Новый пароль
         password_confirmation: Подтвердите свой новый пароль
+        personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
     models:
+      decidim/attachment_created_event: Вложение
       decidim/component_published_event: Действующая составляющая
+      decidim/profile_updated_event: Профиль обновлен
   activerecord:
     attributes:
       decidim/user:
@@ -424,7 +429,7 @@ ru:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
         notifications_settings: Настройки уведомлений
-        title: Пользовательские настройки
+        title: Настройки участника
         user_groups: Организации
       widget:
         see_more: Узнать больше
