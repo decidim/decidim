@@ -10,6 +10,9 @@ ru:
         user_group_id: Внести предложение как
       proposal_answer:
         answer: Ответить
+      proposals_copy:
+        copy_proposals: Я понимаю, что при этом все предложения из выбранной составляющей будут позаимствованы в текущую, и что это действие нельзя будет отменить.
+        origin_component_id: Составляющая, откуда нужно скопировать предложения
   decidim:
     participatory_processes:
       participatory_process_groups:
@@ -23,6 +26,7 @@ ru:
     proposals:
       actions:
         answer: Ответить
+        import: Позаимствовать из другой составляющей
         new: Добавить
         title: Действия
       admin:
@@ -56,6 +60,10 @@ ru:
           new:
             create: Внести
             title: Внести предложение
+        proposals_imports:
+          new:
+            no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
+            select_component: Пожалуйста, выберите составляющую
       answers:
         accepted: Принято
         evaluating: Рассматривается
