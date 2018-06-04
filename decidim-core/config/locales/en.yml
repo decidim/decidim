@@ -424,6 +424,23 @@ en:
           register: Register
       index:
         title: More information
+      terms_and_conditions:
+        accept:
+          error: There's been an error while accepting the terms and conditions.
+          success: Great! You have accepted the terms and conditions.
+        form:
+          agreement: I agree this terms
+          legend: Agree to the terms and conditions of use
+        refuse:
+          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_btn_continue: Accept terms and continue
+          modal_btn_exit: I'll review it later
+          modal_button: Refuse the terms
+          modal_title: Do you really refuse the updated Terms and Conditions?
+        required_review:
+          alert: We've updated our Terms of Service, please review them.
+          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
+          title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     profile:
@@ -516,9 +533,10 @@ en:
   devise:
     invitations:
       edit:
-        header: Set your password
+        header: Finish creating your account
         nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
+        subtitle: If you accept the invitation please set your nickname and password.
     mailer:
       invitation_instructions:
         accept: Accept invitation
@@ -526,7 +544,7 @@ en:
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
-          Your account won't be created until you access the link above and set your password.
+          Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
@@ -549,17 +567,15 @@ en:
       public: Your public information.
   errors:
     messages:
-      content_type_whitelist_error: The file type is not valid
+      content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      invalid_manifest: Invalid manifest
-      invalid_participatory_process: Invalid participatory process
-      long_words: Contains words that are too long
-      must_start_with_caps: Must start with caps
+      long_words: contains words that are too long
+      must_start_with_caps: must start with caps
       nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: Is using too many marks
-      too_much_caps: Is using too much caps
-      too_short: Is too short
+      too_many_marks: is using too many marks
+      too_much_caps: is using too much caps
+      too_short: is too short
   forms:
     required: Required
   invisible_captcha:

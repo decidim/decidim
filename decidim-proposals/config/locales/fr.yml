@@ -16,11 +16,17 @@ fr:
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée à la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être recollé
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/creation_enabled_event: Création de proposition activée
-      decidim/proposals/endorsing_enabled_event: Approbation de la proposition activée
+      decidim/proposals/endorsing_enabled_event: Approbation de proposition activée
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
       decidim/proposals/proposal_endorsed_event: Proposition approuvée
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
@@ -299,22 +305,19 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
+          except_rejected: Tous sauf rejeté
           official: Propositions officielles
           origin: Auteurs
           rejected: Non retenue
           related_to: Liée à
           search: Rechercher
           state: État
-          voted: Soutenues
+          voted: Ne montrer que les propositions que j'ai soutenues
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
-        identities_listing:
-          see_all: Tout voir
-          see_less: Voir moins
-          title: Liste des promoteurs
         index:
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
@@ -343,6 +346,10 @@ fr:
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
+          endorsements_list: Liste des promoteurs
+          hidden_endorsers_count:
+            one: et 1 autre personne
+            other: et %{count} autres personnes
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
@@ -402,9 +409,9 @@ fr:
         success: Le projet de proposition a été mis à jour
     resource_links:
       copied_from_component:
-        proposal_proposals: Propositions associées
+        proposal_proposal: Propositions associées
       included_projects:
-        project_results: 'Résultats apparaissant dans ce projet :'
+        project_result: 'Résultats apparaissant dans ce projet :'
       included_proposals:
-        proposal_projects: 'Proposition figurant dans ces projets :'
-        proposal_results: 'Proposition figurant dans ces résultats :'
+        proposal_project: 'Proposition figurant dans ces projets :'
+        proposal_result: 'Proposition figurant dans ces résultats :'

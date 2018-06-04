@@ -210,6 +210,8 @@ gl:
       admin:
         assemblies:
           form:
+            duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            included_at_help: Seleccione a data en que se engadiu este conxunto a Decidim. Non ten que ser necesariamente o mesmo que a data de creación.
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto

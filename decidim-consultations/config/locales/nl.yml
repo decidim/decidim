@@ -8,6 +8,7 @@ nl:
         end_voting_date: Einddatum
         introductory_image: Introductie afbeelding
         introductory_video_url: Introductievideo-URL
+        questions: vragen
         slug: URL pad
         start_voting_date: Startdatum
         subtitle: Ondertitel
@@ -196,11 +197,8 @@ nl:
         filter: Sorteer
         filter_by: Sorteren op
         unfold: Uitklappen
-      finished:
-        active_consultations: Huidige burgerinspraak
-        past_consultations: Afgelopen burgerinspraken
       highlighted_questions:
-        title: Burgerinspraak over %{scope_name}
+        title: Vragen vanaf %{scope_name}
       index:
         title: Burgerinspraak
       question:
@@ -213,9 +211,19 @@ nl:
         create:
           error: Er zijn fouten opgetreden bij het stemmen op de vraag
       regular_questions:
-        title: Andere burgerinspraken
+        title: Vragen voor dit consult
       show:
-        see_finished_consultations: Bekijk vorige burgerinspraken
+        badge_name:
+          finished: Afgewerkt
+          open: Open
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
+        footer_button_text:
+          debate: Debat
+          view: Uitzicht
+          view_results: Bekijk resultaten
+          vote: Stemmen
+        unspecified: Niet gespecificeerd
     menu:
       consultations: Burgerinspraak
     pages:
@@ -240,7 +248,7 @@ nl:
         starting_from: Te beginnen op %{date}
         vote: Stem
       vote_modal:
-        contextual_help: Maak een keuze a.u.b. Houd er rekening mee dat wanneer je eenmaal hebt bevestigd dat je je stem niet meer kan wijzigen.
+        contextual_help: Maak een keuze a.u.b.
         title: 'Overleg: vraagondersteuning'
       vote_modal_confirm:
         change: Wijzigen

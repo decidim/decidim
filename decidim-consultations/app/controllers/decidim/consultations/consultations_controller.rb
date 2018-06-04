@@ -23,27 +23,13 @@ module Decidim
 
       def index
         enforce_permission_to :read, :consultation_list
-        redirect_to consultation_path(active_consultations.first) if active_consultations.count == 1
       end
 
       def show
         enforce_permission_to :read, :consultation, consultation: current_consultation
       end
 
-      def finished
-        enforce_permission_to :read, :consultation
-        render layout: "layouts/decidim/consultation_choose"
-      end
-
       private
-
-      def finished_consultations
-        @finished_consultations ||= OrganizationConsultations.for(current_organization).finished.published
-      end
-
-      def active_consultations
-        @active_consultations ||= OrganizationConsultations.for(current_organization).active.published
-      end
 
       def consultations
         @consultations = search.results

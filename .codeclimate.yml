@@ -73,6 +73,9 @@ plugins:
 
     exclude_patterns:
       - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+      - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js.map
+      - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js
       - .rubocop.yml
 
   grep:
@@ -94,6 +97,7 @@ plugins:
 
     exclude_patterns:
       - "decidim_app-design/**/*"
+      - "**/*/locales/*.yml"
 
 
   markdownlint:

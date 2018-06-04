@@ -64,6 +64,7 @@ eu:
         omnipresent_banner_url: URL
         reference_prefix: Erreferentzia-aurrizkia
         show_statistics: Erakutsi estatistikak
+        tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
         welcome_text: Ongietorri testua
         youtube_handler: YouTube kudeatzailea
@@ -79,6 +80,7 @@ eu:
         organization: Erakundea
         plural: Anitza
       static_page:
+        changed_notably: Aldaketa nabarmenak izan dira.
         content: Edukia
         organization: Erakundea
         slug: URL laburra
@@ -574,8 +576,11 @@ eu:
         destroy:
           success: Orria zuzen ezabatu da.
         edit:
+          changed_notably_help: Egiaztatuta badago, erabiltzaileei jakinaraziko zaie baldintza eta baldintza berriak onartzeko.
           title: Editatu orria
           update: Eguneratu
+        index:
+          last_notable_change: Azken aldaketa nabaria
         new:
           create: Sortu
           title: Orri berria

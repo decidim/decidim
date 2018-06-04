@@ -109,4 +109,7 @@ fi:
           survey_closed:
             body: Kysely on suljettu ja siihen ei voi vastata.
             title: Kysely suljettu
+          survey_for_private_users:
+            body: Kysely on käytettävissä vain yksityisille käyttäjille
+            title: Kysely on suljettu
           tos_agreement: Osallistumalla tähän kyselyyn hyväksyt sen käyttöehdot

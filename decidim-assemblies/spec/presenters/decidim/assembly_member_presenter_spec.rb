@@ -7,7 +7,7 @@ module Decidim
     let(:age) { 25 }
     let(:day_offset) { 0 }
     let(:today) { ::Time.zone.today }
-    let(:birthday) { ::Date.new(today.year - age, today.month, today.day + day_offset) }
+    let(:birthday) { Time.zone.today - age.years + day_offset.days }
 
     let(:assembly_member) do
       build(:assembly_member, full_name: "Full name", birthday: birthday)

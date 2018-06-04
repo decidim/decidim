@@ -160,6 +160,8 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
+        choose "filter_state_rejected"
+        page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
         expect(page).to have_content("Rejected")

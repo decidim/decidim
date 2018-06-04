@@ -45,6 +45,8 @@ eu:
             created_at: Sortutako at
             title: Izenburua
       posts:
+        show:
+          view: ikusi
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu

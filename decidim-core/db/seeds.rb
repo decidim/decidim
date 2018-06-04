@@ -23,7 +23,8 @@ if !Rails.env.production? || ENV["SEED"]
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
-    available_authorizations: Decidim.authorization_workflows.map(&:name)
+    available_authorizations: Decidim.authorization_workflows.map(&:name),
+    tos_version: Time.current
   )
 
   if organization.top_scopes.none?
@@ -100,7 +101,8 @@ if !Rails.env.production? || ENV["SEED"]
     admin: true,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2)
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
@@ -115,7 +117,8 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2)
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
 
   Decidim::Messaging::Conversation.start!(

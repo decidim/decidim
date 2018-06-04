@@ -191,6 +191,7 @@ nl:
         new:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
+          newsletter_title: Contact toestemming
           nickname_help: Jouw korte, unieke ID op %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
@@ -201,12 +202,19 @@ nl:
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           terms: de bepalingen en voorwaarden van gebruik
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
+          tos_title: Servicevoorwaarden
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
+        newsletter_modal:
+          buttons:
+            check: Controleer en ga door
+            uncheck: Blijf uitgeschakeld
+          notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
+          title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
     doorkeeper:
@@ -281,7 +289,7 @@ nl:
     followers:
       no_followers: Nog geen volgers.
     following:
-      no_followings: Nog geen volgers.
+      no_followings: Volgt nog niemand of wat dan ook.
     follows:
       create:
         button: Volgen
@@ -424,7 +432,7 @@ nl:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         followers: Volgers
-        following: Als vervolg op
+        following: volgt
         notifications: meldingen
       user:
         edit_profile: Bewerk profiel
@@ -539,17 +547,15 @@ nl:
       public: Jouw openbare informatie.
   errors:
     messages:
-      content_type_whitelist_error: Het bestandstype is niet geldig
+      content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      invalid_manifest: Ongeldig manifest
-      invalid_participatory_process: Ongeldige participatief proces
-      long_words: Bevat woorden die te lang zijn
-      must_start_with_caps: Moet beginnen met hoofdletters
+      long_words: bevat woorden die te lang zijn
+      must_start_with_caps: moet beginnen met caps
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      too_many_marks: Gebruikt te veel markeringen
-      too_much_caps: Gebruikt te veel hoofdletters
-      too_short: Is te kort
+      too_many_marks: gebruikt te veel markeringen
+      too_much_caps: gebruikt te veel caps
+      too_short: is te kort
   forms:
     required: Vereist
   invisible_captcha:
