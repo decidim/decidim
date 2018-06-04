@@ -113,6 +113,10 @@ ru:
         invite: "%{user_name} пригласил участника %{resource_name} на роль: %{role}"
         officialize: "%{user_name} предоставил служебный статус участнику %{resource_name}"
         remove_from_admin: "%{user_name} удалил участника %{resource_name} с ролью: %{role}"
+        unofficialize: "%{user_name} отменил служебный статус участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
+        verify: "%{user_name} подтвердил группу участников %{resource_name}"
     anonymous_user: Анонимный
     application:
       collection:
@@ -125,7 +129,15 @@ ru:
         related_documents: Сопутствующие документы
       photos:
         related_photos: Сопутствующие фотографии
+    author:
+      comments:
+        one: комментарий
+        few: комментария
+        many: комментариев
+        other: комментариев
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Подтвердите свою личность, введя номер паспорта, начинающийся с буквы «А»
       dummy_authorization_handler:
         explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»
         fields:
