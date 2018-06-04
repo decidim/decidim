@@ -36,6 +36,7 @@ must now set a resource name:
 
 **Added**:
 
+- **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3042](https://github.com/decidim/decidim/pull/3042)
 - **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
 - **decidim-assemblies**: Add members to assemblies. [\#3008](https://github.com/decidim/decidim/pull/3008)
 - **decidim-assemblies**: An assembly member can be related to an existing user. [\#3302](https://github.com/decidim/decidim/pull/3302)
