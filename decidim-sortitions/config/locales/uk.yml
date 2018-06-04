@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       sortition:
-        additional_info: Жеребкування інформації
+        additional_info: Жеребкування відомостей
         decidim_category_id: Розряди набору пропозицій, в яких ви хочете застосовувати жеребкування
         decidim_proposals_component_id: Набір пропозицій
         dice: Вислід жеребкування. Киньте шостигранну гральну кістку, або знайдіть якийсь інший спосіб виробити випадкове число від 1 до 6, і введіть тут. На відміну від пасивного засвідчення готового висліду, це сприяє якості та гарантує випадковість висліду
@@ -92,7 +92,7 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         filters:
-          active: Започатковані
+          active: Діючі
           all: Усі
           cancelled: Скасовані
           category: Розряд
@@ -110,6 +110,8 @@ uk:
           label: 'Впорядкувати жеребкування за ознакою:'
           random: Довільно
           recent: Нещодавні
+        proposal:
+          view_proposal: Переглянути пропозицію
         results_count:
           count:
             one: вибрана пропозиція
@@ -130,6 +132,13 @@ uk:
           sortition_reproducibility_details: Подробиці відтворюваності жеребкування
           time_seed: "(2) Час як початкове число"
           witnesses: Свідки
+        sortition:
+          selected_proposals:
+            one: обрана 1 пропозиція
+            few: "обрано %{count} пропозиції"
+            many: "обрано %{count} пропозицій"
+            other: "обрано %{count} пропозицій"
+          view_sortition: Переглянути жеребкування
         sortition_author:
           deleted: Видалений учасник
         sortition_cancel_author:
