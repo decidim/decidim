@@ -15,7 +15,7 @@ uk:
         title: Назва
       question:
         banner_image: Банерне зображення
-        decidim_scope_id: Ділянка міста
+        decidim_scope_id: Дільниця міста
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         i_frame_url: Веб-адреса зовнішньої системи голосування
@@ -26,7 +26,7 @@ uk:
         promoter_group: Гурт просувачів
         question_context: Контекст
         reference: Посилання на джерело
-        scope: Ділянка міста
+        scope: Дільниця міста
         slug: Скорочена веб-адреса
         subtitle: Підзаголовок
         title: Заголовок
