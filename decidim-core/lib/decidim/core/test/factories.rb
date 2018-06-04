@@ -293,6 +293,7 @@ FactoryBot.define do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
+    scope { create(:scope, organization: component.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
@@ -412,5 +413,17 @@ FactoryBot.define do
     expires_in { 1.month.from_now }
     created_at { Time.zone.now }
     scopes { "public" }
+  end
+
+  factory :searchable_resource, class: "Decidim::SearchableResource" do
+    resource { build(:dummy_resource) }
+    resource_id { resource.id }
+    resource_type { resource.class.name }
+    organization { resource.component.organization }
+    decidim_participatory_space { resource.component.participatory_space }
+    locale { I18n.locale }
+    scope { resource.scope }
+    content_a { Faker::Lorem.sentence }
+    datetime { DateTime.current }
   end
 end
