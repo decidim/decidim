@@ -59,6 +59,12 @@ ru:
         update: "%{user_name} обновил участок %{resource_name}"
     anonymous_user: Анонимный
     application:
+      collection:
+        documents:
+          one: Документ
+          few: Документа
+          many: Документов
+          other: Документов
       documents:
         related_documents: Сопутствующие документы
       photos:
