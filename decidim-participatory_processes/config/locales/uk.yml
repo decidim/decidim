@@ -160,7 +160,7 @@ uk:
         default_title: Вступ
         destroy:
           error:
-            active_step: Не можна видаляти вже започатий крок.
+            active_step: Не можна видаляти діючий крок.
             last_step: Не можна видаляти останній крок руху.
           success: Крок руху співучасті успішно видалено.
         edit:
@@ -247,10 +247,10 @@ uk:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
+          email_intro: 'У %{participatory_space_title} приведено в дію крок %{resource_title}. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
-          notification_title: Започатковано крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -278,15 +278,15 @@ uk:
       index:
         title: Рухи співучасті
       order_by_processes:
-        active: Започатковані
+        active: Діючі
         all: Усі
         past: Минулі
         upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
-            active_processes: Започаті рухи
-            active_step: Започатий крок
+            active_processes: Діючі рухи
+            active_step: Діючий крок
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
@@ -328,7 +328,7 @@ uk:
           processes_count: 'Рухи:'
       participatory_process_widgets:
         show:
-          active_step: Започатий крок
+          active_step: Діючий крок
           take_part: Взяти участь
       participatory_processes:
         index:
