@@ -96,7 +96,7 @@ ru:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Начатые собрания
+            active_assemblies: Действующие собрания
             see_all_assemblies: Просмотреть все собрания
       show:
         area: Участок
