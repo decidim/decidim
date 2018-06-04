@@ -200,6 +200,9 @@ ru:
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
+          newsletter: Получать время от времени рассылку с новостями
+          newsletter_title: Разрешение на связь с вами
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -209,12 +212,16 @@ ru:
           subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
           terms: условия использования
           tos_agreement: Регистрируясь, вы принимаете %{link}.
+          tos_title: Условия использования
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
           are_you_new?: Вы в первый раз на этой платформе?
           register: Создать учетную запись
       shared:
+        newsletter_modal:
+          buttons:
+            check: Поставить галочку и продолжить
         omniauth_buttons:
           or: Или
     errors:
