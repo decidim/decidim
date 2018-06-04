@@ -3,3 +3,5 @@ ru:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        signature_end_time: Конец периода сбора подписей
+        signature_start_time: Начало периода сбора подписей
