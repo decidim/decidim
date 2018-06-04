@@ -8,6 +8,7 @@ module Decidim
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
+    include NeedsTosAccepted
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper

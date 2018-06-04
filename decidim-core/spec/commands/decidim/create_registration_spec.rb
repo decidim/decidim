@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateRegistration do
       describe "call" do
-        let(:organization) { create(:organization) }
+        let(:organization) { create(:organization, :with_tos) }
 
         let(:sign_up_as) { "user" }
         let(:name) { "Username" }
@@ -78,7 +78,8 @@ module Decidim
               tos_agreement: form.tos_agreement,
               newsletter_notifications: form.newsletter,
               email_on_notification: true,
-              organization: organization
+              organization: organization,
+              accepted_tos_version: organization.tos_version
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)
