@@ -153,7 +153,6 @@ ru:
           update: Обновить
         index:
           attachment_collection_used: Этот сбор нельзя удалить, так как он используется.
-          attachment_collections_title: Собрание вложений
         new:
           create: Создать
           title: Новый сбор
