@@ -105,7 +105,7 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         filters:
-          active: Започатковані
+          active: Діючі
           all: Усі
           cancelled: Скасовані
           category: Розряд
