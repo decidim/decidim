@@ -269,23 +269,47 @@ ru:
           success: Эта составляющая была успешно обновлена.
       dashboard:
         show:
+          view_more_logs: Просмотреть другие журналы
           welcome: Добро пожаловать в админ-панель Десидим!
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       impersonatable_users:
         index:
+          filter:
+            all: Все
+            managed: Управляемые
+            not_managed: Не управляемые
+          filter_by: 'Отобрать по признаку:'
           impersonate: Олицетворить (выступить в роли участника)
+          impersonate_new_managed_user: Выступить в роли нового управляемого участника
+          managed: Управляемые
+          name: Имя
           needs_authorization_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
+          not_managed: Не управляемые
+          promote: Повысить в статусе
+          search: Поиск
+          status: Состояние
           view_logs: Просмотреть журналы
       impersonations:
         close_session:
           error: При закрытии текущего сеанса выступления в роли участника произошла ошибка.
           success: Текущий сеанс выступления в роли участника успешно завершен.
         create:
+          error: При выступлении в роли управляемого участника произошла ошибка.
           success: Управляемый участник успешно создан.
+        form:
+          authorization_method: Способ подтверждения личности
+          name: Имя
+          reason: Причина
         new:
           impersonate: Олицетворить (выступить в роли участника)
+          impersonate_existing_managed_user: Выступить в роли управляемого участника "%{name}"
+          impersonate_existing_user: Выступить в роли участника "%{name}"
+          impersonate_new_managed_user: Выступить в роли нового управляемого участника
+      logs:
+        logs_list:
+          no_logs_yet: Пока нет журналов
       managed_users:
         promotion:
           error: При повышении управляемого участника произошла ошибка.
@@ -296,13 +320,16 @@ ru:
             new_managed_user_promotion: Новое повышение управляемого участника
             promote: Повысить
       menu:
+        admin_log: Журнал деятельности администратора
         admins: Администраторы
         appearance: Внешний вид
         area_types: Виды участков
         areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
+        impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
+        oauth_applications: Приложения OAuth
         officializations: Предоставления официального статуса
         scope_types: Виды охвата
         scopes: Охваты
@@ -314,10 +341,16 @@ ru:
         area:
           fields:
             area_type: Вид участка
+            name: Имя
+        area_type:
+          fields:
+            name: Имя
+            plural: Множественное число
         attachment:
           fields:
             collection: Папка
             content_type: Вид
+            file_size: Размер
             title: Название
           name: Вложение
         attachment_collection:
@@ -329,6 +362,7 @@ ru:
             admin: Администратор
             ended_at: 'Завершено:'
             expired_at: 'Срок действия истек:'
+            reason: Причина
             started_at: 'Начато:'
             user: Участник
         newsletter:
@@ -338,6 +372,13 @@ ru:
             sent_at: 'Отправлено:'
             subject: Тема
           name: Рассылка новостей
+        oauth_application:
+          fields:
+            created_at: 'Создано:'
+            name: Имя
+          name: Приложение OAuth
+        participatory_space_private_user:
+          name: Скрытый участник пространства соучастия
         scope:
           fields:
             name: Имя
@@ -407,6 +448,25 @@ ru:
         update:
           error: При обновлении этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      oauth_applications:
+        create:
+          error: При создании этого приложения произошла ошибка.
+          success: Приложение успешно создано.
+        destroy:
+          error: При удалении этого приложения произошла ошибка.
+          success: Приложение успешно удалено.
+        edit:
+          save: Сохранить
+          title: Редактировать приложение
+        index:
+          confirm_delete: Вы действительно хотите удалить это приложение?
+          title: Приложения OAuth
+        new:
+          save: Сохранить
+          title: Новое приложение
+        update:
+          error: При обновлении этого приложения произошла ошибка.
+          success: Приложение успешно обновлено.
       officializations:
         create:
           success: Участнику успешно предоставлен официальный статус
@@ -427,7 +487,7 @@ ru:
           officialize: Предоставить официальный статус
           officialized: Имеет официальный статус
           reofficialize: Вновь предоставить официальный статус
-          search: Искать
+          search: Поиск
           status: Состояние
           unofficialize: Отменить официальный статус
         new:
@@ -457,7 +517,20 @@ ru:
           cta_button_text_help: Вы можете изменить текст кнопки «Призвать к действию» на главной странице для каждого доступного в вашей организации языка. Если вы не зададите текст, будет использоваться значение по умолчанию. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием.
           header_snippets_help: Используйте это поле, чтобы добавлять что-либо в HTML-заголовок. Чаще всего это делается для включения сторонних служб, для которых требуется дополнительный JavaScript или CSS. Кроме того, вы можете использовать это для добавления дополнительных метатегов в HTML. Обратите внимание, что это будет отображаться только на общедоступных страницах, а не в разделе администратора.
           homepage_appearance_title: Редактировать внешний вид главной страницы
+          homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           layout_appearance_title: Редактировать внешний вид макета
+          omnipresent_banner_appearance_title: Редактировать вездесущий баннер
+      participatory_space_private_users:
+        create:
+          error: При добавлении скрытого участника в это пространство соучастия произошла ошибка.
+          success: Скрытым участникам успешно предоставлен доступ к пространству соучастия.
+        destroy:
+          success: Успешно отменен доступ скрытых участников к пространству соучастия.
+        index:
+          title: Скрытый участник пространства соучастия
+        new:
+          create: Добавить
+          title: Новый скрытый участник пространства соучастия.
       scope_types:
         create:
           error: При создании нового вида охвата произошла ошибка.
@@ -501,15 +574,18 @@ ru:
           title: Отредактировать страницу
           update: Обновить
         new:
+          create: Создать
           title: Новая страница
         update:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
+        admin_log: Журнал администратора
         area_types: Виды участков
         areas: Участки
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
+        impersonatable_users: Участники, в роли которых можно выступить
         impersonations: Выступления в роли участника
         officializations: Предоставления официального статуса
         scope_types: Виды охвата
@@ -551,6 +627,10 @@ ru:
         new:
           create: Пригласить
           title: Пригласить участника в качестве администратора
+    forms:
+      errors:
+        impersonate_user:
+          reason: Необходимо указать причину выступления в роли участника, не являющегося управляемым
     moderations:
       actions:
         hidden: Скрыт
