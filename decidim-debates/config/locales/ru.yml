@@ -5,3 +5,8 @@ ru:
         category_id: Категории
         decidim_category_id: Категория
         title: Название
+  decidim:
+    events:
+      debates:
+        creation_disabled:
+          email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'

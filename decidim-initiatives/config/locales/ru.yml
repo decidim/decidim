@@ -6,31 +6,40 @@ ru:
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
-        signature_type: Тип сбора подписей
+        signature_type: Вид сбора подписей
   decidim:
     admin:
       models:
         initiatives_type_scope:
           fields:
             scope: Охват
-          name: Охват типа почина
+          name: Охват вида почина
     initiatives:
       admin:
         initiatives_type_scopes:
           create:
-            success: Создан новый охват для данного типа почина
+            success: Создан новый охват для данного вида почина
           destroy:
             success: Охват успешно удален
           edit:
-            title: Изменить охват типа почина
+            title: Изменить охват вида почина
           new:
-            title: Создать охват типа почина
+            title: Создать охват вида почина
           update:
             success: Охват успешно обновлен
         initiatives_types:
           initiative_type_scopes:
-            title: Охваты для типа почина
+            title: Охваты для вида почина
       create_initiative:
         fill_data:
-          fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать тип сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
+          fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать вид сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
           select_scope: Выбрать охват
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Действующие почины
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          components: Составляющие
