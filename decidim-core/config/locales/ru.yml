@@ -59,6 +59,11 @@ ru:
         create: "%{user_name} добавил участок %{resource_name}"
         delete: "%{user_name} удалил участок %{resource_name}"
         update: "%{user_name} обновил участок %{resource_name}"
+      component:
+        create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
+        delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
+        publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -98,6 +103,12 @@ ru:
         name: Нерабочее псевдо-подтверждение личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    components:
+      dummy:
+        actions:
+          bar: Пример переменной 1
+          foo: Пример переменной 2
+        name: Пример составляющей
     contact: Связаться
     core:
       actions:
@@ -140,6 +151,10 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      components:
+        component_published:
+          email_intro: 'Теперь в %{participatory_space_title} приведена в действие составляющая %{resource_title}. Вы можете посмотреть её на странице:'
+          notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
         email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
