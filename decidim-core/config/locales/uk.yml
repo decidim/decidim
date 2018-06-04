@@ -137,12 +137,12 @@ uk:
         other: коментарів
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з букви "А"
+        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
-        explanation: Підтвердьте особу, ввівши номер документа, що закінчується буквою "X"
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
