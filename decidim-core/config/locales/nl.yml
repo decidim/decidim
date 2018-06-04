@@ -547,17 +547,15 @@ nl:
       public: Jouw openbare informatie.
   errors:
     messages:
-      content_type_whitelist_error: Het bestandstype is niet geldig
+      content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      invalid_manifest: Ongeldig manifest
-      invalid_participatory_process: Ongeldige participatief proces
-      long_words: Bevat woorden die te lang zijn
-      must_start_with_caps: Moet beginnen met hoofdletters
+      long_words: bevat woorden die te lang zijn
+      must_start_with_caps: moet beginnen met caps
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      too_many_marks: Gebruikt te veel markeringen
-      too_much_caps: Gebruikt te veel hoofdletters
-      too_short: Is te kort
+      too_many_marks: gebruikt te veel markeringen
+      too_much_caps: gebruikt te veel caps
+      too_short: is te kort
   forms:
     required: Vereist
   invisible_captcha:

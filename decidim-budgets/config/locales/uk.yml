@@ -18,7 +18,7 @@ uk:
   decidim:
     budgets:
       actions:
-        attachment_collections: Збірки
+        attachment_collections: Теки
         attachments: Вкладені файли
         confirm_destroy: Ви дійсно бажаєте видалити цей задум?
         destroy: Видалити
@@ -111,7 +111,7 @@ uk:
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
             other: "%{count} людей підтримують"
-          remove: Вилучити
+          remove: Видалити
           view: Переглянути
         project_budget_button:
           add: Додати

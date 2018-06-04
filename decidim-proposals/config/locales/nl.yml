@@ -16,6 +16,12 @@ nl:
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd

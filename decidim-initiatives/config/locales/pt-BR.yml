@@ -11,7 +11,7 @@ pt-BR:
         signature_type: Tipo de assinatura
         signature_type_values:
           any: Misturado
-          offline: Cara a cara
+          offline: Face a face
           online: Conectados
         title: Título
       initiative_author:
@@ -20,7 +20,7 @@ pt-BR:
         id_document: DNI / NIE
         name: Nome e sobrenome
         phone_number: Número de telefone
-        post_code: Código postal
+        post_code: CEP
         province: Província
       initiatives_committee_member:
         user: membro do Comitê

@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe Events::BaseEvent do
+    let(:user) { build(:user) }
+
     describe ".types" do
       subject { described_class }
 
@@ -17,7 +19,7 @@ module Decidim
         described_class.new(
           resource: resource,
           event_name: "some.event",
-          user: build(:user),
+          user: user,
           extra: {}
         )
       end
@@ -83,6 +85,26 @@ module Decidim
           end
 
           it { is_expected.not_to be_notifiable }
+        end
+
+        context "and participatory space is participable" do
+          before do
+            resource.published_at = Time.current
+            resource.component.published_at = Time.current
+            resource.component.participatory_space.published_at = Time.current
+          end
+
+          context "and the user can participate" do
+            it { is_expected.to be_notifiable }
+          end
+
+          context "and the user can't participate" do
+            before do
+              allow(resource.component.participatory_space).to receive(:can_participate?).with(user).and_return(false)
+            end
+
+            it { is_expected.not_to be_notifiable }
+          end
         end
       end
 

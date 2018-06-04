@@ -16,6 +16,12 @@ fr:
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée à la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être recollé
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée

@@ -16,6 +16,12 @@ uk:
       proposals_copy:
         copy_proposals: Я розумію, що при цьому всі пропозиції з обраної складової будуть запозичені до поточної складової, і що цю дію не можна буде потім скасувати.
         origin_component_id: Складова, звідки потрібно скопіювати пропозиції
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Необхідно повторно додати вкладений файл
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
@@ -74,6 +80,7 @@ uk:
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
+            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Максимальна кількість голосів для одного користувача
           step:
@@ -92,7 +99,7 @@ uk:
           email_intro: 'Тепер ви можете вносити нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер наявні пропозиції
-          notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер ви можете вносити <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -286,13 +293,13 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
-          back: Назад
+          back: Повернутись
           select_a_category: Будь ласка, оберіть розряд
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
-          discard: Відхилити цю чернетку
-          discard_confirmation: Ви дійсно бажаєте відхилити чернетку цієї пропозиції?
+          discard: Відкинути цю чернетку
+          discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
         endorsement_identities_cabin:
@@ -310,7 +317,7 @@ uk:
           evaluating: Розглядається
           except_rejected: Усі, окрім відхилених
           official: Службове
-          origin: Походження
+          origin: Джерело
           rejected: Відхилено
           related_to: Пов'язане з
           search: Шукати
@@ -336,7 +343,7 @@ uk:
           title: Внести власну пропозицію
         orders:
           label: 'Впорядкувати пропозиції за:'
-          most_voted: Найбільш підтримані
+          most_voted: Отримали найбільше голосів
           random: Довільно
           recent: Нещодавні
         preview:
@@ -400,7 +407,7 @@ uk:
             left: Залишилось
             votes: Голоси
         wizard_aside:
-          back: Назад
+          back: Повернутись
           info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
           see_steps: переглянути кроки

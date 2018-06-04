@@ -16,6 +16,12 @@ gl:
       proposals_copy:
         copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necesita ser reenxerado
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta

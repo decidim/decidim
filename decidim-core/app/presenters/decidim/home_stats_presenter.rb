@@ -74,14 +74,8 @@ module Decidim
       end
     end
 
-    def public_participatory_spaces
-      @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
-        manifest.participatory_spaces.call(organization).public_spaces
-      end
-    end
-
     def published_components
-      @published_components ||= Component.where(participatory_space: public_participatory_spaces).published
+      @published_components ||= organization.published_components
     end
   end
 end

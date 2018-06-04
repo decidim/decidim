@@ -64,6 +64,7 @@ fr:
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
         show_statistics: Montrer les statistiques
+        tos_version: Conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
@@ -79,6 +80,7 @@ fr:
         organization: Organisation
         plural: Pluriel
       static_page:
+        changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
         slug: Identifiant
@@ -574,8 +576,11 @@ fr:
         destroy:
           success: La page a été détruite avec succès
         edit:
+          changed_notably_help: Si cette case est cochée, les utilisateurs seront avisés d'accepter les nouvelles modalités et conditions.
           title: Modifier la page
           update: Mettre à jour
+        index:
+          last_notable_change: Dernier changement notable
         new:
           create: Créer
           title: Nouvelle page
