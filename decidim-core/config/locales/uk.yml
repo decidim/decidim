@@ -328,7 +328,7 @@ uk:
         area_presenter:
           not_found: 'Цю дільницю не знайдено в базі даних (ID: %{id})'
         area_type_presenter:
-          not_found: 'Цей різновид ділянки не знайдено в базі даних (ID: %{id})'
+          not_found: 'Цей різновид дільниці не знайдено в базі даних (ID: %{id})'
         scope_presenter:
           not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
         scope_type_presenter:
