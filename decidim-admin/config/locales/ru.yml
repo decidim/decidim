@@ -14,6 +14,9 @@ ru:
         description: Описание
         file: Файл
         title: Название
+      attachment_collection:
+        description: Описание
+        name: Название
       category:
         description: Описание
         name: Имя
@@ -120,6 +123,19 @@ ru:
         create:
           error: При создании нового сбора произошла ошибка.
           success: Сбор успешно добавлен.
+        destroy:
+          success: Сбор успешно удален.
+        edit:
+          title: Изменить сбор
+          update: Обновить
+        index:
+          attachment_collection_used: Этот сбор нельзя удалить, так как он используется.
+        new:
+          create: Создать
+          title: Новый сбор
+        update:
+          error: При обновлении этого сбора произошла ошибка.
+          success: Сбор успешно обновлен.
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
