@@ -14,7 +14,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
-      # include Decidim::Searchable
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
 
@@ -39,13 +39,13 @@ module Decidim
                                     or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
 
-      searchable_fields(
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: [:description, :address],
-        datetime: :start_time
-      )
+      # searchable_fields(
+      #   scope_id: :decidim_scope_id,
+      #   participatory_space: { component: :participatory_space },
+      #   A: :title,
+      #   D: [:description, :address],
+      #   datetime: :start_time
+      # )
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
