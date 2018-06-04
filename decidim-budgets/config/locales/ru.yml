@@ -11,6 +11,7 @@ ru:
   decidim:
     budgets:
       actions:
+        attachment_collections: Сборы
         attachments: Вложения
         confirm_destroy: Вы действительно хотите удалить этот проект?
         destroy: Удалить
