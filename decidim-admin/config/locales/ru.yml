@@ -21,12 +21,34 @@ ru:
         description: Описание
         name: Имя
         parent_id: Родитель
+      component:
+        name: Название
+        published_at: 'Опубликовано:'
+        weight: Вес
       id: Псевдоним
       newsletter:
         body: Основной текст
         subject: Тема
+      oauth_application:
+        name: Название
+        organization_logo: Логотип организации (квадрат)
+        organization_name: Название организации
+        organization_url: Веб-адрес организации
+        redirect_uri: URI перенаправления
       organization:
+        cta_button_path: Путь кнопки "Призвать к действию"
+        cta_button_text: Текст кнопки «Призвать к действию»
         default_locale: Язык по умолчанию
+        description: Описание
+        enable_omnipresent_banner: Показывать вездесущий баннер
+        facebook_handler: Обработчик Facebook
+        favicon: Значок
+        github_handler: Обработчик GitHub
+        header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
+        highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
+        highlighted_content_banner_action_title: Заголовок кнопки действия
+        highlighted_content_banner_action_url: Веб-адрес кнопки действия
+        highlighted_content_banner_enabled: Показывать баннер рекомендуемого содержимого
         name: Имя
         reference_prefix: Справочный префикс
       scope:
@@ -34,6 +56,7 @@ ru:
         name: Имя
         organization: Организация
         scope_type: Тип охвата
+        scope_type_id: Тип охвата
       scope_type:
         name: Имя
         organization: Организация
@@ -130,6 +153,7 @@ ru:
           update: Обновить
         index:
           attachment_collection_used: Этот сбор нельзя удалить, так как он используется.
+          attachment_collections_title: Собрание вложений
         new:
           create: Создать
           title: Новый сбор
