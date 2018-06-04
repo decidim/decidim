@@ -14,6 +14,8 @@ ru:
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
+    models:
+      decidim/component_published_event: Действующая составляющая
   activerecord:
     attributes:
       decidim/user:
