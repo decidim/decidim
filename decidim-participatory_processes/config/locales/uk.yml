@@ -13,7 +13,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_process_group_id: Група рухів
         participatory_scope: Обсяг співучасті
@@ -296,7 +296,7 @@ uk:
       show:
         developer_group: Гурт просувачів
         end_date: Дата закінчення
-        local_area: Ділянка організації
+        local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний процес
