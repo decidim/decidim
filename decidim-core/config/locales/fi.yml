@@ -548,17 +548,15 @@ fi:
       public: Julkiset tiedot.
   errors:
     messages:
-      content_type_whitelist_error: Tiedostotyyppi on virheellinen
+      content_type_whitelist_error: tiedostotyyppi ei ole kelvollinen
       cycle_detected: kontekstin isäntä ei voi olla sen jälkeläinen
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
-      invalid_manifest: Virheellinen manifesti
-      invalid_participatory_process: Virheellinen osallistumisprosessi
-      long_words: Sisältää sanoja, jotka ovat liian pitkiä
-      must_start_with_caps: Tulee alkaa isolla alkukirjaimella
+      long_words: sisältää liian pitkät sanat
+      must_start_with_caps: täytyy alkaa korkilla
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      too_many_marks: Sisältää liian monta merkkiä
-      too_much_caps: Sisältää liian paljon isoja kirjaimia
-      too_short: On liian lyhyt
+      too_many_marks: käyttää liian monia merkkejä
+      too_much_caps: käyttää liikaa korkkeja
+      too_short: on liian lyhyt
   forms:
     required: Vaadittu
   invisible_captcha:

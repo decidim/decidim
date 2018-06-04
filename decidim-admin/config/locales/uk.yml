@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       area:
-        area_type: Різновид ділянки
+        area_type: Різновид дільниці
         name: Назва
         organization: Організація
       area_type:
@@ -10,7 +10,7 @@ uk:
         organization: Організація
         plural: Множина
       attachment:
-        attachment_collection_id: Збірка
+        attachment_collection_id: Тека
         description: Опис
         file: Файл
         title: Назва
@@ -96,12 +96,12 @@ uk:
       decidim/participatory_process:
         banner_image: Банерне зображення
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
@@ -148,53 +148,53 @@ uk:
         verify: Підтвердити
       area_types:
         create:
-          error: При спробі додати новий різновид ділянки сталася помилка.
-          success: Різновид ділянки успішно створено.
+          error: При спробі додати новий різновид дільниці сталася помилка.
+          success: Різновид дільниці успішно створено.
         destroy:
-          success: Різновид ділянки успішно видалено
+          success: Різновид дільниці успішно видалено
         edit:
-          title: Редагувати різновид ділянки
+          title: Редагувати різновид дільниці
           update: Оновити
         new:
-          create: Додати різновид ділянки
-          title: Новий різновид ділянки
+          create: Додати різновид дільниці
+          title: Новий різновид дільниці
         update:
-          error: При оновленні цього різновиду ділянки сталася помилка.
-          success: Різновид ділянки успішно оновлено
+          error: При оновленні цього різновиду дільниці сталася помилка.
+          success: Різновид дільниці успішно оновлено
       areas:
         create:
-          error: При створенні нової ділянки сталася помилка.
-          success: Ділянку успішно створено.
+          error: При створенні нової дільниці сталася помилка.
+          success: Дільницю успішно додано.
         destroy:
-          success: Ділянку успішно видалено
+          success: Дільницю успішно видалено
         edit:
-          title: Редагувати ділянку
+          title: Редагувати дільницю
           update: Оновити
         new:
-          create: Додати ділянку
-          title: Нова ділянка
-        no_areas: Немає ділянок
+          create: Додати дільницю
+          title: Нова дільниця
+        no_areas: Немає дільниць
         update:
-          error: При оновленні цієї ділянки сталася помилка.
-          success: Ділянку успішно оновлено
+          error: При оновленні цієї дільниці сталася помилка.
+          success: Дільницю успішно оновлено
       attachment_collections:
         create:
-          error: При створенні нової збірки сталася помилка.
-          success: Збірку успішно створено.
+          error: При створенні нової теки сталася помилка.
+          success: Теку успішно створено.
         destroy:
-          success: Збірку успішно видалено.
+          success: Теку успішно видалено.
         edit:
-          title: Редагувати збірку
+          title: Редагувати теку
           update: Оновити
         index:
-          attachment_collection_used: Цю збірку не можна видалити, оскільки вона використовується.
-          attachment_collections_title: Збірки вкладень
+          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
+          attachment_collections_title: Тека вкладень
         new:
           create: Додати
-          title: Додати збірку
+          title: Створити теку
         update:
-          error: При оновленні цієї збірки сталася помилка.
-          success: Збірку успішно оновлено.
+          error: При оновленні цієї теки сталася помилка.
+          success: Теку успішно оновлено.
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -328,8 +328,8 @@ uk:
         admin_log: Журнал діяльності адміністратора
         admins: Адміністратори
         appearance: Зовнішній вигляд
-        area_types: Різновиди ділянок
-        areas: Ділянки
+        area_types: Різновиди дільниць
+        areas: Дільниці
         configuration: Конфігурація
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
@@ -340,12 +340,12 @@ uk:
         scopes: Обсяги
         settings: Налаштування
         static_pages: Сторінки
-        user_groups: Групи учасників
+        user_groups: Гурти учасників
         users: Учасники
       models:
         area:
           fields:
-            area_type: Різновид ділянки
+            area_type: Різновид дільниці
             name: Назва
         area_type:
           fields:
@@ -353,20 +353,20 @@ uk:
             plural: Множина
         attachment:
           fields:
-            collection: Збірка
+            collection: Тека
             content_type: Різновид
             file_size: Розмір
             title: Назва
           name: Вкладений файл
         attachment_collection:
-          name: Збірка
+          name: Тека
         category:
           name: Розряд
         impersonation_log:
           fields:
             admin: Адміністратор
             ended_at: 'Завершено:'
-            expired_at: 'Термін дії закінчився:'
+            expired_at: 'Строк дії закінчився:'
             reason: Причина
             started_at: Започатковано о
             user: Учасник
@@ -589,8 +589,8 @@ uk:
           success: Сторінку успішно оновлено
       titles:
         admin_log: Журнал адміністратора
-        area_types: Різновиди ділянок
-        areas: Ділянки
+        area_types: Різновиди дільниць
+        areas: Дільниці
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
         impersonatable_users: Користувачі, в ролі яких можна виступати
@@ -599,15 +599,15 @@ uk:
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
-        user_groups: Групи учасників
+        user_groups: Гурти учасників
         users: Учасники
       user_group:
         reject:
-          invalid: При відхиленні цієї групи учасників сталася помилка.
-          success: Групу учасників успішно відхилено
+          invalid: При відхиленні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно відхилено
         verify:
-          invalid: При підтвердженні цієї групи учасників сталася помилка.
-          success: Групу учасників успішно підтверджено
+          invalid: При підтвердженні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно підтверджено
       user_groups:
         index:
           filter:

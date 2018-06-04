@@ -8,12 +8,12 @@ uk:
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_process_group_id: Група рухів
         participatory_scope: Обсяг співучасті
@@ -55,10 +55,10 @@ uk:
         many: Рухів співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
-        one: Група руху співучасті
-        few: Групи руху співучасті
-        many: Груп руху співучасті
-        other: Груп руху співучасті
+        one: Гурт руху співучасті
+        few: Гурти руху співучасті
+        many: Гуртів руху співучасті
+        other: Гуртів руху співучасті
       decidim/participatory_process_step:
         one: Крок
         few: Кроки
@@ -82,12 +82,12 @@ uk:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
         participatory_processes_submenu:
-          attachment_collections: Збірки
+          attachment_collections: Теки
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
-          info: Інформація
+          info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
           process_admins: Учасники руху
@@ -160,7 +160,7 @@ uk:
         default_title: Вступ
         destroy:
           error:
-            active_step: Не можна видаляти вже започатий крок.
+            active_step: Не можна видаляти діючий крок.
             last_step: Не можна видаляти останній крок руху.
           success: Крок руху співучасті успішно видалено.
         edit:
@@ -202,7 +202,7 @@ uk:
         edit:
           update: Оновити
         form:
-          title: Загальна інформація
+          title: Загальні відомості
         index:
           not_published: Не оприлюднено
           private: Приватний
@@ -247,10 +247,10 @@ uk:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
+          email_intro: 'У %{participatory_space_title} приведено в дію крок %{resource_title}. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
-          notification_title: Започатковано крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -278,15 +278,15 @@ uk:
       index:
         title: Рухи співучасті
       order_by_processes:
-        active: Започатковані
+        active: Діючі
         all: Усі
         past: Минулі
         upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
-            active_processes: Започаті рухи
-            active_step: Започатий крок
+            active_processes: Діючі рухи
+            active_step: Діючий крок
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
@@ -294,16 +294,16 @@ uk:
         index:
           loading: Завантаження підсумків...
       show:
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         end_date: Дата закінчення
-        local_area: Ділянка організації
+        local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний процес
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
-        unspecified: Не визначено
+        unspecified: Не вказано
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
@@ -328,7 +328,7 @@ uk:
           processes_count: 'Рухи:'
       participatory_process_widgets:
         show:
-          active_step: Започатий крок
+          active_step: Діючий крок
           take_part: Взяти участь
       participatory_processes:
         index:
@@ -344,7 +344,7 @@ uk:
           take_part: Взяти участь
         promoted_process:
           active_step: 'Поточний крок:'
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       process_header:
         process_menu_item: Рух

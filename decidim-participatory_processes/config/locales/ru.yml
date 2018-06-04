@@ -5,6 +5,7 @@ ru:
         announcement: Объявление
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
+        copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
         developer_group: Группа зачинателей
@@ -12,7 +13,7 @@ ru:
         end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местность
+        local_area: Местный участок
         meta_scope: Метаданные охвата
         participatory_process_group_id: Группа движений
         participatory_scope: Охват соучастия
@@ -60,8 +61,10 @@ ru:
         participatory_process_groups: Группы движений
         participatory_processes: Движения
         participatory_processes_submenu:
+          attachment_collections: Папки
           attachments: Вложения
           categories: Категории
+          components: Составляющие
           info: Информация
           moderations: Действия по модерации
           process_admins: Участники движения
@@ -238,7 +241,7 @@ ru:
       show:
         developer_group: Группа зачинателей
         end_date: Дата завершения
-        local_area: Охват организации
+        local_area: Участок организации
         participatory_scope: Что решается
         participatory_structure: Как это решается
         scope: Охват

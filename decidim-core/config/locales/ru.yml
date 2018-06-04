@@ -14,6 +14,8 @@ ru:
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
+    models:
+      decidim/component_published_event: Действующая составляющая
   activerecord:
     attributes:
       decidim/user:
@@ -52,8 +54,31 @@ ru:
         error: При обновлении вашей учетной записи произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    admin_log:
+      area:
+        create: "%{user_name} добавил участок %{resource_name}"
+        delete: "%{user_name} удалил участок %{resource_name}"
+        update: "%{user_name} обновил участок %{resource_name}"
+      component:
+        create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
+        delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
+        publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+      scope:
+        create: "%{user_name} добавил охват %{resource_name}"
+        create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
+        delete: "%{user_name} удалил охват %{resource_name}"
+        delete_with_parent: "%{user_name} удалил охват %{resource_name} внутри охвата %{parent_scope}"
+        update: "%{user_name} обновил охват %{resource_name}"
+        update_with_parent: "%{user_name} обновил охват %{resource_name} внутри охвата %{parent_scope}"
     anonymous_user: Анонимный
     application:
+      collection:
+        documents:
+          one: Документ
+          few: Документа
+          many: Документов
+          other: Документов
       documents:
         related_documents: Сопутствующие документы
       photos:
@@ -78,6 +103,12 @@ ru:
         name: Нерабочее псевдо-подтверждение личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    components:
+      dummy:
+        actions:
+          bar: Пример переменной 1
+          foo: Пример переменной 2
+        name: Пример составляющей
     contact: Связаться
     core:
       actions:
@@ -120,6 +151,10 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      components:
+        component_published:
+          email_intro: 'Теперь в %{participatory_space_title} приведена в действие составляющая %{resource_title}. Вы можете посмотреть её на странице:'
+          notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
         email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
@@ -153,6 +188,16 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    log:
+      value_types:
+        area_presenter:
+          not_found: 'Участок не найден в базе данных (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Тип участка не найден в базе данных (ID: %{id})'
+        scope_presenter:
+          not_found: 'Охват не найден в базе данных (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Тип охвата не найден в базе данных (ID: %{id})'
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
@@ -189,6 +234,7 @@ ru:
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
+        see_on_website: Не удается толком прочитать это письмо? Прочитайте его на <a href="%{link}" target="_blank">сайте</a>.
     notifications:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
@@ -339,17 +385,9 @@ ru:
         subject: Пароль изменен
   errors:
     messages:
-      content_type_whitelist_error: Тип файла не является допустимым
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
-      invalid_manifest: Недопустимый манифест
-      invalid_participatory_process: Недопустимое движение соучастия
-      long_words: Содержит слишком длинные слова
-      must_start_with_caps: Должно начинаться с заглавных букв
       nesting_too_deep: не может быть внутри подкатегории
-      too_many_marks: Содержит слишком много знаков вопроса или восклицания
-      too_much_caps: Содержит слишком много заглавных букв
-      too_short: Слишком короткое
   forms:
     required: Обязательно
   invisible_captcha:
