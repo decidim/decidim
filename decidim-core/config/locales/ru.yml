@@ -222,6 +222,7 @@ ru:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
+            uncheck: Не ставить галочку
         omniauth_buttons:
           or: Или
     errors:
