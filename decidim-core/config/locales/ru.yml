@@ -52,6 +52,11 @@ ru:
         error: При обновлении вашей учетной записи произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    admin_log:
+      area:
+        create: "%{user_name} добавил участок %{resource_name}"
+        delete: "%{user_name} удалил участок %{resource_name}"
+        update: "%{user_name} обновил участок %{resource_name}"
     anonymous_user: Анонимный
     application:
       documents:
@@ -153,6 +158,12 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    log:
+      value_types:
+        area_presenter:
+          not_found: 'Участок не найден в базе данных (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Тип участка не найден в базе данных (ID: %{id})'
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
