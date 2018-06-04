@@ -235,7 +235,7 @@ uk:
           cancel: Скасувати
           connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
           publish_content: Оприлюднювати за вас дописи
-          see_email: Бачити вашу електронну пошту
+          see_email: Бачити вашу адресу ел-пошти
           see_name: Бачити ваше ім'я
           see_username: Бачити ваше ім'я учасника
           this_application_will_be_able_to: 'Цей додаток зможе:'
