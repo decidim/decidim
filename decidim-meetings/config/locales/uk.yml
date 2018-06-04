@@ -77,7 +77,7 @@ uk:
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
       actions:
-        attachment_collections: Збірки
+        attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
@@ -125,7 +125,7 @@ uk:
           service:
             description: Опис
             down: Донизу
-            remove: Вилучити
+            remove: Видалити
             service: Послуга
             title: Назва
             up: Догори
@@ -159,7 +159,7 @@ uk:
           close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
           create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
           delete: "%{user_name} видалив зустріч %{resource_name} у просторі %{space_name}"
-          export_registrations: "%{user_name} запозичив список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
+          export_registrations: "%{user_name} зберіг у вигляді файлу список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
           update: "%{user_name} оновив зустріч %{resource_name} у просторі %{space_name}"
       mailer:
         invite_join_meeting_mailer:
