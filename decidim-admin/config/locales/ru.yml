@@ -3,7 +3,14 @@ ru:
     attributes:
       area:
         area_type: Тип участка
+        name: Имя
+        organization: Организация
+      area_type:
+        name: Имя
+        organization: Организация
+        plural: Множественное число
       attachment:
+        attachment_collection_id: Сбор
         description: Описание
         file: Файл
         title: Название
@@ -93,6 +100,26 @@ ru:
           title: Новый тип участка
         update:
           error: При обновлении этого типа участка произошла ошибка.
+          success: Тип участка успешно обновлен
+      areas:
+        create:
+          error: При создании нового участка произошла ошибка.
+          success: Участок успешно создан.
+        destroy:
+          success: Участок успешно удален
+        edit:
+          title: Редактировать участок
+        new:
+          create: Создать участок
+          title: Новый участок
+        no_areas: Нет участков
+        update:
+          error: При обновлении этого участка произошла ошибка.
+          success: Участок успешно обновлен
+      attachment_collections:
+        create:
+          error: При создании нового сбора произошла ошибка.
+          success: Сбор успешно добавлен.
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
@@ -160,6 +187,8 @@ ru:
       menu:
         admins: Администраторы
         appearance: Внешний вид
+        area_types: Типы участков
+        areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
         newsletters: Рассылки новостей
@@ -171,11 +200,17 @@ ru:
         user_groups: Группы участников
         users: Участники
       models:
+        area:
+          fields:
+            area_type: Тип участка
         attachment:
           fields:
+            collection: Сбор
             content_type: Тип
             title: Название
           name: Вложение
+        attachment_collection:
+          name: Сбор
         category:
           name: Категория
         impersonation_log:
@@ -360,6 +395,8 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
+        area_types: Типы участков
+        areas: Участки
         authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
         impersonations: Выступления в роли участника
