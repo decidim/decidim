@@ -5,6 +5,7 @@ ru:
         announcement: Объявление
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
+        copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
         developer_group: Группа зачинателей
@@ -63,6 +64,7 @@ ru:
           attachment_collections: Папки
           attachments: Вложения
           categories: Категории
+          components: Составляющие
           info: Информация
           moderations: Действия по модерации
           process_admins: Участники движения
@@ -134,7 +136,7 @@ ru:
         default_title: Введение
         destroy:
           error:
-            active_step: Нельзя удалять уже начатый шаг.
+            active_step: Нельзя удалять действующий шаг.
             last_step: Нельзя удалять последний шаг процесса.
           success: Шаг движения соучастия успешно удален.
         edit:
@@ -199,6 +201,11 @@ ru:
         resend_invitation:
           error: При повторной отправке приглашения произошла ошибка.
           success: Приглашение успешно повторно отправлено.
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Теперь в %{participatory_space_title} приведен в действие шаг %{resource_title}. Вы можете посмотреть его на странице:'
+          notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведен в действие шаг %{resource_title}
     menu:
       processes: Движения
     participatory_process_groups:
@@ -221,15 +228,15 @@ ru:
       index:
         title: Движения соучастия
       order_by_processes:
-        active: Начатые
+        active: Действующие
         all: Все
         past: Прошедшие
         upcoming: Предстоящие
       pages:
         home:
           highlighted_processes:
-            active_processes: Начатые движения
-            active_step: Начатый шаг
+            active_processes: Действующие движения
+            active_step: Действующий шаг
             see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет
@@ -266,7 +273,7 @@ ru:
           browse: Просмотреть
       participatory_process_widgets:
         show:
-          active_step: Начатый шаг
+          active_step: Действующий шаг
           take_part: Принять участие
       participatory_processes:
         index:
