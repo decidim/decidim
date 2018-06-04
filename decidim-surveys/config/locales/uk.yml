@@ -54,7 +54,7 @@ uk:
           answer_option:
             answer_option: Варіант відповіді
             free_text: Довільний текст
-            remove: Вилучити
+            remove: Видалити
             statement: Висловлювання
           edit:
             save: Зберегти
@@ -68,7 +68,7 @@ uk:
             description: Опис
             down: Донизу
             question: Питання
-            remove: Вилучити
+            remove: Видалити
             statement: Висловлювання
             up: Догори
           update:
