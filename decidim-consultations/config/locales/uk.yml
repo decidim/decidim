@@ -202,7 +202,7 @@ uk:
           many: "%{count} консультацій"
           other: "%{count} консультацій"
       filters:
-        active: Започатковані
+        active: Діючі
         all: Усі
         finished: Завершені
         search: Шукати
