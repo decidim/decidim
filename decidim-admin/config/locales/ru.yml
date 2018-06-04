@@ -309,6 +309,12 @@ ru:
           reason: Причина
         new:
           impersonate: Олицетворить (выступить в роли участника)
+          impersonate_existing_managed_user: Выступить в роли управляемого участника "%{name}"
+          impersonate_existing_user: Выступить в роли участника "%{name}"
+          impersonate_new_managed_user: Выступить в роли нового управляемого участника
+      logs:
+        logs_list:
+          no_logs_yet: Пока нет журналов
       managed_users:
         promotion:
           error: При повышении управляемого участника произошла ошибка.
@@ -319,13 +325,16 @@ ru:
             new_managed_user_promotion: Новое повышение управляемого участника
             promote: Повысить
       menu:
+        admin_log: Журнал деятельности администратора
         admins: Администраторы
         appearance: Внешний вид
         area_types: Виды участков
         areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
+        impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
+        oauth_applications: Приложения OAuth
         officializations: Предоставления официального статуса
         scope_types: Виды охвата
         scopes: Охваты
@@ -337,10 +346,16 @@ ru:
         area:
           fields:
             area_type: Вид участка
+            name: Имя
+        area_type:
+          fields:
+            name: Имя
+            plural: Множественное число
         attachment:
           fields:
             collection: Папка
             content_type: Вид
+            file_size: Размер
             title: Название
           name: Вложение
         attachment_collection:
@@ -352,6 +367,7 @@ ru:
             admin: Администратор
             ended_at: 'Завершено:'
             expired_at: 'Срок действия истек:'
+            reason: Причина
             started_at: 'Начато:'
             user: Участник
         newsletter:
@@ -361,6 +377,13 @@ ru:
             sent_at: 'Отправлено:'
             subject: Тема
           name: Рассылка новостей
+        oauth_application:
+          fields:
+            created_at: 'Создано:'
+            name: Имя
+          name: Приложение OAuth
+        participatory_space_private_user:
+          name: Скрытый участник пространства соучастия
         scope:
           fields:
             name: Имя
