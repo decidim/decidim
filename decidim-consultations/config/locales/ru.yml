@@ -3,4 +3,22 @@ ru:
     attributes:
       consultation:
         banner_image: Изображение баннера
+        decidim_highlighted_scope_id: Рекомендуемый охват
         title: Название
+      question:
+        decidim_scope_id: Участок города
+        origin_scope: Охват
+        participatory_scope: Охват соучастия
+        scope: Участок города
+  decidim:
+    admin:
+      menu:
+        questions_submenu:
+          components: Составляющие
+    consultations:
+      filters:
+        active: Действующие
+      finished:
+        active_consultations: Действующие консультации
+      highlighted_questions:
+        title: Консультации из %{scope_name}
