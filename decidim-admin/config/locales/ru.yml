@@ -10,7 +10,7 @@ ru:
         organization: Организация
         plural: Множественное число
       attachment:
-        attachment_collection_id: Сбор
+        attachment_collection_id: Папка
         description: Описание
         file: Файл
         title: Название
@@ -144,21 +144,22 @@ ru:
           success: Участок успешно обновлен
       attachment_collections:
         create:
-          error: При создании нового сбора произошла ошибка.
-          success: Сбор успешно добавлен.
+          error: При создании новой папки произошла ошибка.
+          success: Папка успешно создана.
         destroy:
-          success: Сбор успешно удален.
+          success: Папка успешно удалена.
         edit:
-          title: Изменить сбор
+          title: Изменить папку
           update: Обновить
         index:
-          attachment_collection_used: Этот сбор нельзя удалить, так как он используется.
+          attachment_collection_used: Эту папку нельзя удалить, так как она используется.
+          attachment_collections_title: Папки вложений
         new:
           create: Создать
-          title: Новый сбор
+          title: Создать папку
         update:
-          error: При обновлении этого сбора произошла ошибка.
-          success: Сбор успешно обновлен.
+          error: При обновлении этой папки произошла ошибка.
+          success: Папка успешно обновлена.
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
@@ -244,12 +245,12 @@ ru:
             area_type: Тип участка
         attachment:
           fields:
-            collection: Сбор
+            collection: Папка
             content_type: Тип
             title: Название
           name: Вложение
         attachment_collection:
-          name: Сбор
+          name: Папка
         category:
           name: Категория
         impersonation_log:
