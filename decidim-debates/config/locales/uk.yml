@@ -129,7 +129,7 @@ uk:
             email_subject: Нове обговорення, започатковане %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'В %{participatory_space_title} вже не можна започатковувати обговорення. Ви можете взяти участь у вже початих обговореннях на сторінці:'
+          email_intro: 'В %{participatory_space_title} вже не можна відкривати обговорення. Ви можете взяти участь у вже започаткованих обговореннях на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} вимкнено започаткування обговорень
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> вимкнено започаткування обговорень
