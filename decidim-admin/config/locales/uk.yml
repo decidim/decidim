@@ -10,7 +10,7 @@ uk:
         organization: Організація
         plural: Множина
       attachment:
-        attachment_collection_id: Збір
+        attachment_collection_id: Тека
         description: Опис
         file: Файл
         title: Назва
@@ -179,16 +179,16 @@ uk:
           success: Дільницю успішно оновлено
       attachment_collections:
         create:
-          error: При створенні нового збору сталася помилка.
-          success: Збір успішно створено.
+          error: При створенні нової теки сталася помилка.
+          success: Теку успішно створено.
         destroy:
-          success: Збір успішно видалено.
+          success: Теку успішно видалено.
         edit:
-          title: Редагувати збір
+          title: Редагувати теку
           update: Оновити
         index:
-          attachment_collection_used: Цей збір не можна видалити, оскільки він використовується.
-          attachment_collections_title: Збірки вкладень
+          attachment_collection_used: Цю теку не можна видалити, оскільки він використовується.
+          attachment_collections_title: Тека вкладень
         new:
           create: Додати
           title: Додати збір
