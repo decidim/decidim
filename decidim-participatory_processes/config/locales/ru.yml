@@ -136,7 +136,7 @@ ru:
         default_title: Введение
         destroy:
           error:
-            active_step: Нельзя удалять уже начатый шаг.
+            active_step: Нельзя удалять действующий шаг.
             last_step: Нельзя удалять последний шаг процесса.
           success: Шаг движения соучастия успешно удален.
         edit:
@@ -223,14 +223,14 @@ ru:
       index:
         title: Движения соучастия
       order_by_processes:
-        active: Начатые
+        active: Действующие
         all: Все
         past: Прошедшие
         upcoming: Предстоящие
       pages:
         home:
           highlighted_processes:
-            active_processes: Начатые движения
+            active_processes: Действующие движения
             active_step: Начатый шаг
             see_all_processes: Просмотреть все движения
       participatory_process_groups:
