@@ -423,6 +423,23 @@ nl:
           register: Registreren
       index:
         title: Meer informatie
+      terms_and_conditions:
+        accept:
+          error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
+          success: Super goed! U hebt de algemene voorwaarden geaccepteerd.
+        form:
+          agreement: Ik ga akkoord met deze voorwaarden
+          legend: Ga akkoord met de gebruiksvoorwaarden
+        refuse:
+          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
+          modal_btn_continue: Voorwaarden accepteren en doorgaan
+          modal_btn_exit: Ik zal het later bekijken
+          modal_button: Weigeren de voorwaarden
+          modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
+        required_review:
+          alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
+          body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
+          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
@@ -515,16 +532,18 @@ nl:
   devise:
     invitations:
       edit:
-        header: Uw wachtwoord instellen
+        header: Eindig met het maken van je account
         nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
+        subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
     mailer:
       invitation_instructions:
         accept: Accepteer uitnodiging
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
         hello: Hallo %{email},
         ignore: |-
-          Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
+          Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
+          Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
