@@ -187,14 +187,14 @@ uk:
           title: Редагувати теку
           update: Оновити
         index:
-          attachment_collection_used: Цю теку не можна видалити, оскільки він використовується.
+          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
           attachment_collections_title: Тека вкладень
         new:
           create: Додати
-          title: Додати збір
+          title: Створити теку
         update:
-          error: При оновленні цього збору сталася помилка.
-          success: Збір успішно оновлено.
+          error: При оновленні цієї теки сталася помилка.
+          success: Теку успішно оновлено.
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -353,13 +353,13 @@ uk:
             plural: Множина
         attachment:
           fields:
-            collection: Збір
+            collection: Тека
             content_type: Різновид
             file_size: Розмір
             title: Назва
           name: Вкладений файл
         attachment_collection:
-          name: Збір
+          name: Тека
         category:
           name: Розряд
         impersonation_log:
