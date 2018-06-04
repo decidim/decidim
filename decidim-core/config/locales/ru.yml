@@ -57,6 +57,13 @@ ru:
         create: "%{user_name} добавил участок %{resource_name}"
         delete: "%{user_name} удалил участок %{resource_name}"
         update: "%{user_name} обновил участок %{resource_name}"
+      scope:
+        create: "%{user_name} добавил охват %{resource_name}"
+        create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
+        delete: "%{user_name} удалил охват %{resource_name}"
+        delete_with_parent: "%{user_name} удалил охват %{resource_name} внутри охвата %{parent_scope}"
+        update: "%{user_name} обновил охват %{resource_name}"
+        update_with_parent: "%{user_name} обновил охват %{resource_name} внутри охвата %{parent_scope}"
     anonymous_user: Анонимный
     application:
       collection:
@@ -170,6 +177,10 @@ ru:
           not_found: 'Участок не найден в базе данных (ID: %{id})'
         area_type_presenter:
           not_found: 'Тип участка не найден в базе данных (ID: %{id})'
+        scope_presenter:
+          not_found: 'Охват не найден в базе данных (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Тип охвата не найден в базе данных (ID: %{id})'
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
