@@ -3,6 +3,15 @@
 module Decidim
   # Shared behaviour for signed_in users that require the latest TOS accepted
   module NeedsTosAccepted
+    extend ActiveSupport::Concern
+
+    included do
+      before_action :tos_accepted_by_user
+      helper_method :terms_and_conditions_page
+    end
+
+    private
+
     def tos_accepted_by_user
       return true unless current_user
       return if current_user.tos_accepted?
@@ -11,15 +20,13 @@ module Decidim
       redirect_to_tos
     end
 
-    private
+    def terms_and_conditions_page
+      @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
+    end
 
     def permitted_paths?
       permitted_paths = [tos_path, decidim.delete_account_path, decidim.accept_tos_path]
       permitted_paths.include?(request.path)
-    end
-
-    def terms_and_conditions_page
-      @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
     end
 
     def tos_path

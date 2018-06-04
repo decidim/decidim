@@ -8,7 +8,6 @@ module Decidim
       include NeedsTosAccepted
 
       before_action :configure_permitted_parameters
-      helper_method :terms_and_conditions_page
 
       # We don't users to create invitations, so we just redirect them to the
       # homepage.
