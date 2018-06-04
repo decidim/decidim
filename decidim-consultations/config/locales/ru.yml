@@ -3,6 +3,7 @@ ru:
     attributes:
       consultation:
         banner_image: Изображение баннера
+        decidim_highlighted_scope_id: Рекомендуемый охват
         title: Название
       question:
         decidim_scope_id: Участок города
