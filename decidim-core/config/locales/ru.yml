@@ -33,12 +33,27 @@ ru:
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
+    models:
+      decidim/user:
+        one: Участник
+        few: Участника
+        many: Участников
+        other: Участников
+      decidim/user_group:
+        one: Группа участников
+        few: Группы участников
+        many: Групп участников
+        other: Групп участников
   booleans:
     'false': 'Нет'
     'true': 'Да'
   carrierwave:
     errors:
       image_too_big: Изображение слишком велико
+  date:
+    formats:
+      decidim_short: "%d.%m.%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -69,6 +84,20 @@ ru:
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
         publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
         unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+      moderation:
+        hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
+        unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
+      newsletter:
+        create: "%{user_name} создал рассылку %{resource_name}"
+        delete: "%{user_name} удалил рассылку %{resource_name}"
+        deliver: "%{user_name} разослал рассылку %{resource_name}"
+        update: "%{user_name} обновил рассылку %{resource_name}"
+      oauth_application:
+        create: "%{user_name} создал приложение OAuth %{resource_name}"
+        delete: "%{user_name} удалил приложение OAuth %{resource_name}"
+        update: "%{user_name} обновил приложение OAuth %{resource_name}"
+      organization:
+        update: "%{user_name} обновил настройки организации"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -76,6 +105,14 @@ ru:
         delete_with_parent: "%{user_name} удалил охват %{resource_name} внутри охвата %{parent_scope}"
         update: "%{user_name} обновил охват %{resource_name}"
         update_with_parent: "%{user_name} обновил охват %{resource_name} внутри охвата %{parent_scope}"
+      static_page:
+        create: "%{user_name} создал статическую страницу %{resource_name}"
+        delete: "%{user_name} удалил статическую страницу %{resource_name}"
+        update: "%{user_name} обновил статическую страницу %{resource_name}"
+      user:
+        invite: "%{user_name} пригласил участника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} предоставил служебный статус участнику %{resource_name}"
+        remove_from_admin: "%{user_name} удалил участника %{resource_name} с ролью: %{role}"
     anonymous_user: Анонимный
     application:
       collection:
