@@ -66,8 +66,8 @@ uk:
         publish: "%{user_name} оприлюднив складову %{resource_name} у просторі %{space_name}"
         unpublish: "%{user_name} скасував оприлюднення складової %{resource_name} у просторі %{space_name}"
       moderation:
-        hide: "%{user_name} приховав ресурс типу %{resource_type} у просторі %{space_name}"
-        unreport: "%{user_name} відкликав скаргу на ресурс типу %{resource_type} у просторі %{space_name}"
+        hide: "%{user_name} приховав ресурс різновиду %{resource_type} у просторі %{space_name}"
+        unreport: "%{user_name} відкликав скаргу на ресурс різновиду %{resource_type} у просторі %{space_name}"
       newsletter:
         create: "%{user_name} створив розсилання %{resource_name}"
         delete: "%{user_name} видалив розсилання %{resource_name}"
@@ -112,7 +112,7 @@ uk:
         related_photos: Супутні світлини
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Підтвердьте особу, ввівши номер документа, що закінчується символом "X"
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується буквою "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -191,7 +191,7 @@ uk:
           publish_content: Оприлюднювати за вас вміст
           see_email: Бачити вашу електронну пошту
           see_name: Бачити ваше ім'я
-          see_username: Бачити ваше користувацьке ім'я
+          see_username: Бачити ваше ім'я учасника
           this_application_will_be_able_to: 'Цей додаток зможе:'
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
