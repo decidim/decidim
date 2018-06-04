@@ -73,7 +73,7 @@ ru:
         name: Имя
         organization: Организация
         parent_id: Родитель
-        scope_type: Тип охвата
+        scope_type: Вид охвата
         scope_type_id: Вид охвата
       scope_type:
         name: Имя
@@ -274,21 +274,39 @@ ru:
           success: Эта составляющая была успешно обновлена.
       dashboard:
         show:
+          view_more_logs: Просмотреть другие журналы
           welcome: Добро пожаловать в админ-панель Десидим!
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       impersonatable_users:
         index:
+          filter:
+            all: Все
+            managed: Управляемые
+            not_managed: Не управляемые
+          filter_by: 'Отобрать по признаку:'
           impersonate: Олицетворить (выступить в роли участника)
+          impersonate_new_managed_user: Выступить в роли нового управляемого участника
+          managed: Управляемые
+          name: Имя
           needs_authorization_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
+          not_managed: Не управляемые
+          promote: Повысить в статусе
+          search: Поиск
+          status: Состояние
           view_logs: Просмотреть журналы
       impersonations:
         close_session:
           error: При закрытии текущего сеанса выступления в роли участника произошла ошибка.
           success: Текущий сеанс выступления в роли участника успешно завершен.
         create:
+          error: При выступлении в роли управляемого участника произошла ошибка.
           success: Управляемый участник успешно создан.
+        form:
+          authorization_method: Способ подтверждения личности
+          name: Имя
+          reason: Причина
         new:
           impersonate: Олицетворить (выступить в роли участника)
       managed_users:
@@ -309,7 +327,7 @@ ru:
         dashboard: Панель управления
         newsletters: Рассылки новостей
         officializations: Предоставления официального статуса
-        scope_types: Типы охвата
+        scope_types: Виды охвата
         scopes: Охваты
         settings: Настройки
         static_pages: Страницы
@@ -322,7 +340,7 @@ ru:
         attachment:
           fields:
             collection: Папка
-            content_type: Тип
+            content_type: Вид
             title: Название
           name: Вложение
         attachment_collection:
@@ -346,7 +364,7 @@ ru:
         scope:
           fields:
             name: Имя
-            scope_type: Тип охвата
+            scope_type: Вид охвата
         scope_type:
           fields:
             name: Имя
@@ -432,7 +450,7 @@ ru:
           officialize: Предоставить официальный статус
           officialized: Имеет официальный статус
           reofficialize: Вновь предоставить официальный статус
-          search: Искать
+          search: Поиск
           status: Состояние
           unofficialize: Отменить официальный статус
         new:
@@ -465,19 +483,19 @@ ru:
           layout_appearance_title: Редактировать внешний вид макета
       scope_types:
         create:
-          error: При создании нового типа охвата произошла ошибка.
-          success: Тип охвата успешно создан.
+          error: При создании нового вида охвата произошла ошибка.
+          success: Вид охвата успешно создан.
         destroy:
-          success: Тип охвата успешно удален
+          success: Вид охвата успешно удален
         edit:
-          title: Редактировать тип охвата
+          title: Редактировать вид охвата
           update: Обновить
         new:
-          create: Создать тип охвата
+          create: Создать вид охвата
           title: Новый охват
         update:
-          error: При обновлении этого типа охвата произошла ошибка.
-          success: Тип охвата успешно обновлен
+          error: При обновлении этого вида охвата произошла ошибка.
+          success: Вид охвата успешно обновлен
       scopes:
         create:
           error: При создании нового охвата произошла ошибка.
@@ -517,7 +535,7 @@ ru:
         dashboard: Панель управления
         impersonations: Выступления в роли участника
         officializations: Предоставления официального статуса
-        scope_types: Типы охвата
+        scope_types: Виды охвата
         scopes: Охваты
         static_pages: Страницы
         user_groups: Группы участников
@@ -576,7 +594,7 @@ ru:
           fields:
             hidden_at: 'Скрыто:'
             report_count: Количество
-            reportable: Тип жалобы
+            reportable: Вид жалобы
             reported_content_url: URL-адрес обжалованного содержимого
             reports: Жалобы
             visit_url: Посетите URL-адрес
