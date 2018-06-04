@@ -137,7 +137,10 @@ ru:
         other: комментариев
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Подтвердите свою личность, введя номер паспорта, начинающийся с буквы «А»
+        explanation: Подтвердите свою личность, введя номер паспорта, начинающийся с «А»
+        fields:
+          passport_number: Номер паспорта
+        name: Еще один пример подтверждения личности
       dummy_authorization_handler:
         explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»
         fields:
@@ -157,12 +160,29 @@ ru:
         name: Пример подтверждения личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    collapsible_list:
+      hidden_elements_count:
+        one: и еще 1
+        few: и еще %{count}
+        many: и еще %{count}
+        other: и еще %{count}
+      see_less: "(читать меньше)"
+      see_more: "(читать подробнее)"
     components:
       dummy:
         actions:
           bar: Пример переменной 1
           foo: Пример переменной 2
         name: Пример составляющей
+        settings:
+          global:
+            comments_enabled: Комментарии включены
+            dummy_global_attribute_1: Пример свойства 1
+            dummy_global_attribute_2: Пример свойства 2
+          step:
+            comments_blocked: Комментарии выключены
+            dummy_step_attribute_1: Пример 1 свойства шага
+            dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
     core:
       actions:
@@ -173,6 +193,7 @@ ru:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
