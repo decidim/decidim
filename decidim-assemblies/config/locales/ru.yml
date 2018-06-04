@@ -7,6 +7,7 @@ ru:
         copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         decidim_area_id: Участок
+        decidim_scope_id: Охват
         description: Описание
         developer_group: Группа зачинателей
         domain: Домен
