@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       assembly:
-        area_id: Ділянка
+        area_id: Дільниця
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
@@ -15,10 +15,10 @@ uk:
         created_by: 'Створив:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
-        decidim_area_id: Ділянка
+        decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -29,7 +29,7 @@ uk:
         instagram: Інстаграм
         internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Обсяг співучасті
@@ -111,7 +111,7 @@ uk:
         assemblies: Збори
         assemblies_submenu:
           assembly_admins: Учасники зборів
-          attachment_collections: Збірки
+          attachment_collections: Теки
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розряди
@@ -155,7 +155,7 @@ uk:
         assemblies:
           form:
             select_a_created_by: Оберіть, ким створені
-            select_an_area: Оберіть ділянку
+            select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
@@ -169,7 +169,7 @@ uk:
         government: Урядові
         others: Інші
         participatory: Співучасні
-        working_group: Робоча група
+        working_group: Робочий гурт
       created_by:
         city_council: Міська рада
         others: Інші
@@ -179,17 +179,17 @@ uk:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Започаті збори
+            active_assemblies: Діючі збори
             see_all_assemblies: Переглянути всі збори
       show:
-        area: Ділянка
+        area: Дільниця
         assembly_type: Різновид зборів
         children: Збори
         closing_date: Дата закриття
         composition: Склад
         created_by: 'Створив:'
         creation_date: Дата створення
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         duration: Тривалість
         included_at: Включено в
         indefinite_duration: Невизначена
@@ -197,7 +197,7 @@ uk:
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
@@ -247,7 +247,7 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_header:
         assembly_menu_item: Збори
