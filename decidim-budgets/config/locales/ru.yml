@@ -76,7 +76,7 @@ ru:
         filters:
           category: Категория
           category_prompt: Выберите категорию
-          search: Искать
+          search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
           filter: Отобрать
