@@ -127,6 +127,7 @@ must now set a resource name:
 - **decidim-core**: Fix confirmation emails resending for multitenant systems [\#3546](https://github.com/decidim/decidim/pull/3546)
 - **decidim-proposals**: Warn the user the attachment is lost when the form is errored [\#3553](https://github.com/decidim/decidim/pull/3553)
 - **decidim-core**: Consistent casing of error messages [\#3565](https://github.com/decidim/decidim/pull/3565)
+- **decidim-comments**: Fix comments stats so it appears in the homepage again [\#3570](https://github.com/decidim/decidim/pull/3570)
 
 **Removed**:
 
