@@ -298,6 +298,8 @@ ru:
       value: Значение
     followers:
       no_followers: Еще нет подписчиков.
+    following:
+      no_followings: Еще ни на что не подписался.
     follows:
       create:
         button: Следить
@@ -313,6 +315,15 @@ ru:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
     log:
+      base_presenter:
+        create: "%{user_name} добавил %{resource_name}"
+        create_with_space: "%{user_name} создал %{resource_name} в %{space_name}"
+        delete: "%{user_name} удалил %{resource_name}"
+        delete_with_space: "%{user_name} удалил %{resource_name} в %{space_name}"
+        unknown_action: "%{user_name} выполнил некоторые действия с %{resource_name}"
+        unknown_action_with_space: "%{user_name} выполнил какое-то действие с %{resource_name} в %{space_name}"
+        update: "%{user_name} обновил %{resource_name}"
+        update_with_space: "%{user_name} обновил %{resource_name} в %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Участок не найден в базе данных (ID: %{id})'
@@ -359,6 +370,10 @@ ru:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
         see_on_website: Не удается толком прочитать это письмо? Прочитайте его на <a href="%{link}" target="_blank">сайте</a>.
+        unsubscribe: Чтобы отказаться от получения таких сообщений, кликните <a href="%{link}" target="_blank" class="unsubscribe">Отменить подписку</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Если вы хотите изменить свои предпочтения, вы можете сделать это на <a href="%{link}" target="_blank">странице настроек</a>
     notifications:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
