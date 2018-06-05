@@ -335,7 +335,7 @@ ru:
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
-        officializations: Предоставления официального статуса
+        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         settings: Настройки
@@ -474,31 +474,31 @@ ru:
           success: Приложение успешно обновлено.
       officializations:
         create:
-          success: Участнику успешно предоставлен официальный статус
+          success: Участнику успешно предоставлен служебный статус
         destroy:
-          success: Официальный стату участника успешно отменен
+          success: Служебный статус участника успешно отменен
         index:
           actions: Действия
           badge: Знак отличия
           created_at: 'Создано:'
           filter:
             all: Все
-            not_officialized: Не имеет официального статуса
-            officialized: Имеет официальный статус
+            not_officialized: Не имеет служебного статуса
+            officialized: Имеет служебный статус
           filter_by: 'Отобрать по признаку:'
           name: Имя
           nickname: Псевдоним
-          not_officialized: Не имеет официального статуса
-          officialize: Предоставить официальный статус
-          officialized: Имеет официальный статус
-          reofficialize: Вновь предоставить официальный статус
+          not_officialized: Не имеет служебного статуса
+          officialize: Предоставить служебный статус
+          officialized: Имеет служебный статус
+          reofficialize: Вновь предоставить служебный статус
           search: Поиск
           status: Состояние
-          unofficialize: Отменить официальный статус
+          unofficialize: Отменить служебный статус
         new:
-          badge: Знак отличия официального статуса
-          officialize: Предоставить официальный статус
-          title: Предоставить официальный статус участнику "%{name}"
+          badge: Знак отличия служебного статуса
+          officialize: Предоставить служебный статус
+          title: Предоставить служебный статус участнику "%{name}"
       organization:
         edit:
           title: Редактировать организацию
@@ -595,7 +595,7 @@ ru:
         dashboard: Панель управления
         impersonatable_users: Участники, в роли которых можно выступить
         impersonations: Выступления в роли участника
-        officializations: Предоставления официального статуса
+        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         static_pages: Страницы
