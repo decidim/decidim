@@ -3,7 +3,7 @@ ru:
     attributes:
       project:
         budget: Бюджет
-        decidim_category_id: Категория
+        decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
         proposal_ids: Подобные предложения
@@ -74,8 +74,8 @@ ru:
             many: "%{count} проектов"
             other: "%{count} проектов"
         filters:
-          category: Категория
-          category_prompt: Выберите категорию
+          category: Разряд
+          category_prompt: Выберите разряд
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
