@@ -96,15 +96,15 @@ uk:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Тепер ви можете вносити нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
-          notification_title: Тепер ви можете вносити <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість вносити <a href="%{resource_path}">нові пропозиції</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
-          notification_title: Тепер ви можете почати <a href="%{resource_path}">підтримувати пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">підтримувати пропозиції</a>
         proposal_accepted:
           email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
@@ -148,7 +148,7 @@ uk:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
-          notification_title: Тепер ви можете почати <a href="%{resource_path}">голосувати щодо пропозицій</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
