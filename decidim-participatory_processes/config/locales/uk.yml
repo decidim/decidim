@@ -89,7 +89,7 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
@@ -299,7 +299,7 @@ uk:
         local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        private_space: Це приватний процес
+        private_space: Це приватний рух
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
