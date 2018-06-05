@@ -20,6 +20,9 @@ ru:
             official_debate: Служебное обсуждение
     events:
       debates:
+        create_debate_event:
+          user_followers:
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> начал обсуждение <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'
         creation_enabled:
