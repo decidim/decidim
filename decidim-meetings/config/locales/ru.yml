@@ -57,6 +57,8 @@ ru:
         create:
           error: При создании копии этой встречи произошла ошибка.
           success: Успешно создана копия встречи.
+        new:
+          copy: Копировать
     components:
       meetings:
         settings:
