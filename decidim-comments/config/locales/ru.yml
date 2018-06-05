@@ -50,6 +50,11 @@ ru:
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
+    events:
+      comments:
+        comment_created:
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
   errors:
     messages:
       cannot_have_comments: не подлежит комментированию
