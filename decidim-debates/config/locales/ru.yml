@@ -6,6 +6,13 @@ ru:
         decidim_category_id: Разряд
         title: Название
   decidim:
+    debates:
+      debates:
+        filters:
+          category: Разряд
+          category_prompt: Выберите разряд
+        new:
+          select_a_category: Пожалуйста, выберите разряд
     events:
       debates:
         creation_disabled:
