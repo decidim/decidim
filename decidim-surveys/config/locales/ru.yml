@@ -7,6 +7,10 @@ ru:
         mandatory: Обязательно
         question_type: Вид
   decidim:
+    events:
+      surveys:
+        survey_opened:
+          email_intro: 'В %{participatory_space_title} начался опрос %{resource_title}. Вы можете принять в нем участие на странице:'
     surveys:
       admin:
         exports:
