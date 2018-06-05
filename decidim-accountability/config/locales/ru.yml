@@ -121,8 +121,8 @@ ru:
           all: Все
           scopes: Охваты
         home:
-          categories_label: Категории
-          subcategories_label: Подкатегории
+          categories_label: Разряды
+          subcategories_label: Подразряды
         home_header:
           global_status: Состояние общего исполнения
         nav_breadcrumb:
@@ -156,6 +156,12 @@ ru:
           changes_at_title: Изменения в «%{title}»
         version:
           version_index: Версия %{index}
+    components:
+      accountability:
+        settings:
+          global:
+            categories_label: Название для "Разряды"
+            subcategories_label: Название для "Подразряды"
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги
