@@ -11,8 +11,13 @@ ru:
         filters:
           category: Разряд
           category_prompt: Выберите разряд
+          official: Служебные
         new:
           select_a_category: Пожалуйста, выберите разряд
+      models:
+        debate:
+          fields:
+            official_debate: Служебное обсуждение
     events:
       debates:
         creation_disabled:
