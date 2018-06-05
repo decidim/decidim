@@ -41,7 +41,34 @@ ru:
         few: Поддержало
         many: Поддержали
         other: Поддержали
+      decidim/proposals/proposal_note:
+        one: Примечание
+        few: Примечания
+        many: Примечаний
+        other: Примечаний
+      decidim/proposals/proposal_vote:
+        one: Голос
+        few: Голоса
+        many: Голосов
+        other: Голосов
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Внести
+          endorse: Поддержать
+          vote: Голосовать
+          withdraw: Отозвать
+        name: Предложения
+        settings:
+          global:
+            announcement: Объявление
+            attachments_allowed: Разрешить вложения
+            can_accumulate_supports_beyond_threshold: Может накапливать поддержку свыше порогового значения
+            comments_enabled: Комментарии включены
+            geocoding_enabled: Геокодирование включено
+            new_proposal_help_text: Подсказки по созданию нового предложения
+            official_proposals_enabled: Включена возможность выдвигать служебные предложения
     events:
       proposals:
         proposal_update_category:
@@ -110,7 +137,7 @@ ru:
             comments: Комментарии
             created_at: 'Создано:'
             id: Псевдоним
-            official_proposal: Официальное предложение
+            official_proposal: Служебное предложение
             scope: Охват
             state: Cостояние
             title: Название
