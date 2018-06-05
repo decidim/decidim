@@ -2,7 +2,7 @@ ru:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Категория
+        decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
         end_date: Дата завершения
