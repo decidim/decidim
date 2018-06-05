@@ -174,12 +174,14 @@ module Decidim
     true
   end
 
+  # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
     500
   end
 
+  # Time window in which the throttling is applied.
   config_accessor :throttling_period do
-    60.seconds
+    1.minute
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
