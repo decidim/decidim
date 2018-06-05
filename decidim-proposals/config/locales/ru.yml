@@ -5,7 +5,7 @@ ru:
         answer: Ответить
         answered_at: 'Получен ответ:'
         body: Основной текст
-        category_id: Категория
+        category_id: Разряд
         has_address: Имеет адрес
         scope_id: Охват
         state: Cостояние
@@ -57,7 +57,7 @@ ru:
             success: Предложение успешно внесено
           form:
             attachment_legend: "(Необязательно) Добавить вложение"
-            select_a_category: Выберите категорию
+            select_a_category: Выберите разряд
           index:
             title: Предложения
           new:
@@ -77,7 +77,7 @@ ru:
       models:
         proposal:
           fields:
-            category: Категория
+            category: Разряд
             comments: Комментарии
             created_at: 'Создано:'
             id: Псевдоним
@@ -100,15 +100,15 @@ ru:
             other: "%{count} предложений"
         edit:
           back: Вернуться
-          select_a_category: Пожалуйста, выберите категорию
+          select_a_category: Пожалуйста, выберите разряд
           send: Отправить
           title: Редактировать предложение
         filters:
           accepted: Принято
           activity: Деятельность
           all: Все
-          category: Категория
-          category_prompt: Выберите категорию
+          category: Разряд
+          category_prompt: Выберите разряд
           citizens: Граждане
           evaluating: Рассматривается
           official: Официальный
