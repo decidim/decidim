@@ -15,9 +15,15 @@ ru:
         end_time: Время завершения
         location: Место
         location_hints: Как добраться
+        registration_terms: Условия регистрации
         start_time: Время начала
         title: Название
   decidim:
+    components:
+      meetings:
+        settings:
+          global:
+            default_registration_terms: Условия регистрации по умолчанию
     meetings:
       actions:
         attachment_collections: Папки
