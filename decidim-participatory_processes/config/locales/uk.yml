@@ -8,12 +8,12 @@ uk:
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_process_group_id: Група рухів
         participatory_scope: Обсяг співучасті
@@ -55,10 +55,10 @@ uk:
         many: Рухів співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
-        one: Група руху співучасті
-        few: Групи руху співучасті
-        many: Груп руху співучасті
-        other: Груп руху співучасті
+        one: Гурт руху співучасті
+        few: Гурти руху співучасті
+        many: Гуртів руху співучасті
+        other: Гуртів руху співучасті
       decidim/participatory_process_step:
         one: Крок
         few: Кроки
@@ -82,12 +82,12 @@ uk:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
         participatory_processes_submenu:
-          attachment_collections: Збірки
+          attachment_collections: Теки
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
-          info: Інформація
+          info: Відомості
           moderations: Дії з модерації
           private_users: Приховані учасники
           process_admins: Учасники руху
@@ -202,7 +202,7 @@ uk:
         edit:
           update: Оновити
         form:
-          title: Загальна інформація
+          title: Загальні відомості
         index:
           not_published: Не оприлюднено
           private: Приватний
@@ -294,16 +294,16 @@ uk:
         index:
           loading: Завантаження підсумків...
       show:
-        developer_group: Група зачинальників
+        developer_group: Гурт просувачів
         end_date: Дата закінчення
-        local_area: Ділянка організації
+        local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний процес
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
-        unspecified: Не визначено
+        unspecified: Не вказано
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
@@ -344,7 +344,7 @@ uk:
           take_part: Взяти участь
         promoted_process:
           active_step: 'Поточний крок:'
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       process_header:
         process_menu_item: Рух

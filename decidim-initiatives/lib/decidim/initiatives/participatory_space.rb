@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
+  participatory_space.stylesheet = "decidim/initiatives/initiatives"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Initiatives::Engine
     context.layout = "layouts/decidim/initiative"
@@ -44,7 +46,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       end
     end
 
-    7.times do
+    Decidim::Initiative.states.keys.each do |state|
       Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
       Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
@@ -52,7 +54,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),
         scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
-        state: "published",
+        state: state,
         signature_type: "online",
         signature_start_time: DateTime.current - 7.days,
         signature_end_time:  DateTime.current + 7.days,

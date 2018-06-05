@@ -21,6 +21,7 @@ describe "Invite process moderator", type: :system do
         fill_in :user_nickname, with: "caballo_loco"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
+        check :user_tos_agreement
         find("*[type=submit]").click
       end
 

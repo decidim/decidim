@@ -56,6 +56,7 @@ must now set a resource name:
 - **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-core**: GDPR: Track TOS page version in Organization [\#3491](https://github.com/decidim/decidim/pull/3491)
+- **decidim-core**: GDPR: User must review TOS when updated [\#3494](https://github.com/decidim/decidim/pull/3494)
 
 **Changed**:
 
@@ -98,9 +99,11 @@ must now set a resource name:
 
 **Fixed**:
 
+- **decidim-meetings**: Enforce permissions when managing meeting minutes. [\#3560](https://github.com/decidim/decidim/pull/3560)
 - **decidim-assembly**: Fix Non private users can participate to a private, transparent assembly [\#3438](https://github.com/decidim/decidim/pull/3438)
 - **decidim-proposals**: Fixes artificial margin between proposal "header" and list of endorsements. [\#2893](https://github.com/decidim/decidim/pull/2893)
 - **decidim-proposals**: Use translations for hardcoded text. [\#3464](https://github.com/decidim/decidim/pull/3464)
+- **decidim-core**: Don't send notifications to users without access to the space. [\#3542](https://github.com/decidim/decidim/pull/3542)
 - **decidim-core**: Include datepicker locales in front pages too. [\#3448](https://github.com/decidim/decidim/pull/3448)
 - **decidim-core**: Uses current organization scopes in scopes picker. [\#3386](https://github.com/decidim/decidim/pull/3386)
 - **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3329](https://github.com/decidim/decidim/pull/3329)
@@ -123,9 +126,13 @@ must now set a resource name:
 - **decidim-surveys**: Fix answer exporter for single/multi-choice questions [\#3535](https://github.com/decidim/decidim/pull/3535)
 - **decidim-core**: Do not allow users to follow themselves [\#3536](https://github.com/decidim/decidim/pull/3536)
 - **decidim-system**: Fix new organization admin not being invited properly [\#3543](https://github.com/decidim/decidim/pull/3543)
+- **decidim-consultations**: Use app CSS variables [\#3541](https://github.com/decidim/decidim/pull/3541)
 - **decidim-proposals**: Hide supports on linked proposals if theya re supposed to be hidden [\#3544](https://github.com/decidim/decidim/pull/3544)
 - **decidim-core**: Fix confirmation emails resending for multitenant systems [\#3546](https://github.com/decidim/decidim/pull/3546)
 - **decidim-proposals**: Warn the user the attachment is lost when the form is errored [\#3553](https://github.com/decidim/decidim/pull/3553)
+- **decidim-core**: Consistent casing of error messages [\#3565](https://github.com/decidim/decidim/pull/3565)
+- **decidim-comments**: Fix comments stats so it appears in the homepage again [\#3570](https://github.com/decidim/decidim/pull/3570)
+- **decidim-comments**: Fix comment creation events raising errors when being delivered [\#3580](https://github.com/decidim/decidim/pull/3580)
 
 **Removed**:
 

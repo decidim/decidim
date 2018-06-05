@@ -547,17 +547,15 @@ sv:
       public: Din offentliga information.
   errors:
     messages:
-      content_type_whitelist_error: Filtypen är inte giltig
+      content_type_whitelist_error: filtypen är inte giltig
       cycle_detected: Omfattarens förälder kan inte vara en av sina efterkommande
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
-      invalid_manifest: Ogiltigt manifest
-      invalid_participatory_process: Ogiltig deltagande process
-      long_words: Innehåller ord som är för långa
-      must_start_with_caps: Måste börja med kepsar
+      long_words: innehåller ord som är för långa
+      must_start_with_caps: måste börja med kepsar
       nesting_too_deep: kan inte vara inuti en underkategori
-      too_many_marks: Används för många märken
-      too_much_caps: Används för mycket kepsar
-      too_short: Är för kort
+      too_many_marks: använder för många märken
+      too_much_caps: använder för mycket kepsar
+      too_short: är för kort
   forms:
     required: Nödvändig
   invisible_captcha:

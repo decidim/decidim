@@ -49,7 +49,7 @@ module Decidim
       initializer "decidim_consultations.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_consultations_manifest.js
-          decidim_consultations_manifest.scss
+          decidim_consultations_manifest.css
         )
       end
 

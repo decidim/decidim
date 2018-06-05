@@ -547,17 +547,15 @@ fr:
       public: Votre information publique
   errors:
     messages:
-      content_type_whitelist_error: Le type de fichier n'est pas valide
+      content_type_whitelist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
-      invalid_manifest: Manifeste invalide
-      invalid_participatory_process: Processus participatif invalide
-      long_words: Contient des mots trop longs
-      must_start_with_caps: Doit commencer par des majuscules
+      long_words: contient des mots qui sont trop longs
+      must_start_with_caps: doit commencer avec des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      too_many_marks: Utilise trop de signes de ponctuations
-      too_much_caps: Utilise trop de majuscule
-      too_short: Est trop court
+      too_many_marks: utilise trop de marques
+      too_much_caps: utilise trop de bouchons
+      too_short: est trop court
   forms:
     required: Champs obligatoires
   invisible_captcha:

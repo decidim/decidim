@@ -547,17 +547,15 @@ eu:
       public: Zure informazio publikoa.
   errors:
     messages:
-      content_type_whitelist_error: fitxategi mota ez da zuzena
+      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
-      invalid_manifest: Manifestua ez da baliozkoa
-      invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
-      long_words: Hitz luzeegiak ditu
-      must_start_with_caps: Letra larriz hasi behar du
+      long_words: luzeegia den hitzak ditu
+      must_start_with_caps: txantiloiak hasi behar dira
       nesting_too_deep: ezin da egon azpikategoria batean
-      too_many_marks: Galdera- eta harridura-ikur gehiegi erabiltzen ari zara
-      too_much_caps: Letra larri gehiegi erabiltzen ari zara
-      too_short: Laburregia da
+      too_many_marks: marka gehiegi erabiltzen ari da
+      too_much_caps: txantiloiak gehiegi erabiltzen ari dira
+      too_short: oso laburra da
   forms:
     required: Nahitaezkoa da
   invisible_captcha:

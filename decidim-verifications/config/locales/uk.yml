@@ -3,10 +3,10 @@ uk:
     attributes:
       id_document_information:
         document_number: Номер документа (з літерою)
-        document_type: Тип документа
+        document_type: Різновид документу
       id_document_upload:
         document_number: Номер документа (з літерою)
-        document_type: Тип вашого документа
+        document_type: Різновид вашого документу
         user: Учасник
         verification_attachment: Сканована копія вашого документа
       postal_letter_address:

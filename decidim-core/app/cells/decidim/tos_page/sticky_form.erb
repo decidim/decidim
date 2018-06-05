@@ -1,0 +1,29 @@
+<div data-sticky-container class="cell-sticky">
+  <div class="sticky"
+        data-sticky
+        data-stick-to="bottom"
+        data-margin-bottom="0"
+        data-top-anchor="sticky-top-stop:top"
+        data-btm-anchor="sticky-btm-stop:top"
+        data-sticky-on="small">
+    <article class="card">
+      <div class="card__content">
+        <div class="card__header">
+          <h5 class="card__title text-center">
+            <%= t("form.legend", scope: "decidim.pages.terms_and_conditions") %>
+          </h5>
+        </div>
+
+        <div class="row column flex-center">
+          <%= cell "decidim/tos_page", :refuse_btn_modal %>
+
+          <%= button_to decidim.accept_tos_path, method: :put, class: "button button--nomargin small" do %>
+            <%= t("form.agreement", scope: "decidim.pages.terms_and_conditions") %>
+          <% end %>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div id="sticky-btm-stop"></div>
