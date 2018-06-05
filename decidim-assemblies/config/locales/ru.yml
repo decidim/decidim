@@ -127,10 +127,12 @@ ru:
           components: Составляющие
           info: Информация
           moderations: Действия по модерации
+          private_users: Частные участники
       models:
         assembly:
           fields:
             created_at: 'Добавлено:'
+            private: Частное
             promoted: Рекомендуемые
             published: Опубликовано
             title: Название
@@ -165,6 +167,7 @@ ru:
         local_area: Местный участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
+        private_space: Это частное собрание
         scope: Охват
         target: Цель
       statistics:
