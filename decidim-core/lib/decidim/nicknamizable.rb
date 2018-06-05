@@ -27,6 +27,7 @@ module Decidim
       # * Disambiguates it so it's unique.
       #
       def nicknamize(name)
+        return unless name
         disambiguate(name.parameterize(separator: "_")[nickname_length_range])
       end
 

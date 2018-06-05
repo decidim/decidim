@@ -1,0 +1,48 @@
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns medium-9 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <h3><%== t(".invitations_title", organization_name: content_tag(:strong, current_organization.name)) %></h3>
+          <p><%= t(".invitations_subtitle") %></p>
+          <%= decidim_form_for @form, url: account_invitations_path do |form| %>
+            <div class="row collapse mt-sm mb-s">
+              <% 3.times do |index| %>
+              <div class="row">
+                <div class="columns medium-6">
+                  <label>
+                    <%= t(".friend_email", index: 2 * index + 1) %>
+                    <%= form.text_field "email_#{2 * index + 1}", placeholder: "email@example.org", required: false, label: false %>
+                  </label>
+                </div>
+                <div class="columns medium-6">
+                  <label>
+                    <%= t(".friend_email", index: 2 * index + 2) %>
+                    <%= form.text_field "email_#{2 * index + 2}", placeholder: "email@example.org", required: false, label: false %>
+                  </label>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="row collapse mb-sm">
+              <div class="text-medium">
+                <%= cell(
+                  "decidim/toggle",
+                  nil,
+                  label: cell("decidim/invitations_toggle").label,
+                  content: cell("decidim/invitations_toggle", nil, form: form).content
+                ) %>
+              </div>
+            </div>
+            <%= form.submit t(".invite"), class: "button expanded" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="columns text-center">
+      <%= link_to t(".visit_your_profile"), decidim.profile_path(current_user.nickname), class: "button secondary light" %>
+    </div>
+  </div>
+</main>
