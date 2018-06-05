@@ -9,15 +9,23 @@ ru:
         proposal_ids: Предложения, внесенные на собрании
       meeting:
         address: Адрес
+        available_slots: Доступные места на эту встречу
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
         end_time: Время завершения
         location: Место
         location_hints: Как добраться
+        private_meeting: Закрытая встреча
         registration_terms: Условия регистрации
+        registrations_enabled: Регистрация включена
         start_time: Время начала
         title: Название
+        transparent: Прозрачная
+      minutes:
+        audio_url: Веб-адрес аудиозаписи
+        description: Описание
+        video_url: Веб-адрес видеозаписи
   decidim:
     components:
       meetings:
