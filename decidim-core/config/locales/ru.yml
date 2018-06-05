@@ -565,7 +565,7 @@ ru:
     messages:
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
-      nesting_too_deep: не может быть внутри подкатегории
+      nesting_too_deep: не может быть внутри подразряда
   forms:
     required: Обязательно
   invisible_captcha:
