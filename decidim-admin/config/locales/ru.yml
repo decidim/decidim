@@ -64,7 +64,7 @@ ru:
         omnipresent_banner_url: Веб-адрес
         reference_prefix: Справочный префикс
         show_statistics: Показывать статистику
-        tos_version: Версия условий предоставления услуг
+        tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter
         welcome_text: Текст приветствия
         youtube_handler: Обработчик YouTube
@@ -576,7 +576,7 @@ ru:
         destroy:
           success: Страница успешно удалена
         edit:
-          changed_notably_help: Если этот флажок установлен, участники получат уведомление о необходимости принять новые условия предоставления услуг.
+          changed_notably_help: Если этот флажок установлен, участники получат уведомление о необходимости принять новые условия участия.
           title: Отредактировать страницу
           update: Обновить
         index:
