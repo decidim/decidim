@@ -23,4 +23,5 @@ ru:
         creation_disabled:
           email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'
         creation_enabled:
+          email_intro: 'Теперь вы можете начинать новые обсуждения в %{participatory_space_title}! Начните со страницы:'
           email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
