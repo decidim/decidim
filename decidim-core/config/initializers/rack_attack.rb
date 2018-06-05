@@ -6,7 +6,7 @@ Rails.application.configure do |config|
   config.middleware.use Rack::Attack
 end
 
-Rack::Attack.throttle("requests by ip", limit: 5, period: 2, &:ip)
+Rack::Attack.throttle("requests by ip", limit: 10, period: 1, &:ip)
 
 # Throttle login attempts for a given email parameter to 6 reqs/minute
 # Return the email as a discriminator on POST /users/sign_in requests
