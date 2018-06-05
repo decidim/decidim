@@ -43,8 +43,8 @@ uk:
       decidim/proposals/proposal_endorsement:
         one: Підтримав
         few: Підтримало
-        many: Підтримало
-        other: Підтримало
+        many: Підтримали
+        other: Підтримали
       decidim/proposals/proposal_note:
         one: Примітка
         few: Примітки
@@ -253,7 +253,7 @@ uk:
             category: Розряд
             comments: Коментарі
             created_at: 'Створено:'
-            endorsements: Підтримало
+            endorsements: Підтримали
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
@@ -268,7 +268,7 @@ uk:
           error: При спробі надати підтримку цій пропозиції виникла помилка.
         identities:
           done: Зроблено
-          select_identity: Оберіть особу
+          select_identity: Оберіть роль
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Підтримано
