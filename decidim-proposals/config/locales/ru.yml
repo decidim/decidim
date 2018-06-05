@@ -24,6 +24,7 @@ ru:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято
+      decidim/proposals/admin/update_proposal_category_event: Разряд предложения изменен
   decidim:
     proposals:
       actions:
