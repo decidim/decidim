@@ -76,8 +76,24 @@ ru:
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Внести"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
+            threshold_per_proposal: Порог для каждого предложения
+            vote_limit: Предельное количество голосов для одного пользователя
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии выключены
+            creation_enabled: Включена возможность внесения предложений
+            endorsements_blocked: Возможность поддержки выключена
+            endorsements_enabled: Возможность поддержки включена
+            proposal_answering_enabled: Включена возможность отвечать на предложения
+            votes_blocked: Голосование выключено
+            votes_enabled: Голосование включено
+            votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Теперь вы можете вносить новые предложения в %{participatory_space_title}! Начните со страницы:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Теперь в %{participatory_space_title} можно вносить предложения
         proposal_update_category:
           email_intro: 'Администратор обновил разряд вашего предложения «%{resource_title}», проверьте его:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
