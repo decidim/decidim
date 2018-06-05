@@ -93,6 +93,8 @@ ru:
           title: Общая информация
         index:
           not_published: Не опубликовано
+          private: Частное
+          public: Публичное
           published: Опубликовано
         new:
           create: Добавить
