@@ -14,17 +14,27 @@ ru:
         copy_features: Копировать составляющие
         created_by: 'Автор:'
         created_by_other: Создано кем-то еще
+        creation_date: Дата создания
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
         developer_group: Группа зачинателей
         domain: Домен
+        duration: Длительность
+        facebook: Фейсбук
+        github: ГитХаб
         hashtag: Хэштег
         hero_image: Изображение главной страницы
+        included_at: Включено в
+        instagram: Инстаграм
+        internal_organisation: Внутренняя организация
+        is_transparent: Прозрачное
         local_area: Местный участок
         meta_scope: Метаданные охвата
+        participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
+        private_space: Личное пространство
         promoted: Рекламируется
         scope_id: Охват
         scopes_enabled: Охваты включены
