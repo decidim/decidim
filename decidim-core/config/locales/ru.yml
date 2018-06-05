@@ -552,10 +552,13 @@ ru:
         invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
+        someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
         subject: Вы пригласили к сотрудничеству в %{organization}
+      invite_private_user:
+        subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
         subject: Вам было предложено распоряжаться %{organization}
       password_change:
