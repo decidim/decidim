@@ -49,7 +49,7 @@ uk:
           email_subject: В %{participatory_space_title} завершилось опитування
           notification_title: Опитування <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> закінчилося.
         survey_opened:
-          email_intro: 'Почалось опитування %{resource_title} в %{participatory_space_title}. Ви можете взяти участь в ньому на сторінці:'
+          email_intro: 'В %{participatory_space_title} почалось опитування %{resource_title}. Ви можете взяти участь в ньому на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Нове опитування в %{participatory_space_title}
           notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
