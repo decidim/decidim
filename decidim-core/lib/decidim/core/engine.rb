@@ -40,6 +40,7 @@ require "cells-erb"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
+require "scenic"
 
 require "decidim/api"
 
