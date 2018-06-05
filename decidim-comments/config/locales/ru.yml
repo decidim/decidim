@@ -52,9 +52,13 @@ ru:
         title: "%{count} комментариев"
     events:
       comments:
+        comment_by_followed_user:
+          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
+          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-          email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
+          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
+          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: не подлежит комментированию
