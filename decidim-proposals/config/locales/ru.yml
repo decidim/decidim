@@ -324,7 +324,7 @@ ru:
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
         index:
-          new_proposal: Новое предложение
+          new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
           view_proposal: Просмотреть предложение
         linked_proposals:
