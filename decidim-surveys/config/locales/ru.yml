@@ -14,7 +14,7 @@ ru:
         models:
           components:
             description: Описание
-            tos: Условия использования
+            tos: Условия участия
         surveys:
           answer_option:
             answer_option: Вариант ответа
