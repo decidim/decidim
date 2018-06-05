@@ -5,7 +5,7 @@ uk:
         body: Відповісти
       survey_question:
         mandatory: Обов’язкове поле
-        max_choices: Максимальна кількість варіантів
+        max_choices: Гранична кількість варіантів
         question_type: Різновид
     errors:
       models:
@@ -100,7 +100,7 @@ uk:
           invalid: При відповідях на опитування сталися помилки.
           success: Опитування успішно пройдено.
         question:
-          max_choices: 'Максимальна кількість варантів: %{n}'
+          max_choices: 'Гранична кількість варантів: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
