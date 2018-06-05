@@ -10,7 +10,7 @@ ru:
       meeting:
         address: Адрес
         available_slots: Доступные места на эту встречу
-        decidim_category_id: Категория
+        decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
         end_time: Время завершения
@@ -172,7 +172,7 @@ ru:
             subject: Ваша регистрация на встречу подтверждена
       meetings:
         filters:
-          category: Категория
+          category: Разряд
           category_prompt: Выберите категорию
           date: Дата
           past: Прошедшие
