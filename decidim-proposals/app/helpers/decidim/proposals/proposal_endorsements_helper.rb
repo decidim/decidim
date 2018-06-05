@@ -4,16 +4,6 @@ module Decidim
   module Proposals
     # Simple helper to handle markup variations for proposal endorsements partials
     module ProposalEndorsementsHelper
-      # Returns the css classes used for proposal endorsements count in both proposals list and show pages
-      #
-      # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
-      #
-      # Returns a hash with the css classes for the count number and label
-      def endorsements_count_classes(from_proposals_list)
-        return { number: "card__support__number", label: "" } if from_proposals_list
-        { number: "extra__suport-number", label: "extra__suport-text" }
-      end
-
       # Returns the css classes used for proposal endorsement button in both proposals list and show pages
       #
       # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
@@ -115,6 +105,22 @@ module Decidim
         http_method = selected ? :delete : :post
         render partial: "decidim/proposals/proposal_endorsements/identity", locals:
         { identity: presenter, selected: selected, current_endorsement_url: current_endorsement_url, http_method: http_method }
+      end
+
+      # Renders the counter of endorsements that appears in card at show Propoal.
+      def render_endorsements_count_card_part(proposal, fully_endorsed)
+        content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
+        content += proposal.proposal_endorsements_count.to_s
+        tag_params = { id: "proposal-#{proposal.id}-endorsements-count", class: "button small compact light button--sc button--shadow #{fully_endorsed ? "success" : "secondary"}" }
+        if proposal.proposal_endorsements_count.positive?
+          link_to "#list-of-endorsements", tag_params do
+            content
+          end
+        else
+          content_tag("div", tag_params) do
+            content
+          end
+        end
       end
     end
   end

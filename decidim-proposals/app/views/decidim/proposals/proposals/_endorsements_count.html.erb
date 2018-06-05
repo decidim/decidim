@@ -1,5 +1,1 @@
-<%= link_to "#{proposal.proposal_endorsements_count.positive? ? "#list-of-endorsements" : "javascript:;"}", id: "proposal-#{proposal.id}-endorsements-count", class: "button small compact light button--sc button--shadow #{fully_endorsed ? 'success' : 'secondary'}" do %>
-  <%= icon "bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img" %>
-      <%= proposal.proposal_endorsements_count %>
-</button>
-<% end %>
+<%= render_endorsements_count_card_part(proposal, fully_endorsed) %>
