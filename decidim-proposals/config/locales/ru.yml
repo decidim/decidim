@@ -2,10 +2,13 @@ ru:
   activemodel:
     attributes:
       proposal:
+        answer: Ответить
+        answered_at: 'Получен ответ:'
         body: Основной текст
         category_id: Категория
         has_address: Имеет адрес
         scope_id: Охват
+        state: Cостояние
         title: Название
         user_group_id: Внести предложение как
       proposal_answer:
@@ -13,6 +16,14 @@ ru:
       proposals_copy:
         copy_proposals: Я понимаю, что при этом все предложения из выбранной составляющей будут позаимствованы в текущую, и что это действие нельзя будет отменить.
         origin_component_id: Составляющая, откуда нужно скопировать предложения
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Необходимо заново прикрепить
+    models:
+      decidim/proposals/accepted_proposal_event: Предложение принято
   decidim:
     proposals:
       actions:
