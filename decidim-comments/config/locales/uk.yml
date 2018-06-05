@@ -74,13 +74,13 @@ uk:
         comment_by_followed_user:
           email_intro: "%{author_name} залишив коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
-          email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
-          notification_title: Надійшов новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} прокоментували. Ви можете прочитати коментар на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
-          notification_title: Надійшов новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>
         reply_created:
           email_intro: "%{author_name} відповів на ваш коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
           email_outro: Ви отримали це сповіщення, оскільки на ваш коментар відповіли.
