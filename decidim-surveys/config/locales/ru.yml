@@ -44,8 +44,17 @@ ru:
         survey_closed:
           email_intro: Опрос %{resource_title} в %{participatory_space_title} был закрыт.
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} завершился опрос
+          notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> завершен.
         survey_opened:
           email_intro: 'В %{participatory_space_title} начался опрос %{resource_title}. Вы можете принять в нем участие на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Новый опрос в %{participatory_space_title}
+          notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> теперь открыт.
+    forms:
+      errors:
+        survey_answer:
+          body: Основной текст не может быть пустым
     surveys:
       admin:
         exports:
@@ -57,6 +66,8 @@ ru:
         surveys:
           answer_option:
             answer_option: Вариант ответа
+            free_text: Произвольный текст
+            remove: Удалить
             statement: Высказывание
           edit:
             save: Сохранить
@@ -66,8 +77,13 @@ ru:
             already_answered_warning: Некоторые участники уже прошли этот опрос, поэтому вы не можете менять вопросы в нем.
           question:
             add_answer_option: Добавить вариант ответа
+            any: Любой
+            description: Описание
+            down: Вниз
             question: Вопрос
+            remove: Удалить
             statement: Высказывание
+            up: Вверх
           update:
             invalid: При сохранении опроса произошли ошибки.
             success: Опрос успешно сохранен.
@@ -76,10 +92,13 @@ ru:
         multiple_option: Несколько вариантов
         short_answer: Краткий ответ
         single_option: Единственный вариант
+        sorting: Упорядочивание
       surveys:
         answer:
           invalid: При прохождении опроса произошли ошибки.
           success: Опрос успешно пройден.
+        question:
+          max_choices: 'Предельное количество вариантов: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_link}">зарегистрируйтесь</a>, чтобы пройти опрос.
@@ -91,5 +110,8 @@ ru:
             title: Опрос пройден
           survey_closed:
             body: Опрос завершен и его уже нельзя проходить.
+            title: Опрос завершен
+          survey_for_private_users:
+            body: Опрос доступен только для скрытых пользователей
             title: Опрос завершен
           tos_agreement: Участвуя в этом опросе, вы принимаете его "Условия использования"
