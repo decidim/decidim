@@ -12,7 +12,8 @@ ru:
         copy_categories: Скопировать разряды
         copy_components: Копировать составляющие
         copy_features: Копировать составляющие
-        created_by: 'Добавил:'
+        created_by: 'Автор:'
+        created_by_other: Создано кем-то еще
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
@@ -92,11 +93,16 @@ ru:
       admin:
         assemblies:
           form:
+            select_a_created_by: Укажите, кем создано
             select_an_area: Выберите участок
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         assembly_copies:
           form:
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+      created_by:
+        city_council: Городской Совет
+        others: Другие
+        public: Граждане
       index:
         title: Собрания
       pages:
