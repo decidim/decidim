@@ -26,7 +26,7 @@ uk:
         audio_url: Веб-адреса аудіозапису
         description: Опис
         video_url: Веб-адреса відеозапису
-        visible: Видний
+        visible: Видимий
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
