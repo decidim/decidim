@@ -174,6 +174,14 @@ module Decidim
     true
   end
 
+  config_accessor :throttling_max_requests do
+    500
+  end
+
+  config_accessor :throttling_period do
+    60.seconds
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
