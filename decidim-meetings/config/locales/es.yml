@@ -1,6 +1,10 @@
 es:
   activemodel:
     attributes:
+      agenda:
+        description: Descripción
+        duration: Duración
+        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -27,6 +31,13 @@ es:
         description: Descripción
         video_url: URL del vídeo
         visible: Es visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La duración de los artículos supera la duración de la reunión en %{count} minutos
+              too_many_minutes_child: La duración de los elementos secundarios excede el orden del día del elemento "%{parent_title}" en %{count} minuto
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -102,6 +113,7 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     meetings:
       actions:
+        agenda: Agenda
         attachment_collections: Colecciones
         attachments: Archivos adjuntos
         close: Cerrar
@@ -114,6 +126,36 @@ es:
         registrations: Inscripciones
         title: Acciones
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Agregar elemento de agenda niño
+            agenda_item: Ítem ​​de agenda
+            agenda_item_children: Punto del orden del día Childs
+            down: Abajo
+            remove: retirar
+            up: Arriba
+          agenda_item_child:
+            agenda_item_child: Punto del orden del día Niño
+            down: Abajo
+            remove: retirar
+            up: Arriba
+          create:
+            invalid: Ha habido un problema al crear esta agenda
+            success: Agenda creada con éxito
+          edit:
+            title: Editar agenda
+            update: Actualizar
+          form:
+            add_agenda_item: Agregar ítem de la agenda
+            agenda_items: Elementos de la agenda
+            end_date: Fecha final
+            start_date: Fecha de inicio
+          new:
+            create: Crear
+            title: Nueva agenda
+          update:
+            invalid: Ha habido un problema para actualizar esta agenda
+            success: Agenda actualizada con éxito
         exports:
           registrations: Inscripciones
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ es:
           unfold: Desplegar
         index:
           view_meeting: Ver encuentro
+        meeting_minutes:
+          meeting_minutes: Acta de la reunión
+          related_information: Información relacionada
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -243,11 +288,9 @@ es:
           contributions: Número de contribuciones
           going: Yendo
           join: Inscribirse al encuentro
-          meeting_minutes: Acta del encuentro
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
-          related_information: Información relacionada
           remaining_slots:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
