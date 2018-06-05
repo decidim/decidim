@@ -251,9 +251,17 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'В %{resource_title} добавили новый документ. Вы можете увидеть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{resource_title}
+          notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> добавили <a href="%{resource_path}">новый документ</a>
       components:
         component_published:
           email_intro: 'Теперь в %{participatory_space_title} приведена в действие составляющая %{resource_title}. Вы можете посмотреть её на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
@@ -262,6 +270,12 @@ ru:
         email_subject: Обновление %{resource_title}
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
+      users:
+        profile_updated:
+          email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: "%{nickname} обновил свой профиль"
+          notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -274,6 +288,8 @@ ru:
         project: Проекты
         proposal: Предложения
         result: Итоги
+    fingerprint:
+      check: Проверить контрольный итог
     follows:
       create:
         button: Следить
