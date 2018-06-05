@@ -1,6 +1,10 @@
 gl:
   activemodel:
     attributes:
+      agenda:
+        description: Descrición
+        duration: Duración
+        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
@@ -27,6 +31,13 @@ gl:
         description: Descrición
         video_url: URL do vídeo
         visible: É visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
+              too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -102,6 +113,7 @@ gl:
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de 48 horas.
     meetings:
       actions:
+        agenda: Axenda
         attachment_collections: Coleccións
         attachments: Anexos
         close: Pechar
@@ -114,6 +126,36 @@ gl:
         registrations: Rexistros
         title: Accións
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Engadir elemento do tema da axenda
+            agenda_item: Punto de axenda
+            agenda_item_children: Elemento da axenda Childs
+            down: Baixo
+            remove: Quitar
+            up: Arriba
+          agenda_item_child:
+            agenda_item_child: Tema do programa Neno
+            down: Baixo
+            remove: Quitar
+            up: Arriba
+          create:
+            invalid: Produciuse un problema ao crear esta axenda
+            success: Axenda creada con éxito
+          edit:
+            title: Editar axenda
+            update: Actualización
+          form:
+            add_agenda_item: Engadir un elemento da axenda
+            agenda_items: Elementos da axenda
+            end_date: Data de finalización
+            start_date: Data de inicio
+          new:
+            create: Crear
+            title: Nova axenda
+          update:
+            invalid: Produciuse un problema ao actualizar esta axenda
+            success: A axenda actualizouse correctamente
         exports:
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ gl:
           unfold: Despregar
         index:
           view_meeting: Ver reunión
+        meeting_minutes:
+          meeting_minutes: Minutos de reunión
+          related_information: Información relacionada
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
@@ -243,11 +288,9 @@ gl:
           contributions: Contribucións contar
           going: Indo
           join: Únete a reunión
-          meeting_minutes: Minutos de reunión
           meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
-          related_information: Información relacionada
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
