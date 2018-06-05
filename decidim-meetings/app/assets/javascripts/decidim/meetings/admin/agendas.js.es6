@@ -54,9 +54,6 @@
   });
 
   const createDynamicFieldsForAgendaItemChilds = (fieldId) => {
-    // const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
-    // const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
-
     return createDynamicFields({
       placeholderId: "meeting-agenda-item-child-id",
       wrapperSelector: `#${fieldId} ${childsWrapperSelector}`,
@@ -152,7 +149,6 @@
 
     hideDeletedAgendaItem($target);
     setupInitialAgendaItemChildAttributes($target);
-    // createDynamicFieldsForAgendaItemChilds($target)
   });
 
   autoLabelByPosition.run();

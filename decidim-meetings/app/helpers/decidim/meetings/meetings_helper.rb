@@ -36,7 +36,7 @@ module Decidim
         end
       end
 
-      # Public: This method is used to calc the start and end time
+      # Public: This method is used to calculate the start and end time
       #         of each agenda item passed
       #
       # agenda_items - an Active record of agenda items
@@ -44,7 +44,7 @@ module Decidim
       # start_time_parent - used to pass the start time of parent agenda item
       #
       # Returns an Array.
-      def calc_start_and_end_time_of_agenda_items(agenda_items, meeting, start_time_parent = nil)
+      def calculate_start_and_end_time_of_agenda_items(agenda_items, meeting, start_time_parent = nil)
         array = []
 
         agenda_items.each_with_index do |agenda_item, index|

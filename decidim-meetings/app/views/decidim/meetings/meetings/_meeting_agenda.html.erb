@@ -4,7 +4,7 @@
   </div>
   <div class="card">
     <div class="card__content scroll">
-      <% agenda_items_times = calc_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
+      <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
       <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
         <h5 class="agenda-item--title heading5">
           <strong class="text-uppercase"><%= translated_attribute(agenda_item.title) %></strong>&nbsp;
@@ -15,7 +15,7 @@
 
         <% if agenda_item.agenda_item_children.presence %>
           <% parent_start_time = agenda_items_times[index][:start_time] %>
-          <% agenda_item_children_times = calc_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
+          <% agenda_item_children_times = calculate_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
 
           <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
             <h6 class="heading6">
