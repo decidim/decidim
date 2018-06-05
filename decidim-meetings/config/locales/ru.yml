@@ -26,7 +26,37 @@ ru:
         audio_url: Веб-адрес аудиозаписи
         description: Описание
         video_url: Веб-адрес видеозаписи
+        visible: Видимый
+    models:
+      decidim/meetings/close_meeting_event: Встреча закрыта
+      decidim/meetings/create_meeting_event: Встреча
+      decidim/meetings/meeting_registrations_enabled_event: Регистрация включена
+      decidim/meetings/meeting_registrations_over_percentage_event: Превышена граница количества зарегистрированных
+      decidim/meetings/upcoming_meeting_event: Предстоящая встреча
+      decidim/meetings/update_meeting_event: Встреча обновлена
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Встреча
+        few: Встречи
+        many: Встреч
+        other: Встреч
+      decidim/meetings/minutes:
+        one: Протокол
+        few: Протокола
+        many: Протоколов
+        other: Протоколов
+      decidim/meetings/registration:
+        one: Зарегистрировался
+        few: Зарегистрировалось
+        many: Зарегистрировались
+        other: Зарегистрировались
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: При создании копии этой встречи произошла ошибка.
+          success: Успешно создана копия встречи.
     components:
       meetings:
         settings:
