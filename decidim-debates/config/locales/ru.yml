@@ -7,13 +7,22 @@ ru:
         title: Название
   decidim:
     debates:
+      actions:
+        new: Добавить %{name}
+      admin:
+        debates:
+          new:
+            title: Начать новое обсуждение
       debates:
         filters:
           category: Разряд
           category_prompt: Выберите разряд
           official: Служебные
+        index:
+          new_debate: Начать новое обсуждение
         new:
           select_a_category: Пожалуйста, выберите разряд
+          title: Начать новое обсуждение
       models:
         debate:
           fields:
