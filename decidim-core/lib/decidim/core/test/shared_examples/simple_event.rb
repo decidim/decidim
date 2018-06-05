@@ -29,7 +29,7 @@ shared_context "when a simple event" do
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
   let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
   let(:author) do
-    if resource.responds_to?(:creator_author)
+    if resource.respond_to?(:creator_author)
       resource.creator_author
     else
       resource.author
