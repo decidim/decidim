@@ -118,7 +118,7 @@ jobs:
       - *wait_for_db
       - run:
           name: Run main folder RSpec
-          command: mkdir ~/rspec && bundle exec rspec --format progress --format=doc -o ~/rspec/rspec.xml
+          command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
           name: Run rubocop
           command: bundle exec rubocop
