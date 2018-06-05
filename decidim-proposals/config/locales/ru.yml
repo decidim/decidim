@@ -96,7 +96,19 @@ ru:
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность вносить <a href="%{resource_path}">новые предложения</a>
         endorsing_enabled:
+          email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">поддерживать предложения</a>
+        proposal_accepted:
+          email_intro: 'Предложение "%{resource_title}" было принято. Вы можете прочитать ответ на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: Предложение, за которым вы следите, было принято
+          notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, за которым вы следите, только что поддержал предложение, которое может быть вам интересно. Прочитайте его и внесите свой вклад:"
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{endorser_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: "%{endorser_nickname} поддержал новое предложение"
         proposal_update_category:
           email_intro: 'Администратор обновил разряд вашего предложения «%{resource_title}», проверьте его:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
