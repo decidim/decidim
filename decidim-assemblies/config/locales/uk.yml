@@ -12,7 +12,7 @@ uk:
         copy_categories: Скопіювати розряди
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Дільниця
@@ -271,7 +271,7 @@ uk:
         children: Збори
         closing_date: Дата закриття
         composition: Склад
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         creation_date: Дата створення
         developer_group: Гурт просувачів
         duration: Тривалість
