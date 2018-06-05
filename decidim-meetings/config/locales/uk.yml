@@ -21,7 +21,7 @@ uk:
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
         title: Назва
-        transparent: Прозорий
+        transparent: Прозора
       minutes:
         audio_url: Веб-адреса аудіозапису
         description: Опис
@@ -284,7 +284,7 @@ uk:
           success: Ви успішно скасували реєстрацію на зустріч.
       types:
         private_meeting: Приватна зустріч
-        transparent: Прозорий
+        transparent: Прозора
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
