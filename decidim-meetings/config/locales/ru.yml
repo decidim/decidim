@@ -173,7 +173,7 @@ ru:
       meetings:
         filters:
           category: Разряд
-          category_prompt: Выберите категорию
+          category_prompt: Выберите разряд
           date: Дата
           past: Прошедшие
           search: Поиск
