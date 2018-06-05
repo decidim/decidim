@@ -109,6 +109,9 @@ ru:
         registrations: Регистрации
         title: Действия
       admin:
+        agenda:
+          new:
+            title: Создать повестку дня
         exports:
           registrations: Регистрации
         invite_join_meeting_mailer:
