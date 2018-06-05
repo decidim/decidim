@@ -64,7 +64,7 @@ uk:
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         show_statistics: Показувати статистику
-        tos_version: Версія умови надання послуг
+        tos_version: Версія умов участі
         twitter_handler: Адреса Twitter
         welcome_text: Текст привітання
         youtube_handler: Адреса YouTube
@@ -576,7 +576,7 @@ uk:
         destroy:
           success: Сторінку успішно видалено
         edit:
-          changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов надання послуг.
+          changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов участі.
           title: Редагувати сторінку
           update: Оновити
         index:
