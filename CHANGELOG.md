@@ -37,6 +37,7 @@ must now set a resource name:
 **Added**:
 
 - **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3559](https://github.com/decidim/decidim/pull/3559)
+- **decidim-meetings**: Add Agenda and Agenda Item entities to manage meeting agenda. [\#3305](https://github.com/decidim/decidim/pull/3305)
 - **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
 - **decidim-assemblies**: Add members to assemblies. [\#3008](https://github.com/decidim/decidim/pull/3008)
 - **decidim-assemblies**: An assembly member can be related to an existing user. [\#3302](https://github.com/decidim/decidim/pull/3302)
@@ -57,6 +58,7 @@ must now set a resource name:
 - **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-core**: GDPR: Track TOS page version in Organization [\#3491](https://github.com/decidim/decidim/pull/3491)
+- **decidim-core**: GDPR: User must review TOS when updated [\#3494](https://github.com/decidim/decidim/pull/3494)
 
 **Changed**:
 
@@ -130,6 +132,7 @@ must now set a resource name:
 - **decidim-proposals**: Warn the user the attachment is lost when the form is errored [\#3553](https://github.com/decidim/decidim/pull/3553)
 - **decidim-core**: Consistent casing of error messages [\#3565](https://github.com/decidim/decidim/pull/3565)
 - **decidim-comments**: Fix comments stats so it appears in the homepage again [\#3570](https://github.com/decidim/decidim/pull/3570)
+- **decidim-comments**: Fix comment creation events raising errors when being delivered [\#3580](https://github.com/decidim/decidim/pull/3580)
 
 **Removed**:
 
