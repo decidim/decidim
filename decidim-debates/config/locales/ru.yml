@@ -25,3 +25,4 @@ ru:
         creation_enabled:
           email_intro: 'Теперь вы можете начинать новые обсуждения в %{participatory_space_title}! Начните со страницы:'
           email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
+          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность начинать <a href="%{resource_path}">новые обсуждения</a>
