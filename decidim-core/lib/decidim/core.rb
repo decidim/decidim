@@ -176,7 +176,7 @@ module Decidim
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
-    500
+    100
   end
 
   # Time window in which the throttling is applied.
