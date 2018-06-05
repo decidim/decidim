@@ -323,16 +323,16 @@ describe "Answer a survey", type: :system do
           it "renders them as check boxes with attached text fields disabled by default" do
             expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
 
-            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: true, count: 1)
+            expect(page).to have_field("survey_survey_answers_0_choices_2_custom_body", disabled: true, count: 1)
 
             check answer_option_bodies[2]["en"]
 
-            expect(page).to have_field("survey_answers_0_choices_2_custom_body", disabled: false, count: 1)
+            expect(page).to have_field("survey_survey_answers_0_choices_2_custom_body", disabled: false, count: 1)
           end
 
           it "saves the free text in a separate field if submission correct" do
             check answer_option_bodies[2]["en"]
-            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -345,12 +345,12 @@ describe "Answer a survey", type: :system do
           end
 
           it "preserves the previous custom body if submission not correct" do
-            check "survey_answers_1_choices_0_body"
-            check "survey_answers_1_choices_1_body"
-            check "survey_answers_1_choices_2_body"
+            check "survey_survey_answers_1_choices_0_body"
+            check "survey_survey_answers_1_choices_1_body"
+            check "survey_survey_answers_1_choices_2_body"
 
             check answer_option_bodies[2]["en"]
-            fill_in "survey_answers_0_choices_2_custom_body", with: "Cacatua"
+            fill_in "survey_survey_answers_0_choices_2_custom_body", with: "Cacatua"
 
             check "survey_tos_agreement"
             accept_confirm { click_button "Submit" }
@@ -359,7 +359,7 @@ describe "Answer a survey", type: :system do
               expect(page).to have_content("There's been errors when answering the survey.")
             end
 
-            expect(page).to have_field("survey_answers_0_choices_2_custom_body", with: "Cacatua")
+            expect(page).to have_field("survey_survey_answers_0_choices_2_custom_body", with: "Cacatua")
           end
         end
       end

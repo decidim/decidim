@@ -16,6 +16,12 @@ fi:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
         origin_component_id: Komponentti kopioida ehdotukset osoitteesta
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Tarvitaan uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
       decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
@@ -299,6 +305,7 @@ fi:
           category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           evaluating: Arvioitavana
+          except_rejected: Kaikki paitsi hylätty
           official: Virallinen
           origin: Alkuperä
           rejected: Hylätty
@@ -311,10 +318,6 @@ fi:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
-        identities_listing:
-          see_all: Nähdä kaikki
-          see_less: Katso vähemmän
-          title: Luettelo hyväksynnästä
         index:
           new_proposal: Uusi ehdotus
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
@@ -343,6 +346,10 @@ fi:
           view_proposal: Näytä ehdotus
         show:
           edit_proposal: Muokkaa ehdotusta
+          endorsements_list: Luettelo hyväksynnästä
+          hidden_endorsers_count:
+            one: ja vielä yksi henkilö
+            other: ja %{count} muuta ihmistä
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
@@ -402,9 +409,9 @@ fi:
         success: Ehdotusluonnos on päivitetty onnistuneesti.
     resource_links:
       copied_from_component:
-        proposal_proposals: Vastaavat ehdotukset
+        proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_results: 'Tässä projektissa näkyvät tulokset:'
+        project_result: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
-        proposal_projects: 'Ehdotus esiintyy näissä projekteissa:'
-        proposal_results: 'Ehdotus esiintyy näissä tuloksissa:'
+        proposal_project: 'Ehdotus esiintyy näissä projekteissa:'
+        proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'

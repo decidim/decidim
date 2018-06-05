@@ -251,6 +251,7 @@ sv:
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"
+          view: Se
       models:
         meeting:
           fields:
@@ -288,11 +289,11 @@ sv:
         upcoming_meeting: Kommande möte
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Relaterade resultat:'
-        result_meetings: 'Relaterade möten:'
+        meeting_result: 'Relaterade resultat:'
+        result_meeting: 'Relaterade möten:'
       proposals_from_meeting:
-        meeting_proposals: 'Relaterade förslag:'
-        proposal_meetings: 'Relaterade möten:'
+        meeting_proposal: 'Relaterade förslag:'
+        proposal_meeting: 'Relaterade möten:'
   devise:
     mailer:
       join_meeting:

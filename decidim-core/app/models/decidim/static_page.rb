@@ -37,7 +37,7 @@ module Decidim
     end
 
     def self.sorted_by_i18n_title(locale = I18n.locale)
-      order(["title->? ASC", locale])
+      order([Arel.sql("title->? ASC"), locale])
     end
 
     # Whether this is page is a default one or not.

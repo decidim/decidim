@@ -99,6 +99,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!(participatory_space)
+      print "-- Creating #{name} component seeds for the participatory space with ID: #{participatory_space.id}...\n" unless Rails.env.test?
       @seeds&.call(participatory_space)
     end
 

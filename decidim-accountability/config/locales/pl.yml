@@ -213,6 +213,6 @@ pl:
         see_all_results: Zobacz wszystkie wyniki
     resource_links:
       included_projects:
-        result_projects: Projekty uwzględnione w tym wyniku
+        result_project: Projekty uwzględnione w tym wyniku
       included_proposals:
-        result_proposals: Propozycje zawarte w tym wyniku
+        result_proposal: Propozycje zawarte w tym wyniku

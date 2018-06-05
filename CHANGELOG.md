@@ -56,6 +56,8 @@ must now set a resource name:
 - **decidim-consultations**: Add consultation card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-blogs**: Add blog post card [\#3487](https://github.com/decidim/decidim/pull/3487)
 - **decidim-core**: GDPR: Opt-in for all the users with newsletters [\#3492](https://github.com/decidim/decidim/issues/3492)
+- **decidim-core**: GDPR: Track TOS page version in Organization [\#3491](https://github.com/decidim/decidim/pull/3491)
+- **decidim-core**: GDPR: User must review TOS when updated [\#3494](https://github.com/decidim/decidim/pull/3494)
 
 **Changed**:
 
@@ -91,12 +93,16 @@ must now set a resource name:
 - **decidim-assemblies**: Update card layout for assemblies and assembly members [\#3405](https://github.com/decidim/decidim/pull/3405)
 - **decidim-sortitions**: Update card layout [\#3405](https://github.com/decidim/decidim/pull/3405)
 - **decidim**: Changes on how to register resources. Resources from a component now they need a specific reference to the component manifest, and all resources need a name. [\#3416](https://github.com/decidim/decidim/pull/3416)
+- **decidim-consultations**: Improve overall navigation [\#3524](https://github.com/decidim/decidim/pull/3524)
+- **decidim-comments**: Let comments have paragraphs to increase readability [\#3538](https://github.com/decidim/decidim/pull/3538)
 
 **Fixed**:
 
+- **decidim-meetings**: Enforce permissions when managing meeting minutes. [\#3560](https://github.com/decidim/decidim/pull/3560)
 - **decidim-assembly**: Fix Non private users can participate to a private, transparent assembly [\#3438](https://github.com/decidim/decidim/pull/3438)
 - **decidim-proposals**: Fixes artificial margin between proposal "header" and list of endorsements. [\#2893](https://github.com/decidim/decidim/pull/2893)
 - **decidim-proposals**: Use translations for hardcoded text. [\#3464](https://github.com/decidim/decidim/pull/3464)
+- **decidim-core**: Don't send notifications to users without access to the space. [\#3542](https://github.com/decidim/decidim/pull/3542)
 - **decidim-core**: Include datepicker locales in front pages too. [\#3448](https://github.com/decidim/decidim/pull/3448)
 - **decidim-core**: Uses current organization scopes in scopes picker. [\#3386](https://github.com/decidim/decidim/pull/3386)
 - **decidim-blog**: Add `params[:id]` when editing/deleting a post from admin site [\#3329](https://github.com/decidim/decidim/pull/3329)
@@ -107,8 +113,25 @@ must now set a resource name:
 - **decidim-participatory_processes**: Remove duplicated space title on page meta tags [\#3278](https://github.com/decidim/decidim/pull/3278)
 - **decidim-assemblies**: Remove duplicated space title on page meta tags [\#3278](https://github.com/decidim/decidim/pull/3278)
 - **decidim-core**: Add validation to nickname's length. [\#3342](https://github.com/decidim/decidim/pull/3342)
+- **decidim-core**: Deactivate notifications bell when marking all as read [\#3509](https://github.com/decidim/decidim/pull/3509)
+- **decidim-surveys**: Fix a N+1 in surveys [\#3497](https://github.com/decidim/decidim/pull/3497)
+- **decidim-initiatives**: Fix user signing of initiatives [\#3513](https://github.com/decidim/decidim/pull/3513)
 - **decidim-core**: Make admin link on user menu stop disappearing [\#3508](https://github.com/decidim/decidim/pull/3508)
 - **decidim-core**: Sort static pages by title [\#3479](https://github.com/decidim/decidim/pull/3479)
+- **decidim-core**: Data picker form inputs having no bottom margin. [\#3463](https://github.com/decidim/decidim/pull/3463)
+- **decidim-core**: Make signup forms show the password confirmation field as required[\#3521](https://github.com/decidim/decidim/pull/3521)
+- **decidim-core**: Fix default page creation so they get scoped to the actual organization [\#3526](https://github.com/decidim/decidim/pull/3526)
+- **decidim-consultations**: Do not allow votes on upcoming consultations [\#3529](https://github.com/decidim/decidim/pull/3529)
+- **decidim-surveys**: Fix answer exporter for single/multi-choice questions [\#3535](https://github.com/decidim/decidim/pull/3535)
+- **decidim-core**: Do not allow users to follow themselves [\#3536](https://github.com/decidim/decidim/pull/3536)
+- **decidim-system**: Fix new organization admin not being invited properly [\#3543](https://github.com/decidim/decidim/pull/3543)
+- **decidim-consultations**: Use app CSS variables [\#3541](https://github.com/decidim/decidim/pull/3541)
+- **decidim-proposals**: Hide supports on linked proposals if theya re supposed to be hidden [\#3544](https://github.com/decidim/decidim/pull/3544)
+- **decidim-core**: Fix confirmation emails resending for multitenant systems [\#3546](https://github.com/decidim/decidim/pull/3546)
+- **decidim-proposals**: Warn the user the attachment is lost when the form is errored [\#3553](https://github.com/decidim/decidim/pull/3553)
+- **decidim-core**: Consistent casing of error messages [\#3565](https://github.com/decidim/decidim/pull/3565)
+- **decidim-comments**: Fix comments stats so it appears in the homepage again [\#3570](https://github.com/decidim/decidim/pull/3570)
+- **decidim-comments**: Fix comment creation events raising errors when being delivered [\#3580](https://github.com/decidim/decidim/pull/3580)
 
 **Removed**:
 

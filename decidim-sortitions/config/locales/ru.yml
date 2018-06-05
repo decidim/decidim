@@ -10,4 +10,8 @@ ru:
         models:
           sortition:
             fields:
+              decidim_proposals_component: Составляющая предложений
               title: Название
+      sortitions:
+        filters:
+          active: Действующие

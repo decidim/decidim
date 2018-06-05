@@ -22,7 +22,6 @@ module Decidim
         }, constraints: { question_id: /[0-9]+/ }
 
         resources :consultations, only: [:index, :show], param: :slug, path: "consultations" do
-          get "finished", on: :collection
           resource :consultation_widget, only: :show, path: "embed"
 
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
@@ -50,7 +49,7 @@ module Decidim
       initializer "decidim_consultations.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_consultations_manifest.js
-          decidim_consultations_manifest.scss
+          decidim_consultations_manifest.css
         )
       end
 

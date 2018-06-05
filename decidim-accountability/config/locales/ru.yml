@@ -158,6 +158,6 @@ ru:
           version_index: Версия %{index}
     resource_links:
       included_projects:
-        result_projects: Проекты, включенные в эти итоги
+        result_project: Проекты, включенные в эти итоги
       included_proposals:
-        result_proposals: Предложения, включенные в этот итог
+        result_proposal: Предложения, включенные в этот итог

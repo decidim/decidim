@@ -5,7 +5,7 @@ uk:
         created_at: 'Створено:'
         field: Моє поле
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
         updated_at: 'Оновлено:'
   decidim:
     dummy:
@@ -16,6 +16,8 @@ uk:
       home:
         statistics:
           bar: Приклад змінної 1
+          dummies_count_high: Приклад найвищої кількості
+          dummies_count_medium: Приклад середньої кількості
           foo: Приклад змінної 2
     participatory_processes:
       statistics:

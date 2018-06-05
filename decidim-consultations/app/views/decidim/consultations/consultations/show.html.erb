@@ -1,16 +1,3 @@
 <%= render partial: "consultation_details", locals: { consultation: current_consultation } %>
-<div class="row">
-  <div class="columns large-up-3">
-    <%= card_for current_consultation %>
-  </div>
-</div>
 <%= render partial: "highlighted_questions", locals: { consultation: current_consultation } %>
 <%= render partial: "regular_questions", locals: { consultation: current_consultation } %>
-
-<% if finished_consultations.any? %>
-  <div class="text-center">
-    <%= link_to t("consultations.show.see_finished_consultations", scope: "decidim"),
-                finished_consultations_path,
-                class: "button hollow button--sc" %>
-  </div>
-<% end %>

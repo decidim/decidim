@@ -65,6 +65,7 @@ en:
         omnipresent_banner_url: URL
         reference_prefix: Reference prefix
         show_statistics: Show statistics
+        tos_version: Terms of service version
         twitter_handler: Twitter handler
         welcome_text: Welcome text
         youtube_handler: YouTube handler
@@ -80,6 +81,7 @@ en:
         organization: Organization
         plural: Plural
       static_page:
+        changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
         slug: URL slug
@@ -575,8 +577,11 @@ en:
         destroy:
           success: Page successfully destroyed
         edit:
+          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
+        index:
+          last_notable_change: Last notable change
         new:
           create: Create
           title: New page

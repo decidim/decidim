@@ -3,10 +3,10 @@ ru:
     attributes:
       id_document_information:
         document_number: Номер документа (с буквой)
-        document_type: Тип документа
+        document_type: Вид документа
       id_document_upload:
         document_number: Номер документа (с буквой)
-        document_type: Тип документа
+        document_type: Вид вашего документа
         user: Участник
         verification_attachment: Скан вашего документа
   decidim:

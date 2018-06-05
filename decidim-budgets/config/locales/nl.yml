@@ -137,7 +137,7 @@ nl:
         success: Uw stem is succesvol geannuleerd
     resource_links:
       included_proposals:
-        project_proposals: 'Voorstellen opgenomen in dit project:'
+        project_proposal: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen
   total_budget: Totale begroting

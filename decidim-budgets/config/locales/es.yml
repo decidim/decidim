@@ -137,7 +137,7 @@ es:
         success: Tu voto ha sido cancelado correctamente
     resource_links:
       included_proposals:
-        project_proposals: 'Propuestas incluidas en este proyecto:'
+        project_proposal: 'Propuestas incluidas en este proyecto:'
   index:
     confirmed_orders_count: Número de votos
   total_budget: Presupuesto total

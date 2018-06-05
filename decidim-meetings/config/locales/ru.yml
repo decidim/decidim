@@ -20,6 +20,7 @@ ru:
   decidim:
     meetings:
       actions:
+        attachment_collections: Папки
         attachments: Вложения
         close: Закрыть
         confirm_destroy: Вы действительно хотите удалить эту встречу?
@@ -97,7 +98,7 @@ ru:
           category_prompt: Выберите категорию
           date: Дата
           past: Прошедшие
-          search: Искать
+          search: Поиск
           upcoming: Предстоящие
         filters_small_view:
           close_modal: Закрыть окошко
@@ -147,11 +148,11 @@ ru:
           success: Вы успешно отменили регистрацию на встречу.
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Подобные итоги:'
-        result_meetings: 'Подобные встречи:'
+        meeting_result: 'Подобные итоги:'
+        result_meeting: 'Подобные встречи:'
       proposals_from_meeting:
-        meeting_proposals: 'Подобные предложения:'
-        proposal_meetings: 'Подобные встречи:'
+        meeting_proposal: 'Подобные предложения:'
+        proposal_meeting: 'Подобные встречи:'
   devise:
     mailer:
       join_meeting:

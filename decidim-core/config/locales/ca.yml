@@ -191,6 +191,7 @@ ca:
         new:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
+          newsletter_title: Permís de contacte
           nickname_help: El vostre identificador curt i únic a %{organization}
           sign_in: Entra
           sign_up: Registra't
@@ -201,12 +202,19 @@ ca:
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
+          tos_title: Termes del servei
           username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantitzar l'anonimat pot ser qualsevol nom.
       sessions:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
       shared:
+        newsletter_modal:
+          buttons:
+            check: Marca i continua
+            uncheck: Deixa desmarcada
+          notice: Hola, estàs segur que no vols rebre un butlletí informatiu? Si us plau, avalua tornar a fer clic a la casella de verificació que apareix a continuació. Per a nosaltres és molt important que rebis correus ocasionals per fer anuncis importants, i sempre pots canviar-ho a la pàgina de configuració de les notificacions. Si no marques la casella, és possible que no rebis informació rellevant sobre noves oportunitats de participació dins de la plataforma. Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió. Gràcies per llegir això!
+          title: Notificacions de butlletins
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -281,7 +289,7 @@ ca:
     followers:
       no_followers: Encara no hi ha seguidors.
     following:
-      no_followings: Encara no hi ha ningú seguit.
+      no_followings: No segueix cap persona ni res.
     follows:
       create:
         button: Seguir
@@ -424,7 +432,7 @@ ca:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         followers: Seguidors
-        following: Seguint
+        following: Segueix
         notifications: Notificacions
       user:
         edit_profile: Edita el perfil
@@ -540,17 +548,15 @@ ca:
       public: La teva informació pública.
   errors:
     messages:
-      content_type_whitelist_error: El tipus de fitxer no és vàlid
+      content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      invalid_manifest: Arxiu de manifest invàlid
-      invalid_participatory_process: Procés participatiu invàlid
-      long_words: Conté paraules que són massa llargues
-      must_start_with_caps: Ha de començar amb majúscules
+      long_words: conté paraules que són massa llargues
+      must_start_with_caps: ha de començar amb caps
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
-      too_much_caps: Està utilitzant massa majúscules
-      too_short: És massa curt
+      too_many_marks: està usant massa marques
+      too_much_caps: està usant massa caps
+      too_short: és massa curt
   forms:
     required: Obligatori
   invisible_captcha:

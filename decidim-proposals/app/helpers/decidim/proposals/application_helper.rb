@@ -83,10 +83,6 @@ module Decidim
           end
         end
       end
-
-      def endorsers_for(proposal)
-        proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
-      end
     end
   end
 end

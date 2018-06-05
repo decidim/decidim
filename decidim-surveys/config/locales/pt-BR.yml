@@ -109,4 +109,7 @@ pt-BR:
           survey_closed:
             body: A pesquisa está fechada e não pode ser respondida.
             title: Pesquisa fechada
+          survey_for_private_users:
+            body: A pesquisa está disponível apenas para usuários particulares
+            title: Inquérito encerrado
           tos_agreement: Ao participar desta pesquisa você aceita seus Termos de Serviço

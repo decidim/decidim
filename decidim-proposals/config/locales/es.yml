@@ -16,6 +16,12 @@ es:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necesita volverse a unir
     models:
       decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
@@ -89,7 +95,7 @@ es:
         endorsing_enabled:
           email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La reivindicación de propuestas ha comenzado para %{participatory_space_title}
+          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
@@ -277,7 +283,7 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          back: Atrás
+          back: Volver
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
@@ -299,6 +305,7 @@ es:
           category_prompt: Selecciona una categoría
           citizens: Ciudadanía
           evaluating: En evaluación
+          except_rejected: Todos excepto rechazados
           official: Oficial
           origin: Origen
           rejected: Rechazadas
@@ -311,10 +318,6 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        identities_listing:
-          see_all: Ver todo
-          see_less: Ver menos
-          title: Lista de adhesiones
         index:
           new_proposal: Nueva propuesta
           see_all_withdrawn: Ver todas las propuestas retiradas
@@ -343,6 +346,10 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
+          endorsements_list: Lista de adhesiones
+          hidden_endorsers_count:
+            one: y 1 persona más
+            other: y %{count} personas más
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -382,7 +389,7 @@ es:
             left: Restante
             votes: Votos
         wizard_aside:
-          back: Atrás
+          back: Volver
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
@@ -402,9 +409,9 @@ es:
         success: Borrador de propuesta actualizado con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propuestas relacionadas
+        proposal_proposal: Propuestas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen en este proyecto:'
+        project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_projects: 'Propuesta formulada en estos proyectos:'
-        proposal_results: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta formulada en estos proyectos:'
+        proposal_result: 'Propuesta formulada en estos resultados:'

@@ -191,6 +191,7 @@ gl:
         new:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
+          newsletter_title: Permiso de contacto
           nickname_help: O teu identificador breve e único en %{organization}
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
@@ -201,12 +202,19 @@ gl:
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           terms: os termos e condicións de uso
           tos_agreement: Ao rexistrarte, aceptas %{link}.
+          tos_title: Condicións de servicio
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       sessions:
         new:
           are_you_new?: Novo para a plataforma?
           register: Crear unha conta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Comprobar e continuar
+            uncheck: Mantente desmarcada
+          notice: Ola, estás seguro de que non queres recibir un boletín informativo? Por favor, considere nuevamente marcar a caixa de verificación seguinte. É moi importante para nós que podes recibir correos electrónicos ocasionais para facer anuncios importantes, sempre podes cambiar isto na túa páxina de configuración de notificacións. Se non marca a caixa, falla información relevante sobre novas oportunidades de participación dentro da plataforma. Se aínda queres evitar recibir boletíns, entendemos perfectamente a túa decisión. Grazas por ler isto!
+          title: Notificacións de boletín informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -281,7 +289,7 @@ gl:
     followers:
       no_followers: Aínda non hai seguidores.
     following:
-      no_followings: Aínda non hai seguidores.
+      no_followings: Aínda non segue a ninguén nin a nada.
     follows:
       create:
         button: Segue
@@ -424,7 +432,7 @@ gl:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
         followers: Seguidores
-        following: A continuación
+        following: Segue
         notifications: Notificacións
       user:
         edit_profile: Editar perfil
@@ -539,17 +547,15 @@ gl:
       public: A túa información pública.
   errors:
     messages:
-      content_type_whitelist_error: O tipo de ficheiro non é válido
+      content_type_whitelist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
-      invalid_manifest: Manifesto non válido
-      invalid_participatory_process: Proceso participativo non válido
-      long_words: Contén palabras que son demasiado longas
-      must_start_with_caps: Debe comezar con tapas
+      long_words: contén palabras que son demasiado longas
+      must_start_with_caps: debe comezar con tapas
       nesting_too_deep: non pode estar dentro dunha subcategoría
-      too_many_marks: Está a usar demasiadas marcas
-      too_much_caps: Está a usar demasiadas tapas
-      too_short: É moi curto
+      too_many_marks: está a usar demasiadas marcas
+      too_much_caps: está a usar demasiadas tapas
+      too_short: é demasiado curto
   forms:
     required: Requerido
   invisible_captcha:
