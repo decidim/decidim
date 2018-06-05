@@ -57,7 +57,7 @@ uk:
             title: Обговорення
           new:
             create: Започаткувати обговорення
-            title: Нове обговорення
+            title: Додати обговорення
           update:
             invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
@@ -94,12 +94,12 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
-          new_debate: Нове обговорення
+          new_debate: Додати обговорення
         new:
           back: Повернутись
           create: Започаткувати
           select_a_category: Будь ласка, оберіть розряд
-          title: Нове обговорення
+          title: Додати обговорення
         share:
           close_window: Закрити вікно
           share: Поділитися
@@ -119,7 +119,7 @@ uk:
               Доброго дня!,
               В просторі співучасті %{space_title} розпочалось нове обговорення. Прочитайте його та зробіть свій внесок:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за простором співучасті %{space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-            email_subject: Нове обговорення у %{space_title}
+            email_subject: Розпочати обговорення у %{space_title}
             notification_title: <a href="%{space_path}">%{space_title} </a> розпочав обговорення у <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
             email_intro: |-
