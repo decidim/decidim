@@ -374,11 +374,16 @@ ru:
     newsletters:
       unsubscribe:
         check_subscription: Если вы хотите изменить свои предпочтения, вы можете сделать это на <a href="%{link}" target="_blank">странице настроек</a>
+        error: При попытке отменить подписку произошла ошибка
+        success: Вы успешно отменили подписку.
+        token_error: Срок действия ссылки истек.
+        unsubscribe: Отписаться
     notifications:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
+        newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
         error: При обновлении настроек уведомлений произошла ошибка.
@@ -394,8 +399,10 @@ ru:
           debates: Дебаты
           debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
           how_to_participate: Как принять участие в движении?
+          meetings: Встречи
           meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
           more_info: Узнать больше
+          proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
           footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
@@ -410,10 +417,14 @@ ru:
           comments_count: Комментарии
           debates_count: Дебаты
           headline: Текущее состояние %{organization}
+          meetings_count: Встречи
           orders_count: Голоса
           pages_count: Страницы
           processes_count: Движения
+          projects_count: Проекты
           proposals_accepted: Принятые предложения
+          proposals_count: Предложения
+          results_count: Итоги
           surveys_count: Опросы
           users_count: Участники
           votes_count: Голоса
@@ -438,8 +449,19 @@ ru:
           alert: Мы обновили наши "Условия участия", пожалуйста, просмотрите их.
           body: Пожалуйста, найдите минутку, чтобы ознакомиться с обновлениями наших "Условий участия". В противном случае вы не сможете использовать платформу.
           title: 'Обязательно: просмотрите обновления наших условий участия'
+    participatory_space_private_users:
+      not_allowed: У вас нет прав на просмотр этого содержимого
+    profile:
+      deleted: Удаленный участник
+      view: Посмотреть
     profiles:
       default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
+      show:
+        followers: Читают
+        following: Следит за
+        notifications: Уведомления
+      user:
+        edit_profile: Редактировать профиль
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -472,6 +494,7 @@ ru:
         incomplete:
           cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
+          invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность
           title: Пожалуйста, заново подтвердите свою личность
         missing:
@@ -484,6 +507,7 @@ ru:
           title: Подтверждение личности еще не проведено
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
+          invalid_field: "Для %{field} недопустимо значение %{value}."
           ok: Хорошо
           title: Не подтвердили свою личность
       embed_modal:
@@ -517,6 +541,7 @@ ru:
   devise:
     invitations:
       edit:
+        header: Завершите создание своей учетной записи
         submit_button: Сохранить
     mailer:
       invitation_instructions:
