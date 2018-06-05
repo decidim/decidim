@@ -16,7 +16,7 @@ ru:
         end_time: Время завершения
         location: Место
         location_hints: Как добраться
-        private_meeting: Закрытая встреча
+        private_meeting: Частная встреча
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
         start_time: Время начала
