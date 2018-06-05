@@ -75,14 +75,14 @@ uk:
             official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
-            proposal_length: Максимальна довжина основного тексту пропозиції
-            proposal_limit: Максимальна кількість пропозицій на одного учасника
+            proposal_length: Гранична довжина основного тексту пропозиції
+            proposal_limit: Гранична кількість пропозицій від одного учасника
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
             threshold_per_proposal: Поріг на кожну пропозицію
-            vote_limit: Максимальна кількість голосів для одного учасника
+            vote_limit: Гранична кількість голосів від одного учасника
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
