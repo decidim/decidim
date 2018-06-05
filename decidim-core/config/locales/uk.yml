@@ -433,6 +433,9 @@ uk:
           register: Зареєструватися
       index:
         title: Додаткові відомості
+      terms_and_conditions:
+        accept:
+          error: Під час прийняття умов участі виникла помилка.
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
