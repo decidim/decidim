@@ -131,6 +131,11 @@ ru:
             projects_per_page: Проектов на страницу
             total_budget: Общий бюджет
             vote_threshold_percent: Минимальный процент бюджета для голосования
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии выключены
+            show_votes: Показать голоса
+            votes_enabled: Голосование включено
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка
