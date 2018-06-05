@@ -143,6 +143,8 @@ ru:
         new:
           create: Добавить
           title: Добавить участника собрания.
+        update:
+          success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
