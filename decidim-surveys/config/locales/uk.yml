@@ -12,7 +12,7 @@ uk:
         survey_answer:
           attributes:
             choices:
-              missing: деяких не вистачає
+              missing: наведені не всі
               too_many: занадто багато
     models:
       decidim/surveys/closed_survey_event: Опитування закінчилося
