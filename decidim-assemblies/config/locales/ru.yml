@@ -3,10 +3,16 @@ ru:
     attributes:
       assembly:
         area_id: Участок
+        assembly_type: Вид собрания
+        assembly_type_other: Другой вид собрания
         banner_image: Изображение баннера
+        closing_date: Дата закрытия
+        closing_date_reason: Причина даты закрытия
+        composition: Состав
         copy_categories: Скопировать разряды
         copy_components: Копировать составляющие
         copy_features: Копировать составляющие
+        created_by: 'Добавил:'
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
@@ -100,6 +106,7 @@ ru:
             see_all_assemblies: Просмотреть все собрания
       show:
         area: Участок
+        created_by: 'Автор:'
         developer_group: Группа зачинателей
         local_area: Местный участок
         participatory_scope: Охват соучастия
