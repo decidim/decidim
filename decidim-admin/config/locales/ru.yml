@@ -226,7 +226,7 @@ ru:
           title: Редактировать разряд
           update: Обновить
         index:
-          categories_title: Категории
+          categories_title: Разряды
           category_used: Этот разряд нельзя удалить, так как он используется.
         new:
           create: Создать разряд
