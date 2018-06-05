@@ -34,15 +34,51 @@ ru:
         participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
-        private_space: Личное пространство
+        private_space: Частное пространство
         promoted: Рекламируется
+        published_at: 'Опубликовано:'
+        purpose_of_action: Цель действия
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
+        show_statistics: Показывать статистику
         slug: Сокращенный URL-адрес
+        special_features: Особенности
         subtitle: Подзаголовок
         target: Цель
         title: Название
+        twitter: Твиттер
+        youtube: ЮТуб
+      assembly_member:
+        birthday: День рождения
+        birthplace: Место рождения
+        ceased_date: Дата прекращения полномочий
+        designation_date: Дата предоставления полномочий
+        designation_mode: Вид полномочий
+        full_name: Полное имя
+        gender: Пол
+        position: Должность
+      assembly_user_role:
+        email: Эл. адрес
+        name: Имя
+        role: Роль
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Собрание
+        few: Собрания
+        many: Собраний
+        other: Собраний
+      decidim/assembly_member:
+        one: Член президиума собрания
+        few: Члена президиума собрания
+        many: Членов президиума собрания
+        other: Членов президиума собрания
+      decidim/assembly_user_role:
+        one: Роль участника собрания
+        few: Роли участников собрания
+        many: Ролей участников собрания
+        other: Ролей участников собрания
   decidim:
     admin:
       assemblies:
