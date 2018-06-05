@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       proposal:
-        answer: Відповідь
+        answer: Відповісти
         answered_at: 'Отримано відповідь:'
         body: Основний текст
         category_id: Розряд
@@ -21,7 +21,7 @@ uk:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Необхідно повторно додати вкладений файл
+              needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
