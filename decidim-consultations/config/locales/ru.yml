@@ -20,3 +20,8 @@ ru:
         active: Действующие
       highlighted_questions:
         title: Вопросы из %{scope_name}
+  layouts:
+    decidim:
+      admin:
+        question:
+          categories: Разряды
