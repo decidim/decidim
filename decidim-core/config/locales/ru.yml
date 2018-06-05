@@ -548,9 +548,10 @@ ru:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
         hello: Здравствуйте, %{email}!
-        invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это прглашение по ссылке ниже."
+        invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
+        invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
-        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.
+        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
