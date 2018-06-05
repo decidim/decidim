@@ -210,19 +210,38 @@ ru:
             select_a_proposal: Пожалуйста, выберите предложение
             success: 'Предложения успешно перенесены в разряд %{category}: %{proposals}.'
         proposals_imports:
+          create:
+            invalid: При попытке позаимствовать эти предложения произошла ошибка
+            success: "%{number} предложений успешно позаимствованы"
           new:
+            create: Позаимствовать предложения
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
+            select_states: Проверьте состояние предложений, которые вы хотите позаимствовать
+        shared:
+          info_proposal:
+            body: Основной текст
+            created_at: Дата создания
+            proposal_votes_count: Количество голосов
+            proposals: Предложения
       admin_log:
         proposal:
+          answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
           create: "%{user_name} создал в пространстве %{space_name} предложение %{resource_name} в качестве служебного предложения"
+        proposal_note:
+          create: "%{user_name} оставил частное примечание по предложению %{resource_name} в пространстве %{space_name}"
       answers:
         accepted: Принято
         evaluating: Рассматривается
         not_answered: Без ответов
         rejected: Отклонено
+        withdrawn: Отозван
       create:
         error: При сохранении этого предложения произошли ошибки.
+        success: Предложение создано успешно. Сохранено как черновик.
+      destroy_draft:
+        error: При удалении этого черновика предложения произошли ошибки.
+        success: Черновик предложения был успешно удален.
       models:
         proposal:
           fields:
