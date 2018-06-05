@@ -64,7 +64,7 @@ uk:
         models:
           components:
             description: Опис
-            tos: Умови використання
+            tos: Умови участі
         surveys:
           answer_option:
             answer_option: Варіант відповіді
