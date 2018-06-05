@@ -69,6 +69,13 @@ ru:
             geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
             official_proposals_enabled: Включена возможность выдвигать служебные предложения
+            proposal_answering_enabled: Включена возможность отвечать на предложения
+            proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
+            proposal_length: Предельная длина основного текста предложения
+            proposal_limit: Предельное количество предложений от одного участника
+            proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Внести"
+            proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
+            proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
     events:
       proposals:
         proposal_update_category:
@@ -123,6 +130,9 @@ ru:
           new:
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
+      admin_log:
+        proposal:
+          create: "%{user_name} создал в пространстве %{space_name} предложение %{resource_name} в качестве служебного предложения"
       answers:
         accepted: Принято
         evaluating: Рассматривается
@@ -169,7 +179,7 @@ ru:
           category_prompt: Выберите разряд
           citizens: Граждане
           evaluating: Рассматривается
-          official: Официальный
+          official: Служебные
           origin: Источник
           rejected: Отклонено
           related_to: Связано с
