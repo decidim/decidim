@@ -224,6 +224,8 @@ ru:
         destroy:
           invalid: При попытке отказаться от встречи произошла ошибка.
           success: Вы успешно отменили регистрацию на встречу.
+      types:
+        private_meeting: Частная встреча
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Подобные итоги:'
