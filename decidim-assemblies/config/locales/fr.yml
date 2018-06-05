@@ -3,8 +3,8 @@ fr:
     attributes:
       assembly:
         area_id: Zone d'application
-        assembly_type: Type d'assemblée
-        assembly_type_other: Autre type d'assemblée
+        assembly_type: Type d'agora
+        assembly_type_other: Autre type d'agora
         banner_image: Image d'en-tête
         closing_date: Date de clôture
         closing_date_reason: Raison de la date de clôture
@@ -31,7 +31,7 @@ fr:
         is_transparent: Visible par les non-membres
         local_area: Zone d'application locale
         meta_scope: Métadonnée de la zone d’application
-        participatory_processes_ids: Processus participatifs associés
+        participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Espace privé
@@ -65,22 +65,22 @@ fr:
   activerecord:
     models:
       decidim/assembly:
-        one: Assemblée
-        other: Assemblées
+        one: Agora
+        other: Agora
       decidim/assembly_member:
-        one: Membre de l'assemblée
-        other: Membres de l'assemblée
+        one: Membre de l'agora
+        other: Membres de l'agora
       decidim/assembly_user_role:
-        one: Fonction du membre dans l'assemblée
-        other: Fonctions du membre dans l'assemblée
+        one: Fonction du membre dans l'agora
+        other: Fonctions du membre dans l'agora
   decidim:
     admin:
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
-          success: Assemblée créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle agora.
+          success: Agora créée avec succès.
         destroy:
-          success: Assemblée supprimée avec succès.
+          success: Agora supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
