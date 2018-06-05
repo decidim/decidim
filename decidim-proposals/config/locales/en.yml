@@ -99,6 +99,11 @@ en:
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} requested access as a contributor. You can accept or reject the request from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
+          email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -296,7 +301,9 @@ en:
           recent: Recent
         requests:
           accepted_request: "@%{user} has been added as a collaborator successfully"
-          access_requested: Your request to collaborate has been sent successfully
+          access_requested:
+            error: Your request could not be completed, try again later.
+            success: Your request to collaborate has been sent successfully
           collaboration_requests:
             accept_request: Accept
             reject_request: Reject

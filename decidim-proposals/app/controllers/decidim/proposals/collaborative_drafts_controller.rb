@@ -111,8 +111,15 @@ module Decidim
       end
 
       def request_access
-        @collaborative_draft.access_requestors << current_user
-        flash[:notice] = t("access_requested", scope: "decidim.proposals.collaborative_drafts.requests")
+        RequestAccessToCollaborativeDraft.call(@collaborative_draft, current_user) do
+          on(:ok) do |_collaborative_draft|
+            flash[:notice] = t("access_requested.success", scope: "decidim.proposals.collaborative_drafts.requests")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("access_requested.invalid", scope: "decidim.proposals.collaborative_drafts.requests")
+          end
+        end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
