@@ -248,7 +248,9 @@ ru:
             category: Разряд
             comments: Комментарии
             created_at: 'Создано:'
+            endorsements: Поддержали
             id: Псевдоним
+            notes: Примечания
             official_proposal: Служебное предложение
             scope: Охват
             state: Cостояние
@@ -256,12 +258,29 @@ ru:
             votes: Голоса
       new:
         limit_reached: Вы не можете вносить новые предложения, так как вы превысили лимит.
+      proposal_endorsements:
+        create:
+          error: При попытке поддержать это предложение произошли ошибки.
+        identities:
+          done: Готово
+          select_identity: Выберите роль
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Поддержано
+          endorse: Поддержать
       proposal_votes:
         create:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
+        compare:
+          mine_is_different: Мое предложение отличается
+          no_similars_found: Хорошая работа! Подобных предложений не найдено
+          title: Похожие предложения
         complete:
+          attachment_legend: "(Необязательно) Добавить вложение"
           select_a_category: Пожалуйста, выберите разряд
+          send: Отправить
+          title: Завершите свое предложение
         count:
           proposals_count:
             one: 1 предложение
@@ -273,6 +292,8 @@ ru:
           select_a_category: Пожалуйста, выберите разряд
           send: Отправить
           title: Редактировать предложение
+        edit_draft:
+          discard: Отбросить этот черновик
         filters:
           accepted: Принято
           activity: Деятельность
