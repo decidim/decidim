@@ -5,12 +5,14 @@ ru:
         body: Ответить
       survey_question:
         mandatory: Обязательно
+        max_choices: Максимальное количество вариантов
         question_type: Вид
     errors:
       models:
         survey_answer:
           attributes:
             choices:
+              missing: приведены не все
               too_many: слишком много
     models:
       decidim/surveys/closed_survey_event: Опрос закончился
