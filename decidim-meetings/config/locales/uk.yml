@@ -251,11 +251,9 @@ uk:
           contributions: Кількість внесених пропозицій
           going: Збирається відвідати
           join: Долучитись до зустрічі
-          meeting_minutes: Протоколи зустрічі
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          related_information: Супутні відомості
           remaining_slots:
             one: Залишилось 1 місце
             few: "Залишилось %{count} місця"
