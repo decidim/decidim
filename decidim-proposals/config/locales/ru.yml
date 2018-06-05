@@ -25,7 +25,17 @@ ru:
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято
       decidim/proposals/admin/update_proposal_category_event: Разряд предложения изменен
+      decidim/proposals/proposal_mentioned_event: Предложение упомянуто
+      decidim/proposals/publish_proposal_event: Предложение опубликовано
+      decidim/proposals/rejected_proposal_event: Предложение отклонено
   decidim:
+    events:
+      proposals:
+        proposal_update_category:
+          email_intro: 'Администратор обновил разряд вашего предложения «%{resource_title}», проверьте его:'
+          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
+          email_subject: Обновлен разряд предложений %{resource_title}
+          notification_title: Разряд предложений <a href="%{resource_path}">%{resource_title}</a> был обновлен ​​администратором.
     proposals:
       actions:
         answer: Ответить
@@ -59,10 +69,16 @@ ru:
             attachment_legend: "(Необязательно) Добавить вложение"
             select_a_category: Выберите разряд
           index:
+            change_category: Изменить разряд
             title: Предложения
           new:
             create: Внести
             title: Внести предложение
+          update_category:
+            invalid: 'Эти предложения уже относились к разряду %{category}: %{proposals}.'
+            select_a_category: Пожалуйста, выберите разряд
+            select_a_proposal: Пожалуйста, выберите предложение
+            success: 'Предложения успешно перенесены в разряд %{category}: %{proposals}.'
         proposals_imports:
           new:
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
@@ -92,6 +108,8 @@ ru:
         create:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
+        complete:
+          select_a_category: Пожалуйста, выберите разряд
         count:
           proposals_count:
             one: 1 предложение
@@ -146,6 +164,8 @@ ru:
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
+        tags:
+          changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос
