@@ -93,7 +93,7 @@ uk:
           title: Загальні відомості
         index:
           not_published: Не оприлюднено
-          private: Приховані
+          private: Приватні
           public: Публічні
           published: Оприлюднено
         new:
@@ -164,12 +164,12 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
-            private: Приховані
+            private: Приватні
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
