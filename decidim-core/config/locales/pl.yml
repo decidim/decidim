@@ -557,17 +557,15 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      content_type_whitelist_error: Typ pliku jest nieprawidłowy
+      content_type_whitelist_error: typ pliku jest nieprawidłowy
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
-      invalid_manifest: Nieprawidłowy manifest
-      invalid_participatory_process: Nieprawidłowy proces uczestnictwa
-      long_words: Zawiera słowa, które są zbyt długie
-      must_start_with_caps: Musi zacząć od czapek
+      long_words: zawiera słowa, które są zbyt długie
+      must_start_with_caps: musi zaczynać się od czapek
       nesting_too_deep: Nie może być wewnątrz podkategorii
-      too_many_marks: Używa zbyt wielu znaków
-      too_much_caps: Używasz zbyt dużych czapek
-      too_short: Jest za krótki
+      too_many_marks: używa zbyt wielu znaków
+      too_much_caps: używa za dużo kapsli
+      too_short: jest za krótki
   forms:
     required: wymagany
   invisible_captcha:

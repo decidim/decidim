@@ -21,29 +21,29 @@ fr:
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
-        transparent: Transparent
+        transparent: Visible par les non-membres
       minutes:
-        audio_url: URL audio
-        description: La description
-        video_url: URL de la vidéo
+        audio_url: Lien vers l'audio
+        description: Description
+        video_url: Lien vers la vidéo
         visible: Est visible
     models:
-      decidim/meetings/close_meeting_event: Rencontre fermée
+      decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
       decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
-      decidim/meetings/meeting_registrations_over_percentage_event: Inscriptions à la limite
+      decidim/meetings/meeting_registrations_over_percentage_event: Les inscriptions ont atteint la limite fixée
       decidim/meetings/upcoming_meeting_event: Prochaine rencontre
       decidim/meetings/update_meeting_event: Rencontre mise à jour
   activerecord:
     models:
       decidim/meetings/meeting:
         one: Rencontre
-        other: Rencontre
+        other: Rencontres
       decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
+        one: Compte-rendu
+        other: Comptes-rendus
       decidim/meetings/registration:
-        one: enregistrement
+        one: Inscription
         other: Inscriptions
   decidim:
     admin:
@@ -63,41 +63,41 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Activer le module de commentaire
-            default_registration_terms: Conditions d'enregistrement par défaut
+            comments_enabled: Commentaires activés
+            default_registration_terms: Conditions d'inscription par défaut
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La rencontre "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La rencontre "%{resource_title}" a été fermée
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été fermée.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte-rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la rencontre.
-          email_subject: Les places occupées par la rencontre "%{resource_title}" sont au-dessus de %{percentage}%
-          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre occupées occupent plus de %{percentage}%.
+          email_subject: Les places occupées par la rencontre "%{resource_title}" dépassent %{percentage}%
+          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre sont occupées à plus de %{percentage}%.
         meeting_updated:
           email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registrations_enabled:
-          email_intro: 'La rencontre "%{resource_title}" a activé les enregistrements. Vous pouvez vous inscrire sur sa page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
-          email_subject: La rencontre "%{resource_title}" a activé les enregistrements.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a activé les enregistrements.
+          email_intro: 'La rencontre "%{resource_title}" a ouvert les inscriptions. Vous pouvez vous inscrire sur sa page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" a ouvert les inscriptions.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a ouvert les inscriptions.
         upcoming_meeting:
           email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre en vous connectant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     meetings:
@@ -108,7 +108,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Minutes
+        minutes: Compte-rendu
         new: Nouvelle
         preview: Aperçu
         registrations: Inscriptions
@@ -154,22 +154,22 @@ fr:
             create: Créer
             title: Créer une rencontre
           service:
-            description: La description
+            description: Description
             down: Vers le bas
             remove: Retirer
-            service: Un service
+            service: Service
             title: Titre
-            up: Up
+            up: Vers le haut
           services:
             add_service: Ajouter un service
-            services: Prestations de service
+            services: Services
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
         minutes:
           create:
             invalid: Un problème est survenu lors de la création de ce compte rendu
-            success: Minutes créées avec succès
+            success: Compte-rendu créé avec succès
           edit:
             update: Mettre à jour
           new:

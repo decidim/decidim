@@ -44,8 +44,15 @@ module Decidim
         parent.update_progress!
       end
 
+      # Public: There are two ways to update parent's progress:
+      #   - using weights, in which case each progress is multiplied by the weigth and them summed
+      #   - not using weights, and using the average of progress of each children
       def update_progress!
-        self.progress = children.average(:progress)
+        self.progress = if children_use_weighted_progress?
+                          children.sum { |result| (result.progress.presence || 0) * (result.weight.presence || 1) }
+                        else
+                          children.average(:progress)
+                        end
         save!
       end
 
@@ -67,6 +74,13 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
+      end
+
+      private
+
+      # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
+      def children_use_weighted_progress?
+        children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
       end
     end
   end

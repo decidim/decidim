@@ -16,6 +16,12 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Ha bisogno di essere ricollegato
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
       decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata

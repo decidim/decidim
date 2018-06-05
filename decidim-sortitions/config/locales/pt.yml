@@ -5,7 +5,7 @@ pt:
         additional_info: Informação de classificação
         decidim_category_id: Categorias do conjunto de propostas em que você deseja aplicar o sorteio
         decidim_proposals_component_id: Conjunto de propostas
-        dice: Resultado do teste de dados (role um dado de 6 faces (ou procure outro caminho aleatório para gerar um número de 1 a 6) e entre aqui, ao contrário de testemunhar o número resultante, isso contribui para a qualidade e garantias da aleatoriedade de o resultado
+        dice: Resultado do rolo de matriz Role um dado de 6 lados, ou procure outro modo aleatório de gerar um número de 1 a 6, e insira aqui o número resultante na frente de algumas testemunhas. Isto contribui para a qualidade e garantias da aleatoriedade do resultado
         target_items: Número de propostas a serem selecionadas (indica o número de propostas que você deseja selecionar sorteando o grupo de propostas que você escolheu anteriormente)
         title: Título
         witnesses: Testemunhas
@@ -87,7 +87,7 @@ pt:
             selected_proposals: Propostas selecionadas para sorteio
           update:
             error: Houve um erro ao atualizar a classificação.
-            success: Atualização de classificação com sucesso
+            success: Ordenação atualizada com sucesso
       admin_log:
         sortition:
           create: "%{user_name} criou a classificação %{resource_name} em %{space_name}"

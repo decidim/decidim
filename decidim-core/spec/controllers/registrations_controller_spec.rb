@@ -6,7 +6,7 @@ module Decidim
   describe Decidim::Devise::RegistrationsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, :with_tos) }
 
     before do
       request.env["devise.mapping"] = ::Devise.mappings[:user]

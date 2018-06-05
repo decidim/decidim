@@ -34,6 +34,7 @@ module Decidim
     validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
+    validates :tos_agreement, acceptance: true, if: :user_invited?
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
@@ -48,6 +49,10 @@ module Decidim
 
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
+
+    def user_invited?
+      invitation_token_changed? && invitation_accepted_at_changed?
+    end
 
     # Public: Allows customizing the invitation instruction email content when
     # inviting a user.
@@ -143,6 +148,12 @@ module Decidim
 
     def self.data_portability_images(user)
       user_collection(user).map(&:avatar)
+    end
+
+    def tos_accepted?
+      return true if managed
+      return false if accepted_tos_version.nil?
+      accepted_tos_version >= organization.tos_version
     end
 
     protected

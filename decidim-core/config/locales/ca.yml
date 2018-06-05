@@ -548,17 +548,15 @@ ca:
       public: La teva informació pública.
   errors:
     messages:
-      content_type_whitelist_error: El tipus de fitxer no és vàlid
+      content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      invalid_manifest: Arxiu de manifest invàlid
-      invalid_participatory_process: Procés participatiu invàlid
-      long_words: Conté paraules que són massa llargues
-      must_start_with_caps: Ha de començar amb majúscules
+      long_words: conté paraules que són massa llargues
+      must_start_with_caps: ha de començar amb caps
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
-      too_much_caps: Està utilitzant massa majúscules
-      too_short: És massa curt
+      too_many_marks: està usant massa marques
+      too_much_caps: està usant massa caps
+      too_short: és massa curt
   forms:
     required: Obligatori
   invisible_captcha:
