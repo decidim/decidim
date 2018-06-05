@@ -28,6 +28,19 @@ ru:
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение опубликовано
       decidim/proposals/rejected_proposal_event: Предложение отклонено
+      decidim/proposals/voting_enabled_event: Включена возможность голосовать по поводу предложений
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Предложение
+        few: Предложения
+        many: Предложений
+        other: Предложений
+      decidim/proposals/proposal_endorsement:
+        one: Поддержал
+        few: Поддержало
+        many: Поддержали
+        other: Поддержали
   decidim:
     events:
       proposals:
