@@ -104,6 +104,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the password is weak" do
+      let(:password) { "aaaabbbbcccc" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the password confirmation is not present" do
       let(:password_confirmation) { nil }
 

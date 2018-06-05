@@ -100,6 +100,14 @@ module Decidim
       end
     end
 
+    describe "password" do
+      context "when the password is weak" do
+        let(:password) { "aaaabbbbcccc" }
+
+        it { is_expected.to be_invalid }
+      end
+    end
+
     describe "personal_url" do
       context "when it doesn't start with http" do
         let(:personal_url) { "example.org" }

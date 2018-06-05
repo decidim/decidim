@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
   s.add_dependency "mini_magick", "~> 4.8"
+  s.add_dependency "nobspw", "~> 0.4.0"
   s.add_dependency "omniauth", "~> 1.6"
   s.add_dependency "omniauth-facebook", "~> 4.0"
   s.add_dependency "omniauth-google-oauth2", "~> 0.5.0"
