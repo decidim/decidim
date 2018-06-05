@@ -2,8 +2,8 @@ ru:
   activemodel:
     attributes:
       debate:
-        category_id: Категории
-        decidim_category_id: Категория
+        category_id: Разряд
+        decidim_category_id: Разряд
         title: Название
   decidim:
     events:
