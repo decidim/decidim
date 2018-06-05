@@ -8,6 +8,13 @@ ru:
         description: Описание
         proposal_ids: Подобные предложения
         title: Название
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Проект
+        few: Проекта
+        many: Проектов
+        other: Проектов
   decidim:
     budgets:
       actions:
@@ -42,6 +49,11 @@ ru:
           update:
             invalid: При попытке обновить этот проект произошла ошибка
             success: Проект успешно обновлен
+      admin_log:
+        project:
+          create: "%{user_name} создал проект %{resource_name} в пространстве %{space_name}"
+          delete: "%{user_name} удалил проект %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил проект %{resource_name} в пространстве %{space_name}"
       models:
         project:
           fields:
@@ -100,12 +112,25 @@ ru:
             many: "%{count} поддерживает"
             other: "%{count} поддерживает"
           remove: Удалить
+          view: Посмотреть
         project_budget_button:
           add: Добавить
           added: Добавлено
         show:
           budget: Бюджет
           view_all_projects: Просмотреть все проекты
+    components:
+      budgets:
+        actions:
+          vote: Голосовать
+        name: Бюджеты
+        settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+            projects_per_page: Проектов на страницу
+            total_budget: Общий бюджет
+            vote_threshold_percent: Минимальный процент бюджета для голосования
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка
