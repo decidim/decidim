@@ -98,3 +98,9 @@ ru:
           deleted: Удаленный участник
         sortition_cancel_author:
           deleted: Удаленный участник
+        sortitions_count:
+          count:
+            one: 1 жеребьевка
+            few: "%{count} жеребьевки"
+            many: "%{count} жеребьевок"
+            other: "%{count} жеребьевок"
