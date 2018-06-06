@@ -8,6 +8,8 @@ ru:
   decidim:
     sortitions:
       admin:
+        actions:
+          new: Добавить
         models:
           sortition:
             fields:
@@ -17,6 +19,9 @@ ru:
         sortitions:
           form:
             all_categories: Все разряды
+            title: Добавить новую жеребьевку предложений
+          new:
+            title: Добавить жеребьевку
       sortitions:
         filters:
           active: Действующие
