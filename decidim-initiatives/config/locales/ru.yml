@@ -16,6 +16,10 @@ ru:
           name: Охват вида почина
     initiatives:
       admin:
+        committee_requests:
+          index:
+            invite_to_committee_help: Поделитесь этой ссылкой, чтобы пригласить других участников в группу продвигателей
+            no_members_yet: В группе продвигателей нет ни одного члена
         initiatives_type_scopes:
           create:
             success: Создан новый охват для данного вида почина
@@ -51,3 +55,5 @@ ru:
       admin:
         initiative:
           components: Составляющие
+      initiative_creation_header:
+        promotal_committee: Группа продвигателей
