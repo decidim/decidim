@@ -429,15 +429,15 @@ es:
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
-          legend: Acepta los términos y condiciones de uso
+          legend: Aceptar los términos y condiciones de uso
         refuse:
-          modal_body: Si se niega, no podrá usar la plataforma, puede <a href="%{data_portability_path}">descargar sus datos</a> y / o <a href="%{delete_path}">eliminar su cuenta</a>.
-          modal_btn_continue: Aceptar términos y continuar
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
-          modal_button: Negarse a los términos
-          modal_title: '¿De verdad rechazas los Términos y Condiciones actualizados?'
+          modal_button: Rechazar los términos
+          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
-          alert: Hemos actualizado nuestros Términos de servicio, revíselos.
+          alert: Hemos actualizado nuestros términos de servicio, por favor revísalos.
           body: Tómese un momento para revisar las actualizaciones de nuestros Términos de servicios. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revise las actualizaciones de nuestros términos de servicio'
     participatory_space_private_users:
