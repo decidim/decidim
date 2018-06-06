@@ -76,5 +76,11 @@ ru:
           algorithm: Код алгоритма жеребьевки
           any_category: из всех разрядов
           cancelled: Отмененная жеребьевка
+          candidate_proposal_ids: Порядок и названия предложений для жеребьевки
           candidate_proposals_info: 'Жеребьевка была проведена среди следующих предложений (%{category_label}) со следующими названиями (выделены жирным шрифтом выбранные предложения)  '
           category: из разряда %{category}
+          dice_result: "(1) Результат броска кубика"
+          mathematical_result: Произведение (1) x (2)
+          proposals_selected_by_sortition: Предложения, отобранные жеребьевкой
+          sortition_reproducibility_details: Сведения о воспроизводимости жеребьевки
+          time_seed: "(2) Время как начальное число"
