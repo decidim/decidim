@@ -288,20 +288,19 @@ ru:
         social_networks: Социальные сети
         target: Цель
       statistics:
-        answers_count: Ответы
-        assemblies_count: Собрания
-        comments_count: Комментарии
-        debates_count: Обсуждения
-        endorsements_count: Поддержали
+        answers_count: Ответов
+        assemblies_count: Собраний
+        comments_count: Комментариев
+        debates_count: Обсуждений
+        endorsements_count: Выражений поддержки
         headline: Деятельность
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        projects_count: Проекты
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
+        meetings_count: Встреч
+        orders_count: Голосов
+        pages_count: Страниц
+        projects_count: Проектов
+        proposals_count: Предложений
+        results_count: Итогов
+        surveys_count: Опросов
         votes_count: Голоса
     assembly_members:
       assembly_member:
