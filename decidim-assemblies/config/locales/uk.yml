@@ -12,7 +12,7 @@ uk:
         copy_categories: Скопіювати розряди
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Дільниця
@@ -93,12 +93,12 @@ uk:
           title: Загальні відомості
         index:
           not_published: Не оприлюднено
-          private: Приховані
+          private: Приватні
           public: Публічні
           published: Оприлюднено
         new:
           create: Додати
-          title: Нові збори
+          title: Додати збори
         update:
           error: При оновленні цих зборів сталася помилка.
           success: Збори успішно оновлено.
@@ -124,7 +124,7 @@ uk:
           assembly_members_title: Члени президії зборів
         new:
           create: Додати
-          title: Новий член президії зборів.
+          title: Додати члена президії зборів.
         update:
           error: При спробі оновити члена президії цих зборів сталася помилка.
           success: Члена президії цих зборів успішно оновлено.
@@ -148,7 +148,7 @@ uk:
           assembly_admins_title: Учасники зборів
         new:
           create: Створити
-          title: Новий учасник зборів.
+          title: Додати учасника зборів.
         update:
           error: При спробі оновити учасника цих зборів сталася помилка.
           success: Учасника цих зборів успішно оновлено.
@@ -164,12 +164,12 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
-            private: Приховані
+            private: Приватні
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
@@ -218,7 +218,7 @@ uk:
           form:
             duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку ця дата відображатиметься як невизначена.
             included_at_help: Оберіть дату, коли ці збори були додані до Десідім. Вона не обов'язково має бути тою самою ж, що і дата створення.
-            select_a_created_by: Оберіть, ким створені
+            select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
@@ -260,7 +260,7 @@ uk:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Започаті збори
+            active_assemblies: Діючі збори
             see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
@@ -271,7 +271,7 @@ uk:
         children: Збори
         closing_date: Дата закриття
         composition: Склад
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         creation_date: Дата створення
         developer_group: Гурт просувачів
         duration: Тривалість

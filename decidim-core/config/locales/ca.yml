@@ -423,6 +423,23 @@ ca:
           register: Registra't
       index:
         title: Més informació
+      terms_and_conditions:
+        accept:
+          error: S'ha produït un error en acceptar els termes i condicions.
+          success: Genial Heu acceptat els termes i condicions.
+        form:
+          agreement: Accepto aquests termes
+          legend: Accepteu els termes i condicions d'ús
+        refuse:
+          modal_body: Si es nega, vostè no serà capaç d'utilitzar la plataforma, pot <a href="%{data_portability_path}">descarregar les seves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_btn_continue: Accepteu els termes i continueu
+          modal_btn_exit: Ho revisaré més tard
+          modal_button: Rebutja els termes
+          modal_title: Realment rebutja els Termes i condicions actualitzats?
+        required_review:
+          alert: Hem actualitzat les nostres Condicions del servei, revisa-les.
+          body: Preneu-vos un moment per revisar les actualitzacions de les nostres Condicions d'ús. En cas contrari, no podreu utilitzar la plataforma.
+          title: 'Obligatori: revisa les actualitzacions dels nostres termes de servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
@@ -515,17 +532,18 @@ ca:
   devise:
     invitations:
       edit:
-        header: Establir la contrasenya
+        header: Acaba de crear el vostre compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
+        subtitle: Si accepteu la invitació, configureu el vostre sobrenom i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no vols acceptar la invitació, ignora aquest correu.<br />
-          El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
+          Si no voleu acceptar la invitació, ignoreu aquest correu electrònic.<br />
+          vostre compte no es crearà fins que no accediu a l'enllaç anterior i configureu el vostre sobrenom i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.

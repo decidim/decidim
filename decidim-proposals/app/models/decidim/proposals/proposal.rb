@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
@@ -37,6 +38,14 @@ module Decidim
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where.not(published_at: nil) }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :body,
+        datetime: :published_at
+      )
 
       def self.order_randomly(seed)
         transaction do

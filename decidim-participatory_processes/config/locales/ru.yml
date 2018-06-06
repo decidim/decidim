@@ -4,7 +4,7 @@ ru:
       participatory_process:
         announcement: Объявление
         banner_image: Изображение баннера
-        copy_categories: Скопировать категории
+        copy_categories: Скопировать разряды
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
@@ -63,16 +63,18 @@ ru:
         participatory_processes_submenu:
           attachment_collections: Папки
           attachments: Вложения
-          categories: Категории
+          categories: Разряды
           components: Составляющие
-          info: Информация
+          info: Сведения
           moderations: Действия по модерации
+          private_users: Частные участники
           process_admins: Участники движения
           steps: Шаги
       models:
         participatory_process:
           fields:
             created_at: 'Создано:'
+            private: Частное
             promoted: Рекомендуемые
             published: Опубликовано
             title: Название
@@ -110,11 +112,11 @@ ru:
         destroy:
           success: Группа движения соучастия успешно удалена.
         edit:
-          title: Редактировать группу процессов
+          title: Редактировать группу движений
           update: Обновить
         new:
           create: Создать
-          title: Новая группа движений
+          title: Создать группу движений
         update:
           error: При обновлении этой группы движения соучастия произошла ошибка.
           success: Группа движения соучастия успешно обновлена.
@@ -137,7 +139,7 @@ ru:
         destroy:
           error:
             active_step: Нельзя удалять действующий шаг.
-            last_step: Нельзя удалять последний шаг процесса.
+            last_step: Нельзя удалять последний шаг движения.
           success: Шаг движения соучастия успешно удален.
         edit:
           title: Редактировать шаг движения соучастия
@@ -146,7 +148,7 @@ ru:
           steps_title: Шаги
         new:
           create: Создать
-          title: Новый шаг движения соучастия
+          title: Добавить шаг движения соучастия
         ordering:
           error: При перестановке шагов этого движения соучастия произошла ошибка.
         update:
@@ -164,7 +166,7 @@ ru:
           process_admins_title: Участники движения соучастия
         new:
           create: Создать
-          title: Новый участник движения соучастия.
+          title: Добавить участника движения соучастия.
         update:
           success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
@@ -176,13 +178,14 @@ ru:
         edit:
           update: Обновить
         form:
-          title: Общая информация
+          title: Общие сведения
         index:
           not_published: Не опубликовано
+          private: Частное
           published: Опубликовано
         new:
           create: Создать
-          title: Новое движение соучастия
+          title: Добавить движение соучастия
         update:
           error: При обновлении этого движения соучастия произошла ошибка.
           success: Движение соучастия успешно обновлено.
@@ -249,6 +252,7 @@ ru:
         local_area: Участок организации
         participatory_scope: Что решается
         participatory_structure: Как это решается
+        private_space: Это частное движение
         scope: Охват
         start_date: Дата начала
         target: Кто участвует

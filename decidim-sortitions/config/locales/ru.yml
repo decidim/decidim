@@ -2,16 +2,32 @@ ru:
   activemodel:
     attributes:
       sortition:
-        additional_info: Жеребьевкой информация
+        additional_info: Сведения о жеребьевке
+        decidim_category_id: Разряды подборки предложений, среди которых вы хотите провести жеребьевку
         title: Название
   decidim:
     sortitions:
       admin:
+        actions:
+          new: Добавить
         models:
           sortition:
             fields:
+              category: Разряд
               decidim_proposals_component: Составляющая предложений
               title: Название
+        sortitions:
+          form:
+            all_categories: Все разряды
+            title: Добавить новую жеребьевку предложений
+          new:
+            title: Добавить жеребьевку
       sortitions:
         filters:
           active: Действующие
+          category: Разряд
+          category_prompt: Выберите разряд
+        show:
+          any_category: из всех разрядов
+          candidate_proposals_info: 'Жеребьевка была проведена среди следующих предложений (%{category_label}) со следующими названиями (выделены жирным шрифтом выбранные предложения)  '
+          category: из разряда %{category}
