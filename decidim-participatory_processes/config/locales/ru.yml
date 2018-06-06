@@ -10,7 +10,7 @@ ru:
         description: Описание
         developer_group: Рабочая группа по продвижению
         domain: Домен
-        end_date: Дата завершения
+        end_date: Дата окончания
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Местный участок
@@ -24,7 +24,7 @@ ru:
         scopes_enabled: Охваты включены
         short_description: Краткое описание
         show_statistics: Показывать статистику
-        slug: Сокращенный URL-адрес
+        slug: Сокращенный веб-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
         target: Цель
@@ -36,7 +36,7 @@ ru:
         participatory_process_ids: Подобные движения
       participatory_process_step:
         description: Описание
-        end_date: Дата завершения
+        end_date: Дата окончания
         short_description: Краткое описание
         start_date: Дата начала
         title: Название
@@ -107,7 +107,7 @@ ru:
           name: Группа движений
         participatory_process_step:
           fields:
-            end_date: Дата завершения
+            end_date: Дата окончания
             start_date: Дата начала
             title: Название
           name: Шаг движения соучастия
@@ -270,11 +270,10 @@ ru:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
-            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
       index:
         title: Движения соучастия
       order_by_processes:
@@ -295,7 +294,7 @@ ru:
           loading: Загрузка результатов...
       show:
         developer_group: Рабочая группа по продвижению
-        end_date: Дата завершения
+        end_date: Дата окончания
         local_area: Участок организации
         participatory_scope: Что решается
         participatory_structure: Как это решается
