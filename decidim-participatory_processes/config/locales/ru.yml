@@ -259,6 +259,7 @@ ru:
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
+        debates_count: Обсуждения
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
