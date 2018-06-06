@@ -8,7 +8,7 @@ ru:
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
@@ -19,6 +19,7 @@ ru:
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         promoted: Рекламируется
+        published_at: 'Опубликовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
@@ -62,7 +63,8 @@ ru:
         participatory_processes: Движения
         participatory_processes_submenu:
           attachment_collections: Папки
-          attachments: Вложения
+          attachment_files: Прикрепленные файлы
+          attachments: Прикрепленные файлы
           categories: Разряды
           components: Составляющие
           info: Сведения
@@ -156,6 +158,7 @@ ru:
           success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         create:
+          error: При добавлении участника в это движение соучастия произошла ошибка.
           success: В это движение соучастия успешно добавлен участник.
         destroy:
           success: Успешно удален участник этого движения соучастия.
@@ -168,6 +171,7 @@ ru:
           create: Создать
           title: Добавить участника движения соучастия.
         update:
+          error: При обновлении участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
         create:
@@ -182,6 +186,7 @@ ru:
         index:
           not_published: Не опубликовано
           private: Частное
+          public: Публичные
           published: Опубликовано
         new:
           create: Создать
@@ -204,6 +209,14 @@ ru:
         resend_invitation:
           error: При повторной отправке приглашения произошла ошибка.
           success: Приглашение успешно повторно отправлено.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} создал движение соучастия %{resource_name}"
+        publish: "%{user_name} опубликовал движение соучастия %{resource_name}"
+        unpublish: "%{user_name} отменил публикацию движения соучастия %{resource_name}"
+        update: "%{user_name} обновил движение соучастия %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} привел в действие шаг %{resource_name} процесса соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -247,7 +260,7 @@ ru:
         index:
           loading: Загрузка результатов...
       show:
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         end_date: Дата завершения
         local_area: Участок организации
         participatory_scope: Что решается
@@ -259,6 +272,7 @@ ru:
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
+        debates_count: Обсуждения
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
