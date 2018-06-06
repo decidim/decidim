@@ -15,7 +15,7 @@ uk:
         hero_image: Зображення головної сторінки
         local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
-        participatory_process_group_id: Група рухів
+        participatory_process_group_id: Сукупність рухів
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
@@ -79,7 +79,7 @@ uk:
         resend_invitation: Повторно надіслати запрошення
         unpublish: Скасувати оприлюднення
       menu:
-        participatory_process_groups: Групи рухів
+        participatory_process_groups: Сукупності рухів
         participatory_processes: Рухи
         participatory_processes_submenu:
           attachment_collections: Теки
@@ -104,7 +104,7 @@ uk:
         participatory_process_group:
           fields:
             name: Ім'я
-          name: Група рухів
+          name: Сукупність рухів
         participatory_process_step:
           fields:
             end_date: Дата закінчення
@@ -132,16 +132,16 @@ uk:
           title: Створити копію руху співучасті
       participatory_process_groups:
         destroy:
-          success: Групу рухів співучасті успішно видалено.
+          success: Сукупність рухів співучасті успішно видалено.
         edit:
-          title: Редагувати групу рухів
+          title: Редагувати сукупність рухів
           update: Оновити
         new:
           create: Створити
-          title: Створити групу рухів
+          title: Створити сукупність рухів
         update:
-          error: При оновленні цієї групи рухів співучасті сталася помилка.
-          success: Групу рухів співучасті успішно оновлено.
+          error: При оновленні цієї сукупності рухів співучасті сталася помилка.
+          success: Сукупність рухів співучасті успішно оновлено.
       participatory_process_publications:
         create:
           error: При оприлюдненні цього руху співучасті сталася помилка.
@@ -220,10 +220,10 @@ uk:
           success: Успішно створено копію руху співучасті.
       participatory_processes_group:
         create:
-          error: При спробі створити нову групу рухів співучасті сталася помилка.
-          success: Групу рухів співучасті успішно створено.
+          error: При спробі створити нову сукупність рухів співучасті сталася помилка.
+          success: Сукупність рухів співучасті успішно створено.
       titles:
-        participatory_process_groups: Групи рухів співучасті
+        participatory_process_groups: Сукупності рухів співучасті
         participatory_processes: Рухи співучасті
       users:
         resend_invitation:
@@ -261,7 +261,7 @@ uk:
     participatory_process_groups:
       show:
         group_participatory_processes: Рухи для %{group}
-        title: Групи рухів співучасті
+        title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
         process_steps: Кроки руху
