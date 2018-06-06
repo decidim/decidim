@@ -431,13 +431,13 @@ ca:
           agreement: Accepto aquests termes
           legend: Accepto els termes i condicions
         refuse:
-          modal_body: Si no acceptes, no podràs utilitzar la plataforma. Pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
           modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
           body: Si us plau dedica un moment a revisar l'actualització de les nostres Condicions d'Ús. En cas contrari, no podràs utilitzar la plataforma.
           title: 'Obligatori: revisa l''actualització de les nostres Condicions d''Ús'
     participatory_space_private_users:
@@ -478,7 +478,7 @@ ca:
       scopes: Àmbits
     search:
       filter:
-        all: Tots
+        all: Tot
         component: Component
       results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cerca
@@ -549,14 +549,14 @@ ca:
         header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
-        subtitle: Si acceptes la invitació, si us plau estableix el teu nom d'usuari i contrasenya.
+        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no vols acceptar la invitació, si us plau ignora aquest correu electrònic.<br />
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
