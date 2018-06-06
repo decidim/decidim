@@ -41,10 +41,10 @@ uk:
         many: Пропозицій
         other: Пропозицій
       decidim/proposals/proposal_endorsement:
-        one: Підтримав
-        few: Підтримало
-        many: Підтримали
-        other: Підтримали
+        one: Прояв підтримки
+        few: Прояви підтримки
+        many: Проявів підтримки
+        other: Проявів підтримки
       decidim/proposals/proposal_note:
         one: Примітка
         few: Примітки
@@ -253,7 +253,7 @@ uk:
             category: Розряд
             comments: Коментарі
             created_at: 'Створено:'
-            endorsements: Підтримали
+            endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
