@@ -426,16 +426,16 @@ ca:
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions.
-          success: Genial! Has acceptat els termes i condicions.
+          success: Genial! Has acceptat els Termes i Condicions.
         form:
           agreement: Accepto aquests termes
           legend: Acceptar els termes i condicions d'ús
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
-          modal_btn_continue: Accepteu els termes i continueu
+          modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
-          modal_button: Rebutja els termes
-          modal_title: Realment rebutja els Termes i condicions actualitzats?
+          modal_button: Rebutjar els termes
+          modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat les nostres Condicions del servei, revisa-les.
           body: Preneu-vos un moment per revisar les actualitzacions de les nostres Condicions d'ús. En cas contrari, no podreu utilitzar la plataforma.
