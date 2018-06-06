@@ -180,7 +180,7 @@ ru:
             dummy_global_attribute_1: Пример свойства 1
             dummy_global_attribute_2: Пример свойства 2
           step:
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
             dummy_step_attribute_1: Пример 1 свойства шага
             dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
@@ -413,22 +413,22 @@ ru:
           welcome: Добро пожаловать в %{organization}!
         statistics:
           answers_count: Пройденных опросов
-          assemblies_count: Собрания
-          comments_count: Комментарии
+          assemblies_count: Собраний
+          comments_count: Комментариев
           debates_count: Обсуждения
-          endorsements_count: Поддержали
+          endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
           meetings_count: Встреч
-          orders_count: Голоса
-          pages_count: Страницы
-          processes_count: Движения
+          orders_count: Голосов
+          pages_count: Страниц
+          processes_count: Движений
           projects_count: Проектов
           proposals_accepted: Принятые предложения
           proposals_count: Предложений
           results_count: Итогов
-          surveys_count: Опросы
-          users_count: Участники
-          votes_count: Голоса
+          surveys_count: Опросов
+          users_count: Участников
+          votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
       index:
