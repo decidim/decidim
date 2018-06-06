@@ -38,7 +38,10 @@ module Decidim
         admin: false,
         role: nil,
         invited_by: form.current_user,
-        invitation_instructions: "invite_admin"
+        extra_email_options: {
+          custom_message: form.custom_message
+        },
+        invitation_instructions: "invite_friend"
       )
     end
   end
