@@ -5,12 +5,20 @@ ru:
         category_id: Разряд
         decidim_category_id: Разряд
         title: Название
+    models:
+      decidim/debates/creation_disabled_event: Обсуждения отключены
+      decidim/debates/creation_enabled_event: Обсуждения включены
   decidim:
+    components:
+      debates:
+        name: Обсуждения
     debates:
       actions:
         new: Добавить %{name}
       admin:
         debates:
+          index:
+            title: Обсуждения
           new:
             title: Начать новое обсуждение
       debates:
