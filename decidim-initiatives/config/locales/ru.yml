@@ -10,6 +10,9 @@ ru:
   decidim:
     admin:
       models:
+        initiatives:
+          fields:
+            supports_count: Поддержали
         initiatives_type_scope:
           fields:
             scope: Охват
@@ -57,6 +60,11 @@ ru:
       initiatives:
         index_header:
           new_initiative: Добавить почин
+        statistics:
+          assistants_count_title: Помощников
+          comments_count_title: Комментариев
+          meetings_count_title: Встреч
+          supports_count_title: Подписей
       initiatives_mailer:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
       pages:
