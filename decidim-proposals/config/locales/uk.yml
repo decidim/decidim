@@ -68,7 +68,7 @@ uk:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
-            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
+            can_accumulate_supports_beyond_threshold: Можна накопичувати прояви підтримки більше порогового значення
             comments_enabled: Коментарі увімкнено
             geocoding_enabled: Геокодування увімкнено
             new_proposal_help_text: Підказки зі внесення нової пропозиції
