@@ -476,6 +476,20 @@ es:
         title: Seleccione %{field}
       prompt: Seleccione un ámbito
       scopes: Ámbitos
+    search:
+      filter:
+        all: Todas
+        component: Componente
+      results_found_for_term: '%{count} Resultados para la búsqueda: "%{term}"'
+      term_input_placeholder: Buscar
+    searches:
+      filters:
+        search: Buscar
+      filters_small_view:
+        close_modal: Cierre modal
+        filter: Filtrar
+        filter_by: Filtrado por
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
