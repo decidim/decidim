@@ -12,7 +12,7 @@ uk:
         copy_categories: Скопіювати розряди
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Дільниця
@@ -65,12 +65,12 @@ uk:
           title: Загальні відомості
         index:
           not_published: Не оприлюднено
-          private: Приховані
+          private: Приватні
           public: Публічні
           published: Оприлюднено
         new:
           create: Додати
-          title: Нові збори
+          title: Додати збори
         update:
           error: При оновленні цих зборів сталася помилка.
           success: Збори успішно оновлено.
@@ -103,7 +103,7 @@ uk:
           assembly_admins_title: Учасники зборів
         new:
           create: Створити
-          title: Новий учасник зборів.
+          title: Додати учасника зборів.
         update:
           error: При спробі оновити учасника цих зборів сталася помилка.
           success: Учасника цих зборів успішно оновлено.
@@ -118,12 +118,12 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
-            private: Приховані
+            private: Приватні
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
@@ -154,7 +154,7 @@ uk:
       admin:
         assemblies:
           form:
-            select_a_created_by: Оберіть, ким створені
+            select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
@@ -187,7 +187,7 @@ uk:
         children: Збори
         closing_date: Дата закриття
         composition: Склад
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         creation_date: Дата створення
         developer_group: Гурт просувачів
         duration: Тривалість
