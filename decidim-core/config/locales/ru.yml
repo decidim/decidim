@@ -515,7 +515,7 @@ ru:
   pages:
     home:
       extended:
-        debates: Дебаты
+        debates: Обсуждения
         debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
         how_to_participate: Как принять участие в движении?
         meetings: Встречи
@@ -534,7 +534,7 @@ ru:
         answers_count: Завершенные опросы
         assemblies_count: Собрания
         comments_count: Комментарии
-        debates_count: Дебаты
+        debates_count: Обсуждения
         headline: Текущее состояние %{organization}
         meetings_count: Встречи
         orders_count: Голоса
