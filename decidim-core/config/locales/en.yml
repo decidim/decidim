@@ -11,8 +11,8 @@ en:
         email: Your email
         name: Your name
         nickname: Your short, unique identifier
-        password: New password
-        password_confirmation: Confirm your new password
+        password: Password
+        password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
         user_group_document_number: Organization document number
