@@ -476,6 +476,20 @@ ca:
         title: Seleccioneu %{field}
       prompt: Seleccioneu un àmbit
       scopes: Àmbits
+    search:
+      filter:
+        all: Tots
+        component: Component
+      results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
+      term_input_placeholder: Cerca
+    searches:
+      filters:
+        search: Cerca
+      filters_small_view:
+        close_modal: Tanca el modal
+        filter: Filtre
+        filter_by: Filtra per
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
