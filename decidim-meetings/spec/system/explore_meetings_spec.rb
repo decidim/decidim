@@ -210,7 +210,7 @@ describe "Explore meetings", type: :system do
         click_link translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author.name)
+          expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end
