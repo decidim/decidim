@@ -59,7 +59,7 @@ uk:
           fields:
             created_at: 'Створено:'
             state: Стан
-            supports_count: Людей підтримують
+            supports_count: Проявів підтримки
             title: Почини
         initiatives_type_scope:
           fields:
@@ -293,7 +293,7 @@ uk:
         statistics:
           assistants_count_title: Помічників
           comments_count_title: Коментарів
-          meetings_count_title: Зустрічі
+          meetings_count_title: Зустрічей
           supports_count_title: Підписів
         supports:
           title: Перелік підписів
