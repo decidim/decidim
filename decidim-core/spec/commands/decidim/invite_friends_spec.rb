@@ -39,9 +39,10 @@ module Decidim
     end
 
     context "when valid" do
+      let(:email_2) { "my_email_2@example.org" }
+
       it "invites the users" do
-        expect(form).to receive(:clean_emails).and_call_original
-        expect(InviteUser).to receive(:call).and_call_original
+        expect(InviteUser).to receive(:call).twice.and_call_original
         expect { command.call }.to broadcast(:ok)
 
         invited_user = User.find_by(email: email_1, organization: user.organization)

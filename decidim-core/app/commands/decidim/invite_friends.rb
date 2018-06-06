@@ -24,7 +24,7 @@ module Decidim
       form.clean_emails.each do |email|
         InviteUser.call(build_invite_form(email)) do
           on(:ok) do |user|
-            return user
+            user
           end
         end
       end
