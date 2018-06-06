@@ -18,7 +18,7 @@ uk:
         decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -273,7 +273,7 @@ uk:
         composition: Склад
         created_by: 'Автор:'
         creation_date: Дата створення
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
         indefinite_duration: Невизначена
