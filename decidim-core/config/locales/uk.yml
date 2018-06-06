@@ -414,17 +414,17 @@ uk:
         statistics:
           answers_count: Пройдено опитувань
           assemblies_count: Збори
-          comments_count: Коментарі
+          comments_count: Коментарів
           debates_count: Обговорення
-          endorsements_count: Підтримали
+          endorsements_count: Висловів підтримки
           headline: Поточний стан %{organization}
-          meetings_count: Зустрічі
+          meetings_count: Зустрічей
           orders_count: Голоси
           pages_count: Сторінки
           processes_count: Рухи
-          projects_count: Задуми
+          projects_count: Задумів
           proposals_accepted: Прийняті пропозиції
-          proposals_count: Пропозиції
+          proposals_count: Пропозицій
           results_count: Підсумків
           surveys_count: Опитування
           users_count: Учасники
