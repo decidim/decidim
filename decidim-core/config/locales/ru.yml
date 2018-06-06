@@ -542,6 +542,7 @@ ru:
     invitations:
       edit:
         header: Завершите создание своей учетной записи
+        nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
     mailer:
       invitation_instructions:
