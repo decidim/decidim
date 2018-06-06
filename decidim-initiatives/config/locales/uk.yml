@@ -160,7 +160,7 @@ uk:
             title: Додати різновид почину
           update:
             error: Сталася помилка
-            success: Даний почин було успішно оновлено
+            success: Різновид почину було успішно оновлено
       admin_log:
         initiative:
           publish: "%{user_name} оприлюднив почин %{resource_name}"
