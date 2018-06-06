@@ -2,10 +2,10 @@
 
 <%= t("devise.mailer.invitation_instructions.invited_you_as_friend", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
 
-<%= if @ops[:custom_message].present? %>
-<%= t("devise.mailer.invite_friend.friend_custom_message") %>
+<% if @opts[:custom_text].present? %>
+<%= t("devise.mailer.invite_friend.friend_custom_text") %>
 
-<%= @ops[:custom_message] %>
+<%= @opts[:custom_text] %>
 <% end %>
 
 <%= t("devise.mailer.invite_friend.accept_invitation") %>

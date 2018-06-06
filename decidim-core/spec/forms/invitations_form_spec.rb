@@ -12,7 +12,7 @@ module Decidim
         email_4: email_4,
         email_5: email_5,
         email_6: email_6,
-        custom_message: custom_message
+        custom_text: custom_text
       ).with_context(
         current_organization: organization,
         current_user: user
@@ -28,7 +28,7 @@ module Decidim
     let(:email_4) { "email_4@example.org" }
     let(:email_5) { "email_5@example.org" }
     let(:email_6) { "email_6@example.org" }
-    let(:custom_message) { "Come to Decidim!" }
+    let(:custom_text) { "Come to Decidim!" }
 
     context "with correct data" do
       it { is_expected.to be_valid }
@@ -46,7 +46,7 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
-    context "with an badly-formatted email" do
+    context "with a badly-formatted email" do
       let(:email_1) { "this is not an email" }
 
       it { is_expected.not_to be_valid }

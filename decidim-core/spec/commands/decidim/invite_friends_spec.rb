@@ -13,7 +13,7 @@ module Decidim
     let(:email_4) { nil }
     let(:email_5) { nil }
     let(:email_6) { nil }
-    let(:custom_message) { "Come to Decidim!" }
+    let(:custom_text) { "Come to Decidim!" }
 
     let(:form) do
       InvitationsForm.from_params(
@@ -23,7 +23,7 @@ module Decidim
         email_4: email_4,
         email_5: email_5,
         email_6: email_6,
-        custom_message: custom_message
+        custom_text: custom_text
       ).with_context(current_organization: user.organization, current_user: user)
     end
 

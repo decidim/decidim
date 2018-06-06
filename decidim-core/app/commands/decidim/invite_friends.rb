@@ -39,7 +39,7 @@ module Decidim
         role: nil,
         invited_by: form.current_user,
         extra_email_options: {
-          custom_message: form.custom_message
+          custom_text: form.custom_text
         },
         invitation_instructions: "invite_friend"
       )
