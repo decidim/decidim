@@ -90,7 +90,9 @@ ru:
           title: Общие сведения
         index:
           not_published: Не обнародовано
+          published: Обнародовано
         new:
+          create: Создать
           title: Добавить консультацию
       menu:
         questions_submenu:
