@@ -305,21 +305,21 @@ ru:
         target: Кто участвует
         unspecified: Не указано
       statistics:
-        answers_count: Ответы
-        comments_count: Комментарии
+        answers_count: Ответов
+        comments_count: Комментариев
         debates_count: Обсуждений
         endorsements_count: Выражений поддержки
         headline: Деятельность
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        processes_count: Движения
-        projects_count: Проекты
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
+        meetings_count: Встреч
+        orders_count: Голосов
+        pages_count: Страниц
+        processes_count: Движений
+        projects_count: Проектов
+        proposals_count: Предложений
+        results_count: Итогов
+        surveys_count: Опросов
+        users_count: Участников
+        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:
