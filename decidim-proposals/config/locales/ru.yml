@@ -64,7 +64,7 @@ ru:
           global:
             announcement: Объявление
             attachments_allowed: Разрешить прикрпеленные файлы
-            can_accumulate_supports_beyond_threshold: Может накапливать поддержку свыше порогового значения
+            can_accumulate_supports_beyond_threshold: Может накапливать выражения поддержки свыше порогового значения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
@@ -379,6 +379,8 @@ ru:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
           proposal_limit:
             description: Вы можете внести до %{limit} предложений.
+          threshold_per_proposal:
+            description: Для того чтобы пройти проверку, предложения должны получить %{limit} выражений поддержки
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
