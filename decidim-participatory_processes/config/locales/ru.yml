@@ -8,7 +8,7 @@ ru:
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
-        developer_group: Группа зачинателей
+        developer_group: Группа продвигателей
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
@@ -247,7 +247,7 @@ ru:
         index:
           loading: Загрузка результатов...
       show:
-        developer_group: Группа зачинателей
+        developer_group: Группа продвигателей
         end_date: Дата завершения
         local_area: Участок организации
         participatory_scope: Что решается
