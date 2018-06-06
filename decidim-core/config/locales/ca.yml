@@ -426,12 +426,12 @@ ca:
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions.
-          success: Genial Heu acceptat els termes i condicions.
+          success: Genial! Has acceptat els termes i condicions.
         form:
           agreement: Accepto aquests termes
-          legend: Accepteu els termes i condicions d'ús
+          legend: Acceptar els termes i condicions d'ús
         refuse:
-          modal_body: Si es nega, vostè no serà capaç d'utilitzar la plataforma, pot <a href="%{data_portability_path}">descarregar les seves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Accepteu els termes i continueu
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutja els termes
