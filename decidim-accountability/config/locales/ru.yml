@@ -6,7 +6,7 @@ ru:
         decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
-        end_date: Дата завершения
+        end_date: Дата окончания
         progress: Продвижение
         project_ids: Включенные проекты
         proposals: Включенные предложения
@@ -121,7 +121,7 @@ ru:
       models:
         result:
           fields:
-            end_date: Дата завершения
+            end_date: Дата окончания
             progress: Продвижение
             start_date: Дата начала
             status: Состояние
