@@ -40,7 +40,6 @@ require "cells-erb"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "scenic"
 
 require "decidim/api"
 
@@ -91,6 +90,7 @@ module Decidim
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
+        Decidim::Api.add_orphan_type Decidim::Core::UserMetricType
       end
 
       initializer "decidim.i18n_exceptions" do

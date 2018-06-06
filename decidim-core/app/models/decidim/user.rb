@@ -48,6 +48,9 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
+    scope :confirmed, -> { where.not(confirmed_at: nil) }
+    scope :not_confirmed, -> { where(confirmed_at: nil) }
+
     # Public: Allows customizing the invitation instruction email content when
     # inviting a user.
     #

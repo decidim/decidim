@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-Rake::Task["railties:install:migrations"].enhance do
-  Rake::Task["decidim:copy_views"].invoke
-end
-
 namespace :decidim do
   desc "Install migrations from Decidim to the app."
   task upgrade: [:choose_target_plugins, :"railties:install:migrations"]
@@ -30,16 +26,6 @@ namespace :decidim do
       decidim_system
       decidim_verifications
     ).join(",")
-  end
-
-  task copy_views: :"railties:install:migrations" do
-    ENV["FROM"].split(",").each do |from_engine_string|
-      from_engine = from_engine_string.split("_")[1..-1].join("_").camelize.presence || "Core"
-      klass = ["Decidim", from_engine, "Engine"].join("::").constantize
-      source_folder = File.join(klass.root, "db", "views")
-      dest_folder = File.join(Rails.root, "db")
-      FileUtils.cp_r(source_folder, dest_folder) if File.directory?(source_folder)
-    end
   end
 
   # RightToBeForgotten ------
