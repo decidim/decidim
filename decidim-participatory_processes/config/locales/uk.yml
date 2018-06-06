@@ -305,10 +305,9 @@ uk:
         target: Хто бере участь
         unspecified: Не вказано
       statistics:
-        answers_count: Відповіді
         comments_count: Коментарів
         debates_count: Обговорення
-        endorsements_count: Підтримали
+        endorsements_count: Висловів пдтримки
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
