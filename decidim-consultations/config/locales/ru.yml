@@ -79,7 +79,7 @@ ru:
           success: Обнародование итогов консультации успешно отменено.
       consultations:
         create:
-          error: При попытке создания новой консультации произошла ошибка.
+          error: При попытке создать новую консультацию произошла ошибка.
           success: Консультация успешно создана.
         destroy:
           success: Консультация успешно удалена.
@@ -96,10 +96,58 @@ ru:
           title: Добавить консультацию
         update:
           error: При попытке обновить эту консультацию произошла ошибка.
+          success: Консультация успешно обновлена.
       menu:
+        consultations: Консультации
+        consultations_submenu:
+          info: Сведения
+          questions: Вопросы
         questions_submenu:
           components: Составляющие
+          consultation: Консультация
+          info: Сведения
+          responses: Ответы
+      models:
+        consultation:
+          fields:
+            created_at: 'Создано:'
+            published: Обнародовано
+            title: Заголовок
+          name:
+            one: Консультация
+            few: Консультации
+            many: Консультаций
+            other: Консультаций
+        question:
+          fields:
+            created_at: 'Создано:'
+            published: Обнародовано
+            title: Название
+          name:
+            one: Вопрос
+            few: Вопроса
+            many: Вопросов
+            other: Вопросов
+        response:
+          fields:
+            created_at: 'Создано:'
+            title: Название
+          name:
+            one: Ответ
+            few: Ответа
+            many: Ответов
+            other: Ответов
+      question_publications:
+        create:
+          error: При попытке обнародовать этот вопрос произошла ошибка.
+          success: Вопрос успешно обнародован.
+        destroy:
+          error: При попытке отменить обнародование этого вопроса произошла ошибка.
+          success: Обнародование вопроса успешно отменено.
       questions:
+        create:
+          error: При попытке создать новый вопрос произошла ошибка.
+          success: Вопрос успешно создан.
         new:
           title: Добавить вопрос
       responses:
