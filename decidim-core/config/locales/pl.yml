@@ -433,6 +433,23 @@ pl:
           register: Zarejestrować
       index:
         title: Więcej informacji
+      terms_and_conditions:
+        accept:
+          error: Wystąpił błąd podczas akceptowania warunków.
+          success: Wspaniały! Zaakceptowałeś warunki i zasady.
+        form:
+          agreement: Zgadzam się na te warunki
+          legend: Zgadzam się z warunkami użytkowania
+        refuse:
+          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać dane</a> i / lub <a href="%{delete_path}">usunąć konto</a>.
+          modal_btn_continue: Zaakceptuj warunki i kontynuuj
+          modal_btn_exit: Sprawdzę to później
+          modal_button: Odrzuć warunki
+          modal_title: Czy rzeczywiście odmawiasz zaktualizowanego regulaminu?
+        required_review:
+          alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z usługi. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z usługi'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -469,6 +486,20 @@ pl:
         title: Wybierz %{field}
       prompt: Wybierz zakres
       scopes: Zakresy
+    search:
+      filter:
+        all: Wszystko
+        component: Składnik
+      results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
+      term_input_placeholder: Szukaj
+    searches:
+      filters:
+        search: Szukaj
+      filters_small_view:
+        close_modal: Zamknij modalne
+        filter: Filtr
+        filter_by: Filtruj według
+        unfold: Rozwijać się
     shared:
       action_authorization_modal:
         expired:
@@ -525,16 +556,18 @@ pl:
   devise:
     invitations:
       edit:
-        header: Ustaw swoje hasło
+        header: Zakończ tworzenie konta
         nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisać
+        subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
     mailer:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
         hello: Witaj %{email},
         ignore: |-
-          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
+          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
+          Twoje konto nie zostanie utworzone, dopóki nie uzyskasz dostępu do powyższego linku i nie ustawisz nicka ani hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.

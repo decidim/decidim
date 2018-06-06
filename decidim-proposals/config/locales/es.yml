@@ -21,7 +21,7 @@ es:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Necesita volverse a unir
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
     models:
       decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado

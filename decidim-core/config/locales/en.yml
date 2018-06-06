@@ -491,6 +491,20 @@ en:
         title: Select %{field}
       prompt: Select a scope
       scopes: Scopes
+    search:
+      filter:
+        all: All
+        component: Component
+      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
     shared:
       action_authorization_modal:
         expired:

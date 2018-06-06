@@ -15,7 +15,7 @@ module Decidim
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
 
-    devise :invitable, :database_authenticatable, :registerable, :confirmable,
+    devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :decidim_newsletterable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,

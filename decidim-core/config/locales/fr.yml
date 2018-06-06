@@ -423,6 +423,23 @@ fr:
           register: S'inscrire
       index:
         title: Plus d'informations
+      terms_and_conditions:
+        accept:
+          error: Une erreur s'est produite lors de l'acceptation des termes et conditions.
+          success: Génial! Vous avez accepté les termes et conditions.
+        form:
+          agreement: Je suis d'accord avec les termes
+          legend: Accepter les termes et conditions d'utilisation
+        refuse:
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme, vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les termes et continuer
+          modal_btn_exit: Je l'examinerai plus tard
+          modal_button: Refuser les termes
+          modal_title: Refusez-vous vraiment les termes et conditions mis à jour?
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour examiner les mises à jour de nos conditions d'utilisation. Sinon, vous ne pourrez pas utiliser la plate-forme.
+          title: 'Obligatoire: consultez les mises à jour de nos conditions d''utilisation'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -459,6 +476,20 @@ fr:
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètres d'application
+    search:
+      filter:
+        all: Tout
+        component: Composant
+      results_found_for_term: '%{count} Résultats pour la recherche: "%{term}"'
+      term_input_placeholder: Chercher
+    searches:
+      filters:
+        search: Chercher
+      filters_small_view:
+        close_modal: Fermer modal
+        filter: Filtre
+        filter_by: Filtrer par
+        unfold: Se dérouler
     shared:
       action_authorization_modal:
         expired:
@@ -515,16 +546,18 @@ fr:
   devise:
     invitations:
       edit:
-        header: Définir votre mot de passe
+        header: Terminer la création de votre compte
         nickname_help: Votre identifiant unique dans %{organization}.
         submit_button: Sauvegarder
+        subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudo et votre mot de passe.
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
+          Votre compte ne sera pas créé avant d'avoir accédé au lien ci-dessus et d'avoir défini votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.

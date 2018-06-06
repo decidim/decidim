@@ -423,6 +423,23 @@ eu:
           register: Erregistroa
       index:
         title: Argibide gehiago
+      terms_and_conditions:
+        accept:
+          error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
+          success: Great! Baldintzak eta baldintzak onartu dituzu.
+        form:
+          agreement: Baldintzak ados nago
+          legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
+        refuse:
+          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
+          modal_btn_continue: Baldintzak onartu eta jarraitu
+          modal_btn_exit: Berriro berrikusiko dut geroago
+          modal_button: Ezetsi terminoak
+          modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
+        required_review:
+          alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
+          body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
+          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
@@ -459,6 +476,20 @@ eu:
         title: Hautatu %{field}
       prompt: Aukeratu esparrua
       scopes: esparru
+    search:
+      filter:
+        all: guztiak
+        component: Osagai
+      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Itxi modal
+        filter: Filter
+        filter_by: Iragazi arabera
+        unfold: Zabaldu
     shared:
       action_authorization_modal:
         expired:
@@ -515,16 +546,18 @@ eu:
   devise:
     invitations:
       edit:
-        header: Idatzi zure pasahitza
+        header: Amaitu zure kontua sortzea
         nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
+        subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
     mailer:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
         ignore: |-
-          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+          Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />
+          Zure kontua ez da sortu goiko estekan sartzeko eta zure ezizena eta pasahitza ezartzeko.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} erabiltzaile gonbidatu zaitu %{application}erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.

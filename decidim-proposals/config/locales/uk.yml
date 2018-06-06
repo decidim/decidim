@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       proposal:
-        answer: Відповідь
+        answer: Відповісти
         answered_at: 'Отримано відповідь:'
         body: Основний текст
         category_id: Розряд
@@ -21,7 +21,7 @@ uk:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Необхідно повторно додати вкладений файл
+              needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
@@ -43,8 +43,8 @@ uk:
       decidim/proposals/proposal_endorsement:
         one: Підтримав
         few: Підтримало
-        many: Підтримало
-        other: Підтримало
+        many: Підтримали
+        other: Підтримали
       decidim/proposals/proposal_note:
         one: Примітка
         few: Примітки
@@ -75,14 +75,14 @@ uk:
             official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
-            proposal_length: Максимальна довжина основного тексту пропозиції
-            proposal_limit: Максимальна кількість пропозицій на одного учасника
+            proposal_length: Гранична довжина основного тексту пропозиції
+            proposal_limit: Гранична кількість пропозицій від одного учасника
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
-            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
+            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
             threshold_per_proposal: Поріг на кожну пропозицію
-            vote_limit: Максимальна кількість голосів для одного користувача
+            vote_limit: Гранична кількість голосів від одного учасника
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -96,15 +96,15 @@ uk:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Тепер ви можете вносити нові пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
+          email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: В %{participatory_space_title} тепер наявні пропозиції
-          notification_title: Тепер ви можете вносити <a href="%{resource_path}">нові пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість вносити <a href="%{resource_path}">нові пропозиції</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
-          notification_title: Тепер ви можете почати <a href="%{resource_path}">підтримувати пропозиції</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">підтримувати пропозиції</a>
         proposal_accepted:
           email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
@@ -116,7 +116,7 @@ uk:
           email_subject: "%{endorser_nickname} підтримав нову пропозицію"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> підтримав пропозицію <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
-          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете подивитися відповідь на неї на сторінці:'
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
@@ -148,7 +148,7 @@ uk:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
-          notification_title: Тепер ви можете почати <a href="%{resource_path}">голосувати щодо пропозицій</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -161,7 +161,7 @@ uk:
       actions:
         answer: Відповісти
         import: Запозичити з іншої складової
-        new: Нова
+        new: Внести
         private_notes: Приватні примітки
         title: Дії
       admin:
@@ -220,9 +220,9 @@ uk:
             success: "%{number} пропозицій успішно запозичено"
           new:
             create: Запозичити пропозиції
-            no_components: У цьому просторі співучасті немає інших складових, звідки можна було б запозичити пропозиції.
+            no_components: У цьому просторі співучасті немає інших складових пропозицій, звідки можна було б запозичити пропозиції.
             select_component: Будь ласка, оберіть складову
-            select_states: Зазначте стани пропозицій, які бажаєте запозичити
+            select_states: Перевірте стани пропозицій, які бажаєте запозичити
         shared:
           info_proposal:
             body: Основний текст
@@ -240,7 +240,7 @@ uk:
         evaluating: Розглядається
         not_answered: Без відповідей
         rejected: Відхилено
-        withdrawn: Відкликано
+        withdrawn: Відкликана
       create:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -253,7 +253,7 @@ uk:
             category: Розряд
             comments: Коментарі
             created_at: 'Створено:'
-            endorsements: Підтримало
+            endorsements: Підтримали
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
@@ -268,7 +268,7 @@ uk:
           error: При спробі надати підтримку цій пропозиції виникла помилка.
         identities:
           done: Зроблено
-          select_identity: Оберіть особу
+          select_identity: Оберіть роль
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Підтримано
@@ -329,7 +329,7 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
-          new_proposal: Нова пропозиція
+          new_proposal: Внести пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
         linked_proposals:
@@ -340,7 +340,7 @@ uk:
             other: голоси
         new:
           send: Продовжити
-          title: Внести власну пропозицію
+          title: Внесіть свою пропозицію
         orders:
           label: 'Впорядкувати пропозиції за:'
           most_voted: Отримали найбільше голосів
@@ -411,7 +411,7 @@ uk:
           info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
           see_steps: переглянути кроки
-          step_1: Внести власну пропозицію
+          step_1: Внесіть свою пропозицію
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію

@@ -5,7 +5,7 @@ ca:
         additional_info: Informació sobre el sorteig
         decidim_category_id: Categories del conjunt de propostes en què voleu aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
-        dice: Resultat de la matriu. Torneu a moure a 6 cares o busqueu una altra manera aleatòria de generar un número d'1 a 6, i introduïu aquí el número resultant davant d'alguns testimonis. Això contribueix a la qualitat i garanties de l'aleatorietat del resultat
+        dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6 i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
@@ -87,7 +87,7 @@ ca:
             selected_proposals: Propostes seleccionades per al sorteig
           update:
             error: S'ha produït un error en actualitzar el sorteig.
-            success: La classificació s'ha actualitzat correctament
+            success: El sorteig s'ha actualitzat amb èxit
       admin_log:
         sortition:
           create: "%{user_name} ha creat el sorteig %{resource_name} a %{space_name}"
