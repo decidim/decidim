@@ -41,8 +41,8 @@ manually trigger a reindex. Since only `proposals` and `meetings` are currently
 indexed, you can do that executing:
 
 ```ruby
-Decidim::Meeting.find_each(&:add_to_index_as_search_resource)
-Decidim::Proposal.find_each(&:add_to_index_as_search_resource)
+Decidim::Meetings::Meeting.find_each(&:add_to_index_as_search_resource)
+Decidim::Proposals::Proposal.find_each(&:add_to_index_as_search_resource)
 ```
 
 **Added**:
