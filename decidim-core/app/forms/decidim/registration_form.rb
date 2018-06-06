@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A form object used to handle user registrations
   class RegistrationForm < Form

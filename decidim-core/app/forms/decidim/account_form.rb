@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # The form object that handles the data behind updating a user's
   # account in her profile page.
