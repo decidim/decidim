@@ -36,8 +36,8 @@ ca:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durada dels elements supera la durada de la reunió per %{count} minuts
-              too_many_minutes_child: La durada del sub-element supera la duració de "%{parent_title}" del programa per %{count} minuts
+              too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
+              too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -113,7 +113,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     meetings:
       actions:
-        agenda: Agenda
+        agenda: Ordre del dia
         attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
@@ -128,16 +128,16 @@ ca:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Afegeix un element de l'agenda secundari
+            add_agenda_item_child: Afegir un sub-ítem a l'ordre del dia
             agenda_item: Punt de l'ordre del dia
-            agenda_item_children: Fills de l'element de l'agenda
-            down: Avall
-            remove: Elimina
+            agenda_item_children: Sub-ítems de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
             up: Amunt
           agenda_item_child:
-            agenda_item_child: Fill de l'element de l'agenda
-            down: Avall
-            remove: Elimina
+            agenda_item_child: Sub-ítem de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
             up: Pujar
           create:
             invalid: Hi ha hagut un problema en crear aquesta agenda
