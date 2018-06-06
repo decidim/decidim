@@ -485,6 +485,20 @@ ru:
         title: Выберите %{field}
       prompt: Выбрать охват
       scopes: Охваты
+    search:
+      filter:
+        all: Все
+        component: Составляющие
+      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
+      term_input_placeholder: Поиск
+    searches:
+      filters:
+        search: Поиск
+      filters_small_view:
+        close_modal: Закрыть окошко
+        filter: Отобрать
+        filter_by: 'Отобрать по признаку:'
+        unfold: Развернуть
     shared:
       action_authorization_modal:
         expired:
