@@ -275,7 +275,7 @@ uk:
           endorse: Підтримати
       proposal_votes:
         create:
-          error: При голосуванні пропозиції сталися помилки.
+          error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
           mine_is_different: Моя пропозиція відрізняється
