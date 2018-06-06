@@ -98,7 +98,7 @@ ru:
         description: Описание
         developer_group: Рабочая группа по продвижению
         domain: Домен
-        end_date: Дата завершения
+        end_date: Дата окончания
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Местный участок
@@ -119,7 +119,7 @@ ru:
         name: Имя
         participatory_processes: Движения соучастия
       decidim/participatory_process_step:
-        end_date: Дата завершения
+        end_date: Дата окончания
         start_date: Дата начала
       decidim/static_page:
         content: Содержание
@@ -365,7 +365,7 @@ ru:
         impersonation_log:
           fields:
             admin: Администратор
-            ended_at: 'Завершено:'
+            ended_at: 'Закончено:'
             expired_at: 'Срок действия истек:'
             reason: Причина
             started_at: 'Начато:'
