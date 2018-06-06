@@ -4,17 +4,37 @@ ru:
       debate:
         category_id: Разряд
         decidim_category_id: Разряд
+        description: Описание
+        end_time: 'Заканчивается:'
+        information_updates: Обновления сведений
+        instructions: Указания для участия
+        start_time: 'Начинается:'
         title: Название
+        user_group_id: Начать обсуждение в качестве
     models:
+      decidim/debates/create_debate_event: Обсуждение
       decidim/debates/creation_disabled_event: Обсуждения отключены
       decidim/debates/creation_enabled_event: Обсуждения включены
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Обсуждение
+        few: Обсуждения
+        many: Обсуждений
+        other: Обсуждений
   decidim:
     components:
       debates:
+        actions:
+          create: Добавить
         name: Обсуждения
     debates:
       actions:
+        confirm_destroy: Вы уверены?
+        destroy: Удалить
+        edit: Редактировать
         new: Добавить %{name}
+        title: Действия
       admin:
         debates:
           index:
