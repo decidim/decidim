@@ -19,6 +19,7 @@ ru:
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         promoted: Рекламируется
+        published_at: 'Опубликовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
@@ -43,6 +44,26 @@ ru:
         email: Эл. адрес
         name: Имя
         role: Роль
+    models:
+      decidim/participatory_process_step_activated_event: Шаг приведен в действие
+      decidim/participatory_process_step_changed_event: Шаг изменен
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Движение соучастия
+        few: Движения соучастия
+        many: Движений соучастия
+        other: Движений соучастия
+      decidim/participatory_process_group:
+        one: Группа движений соучастия
+        few: Группы движений соучастия
+        many: Групп движений соучастия
+        other: Групп движений соучастия
+      decidim/participatory_process_step:
+        one: Шаг
+        few: Шага
+        many: Шагов
+        other: Шагов
   decidim:
     admin:
       actions:
@@ -62,6 +83,7 @@ ru:
         participatory_processes: Движения
         participatory_processes_submenu:
           attachment_collections: Папки
+          attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
           categories: Разряды
           components: Составляющие
@@ -156,6 +178,7 @@ ru:
           success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         create:
+          error: При добавлении участника в это движение соучастия произошла ошибка.
           success: В это движение соучастия успешно добавлен участник.
         destroy:
           success: Успешно удален участник этого движения соучастия.
@@ -168,6 +191,7 @@ ru:
           create: Создать
           title: Добавить участника движения соучастия.
         update:
+          error: При обновлении участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
         create:
@@ -182,6 +206,7 @@ ru:
         index:
           not_published: Не опубликовано
           private: Частное
+          public: Публичные
           published: Опубликовано
         new:
           create: Создать
@@ -204,6 +229,14 @@ ru:
         resend_invitation:
           error: При повторной отправке приглашения произошла ошибка.
           success: Приглашение успешно повторно отправлено.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} создал движение соучастия %{resource_name}"
+        publish: "%{user_name} опубликовал движение соучастия %{resource_name}"
+        unpublish: "%{user_name} отменил публикацию движения соучастия %{resource_name}"
+        update: "%{user_name} обновил движение соучастия %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} привел в действие шаг %{resource_name} процесса соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
