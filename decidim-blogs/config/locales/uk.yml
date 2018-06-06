@@ -1,7 +1,7 @@
 uk:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Новий допис у блозі
+      decidim/blogs/create_post_event: Створити допис у блозі
   activerecord:
     models:
       decidim/blogs/post:

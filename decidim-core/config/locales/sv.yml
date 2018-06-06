@@ -423,6 +423,23 @@ sv:
           register: Registrera
       index:
         title: Mer information
+      terms_and_conditions:
+        accept:
+          error: Det har funnits ett fel när du accepterar villkoren.
+          success: Bra! Du har accepterat villkoren.
+        form:
+          agreement: Jag håller med om dessa villkor
+          legend: Godkänn användarvillkoren
+        refuse:
+          modal_body: Om du vägrar, kan du inte använda plattformen, du kan <a href="%{data_portability_path}">ladda ner data</a> och / eller <a href="%{delete_path}">radera ditt konto</a>.
+          modal_btn_continue: Acceptera villkor och fortsätt
+          modal_btn_exit: Jag ska granska den senare
+          modal_button: Avvisa villkoren
+          modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
+        required_review:
+          alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
+          body: Var snäll och granska uppdateringar av våra användarvillkor. Annars kommer du inte kunna använda plattformen.
+          title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du får inte se det här innehållet
     profile:
@@ -515,16 +532,18 @@ sv:
   devise:
     invitations:
       edit:
-        header: Ange ditt lösenord
+        header: Slutför att skapa ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
+        subtitle: Om du accepterar inbjudan, ange ditt smeknamn och lösenord.
     mailer:
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
         hello: Hej %{email},
         ignore: |-
-          Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
+          Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
+          Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.

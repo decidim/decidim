@@ -89,7 +89,7 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
@@ -138,7 +138,7 @@ uk:
           update: Оновити
         new:
           create: Створити
-          title: Нова група рухів
+          title: Створити групу рухів
         update:
           error: При оновленні цієї групи рухів співучасті сталася помилка.
           success: Групу рухів співучасті успішно оновлено.
@@ -160,7 +160,7 @@ uk:
         default_title: Вступ
         destroy:
           error:
-            active_step: Не можна видаляти вже започатий крок.
+            active_step: Не можна видаляти діючий крок.
             last_step: Не можна видаляти останній крок руху.
           success: Крок руху співучасті успішно видалено.
         edit:
@@ -170,7 +170,7 @@ uk:
           steps_title: Кроки
         new:
           create: Додати
-          title: Новий крок руху співучасті
+          title: Додати крок руху співучасті
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
@@ -189,7 +189,7 @@ uk:
           process_admins_title: Учасники руху співучасті
         new:
           create: Додати
-          title: Новий учасник руху співучасті.
+          title: Додати учасника руху співучасті.
         update:
           error: При оновленні учасника цього руху співучасті сталася помилка.
           success: Учасника цього руху співучасті успішно оновлено.
@@ -210,7 +210,7 @@ uk:
           published: Оприлюднено
         new:
           create: Створити
-          title: Новий рух співучасті
+          title: Додати рух співучасті
         update:
           error: При оновленні цього руху співучасті сталася помилка.
           success: Рух співучасті успішно оновлено.
@@ -247,10 +247,10 @@ uk:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'У %{participatory_space_title} започатковано крок %{resource_title}. Ви можете переглянути його на сторінці:'
+          email_intro: 'У %{participatory_space_title} приведено в дію крок %{resource_title}. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
-          notification_title: Започатковано крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -278,15 +278,15 @@ uk:
       index:
         title: Рухи співучасті
       order_by_processes:
-        active: Започатковані
+        active: Діючі
         all: Усі
         past: Минулі
         upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
-            active_processes: Започаті рухи
-            active_step: Започатий крок
+            active_processes: Діючі рухи
+            active_step: Діючий крок
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
@@ -299,7 +299,7 @@ uk:
         local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        private_space: Це приватний процес
+        private_space: Це приватний рух
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
@@ -308,7 +308,7 @@ uk:
         answers_count: Відповіді
         comments_count: Коментарі
         debates_count: Обговорення
-        endorsements_count: Підтримало
+        endorsements_count: Підтримали
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
@@ -328,7 +328,7 @@ uk:
           processes_count: 'Рухи:'
       participatory_process_widgets:
         show:
-          active_step: Започатий крок
+          active_step: Діючий крок
           take_part: Взяти участь
       participatory_processes:
         index:

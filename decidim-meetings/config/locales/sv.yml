@@ -1,6 +1,10 @@
 sv:
   activemodel:
     attributes:
+      agenda:
+        description: Beskrivning
+        duration: Varaktighet
+        title: Titel
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
@@ -27,6 +31,13 @@ sv:
         description: Beskrivning
         video_url: Video-url
         visible: Är synlig
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Varaktigheten av objekten överstiger mötesperioden med %{count} minuter
+              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendan "%{parent_title}" med %{count} minut
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -102,6 +113,7 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
     meetings:
       actions:
+        agenda: Dagordning
         attachment_collections: Samlingar
         attachments: Bifogade filer
         close: Stäng
@@ -114,6 +126,36 @@ sv:
         registrations: Registreringar
         title: Handlingar
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lägg till dagordning objekt barn
+            agenda_item: Dagordningspost
+            agenda_item_children: Agenda Item Childs
+            down: Ner
+            remove: Avlägsna
+            up: Upp
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Ner
+            remove: Avlägsna
+            up: Upp
+          create:
+            invalid: Det har varit ett problem att skapa denna dagordning
+            success: Agenda skapades framgångsrikt
+          edit:
+            title: Redigera dagordning
+            update: Uppdatering
+          form:
+            add_agenda_item: Lägg till agendapost
+            agenda_items: Dagordningsposter
+            end_date: Slutdatum
+            start_date: Start datum
+          new:
+            create: Skapa
+            title: Ny dagordning
+          update:
+            invalid: Det har varit ett problem att uppdatera den här agendan
+            success: Agenda uppdaterad
         exports:
           registrations: Registreringar
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ sv:
           unfold: Veckla ut
         index:
           view_meeting: Visa möte
+        meeting_minutes:
+          meeting_minutes: Möte protokoll
+          related_information: Relaterad information
         meetings:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
@@ -243,11 +288,9 @@ sv:
           contributions: Antal bidrag
           going: Jag kommer
           join: Gå med i mötet
-          meeting_minutes: Möte protokoll
           meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
-          related_information: Relaterad information
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"

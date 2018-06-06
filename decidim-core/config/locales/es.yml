@@ -423,6 +423,23 @@ es:
           register: Regístrate
       index:
         title: Más información
+      terms_and_conditions:
+        accept:
+          error: Ha habido un error al aceptar los términos y condiciones.
+          success: '¡Estupendo! Usted ha aceptado los términos y condiciones.'
+        form:
+          agreement: Estoy de acuerdo con estos términos
+          legend: Acepta los términos y condiciones de uso
+        refuse:
+          modal_body: Si se niega, no podrá usar la plataforma, puede <a href="%{data_portability_path}">descargar sus datos</a> y / o <a href="%{delete_path}">eliminar su cuenta</a>.
+          modal_btn_continue: Aceptar términos y continuar
+          modal_btn_exit: Lo revisaré más tarde
+          modal_button: Negarse a los términos
+          modal_title: '¿De verdad rechazas los Términos y Condiciones actualizados?'
+        required_review:
+          alert: Hemos actualizado nuestros Términos de servicio, revíselos.
+          body: Tómese un momento para revisar las actualizaciones de nuestros Términos de servicios. De lo contrario, no podrás usar la plataforma.
+          title: 'Obligatorio: revise las actualizaciones de nuestros términos de servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
     profile:
@@ -515,17 +532,18 @@ es:
   devise:
     invitations:
       edit:
-        header: Escribe tu contraseña
+        header: Termina de crear tu cuenta
         nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
+        subtitle: Si acepta la invitación, configure su alias y contraseña.
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no quieres aceptar la invitación ignora este correo.<br />
-          Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
+          Si no desea aceptar la invitación, ignore este correo electrónico.<br />
+          Su cuenta no se creará hasta que acceda al enlace de arriba y configure su alias y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
