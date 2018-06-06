@@ -247,7 +247,7 @@ ru:
     pages:
       home:
         statistics:
-          consultations_count: Консультации
+          consultations_count: Консультаций
     questions:
       results:
         title: Итоги
@@ -257,7 +257,7 @@ ru:
         assistants_count_title: Помощников
         comments_count_title: Комментариев
         meetings_count_title: Встреч
-        supports_count_title: Поддержали
+        supports_count_title: Выражений поддержки
   layouts:
     decidim:
       admin:
