@@ -64,7 +64,7 @@ ca:
         omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
         show_statistics: Mostra estadístiques
-        tos_version: Versió de condicions de servei
+        tos_version: Versió de les condicions de servei
         twitter_handler: Nom d'usuari de Twitter
         welcome_text: Text de benvinguda
         youtube_handler: Nom d'usuari de YouTube
