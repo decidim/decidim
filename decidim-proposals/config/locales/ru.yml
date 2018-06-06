@@ -36,6 +36,11 @@ ru:
         few: Предложения
         many: Предложений
         other: Предложений
+      decidim/proposals/proposal_endorsement:
+        one: Выражение поддержки
+        few: Выражения поддержки
+        many: Выражений поддержки
+        other: Выражений поддержки
       decidim/proposals/proposal_note:
         one: Примечание
         few: Примечания
@@ -78,7 +83,7 @@ ru:
             comments_blocked: Комментарии выключены
             creation_enabled: Включена возможность внесения предложений
             endorsements_blocked: Возможность выразить поддержку отключена
-            endorsements_enabled: Возможность поддержки включена
+            endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование выключено
             votes_enabled: Голосование включено
@@ -243,7 +248,7 @@ ru:
             category: Разряд
             comments: Комментарии
             created_at: 'Создано:'
-            endorsements: Поддержали
+            endorsements: Выражения поддержки
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
@@ -349,6 +354,7 @@ ru:
           view_proposal: Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
+          endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
