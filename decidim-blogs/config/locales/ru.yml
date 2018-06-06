@@ -2,11 +2,37 @@ ru:
   activemodel:
     models:
       decidim/blogs/create_post_event: Создать пост в блоге
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Пост
+        few: Поста
+        many: Постов
+        other: Постов
   decidim:
     blogs:
       actions:
         confirm_destroy: Вы действительно хотите удалить этот проект?
+        destroy: Удалить
+        edit: Редактировать
         new: Добавить
+        title: Действия
+      admin:
+        models:
+          components:
+            body: Основной текст
+          post:
+            name: Пост
+        posts:
+          create:
+            invalid: При попытке добавить этот пост произошла ошибка
+            success: Пост успешно создан
+          destroy:
+            success: Пост успешно удален
+          edit:
+            save: Обновить
+          index:
+            title: Посты
     pages:
       home:
         statistics:
