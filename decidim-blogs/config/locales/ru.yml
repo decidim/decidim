@@ -7,3 +7,10 @@ ru:
       actions:
         confirm_destroy: Вы действительно хотите удалить этот проект?
         new: Добавить
+    pages:
+      home:
+        statistics:
+          posts_count: Постов
+    participatory_processes:
+      statistics:
+        posts_count: Постов
