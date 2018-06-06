@@ -12,7 +12,7 @@ ru:
       attachment:
         attachment_collection_id: Папка
         description: Описание
-        file: Файл
+        file: Прикрепленный файл
         title: Название
       attachment_collection:
         description: Описание
@@ -188,7 +188,7 @@ ru:
           update: Обновить
         index:
           attachment_collection_used: Эту папку нельзя удалить, так как она используется.
-          attachment_collections_title: Папки вложений
+          attachment_collections_title: Папки прикрепленных файлов
         new:
           create: Создать
           title: Создать папку
@@ -197,18 +197,17 @@ ru:
           success: Папка успешно обновлена.
       attachments:
         create:
-          error: При создании нового вложенного файла произошла ошибка.
-          success: Вложенный файл успешно добавлен.
+          error: При создании нового прикрепленного файла произошла ошибка.
+          success: Файл успешно прикреплен.
         destroy:
-          success: Вложенный файл успешно удален.
+          success: Прикрепленный файл успешно удален.
         edit:
-          title: Изменить вложенный файл
+          title: Изменить прикрепленный файл
           update: Обновить
         index:
-          attachments_title: Вложенные файлы
+          attachments_title: Прикрепленные файлы
         new:
-          create: Добавить вложенный файл
-          title: Прикрепить вложенный файл
+          create: Прикрепить файл
         update:
           error: При обновлении этого вложенного файла произошла ошибка.
           success: Вложенный файл успешно обновлен.
