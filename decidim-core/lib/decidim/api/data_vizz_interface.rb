@@ -6,33 +6,11 @@ module Decidim
       name "DataVizzInterface"
       description "The interface that all DataVizz data."
 
-      # field :id, !types.ID, "The participatory space's unique ID"
+      field :count, !types.Int, "Counter"
 
-      # field :title, !TranslatedFieldType, "The name of this participatory space."
+      field :data, !types.String, "Data"
 
-      # field :components, types[ComponentInterface] do
-      #   description "Lists the components this space contains."
-      #
-      #   resolve ->(participatory_space, _args, _ctx) {
-      #             Decidim::Component.where(
-      #               participatory_space: participatory_space
-      #             ).published
-      #           }
-      # end
-
-      # field :stats, types[Decidim::Core::StatisticType] do
-      #   resolve ->(participatory_space, _args, _ctx) {
-      #     published_components = Component.where(participatory_space: participatory_space).published
-      #
-      #     stats = Decidim.component_manifests.map do |component_manifest|
-      #       component_manifest.stats.with_context(published_components).map { |name, data| [name, data] }.flatten
-      #     end
-      #
-      #     stats.reject(&:empty?)
-      #   }
-      # end
-
-      resolve_type ->(obj, _ctx) {  }
+      resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end
 end

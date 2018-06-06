@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     DataVizzType = GraphQL::ObjectType.define do
       interfaces [-> { DataVizzInterface }]
 
@@ -16,7 +15,6 @@ module Decidim
       field :data, !types.String, "Stringify data" do
         resolve ->(obj, _args, _ctx) { obj.respond_to?(:as_json) ? obj.as_json : "" }
       end
-
     end
   end
 end

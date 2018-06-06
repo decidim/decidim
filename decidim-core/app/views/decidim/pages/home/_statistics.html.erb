@@ -11,4 +11,24 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="columns small-centered mediumlarge-10 large-8">
+        <div class="home-graphiql">
+        </div>
+      </div>
+    </div>
   </section>
+
+<%= javascript_tag do %>
+  $(function(){
+    $.post({
+      url: '<%= decidim_api.root_path %>',
+      data: JSON.stringify({ "query": "{ userMetric { result { count data } } }" }),
+      contentType: 'application/json'
+    }).done(function(response) {
+      $(".home-graphiql").html('userMetric:' + JSON.stringify(response.data.userMetric))
+      console.log('userMetric:', response.data.userMetric);
+    });
+  })
+
+<% end %>
