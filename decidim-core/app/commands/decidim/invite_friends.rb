@@ -21,7 +21,7 @@ module Decidim
     attr_reader :form
 
     def invite_friends
-      cleaned_emails.each do |email|
+      form.clean_emails.each do |email|
         InviteUser.call(build_invite_form(email)) do
           on(:ok) do |user|
             return user
@@ -40,11 +40,6 @@ module Decidim
         invited_by: form.current_user,
         invitation_instructions: "invite_admin"
       )
-    end
-
-    def cleaned_emails
-      existing_emails = Decidim::User.where(organization: form.current_organization, email: form.emails).pluck(:email)
-      form.emails - existing_emails
     end
   end
 end
