@@ -195,7 +195,7 @@ ru:
             intro: Вступление
             subcategories_label: Название для "Подразряды"
           step:
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
     events:
       accountability:
         proposal_linked:
