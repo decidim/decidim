@@ -4,6 +4,8 @@ ru:
       consultation:
         banner_image: Изображение баннера
         decidim_highlighted_scope_id: Рекомендуемый охват
+        description: Описание
+        end_voting_date: Дата окончания
         title: Название
       question:
         decidim_scope_id: Участок города
