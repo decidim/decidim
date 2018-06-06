@@ -42,6 +42,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 9.0"
   s.add_dependency "pg", ">= 0.18", "< 2"
+  s.add_dependency "pg_search", "~> 2.1", ">= 2.1.0"
   s.add_dependency "premailer-rails", "~> 1.9"
   s.add_dependency "rack-attack", "~> 5.2.0"
   s.add_dependency "rails", ">= 5.2", "< 6.0.x"
