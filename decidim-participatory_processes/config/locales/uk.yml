@@ -305,26 +305,27 @@ uk:
         target: Хто бере участь
         unspecified: Не вказано
       statistics:
+        answers_count: Відповідей
         comments_count: Коментарів
-        debates_count: Обговорення
-        endorsements_count: Висловів пдтримки
+        debates_count: Обговорень
+        endorsements_count: Проявів підтримки
         headline: Діяльність
-        meetings_count: Зустрічі
-        orders_count: Голоси
-        pages_count: Сторінки
-        processes_count: Рухи
-        projects_count: Задуми
-        proposals_count: Пропозиції
-        results_count: Підсумки
-        surveys_count: Опитування
-        users_count: Учасники
-        votes_count: Голоси
+        meetings_count: Зустрічей
+        orders_count: Голосів
+        pages_count: Сторінок
+        processes_count: Рухів
+        projects_count: Задумів
+        proposals_count: Пропозицій
+        results_count: Підсумків
+        surveys_count: Опитувань
+        users_count: Учасників
+        votes_count: Голосів
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Огляд
-          processes_count: 'Рухи:'
+          processes_count: 'Рухів:'
       participatory_process_widgets:
         show:
           active_step: Діючий крок
