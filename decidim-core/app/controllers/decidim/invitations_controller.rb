@@ -19,11 +19,11 @@ module Decidim
         end
 
         on(:invalid) do
-          flash[:alert] = if @form.emails.empty?
-                            t("invitations.create.error_empty_form", scope: "decidim")
-                          else
-                            t("invitations.create.error", scope: "decidim")
-                          end
+          flash.now[:alert] = if @form.emails.empty?
+                                t("invitations.create.error_empty_form", scope: "decidim")
+                              else
+                                t("invitations.create.error", scope: "decidim")
+                              end
           render action: :index
         end
       end
