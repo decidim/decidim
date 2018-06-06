@@ -3,6 +3,7 @@ ru:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
@@ -66,12 +67,17 @@ ru:
           new_initiative: Добавить почин
         result:
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
+        show:
+          offline_method: Этот гражданский почин собирает выражения поддержки только на личных встречах.
         statistics:
           assistants_count_title: Помощников
           comments_count_title: Комментариев
           meetings_count_title: Встреч
           supports_count_title: Подписей
+        vote_cabin:
+          supports_required: "Требуется %{total_supports} подписей"
       initiatives_mailer:
+        progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
       pages:
         home:
