@@ -2,7 +2,7 @@ ru:
   activemodel:
     attributes:
       sortition:
-        additional_info: Жеребьевкой информация
+        additional_info: Сведения о жеребьевке
         decidim_category_id: Разряды подборки предложений, среди которых вы хотите провести жеребьевку
         title: Название
   decidim:
