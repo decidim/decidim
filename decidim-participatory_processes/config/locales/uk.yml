@@ -119,7 +119,7 @@ uk:
           name: Учасник руху співучасті
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
         user:
           fields:
