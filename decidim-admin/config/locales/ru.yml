@@ -20,7 +20,7 @@ ru:
       category:
         description: Описание
         name: Имя
-        parent_id: Родитель
+        parent_id: Родительский объект
       component:
         name: Название
         published_at: 'Опубликовано:'
@@ -72,7 +72,7 @@ ru:
         code: Код
         name: Имя
         organization: Организация
-        parent_id: Родитель
+        parent_id: Родительский объект
         scope_type: Вид охвата
         scope_type_id: Вид охвата
       scope_type:
