@@ -10,8 +10,8 @@ uk:
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
         nickname: Ваш короткий, унікальний псевдонім
-        password: Новий пароль
-        password_confirmation: Підтвердьте свій новий пароль
+        password: Пароль
+        password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
@@ -112,7 +112,7 @@ uk:
         related_photos: Супутні світлини
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Підтвердьте особу, ввівши номер документа, що закінчується буквою "X"
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -162,7 +162,7 @@ uk:
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
-          newsletter: Отримувати іноді розсилання з цього приводу
+          newsletter: Отримувати іноді розсилання з новинами
           nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
           sign_in: Увійти
           sign_up: Зареєструватися
@@ -171,7 +171,7 @@ uk:
             user: Приватна особа
             user_group: Організація / колектив
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
-          terms: умови використання
+          terms: умови участі
           tos_agreement: Реєструючись, ви приймаєте %{link}.
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
@@ -185,11 +185,11 @@ uk:
       authorizations:
         new:
           authorize: Підтвердити додаток
-          by_organization_link_html: <small class="heading-small">на %{link}</small>
+          by_organization_link_html: <small class="heading-small">через %{link}</small>
           cancel: Скасувати
           connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
-          publish_content: Оприлюднювати за вас вміст
-          see_email: Бачити вашу електронну пошту
+          publish_content: Оприлюднювати за вас дописи
+          see_email: Бачити вашу адресу ел-пошти
           see_name: Бачити ваше ім'я
           see_username: Бачити ваше ім'я учасника
           this_application_will_be_able_to: 'Цей додаток зможе:'
@@ -390,7 +390,7 @@ uk:
           title: Підтвердження особи все ще триває
         unauthorized:
           explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
-          invalid_field: "Для поля %{field} значення %{value} недійсне."
+          invalid_field: "Для поля %{field} значення %{value} неприпустиме."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
       author:
@@ -437,16 +437,16 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-        invited_you_as_private_user: "%{invited_by} запросив вас як прихованого учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
-        someone_invited_you_as_private_user: Хтось запросив вас як прихованого учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
+        someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
       invite_admin:
         subject: Вас запросили керувати %{organization}
       invite_collaborator:
         subject: Вас запросили співпрацювати на %{organization}
       invite_private_user:
-        subject: Вас запрошено до прихованого руху співучасті від %{organization}
+        subject: Вас запрошено до приватного руху співучасті від %{organization}
       organization_admin_invitation_instructions:
         subject: Вас запросили керувати %{organization}
       password_change:
@@ -536,7 +536,7 @@ uk:
         assemblies_count: Збори
         comments_count: Коментарі
         debates_count: Обговорення
-        endorsements_count: Підтримало
+        endorsements_count: Підтримали
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
         orders_count: Голоси
