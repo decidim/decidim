@@ -33,6 +33,11 @@ ru:
             save: Обновить
           index:
             title: Посты
+          new:
+            create: Создать
+            title: Создать пост
+          update:
+            invalid: При попытке сохранить пост произошли ошибки.
     pages:
       home:
         statistics:
