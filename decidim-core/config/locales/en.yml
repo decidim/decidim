@@ -582,8 +582,8 @@ en:
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
       invite_friend:
-        accept_invitation: "You can accept the invitation through the link below:"
-        friend_custom_text: "They left this message for you:"
+        accept_invitation: 'You can accept the invitation through the link below:'
+        friend_custom_text: 'They left this message for you:'
         subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}
