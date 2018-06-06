@@ -672,6 +672,6 @@ uk:
     pagination:
       first: "&laquo; Перша"
       last: Остання &raquo;
-      next: Наступна &rsaquo;
+      next: Далі &rsaquo;
       previous: "Попередня &lsaquo;"
       truncate: "&hellip;"
