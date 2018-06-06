@@ -82,7 +82,7 @@ ru:
       component:
         create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
-        publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
+        publish: "%{user_name} обнародовал составляющую %{resource_name} в пространстве %{space_name}"
         unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
       moderation:
         hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
