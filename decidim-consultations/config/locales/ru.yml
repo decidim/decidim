@@ -220,6 +220,42 @@ ru:
       question:
         take_part: Принять участие
         view_results: Посмотреть итоги
+        votes_out_of:
+          one: голос из
+          few: голоса из
+          many: голосов из
+          other: голосов из
+      question_votes:
+        create:
+          error: При голосовании по данному вопросу произошли ошибки
+      regular_questions:
+        title: Вопросы для этой консультации
+      show:
+        badge_name:
+          finished: Завершившаяся
+          open: Открытая
+          open_votes: Открыто голосование
+          published_results: Итоги обнародованы
+        footer_button_text:
+          debate: Обсуждение
+          view: Посмотреть
+          view_results: Посмотреть итоги
+          vote: Голосовать
+        unspecified: Не указано
+    menu:
+      consultations: Консультации
+    pages:
+      home:
+        statistics:
+          consultations_count: Консультации
+    questions:
+      results:
+        title: Итоги
+      show:
+        read_more: Читать подробнее
+      statistics:
+        assistants_count_title: Помощников
+        comments_count_title: Комментариев
   layouts:
     decidim:
       admin:
