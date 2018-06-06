@@ -83,7 +83,7 @@ ru:
         create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
         publish: "%{user_name} обнародовал составляющую %{resource_name} в пространстве %{space_name}"
-        unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил обнародование составляющей %{resource_name} в пространстве %{space_name}"
       moderation:
         hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
         unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
@@ -234,7 +234,7 @@ ru:
           by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
           connect_your_account_html: Подключите свою учетную запись, выполнив вход в <strong>%{organization}</strong>
-          publish_content: Публиковать за вас сообщения
+          publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
           see_name: Видеть ваше имя
           see_username: Видеть ваше имя участника
