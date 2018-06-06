@@ -121,7 +121,7 @@ ru:
       actions:
         agenda: Повестка дня
         attachment_collections: Папки
-        attachments: Вложения
+        attachments: Прикрепленные файлы
         close: Закрыть
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
