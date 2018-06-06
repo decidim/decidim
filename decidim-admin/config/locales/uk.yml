@@ -96,7 +96,7 @@ uk:
       decidim/participatory_process:
         banner_image: Банерне зображення
         description: Опис
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
