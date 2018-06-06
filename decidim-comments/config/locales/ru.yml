@@ -1,6 +1,25 @@
 ru:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Комментарий
+      decidim/comments/comment_created_event: Комментарий
+      decidim/comments/reply_created_event: Ответ на комментарий
+      decidim/comments/user_mentioned_event: Упоминание
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Комментарий
+        few: Комментария
+        many: Комментариев
+        other: Комментариев
+      decidim/comments/comment_vote:
+        one: Голос
+        few: Голоса
+        many: Голосов
+        other: Голосов
   decidim:
     comments:
+      comments: Комментарии
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
@@ -53,6 +72,7 @@ ru:
     events:
       comments:
         comment_by_followed_user:
+          email_intro: "%{author_name} оставил комментарий в %{resource_title}. Вы можете прочитать его на странице:"
           email_subject: В %{resource_title} появился новый комментарий от %{author_name}
           notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
