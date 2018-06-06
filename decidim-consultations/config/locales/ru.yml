@@ -256,6 +256,8 @@ ru:
       statistics:
         assistants_count_title: Помощников
         comments_count_title: Комментариев
+        meetings_count_title: Встреч
+        supports_count_title: Поддержали
   layouts:
     decidim:
       admin:
