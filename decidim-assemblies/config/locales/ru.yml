@@ -301,7 +301,8 @@ ru:
         proposals_count: Предложений
         results_count: Итогов
         surveys_count: Опросов
-        votes_count: Голоса
+        users_count: Участников
+        votes_count: Голосов
     assembly_members:
       assembly_member:
         designated_on: 'Полномочия предоставлены:'
