@@ -65,10 +65,20 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
+        registrations_enabled:
+          email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Открылась регистрация на встречу «%{resource_title}».
+          notification_title: Открыта регистрация на встречу <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
     meetings:
       actions:
         attachment_collections: Папки
-        attachments: Вложения
+        attachments: Прикрепленные файлы
         close: Закрыть
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
@@ -112,6 +122,16 @@ ru:
           new:
             create: Создать
             title: Добавить встречу
+          service:
+            description: Описание
+            down: Вниз
+            remove: Удалить
+            service: Услуга
+            title: Название
+            up: Вверх
+          services:
+            add_service: Добавить услугу
+            services: Услуги
           update:
             invalid: При попытке обновить эту встречу произошла ошибка
             success: Встреча успешно обновлена
@@ -129,6 +149,8 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+            reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
+            reserved_slots_less_than: Должен быть меньше или равен %{count}
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
