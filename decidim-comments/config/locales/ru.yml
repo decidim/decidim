@@ -33,7 +33,7 @@ ru:
           description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
           reasons:
-            does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
+            does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личные сведения или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
             offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
             spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
           title: Пожаловаться на проблему
@@ -50,6 +50,23 @@ ru:
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
+          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_created:
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
+          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+        reply_created:
+          email_subject: "%{author_name} ответил на ваш комментарий в %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ответил на ваш комментарий в <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Вы были упомянуты
+          email_outro: Вы получили это уведомление, потому что вы были упомянуты в %{resource_title}.
+          email_subject: Вы были упомянуты в %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> упомянул вас в <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: не подлежит комментированию
