@@ -429,7 +429,7 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions.
         form:
           agreement: Accepto aquests termes
-          legend: Acceptar els Termes i Condicions d'ús
+          legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma. Pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
@@ -546,18 +546,18 @@ ca:
   devise:
     invitations:
       edit:
-        header: Finalitza la creació del perfil
+        header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
-        subtitle: Si acceptes la invitació, configura el teu sobrenom i contrasenya.
+        subtitle: Si acceptes la invitació, si us plau estableix el teu nom d'usuari i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no vols acceptar la invitació, ignora aquest correu electrònic.<br />
-          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i configuris el teu sobrenom i contrasenya.
+          Si no vols acceptar la invitació, si us plau ignora aquest correu electrònic.<br />
+          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -584,10 +584,10 @@ ca:
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       long_words: conté paraules que són massa llargues
-      must_start_with_caps: ha de començar amb caps
+      must_start_with_caps: ha de començar amb majúscules
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: està usant massa marques
-      too_much_caps: està usant massa caps
+      too_many_marks: hi ha massa signes de puntuació
+      too_much_caps: hi ha massa majúscules
       too_short: és massa curt
   forms:
     required: Obligatori
