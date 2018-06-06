@@ -237,6 +237,9 @@ ru:
         update: "%{user_name} обновил движение соучастия %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} привел в действие шаг %{resource_name} процесса соучастия %{space_name}"
+        create: "%{user_name} создал шаг %{resource_name} процесса соучастия %{space_name}"
+        delete: "%{user_name} удалил шаг %{resource_name} процесса соучастия %{space_name}"
+        update: "%{user_name} обновил шаг %{resource_name} процесса соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
