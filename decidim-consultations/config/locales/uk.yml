@@ -247,7 +247,7 @@ uk:
     pages:
       home:
         statistics:
-          consultations_count: Консультації
+          consultations_count: Консультацій
     questions:
       results:
         title: Підсумки
@@ -256,8 +256,8 @@ uk:
       statistics:
         assistants_count_title: Помічників
         comments_count_title: Коментарів
-        meetings_count_title: Зустрічі
-        supports_count_title: Людей підтримують
+        meetings_count_title: Зустрічей
+        supports_count_title: Проявів підтримки
       technical_info:
         technical_data: Технічні відомості
       vote_button:
