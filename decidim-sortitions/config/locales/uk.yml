@@ -80,7 +80,7 @@ uk:
           form:
             all_categories: Усі розряди
             select_proposal_component: Оберіть набір пропозицій
-            title: Додати жеребкування для пропозицій
+            title: Додати нове жеребкування пропозицій
           index:
             title: Жеребкування
           new:
