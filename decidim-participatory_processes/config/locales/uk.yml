@@ -69,7 +69,7 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
@@ -118,7 +118,7 @@ uk:
           update: Оновити
         new:
           create: Створити
-          title: Нова група рухів
+          title: Створити групу рухів
         update:
           error: При оновленні цієї групи рухів співучасті сталася помилка.
           success: Групу рухів співучасті успішно оновлено.
@@ -150,7 +150,7 @@ uk:
           steps_title: Кроки
         new:
           create: Додати
-          title: Новий крок руху співучасті
+          title: Додати крок руху співучасті
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
@@ -169,7 +169,7 @@ uk:
           process_admins_title: Учасники руху співучасті
         new:
           create: Додати
-          title: Новий учасник руху співучасті.
+          title: Додати учасника руху співучасті.
         update:
           error: При оновленні учасника цього руху співучасті сталася помилка.
           success: Учасника цього руху співучасті успішно оновлено.
@@ -190,7 +190,7 @@ uk:
           published: Оприлюднено
         new:
           create: Створити
-          title: Новий рух співучасті
+          title: Додати рух співучасті
         update:
           error: При оновленні цього руху співучасті сталася помилка.
           success: Рух співучасті успішно оновлено.
@@ -279,7 +279,7 @@ uk:
         local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        private_space: Це приватний процес
+        private_space: Це приватний рух
         scope: Обсяг
         start_date: Дата початку
         target: Хто бере участь
@@ -287,7 +287,7 @@ uk:
         answers_count: Відповіді
         comments_count: Коментарі
         debates_count: Обговорення
-        endorsements_count: Підтримало
+        endorsements_count: Підтримали
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
