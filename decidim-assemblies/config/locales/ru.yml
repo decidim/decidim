@@ -94,7 +94,7 @@ ru:
         index:
           not_published: Не обнародовано
           private: Частное
-          public: Публичное
+          public: Обнародованные
           published: Обнародовано
         new:
           create: Добавить
