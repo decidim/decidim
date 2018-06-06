@@ -37,6 +37,7 @@ ru:
           attributes:
             base:
               too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
+              too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -106,22 +107,61 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
+        registrations_enabled:
+          email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Открылась регистрация на встречу «%{resource_title}».
+          notification_title: Открыта регистрация на встречу <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
     meetings:
       actions:
+        agenda: Повестка дня
         attachment_collections: Папки
         attachments: Вложения
         close: Закрыть
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
+        minutes: Протокол
         new: Добавить
         preview: Предпросмотр
         registrations: Регистрации
         title: Действия
       admin:
         agenda:
+          agenda_item:
+            add_agenda_item_child: Добавить вложенный вопрос повестки дня
+            agenda_item: Вопрос повестки дня
+            agenda_item_children: Впложенные вопросы данного вопроса повестки дня
+            down: Вниз
+            remove: Удалить
+            up: Вверх
+          agenda_item_child:
+            agenda_item_child: Впложенный вопрос данного вопроса повестки дня
+            down: Вниз
+            remove: Удалить
+            up: Вверх
+          create:
+            invalid: При попытке создать эту повестку дня произошла ошибка
+            success: Повестка дня успешно создана
+          edit:
+            title: Изменить повестку дня
+            update: Обновить
+          form:
+            add_agenda_item: Добавить вопрос повестки дня
+            agenda_items: Вопросы повестки дня
+            end_date: Дата завершения
+            start_date: Дата начала
           new:
+            create: Создать
             title: Создать повестку дня
+          update:
+            invalid: При попытке обновить эту повестку дня произошла ошибка
+            success: Повестка дня успешно обновлена
         exports:
           registrations: Регистрации
         invite_join_meeting_mailer:
@@ -140,6 +180,9 @@ ru:
           edit:
             close: Закрыть
             title: Закрыть встречу
+        meeting_copies:
+          form:
+            select_organizer: Выберите организатора
         meetings:
           close:
             invalid: При попытке закрыть эту встречу произошла ошибка
@@ -151,14 +194,38 @@ ru:
             success: Встреча успешно удалена
           edit:
             update: Обновить
+          form:
+            select_organizer: Выберите организатора
           index:
             title: Встречи
           new:
             create: Создать
             title: Добавить встречу
+          service:
+            description: Описание
+            down: Вниз
+            remove: Удалить
+            service: Услуга
+            title: Название
+            up: Вверх
+          services:
+            add_service: Добавить услугу
+            services: Услуги
           update:
             invalid: При попытке обновить эту встречу произошла ошибка
             success: Встреча успешно обновлена
+        minutes:
+          create:
+            invalid: При попытке создать этот протокол произошла ошибка
+            success: Протокол успешно создан
+          edit:
+            update: Обновить
+          new:
+            create: Создать
+            title: Создать протокол
+          update:
+            invalid: При попытке обновить этот протокол произошла ошибка
+            success: Протокол успешно обновлен
         models:
           meeting:
             name: Встреча
@@ -173,6 +240,7 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+            reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
