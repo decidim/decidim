@@ -576,7 +576,7 @@ es:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos términos y condiciones.
+          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
         index:
