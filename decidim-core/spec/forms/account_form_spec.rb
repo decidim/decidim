@@ -27,7 +27,7 @@ module Decidim
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }
     let(:nickname) { "foo_bar" }
-    let(:password) { "abcde123" }
+    let(:password) { "Rf9kWTqQfyqkwseH" }
     let(:password_confirmation) { password }
     let(:avatar) { File.open("spec/assets/avatar.jpg") }
     let(:remove_avatar) { false }
