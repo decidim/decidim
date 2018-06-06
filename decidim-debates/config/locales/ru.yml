@@ -6,11 +6,16 @@ ru:
         decidim_category_id: Разряд
         title: Название
   decidim:
+    components:
+      debates:
+        name: Обсуждения
     debates:
       actions:
         new: Добавить %{name}
       admin:
         debates:
+          index:
+            title: Обсуждения
           new:
             title: Начать новое обсуждение
       debates:
