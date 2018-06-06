@@ -262,8 +262,22 @@ ru:
         vote: Голосовать
       vote_modal:
         contextual_help: Пожалуйста, выберите вариант.
+        title: 'Консультация: поддержка вопроса'
+      vote_modal_confirm:
+        change: Изменить
+        confirm: Подтвердить
+        contextual_help: Пожалуйста, подтвердите выбранный вариант.
+        title: 'Консультация: подтвердите поддержку'
   layouts:
     decidim:
       admin:
         question:
+          attachments: Прикрепленные файлы
           categories: Разряды
+      consultation_voting_data:
+        start_voting_date: Голосование начинается
+      question_components:
+        question_menu_item: Вопрос
+        unfold: Развернуть
+      question_header:
+        back_to_consultation: Просмотреть все консультации
