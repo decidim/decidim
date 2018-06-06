@@ -76,16 +76,17 @@ ru:
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Внести"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
+            proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
             threshold_per_proposal: Порог для каждого предложения
             vote_limit: Предельное количество голосов для одного участника
           step:
             announcement: Объявление
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
             creation_enabled: Включена возможность внесения предложений
             endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
-            votes_blocked: Голосование выключено
+            votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
             votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
     events:
