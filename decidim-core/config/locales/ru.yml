@@ -253,7 +253,7 @@ ru:
     events:
       attachments:
         attachment_created:
-          email_intro: 'В %{resource_title} добавили новый документ. Вы можете увидеть его на странице:'
+          email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{resource_title}
           notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> добавили <a href="%{resource_path}">новый документ</a>
@@ -265,7 +265,7 @@ ru:
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
-        email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
+        email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
       notification_event:
@@ -347,7 +347,7 @@ ru:
           subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы увидеть их:"
+          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
