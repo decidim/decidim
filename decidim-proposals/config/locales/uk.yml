@@ -80,7 +80,7 @@ uk:
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
-            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
+            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
           step:
