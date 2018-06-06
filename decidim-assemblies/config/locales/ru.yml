@@ -113,6 +113,7 @@ ru:
           title: Создать копию собрания
       assembly_members:
         edit:
+          title: Обновить члена президиума собрания.
           update: Обновить
         index:
           assembly_members_title: Члены президиума собрания
@@ -144,11 +145,15 @@ ru:
           create: Добавить
           title: Добавить участника собрания.
         update:
+          error: При попытке обновить члена президиума этого собрания произошла ошибка.
           success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
+          assembly_admins: Участники собрания
+          assembly_members: Члены президиума
           attachment_collections: Папки
+          attachment_files: Прикрепленные файлы
           attachments: Вложения
           categories: Разряды
           components: Составляющие
