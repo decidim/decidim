@@ -37,15 +37,53 @@ ru:
         title: Действия
       admin:
         debates:
+          create:
+            invalid: При попытке создать это обсуждение произошла ошибка.
+            success: Обсуждение успешно создано.
+          destroy:
+            success: Обсуждение успешно удалено.
+          edit:
+            title: Редактировать обсуждение
+            update: Обновить обсуждение
           index:
             title: Обсуждения
           new:
+            create: Начать обсуждение
             title: Начать новое обсуждение
+          update:
+            invalid: При попытке обновить это обсуждение произошла ошибка.
+            success: Обсуждение успешно обновлено.
+        models:
+          debate:
+            name: Обсуждение
+      admin_log:
+        debate:
+          create: "%{user_name} создал обсуждение %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил обсуждение %{resource_name} в пространстве %{space_name}"
       debates:
+        count:
+          debates_count:
+            one: "%{count} обсуждение"
+            few: "%{count} обсуждения"
+            many: "%{count} обсуждений"
+            other: "%{count} обсуждений"
+        create:
+          invalid: При попытке создать это обсуждение произошла ошибка.
+          success: Обсуждение успешно создано.
+        debate:
+          participate: Принять участие
         filters:
+          all: Все
           category: Разряд
           category_prompt: Выберите разряд
+          citizens: Граждане
           official: Служебные
+          origin: Источник
+          search: Поиск
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
         index:
           new_debate: Начать новое обсуждение
         new:
