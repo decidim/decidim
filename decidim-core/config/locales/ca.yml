@@ -425,21 +425,21 @@ ca:
         title: Més informació
       terms_and_conditions:
         accept:
-          error: S'ha produït un error en acceptar els termes i condicions.
+          error: S'ha produït un error en acceptar els Termes i Condicions.
           success: Genial! Has acceptat els Termes i Condicions.
         form:
           agreement: Accepto aquests termes
-          legend: Acceptar els termes i condicions d'ús
+          legend: Acceptar els Termes i Condicions d'ús
         refuse:
-          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma. Pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
           modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat els nostres termes de servei, si us plau revisa'ls.
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
           body: Si us plau dedica un moment a revisar l'actualització de les nostres Condicions d'Ús. En cas contrari, no podràs utilitzar la plataforma.
-          title: 'Obligatori: revisa les actualitzacions dels nostres termes de servei'
+          title: 'Obligatori: revisa l''actualització de les nostres Condicions d''Ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
@@ -480,7 +480,7 @@ ca:
       filter:
         all: Tots
         component: Component
-      results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
+      results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cerca
     searches:
       filters:
@@ -546,18 +546,18 @@ ca:
   devise:
     invitations:
       edit:
-        header: Acaba de crear el vostre compte
+        header: Finalitza la creació del perfil
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
-        subtitle: Si accepteu la invitació, configureu el vostre sobrenom i contrasenya.
+        subtitle: Si acceptes la invitació, configura el teu sobrenom i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no voleu acceptar la invitació, ignoreu aquest correu electrònic.<br />
-          vostre compte no es crearà fins que no accediu a l'enllaç anterior i configureu el vostre sobrenom i contrasenya.
+          Si no vols acceptar la invitació, ignora aquest correu electrònic.<br />
+          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i configuris el teu sobrenom i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
