@@ -37,7 +37,7 @@ uk:
           attributes:
             base:
               too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
-              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість батьківського питання порядку денного "%{parent_title}" на %{count} хвилин
+              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
