@@ -18,7 +18,7 @@ ru:
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         duration: Длительность
         facebook: Фейсбук
@@ -105,12 +105,15 @@ ru:
           create: Добавить
           title: Добавить участника собрания.
         update:
+          error: При попытке обновить члена президиума этого собрания произошла ошибка.
           success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
+          assembly_admins: Участники собрания
           attachment_collections: Папки
-          attachments: Вложения
+          attachment_files: Прикрепленные файлы
+          attachments: Прикрепленные файлы
           categories: Разряды
           components: Составляющие
           info: Сведения
@@ -125,18 +128,48 @@ ru:
             published: Опубликовано
             title: Название
           name: Собрание
+        assembly_user_role:
+          fields:
+            email: Эл. адрес
+            name: Имя
+            role: Роль
+          name: Участник собрания
+          roles:
+            admin: Администратор
+            collaborator: Сотрудник
+            moderator: Модератор
       titles:
         assemblies: Собрания
+    admin_log:
+      assembly:
+        create: "%{user_name} добавил собрание %{resource_name}"
+        publish: "%{user_name} опубликовал собрание %{resource_name}"
+        unpublish: "%{user_name} отменил публикацию собрания %{resource_name}"
+        update: "%{user_name} обновил собрание %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} пригласил члена президиума %{resource_name} на собрание %{space_name}"
+        delete: "%{user_name} удалил участника %{resource_name} собрания %{space_name}"
+        update: "%{user_name} изменил роль %{resource_name} на собрании %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             select_a_created_by: Укажите, кем создано
             select_an_area: Выберите участок
+            select_an_assembly_type: Выберите вид собрания
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+            social_handlers: Социальные сети
         assembly_copies:
           form:
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+      assembly_types:
+        commission: Комиссия
+        consultative_advisory: Совещательное / Консультативное
+        executive: Исполнительное
+        government: Правительственное
+        others: Другое
+        participatory: Соучастное
+        working_group: Рабочая группа
       created_by:
         city_council: Городской Совет
         others: Другие
@@ -150,18 +183,37 @@ ru:
             see_all_assemblies: Просмотреть все собрания
       show:
         area: Участок
+        assembly_type: Вид собрания
+        children: Собрания
+        closing_date: Дата закрытия
+        composition: Состав
         created_by: 'Автор:'
-        developer_group: Группа продвигателей
+        creation_date: Дата создания
+        developer_group: Рабочая группа по продвижению
+        duration: Длительность
+        included_at: Включено в
+        indefinite_duration: Бессрочное
+        internal_organisation: Внутренняя организация
+        is_transparent:
+          'false': непрозрачное
+          'true': прозрачное
         local_area: Местный участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         private_space: Это частное собрание
+        purpose_of_action: Цель действия
+        read_less: Читать меньше
+        read_more: Читать подробнее
+        related_participatory_processes: Сопутствующие движения соучастия
         scope: Охват
+        social_networks: Социальные сети
         target: Цель
       statistics:
         answers_count: Ответы
         assemblies_count: Собрания
         comments_count: Комментарии
+        debates_count: Обсуждения
+        endorsements_count: Поддержали
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
@@ -172,8 +224,15 @@ ru:
         surveys_count: Опросы
         users_count: Участники
         votes_count: Голоса
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Собрание не найдено в базе данных (ID: %{id})'
     menu:
       assemblies: Собрания
+  errors:
+    messages:
+      cannot_be_blank: не может быть пустым
   layouts:
     decidim:
       assemblies:
