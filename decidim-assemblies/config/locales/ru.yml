@@ -3,29 +3,54 @@ ru:
     attributes:
       assembly:
         area_id: Участок
+        assembly_type: Вид собрания
+        assembly_type_other: Другой вид собрания
         banner_image: Изображение баннера
-        copy_categories: Скопировать категории
+        closing_date: Дата закрытия
+        closing_date_reason: Причина даты закрытия
+        composition: Состав
+        copy_categories: Скопировать разряды
         copy_components: Копировать составляющие
         copy_features: Копировать составляющие
+        created_by: 'Автор:'
+        created_by_other: Создано кем-то еще
+        creation_date: Дата создания
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
         developer_group: Группа зачинателей
         domain: Домен
+        duration: Длительность
+        facebook: Фейсбук
+        github: ГитХаб
         hashtag: Хэштег
         hero_image: Изображение главной страницы
+        included_at: Включено в
+        instagram: Инстаграм
+        internal_organisation: Внутренняя организация
+        is_transparent: Прозрачное
         local_area: Местный участок
         meta_scope: Метаданные охвата
+        participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         promoted: Рекламируется
+        published_at: 'Опубликовано:'
+        purpose_of_action: Цель действия
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
+        show_statistics: Показывать статистику
         slug: Сокращенный URL-адрес
         subtitle: Подзаголовок
         target: Цель
         title: Название
+        twitter: Твиттер
+        youtube: ЮТуб
+      assembly_user_role:
+        email: Эл. адрес
+        name: Имя
+        role: Роль
   decidim:
     admin:
       assemblies:
@@ -37,13 +62,15 @@ ru:
         edit:
           update: Обновить
         form:
-          title: Общая информация
+          title: Общие сведения
         index:
           not_published: Не опубликовано
+          private: Частное
+          public: Публичное
           published: Опубликовано
         new:
           create: Добавить
-          title: Новое собрание
+          title: Добавить собрание
         update:
           error: При обновлении этого собрания произошла ошибка.
           success: Собрание успешно обновлено.
@@ -63,19 +90,37 @@ ru:
         destroy:
           error: При отмене публикации этого собрания произошла ошибка.
           success: Публикация собрания успешно отменена.
+      assembly_user_roles:
+        create:
+          error: При попытке добавить члена президиума этого собрания произошла ошибка.
+          success: Успешно добавлен участник этого собрания.
+        destroy:
+          success: Успешно удален участник этого собрания.
+        edit:
+          title: Обновить участника собрания.
+          update: Обновить
+        index:
+          assembly_admins_title: Участники собрания
+        new:
+          create: Добавить
+          title: Добавить участника собрания.
+        update:
+          success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
           attachment_collections: Папки
           attachments: Вложения
-          categories: Категории
+          categories: Разряды
           components: Составляющие
-          info: Информация
+          info: Сведения
           moderations: Действия по модерации
+          private_users: Частные участники
       models:
         assembly:
           fields:
             created_at: 'Добавлено:'
+            private: Частное
             promoted: Рекомендуемые
             published: Опубликовано
             title: Название
@@ -86,11 +131,16 @@ ru:
       admin:
         assemblies:
           form:
+            select_a_created_by: Укажите, кем создано
             select_an_area: Выберите участок
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         assembly_copies:
           form:
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+      created_by:
+        city_council: Городской Совет
+        others: Другие
+        public: Граждане
       index:
         title: Собрания
       pages:
@@ -100,10 +150,12 @@ ru:
             see_all_assemblies: Просмотреть все собрания
       show:
         area: Участок
+        created_by: 'Автор:'
         developer_group: Группа зачинателей
         local_area: Местный участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
+        private_space: Это частное собрание
         scope: Охват
         target: Цель
       statistics:
