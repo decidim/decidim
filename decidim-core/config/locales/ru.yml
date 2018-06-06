@@ -416,15 +416,16 @@ ru:
           assemblies_count: Собрания
           comments_count: Комментарии
           debates_count: Обсуждения
+          endorsements_count: Поддержали
           headline: Текущее состояние %{organization}
-          meetings_count: Встречи
+          meetings_count: Встреч
           orders_count: Голоса
           pages_count: Страницы
           processes_count: Движения
-          projects_count: Проекты
+          projects_count: Проектов
           proposals_accepted: Принятые предложения
-          proposals_count: Предложения
-          results_count: Итоги
+          proposals_count: Предложений
+          results_count: Итогов
           surveys_count: Опросы
           users_count: Участники
           votes_count: Голоса
