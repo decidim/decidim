@@ -182,7 +182,7 @@ uk:
             position: Посада
           name: Член президії
           positions:
-            other: Інше
+            other: Інша
             president: Головуючий
             secretary: Секретар
             vice_president: Заступник головуючого
@@ -194,7 +194,7 @@ uk:
           name: Учасник зборів
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
       titles:
         assemblies: Збори
@@ -216,7 +216,7 @@ uk:
       admin:
         assemblies:
           form:
-            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку ця дата відображатиметься як невизначена.
+            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку вони будуть показуватися як безстрокові.
             included_at_help: Оберіть дату, коли ці збори були додані до Десідім. Вона не обов'язково має бути тою самою ж, що і дата створення.
             select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
@@ -244,7 +244,7 @@ uk:
         index:
           members: Члени президії
       assembly_types:
-        commission: Комісія
+        commission: Робочий гурт
         consultative_advisory: Дорадчі / Консультативні
         executive: Виконавчі
         government: Урядові
@@ -276,7 +276,7 @@ uk:
         developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
-        indefinite_duration: Невизначена
+        indefinite_duration: Безстрокова
         internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
