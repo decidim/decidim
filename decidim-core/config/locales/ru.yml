@@ -412,7 +412,7 @@ ru:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
         statistics:
-          answers_count: Завершенные опросы
+          answers_count: Пройденных опросов
           assemblies_count: Собрания
           comments_count: Комментарии
           debates_count: Обсуждения
