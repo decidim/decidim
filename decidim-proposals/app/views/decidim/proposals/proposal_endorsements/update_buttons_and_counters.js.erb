@@ -10,7 +10,7 @@ function update_main_page_button() {
 function update_identities_rows() {
   <% fully_endorsed= fully_endorsed?(proposal, current_user) %>
   var $proposalEndorsementsRowCount = $('#proposal-<%= proposal.id %>-endorsements-count');
-  morphdom($proposalEndorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(proposal, fully_endorsed).strip.html_safe %>');
+  morphdom($proposalEndorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(proposal, fully_endorsed)).strip.html_safe %>');
   var $proposalEndorsementsRowButton = $($('#select-identity-button')[0]);
   <% if fully_endorsed %>
     $proposalEndorsementsRowButton.addClass('success')
