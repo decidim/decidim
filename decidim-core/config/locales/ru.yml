@@ -18,7 +18,7 @@ ru:
         user_group_name: Название организации
         user_group_phone: Телефон организации
     models:
-      decidim/attachment_created_event: Вложение
+      decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
       decidim/profile_updated_event: Профиль обновлен
   activerecord:
@@ -396,7 +396,7 @@ ru:
     pages:
       home:
         extended:
-          debates: Дебаты
+          debates: Обсуждения
           debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
@@ -415,7 +415,7 @@ ru:
           answers_count: Завершенные опросы
           assemblies_count: Собрания
           comments_count: Комментарии
-          debates_count: Дебаты
+          debates_count: Обсуждения
           headline: Текущее состояние %{organization}
           meetings_count: Встречи
           orders_count: Голоса
