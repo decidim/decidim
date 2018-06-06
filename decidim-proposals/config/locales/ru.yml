@@ -28,7 +28,7 @@ ru:
         settings:
           global:
             announcement: Объявление
-            attachments_allowed: Разрешить вложения
+            attachments_allowed: Разрешить прикрпеленные файлы
             can_accumulate_supports_beyond_threshold: Может накапливать поддержку свыше порогового значения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
@@ -163,7 +163,7 @@ ru:
             invalid: При попытке внести предложение произошла ошибка
             success: Предложение успешно внесено
           form:
-            attachment_legend: "(Необязательно) Добавить вложение"
+            attachment_legend: "(Необязательно) Прикрепить файл"
             select_a_category: Выберите разряд
           index:
             actions: Действия
@@ -247,7 +247,7 @@ ru:
           no_similars_found: Хорошая работа! Подобных предложений не найдено
           title: Похожие предложения
         complete:
-          attachment_legend: "(Необязательно) Добавить вложение"
+          attachment_legend: "(Необязательно) Прикрепить файл"
           select_a_category: Пожалуйста, выберите разряд
           send: Отправить
           title: Завершите свое предложение
