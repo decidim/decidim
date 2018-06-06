@@ -255,6 +255,7 @@ ru:
           email_intro: 'Обновлены даты шага %{resource_title} в %{participatory_space_title}. Вы можете посмотреть их на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{participatory_space_title}
+          notification_title: Обновлены даты шага <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Движения
     participatory_process_groups:
@@ -302,10 +303,12 @@ ru:
         scope: Охват
         start_date: Дата начала
         target: Кто участвует
+        unspecified: Не указано
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
         debates_count: Обсуждения
+        endorsements_count: Поддержали
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
@@ -322,6 +325,7 @@ ru:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
+          processes_count: 'Движения:'
       participatory_process_widgets:
         show:
           active_step: Действующий шаг
