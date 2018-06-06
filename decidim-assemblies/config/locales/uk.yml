@@ -18,7 +18,7 @@ uk:
         decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -112,7 +112,7 @@ uk:
         assemblies_submenu:
           assembly_admins: Учасники зборів
           attachment_collections: Теки
-          attachment_files: Файли
+          attachment_files: Вкладені файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
@@ -136,7 +136,7 @@ uk:
           name: Учасник зборів
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
       titles:
         assemblies: Збори
@@ -163,7 +163,7 @@ uk:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       assembly_types:
-        commission: Комісія
+        commission: Робочий гурт
         consultative_advisory: Дорадчі / Консультативні
         executive: Виконавчі
         government: Урядові
@@ -189,10 +189,10 @@ uk:
         composition: Склад
         created_by: 'Автор:'
         creation_date: Дата створення
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
-        indefinite_duration: Невизначена
+        indefinite_duration: Безстрокова
         internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
