@@ -30,6 +30,8 @@ ru:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_subject: В %{space_title} началось новое обсуждение
           user_followers:
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> начал обсуждение <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
