@@ -17,17 +17,70 @@ ru:
               decidim_proposals_component: Составляющая предложений
               title: Название
         sortitions:
+          edit:
+            title: Обновить сведения о жеребьевке
+            update: Обновить
           form:
             all_categories: Все разряды
+            select_proposal_component: Выберите набор предложений
             title: Добавить новую жеребьевку предложений
+          index:
+            title: Жеребьевки
           new:
+            confirm: После нажатия следующей кнопки, Десидим запишет дату и время (с точностью до секунд) и вместе с результатом броска игрального кубика, эти сведения будут использованы для случайного выбора. Это действие будет необратимым, после нажатия кнопки исход бросания жребия будет обнародован вместе с данными, введенными в этой форме, и их невозможно будет изменить. Пожалуйста, тщательно проверьте содержимое
+            create: Создать
             title: Добавить жеребьевку
+          show:
+            selected_proposals: Предложения, выбранные для жеребьевки
+          update:
+            error: При попытке обновить эту жеребьевку произошла ошибка.
+            success: Жеребьевка успешно обновлена
+      admin_log:
+        sortition:
+          create: "%{user_name} создал жеребьевку %{resource_name} в %{space_name}"
+          delete: "%{user_name} отменил жеребьевку %{resource_name} в %{space_name}"
+          update: "%{user_name} обновил жеребьевку %{resource_name} в %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 предложение
+            few: "%{count} предложения"
+            many: "%{count} предложений"
+            other: "%{count} предложений"
         filters:
           active: Действующие
+          all: Все
+          cancelled: Отмененные
           category: Разряд
           category_prompt: Выберите разряд
+          search: Поиск
+          state: Cостояние
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        linked_sortitions:
+          selected_proposals: Выбранные предложения
+        orders:
+          label: 'Упорядочить жеребьевки по:'
+          random: Произвольно
+          recent: Недавние
+        results_count:
+          count:
+            one: выбранное предложение
+            few: выбранных предложения
+            many: выбранных предложений
+            other: выбранных предложений
         show:
+          algorithm: Код алгоритма жеребьевки
           any_category: из всех разрядов
+          cancelled: Отмененная жеребьевка
+          candidate_proposal_ids: Порядок и названия предложений для жеребьевки
           candidate_proposals_info: 'Жеребьевка была проведена среди следующих предложений (%{category_label}) со следующими названиями (выделены жирным шрифтом выбранные предложения)  '
           category: из разряда %{category}
+          dice_result: "(1) Результат броска кубика"
+          mathematical_result: Произведение (1) x (2)
+          proposals_selected_by_sortition: Предложения, отобранные жеребьевкой
+          sortition_reproducibility_details: Сведения о воспроизводимости жеребьевки
+          time_seed: "(2) Время как начальное число"

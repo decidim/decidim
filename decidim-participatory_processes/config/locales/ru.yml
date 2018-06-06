@@ -8,7 +8,7 @@ ru:
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
-        developer_group: Группа зачинателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
@@ -19,6 +19,7 @@ ru:
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         promoted: Рекламируется
+        published_at: 'Обнародовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
@@ -43,6 +44,26 @@ ru:
         email: Эл. адрес
         name: Имя
         role: Роль
+    models:
+      decidim/participatory_process_step_activated_event: Шаг приведен в действие
+      decidim/participatory_process_step_changed_event: Шаг изменен
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Движение соучастия
+        few: Движения соучастия
+        many: Движений соучастия
+        other: Движений соучастия
+      decidim/participatory_process_group:
+        one: Группа движений соучастия
+        few: Группы движений соучастия
+        many: Групп движений соучастия
+        other: Групп движений соучастия
+      decidim/participatory_process_step:
+        one: Шаг
+        few: Шага
+        many: Шагов
+        other: Шагов
   decidim:
     admin:
       actions:
@@ -54,15 +75,16 @@ ru:
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
-        publish: Опубликовать
+        publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
-        unpublish: Отменить публикацию
+        unpublish: Отменить обнародование
       menu:
         participatory_process_groups: Группы движений
         participatory_processes: Движения
         participatory_processes_submenu:
           attachment_collections: Папки
-          attachments: Вложения
+          attachment_files: Прикрепленные файлы
+          attachments: Прикрепленные файлы
           categories: Разряды
           components: Составляющие
           info: Сведения
@@ -76,7 +98,7 @@ ru:
             created_at: 'Создано:'
             private: Частное
             promoted: Рекомендуемые
-            published: Опубликовано
+            published: Обнародовано
             title: Название
           name: Движение соучастия
         participatory_process_group:
@@ -122,11 +144,11 @@ ru:
           success: Группа движения соучастия успешно обновлена.
       participatory_process_publications:
         create:
-          error: При публикации нового движения соучастия произошла ошибка.
-          success: Движение соучастия успешно опубликовано.
+          error: При обнародовании нового движения соучастия произошла ошибка.
+          success: Движение соучастия успешно обнародовано.
         destroy:
-          error: При отмене публикации этого движения соучастия произошла ошибка.
-          success: Публикация движения соучастия успешно отменена.
+          error: При отмене обнародования этого движения соучастия произошла ошибка.
+          success: Обнародование движения соучастия успешно отменено.
       participatory_process_step_activations:
         create:
           error: При попытке начать новый шаг движения соучастия произошла ошибка.
@@ -156,6 +178,7 @@ ru:
           success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         create:
+          error: При добавлении участника в это движение соучастия произошла ошибка.
           success: В это движение соучастия успешно добавлен участник.
         destroy:
           success: Успешно удален участник этого движения соучастия.
@@ -168,6 +191,7 @@ ru:
           create: Создать
           title: Добавить участника движения соучастия.
         update:
+          error: При обновлении участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
         create:
@@ -180,9 +204,10 @@ ru:
         form:
           title: Общие сведения
         index:
-          not_published: Не опубликовано
+          not_published: Не обнародовано
           private: Частное
-          published: Опубликовано
+          public: Обнародованные
+          published: Обнародовано
         new:
           create: Создать
           title: Добавить движение соучастия
@@ -204,11 +229,33 @@ ru:
         resend_invitation:
           error: При повторной отправке приглашения произошла ошибка.
           success: Приглашение успешно повторно отправлено.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} создал движение соучастия %{resource_name}"
+        publish: "%{user_name} обнародовал движение соучастия %{resource_name}"
+        unpublish: "%{user_name} отменил обнародование движения соучастия %{resource_name}"
+        update: "%{user_name} обновил движение соучастия %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
+        create: "%{user_name} создал шаг %{resource_name} движения соучастия %{space_name}"
+        delete: "%{user_name} удалил шаг %{resource_name} движения соучастия %{space_name}"
+        update: "%{user_name} обновил шаг %{resource_name} движения соучастия %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} пригласил участника %{resource_name} в движение соучастия %{space_name}"
+        delete: "%{user_name} удалил участника %{resource_name} из движения соучастия %{space_name}"
+        update: "%{user_name} изменил роль участника %{resource_name} в движении соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
           email_intro: 'Теперь в %{participatory_space_title} приведен в действие шаг %{resource_title}. Вы можете посмотреть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведен в действие шаг %{resource_title}
+        step_changed:
+          email_intro: 'Обновлены даты шага %{resource_title} в %{participatory_space_title}. Вы можете посмотреть их на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
+          notification_title: Обновлены даты шага <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Движения
     participatory_process_groups:
@@ -247,7 +294,7 @@ ru:
         index:
           loading: Загрузка результатов...
       show:
-        developer_group: Группа зачинателей
+        developer_group: Рабочая группа по продвижению
         end_date: Дата завершения
         local_area: Участок организации
         participatory_scope: Что решается
@@ -256,9 +303,12 @@ ru:
         scope: Охват
         start_date: Дата начала
         target: Кто участвует
+        unspecified: Не указано
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
+        debates_count: Обсуждения
+        endorsements_count: Поддержали
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
@@ -275,6 +325,7 @@ ru:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
+          processes_count: 'Движения:'
       participatory_process_widgets:
         show:
           active_step: Действующий шаг

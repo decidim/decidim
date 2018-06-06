@@ -476,6 +476,20 @@ nl:
         title: Selecteer %{field}
       prompt: Selecteer een scope
       scopes: scopes
+    search:
+      filter:
+        all: Alle
+        component: bestanddeel
+      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
+      term_input_placeholder: Zoeken
+    searches:
+      filters:
+        search: Zoeken
+      filters_small_view:
+        close_modal: Modal sluiten
+        filter: Filter
+        filter_by: Filteren op
+        unfold: Ontvouwen
     shared:
       action_authorization_modal:
         expired:

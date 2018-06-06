@@ -5,10 +5,10 @@ uk:
         category_id: Розряд
         decidim_category_id: Розряд
         description: Опис
-        end_time: 'Завершується:'
+        end_time: 'Закінчується:'
         information_updates: Оновлення відомостей
         instructions: Вказівки до участі
-        start_time: 'Розпочато: '
+        start_time: 'Починається:'
         title: Назва
         user_group_id: Започаткувати обговорення як
     models:

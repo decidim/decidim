@@ -36,8 +36,8 @@ es:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La duración de los artículos supera la duración de la reunión en %{count} minutos
-              too_many_minutes_child: La duración de los elementos secundarios excede el orden del día del elemento "%{parent_title}" en %{count} minuto
+              too_many_minutes: La duración de los ítems supera la duración del encuentro en %{count} minutos
+              too_many_minutes_child: La duración de los sub-ítems excede el punto "%{parent_title}" del orden del dia en %{count} minuto
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -113,7 +113,7 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     meetings:
       actions:
-        agenda: Agenda
+        agenda: Orden del día
         attachment_collections: Colecciones
         attachments: Archivos adjuntos
         close: Cerrar
@@ -128,34 +128,34 @@ es:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Agregar elemento de agenda niño
-            agenda_item: Ítem ​​de agenda
-            agenda_item_children: Punto del orden del día Childs
-            down: Abajo
-            remove: retirar
-            up: Arriba
+            add_agenda_item_child: Añadir un sub-ítem en el orden del día
+            agenda_item: Punto del orden del día
+            agenda_item_children: Sub-ítems del orden del día
+            down: Bajar
+            remove: Eliminar
+            up: Subir
           agenda_item_child:
-            agenda_item_child: Punto del orden del día Niño
-            down: Abajo
-            remove: retirar
-            up: Arriba
+            agenda_item_child: Sub-ítem del orden del día
+            down: Bajar
+            remove: Eliminar
+            up: Subir
           create:
-            invalid: Ha habido un problema al crear esta agenda
-            success: Agenda creada con éxito
+            invalid: Ha habido un problema al crear este orden del día
+            success: Orden del día creado correctamente
           edit:
-            title: Editar agenda
+            title: Editar orden del día
             update: Actualizar
           form:
-            add_agenda_item: Agregar ítem de la agenda
-            agenda_items: Elementos de la agenda
+            add_agenda_item: Añadir punto del orden del día
+            agenda_items: Puntos del orden del día
             end_date: Fecha final
             start_date: Fecha de inicio
           new:
             create: Crear
-            title: Nueva agenda
+            title: Nuevo orden del día
           update:
-            invalid: Ha habido un problema para actualizar esta agenda
-            success: Agenda actualizada con éxito
+            invalid: Ha habido un problema al actualizar el orden del día
+            success: Orden del día actualizado correctamente
         exports:
           registrations: Inscripciones
         invite_join_meeting_mailer:
@@ -275,7 +275,7 @@ es:
         index:
           view_meeting: Ver encuentro
         meeting_minutes:
-          meeting_minutes: Acta de la reunión
+          meeting_minutes: Acta del encuentro
           related_information: Información relacionada
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.

@@ -476,6 +476,20 @@ eu:
         title: Hautatu %{field}
       prompt: Aukeratu esparrua
       scopes: esparru
+    search:
+      filter:
+        all: guztiak
+        component: Osagai
+      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Itxi modal
+        filter: Filter
+        filter_by: Iragazi arabera
+        unfold: Zabaldu
     shared:
       action_authorization_modal:
         expired:

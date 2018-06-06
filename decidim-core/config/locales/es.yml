@@ -425,21 +425,21 @@ es:
         title: Más información
       terms_and_conditions:
         accept:
-          error: Ha habido un error al aceptar los términos y condiciones.
-          success: '¡Estupendo! Usted ha aceptado los términos y condiciones.'
+          error: Ha habido un error al aceptar los Términos y Condiciones.
+          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
-          legend: Acepta los términos y condiciones de uso
+          legend: Aceptar los Términos y Condiciones de uso
         refuse:
-          modal_body: Si se niega, no podrá usar la plataforma, puede <a href="%{data_portability_path}">descargar sus datos</a> y / o <a href="%{delete_path}">eliminar su cuenta</a>.
-          modal_btn_continue: Aceptar términos y continuar
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
-          modal_button: Negarse a los términos
-          modal_title: '¿De verdad rechazas los Términos y Condiciones actualizados?'
+          modal_button: Rechazar los términos
+          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
-          alert: Hemos actualizado nuestros Términos de servicio, revíselos.
-          body: Tómese un momento para revisar las actualizaciones de nuestros Términos de servicios. De lo contrario, no podrás usar la plataforma.
-          title: 'Obligatorio: revise las actualizaciones de nuestros términos de servicio'
+          alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
+          body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
+          title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
     profile:
@@ -476,6 +476,20 @@ es:
         title: Seleccione %{field}
       prompt: Seleccione un ámbito
       scopes: Ámbitos
+    search:
+      filter:
+        all: Todo
+        component: Componente
+      results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
+      term_input_placeholder: Buscar
+    searches:
+      filters:
+        search: Buscar
+      filters_small_view:
+        close_modal: Cerrar modal
+        filter: Filtrar
+        filter_by: Filtrar por
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
@@ -535,15 +549,15 @@ es:
         header: Termina de crear tu cuenta
         nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
-        subtitle: Si acepta la invitación, configure su alias y contraseña.
+        subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no desea aceptar la invitación, ignore este correo electrónico.<br />
-          Su cuenta no se creará hasta que acceda al enlace de arriba y configure su alias y contraseña.
+          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
+          Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
@@ -572,8 +586,8 @@ es:
       long_words: contiene palabras que son demasiado largas
       must_start_with_caps: debe comenzar con mayúsculas
       nesting_too_deep: no puede estar dentro de una subcategoría
-      too_many_marks: está usando demasiadas marcas
-      too_much_caps: está usando demasiadas tapas
+      too_many_marks: hay demasiados signos de puntuación
+      too_much_caps: hay demasiadas mayúsculas
       too_short: es demasiado corto
   forms:
     required: Obligatorio

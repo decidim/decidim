@@ -8,7 +8,7 @@ uk:
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -83,7 +83,7 @@ uk:
         participatory_processes: Рухи
         participatory_processes_submenu:
           attachment_collections: Теки
-          attachment_files: Файли
+          attachment_files: Вкладені файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
@@ -119,7 +119,7 @@ uk:
           name: Учасник руху співучасті
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
         user:
           fields:
@@ -206,7 +206,7 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приватний
-          public: Публічні
+          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Створити
@@ -252,7 +252,7 @@ uk:
           email_subject: Оновлення до %{participatory_space_title}
           notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете побачити це на сторінці:'
+          email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете переглянути їх на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
           notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
@@ -294,7 +294,7 @@ uk:
         index:
           loading: Завантаження підсумків...
       show:
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         end_date: Дата закінчення
         local_area: Дільниця організації
         participatory_scope: Що вирішується

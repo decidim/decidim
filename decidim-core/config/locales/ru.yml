@@ -18,7 +18,7 @@ ru:
         user_group_name: Название организации
         user_group_phone: Телефон организации
     models:
-      decidim/attachment_created_event: Вложение
+      decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
       decidim/profile_updated_event: Профиль обновлен
   activerecord:
@@ -82,8 +82,8 @@ ru:
       component:
         create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
-        publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
-        unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+        publish: "%{user_name} обнародовал составляющую %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил обнародование составляющей %{resource_name} в пространстве %{space_name}"
       moderation:
         hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
         unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
@@ -234,7 +234,7 @@ ru:
           by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
           connect_your_account_html: Подключите свою учетную запись, выполнив вход в <strong>%{organization}</strong>
-          publish_content: Публиковать за вас сообщения
+          publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
           see_name: Видеть ваше имя
           see_username: Видеть ваше имя участника
@@ -253,7 +253,7 @@ ru:
     events:
       attachments:
         attachment_created:
-          email_intro: 'В %{resource_title} добавили новый документ. Вы можете увидеть его на странице:'
+          email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{resource_title}
           notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> добавили <a href="%{resource_path}">новый документ</a>
@@ -265,7 +265,7 @@ ru:
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
-        email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
+        email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
       notification_event:
@@ -347,7 +347,7 @@ ru:
           subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы увидеть их:"
+          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
@@ -396,7 +396,7 @@ ru:
     pages:
       home:
         extended:
-          debates: Дебаты
+          debates: Обсуждения
           debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
@@ -415,7 +415,7 @@ ru:
           answers_count: Завершенные опросы
           assemblies_count: Собрания
           comments_count: Комментарии
-          debates_count: Дебаты
+          debates_count: Обсуждения
           headline: Текущее состояние %{organization}
           meetings_count: Встречи
           orders_count: Голоса
@@ -455,7 +455,7 @@ ru:
       deleted: Удаленный участник
       view: Посмотреть
     profiles:
-      default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
+      default_officialization_text: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
         followers: Читают
         following: Следит за
@@ -485,6 +485,20 @@ ru:
         title: Выберите %{field}
       prompt: Выбрать охват
       scopes: Охваты
+    search:
+      filter:
+        all: Все
+        component: Составляющие
+      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
+      term_input_placeholder: Поиск
+    searches:
+      filters:
+        search: Поиск
+      filters_small_view:
+        close_modal: Закрыть окошко
+        filter: Отобрать
+        filter_by: 'Отобрать по признаку:'
+        unfold: Развернуть
     shared:
       action_authorization_modal:
         expired:
@@ -571,7 +585,7 @@ ru:
         subject: Пароль изменен
   doorkeeper:
     scopes:
-      public: Публичные сведения о вас.
+      public: Обнародованные сведения о вас.
   errors:
     messages:
       content_type_whitelist_error: этот тип файла недопустим

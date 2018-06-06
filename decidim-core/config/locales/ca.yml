@@ -425,21 +425,21 @@ ca:
         title: Més informació
       terms_and_conditions:
         accept:
-          error: S'ha produït un error en acceptar els termes i condicions.
-          success: Genial Heu acceptat els termes i condicions.
+          error: S'ha produït un error en acceptar els Termes i Condicions.
+          success: Genial! Has acceptat els Termes i Condicions.
         form:
           agreement: Accepto aquests termes
-          legend: Accepteu els termes i condicions d'ús
+          legend: Accepto els termes i condicions
         refuse:
-          modal_body: Si es nega, vostè no serà capaç d'utilitzar la plataforma, pot <a href="%{data_portability_path}">descarregar les seves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
-          modal_btn_continue: Accepteu els termes i continueu
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
-          modal_button: Rebutja els termes
-          modal_title: Realment rebutja els Termes i condicions actualitzats?
+          modal_button: Rebutjar els termes
+          modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat les nostres Condicions del servei, revisa-les.
-          body: Preneu-vos un moment per revisar les actualitzacions de les nostres Condicions d'ús. En cas contrari, no podreu utilitzar la plataforma.
-          title: 'Obligatori: revisa les actualitzacions dels nostres termes de servei'
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
+          body: Si us plau dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
+          title: 'Obligatori: revisa l''actualització de les nostres Condicions d''Ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
@@ -476,6 +476,20 @@ ca:
         title: Seleccioneu %{field}
       prompt: Seleccioneu un àmbit
       scopes: Àmbits
+    search:
+      filter:
+        all: Tot
+        component: Component
+      results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
+      term_input_placeholder: Cerca
+    searches:
+      filters:
+        search: Cerca
+      filters_small_view:
+        close_modal: Tanca el modal
+        filter: Filtre
+        filter_by: Filtra per
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
@@ -532,18 +546,18 @@ ca:
   devise:
     invitations:
       edit:
-        header: Acaba de crear el vostre compte
+        header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
-        subtitle: Si accepteu la invitació, configureu el vostre sobrenom i contrasenya.
+        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no voleu acceptar la invitació, ignoreu aquest correu electrònic.<br />
-          vostre compte no es crearà fins que no accediu a l'enllaç anterior i configureu el vostre sobrenom i contrasenya.
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
+          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -570,10 +584,10 @@ ca:
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       long_words: conté paraules que són massa llargues
-      must_start_with_caps: ha de començar amb caps
+      must_start_with_caps: ha de començar amb majúscules
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: està usant massa marques
-      too_much_caps: està usant massa caps
+      too_many_marks: hi ha massa signes de puntuació
+      too_much_caps: hi ha massa majúscules
       too_short: és massa curt
   forms:
     required: Obligatori

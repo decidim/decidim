@@ -476,6 +476,20 @@ fi:
         title: Valitse %{field}
       prompt: Valitse konteksti
       scopes: Kontekstit
+    search:
+      filter:
+        all: Kaikki
+        component: komponentti
+      results_found_for_term: '%{count} Tulokset haulle: "%{term}"'
+      term_input_placeholder: Hae
+    searches:
+      filters:
+        search: Hae
+      filters_small_view:
+        close_modal: Sulje modeemi
+        filter: Suodattaa
+        filter_by: Suodata
+        unfold: avautua
     shared:
       action_authorization_modal:
         expired:

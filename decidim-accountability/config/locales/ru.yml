@@ -2,14 +2,17 @@ ru:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Состояние
         decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
         end_date: Дата завершения
         progress: Продвижение
         project_ids: Включенные проекты
+        proposals: Включенные предложения
         start_date: Дата начала
         title: Название
+        updated_at: 'Обновлено:'
       status:
         description: Описание
         key: Ключ
@@ -18,6 +21,15 @@ ru:
       timeline_entry:
         description: Описание
         entry_date: Дата
+    models:
+      decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Итог
+        few: Итога
+        many: Итогов
+        other: Итогов
   decidim:
     accountability:
       actions:
@@ -47,11 +59,17 @@ ru:
           edit:
             title: Редактировать итог
             update: Обновить итог
+          form:
+            add_proposal: Добавить предложение
           index:
             title: Итоги
           new:
             create: Создать итог
             title: Добавить итог
+          proposals:
+            close: Закрыть
+            current_selection: Текущий выбор
+            select: Выбрать
           update:
             invalid: При попытке обновить этот итог произошла ошибка
             success: Итог успешно обновлен
@@ -92,6 +110,14 @@ ru:
           update:
             invalid: При попытке обновить эту запись произошла ошибка
             success: Запись успешно обновлена
+      admin_log:
+        result:
+          create: "%{user_name} создал итог %{resource_name} в %{space_name}"
+          delete: "%{user_name} удалил итог %{resource_name} в %{space_name}"
+          update: "%{user_name} обновил итог %{resource_name} в %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Родительский объект не найден в базе данных (ID: %{id})'
       models:
         result:
           fields:
@@ -158,10 +184,33 @@ ru:
           version_index: Версия %{index}
     components:
       accountability:
+        name: Отчетность
         settings:
           global:
             categories_label: Название для "Разряды"
+            comments_enabled: Комментарии включены
+            display_progress_enabled: Показывать ход выполнения
+            heading_leaf_level_results: Название для "Проекты"
+            heading_parent_level_results: Название для "Итоги"
+            intro: Вступление
             subcategories_label: Название для "Подразряды"
+          step:
+            comments_blocked: Комментарии выключены
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Предложение «%{proposal_title}» было включено в итоги. Вы можете посмотреть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}". Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{proposal_title}
+          notification_title: Предложение <a href="%{proposal_path}">%{proposal_title}</a> было включено в итог <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Итоги
+    participatory_spaces:
+      highlighted_results:
+        results: Итоги
+        see_all_results: Просмотреть все итоги
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги
