@@ -183,6 +183,16 @@ module Decidim
     7.days
   end
 
+  # Max requests in a time period to prevent DoS attacks. Only applied on production.
+  config_accessor :throttling_max_requests do
+    100
+  end
+
+  # Time window in which the throttling is applied.
+  config_accessor :throttling_period do
+    1.minute
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production

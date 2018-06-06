@@ -35,6 +35,58 @@ module Decidim
           "secondary"
         end
       end
+
+      # Public: This method is used to calculate the start and end time
+      #         of each agenda item passed
+      #
+      # agenda_items - an Active record of agenda items
+      # meeting - the meeting of the agenda, to know the start and end time
+      # start_time_parent - used to pass the start time of parent agenda item
+      #
+      # Returns an Array.
+      def calculate_start_and_end_time_of_agenda_items(agenda_items, meeting, start_time_parent = nil)
+        array = []
+
+        agenda_items.each_with_index do |agenda_item, index|
+          hash = {
+            agenda_item_id: agenda_item.id,
+            start_time: nil,
+            end_time: nil
+          }
+          if index.zero?
+            start = if agenda_item.parent?
+                      meeting.start_time
+                    else
+                      start_time_parent
+                    end
+
+            hash[:start_time] = start
+          else
+            hash[:start_time] = array[index - 1][:end_time]
+          end
+
+          hash[:end_time] = hash[:start_time] + agenda_item.duration.minutes
+
+          array.push(hash)
+        end
+
+        array
+      end
+
+      # Public: This method is used to build the html for show start
+      # and end time of each agenda item
+      #
+      # agenda_item_id - an id of agenda item
+      # agenda_items_times - is a hash with the two times
+      #
+      # Returns an HMTL.
+      def display_duration_agenda_items(agenda_item_id, index, agenda_items_times)
+        html = ""
+        if agenda_item_id == agenda_items_times[index][:agenda_item_id]
+          html += "[ #{agenda_items_times[index][:start_time].strftime("%H:%M")} - #{agenda_items_times[index][:end_time].strftime("%H:%M")}]"
+        end
+        html.html_safe
+      end
     end
   end
 end
