@@ -486,6 +486,20 @@ pl:
         title: Wybierz %{field}
       prompt: Wybierz zakres
       scopes: Zakresy
+    search:
+      filter:
+        all: Wszystko
+        component: Składnik
+      results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
+      term_input_placeholder: Szukaj
+    searches:
+      filters:
+        search: Szukaj
+      filters_small_view:
+        close_modal: Zamknij modalne
+        filter: Filtr
+        filter_by: Filtruj według
+        unfold: Rozwijać się
     shared:
       action_authorization_modal:
         expired:
