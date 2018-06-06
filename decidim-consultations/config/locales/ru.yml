@@ -258,6 +258,10 @@ ru:
         comments_count_title: Комментариев
         meetings_count_title: Встреч
         supports_count_title: Выражений поддержки
+      vote_button:
+        vote: Голосовать
+      vote_modal:
+        contextual_help: Пожалуйста, выберите вариант.
   layouts:
     decidim:
       admin:
