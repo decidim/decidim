@@ -425,11 +425,11 @@ es:
         title: Más información
       terms_and_conditions:
         accept:
-          error: Ha habido un error al aceptar los términos y condiciones.
+          error: Ha habido un error al aceptar los Términos y Condiciones.
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
-          legend: Aceptar los términos y condiciones de uso
+          legend: Aceptar los Términos y Condiciones de uso
         refuse:
           modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
