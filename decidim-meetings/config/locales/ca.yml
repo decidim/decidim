@@ -37,7 +37,7 @@ ca:
           attributes:
             base:
               too_many_minutes: La durada dels ítems supera la durada de la reunió per %{count} minuts
-              too_many_minutes_child: La durada del fill de l'element supera el punt de l'ítem "%{parent_title}" de l'ítem del programa a %{count} minut
+              too_many_minutes_child: La durada del sub-ítem supera el punt de l'ítem "%{parent_title}" del programa per %{count} minuts
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
