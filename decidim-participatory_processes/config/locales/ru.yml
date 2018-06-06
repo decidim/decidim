@@ -236,15 +236,25 @@ ru:
         unpublish: "%{user_name} отменил публикацию движения соучастия %{resource_name}"
         update: "%{user_name} обновил движение соучастия %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} привел в действие шаг %{resource_name} процесса соучастия %{space_name}"
-        create: "%{user_name} создал шаг %{resource_name} процесса соучастия %{space_name}"
-        delete: "%{user_name} удалил шаг %{resource_name} процесса соучастия %{space_name}"
-        update: "%{user_name} обновил шаг %{resource_name} процесса соучастия %{space_name}"
+        activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
+        create: "%{user_name} создал шаг %{resource_name} движения соучастия %{space_name}"
+        delete: "%{user_name} удалил шаг %{resource_name} движения соучастия %{space_name}"
+        update: "%{user_name} обновил шаг %{resource_name} движения соучастия %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} пригласил участника %{resource_name} в движение соучастия %{space_name}"
+        delete: "%{user_name} удалил участника %{resource_name} из движения соучастия %{space_name}"
+        update: "%{user_name} изменил роль участника %{resource_name} в движении соучастия %{space_name}"
     events:
       participatory_process:
         step_activated:
           email_intro: 'Теперь в %{participatory_space_title} приведен в действие шаг %{resource_title}. Вы можете посмотреть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведен в действие шаг %{resource_title}
+        step_changed:
+          email_intro: 'Обновлены даты шага %{resource_title} в %{participatory_space_title}. Вы можете посмотреть их на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
     menu:
       processes: Движения
     participatory_process_groups:
