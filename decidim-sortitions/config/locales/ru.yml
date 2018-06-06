@@ -6,6 +6,13 @@ ru:
         decidim_category_id: Разряды подборки предложений, среди которых вы хотите провести жеребьевку
         title: Название
   decidim:
+    pages:
+      home:
+        statistics:
+          sortitions_count: Жеребьевок
+    participatory_processes:
+      statistics:
+        sortitions_count: Жеребьевок
     sortitions:
       admin:
         actions:
