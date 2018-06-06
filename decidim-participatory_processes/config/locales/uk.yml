@@ -206,7 +206,7 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приватний
-          public: Публічні
+          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Створити
