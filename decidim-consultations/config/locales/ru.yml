@@ -94,6 +94,8 @@ ru:
         new:
           create: Создать
           title: Добавить консультацию
+        update:
+          error: При попытке обновить эту консультацию произошла ошибка.
       menu:
         questions_submenu:
           components: Составляющие
