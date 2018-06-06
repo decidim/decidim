@@ -307,8 +307,8 @@ ru:
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
-        debates_count: Обсуждения
-        endorsements_count: Поддержали
+        debates_count: Обсуждений
+        endorsements_count: Выражений поддержки
         headline: Деятельность
         meetings_count: Встречи
         orders_count: Голоса
@@ -325,7 +325,7 @@ ru:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
-          processes_count: 'Движения:'
+          processes_count: 'Движений:'
       participatory_process_widgets:
         show:
           active_step: Действующий шаг
