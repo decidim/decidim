@@ -45,12 +45,18 @@ ru:
           select_scope: Выбрать охват
         finish_help:
           help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
+        promotal_committee:
+          individual_help_text: Для гражданских починов нужна рабочая группа по продвижению, состоящая как минимум из трех человек (удостоверяющих лиц). Вы должны поделиться следующей ссылкой с другими людьми, которые занимаются этим почином. Когда они получат эту ссылку, им нужно будет пройти указанные там шаги.
+        share_committee_link:
+          invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
       events:
         create_initiative_event:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
       initiatives:
         index_header:
           new_initiative: Добавить почин
+      initiatives_mailer:
+        promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
       pages:
         home:
           highlighted_initiatives:
