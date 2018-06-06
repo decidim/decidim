@@ -17,9 +17,15 @@ ru:
               decidim_proposals_component: Составляющая предложений
               title: Название
         sortitions:
+          edit:
+            title: Обновить сведения о жеребьевке
+            update: Обновить
           form:
             all_categories: Все разряды
+            select_proposal_component: Выберите набор предложений
             title: Добавить новую жеребьевку предложений
+          index:
+            title: Жеребьевки
           new:
             title: Добавить жеребьевку
       sortitions:
