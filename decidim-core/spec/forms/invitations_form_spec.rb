@@ -75,7 +75,7 @@ module Decidim
     end
 
     describe "emails" do
-      let(:external_user) { create :user, email: "another_email@bar.com"}
+      let(:external_user) { create :user, email: "another_email@bar.com" }
       let(:email_2) { user.email }
       let(:email_3) { nil }
       let(:email_4) { "" }

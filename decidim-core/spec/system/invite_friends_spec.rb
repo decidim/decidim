@@ -63,9 +63,9 @@ describe "Invite friends", type: :system do
         end
 
         expect(emails.count).to eq 6
-        first_email = emails.find{ |email| email.to.include?("superduper@example.org") }
-        expect(email_body(first_email)).to match /Hello superduper/
-        expect(email_body(first_email)).to match /Check this out, looks awesome!/
+        first_email = emails.find { |email| email.to.include?("superduper@example.org") }
+        expect(email_body(first_email)).to match(/Hello superduper/)
+        expect(email_body(first_email)).to match(/Check this out, looks awesome!/)
       end
     end
   end

@@ -29,8 +29,8 @@ module Decidim
 
     def clean_emails
       existing_emails = Decidim::User
-        .where(organization: current_organization, email: emails)
-        .pluck(:email)
+                        .where(organization: current_organization, email: emails)
+                        .pluck(:email)
       emails - existing_emails
     end
   end
