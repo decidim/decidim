@@ -211,7 +211,7 @@ ru:
           title: Прикрепить файл
         update:
           error: При обновлении этого прикрепленного файла произошла ошибка.
-          success: Вложенный файл успешно обновлен.
+          success: Прикрепленный файл успешно обновлен.
       autocomplete:
         no_results: Ничего не найдено
         search_prompt: Введите не менее трех символов для поиска
@@ -357,7 +357,7 @@ ru:
             content_type: Вид
             file_size: Размер
             title: Название
-          name: Вложение
+          name: Прикрепленный файл
         attachment_collection:
           name: Папка
         category:
