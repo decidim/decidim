@@ -169,13 +169,57 @@ ru:
           success: Ответ успешно добавлен.
         destroy:
           error: При попытке удалить ответ произошла ошибка.
+          success: Ответ успешно удален.
+        edit:
+          update: Обновить
+        form:
+          title: Общие сведения
         new:
+          create: Добавить
           title: Добавить ответ
+        update:
+          error: При попытке обновить этот ответ произошла ошибка.
+          success: Ответ успешно обновлен.
+      titles:
+        consultations: Консультации
+        questions: Вопросы
+        responses: Ответы
     consultations:
+      consultation:
+        start_voting_date: Голосование начинается
+        view_results: Посмотреть итоги
+      consultation_card:
+        view_results: Посмотреть итоги
+      consultations:
+        orders:
+          label: 'Упорядочить консультации по признаку:'
+          random: Произвольно
+          recent: Самые последние
+      count:
+        title:
+          one: "%{count} консультация"
+          few: "%{count} консультации"
+          many: "%{count} консультаций"
+          other: "%{count} консультаций"
       filters:
         active: Действующие
+        all: Все
+        finished: Завершившиеся
+        search: Поиск
+        state: Cостояние
+        upcoming: Предстоящие
+      filters_small_view:
+        close_modal: Закрыть окно
+        filter: Отобрать
+        filter_by: 'Отобрать по признаку:'
+        unfold: Развернуть
       highlighted_questions:
         title: Вопросы из %{scope_name}
+      index:
+        title: Консультации
+      question:
+        take_part: Принять участие
+        view_results: Посмотреть итоги
   layouts:
     decidim:
       admin:
