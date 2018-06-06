@@ -291,8 +291,8 @@ uk:
           many: " підписів"
           other: " підписів"
         statistics:
-          assistants_count_title: Помічники
-          comments_count_title: Коментарі
+          assistants_count_title: Помічників
+          comments_count_title: Коментарів
           meetings_count_title: Зустрічі
           supports_count_title: Підписів
         supports:
