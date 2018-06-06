@@ -12,9 +12,18 @@ ru:
         scope: Участок города
   decidim:
     admin:
+      consultations:
+        new:
+          title: Добавить консультацию
       menu:
         questions_submenu:
           components: Составляющие
+      questions:
+        new:
+          title: Добавить вопрос
+      responses:
+        new:
+          title: Добавить ответ
     consultations:
       filters:
         active: Действующие
@@ -22,3 +31,8 @@ ru:
         active_consultations: Действующие консультации
       highlighted_questions:
         title: Консультации из %{scope_name}
+  layouts:
+    decidim:
+      admin:
+        question:
+          categories: Разряды
