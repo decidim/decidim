@@ -476,6 +476,20 @@ pt:
         title: Selecione %{field}
       prompt: Selecione um escopo
       scopes: Escopos
+    search:
+      filter:
+        all: Todos
+        component: Componente
+      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
+      term_input_placeholder: Pesquisa
+    searches:
+      filters:
+        search: Pesquisa
+      filters_small_view:
+        close_modal: Fechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
     shared:
       action_authorization_modal:
         expired:
