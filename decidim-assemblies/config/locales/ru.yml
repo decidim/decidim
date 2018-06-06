@@ -18,7 +18,7 @@ ru:
         decidim_area_id: Участок
         decidim_scope_id: Охват
         description: Описание
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         duration: Длительность
         facebook: Фейсбук
@@ -190,7 +190,7 @@ ru:
       show:
         area: Участок
         created_by: 'Автор:'
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         local_area: Местный участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
