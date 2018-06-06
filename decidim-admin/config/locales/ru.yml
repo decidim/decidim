@@ -12,7 +12,7 @@ ru:
       attachment:
         attachment_collection_id: Папка
         description: Описание
-        file: Файл
+        file: Прикрепленный файл
         title: Название
       attachment_collection:
         description: Описание
@@ -20,7 +20,7 @@ ru:
       category:
         description: Описание
         name: Имя
-        parent_id: Родитель
+        parent_id: Родительский объект
       component:
         name: Название
         published_at: 'Опубликовано:'
@@ -71,7 +71,7 @@ ru:
         code: Код
         name: Имя
         organization: Организация
-        parent_id: Родитель
+        parent_id: Родительский объект
         scope_type: Вид охвата
         scope_type_id: Вид охвата
       scope_type:
@@ -94,7 +94,7 @@ ru:
       decidim/participatory_process:
         banner_image: Изображение баннера
         description: Описание
-        developer_group: Группа продвигателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
@@ -186,7 +186,7 @@ ru:
           update: Обновить
         index:
           attachment_collection_used: Эту папку нельзя удалить, так как она используется.
-          attachment_collections_title: Папки вложений
+          attachment_collections_title: Папки прикрепленных файлов
         new:
           create: Создать
           title: Создать папку
@@ -195,21 +195,21 @@ ru:
           success: Папка успешно обновлена.
       attachments:
         create:
-          error: При создании нового вложенного файла произошла ошибка.
-          success: Вложенный файл успешно добавлен.
+          error: При создании нового прикрепленного файла произошла ошибка.
+          success: Файл успешно прикреплен.
         destroy:
-          success: Вложенный файл успешно удален.
+          success: Прикрепленный файл успешно удален.
         edit:
-          title: Изменить вложенный файл
+          title: Изменить прикрепленный файл
           update: Обновить
         index:
-          attachments_title: Вложенные файлы
+          attachments_title: Прикрепленные файлы
         new:
-          create: Добавить вложенный файл
-          title: Прикрепить вложенный файл
+          create: Прикрепить файл
+          title: Прикрепить файл
         update:
-          error: При обновлении этого вложенного файла произошла ошибка.
-          success: Вложенный файл успешно обновлен.
+          error: При обновлении этого прикрепленного файла произошла ошибка.
+          success: Прикрепленный файл успешно обновлен.
       categories:
         create:
           error: При создании этого разряда произошла ошибка.
@@ -352,7 +352,7 @@ ru:
             content_type: Вид
             file_size: Размер
             title: Название
-          name: Вложение
+          name: Прикрепленный файл
         attachment_collection:
           name: Папка
         category:
