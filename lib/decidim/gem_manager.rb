@@ -68,13 +68,7 @@ module Decidim
 
     class << self
       def capture(cmd, env: {})
-        output, status = Open3.capture2e(env, cmd)
-        unless status.success?
-          puts "GemManager status after capture2e: [#{status}] for command: #{cmd}"
-          puts "GemManager captured output: #{output}"
-        end
-
-        [output, status]
+        Open3.capture2e(env, cmd)
       end
 
       def run(cmd, out: STDOUT)
