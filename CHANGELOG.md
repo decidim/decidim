@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
 
 **Upgrade notes**:
 
