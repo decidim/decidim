@@ -36,8 +36,8 @@ ca:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durada dels ítems supera la durada de la reunió per %{count} minuts
-              too_many_minutes_child: La durada del sub-ítem supera el punt de l'ítem "%{parent_title}" del programa per %{count} minuts
+              too_many_minutes: La durada dels elements supera la durada de la reunió per %{count} minuts
+              too_many_minutes_child: La durada del sub-element supera la duració de "%{parent_title}" del programa per %{count} minuts
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -130,12 +130,12 @@ ca:
           agenda_item:
             add_agenda_item_child: Afegeix un element de l'agenda secundari
             agenda_item: Punt de l'ordre del dia
-            agenda_item_children: Punt de l'agenda Nens
+            agenda_item_children: Fills de l'element de l'agenda
             down: Avall
             remove: Elimina
-            up: Pujar
+            up: Amunt
           agenda_item_child:
-            agenda_item_child: Tema del document Nen
+            agenda_item_child: Fill de l'element de l'agenda
             down: Avall
             remove: Elimina
             up: Pujar
@@ -147,7 +147,7 @@ ca:
             update: Actualització
           form:
             add_agenda_item: Afegeix un element de l'agenda
-            agenda_items: Temes d'agenda
+            agenda_items: Punts de l'ordre del dia
             end_date: Data de finalització
             start_date: Data d'inici
           new:
