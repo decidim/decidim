@@ -65,7 +65,7 @@ ru:
           attachments: Вложения
           categories: Разряды
           components: Составляющие
-          info: Информация
+          info: Сведения
           moderations: Действия по модерации
           private_users: Частные участники
           process_admins: Участники движения
@@ -178,7 +178,7 @@ ru:
         edit:
           update: Обновить
         form:
-          title: Общая информация
+          title: Общие сведения
         index:
           not_published: Не опубликовано
           private: Частное
