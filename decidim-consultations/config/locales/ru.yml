@@ -4,6 +4,12 @@ ru:
       consultation:
         banner_image: Изображение баннера
         decidim_highlighted_scope_id: Рекомендуемый охват
+        description: Описание
+        end_voting_date: Дата окончания
+        introductory_image: Вводное изображение
+        introductory_video_url: Веб-адрес вводного видео
+        questions: Вопросы
+        slug: Сокращенный веб-адрес
         title: Название
       question:
         decidim_scope_id: Участок города
