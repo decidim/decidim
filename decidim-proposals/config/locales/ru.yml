@@ -36,11 +36,6 @@ ru:
         few: Предложения
         many: Предложений
         other: Предложений
-      decidim/proposals/proposal_endorsement:
-        one: Поддержал
-        few: Поддержало
-        many: Поддержали
-        other: Поддержали
       decidim/proposals/proposal_note:
         one: Примечание
         few: Примечания
@@ -82,7 +77,7 @@ ru:
             announcement: Объявление
             comments_blocked: Комментарии выключены
             creation_enabled: Включена возможность внесения предложений
-            endorsements_blocked: Возможность поддержки выключена
+            endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность поддержки включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование выключено
