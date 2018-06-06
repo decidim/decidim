@@ -437,7 +437,7 @@ ca:
           modal_button: Rebutjar els termes
           modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat les nostres Condicions del servei, revisa-les.
+          alert: Hem actualitzat els nostres termes de servei, si us plau revisa'ls.
           body: Preneu-vos un moment per revisar les actualitzacions de les nostres Condicions d'ús. En cas contrari, no podreu utilitzar la plataforma.
           title: 'Obligatori: revisa les actualitzacions dels nostres termes de servei'
     participatory_space_private_users:
