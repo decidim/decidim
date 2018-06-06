@@ -19,7 +19,7 @@ ru:
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         promoted: Рекламируется
-        published_at: 'Опубликовано:'
+        published_at: 'Обнародовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
@@ -75,7 +75,7 @@ ru:
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
-        publish: Опубликовать
+        publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
         unpublish: Отменить публикацию
       menu:
@@ -98,7 +98,7 @@ ru:
             created_at: 'Создано:'
             private: Частное
             promoted: Рекомендуемые
-            published: Опубликовано
+            published: Обнародовано
             title: Название
           name: Движение соучастия
         participatory_process_group:
@@ -145,7 +145,7 @@ ru:
       participatory_process_publications:
         create:
           error: При публикации нового движения соучастия произошла ошибка.
-          success: Движение соучастия успешно опубликовано.
+          success: Движение соучастия успешно обнародовано.
         destroy:
           error: При отмене публикации этого движения соучастия произошла ошибка.
           success: Публикация движения соучастия успешно отменена.
@@ -204,10 +204,10 @@ ru:
         form:
           title: Общие сведения
         index:
-          not_published: Не опубликовано
+          not_published: Не обнародовано
           private: Частное
           public: Публичные
-          published: Опубликовано
+          published: Обнародовано
         new:
           create: Создать
           title: Добавить движение соучастия
@@ -232,8 +232,8 @@ ru:
     admin_log:
       participatory_process:
         create: "%{user_name} создал движение соучастия %{resource_name}"
-        publish: "%{user_name} опубликовал движение соучастия %{resource_name}"
-        unpublish: "%{user_name} отменил публикацию движения соучастия %{resource_name}"
+        publish: "%{user_name} обнародовал движение соучастия %{resource_name}"
+        unpublish: "%{user_name} отменил обнародование движения соучастия %{resource_name}"
         update: "%{user_name} обновил движение соучастия %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
