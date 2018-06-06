@@ -426,7 +426,7 @@ es:
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los términos y condiciones.
-          success: '¡Estupendo! Usted ha aceptado los términos y condiciones.'
+          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
           legend: Acepta los términos y condiciones de uso
