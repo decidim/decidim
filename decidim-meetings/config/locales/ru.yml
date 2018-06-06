@@ -84,7 +84,7 @@ ru:
             default_registration_terms: Условия регистрации по умолчанию
           step:
             announcement: Объявление
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
     events:
       meetings:
         meeting_closed:
