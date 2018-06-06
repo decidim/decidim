@@ -1,6 +1,10 @@
 ru:
   activemodel:
     attributes:
+      agenda:
+        description: Описание
+        duration: Длительность
+        title: Заголовок
       close_meeting:
         attendees_count: Количество участников
         attending_organizations: Список принявших участие организаций
@@ -27,6 +31,12 @@ ru:
         description: Описание
         video_url: Веб-адрес видеозаписи
         visible: Видимый
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
