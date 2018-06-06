@@ -476,6 +476,20 @@ fr:
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètres d'application
+    search:
+      filter:
+        all: Tout
+        component: Composant
+      results_found_for_term: '%{count} Résultats pour la recherche: "%{term}"'
+      term_input_placeholder: Chercher
+    searches:
+      filters:
+        search: Chercher
+      filters_small_view:
+        close_modal: Fermer modal
+        filter: Filtre
+        filter_by: Filtrer par
+        unfold: Se dérouler
     shared:
       action_authorization_modal:
         expired:
