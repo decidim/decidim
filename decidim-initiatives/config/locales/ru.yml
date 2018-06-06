@@ -12,7 +12,7 @@ ru:
       models:
         initiatives:
           fields:
-            supports_count: Поддержали
+            supports_count: Выражений поддержки
         initiatives_type_scope:
           fields:
             scope: Охват
