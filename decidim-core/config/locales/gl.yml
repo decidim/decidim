@@ -10,8 +10,8 @@ gl:
         email: O teu correo electrónico
         name: O teu nome
         nickname: O teu identificador breve e único
-        password: Novo contrasinal
-        password_confirmation: Confirma o teu novo contrasinal
+        password: Contrasinal
+        password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
         remove_avatar: Eliminar avatar
         user_group_document_number: Número de documento da organización
