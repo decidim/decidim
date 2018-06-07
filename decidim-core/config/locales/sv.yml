@@ -304,6 +304,18 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    invitations:
+      create:
+        error: Det fanns några problem när du inbjöd dina vänner
+        error_empty_form: Vänligen ange några e-postadresser
+        success: Vi har skickat inbjudningarna till dina vänner!
+      index:
+        customize_message: Anpassa inbjudningsmeddelandet
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Låt dina vänner veta om den här webbplatsen
+        invitations_title: Tror du att fler röster ska höras i %{organization_name}?
+        invite: Inbjudan
+        visit_your_profile: Besök din profil
     log:
       base_presenter:
         create: "%{user_name} skapad %{resource_name}"
@@ -559,6 +571,7 @@ sv:
           Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
           Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_friend: "%{invited_by} har bjudit in dig till %{application}."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
@@ -567,6 +580,10 @@ sv:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_friend:
+        accept_invitation: 'Du kan acceptera inbjudan via länken nedan:'
+        friend_custom_text: 'De lämnade det här meddelandet för dig:'
+        subject: Du har blivit inbjuden till %{organization}
       invite_private_user:
         subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ sv:
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
+        invite_friends: Bjuda in vänner
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
