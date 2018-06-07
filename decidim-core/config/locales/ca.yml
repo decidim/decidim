@@ -11,7 +11,7 @@ ca:
         name: El teu nom
         nickname: El teu identificador curt i únic
         password: Contrasenya
-        password_confirmation: Confirma la teva contrasenya
+        password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
         user_group_document_number: Número de document acreditatiu
