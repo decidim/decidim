@@ -154,6 +154,7 @@ fi:
             title: Uusi aloite tyyppi
           update:
             error: Tapahtui virhe
+            success: Aloitetyyppiä on päivitetty onnistuneesti
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi %{resource_name} -aloitteen"
@@ -170,6 +171,7 @@ fi:
       committee_requests:
         new:
           continue: Jatkaa
+          help_text: Oletko pyytämässä jäseneksi tämän aloitteentekijän komiteaa
         spawn:
           success: Pyyntösi on lähetetty aloitteen tekijälle.
       create_initiative:
@@ -188,7 +190,9 @@ fi:
           more_information: "(Lisää tietoa)"
         finish_help:
           access_reminder: Muista, että voit aina käyttää aloitteita käyttäjän valikon kautta.
+          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä kaikkien järjestöjen muodostamien järjestöjen johtokunnan pöytäkirjat
           help_in_person_signatures: Jos olet halunnut kerätä allekirjoituksia henkilökohtaisesti tai yhdistää verkossa, sinun on lähetettävä tarvittavat tiedot.
+          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintopaneelia, josta löydät käyttäjän valikon, lataa tarvittavat tiedot ja lähetä se käsittelyä varten.
           initiatives_page_link: 'Voit etsiä kaikki nämä tiedot %{link} : stä, jotka ovat tietoisia aloitteista.'
           page: sivu
         previous_form:
@@ -207,6 +211,7 @@ fi:
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaisuus voi puuttua, jotta kaupunginvaltuusto voi ryhtyä toimiin yleisen edun puolustamiseksi, jotka kuuluvat kunnalliseen toimivaltaan. Mikä aloite haluat käynnistää?
         share_committee_link:
           continue: Jatkaa
+          invite_to_committee_help: Linkki kutsumaan ihmisiä, jotka ovat osa promoottorikomiteaa
         show_similar_initiatives:
           back: Takaisin
           compare_help: Jos jokin seuraavista aloitteista on samanlainen kuin sinun, kannustamme sinua tukemaan sitä. Ehdotuksessasi on enemmän mahdollisuuksia tehdä.
@@ -268,6 +273,8 @@ fi:
         show:
           any_vote_method: Tämä kansalaisaloite kerää online-tukea sekä kasvokkain.
           offline_method: Tämä kansalaisaloitteet kerää vain kasvotusten tuet.
+        signature_identities:
+          select_identity: Valitse käyttäjän tunniste
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoituksia"
@@ -295,6 +302,7 @@ fi:
         more_information: Täällä on lisätietoja aloitteen luomisprosessista.
         progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista tuista.
         progress_report_for: 'Aloita aloitus: %{title}'
+        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä promoottorikomitealle. Lähetä seuraava linkki kutsumaan ihmisiä promoottorikomiteaan
         status_change_body_for: 'Aloitus %{title} on muuttanut tilaansa: %{state}'
         status_change_for: Aloite %{title} on muuttanut tilannettaan
         technical_validation_body_for: Aloite %{title} on pyytänyt teknistä validointiaan.
@@ -321,6 +329,7 @@ fi:
         fill_data: Luoda
         finish: Suorittaa loppuun
         previous_form: alkaa
+        promotal_committee: Järjestäjäkomitea
         select_initiative_type: Valita
         show_similar_initiatives: Vertailla
       initiative_header:
