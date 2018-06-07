@@ -10,6 +10,7 @@ ru:
         organization: Организация
         plural: Множественное число
       attachment:
+        attachment_collection_id: Папка
         description: Описание
         file: Прикрепленный файл
         title: Название
@@ -95,6 +96,7 @@ ru:
       decidim/participatory_process:
         banner_image: Изображение баннера
         description: Описание
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата окончания
         hashtag: Хэштег
@@ -130,6 +132,7 @@ ru:
         organization_name: Название организации
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
+        site: Веб-сайт
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -521,6 +524,7 @@ ru:
           homepage_appearance_title: Редактировать внешний вид главной страницы
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           layout_appearance_title: Редактировать внешний вид макета
+          omnipresent_banner_appearance_title: Редактировать вездесущий баннер
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
