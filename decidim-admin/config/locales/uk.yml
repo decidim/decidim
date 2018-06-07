@@ -10,7 +10,6 @@ uk:
         organization: Організація
         plural: Множина
       attachment:
-        attachment_collection_id: Тека
         description: Опис
         file: Файл
         title: Назва
@@ -96,7 +95,6 @@ uk:
       decidim/participatory_process:
         banner_image: Банерне зображення
         description: Опис
-        developer_group: Робочий гурт з просування
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -132,7 +130,6 @@ uk:
         organization_name: Назва організації
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
-        site: Сайт
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -524,7 +521,6 @@ uk:
           homepage_appearance_title: Редагувати вигляд головної сторінки
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
-          omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
