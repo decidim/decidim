@@ -5,12 +5,12 @@ ca:
         banner_image: Imatge del bàner
         decidim_highlighted_scope_id: Abast destacat
         description: Descripció
-        end_voting_date: Data de finalització
+        end_voting_date: La votació finalitza
         introductory_image: Imatge introductòria
         introductory_video_url: URL de vídeo introductori
         questions: Preguntes
         slug: Nom curt d'URL
-        start_voting_date: Data d'inici
+        start_voting_date: Comença la votació
         subtitle: Subtítol
         title: Títol
       question:
@@ -74,7 +74,7 @@ ca:
           error: S'ha produït un error en crear una nova consulta.
           success: S'ha creat la consulta amb èxit.
         destroy:
-          success: S'ha destruït la consulta amb èxit.
+          success: S'ha suprimit la consulta amb èxit.
         edit:
           update: Actualització
         form:
@@ -135,7 +135,7 @@ ca:
           error: S'ha produït un error en crear una pregunta nova.
           success: S'ha creat una pregunta correctament.
         destroy:
-          success: S'ha destruït la pregunta amb èxit.
+          success: S'ha eliminat la pregunta correctament.
         edit:
           update: Actualitzar
         form:
@@ -155,7 +155,7 @@ ca:
           success: La resposta s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar la resposta.
-          success: La resposta s'ha destruït amb èxit.
+          success: La resposta s'ha eliminat correctament.
         edit:
           update: Actualitza
         form:
@@ -172,7 +172,7 @@ ca:
         responses: Respostes
     consultations:
       consultation:
-        start_voting_date: Votant des de
+        start_voting_date: Comença la votació
         view_results: Veure resultats
       consultation_card:
         view_results: Veure resultats
@@ -239,7 +239,7 @@ ca:
         assistants_count_title: Assistents
         comments_count_title: Comentaris
         meetings_count_title: Reunions
-        supports_count_title: Adhesions
+        supports_count_title: Suports
       technical_info:
         technical_data: Dades tècniques
       vote_button:
@@ -262,7 +262,7 @@ ca:
           attachments: Fitxers adjunts
           categories: Categories
       consultation_voting_data:
-        start_voting_date: Votació des de
+        start_voting_date: Comença la votació
       question_components:
         question_menu_item: La pregunta
         unfold: Desplegar
