@@ -33,7 +33,7 @@ sv:
             invalid: Det här har uppstått ett problem
             success: Projekt skapades med framgång
           destroy:
-            success: Projektet förstördes framgångsrikt
+            success: Projektet har tagits bort
           edit:
             title: Redigera projekt
             update: Uppdatera
