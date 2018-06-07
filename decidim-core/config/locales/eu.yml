@@ -52,6 +52,11 @@ eu:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Fitxategia ez dago
+        invalid_token: Ordezkatutako tokia baliogabea da.
+        no_token: No token emandako
+        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
         confirm:
@@ -177,6 +182,13 @@ eu:
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
+    data_portability:
+      export:
+        ready: prest
+      show:
+        download_data: Deskargatu datuak
+        download_data_description: Kontuarekin lotutako informazio guztia duen fitxategia <strong>%{user_email}</strong>bidaliko da
+        request_data: Eskaera datuak
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ eu:
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
+      data_portability_export:
+        click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
+        download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
@@ -642,6 +657,7 @@ eu:
         account: Kontua
         authorizations: Baimenak
         delete_my_account: Ezabatu nire kontua
+        my_data: Nire datuak
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
