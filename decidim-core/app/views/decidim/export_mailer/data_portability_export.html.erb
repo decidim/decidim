@@ -1,0 +1,2 @@
+<%= t(".click_button", date: l(Decidim.data_portability_expiry_time.from_now, format: :decidim_short) ).html_safe %><br />
+<%= link_to t(".download"), download_file_data_portability_url(host: @organization.host, token: @token), class: "button expanded hollow button--sc" %>

@@ -87,6 +87,9 @@ Visit [http://localhost:3000](http://localhost:3000) to see your app running.
 
 Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in [the source file](https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/core.rb) (the part with the `config_accessor` calls) for more up-to-date info.
 
+If you want to run the automatic rake task to delete data portability files, write in `crontab -e`
+`0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files`
+
 We also have other guides on how to configure some extra components:
 
 * [ActiveJob](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md)

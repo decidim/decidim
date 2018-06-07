@@ -3,7 +3,7 @@
   <% if endorsements_enabled? %>
     <div class="column small-9 collapse">
       <div class="button-group button-group--collapse button--nomargin small">
-        <%= render partial: "endorsements_count", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
+        <%= render_endorsements_count_card_part(@proposal, fully_endorsed) %>
         <% if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
           <%= content_tag :span, t(".endorse"), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t(".endorse") %>
         <% elsif current_user %>

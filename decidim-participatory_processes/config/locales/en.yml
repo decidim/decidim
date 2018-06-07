@@ -9,7 +9,7 @@ en:
         copy_components: Copy components
         copy_steps: Copy steps
         description: Description
-        developer_group: Developer group
+        developer_group: Promoter group
         domain: Domain
         end_date: End date
         hashtag: Hashtag
@@ -64,8 +64,8 @@ en:
       actions:
         activate: Activate
         configure: Configure
-        confirm_destroy: Confirm destroy
-        destroy: Destroy
+        confirm_destroy: Confirm delete
+        destroy: Delete
         duplicate: Duplicate
         edit: Edit
         new: New
@@ -111,7 +111,7 @@ en:
             email: Email
             name: Name
             role: Role
-          name: Participatory Process User
+          name: Participatory process user
           roles:
             admin: Administrator
             collaborator: Collaborator
@@ -127,7 +127,7 @@ en:
           title: Duplicate participatory process
       participatory_process_groups:
         destroy:
-          success: Participatory process group destroyed successfully.
+          success: Participatory process group deleted successfully.
         edit:
           title: Edit process group
           update: Update
@@ -157,7 +157,7 @@ en:
           error:
             active_step: Can't delete the active step.
             last_step: Can't delete the last step of a process.
-          success: Participatory process step destroyed successfully.
+          success: Participatory process step deleted successfully.
         edit:
           title: Edit participatory process step
           update: Update
@@ -174,9 +174,9 @@ en:
       participatory_process_user_roles:
         create:
           error: There was an error adding a user for this participatory process.
-          success: User created successfully for this participatory process.
+          success: User added successfully to this participatory process.
         destroy:
-          success: User destroyed successfully for this participatory process.
+          success: User removed successfully from this participatory process.
         edit:
           title: Update participatory process user.
           update: Update
@@ -193,7 +193,7 @@ en:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
         destroy:
-          success: Participatory process destroyed successfully.
+          success: Participatory process deleted successfully.
         edit:
           update: Update
         form:
@@ -289,7 +289,7 @@ en:
         index:
           loading: Loading results...
       show:
-        developer_group: Developer group
+        developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
         participatory_scope: What is decided

@@ -34,7 +34,7 @@ en:
             invalid: There's been a problem creating this project
             success: Project successfully created
           destroy:
-            success: Project successfully destroyed
+            success: Project successfully deleted
           edit:
             title: Edit project
             update: Update

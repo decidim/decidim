@@ -25,5 +25,18 @@ module Decidim
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
       end
     end
+
+    def data_portability_export(user, export_data, export_images)
+      @user = user
+      @organization = user.organization
+
+      file_zipper = Decidim::DataPortabilityFileZipper.new(@user, export_data, export_images)
+      file_zipper.make_zip
+
+      with_user(user) do
+        @token = file_zipper.token
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))
+      end
+    end
   end
 end

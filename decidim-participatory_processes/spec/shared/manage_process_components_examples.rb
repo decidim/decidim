@@ -244,7 +244,7 @@ shared_examples "manage process components" do
 
     it "removes the component" do
       within ".component-#{component.id}" do
-        click_link "Destroy"
+        click_link "Delete"
       end
 
       expect(page).to have_no_content("My component")

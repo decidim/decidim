@@ -179,7 +179,7 @@ describe "Admin manages questions", type: :system do
       login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 
