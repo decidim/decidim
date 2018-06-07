@@ -52,6 +52,11 @@ it:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Il file non esiste
+        invalid_token: Il token fornito non è valido.
+        no_token: Nessun token fornito
+        notice: I tuoi dati sono attualmente in corso. Riceverai un'email quando è completa.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
@@ -177,6 +182,13 @@ it:
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
+    data_portability:
+      export:
+        ready: Pronto
+      show:
+        download_data: Scarica i dati
+        download_data_description: Un file con tutte le informazioni associate all'account verrà inviato a <strong>%{user_email}</strong>
+        request_data: Richiedi dati
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ it:
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
+      data_portability_export:
+        click_button: Fare clic sul pulsante successivo per scaricare i dati. <br/> Avrai il file disponibile fino al %{date}.
+        download: Scaricare
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
@@ -642,6 +657,7 @@ it:
         account: Account
         authorizations: Authorizzazioni
         delete_my_account: Cancella il mio account
+        my_data: I miei dati
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: Organizzazioni
