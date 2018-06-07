@@ -96,7 +96,7 @@ namespace :decidim do
       puts %(  Execution cancelled...)
     end
   end
-  
+
   desc "Deletes the data portability file inside tmp/data-portability folder."
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
