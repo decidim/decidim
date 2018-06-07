@@ -132,6 +132,9 @@ pt-BR:
       assembly_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esta montagem.
+          success: Usuário adicionado com sucesso a esta montagem.
+        destroy:
+          success: Usuário removido com sucesso deste assembly.
         edit:
           title: Atualize o usuário da montagem.
           update: Atualizar
@@ -155,6 +158,7 @@ pt-BR:
           components: Componentes
           info: Info
           moderations: Moderação
+          private_users: Usuários particulares
       models:
         assembly:
           fields:
@@ -263,6 +267,7 @@ pt-BR:
         composition: Composição
         created_by: Criado por
         creation_date: Data Criada
+        developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
         indefinite_duration: Indeterminado
