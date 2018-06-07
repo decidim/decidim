@@ -304,6 +304,18 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    invitations:
+      create:
+        error: Er waren enkele problemen terwijl je je vrienden uitnodigde
+        error_empty_form: Voer alstublieft enkele e-mailadressen in
+        success: We hebben de uitnodigingen naar je vrienden gestuurd!
+      index:
+        customize_message: Pas het uitnodigingsbericht aan
+        friend_email: 'Vriend #%{index} email'
+        invitations_subtitle: Laat je vrienden op de hoogte van deze site
+        invitations_title: Denk je dat meer stemmen gehoord moeten worden in %{organization_name}?
+        invite: Nodig uit
+        visit_your_profile: Ga naar je profiel
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -559,6 +571,7 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        invited_you_as_friend: "%{invited_by} heeft je uitgenodigd voor %{application}."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
@@ -567,6 +580,10 @@ nl:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
+      invite_friend:
+        accept_invitation: 'U kunt de uitnodiging accepteren via de onderstaande link:'
+        friend_custom_text: 'Ze hebben dit bericht voor je achtergelaten:'
+        subject: Je bent uitgenodigd voor %{organization}
       invite_private_user:
         subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ nl:
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
+        invite_friends: Nodig vrienden uit
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel
