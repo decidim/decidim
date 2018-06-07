@@ -8,7 +8,6 @@ fi:
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
         description: Kuvaus
-        developer_group: Kehitysryhmä
         domain: Toimintaympäristö
         end_date: Päättymisaika
         hashtag: Hashtag
@@ -63,8 +62,6 @@ fi:
       actions:
         activate: Aktivoi
         configure: Asetukset
-        confirm_destroy: Vahvista poisto
-        destroy: Tuhoa
         duplicate: Kopioi
         edit: Muokkaa
         new: Uusi
@@ -110,7 +107,6 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Kollaboraattori
@@ -125,8 +121,6 @@ fi:
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
-        destroy:
-          success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -156,7 +150,6 @@ fi:
           error:
             active_step: Aktiivista vaihetta ei voi poistaa.
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
-          success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
@@ -173,9 +166,6 @@ fi:
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallistumisprosessiin.
-          success: Käyttäjä luotu onnistuneesti tähän osallistumisprosessiin.
-        destroy:
-          success: Käyttäjä poistettu onnistuneesti tästä osallistumisprosessista.
         edit:
           title: Päivitä osallistumisprosessin käyttäjä.
           update: Päivitä
@@ -191,8 +181,6 @@ fi:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
-        destroy:
-          success: Osallistumisprosessi tuhottu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -288,7 +276,6 @@ fi:
         index:
           loading: Ladataan tulokset...
       show:
-        developer_group: Kehitysryhmä
         end_date: Päättymisaika
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
