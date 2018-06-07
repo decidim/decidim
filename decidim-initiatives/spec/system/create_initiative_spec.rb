@@ -161,8 +161,8 @@ describe "Initiative", type: :system do
           find_button("Continue").click
         end
 
-        it "promotal committee view is shown" do
-          expect(page).to have_content("PROMOTAL COMMITTEE")
+        it "shows the promoter committee" do
+          expect(page).to have_content("PROMOTER COMMITTEE")
         end
 
         it "Offers contextual help" do
