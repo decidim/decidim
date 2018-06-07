@@ -11,7 +11,7 @@ es:
         name: Tu nombre
         nickname: Su identificador, corto y único
         password: Contraseña
-        password_confirmation: Confirma tu contraseña
+        password_confirmation: Confirmar la contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         user_group_document_number: Número de documento acreditativo
