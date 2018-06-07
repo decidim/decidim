@@ -177,6 +177,7 @@ pl:
       committee_requests:
         new:
           continue: dalej
+          help_text: Zamierzasz poprosić o członkostwo w komitecie promującym tę inicjatywę
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
       create_initiative:
@@ -195,7 +196,9 @@ pl:
           more_information: "(Więcej informacji)"
         finish_help:
           access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
+          help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły z zarządu wszystkich organizacji, które tworzą Komisję Promującą
           help_in_person_signatures: Jeśli zdecydowałeś się zebrać podpisy osobiście lub w połączeniu z internetem, będziesz musiał przesłać wymagane informacje.
+          help_text: Pamiętaj, że aby poprawnie przetworzyć inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrać wymagane informacje i wysłać je do przetworzenia.
           initiatives_page_link: Możesz sprawdzić wszystkie te informacje na %{link} poświęconym informowaniu o inicjatywach.
           page: strona
         previous_form:
@@ -214,6 +217,7 @@ pl:
           select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatelstwo może interweniować, aby Rada Miejska mogła podejmować działania w obronie interesu ogólnego, które znajdują się na obszarach podlegających jurysdykcji gminnej. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: dalej
+          invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu promotora
         show_similar_initiatives:
           back: Plecy
           compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do zrobienia.
@@ -279,6 +283,8 @@ pl:
         show:
           any_vote_method: Ta inicjatywa obywatelska zbiera wsparcie online i twarzą w twarz.
           offline_method: Ta inicjatywa obywatelska zbiera jedynie osobiste wsparcie.
+        signature_identities:
+          select_identity: Wybierz identyfikator użytkownika
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -310,6 +316,7 @@ pl:
         more_information: Tutaj masz więcej informacji na temat procesu tworzenia inicjatywy.
         progress_report_body_for: Inicjatywa %{title} osiągnęła %{percentage}% wymaganych podpór.
         progress_report_for: 'Wznów o inicjatywie: %{title}'
+        promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu promotora. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotora
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój stan na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój stan
         technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
@@ -336,6 +343,7 @@ pl:
         fill_data: Stwórz
         finish: koniec
         previous_form: Początek
+        promotal_committee: Komitet promotorski
         select_initiative_type: Wybierać
         show_similar_initiatives: Porównać
       initiative_header:
