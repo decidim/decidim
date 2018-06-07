@@ -44,7 +44,6 @@ uk:
         actions:
           destroy: Скасувати жеребкування
           edit: Редагувати
-          new: Додати
           show: Подробиці жеребкування
         models:
           sortition:
