@@ -42,6 +42,7 @@ fi:
         actions:
           destroy: Peruuta järjestely
           edit: Muokata
+          new: Lisää uusi
           show: Järjestelytiedot
         models:
           sortition:
