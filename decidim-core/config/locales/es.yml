@@ -304,6 +304,18 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    invitations:
+      create:
+        error: Hubo algunos problemas al invitar a tus amigos
+        error_empty_form: Por favor ingrese algunas direcciones de correo electrónico
+        success: '¡Hemos enviado las invitaciones a tus amigos!'
+      index:
+        customize_message: Personaliza el mensaje de invitación
+        friend_email: 'Correo electrónico amigo #%{index}'
+        invitations_subtitle: Hazles saber a tus amigos sobre este sitio
+        invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
+        invite: Invitación
+        visit_your_profile: Visita tu perfil
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -559,6 +571,7 @@ es:
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
           Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_friend: "%{invited_by} ha invitado a %{application}."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
@@ -567,6 +580,10 @@ es:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
+      invite_friend:
+        accept_invitation: 'Puede aceptar la invitación a través del siguiente enlace:'
+        friend_custom_text: 'Dejaron este mensaje para ti:'
+        subject: Has sido invitado a %{organization}
       invite_private_user:
         subject: Has sido invitado a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ es:
       user_menu:
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
+        invite_friends: Invitar a amigos
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
