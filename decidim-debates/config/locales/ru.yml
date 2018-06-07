@@ -28,6 +28,14 @@ ru:
         actions:
           create: Добавить
         name: Обсуждения
+        settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии отключены
+            creation_enabled: Создание обсуждений участниками включено
     debates:
       actions:
         confirm_destroy: Вы уверены?
@@ -84,15 +92,25 @@ ru:
           close_modal: Закрыть окошко
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
         index:
           new_debate: Начать новое обсуждение
         new:
+          back: Вернуться
+          create: Создать
           select_a_category: Пожалуйста, выберите разряд
           title: Начать новое обсуждение
+        share:
+          close_window: Закрыть окно
+          share: Поделиться
+          share_link: Поделиться ссылкой
       models:
         debate:
           fields:
+            end_time: Дата окончания
             official_debate: Служебное обсуждение
+            start_time: Дата начала
+            title: Заголовок
     events:
       debates:
         create_debate_event:
