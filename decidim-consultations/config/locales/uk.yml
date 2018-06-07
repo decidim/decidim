@@ -5,10 +5,12 @@ uk:
         banner_image: Банер зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
+        end_voting_date: Голосування закінчується
         introductory_image: Вступне зображення
         introductory_video_url: Веб-адреса вступного відео
         questions: Питання
         slug: Скорочена веб-адреса
+        start_voting_date: Голосування починається
         subtitle: Підзаголовок
         title: Назва
       question:
@@ -79,6 +81,8 @@ uk:
         create:
           error: При спробі створити нову консультацію сталася помилка.
           success: Консультацію успішно створено.
+        destroy:
+          success: Консультацію успішно видалено.
         edit:
           update: Оновити
         form:
@@ -144,6 +148,8 @@ uk:
         create:
           error: При спробі додати нове питання сталася помилка.
           success: Питання успішно додано.
+        destroy:
+          success: Питання успішно видалено.
         edit:
           update: Оновити
         form:
@@ -163,6 +169,7 @@ uk:
           success: Відповідь успішно створено.
         destroy:
           error: При спробі видалити відповідь сталася помилка.
+          success: Відповідь успішно видалено.
         edit:
           update: Оновити
         form:
@@ -179,6 +186,7 @@ uk:
         responses: Відповіді
     consultations:
       consultation:
+        start_voting_date: Голосування починається
         view_results: Переглянути підсумки
       consultation_card:
         view_results: Переглянути підсумки
@@ -249,6 +257,7 @@ uk:
         assistants_count_title: Помічників
         comments_count_title: Коментарів
         meetings_count_title: Зустрічей
+        supports_count_title: Проявів підтримки
       technical_info:
         technical_data: Технічні відомості
       vote_button:
@@ -270,6 +279,8 @@ uk:
         question:
           attachments: Вкладені файли
           categories: Розряди
+      consultation_voting_data:
+        start_voting_date: Голосування починається
       question_components:
         question_menu_item: Питання
         unfold: Розгорнути
