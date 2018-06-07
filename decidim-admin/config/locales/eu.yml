@@ -10,7 +10,6 @@ eu:
         organization: Erakundea
         plural: plural
       attachment:
-        attachment_collection_id: Bilduma
         description: Descripción
         file: Fitxategia
         title: Titulua
@@ -96,7 +95,6 @@ eu:
       decidim/participatory_process:
         banner_image: Iragarki-bandako irudia
         description: Descripción
-        developer_group: Talde sustatzailea
         domain: Domeinua
         end_date: Bukaera-data
         hashtag: Traola
@@ -132,7 +130,6 @@ eu:
         organization_name: Erakundearen izena
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
-        site: gunea
   date:
     formats:
       datepicker: "%Y/%m/%d"
@@ -524,7 +521,6 @@ eu:
           homepage_appearance_title: Editatu orriaren itxura
           homepage_highlighted_content_banner_title: Highligted edukien banner
           layout_appearance_title: Editatu itxura diseinua
-          omnipresent_banner_appearance_title: Editatu omnipresent
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
