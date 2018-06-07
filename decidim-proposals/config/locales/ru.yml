@@ -77,7 +77,7 @@ ru:
             proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
             proposal_length: Предельная длина основного текста предложения
             proposal_limit: Предельное количество предложений от одного участника
-            proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Внести"
+            proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
             proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
@@ -86,7 +86,7 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            creation_enabled: Включена возможность внесения предложений
+            creation_enabled: Включена возможность создания предложений
             endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
@@ -96,7 +96,7 @@ ru:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Теперь вы можете вносить новые предложения в %{participatory_space_title}! Начните со страницы:'
+          email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность вносить <a href="%{resource_path}">новые предложения</a>
@@ -194,7 +194,7 @@ ru:
             invalid: При попытке ответить на это предложение произошла ошибка
             success: Успешно дан ответ на предложение
           create:
-            invalid: При попытке внести предложение произошла ошибка
+            invalid: При попытке создать предложение произошла ошибка
             success: Предложение успешно внесено
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
@@ -243,7 +243,7 @@ ru:
         withdrawn: Отозван
       create:
         error: При попытке сохранить это предложение произошли ошибки.
-        success: Предложение создано успешно. Сохранено как черновик.
+        success: Предложение успешно создано. Сохранено как черновик.
       destroy_draft:
         error: При попытке удалить этот черновик предложения произошли ошибки.
         success: Черновик предложения был успешно удален.
@@ -340,7 +340,7 @@ ru:
             other: голоса
         new:
           send: Продолжить
-          title: Внесите свое предложение
+          title: Создайте свое предложение
         orders:
           label: 'Упорядочить предложения по:'
           most_voted: С наибольшим количеством голосов
@@ -392,6 +392,7 @@ ru:
             many: ГОЛОСОВ
             other: ГОЛОСА
           most_popular_proposal: Самое популярное предложение
+          need_more_votes: Нужно больше голосов
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
@@ -404,6 +405,15 @@ ru:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
             votes: Голоса
+        wizard_aside:
+          back: Вернуться
+          info: Вы создаете <strong>предложение</strong>.
+        wizard_steps:
+          see_steps: просмотреть шаги
+          step_1: Создайте свое предложение
+          step_2: Сравните
+          step_3: Завершите
+          step_4: Обнародуйте свое предложение
       publish:
         success: Предложение успешно обнародовано.
       update:
