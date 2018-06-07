@@ -30,7 +30,7 @@ uk:
         title: Назва
       organization_data:
         address: Адреса
-        id_document: Ідентифікаційний документ
+        id_document: Документ, що завідчує особу
         name: Повне ім'я
   activerecord:
     models:
