@@ -171,6 +171,7 @@ fr:
       committee_requests:
         new:
           continue: Continuer
+          help_text: Vous êtes sur le point de demander à devenir membre du comité promoteur de cette initiative
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       create_initiative:
@@ -189,7 +190,9 @@ fr:
           more_information: "(Plus d'information)"
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
+          help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui forment la Commission de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en personne ou combinées avec en ligne, vous devrez télécharger les informations requises.
+          help_text: N'oubliez pas que pour traiter correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à informer sur les initiatives.
           page: page
         previous_form:
@@ -208,6 +211,7 @@ fr:
           select_initiative_type_help: Les initiatives citoyennes sont un moyen par lequel la citoyenneté peut intervenir pour que le conseil municipal puisse entreprendre des actions en défense de l'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer?
         share_committee_link:
           continue: Continuer
+          invite_to_committee_help: Lien pour inviter les personnes qui feront partie du comité des promoteurs
         show_similar_initiatives:
           back: Arrière
           compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura plus de possibilités de se faire.
@@ -269,6 +273,8 @@ fr:
         show:
           any_vote_method: Cette initiative citoyenne recueille le soutien en ligne ainsi que face à face.
           offline_method: Cette initiative citoyenne ne recueille que des soutiens face à face.
+        signature_identities:
+          select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
           one: " Signature"
           other: " signatures"
@@ -296,6 +302,7 @@ fr:
         more_information: Vous trouverez ici plus d'informations sur le processus de création d'une initiative.
         progress_report_body_for: L'initiative %{title} a atteint les %{percentage}% de supports requis.
         progress_report_for: 'Reprendre l''initiative: %{title}'
+        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au comité des promoteurs. Envoyez le lien suivant pour inviter les gens au comité de promotion
         status_change_body_for: 'L''initiative %{title} a changé son état à: %{state}'
         status_change_for: L'initiative %{title} a changé d'état
         technical_validation_body_for: L'initiative %{title} a demandé sa validation technique.
@@ -322,6 +329,7 @@ fr:
         fill_data: Créer
         finish: terminer
         previous_form: Début
+        promotal_committee: Comité de promoteur
         select_initiative_type: Choisir
         show_similar_initiatives: Comparer
       initiative_header:
