@@ -9,7 +9,7 @@ shared_examples "manage assembly private users examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Private Users"
+    click_link "Private users"
   end
 
   it "shows assembly private user list" do
@@ -43,7 +43,7 @@ shared_examples "manage assembly private users examples" do
 
     it "deletes a assembly_private_user" do
       within find("#private_users tr", text: other_user.email) do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
