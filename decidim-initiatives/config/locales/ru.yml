@@ -7,7 +7,6 @@ ru:
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
-        signature_type: Вид сбора подписей
   decidim:
     admin:
       models:
@@ -68,7 +67,6 @@ ru:
             filter_by: 'Отобрать по признаку:'
             preview: Предпросмотр
             print: Распечатать
-            search: Поиск
           show:
             print: Распечатать
           update:
@@ -83,7 +81,6 @@ ru:
           edit:
             back: Вернуться
             confirm_destroy: Вы уверены?
-            destroy: Удалить
             title: Изменить охват вида почина
             update: Обновить
           new:
@@ -101,21 +98,12 @@ ru:
             title: Охваты для вида почина
           new:
             title: Добавить вид почина
-          update:
-            success: Вид почина успешно обновлен
-      committee_requests:
-        new:
-          help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
       create_initiative:
         fill_data:
           fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать вид сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
           select_scope: Выбрать охват
-        finish_help:
-          help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
         promotal_committee:
           individual_help_text: Для гражданских починов нужна рабочая группа по продвижению, состоящая как минимум из трех человек (удостоверяющих лиц). Вы должны поделиться следующей ссылкой с другими людьми, которые занимаются этим почином. Когда они получат эту ссылку, им нужно будет пройти указанные там шаги.
-        share_committee_link:
-          invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
       events:
         create_initiative_event:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
@@ -135,7 +123,6 @@ ru:
           supports_required: "Требуется %{total_supports} подписей"
       initiatives_mailer:
         progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
-        promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
       pages:
         home:
           highlighted_initiatives:
@@ -145,5 +132,3 @@ ru:
       admin:
         initiative:
           components: Составляющие
-      initiative_creation_header:
-        promotal_committee: Рабочая группа по продвижению
