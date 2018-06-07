@@ -52,6 +52,11 @@ fr:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Vos données sont actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
         confirm:
@@ -177,6 +182,13 @@ fr:
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demande de données
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ fr:
           email_subject: "%{nickname} a mis à jour son profil"
           notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Vous aurez le fichier disponible jusqu'à %{date}.
+        download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
       subject: Votre export "%{name}" est prêt
@@ -642,6 +657,7 @@ fr:
         account: Compte
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
+        my_data: Mes données
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
         user_groups: Organisations
