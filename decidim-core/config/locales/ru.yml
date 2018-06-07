@@ -10,8 +10,6 @@ ru:
         email: Ваш адрес электронной почты
         name: Ваше имя
         nickname: Ваш короткий, уникальный псевдоним
-        password: Пароль
-        password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
         user_group_document_number: Номер документа организации
