@@ -190,7 +190,9 @@ pt-BR:
           more_information: "(Mais Informações)"
         finish_help:
           access_reminder: Lembre-se de que você sempre poderá acessar suas iniciativas através do menu do usuário.
+          help_for_organizations: Se você é uma associação, você terá que enviar as atas do conselho de administração de todas as organizações que formam a Comissão Promotora.
           help_in_person_signatures: Se você optou por coletar as assinaturas pessoalmente ou combinadas com on-line, será necessário fazer o upload das informações necessárias.
+          help_text: Lembre-se de que, para processar adequadamente a iniciativa, você deve acessar o painel de administração, onde encontrará o menu do usuário, carregará as informações necessárias e as enviará para processamento.
           initiatives_page_link: Você pode procurar todas essas informações no %{link} dedicado a informar sobre iniciativas.
           page: página
         previous_form:
@@ -209,6 +211,7 @@ pt-BR:
           select_initiative_type_help: As iniciativas cidadãs são um meio pelo qual a cidadania pode intervir para que a Câmara Municipal possa empreender ações em defesa do interesse geral que se encontram dentro dos campos de jurisdição municipal. Qual iniciativa você quer lançar?
         share_committee_link:
           continue: Continuar
+          invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
         show_similar_initiatives:
           back: Costas
           compare_help: Se alguma das seguintes iniciativas for semelhante à sua, incentivamos você a apoiá-la. Sua proposta terá mais possibilidades de ser feita.
@@ -270,6 +273,8 @@ pt-BR:
         show:
           any_vote_method: Essa iniciativa cidadã coleta suporte on-line e também presencial.
           offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
+        signature_identities:
+          select_identity: Selecione o identificador de usuários
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
@@ -297,6 +302,7 @@ pt-BR:
         more_information: Aqui você tem mais informações sobre o processo de criação da iniciativa.
         progress_report_body_for: A iniciativa %{title} atingiu os %{percentage}% de suporte necessários.
         progress_report_for: 'Retomar sobre a iniciativa: %{title}'
+        promotal_committee_help: Lembre-se de que você deve convidar pelo menos %{member_count} pessoas para o comitê de promotores. Encaminhe o seguinte link para convidar pessoas para o comitê de promotores
         status_change_body_for: 'A iniciativa %{title} mudou seu estado para: %{state}'
         status_change_for: A iniciativa %{title} mudou seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou sua validação técnica.
@@ -323,6 +329,7 @@ pt-BR:
         fill_data: Criar
         finish: Finalizar
         previous_form: Começar
+        promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
       initiative_header:
