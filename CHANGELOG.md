@@ -45,6 +45,17 @@ Decidim::Meetings::Meeting.find_each(&:add_to_index_as_search_resource)
 Decidim::Proposals::Proposal.find_each(&:add_to_index_as_search_resource)
 ```
 
+**Upgrade notes (TOS)**:
+
+Due to a bug that got fixed on this release, some organizations might not
+have a TOS page, which some migrations rely on. Please execute this code on
+production before upgrading so the pages get created correctly and the migrations
+don't fail.
+
+```ruby
+Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultPages.call(organization) }
+```
+
 **Added**:
 
 - **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3559](https://github.com/decidim/decidim/pull/3559)
