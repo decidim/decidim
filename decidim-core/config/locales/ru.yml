@@ -65,13 +65,13 @@ ru:
           title: Удалить мою учетную запись
         explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
       destroy:
-        error: При удалении вашей учетной записи произошла ошибка.
+        error: При попытке удалить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно удалена.
       show:
         change_password: Поменять пароль
         update_account: Обновить учетную запись
       update:
-        error: При обновлении вашей учетной записи произошла ошибка.
+        error: При попытке обновить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
     admin_log:
@@ -180,7 +180,7 @@ ru:
             dummy_global_attribute_1: Пример свойства 1
             dummy_global_attribute_2: Пример свойства 2
           step:
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
             dummy_step_attribute_1: Пример 1 свойства шага
             dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
@@ -337,7 +337,7 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Узнать больше
+      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -386,7 +386,7 @@ ru:
         newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
-        error: При обновлении настроек уведомлений произошла ошибка.
+        error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
     own_user_groups:
       index:
@@ -401,7 +401,7 @@ ru:
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
           meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
@@ -412,26 +412,27 @@ ru:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
         statistics:
-          answers_count: Законченные опросы
-          assemblies_count: Собрания
-          comments_count: Комментарии
+          answers_count: Пройденных опросов
+          assemblies_count: Собраний
+          comments_count: Комментариев
           debates_count: Обсуждения
+          endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
-          meetings_count: Встречи
-          orders_count: Голоса
-          pages_count: Страницы
-          processes_count: Движения
-          projects_count: Проекты
+          meetings_count: Встреч
+          orders_count: Голосов
+          pages_count: Страниц
+          processes_count: Движений
+          projects_count: Проектов
           proposals_accepted: Принятые предложения
-          proposals_count: Предложения
-          results_count: Итоги
-          surveys_count: Опросы
-          users_count: Участники
-          votes_count: Голоса
+          proposals_count: Предложений
+          results_count: Итогов
+          surveys_count: Опросов
+          users_count: Участников
+          votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
       index:
-        title: Узнать больше
+        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -475,7 +476,7 @@ ru:
         subject: О ресурсе была передана жалоба администраторам
     reports:
       create:
-        error: При создании жалобы произошла ошибка. Повторите, пожалуйста, попытку.
+        error: При попытке создать жалобу произошла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     scopes:
       global: Всеобщий охват
@@ -636,7 +637,7 @@ ru:
         title: Настройки участника
         user_groups: Организации
       widget:
-        see_more: Узнать больше
+        see_more: Читать подробнее
   locale:
     name: Русский
   social_share_button:
