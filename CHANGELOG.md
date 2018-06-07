@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#3605](https://github.com/decidim/decidim/pull/3605)
+
 **Fixed**:
 
 **Removed**:
