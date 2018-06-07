@@ -18,6 +18,7 @@ uk:
         decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
+        developer_group: Робочий гурт з просування
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -84,6 +85,8 @@ uk:
         create:
           error: При спробі додати нові збори сталася помилка.
           success: Збори успішно додано.
+        destroy:
+          success: Збори успішно видалено.
         edit:
           update: Оновити
         form:
@@ -112,6 +115,8 @@ uk:
         create:
           error: При спробі додати члена президії цих зборів сталася помилка.
           success: Успішно додано члена президії цих зборів.
+        destroy:
+          success: Успішно видалено члена президії цих зборів.
         edit:
           title: Оновити члена президії зборів.
           update: Оновити
@@ -133,6 +138,9 @@ uk:
       assembly_user_roles:
         create:
           error: При спробі додати учасника цих зборів сталася помилка.
+          success: Учасника цих зборів успішно додано.
+        destroy:
+          success: Учасника цих зборів успішно видалено.
         edit:
           title: Оновити учасника зборів.
           update: Оновити
@@ -156,6 +164,7 @@ uk:
           components: Складові
           info: Відомості
           moderations: Дії з модерації
+          private_users: Приватні учасники
       models:
         assembly:
           fields:
@@ -264,6 +273,7 @@ uk:
         composition: Склад
         created_by: 'Автор:'
         creation_date: Дата створення
+        developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
         indefinite_duration: Безстрокова
