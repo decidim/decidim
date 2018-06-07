@@ -42,7 +42,6 @@ eu:
         actions:
           destroy: Utzi bertan behera
           edit: Editatu
-          new: New
           show: Sortatze xehetasunak
         models:
           sortition:
