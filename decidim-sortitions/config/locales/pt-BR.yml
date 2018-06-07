@@ -42,6 +42,7 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
+          new: Adicionar novo
           show: Detalhes da classificação
         models:
           sortition:
