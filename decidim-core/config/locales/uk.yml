@@ -412,23 +412,23 @@ uk:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
         statistics:
-          answers_count: Пройдено опитувань
-          assemblies_count: Збори
+          answers_count: Пройдених опитувань
+          assemblies_count: Зборів
           comments_count: Коментарів
           debates_count: Обговорення
-          endorsements_count: Висловів підтримки
+          endorsements_count: Проявів підтримки
           headline: Поточний стан %{organization}
           meetings_count: Зустрічей
-          orders_count: Голоси
-          pages_count: Сторінки
-          processes_count: Рухи
+          orders_count: Голосів
+          pages_count: Сторінок
+          processes_count: Рухів
           projects_count: Задумів
           proposals_accepted: Прийняті пропозиції
           proposals_count: Пропозицій
           results_count: Підсумків
-          surveys_count: Опитування
-          users_count: Учасники
-          votes_count: Голоси
+          surveys_count: Опитувань
+          users_count: Учасників
+          votes_count: Голосів
         sub_hero:
           register: Зареєструватися
       index:
