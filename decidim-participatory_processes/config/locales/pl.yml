@@ -8,7 +8,6 @@ pl:
         copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
         description: Opis
-        developer_group: Grupa programistyczna
         domain: Domena
         end_date: Data zakończenia
         hashtag: Hasztag
@@ -69,8 +68,6 @@ pl:
       actions:
         activate: Aktywować
         configure: Skonfigurować
-        confirm_destroy: Potwierdzić zniszczyć
-        destroy: Zniszczyć
         duplicate: Duplikat
         edit: Edytuj
         new: Nowy
@@ -116,7 +113,6 @@ pl:
             email: Adres e-mail
             name: Nazwa
             role: Rola
-          name: Uczestnik procesu
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -131,8 +127,6 @@ pl:
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
-        destroy:
-          success: Uczestnicząca grupa procesowa została zniszczona.
         edit:
           title: Edytuj grupę procesów
           update: Aktualizuj
@@ -162,7 +156,6 @@ pl:
           error:
             active_step: Nie można usunąć aktywnego kroku.
             last_step: Nie można usunąć ostatniego etapu procesu.
-          success: Udział w procesie uczestnictwa został pomyślnie zniszczony.
         edit:
           title: Edytuj krok procesu partycypacyjnego
           update: Aktualizuj
@@ -179,9 +172,6 @@ pl:
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu uczestnictwa.
-          success: Użytkownik utworzony z powodzeniem dla tego procesu partycypacyjnego.
-        destroy:
-          success: Użytkownik z powodzeniem zniszczył ten proces uczestnictwa.
         edit:
           title: Zaktualizuj uczestniczącego użytkownika procesu.
           update: Aktualizuj
@@ -197,8 +187,6 @@ pl:
         create:
           error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
           success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
-        destroy:
-          success: Proces współudziału został zniszczony.
         edit:
           update: Aktualizuj
         form:
@@ -294,7 +282,6 @@ pl:
         index:
           loading: Wyniki wyszukiwania...
       show:
-        developer_group: Grupa programistyczna
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co jest zdecydowane
