@@ -245,6 +245,16 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
+      admin_log:
+        meeting:
+          close: "%{user_name} закрыл встречу %{resource_name} в пространстве %{space_name}"
+          create: "%{user_name} создал встречу %{resource_name} в пространстве %{space_name}"
+          delete: "%{user_name} удалил встречу %{resource_name} в пространстве %{space_name}"
+          export_registrations: "%{user_name} сохранил в виде файла список зарегистрировавшихся на встречу %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил встречу %{resource_name} в пространстве %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Организатор не найден в базе данных (ID: %{id})'
       mailer:
         invite_join_meeting_mailer:
           invite:
