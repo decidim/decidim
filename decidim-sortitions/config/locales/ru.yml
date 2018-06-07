@@ -25,6 +25,13 @@ ru:
         settings:
           global:
             comments_enabled: Комментарии включены
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: В "%{participatory_space_title}", за которым вы следите, добавлена жеребьевка "%{resource_title}".
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} добавлена новая жеребьевка
+          notification_title: В %{participatory_space_title} была добавлена жеребьевка <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:
         statistics:
@@ -35,14 +42,38 @@ ru:
     sortitions:
       admin:
         actions:
+          destroy: Отменить жеребьевку
+          edit: Редактировать
           new: Добавить
+          show: Подробности жеребьевки
         models:
           sortition:
             fields:
               category: Разряд
+              created_at: Дата создания
               decidim_proposals_component: Составляющая предложений
+              dice: Игральный кубик
+              reference: Ссылка на источник
+              request_timestamp: Время жеребьевки
+              seed: Начальное число
+              target_items: Элементы для выбора
               title: Название
+            name:
+              one: Жеребьевка
+              few: Жеребьевки
+              many: Жеребьевок
+              other: Жеребьевок
         sortitions:
+          confirm_destroy:
+            confirm_destroy: Вы действительно хотите отменить эту жеребьевку?
+            destroy: Отменить жеребьевку
+            title: Отмена жеребьевки
+          create:
+            error: При попытке создать новую жеребьевку произошла ошибка.
+            success: Жеребьевка успешно создана
+          destroy:
+            error: Невозможно отменить жеребьевку.
+            success: Жеребьевка успешно отменена
           edit:
             title: Обновить сведения о жеребьевке
             update: Обновить
