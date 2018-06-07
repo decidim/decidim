@@ -190,7 +190,9 @@ sv:
           more_information: "(Mer information)"
         finish_help:
           access_reminder: Kom ihåg att du alltid kommer att kunna komma åt dina initiativ via användarmenyn.
+          help_for_organizations: Om du är en förening måste du ladda upp protokollen från styrelsen för alla organisationer som bildar den främjande kommissionen
           help_in_person_signatures: Om du har valt att samla signaturerna personligen eller i kombination med online måste du ladda upp den information som krävs.
+          help_text: Kom ihåg att för att korrekt bearbeta initiativet måste du komma åt administratörspanelen där du hittar användarmenyn, ladda upp den information som krävs och skicka den för bearbetning.
           initiatives_page_link: Du kan slå upp all denna information på %{link} för att informera om initiativ.
           page: sida
         previous_form:
@@ -209,6 +211,7 @@ sv:
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
           continue: Fortsätta
+          invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
         show_similar_initiatives:
           back: Tillbaka
           compare_help: Om något av följande initiativ liknar din, uppmanar vi dig att stödja det. Ditt förslag kommer att ha fler möjligheter att få gjort.
@@ -270,6 +273,8 @@ sv:
         show:
           any_vote_method: Detta medborgarinitiativ samlar in online-support och ansikte mot ansikte.
           offline_method: Detta medborgarinitiativ samlar bara ansikte mot ansikte stöd.
+        signature_identities:
+          select_identity: Välj användaridentifierare
         signatures_count:
           one: " signatur"
           other: " signaturer"
@@ -297,6 +302,7 @@ sv:
         more_information: Här har du mer information om initiativskapande processen.
         progress_report_body_for: Initiativet %{title} har nått %{percentage}% av de nödvändiga stöden.
         progress_report_for: 'Fortsätt om initiativet: %{title}'
+        promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotorutskottet. Vidarebefordra följande länk för att bjuda in personer till promotorkommittén
         status_change_body_for: 'Initiativet %{title} har ändrat sitt tillstånd till: %{state}'
         status_change_for: Initiativet %{title} har ändrat sitt tillstånd
         technical_validation_body_for: Initiativet %{title} har begärt sin tekniska validering.
@@ -323,6 +329,7 @@ sv:
         fill_data: Skapa
         finish: Avsluta
         previous_form: Start
+        promotal_committee: Promotörskommitté
         select_initiative_type: Välja
         show_similar_initiatives: Jämföra
       initiative_header:
