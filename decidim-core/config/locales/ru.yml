@@ -10,6 +10,8 @@ ru:
         email: Ваш адрес электронной почты
         name: Ваше имя
         nickname: Ваш короткий, уникальный псевдоним
+        password: Пароль
+        password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
         user_group_document_number: Номер документа организации
@@ -54,6 +56,11 @@ ru:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Файл отсутствует
+        invalid_token: Предоставленный токен недействителен.
+        no_token: Не предоставлен токен
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
         alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
         confirm:
@@ -185,6 +192,13 @@ ru:
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
+    data_portability:
+      export:
+        ready: Готово
+      show:
+        download_data: Загрузить данные
+        download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
+        request_data: Запросить данные
     devise:
       omniauth_registrations:
         create:
@@ -275,6 +289,9 @@ ru:
           email_subject: "%{nickname} обновил свой профиль"
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
+      data_portability_export:
+        click_button: Нажмите следующую кнопку, чтобы загрузить данные. <br/> Файл будет доступен до %{date}.
+        download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
@@ -312,6 +329,18 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    invitations:
+      create:
+        error: При попытке пригласить ваших друзей произошли ошибки
+        error_empty_form: Пожалуйста, введите несколько адресов электронной почты
+        success: Мы отправили приглашения вашим друзьям!
+      index:
+        customize_message: Настроить текст приглашения
+        friend_email: 'Друг #%{index} email'
+        invitations_subtitle: Пусть ваши друзья узнают об этом сайте
+        invitations_title: Как вы думаете, больше голосов должно быть услышано в %{organization_name}?
+        invite: Пригласить
+        visit_your_profile: Посетите свой профиль
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -566,6 +595,7 @@ ru:
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
+        invited_you_as_friend: "%{invited_by} пригласил вас в %{application}."
         invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
@@ -574,6 +604,8 @@ ru:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
         subject: Вы пригласили к сотрудничеству в %{organization}
+      invite_friend:
+        accept_invitation: 'Вы можете принять приглашение по ссылке ниже:'
       invite_private_user:
         subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
