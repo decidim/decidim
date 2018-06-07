@@ -304,6 +304,18 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    invitations:
+      create:
+        error: Hi va haver alguns problemes mentre convidava els vostres amics
+        error_empty_form: Introduïu algunes adreces de correu electrònic
+        success: Hem enviat les invitacions als teus amics.
+      index:
+        customize_message: Personalitzeu el missatge d'invitació
+        friend_email: 'Correu electrònic de l''amic #%{index}'
+        invitations_subtitle: Feu saber als vostres amics sobre aquest lloc
+        invitations_title: Creus que cal escoltar més veus en %{organization_name}?
+        invite: Convidar
+        visit_your_profile: Visiteu el vostre perfil
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -559,6 +571,7 @@ ca:
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_friend: "%{invited_by} t'ha convidat a %{application}."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
@@ -567,6 +580,10 @@ ca:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
+      invite_friend:
+        accept_invitation: 'Podeu acceptar la invitació a través del següent enllaç:'
+        friend_custom_text: 'Us han deixat aquest missatge:'
+        subject: Has estat convidat a %{organization}
       invite_private_user:
         subject: Has estat convidat a un procés participatiu privat a %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ ca:
       user_menu:
         admin_dashboard: Tauler d'administració
         conversations: Converses
+        invite_friends: Convidar amics
         notifications: Notificacions
         profile: El meu compte
         public_profile: El meu perfil públic
