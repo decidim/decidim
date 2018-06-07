@@ -8,6 +8,7 @@ ru:
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
+        developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата окончания
         hashtag: Хэштег
@@ -68,6 +69,8 @@ ru:
       actions:
         activate: Начать
         configure: Настроить
+        confirm_destroy: Подтвердите удаление
+        destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
         new: Добавить
@@ -113,6 +116,7 @@ ru:
             email: Эл. адрес
             name: Имя
             role: Роль
+          name: Участник движения соучастия
           roles:
             admin: Администратор
             collaborator: Сотрудник
