@@ -4,6 +4,7 @@ ru:
       sortition:
         additional_info: Сведения о жеребьевке
         decidim_category_id: Разряды подборки предложений, среди которых вы хотите провести жеребьевку
+        decidim_proposals_component_id: Набор предложений
         title: Название
   decidim:
     pages:
