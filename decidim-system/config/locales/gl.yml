@@ -3,6 +3,7 @@ gl:
     system:
       actions:
         confirm_destroy: Estás seguro de que queres eliminar isto?
+        destroy: Eliminar
         edit: Editar
         new: Novo
         save: Gardar
@@ -11,6 +12,8 @@ gl:
         create:
           error: Produciuse un erro ao crear un administrador novo.
           success: O administrador creouse con éxito
+        destroy:
+          success: O administrador eliminouse con éxito
         edit:
           title: Editar administrador
           update: Actualización
@@ -24,6 +27,7 @@ gl:
           success: Admin actualizouse con éxito
       default_pages:
         placeholders:
+          content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
           title: Título predeterminado para %{page}
       menu:
         admins: Administradores
