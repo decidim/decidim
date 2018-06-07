@@ -3,6 +3,7 @@ sv:
     system:
       actions:
         confirm_destroy: Är du säker på att du vill radera detta?
+        destroy: Radera
         edit: Redigera
         new: Ny
         save: Spara
@@ -11,6 +12,8 @@ sv:
         create:
           error: Det uppstod ett fel vid skapandet av en ny admin.
           success: Admin skapades framgångsrikt
+        destroy:
+          success: Admin har tagits bort
         edit:
           title: Redigera admin
           update: Uppdatera
