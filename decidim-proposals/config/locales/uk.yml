@@ -378,7 +378,7 @@ uk:
           withdraw_proposal: Зняти пропозицію
         tags:
           changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
-          filed_as: Віднесено до розряду
+          filed_as: Відмічено як
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос
