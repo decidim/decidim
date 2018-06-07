@@ -304,6 +304,18 @@ pt-BR:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    invitations:
+      create:
+        error: Houve alguns problemas ao convidar seus amigos
+        error_empty_form: Por favor insira alguns endereços de email
+        success: Nós enviamos os convites para seus amigos!
+      index:
+        customize_message: Personalizar a mensagem de convite
+        friend_email: 'E-mail do amigo nº%{index}'
+        invitations_subtitle: Deixe seus amigos saberem sobre este site
+        invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
+        invite: Convite
+        visit_your_profile: Visite seu perfil
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -559,6 +571,7 @@ pt-BR:
           Se você não quiser aceitar o convite, ignore este e-mail.<br />
           Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_friend: "%{invited_by} convidou você para %{application}."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
@@ -567,6 +580,10 @@ pt-BR:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
+      invite_friend:
+        accept_invitation: 'Você pode aceitar o convite através do link abaixo:'
+        friend_custom_text: 'Eles deixaram esta mensagem para você:'
+        subject: Você foi convidado para %{organization}
       invite_private_user:
         subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ pt-BR:
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
+        invite_friends: Convide amigos
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público
