@@ -156,7 +156,7 @@ describe "Initiative", type: :system do
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
-          select("OnLine", from: "Signature type")
+          select("OnLine", from: "Signature collection type")
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
         end
@@ -190,7 +190,7 @@ describe "Initiative", type: :system do
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
-          select("OnLine", from: "Signature type")
+          select("OnLine", from: "Signature collection type")
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
 
