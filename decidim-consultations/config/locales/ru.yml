@@ -258,7 +258,12 @@ ru:
         comments_count_title: Комментариев
         meetings_count_title: Встреч
         supports_count_title: Выражений поддержки
+      technical_info:
+        technical_data: Технические сведения
       vote_button:
+        already_voted: Уже проголосовали
+        already_voted_hover: Отозвать поддержку
+        starting_from: Начиная с %{date}
         vote: Голосовать
       vote_modal:
         contextual_help: Пожалуйста, выберите вариант.
