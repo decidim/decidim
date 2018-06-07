@@ -228,7 +228,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.6.0)
+    autoprefixer-rails (8.6.1)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -363,7 +363,7 @@ GEM
     graphiql-rails (1.4.10)
       railties
       sprockets-rails
-    graphql (1.8.1)
+    graphql (1.8.2)
     hashdiff (0.3.7)
     hashie (3.5.7)
     highline (1.7.10)
