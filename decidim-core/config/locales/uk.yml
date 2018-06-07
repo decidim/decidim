@@ -65,13 +65,13 @@ uk:
           title: Видалити мій обліковий запис
         explanation: Будь ласка, введіть причину, з якої ви хочете видалити свій обліковий запис (необов'язково).
       destroy:
-        error: При видаленні вашого облікового запису сталася помилка.
+        error: При спробі видалити ваш обліковий запис сталася помилка.
         success: Ваш обліковий запис успішно видалено.
       show:
         change_password: Змінити пароль
         update_account: Оновити обліковий запис
       update:
-        error: При оновленні вашого облікового запису сталася помилка.
+        error: При спробі оновити ваш обліковий запис сталася помилка.
         success: Вашу обліковку успішно оновлено.
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
@@ -386,7 +386,7 @@ uk:
         newsletter_notifications: Я хочу отримувати розсилання
         update_notifications_settings: Зберегти зміни
       update:
-        error: При оновленні налаштувань сповіщень сталася помилка.
+        error: При спробі оновити налаштування сповіщень сталася помилка.
         success: Ваші налаштування сповіщень успішно оновлено.
     own_user_groups:
       index:
@@ -412,23 +412,23 @@ uk:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
         statistics:
-          answers_count: Пройдено опитувань
-          assemblies_count: Збори
-          comments_count: Коментарі
+          answers_count: Пройдених опитувань
+          assemblies_count: Зборів
+          comments_count: Коментарів
           debates_count: Обговорення
-          endorsements_count: Підтримали
+          endorsements_count: Проявів підтримки
           headline: Поточний стан %{organization}
-          meetings_count: Зустрічі
-          orders_count: Голоси
-          pages_count: Сторінки
-          processes_count: Рухи
-          projects_count: Задуми
+          meetings_count: Зустрічей
+          orders_count: Голосів
+          pages_count: Сторінок
+          processes_count: Рухів
+          projects_count: Задумів
           proposals_accepted: Прийняті пропозиції
-          proposals_count: Пропозиції
+          proposals_count: Пропозицій
           results_count: Підсумків
-          surveys_count: Опитування
-          users_count: Учасники
-          votes_count: Голоси
+          surveys_count: Опитувань
+          users_count: Учасників
+          votes_count: Голосів
         sub_hero:
           register: Зареєструватися
       index:

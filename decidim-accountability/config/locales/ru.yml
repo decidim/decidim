@@ -6,7 +6,7 @@ ru:
         decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
-        end_date: Дата завершения
+        end_date: Дата окончания
         progress: Продвижение
         project_ids: Включенные проекты
         proposals: Включенные предложения
@@ -121,7 +121,7 @@ ru:
       models:
         result:
           fields:
-            end_date: Дата завершения
+            end_date: Дата окончания
             progress: Продвижение
             start_date: Дата начала
             status: Состояние
@@ -171,7 +171,7 @@ ru:
             version_created_at: Версия, созданная на
             version_number: Автор версии
             version_number_out_of_total: "Шаг %{current_version} из %{total_count}"
-            votes: Поддерживает
+            votes: Выражений поддержки
         timeline:
           title: Развитие проекта
       versions:
@@ -195,7 +195,7 @@ ru:
             intro: Вступление
             subcategories_label: Название для "Подразряды"
           step:
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
     events:
       accountability:
         proposal_linked:

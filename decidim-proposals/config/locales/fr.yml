@@ -337,8 +337,8 @@ fr:
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
-            one: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
-            other: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publiez votre proposition
         proposal:
