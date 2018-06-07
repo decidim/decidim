@@ -10,7 +10,7 @@ uk:
         signature_start_time: Початок проміжку збору підписів
         signature_type: Різновид збору підписів
         signature_type_values:
-          any: Змішані
+          any: Поєднаний
           offline: На особистих зустрічах
           online: Онлайн
         title: Назва
