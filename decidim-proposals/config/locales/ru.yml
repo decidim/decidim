@@ -378,7 +378,7 @@ ru:
           withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
-          filed_as: Отнесено к разряду
+          filed_as: Отмечено как
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос
