@@ -3,7 +3,6 @@ it:
     system:
       actions:
         confirm_destroy: Sei sicuro di voler cancellare?
-        destroy: Elimina
         edit: Modifica
         new: Nuovo
         save: Salva
@@ -12,8 +11,6 @@ it:
         create:
           error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
           success: L'utente Admin è stato creato.
-        destroy:
-          success: L'utente Admin è stato eliminato
         edit:
           title: Modifica Admin
           update: Aggiorna
