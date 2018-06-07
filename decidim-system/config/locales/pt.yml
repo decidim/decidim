@@ -3,7 +3,6 @@ pt:
     system:
       actions:
         confirm_destroy: Tem certeza de que deseja excluir isso?
-        destroy: Destruir
         edit: Editar
         new: Novo
         save: Salve 
@@ -12,8 +11,6 @@ pt:
         create:
           error: Ocorreu um erro ao criar um novo administrador.
           success: Admin criado com sucesso
-        destroy:
-          success: Admin destruído com sucesso
         edit:
           title: Edit admin
           update: Actualizar
