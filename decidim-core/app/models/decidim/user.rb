@@ -30,7 +30,7 @@ module Decidim
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
+    validates :nickname, presence: true, unless: -> { deleted? || managed? || name.blank? }, length: { maximum: Decidim::User.nickname_max_length }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?

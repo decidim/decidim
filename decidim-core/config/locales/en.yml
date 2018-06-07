@@ -305,6 +305,18 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    invitations:
+      create:
+        error: There were some problems while inviting your friends
+        error_empty_form: Please enter some email addresses
+        success: We've sent the invites to your friends!
+      index:
+        customize_message: Customize the invitation message
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Let your friends know about this site
+        invitations_title: Do you think more voices should be heard in %{organization_name}?
+        invite: Invite
+        visit_your_profile: Visit your profile
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -560,6 +572,7 @@ en:
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_friend: "%{invited_by} has invited you to %{application}."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
@@ -568,6 +581,10 @@ en:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
+      invite_friend:
+        accept_invitation: 'You can accept the invitation through the link below:'
+        friend_custom_text: 'They left this message for you:'
+        subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
@@ -617,6 +634,7 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
+        invite_friends: Invite friends
         notifications: Notifications
         profile: My account
         public_profile: My public profile
