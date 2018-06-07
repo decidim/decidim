@@ -52,6 +52,11 @@ nl:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Bestandsnr bestaat
+        invalid_token: Het geleverde token is ongeldig.
+        no_token: Geen token verstrekt
+        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -177,6 +182,13 @@ nl:
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
+    data_portability:
+      export:
+        ready: Klaar
+      show:
+        download_data: Download de gegevens
+        download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
+        request_data: Gegevens aanvragen
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
+      data_portability_export:
+        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.
+        download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
@@ -642,6 +657,7 @@ nl:
         account: Account
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
+        my_data: Mijn data
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: Organisaties
