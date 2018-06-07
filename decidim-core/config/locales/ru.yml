@@ -606,6 +606,8 @@ ru:
         subject: Вы пригласили к сотрудничеству в %{organization}
       invite_friend:
         accept_invitation: 'Вы можете принять приглашение по ссылке ниже:'
+        friend_custom_text: 'Вам передали такое сообщение:'
+        subject: Вас пригласили в %{organization}
       invite_private_user:
         subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
@@ -655,6 +657,7 @@ ru:
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
+        invite_friends: Пригласить друзей
         notifications: Уведомления
         profile: Моя учетная запись
         public_profile: Мой общедоступный профиль
@@ -663,6 +666,7 @@ ru:
         account: Учетная запись
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
+        my_data: Мои данные
         notifications_settings: Настройки уведомлений
         title: Настройки участника
         user_groups: Организации
