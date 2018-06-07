@@ -52,6 +52,11 @@ ca:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: El fitxer no existeix
+        invalid_token: El símbol proporcionat no és vàlid.
+        no_token: No s'ha proporcionat cap testimoni
+        notice: Les vostres dades estan en curs. Rebràs un correu electrònic quan estigui complet.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
         confirm:
@@ -177,6 +182,13 @@ ca:
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
+    data_portability:
+      export:
+        ready: Preparat
+      show:
+        download_data: Baixeu-vos les dades
+        download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
+        request_data: Sol·liciteu dades
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ ca:
           email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
+      data_portability_export:
+        click_button: Feu clic al botó següent per descarregar les vostres dades. <br/> tindreu disponible el fitxer fins a %{date}.
+        download: descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
       subject: L'exportació "%{name}" està a punt
@@ -642,6 +657,7 @@ ca:
         account: Compte
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
+        my_data: Les meves dades
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
