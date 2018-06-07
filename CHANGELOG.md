@@ -2,7 +2,7 @@
 
 ## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
 
-**Upgrade notes**:
+**Upgrade notes (authorizations)**:
 
 Authorizations workflows now use a settings manifest to define their options.
 That means site admins will no longer need to introduce raw json to define
@@ -32,6 +32,28 @@ must now set a resource name:
   component.register_resource(:my_resource) do |resource|
     resource.model_class_name = "Decidim::MyComponent::MyResource"
   end
+```
+
+**Upgrade notes (search)**:
+
+In order for the currently existing resources to be indexed, you'll have to
+manually trigger a reindex. Since only `proposals` and `meetings` are currently
+indexed, you can do that executing:
+
+```ruby
+Decidim::Meetings::Meeting.find_each(&:add_to_index_as_search_resource)
+Decidim::Proposals::Proposal.find_each(&:add_to_index_as_search_resource)
+```
+
+**Upgrade notes (TOS)**:
+
+Due to a bug that got fixed on this release, some organizations might not
+have a TOS page, which some migrations rely on. Please execute this code on
+production before upgrading so the pages get created correctly and the migrations
+don't fail.
+
+```ruby
+Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultPages.call(organization) }
 ```
 
 **Added**:
