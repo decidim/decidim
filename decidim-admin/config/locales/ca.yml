@@ -10,7 +10,7 @@ ca:
         organization: Organització
         plural: Plural
       attachment:
-        attachment_collection_id: Col·lecció
+        attachment_collection_id: Carpeta
         description: Descripció
         file: Arxiu
         title: Títol
@@ -524,7 +524,7 @@ ca:
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
-          omnipresent_banner_appearance_title: Edita bàner omnipresent
+          omnipresent_banner_appearance_title: Edita l'estendard omnipresent
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
