@@ -10,8 +10,8 @@ fr:
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
-        password: Votre mot de passe
-        password_confirmation: Confirmez votre mot de passe
+        password: Mot de passe
+        password_confirmation: Confirmer votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
