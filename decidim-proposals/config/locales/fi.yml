@@ -91,7 +91,7 @@ fi:
           email_intro: 'Voit nyt luoda uusia ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Ehdotukset nyt saatavilla %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Voit hyväksyä ehdotukset %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
@@ -238,7 +238,7 @@ fi:
         success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen virheistä on poistettu.
-        success: Ehdotusluonnos menetti onnistuneesti.
+        success: Ehdotusluonnos poistettiin onnistuneesti.
       models:
         proposal:
           fields:
