@@ -33,7 +33,7 @@ nl:
             invalid: Er is een probleem opgetreden met het creëren van dit project
             success: Voorstel succesvol aangemaakt
           destroy:
-            success: Project succesvol vernietigd
+            success: Project succesvol verwijderd
           edit:
             title: Bewerk project
             update: Bijwerken
