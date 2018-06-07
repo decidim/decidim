@@ -81,6 +81,7 @@ ru:
           edit:
             back: Вернуться
             confirm_destroy: Вы уверены?
+            destroy: Удалить
             title: Изменить охват вида почина
             update: Обновить
           new:
@@ -98,14 +99,54 @@ ru:
             success: Этот вид почина успешно удален
           edit:
             confirm_destroy: Вы уверены?
+            destroy: Удалить
+            update: Обновить
+          form:
+            title: Общие сведения
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
+            create: Создать
             title: Добавить вид почина
+          update:
+            error: Произошла ошибка
+            success: Этот вид починов успешно обновлен
+      admin_log:
+        initiative:
+          publish: "%{user_name} обнародовал почин %{resource_name}"
+          send_to_technical_validation: "%{user_name} отправил почин %{resource_name} на техническую проверку"
+          unpublish: "%{user_name} отбросил почин %{resource_name}"
+          update: "%{user_name} обновил почин %{resource_name}"
+      admin_states:
+        accepted: Принятые
+        created: Созданные
+        discarded: Отброшенные
+        published: Обнародованные
+        rejected: Отклоненные
+        validating: Техническая проверка
+      committee_requests:
+        new:
+          continue: Продолжить
+          help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
+        spawn:
+          success: Ваш запрос отправлен автору почина.
       create_initiative:
         fill_data:
+          back: Вернуться
+          continue: Продолжить
           fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать вид сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
+          initiative_type: Вид почина
+          more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
+        finish:
+          back: Вернуться
+          back_to_initiatives: Вернуться к починам
+          callout_text: Поздравляем! Ваш гражданский почин был успешно создан.
+          go_to_my_initiatives: Перейти к моим починам
+          more_information: "(Дополнительные сведения)"
+        finish_help:
+          access_reminder: Помните, что вы всегда можете получить доступ к своим починам через меню участника.
+          help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
         promotal_committee:
           individual_help_text: Для гражданских починов нужна рабочая группа по продвижению, состоящая как минимум из трех человек (удостоверяющих лиц). Вы должны поделиться следующей ссылкой с другими людьми, которые занимаются этим почином. Когда они получат эту ссылку, им нужно будет пройти указанные там шаги.
       events:
