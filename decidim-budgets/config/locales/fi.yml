@@ -33,7 +33,7 @@ fi:
             invalid: Tämän projektin lisäyksessä tapahtui virhe
             success: Projekti lisätty onnistuneesti
           destroy:
-            success: Projekti tuhottu onnistuneesti
+            success: Hanke poistettiin onnistuneesti
           edit:
             title: Muokkaa projektia
             update: Päivitä
