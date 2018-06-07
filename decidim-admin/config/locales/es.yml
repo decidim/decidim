@@ -10,7 +10,7 @@ es:
         organization: Organización
         plural: Plural
       attachment:
-        attachment_collection_id: Colección
+        attachment_collection_id: Carpeta
         description: Descripción
         file: Archivo
         title: Título
@@ -132,7 +132,7 @@ es:
         organization_name: Nombre de la organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
-        site: Sitio Web
+        site: Sitio web
   date:
     formats:
       datepicker: "%d/%m/%Y"
