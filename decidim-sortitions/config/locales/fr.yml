@@ -42,6 +42,7 @@ fr:
         actions:
           destroy: Annuler le tirage au sort
           edit: Éditer
+          new: Ajouter un nouveau
           show: Détails du tirage au sort
         models:
           sortition:
