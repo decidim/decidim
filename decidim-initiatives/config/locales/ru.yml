@@ -94,6 +94,10 @@ ru:
           create:
             error: Произошла ошибка
             success: Успешно создан новый вид почина
+          destroy:
+            success: Этот вид почина успешно удален
+          edit:
+            confirm_destroy: Вы уверены?
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
