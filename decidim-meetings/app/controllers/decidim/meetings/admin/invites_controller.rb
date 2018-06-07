@@ -8,21 +8,27 @@ module Decidim
       # Controller that allows inviting users to join a meeting.
       #
       class InvitesController < Admin::ApplicationController
+        def index
+          enforce_permission_to :read_invites, :meeting, meeting: meeting
+
+          @invites = meeting.invites.page(params[:page]).per(15)
+        end
+
         def new
-          enforce_permission_to :invite_user, :meeting, meeting: meeting
+          enforce_permission_to :invite_attendee, :meeting, meeting: meeting
 
           @form = form(MeetingRegistrationInviteForm).instance
         end
 
         def create
-          enforce_permission_to :invite_user, :meeting, meeting: meeting
+          enforce_permission_to :invite_attendee, :meeting, meeting: meeting
 
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 
           InviteUserToJoinMeeting.call(@form, meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("invites.create.success", scope: "decidim.meetings.admin")
-              redirect_to edit_meeting_registrations_path(meeting)
+              redirect_to meeting_registrations_invites_path(meeting)
             end
 
             on(:invalid) do

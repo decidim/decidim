@@ -167,6 +167,9 @@ en:
           create:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
+          index:
+            invite_attendee: Invite attendee
+            invites: Invites
           new:
             explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
             invite: Invite
@@ -229,7 +232,7 @@ en:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            invite_user: Invite user
+            invites: Invites
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -240,6 +243,10 @@ en:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendde_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendde_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendde_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
           close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
@@ -299,6 +306,16 @@ en:
             zero: No slots remaining
           view: View
       models:
+        invite:
+          fields:
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
         meeting:
           fields:
             closed: Closed

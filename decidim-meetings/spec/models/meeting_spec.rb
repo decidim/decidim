@@ -18,8 +18,14 @@ module Decidim::Meetings
     include_examples "has reference"
 
     it "has an association with one agenda" do
-      subject.agenda = build(:agenda)
+      subject.agenda = build_stubbed(:agenda)
       expect(subject.agenda).to be_present
+    end
+
+    it "has an association of invites" do
+      subject.invites << build_stubbed(:invite)
+      subject.invites << build_stubbed(:invite)
+      expect(subject.invites.size).to eq(2)
     end
 
     context "without a title" do

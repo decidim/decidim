@@ -35,14 +35,38 @@ module Decidim
 
         attr_reader :form, :invited_by, :meeting
 
+        def create_invitation!
+          log_info = {
+            resource: {
+              title: meeting.title
+            },
+            participatory_space: {
+              title: meeting.participatory_space.title
+            }
+          }
+
+          @invite = Decidim.traceability.create!(
+            Invite,
+            invited_by,
+            {
+              user: user,
+              meeting: meeting,
+              sent_at: Time.current
+            },
+            log_info
+          )
+        end
+
         def invite_user
           if user.persisted?
+            create_invitation!
             InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
           else
             user.name = form.name
             user.nickname = User.nicknamize(user.name)
             user.skip_reconfirmation!
             user.invite!(invited_by, invitation_instructions: "join_meeting", meeting: meeting)
+            create_invitation!
           end
         end
 

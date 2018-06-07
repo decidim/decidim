@@ -101,4 +101,9 @@ FactoryBot.define do
     visible true
     meeting
   end
+
+  factory :invite, class: "Decidim::Meetings::Invite" do
+    meeting
+    user
+  end
 end
