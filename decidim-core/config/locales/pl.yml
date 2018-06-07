@@ -314,6 +314,18 @@ pl:
       errors:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
+    invitations:
+      create:
+        error: Podczas zapraszania znajomych pojawiły się pewne problemy
+        error_empty_form: Wprowadź adresy e-mail
+        success: Wysłaliśmy zaproszenia do Twoich znajomych!
+      index:
+        customize_message: Dostosuj wiadomość z zaproszeniem
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Powiadom znajomych o tej stronie
+        invitations_title: Czy uważasz, że więcej głosów powinno być słyszanych w %{organization_name}?
+        invite: Zapraszam
+        visit_your_profile: Odwiedź swój profil
     log:
       base_presenter:
         create: "%{user_name} stworzony %{resource_name}"
@@ -569,6 +581,7 @@ pl:
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
           Twoje konto nie zostanie utworzone, dopóki nie uzyskasz dostępu do powyższego linku i nie ustawisz nicka ani hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+        invited_you_as_friend: "%{invited_by} zaprosił cię na %{application}."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku.
@@ -577,6 +590,10 @@ pl:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy w %{organization}
+      invite_friend:
+        accept_invitation: 'Możesz zaakceptować zaproszenie, klikając poniższy link:'
+        friend_custom_text: 'Zostawili tę wiadomość dla Ciebie:'
+        subject: Zostałeś zaproszony do %{organization}
       invite_private_user:
         subject: Zostałeś zaproszony do prywatnego udziału w procesie %{organization}
       organization_admin_invitation_instructions:
@@ -626,6 +643,7 @@ pl:
       user_menu:
         admin_dashboard: Panel administracyjny
         conversations: Rozmowy
+        invite_friends: Zaprosić przyjaciół
         notifications: Powiadomienia
         profile: Moje konto
         public_profile: Mój profil publiczny
