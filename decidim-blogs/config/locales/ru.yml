@@ -38,6 +38,24 @@ ru:
             title: Создать пост
           update:
             invalid: При попытке сохранить пост произошли ошибки.
+            success: Пост успешно сохранен
+      models:
+        post:
+          fields:
+            author: Автор
+            body: Основной текст
+            created_at: 'Создано:'
+            title: заголовок
+      posts:
+        show:
+          view: Посмотреть
+        sidebar_blog:
+          comments: комментарии
+          most_commented_posts: Наиболее комментируемые посты
+      read_more: Читать подробнее
+    components:
+      blogs:
+        name: Блог
     pages:
       home:
         statistics:
