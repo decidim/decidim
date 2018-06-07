@@ -8,7 +8,6 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -63,8 +62,6 @@ fr:
       actions:
         activate: Activer
         configure: Configurer
-        confirm_destroy: Confirmer la suppression
-        destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         new: Nouveau
@@ -110,7 +107,6 @@ fr:
             email: Email
             name: Nom
             role: Rôle
-          name: Rôle utilisateur du processus participatif
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -125,8 +121,6 @@ fr:
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
-        destroy:
-          success: Le groupe de processus participatif a été détruit avec succès.
         edit:
           title: Modifier le groupe de processus
           update: Mettre à jour
@@ -156,7 +150,6 @@ fr:
           error:
             active_step: Vous ne pouvez pas supprimer l'étape active du processus.
             last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
-          success: L'étape du processus participatif a été supprimée avec succès.
         edit:
           title: Modifier l'étape du processus participatif
           update: Mettre à jour
@@ -173,9 +166,6 @@ fr:
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
-          success: Utilisateur créé avec succès pour ce processus participatif.
-        destroy:
-          success: L'utilisateur a été supprimé avec succès pour ce processus participatif.
         edit:
           title: Mettre à jour l'utilisateur du processus participatif.
           update: Mettre à jour
@@ -191,8 +181,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau processus participatif.
           success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
-        destroy:
-          success: Processus participatif supprimé avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -288,7 +276,6 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
