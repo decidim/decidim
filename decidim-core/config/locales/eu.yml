@@ -11,7 +11,7 @@ eu:
         name: Zure izena
         nickname: Zure identifikatzaile labur eta berezia
         password: Pasahitza
-        password_confirmation: Baieztatu zure pasahitz berria
+        password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
         user_group_document_number: Egiaztagiri-zenbakia
