@@ -8,6 +8,7 @@ sv:
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
+        developer_group: Promotorgrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
@@ -62,6 +63,8 @@ sv:
       actions:
         activate: Aktivera
         configure: Konfigurera
+        confirm_destroy: Bekräfta radering
+        destroy: Radera
         duplicate: Duplicera
         edit: Redigera
         new: Ny
@@ -107,6 +110,7 @@ sv:
             email: E-post
             name: Namn
             role: Roll
+          name: Deltagande processanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -121,6 +125,8 @@ sv:
           select: Välj vilken data du vill duplicera
           title: Duplikera deltagande process
       participatory_process_groups:
+        destroy:
+          success: Deltagande processgrupp raderas framgångsrikt.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
@@ -150,6 +156,7 @@ sv:
           error:
             active_step: Det aktiva steget kan inte raderas.
             last_step: Det går inte att ta bort det sista steget i en process.
+          success: Deltagande processsteg raderas framgångsrikt.
         edit:
           title: Redigera deltagande processsteg
           update: Uppdatera
@@ -166,6 +173,9 @@ sv:
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en användare för den här deltagande processen.
+          success: Användaren har lyckats med den här deltagande processen.
+        destroy:
+          success: Användaren avlägsnades framgångsrikt från den här deltagande processen.
         edit:
           title: Uppdatera deltagande processanvändare.
           update: Uppdatera
@@ -181,6 +191,8 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa en ny deltagande process.
           success: Deltagande processen skapades framgångsrikt. Konfigurera nu sina steg.
+        destroy:
+          success: Deltagande processen raderas framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -276,6 +288,7 @@ sv:
         index:
           loading: Laddar resultat...
       show:
+        developer_group: Promotorgrupp
         end_date: Slutdatum
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
