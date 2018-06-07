@@ -158,6 +158,7 @@ eu:
           components: Osagaiak
           info: Informazioa
           moderations: Moderazioak
+          private_users: Erabiltzaile pribatuak
       models:
         assembly:
           fields:
@@ -266,6 +267,7 @@ eu:
         composition: Konposizio
         created_by: Sortuta
         creation_date: Data sortu da
+        developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
         indefinite_duration: mugagabeak
