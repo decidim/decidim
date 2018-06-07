@@ -52,6 +52,11 @@ es:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Archivo no existe
+        invalid_token: El token proporcionado no es válido.
+        no_token: No se proporciona token
+        notice: Sus datos están actualmente en progreso. Recibirás un correo electrónico cuando esté completo.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
@@ -177,6 +182,13 @@ es:
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
+    data_portability:
+      export:
+        ready: Listo
+      show:
+        download_data: Descargar los datos
+        download_data_description: Un archivo con toda la información asociada con la cuenta se enviará a <strong>%{user_email}</strong>
+        request_data: Solicitar datos
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ es:
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Haga clic en el siguiente botón para descargar sus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
@@ -642,6 +657,7 @@ es:
         account: Cuenta
         authorizations: Autorizaciones
         delete_my_account: Eliminar mi cuenta
+        my_data: Mis datos
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
