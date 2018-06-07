@@ -47,7 +47,7 @@ uk:
     verifications:
       authorizations:
         create:
-          error: При створенні підтвердження особи сталася помилка.
+          error: При спробі створити підтвердження особи сталася помилка.
           success: Ви успішно підтвердили свою особу.
         first_login:
           actions:
