@@ -10,7 +10,7 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Название
-        user_group_id: Внести предложение как
+        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -195,7 +195,7 @@ ru:
             success: Успешно дан ответ на предложение
           create:
             invalid: При попытке создать предложение произошла ошибка
-            success: Предложение успешно внесено
+            success: Предложение успешно создано
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
             select_a_category: Выберите разряд
@@ -208,7 +208,7 @@ ru:
             update: Обновить
           new:
             create: Внести
-            title: Внести предложение
+            title: Создать предложение
           update_category:
             invalid: 'Эти предложения уже относились к разряду %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите разряд
@@ -262,7 +262,7 @@ ru:
             title: Название
             votes: Голоса
       new:
-        limit_reached: Вы не можете вносить новые предложения, так как вы превысили лимит.
+        limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
       proposal_endorsements:
         create:
           error: При попытке поддержать это предложение произошли ошибки.
@@ -378,6 +378,7 @@ ru:
           withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
+          filed_as: Отнесено к разряду
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос
@@ -397,7 +398,7 @@ ru:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
           proposal_limit:
-            description: Вы можете внести до %{limit} предложений.
+            description: Вы можете создать до %{limit} предложений.
           threshold_per_proposal:
             description: Для того чтобы пройти проверку, предложения должны получить %{limit} выражений поддержки
           title: 'Голосование регулируется следующими правилами:'
@@ -414,7 +415,9 @@ ru:
           step_2: Сравните
           step_3: Завершите
           step_4: Обнародуйте свое предложение
+          step_of: Шаг %{current_step_num} из %{total_steps}
       publish:
+        error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.
       update:
         error: При попытке сохранить это предложение произошли ошибки.
