@@ -25,6 +25,31 @@ module Decidim
     #
     def initialize(declared_fields)
       @declared_fields = declared_fields.with_indifferent_access
+      @conditions= {create: true, update: true}
+    end
+
+    # @param action: currently supports :create, :update
+    # @param condition: a boolean or a Proc that will receive the Searchable and will return a boolean.
+    def set_index_condition(action, condition)
+      @conditions[action]= condition
+    end
+
+    # Checks for the current searchable if it must be indexed when it is created or not.
+    def index_on_create?(searchable)
+      if @conditions[:create].is_a?(Proc)
+        @conditions[:create].call(searchable)
+      else
+        @conditions[:create]
+      end
+    end
+
+    # Checks for the current searchable if it must be indexed when it is updated or not.
+    def index_on_update?(searchable)
+      if @conditions[:update].is_a?(Proc)
+        @conditions[:update].call(searchable)
+      else
+        @conditions[:update]
+      end
     end
 
     def mapped(resource)

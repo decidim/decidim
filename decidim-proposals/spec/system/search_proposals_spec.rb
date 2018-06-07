@@ -7,6 +7,9 @@ describe "Search proposals", type: :system do
   let(:manifest_name) { "proposals" }
   let!(:searchables) { create_list(:proposal, 3, component: component) }
   let!(:term) { searchables.first.title.split(" ").sample }
+  before do
+    searchables.each {|s| s.update_attributes(published_at: DateTime.current) }
+  end
 
   include_examples "searchable results"
 end

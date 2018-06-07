@@ -4,21 +4,21 @@ require "spec_helper"
 
 module Decidim
   describe SearchResourceFieldsMapper do
-    subject { resource }
+    describe "with searchable_fields" do
+      subject { resource }
 
-    let(:component) { create(:component, manifest_name: "dummy") }
-    let(:scope) { create(:scope, organization: component.organization) }
-    let!(:resource) do
-      Decidim::DummyResources::DummyResource.new(
-        scope: scope,
-        component: component,
-        title: "The resource title",
-        address: "The resource address.",
-        published_at: DateTime.current
-      )
-    end
+      let(:component) { create(:component, manifest_name: "dummy") }
+      let(:scope) { create(:scope, organization: component.organization) }
+      let!(:resource) do
+        Decidim::DummyResources::DummyResource.new(
+          scope: scope,
+          component: component,
+          title: "The resource title",
+          address: "The resource address.",
+          published_at: DateTime.current
+        )
+      end
 
-    describe "#searchable_fields" do
       context "when searchable_fields are correctly setted" do
         context "and resource fields are NOT localized" do
           it "correctly resolves untranslatable fields into available_locales" do
@@ -82,6 +82,48 @@ module Decidim
             mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
             expect(mapped_fields).to eq expected_fields
           end
+        end
+      end
+    end
+
+    describe "with index_on_create" do
+      subject { SearchResourceFieldsMapper.new({}) }
+
+      context "by default" do
+        it "does index the resource" do
+          expect(subject.index_on_create?(nil)).to be_truthy
+        end
+      end
+
+      context "when setting a boolean" do
+        it "DOES index the resource if true is setted" do
+          subject.set_index_condition(:create, true)
+          expect(subject.index_on_create?(nil)).to be_truthy
+        end
+        it "does NOT index the resource if false is setted" do
+          subject.set_index_condition(:create, false)
+          expect(subject.index_on_create?(nil)).to be_falsy
+        end
+      end
+    end
+
+    describe "with index_on_update" do
+      subject { SearchResourceFieldsMapper.new({}) }
+
+      context "by default" do
+        it "does index the resource" do
+          expect(subject.index_on_update?(nil)).to be_truthy
+        end
+      end
+
+      context "when setting a boolean" do
+        it "DOES index the resource if true is setted" do
+          subject.set_index_condition(:update, true)
+          expect(subject.index_on_update?(nil)).to be_truthy
+        end
+        it "does NOT index the resource if false is setted" do
+          subject.set_index_condition(:update, false)
+          expect(subject.index_on_update?(nil)).to be_falsy
         end
       end
     end
