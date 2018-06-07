@@ -7,6 +7,8 @@ ru:
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
+      organization_data:
+        id_document: Документ, удостоверяющий личность
   decidim:
     admin:
       models:
@@ -192,6 +194,31 @@ ru:
       initiatives:
         author:
           deleted: Удален
+        author_list:
+          hidden_authors_count:
+            one: и еще 1 человек
+            few: и еще %{count} людей
+            many: и еще %{count} человек
+            other: и еще %{count} человек
+        count:
+          title:
+            one: "%{count} почин"
+            few: "%{count} почина"
+            many: "%{count} починов"
+            other: "%{count} починов"
+        filters:
+          any: Любые
+          author: Автор
+          closed: Закрыты
+          myself: Мои почины
+          open: Открыты
+          search: Поиск
+          state: Cостояние
+          type: Вид
+          type_prompt: Выбрать вид
+        filters_small_view:
+          close_modal: Закрыть окно
+          filter: Отобрать
         index_header:
           new_initiative: Добавить почин
         result:
