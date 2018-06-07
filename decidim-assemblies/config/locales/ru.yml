@@ -336,7 +336,7 @@ ru:
             many: "%{count} собраний"
             other: "%{count} собраний"
         promoted_assembly:
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_header:
         assembly_member_menu_item: Члены президиума
