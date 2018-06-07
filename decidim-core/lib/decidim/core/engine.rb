@@ -167,6 +167,10 @@ module Decidim
                       position: 1.3
           end
 
+          menu.item t("my_data", scope: "layouts.decidim.user_profile"),
+                    decidim.data_portability_path,
+                    position: 1.4
+
           menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
                     decidim.delete_account_path,
                     position: 999,

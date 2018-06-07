@@ -4,19 +4,91 @@ ru:
       consultation:
         banner_image: Изображение баннера
         decidim_highlighted_scope_id: Рекомендуемый охват
+        description: Описание
+        end_voting_date: Дата окончания
+        introductory_image: Вводное изображение
+        introductory_video_url: Веб-адрес вводного видео
+        questions: Вопросы
+        slug: Сокращенный веб-адрес
+        start_voting_date: Дата начала
+        subtitle: Подзаголовок
         title: Название
       question:
+        banner_image: Изображение баннера
         decidim_scope_id: Участок города
+        hashtag: Хэштег
+        hero_image: Изображение главной страницы
+        i_frame_url: Веб-адрес внешней системы голосования
         origin_scope: Охват
+        origin_title: Источник
+        origin_url: Веб-адрес источника
         participatory_scope: Охват соучастия
+        promoter_group: Рабочая группа по продвижению
+        question_context: Контекст
+        reference: Ссылка на источник
         scope: Участок города
+        slug: Сокращенный веб-адрес
+        subtitle: Подзаголовок
+        title: Заголовок
+        vote: Внешняя система голосования
+        what_is_decided: Что решается
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Ответ не найден.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Консультация
+        few: Консультации
+        many: Консультаций
+        other: Консультаций
+      decidim/consultations/question:
+        one: Вопрос
+        few: Вопроса
+        many: Вопросов
+        other: Вопросов
+      decidim/consultations/response:
+        one: Ответ
+        few: Ответа
+        many: Ответов
+        other: Ответов
+      decidim/consultations/vote:
+        one: Голос
+        few: Голоса
+        many: Голосов
+        other: Голосов
   decidim:
     admin:
+      actions:
+        publish_results: Обнародовать итоги
+        unpublish_results: Отменить обнародование итогов
+      consultation_publications:
+        create:
+          error: При попытке обнародовать эту консультацию произошла ошибка.
+          success: Консультация успешно обнародована.
+        destroy:
+          error: При попытке отменить обнародование этой консультации произошла ошибка.
+          success: Обнародование консультации успешно отменено.
+      consultations:
+        new:
+          title: Добавить консультацию
       menu:
         questions_submenu:
           components: Составляющие
+      questions:
+        new:
+          title: Добавить вопрос
+      responses:
+        new:
+          title: Добавить ответ
     consultations:
       filters:
         active: Действующие
       highlighted_questions:
         title: Вопросы из %{scope_name}
+  layouts:
+    decidim:
+      admin:
+        question:
+          categories: Разряды

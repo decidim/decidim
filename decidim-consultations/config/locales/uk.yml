@@ -23,7 +23,7 @@ uk:
         origin_title: Джерело
         origin_url: Веб-адреса джерела
         participatory_scope: Обсяг співучасті
-        promoter_group: Гурт просувачів
+        promoter_group: Робочий гурт з просування
         question_context: Контекст
         reference: Посилання на джерело
         scope: Дільниця міста
@@ -93,7 +93,7 @@ uk:
           published: Оприлюднено
         new:
           create: Створити
-          title: Нова консультація
+          title: Додати консультацію
         update:
           error: При оновленні цієї консультації сталася помилка.
           success: Консультацію успішно оновлено.
@@ -202,7 +202,7 @@ uk:
           many: "%{count} консультацій"
           other: "%{count} консультацій"
       filters:
-        active: Започатковані
+        active: Діючі
         all: Усі
         finished: Завершені
         search: Шукати

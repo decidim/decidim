@@ -11,8 +11,8 @@ en:
         email: Your email
         name: Your name
         nickname: Your short, unique identifier
-        password: New password
-        password_confirmation: Confirm your new password
+        password: Password
+        password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
         user_group_document_number: Organization document number
@@ -53,6 +53,11 @@ en:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: File no exists
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -178,6 +183,13 @@ en:
     core:
       actions:
         unauthorized: You are not authorized to perform this action
+    data_portability:
+      export:
+        ready: Ready
+      show:
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
     devise:
       omniauth_registrations:
         create:
@@ -268,6 +280,9 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
+      data_portability_export:
+        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        download: Download
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
@@ -305,6 +320,18 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    invitations:
+      create:
+        error: There were some problems while inviting your friends
+        error_empty_form: Please enter some email addresses
+        success: We've sent the invites to your friends!
+      index:
+        customize_message: Customize the invitation message
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Let your friends know about this site
+        invitations_title: Do you think more voices should be heard in %{organization_name}?
+        invite: Invite
+        visit_your_profile: Visit your profile
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -477,6 +504,20 @@ en:
         title: Select %{field}
       prompt: Select a scope
       scopes: Scopes
+    search:
+      filter:
+        all: All
+        component: Component
+      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
     shared:
       action_authorization_modal:
         expired:
@@ -546,6 +587,7 @@ en:
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_friend: "%{invited_by} has invited you to %{application}."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
@@ -554,6 +596,10 @@ en:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
+      invite_friend:
+        accept_invitation: 'You can accept the invitation through the link below:'
+        friend_custom_text: 'They left this message for you:'
+        subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
@@ -603,6 +649,7 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
+        invite_friends: Invite friends
         notifications: Notifications
         profile: My account
         public_profile: My public profile
@@ -611,6 +658,7 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
+        my_data: My data
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations

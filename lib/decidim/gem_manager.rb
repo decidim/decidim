@@ -68,23 +68,11 @@ module Decidim
 
     class << self
       def capture(cmd, env: {})
-        output, status = Open3.capture2e(env, cmd)
-
-        abort unless continue?(status.success?)
-
-        [output, status]
+        Open3.capture2e(env, cmd)
       end
 
       def run(cmd, out: STDOUT)
-        status = system(cmd, out: out)
-
-        abort unless continue?(status == true)
-
-        status
-      end
-
-      def continue?(status)
-        status || ENV["FAIL_FAST"] == "false"
+        system(cmd, out: out)
       end
 
       def test_participatory_space
@@ -109,7 +97,9 @@ module Decidim
 
       def run_all(command, out: STDOUT, include_root: true)
         all_dirs(include_root: include_root) do |dir|
-          new(dir).run(command, out: out)
+          status = new(dir).run(command, out: out)
+
+          break unless status || ENV["FAIL_FAST"] == "false"
         end
       end
 

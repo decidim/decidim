@@ -423,6 +423,23 @@ pt:
           register: registo
       index:
         title: Mais informação
+      terms_and_conditions:
+        accept:
+          error: Houve um erro ao aceitar os termos e condições.
+          success: Ótimo! Você aceitou os termos e condições.
+        form:
+          agreement: Eu concordo com estes termos
+          legend: Concorde com os termos e condições de uso
+        refuse:
+          modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
+          modal_btn_continue: Aceite os termos e continue
+          modal_btn_exit: Vou revisá-lo mais tarde
+          modal_button: Recuse os termos
+          modal_title: Você realmente recusa os Termos e Condições atualizados?
+        required_review:
+          alert: Atualizamos nossos Termos de Serviço, revise-os.
+          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
+          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
@@ -459,6 +476,20 @@ pt:
         title: Selecione %{field}
       prompt: Selecione um escopo
       scopes: Escopos
+    search:
+      filter:
+        all: Todos
+        component: Componente
+      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
+      term_input_placeholder: Pesquisa
+    searches:
+      filters:
+        search: Pesquisa
+      filters_small_view:
+        close_modal: Fechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
     shared:
       action_authorization_modal:
         expired:
@@ -515,16 +546,18 @@ pt:
   devise:
     invitations:
       edit:
-        header: Coloque sua senha
+        header: Termine de criar sua conta
         nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
+        subtitle: Se você aceitar o convite, defina seu apelido e senha.
     mailer:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
         hello: Olá %{email},
         ignore: |-
-          Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
+          Se você não quiser aceitar o convite, ignore este e-mail.<br />
+          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.

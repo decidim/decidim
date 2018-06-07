@@ -423,6 +423,23 @@ fi:
           register: Rekisteröidy
       index:
         title: Lisätietoa
+      terms_and_conditions:
+        accept:
+          error: Hyväksytessämme ehtoja on tapahtunut virhe.
+          success: Loistava! Olet hyväksynyt käyttöehdot.
+        form:
+          agreement: Hyväksyn ehdot
+          legend: Hyväksy käyttöehdot
+        refuse:
+          modal_body: Jos kieltäydyt, et voi käyttää alustan, voit <a href="%{data_portability_path}">ladata tiedot</a> ja / tai <a href="%{delete_path}">poistaa tilin</a>.
+          modal_btn_continue: Hyväksy ehdot ja jatka
+          modal_btn_exit: Tarkastelen sitä myöhemmin
+          modal_button: Kieltää ehdot
+          modal_title: Odotatko todella päivitetyt käyttöehdot?
+        required_review:
+          alert: Olemme päivittäneet käyttöehtojamme ja tarkistamme ne.
+          body: Odota hetki tarkistaa Palveluehtojen päivitykset. Muuten et voi käyttää alustaa.
+          title: 'Pakollinen: Tarkista päivitykset käyttöehdoissamme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
@@ -459,6 +476,20 @@ fi:
         title: Valitse %{field}
       prompt: Valitse konteksti
       scopes: Kontekstit
+    search:
+      filter:
+        all: Kaikki
+        component: komponentti
+      results_found_for_term: '%{count} Tulokset haulle: "%{term}"'
+      term_input_placeholder: Hae
+    searches:
+      filters:
+        search: Hae
+      filters_small_view:
+        close_modal: Sulje modeemi
+        filter: Suodattaa
+        filter_by: Suodata
+        unfold: avautua
     shared:
       action_authorization_modal:
         expired:
@@ -515,9 +546,10 @@ fi:
   devise:
     invitations:
       edit:
-        header: Aseta salasanasi
+        header: Lopeta tilisi luominen
         nickname_help: Ainutlaatuinen tunniste %{organization}.
         submit_button: Tallenna
+        subtitle: Jos hyväksyt kutsun, aseta lempinimi ja salasana.
     mailer:
       invitation_instructions:
         accept: Hyväksy kutsu
@@ -525,7 +557,7 @@ fi:
         hello: Hei %{email},
         ignore: |-
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
-          Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
+          Tilisi ei ole luotu, ennen kuin käytät yllä olevaa linkkiä ja määrität lempinimen ja salasanasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.

@@ -27,7 +27,7 @@ describe "Participatory process admin manages participatory processes", type: :s
 
     it "cannot delete a participatory_process" do
       within find("tr", text: translated(participatory_process2.title)) do
-        expect(page).to have_no_content("Destroy")
+        expect(page).to have_no_content("Delete")
       end
     end
   end

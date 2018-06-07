@@ -14,9 +14,11 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
+      include Decidim::DataPortability
 
       fingerprint fields: [:title, :body]
 
@@ -37,6 +39,14 @@ module Decidim
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where.not(published_at: nil) }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :body,
+        datetime: :published_at
+      )
 
       def self.order_randomly(seed)
         transaction do
@@ -173,6 +183,14 @@ module Decidim
               )
             SQL
         Arel.sql(query)
+      end
+
+      def self.export_serializer
+        Decidim::Proposals::ProposalSerializer
+      end
+
+      def self.data_portability_images(user)
+        user_collection(user).map { |p| p.attachments.collect(&:file_url) }
       end
 
       private

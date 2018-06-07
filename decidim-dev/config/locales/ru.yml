@@ -1,4 +1,12 @@
 ru:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Создано:'
+        field: Мое поле
+        start_date: Дата начала
+        title: Название
+        updated_at: 'Обновлено:'
   decidim:
     dummy:
       admin:
@@ -8,6 +16,8 @@ ru:
       home:
         statistics:
           bar: Пример переменной 1
+          dummies_count_high: Пример наибольшего количества
+          dummies_count_medium: Пример среднего количества
           foo: Пример переменной 2
     participatory_processes:
       statistics:

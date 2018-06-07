@@ -50,7 +50,9 @@ module Decidim
       )
       @user.invite!(
         form.invited_by,
-        invitation_instructions: form.invitation_instructions
+        {
+          invitation_instructions: form.invitation_instructions
+        }.merge(form.try(:extra_email_options) || {})
       )
     end
   end

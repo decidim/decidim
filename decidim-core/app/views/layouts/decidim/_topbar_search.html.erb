@@ -1,0 +1,8 @@
+<div class="show-for-medium" data-set="nav-search-holder">
+  <div class="topbar__search js-append">
+    <%= icon "magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img" %>
+    <%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar") do %>
+      <%= text_field_tag :term, nil, class: "m-none", placeholder: t("decidim.search.term_input_placeholder") %>
+    <% end %>
+  </div>
+</div>
