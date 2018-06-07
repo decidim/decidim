@@ -11,7 +11,20 @@ ru:
         witnesses: Свидетели
     models:
       decidim/sortitions/create_sortition_event: Жеребьевка
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Жеребьевка
+        few: Жеребьевки
+        many: Жеребьевок
+        other: Жеребьевок
   decidim:
+    components:
+      sortitions:
+        name: Жеребьевки
+        settings:
+          global:
+            comments_enabled: Комментарии включены
     pages:
       home:
         statistics:
