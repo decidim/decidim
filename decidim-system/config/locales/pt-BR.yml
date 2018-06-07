@@ -3,6 +3,7 @@ pt-BR:
     system:
       actions:
         confirm_destroy: Tem certeza de que deseja excluir isso?
+        destroy: Excluir
         edit: Editar
         new: Novo
         save: Salve 
@@ -11,6 +12,8 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo administrador.
           success: Admin criado com sucesso
+        destroy:
+          success: Admin eliminado com sucesso
         edit:
           title: Edit admin
           update: Atualizar
