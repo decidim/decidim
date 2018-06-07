@@ -311,7 +311,7 @@ uk:
       initiatives_mailer:
         creation_subject: Ваш громадський почин "%{title}" був доданий
         initiative_link:
-          check_initiative_details: Ви можете переглянути відомості про почин
+          check_initiative_details: Ви можете переглянути детальні відомості про почин
           here: тут
         more_information: Тут ви можете знайти додаткові відомості про послідовність створення почину.
         progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
