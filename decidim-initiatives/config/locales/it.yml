@@ -171,6 +171,7 @@ it:
       committee_requests:
         new:
           continue: Continua
+          help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
         spawn:
           success: La tua richiesta è stata inviata all'autore dell'iniziativa.
       create_initiative:
@@ -189,7 +190,9 @@ it:
           more_information: "(Maggiori informazioni)"
         finish_help:
           access_reminder: Ricorda che sarai sempre in grado di accedere alle tue iniziative attraverso il menu utente.
+          help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
           help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o combinato con online, dovrai caricare le informazioni richieste.
+          help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo per l'elaborazione.
           initiatives_page_link: Puoi consultare tutte queste informazioni sul %{link} dedicato a informare sulle iniziative.
           page: pagina
         previous_form:
@@ -208,6 +211,7 @@ it:
           select_initiative_type_help: Le iniziative dei cittadini sono un mezzo attraverso il quale la cittadinanza può intervenire in modo che il Consiglio comunale possa intraprendere azioni in difesa dell'interesse generale che rientrano nei campi di giurisdizione municipale. Quale iniziativa vuoi lanciare?
         share_committee_link:
           continue: Continua
+          invite_to_committee_help: Link per invitare persone che faranno parte del comitato promotore
         show_similar_initiatives:
           back: Indietro
           compare_help: Se una qualsiasi delle seguenti iniziative è simile alla tua, ti incoraggiamo a supportarla. La tua proposta avrà più possibilità di essere completata.
@@ -269,6 +273,8 @@ it:
         show:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
+        signature_identities:
+          select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
           one: " firma"
           other: " firme"
@@ -296,6 +302,7 @@ it:
         more_information: Qui hai maggiori informazioni sul processo di creazione dell'iniziativa.
         progress_report_body_for: L'iniziativa %{title} ha raggiunto il %{percentage}% dei supporti richiesti.
         progress_report_for: 'Riprendi sull''iniziativa: %{title}'
+        promotal_committee_help: Ricorda che devi invitare almeno %{member_count} persone al comitato promotore. Inoltra il seguente link per invitare le persone al comitato promotore
         status_change_body_for: 'L''iniziativa %{title} ha cambiato il suo stato in: %{state}'
         status_change_for: L'iniziativa %{title} ha cambiato il suo stato
         technical_validation_body_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
@@ -322,6 +329,7 @@ it:
         fill_data: Creare
         finish: finire
         previous_form: Inizio
+        promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confrontare
       initiative_header:
