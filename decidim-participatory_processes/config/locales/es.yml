@@ -8,6 +8,7 @@ es:
         copy_components: Copiar componentes
         copy_steps: Copiar las fases
         description: Descripción
+        developer_group: Grupo promotor
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
@@ -62,6 +63,8 @@ es:
       actions:
         activate: Activar
         configure: Configurar
+        confirm_destroy: Confirmar eliminación
+        destroy: Borrar
         duplicate: Duplicar
         edit: Editar
         new: Nuevo/a
@@ -107,6 +110,7 @@ es:
             email: Correo electrónico
             name: Nombre
             role: Rol
+          name: Usuario de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -121,6 +125,8 @@ es:
           select: Seleccione los datos que desea duplicar
           title: Duplicar proceso participativo
       participatory_process_groups:
+        destroy:
+          success: El grupo de proceso participativo se eliminó con éxito.
         edit:
           title: Editar grupo de procesos
           update: Actualizar
@@ -150,6 +156,7 @@ es:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
+          success: Paso de proceso participativo eliminado con éxito.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar
@@ -166,6 +173,9 @@ es:
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
+          success: El usuario agregó con éxito a este proceso participativo.
+        destroy:
+          success: Usuario eliminado con éxito de este proceso participativo.
         edit:
           title: Editar usuario del proceso
           update: Actualizar
@@ -181,6 +191,8 @@ es:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
+        destroy:
+          success: Proceso participativo eliminado con éxito.
         edit:
           update: Actualizar
         form:
@@ -276,6 +288,7 @@ es:
         index:
           loading: Cargando resultados...
       show:
+        developer_group: Grupo promotor
         end_date: Fecha de finalización
         local_area: Área de organización
         participatory_scope: Qué se decide
