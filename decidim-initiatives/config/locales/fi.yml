@@ -8,7 +8,7 @@ fi:
         scope_id: laajuus
         signature_end_time: Allekirjoitusajan päättyminen
         signature_start_time: Allekirjoituskeruun alkamisajankohta
-        signature_type: Allekirjoitustyyppi
+        signature_type: Allekirjoitus kokoelma tyyppi
         signature_type_values:
           any: sekoitettu
           offline: Kasvokkain
@@ -30,7 +30,7 @@ fi:
         title: otsikko
       organization_data:
         address: Osoite
-        id_document: CIF
+        id_document: ID-asiakirja
         name: Koko nimi
   activerecord:
     models:
@@ -110,7 +110,7 @@ fi:
             filter_by: Suodata
             preview: esikatselu
             print: Tulosta
-            search: Busca
+            search: Hae
           show:
             print: Tulosta
           update:
@@ -125,7 +125,7 @@ fi:
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
-            destroy: Tuhota
+            destroy: Poistaa
             title: Muokkaa aloitustyypin laajuutta
             update: Päivittää
           new:
@@ -143,7 +143,7 @@ fi:
             success: Aloitetyyppi on poistettu onnistuneesti
           edit:
             confirm_destroy: Oletko varma?
-            destroy: Tuhota
+            destroy: Poistaa
             update: Päivittää
           form:
             title: Yleistä tietoa
@@ -154,7 +154,6 @@ fi:
             title: Uusi aloite tyyppi
           update:
             error: Tapahtui virhe
-            success: Annettu aloite on päivitetty onnistuneesti
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi %{resource_name} -aloitteen"
@@ -171,7 +170,6 @@ fi:
       committee_requests:
         new:
           continue: Jatkaa
-          help_text: Oletko pyytämässä jäseneksi tämän aloitteen edistämiskomitea
         spawn:
           success: Pyyntösi on lähetetty aloitteen tekijälle.
       create_initiative:
@@ -190,9 +188,7 @@ fi:
           more_information: "(Lisää tietoa)"
         finish_help:
           access_reminder: Muista, että voit aina käyttää aloitteita käyttäjän valikon kautta.
-          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä kaikkien järjestöjen, jotka noudattavat edistämiskomiteaa, johtokunnan pöytäkirjat
           help_in_person_signatures: Jos olet halunnut kerätä allekirjoituksia henkilökohtaisesti tai yhdistää verkossa, sinun on lähetettävä tarvittavat tiedot.
-          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintopaneelia, josta löydät käyttäjän valikon, lataa tarvittavat tiedot ja lähetä se menettelyyn.
           initiatives_page_link: 'Voit etsiä kaikki nämä tiedot %{link} : stä, jotka ovat tietoisia aloitteista.'
           page: sivu
         previous_form:
@@ -211,7 +207,6 @@ fi:
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaisuus voi puuttua, jotta kaupunginvaltuusto voi ryhtyä toimiin yleisen edun puolustamiseksi, jotka kuuluvat kunnalliseen toimivaltaan. Mikä aloite haluat käynnistää?
         share_committee_link:
           continue: Jatkaa
-          invite_to_committee_help: Linkki kutsumaan ihmisiä, jotka ovat osa promotal-komiteaa
         show_similar_initiatives:
           back: Takaisin
           compare_help: Jos jokin seuraavista aloitteista on samanlainen kuin sinun, kannustamme sinua tukemaan sitä. Ehdotuksessasi on enemmän mahdollisuuksia tehdä.
@@ -273,8 +268,6 @@ fi:
         show:
           any_vote_method: Tämä kansalaisaloite kerää online-tukea sekä kasvokkain.
           offline_method: Tämä kansalaisaloitteet kerää vain kasvotusten tuet.
-        signature_identities:
-          select_identity: Valitse käyttäjän identiteetti
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoituksia"
@@ -302,7 +295,6 @@ fi:
         more_information: Täällä on lisätietoja aloitteen luomisprosessista.
         progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista tuista.
         progress_report_for: 'Aloita aloitus: %{title}'
-        promotal_committee_help: Muista, että sinun on kutsuttava vähintään %{member_count} henkilöä promotal-valiokuntaan. Lähetä seuraava linkki kutsumaan ihmisiä promotal-komiteaan
         status_change_body_for: 'Aloitus %{title} on muuttanut tilaansa: %{state}'
         status_change_for: Aloite %{title} on muuttanut tilannettaan
         technical_validation_body_for: Aloite %{title} on pyytänyt teknistä validointiaan.
@@ -329,7 +321,6 @@ fi:
         fill_data: Luoda
         finish: Suorittaa loppuun
         previous_form: alkaa
-        promotal_committee: Promotal-valiokunta
         select_initiative_type: Valita
         show_similar_initiatives: Vertailla
       initiative_header:
