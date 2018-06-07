@@ -83,12 +83,20 @@ ru:
           edit:
             back: Вернуться
             confirm_destroy: Вы уверены?
+            destroy: Удалить
             title: Изменить охват вида почина
+            update: Обновить
           new:
+            back: Вернуться
+            create: Создать
             title: Создать охват вида почина
           update:
+            error: Произошла ошибка
             success: Охват успешно обновлен
         initiatives_types:
+          create:
+            error: Произошла ошибка
+            success: Успешно создан новый вид почина
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
