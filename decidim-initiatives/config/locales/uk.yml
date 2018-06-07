@@ -313,9 +313,9 @@ uk:
         initiative_link:
           check_initiative_details: Ви можете переглянути детальні відомості про почин
           here: тут
-        more_information: Тут ви можете знайти додаткові відомості про послідовність створення почину.
+        more_information: Ось додаткові відомості про послідовність створення почину.
         progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
-        progress_report_for: 'Стислий виклад почину: %{title}'
+        progress_report_for: 'Коротко про почин: %{title}'
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
