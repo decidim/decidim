@@ -99,7 +99,6 @@ ru:
           email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
-          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность вносить <a href="%{resource_path}">новые предложения</a>
         endorsing_enabled:
           email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -246,7 +245,6 @@ ru:
         success: Предложение успешно создано. Сохранено как черновик.
       destroy_draft:
         error: При попытке удалить этот черновик предложения произошли ошибки.
-        success: Черновик предложения был успешно удален.
       models:
         proposal:
           fields:
