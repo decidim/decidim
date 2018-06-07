@@ -10,8 +10,8 @@ pt-BR:
         email: O seu email
         name: Seu nome
         nickname: Seu identificador curto e exclusivo
-        password: Nova senha
-        password_confirmation: Confirme a sua nova senha
+        password: Senha
+        password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
