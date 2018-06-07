@@ -10,8 +10,8 @@ pl:
         email: Twój email
         name: Twoje imię
         nickname: Twój krótki, niepowtarzalny identyfikator
-        password: Nowe hasło
-        password_confirmation: Potwierdź swoje nowe hasło
+        password: Hasło
+        password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
         remove_avatar: Usuń awatar
         user_group_document_number: Numer dokumentu organizacji
