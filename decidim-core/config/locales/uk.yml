@@ -595,7 +595,7 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-        invited_you_as_friend: "%{invited_by} запросили вас до %{application}."
+        invited_you_as_friend: "%{invited_by} запросив вас до %{application}."
         invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
@@ -606,7 +606,7 @@ uk:
         subject: Вас запросили співпрацювати на %{organization}
       invite_friend:
         accept_invitation: 'Ви можете прийняти запрошення за посиланням нижче:'
-        friend_custom_text: 'Вони передали вам таке повідомлення:'
+        friend_custom_text: 'Вам надіслали таке повідомлення:'
         subject: Вас запросили до %{organization}
       invite_private_user:
         subject: Вас запрошено до приватного руху співучасті від %{organization}
