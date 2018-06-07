@@ -10,8 +10,8 @@ nl:
         email: Je e-mailadres
         name: Uw naam
         nickname: Jouw korte unieke ID
-        password: Nieuw wachtwoord
-        password_confirmation: Bevestig uw nieuwe wachtwoord
+        password: Wachtwoord
+        password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
         user_group_document_number: Organisatie documentnummer
