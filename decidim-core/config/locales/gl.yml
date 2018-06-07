@@ -304,6 +304,18 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    invitations:
+      create:
+        error: Houbo algúns problemas ao invitar aos teus amigos
+        error_empty_form: Introduce algúns enderezos de correo electrónico
+        success: Enviamos as invitacións aos teus amigos.
+      index:
+        customize_message: Personaliza a mensaxe de invitación
+        friend_email: 'Correo electrónico do amigo #%{index}'
+        invitations_subtitle: Deixe os seus amigos saber sobre este sitio
+        invitations_title: Pensas que se deben escoitar máis voces en %{organization_name}?
+        invite: Invitar
+        visit_your_profile: Visita o teu perfil
     log:
       base_presenter:
         create: "%{user_name} creouse %{resource_name}"
@@ -559,6 +571,7 @@ gl:
           Se non queres aceptar a invitación, ignora este correo electrónico.<br />
           súa conta non se creará ata que acceda á ligazón anterior e configure o seu alcume e contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
+        invited_you_as_friend: "%{invited_by} convidoute a %{application}."
         invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
@@ -567,6 +580,10 @@ gl:
         subject: Invitaboute a xestionar %{organization}
       invite_collaborator:
         subject: Invitoute a colaborar en %{organization}
+      invite_friend:
+        accept_invitation: 'Podes aceptar a invitación a través da seguinte ligazón:'
+        friend_custom_text: 'Deixaron esta mensaxe para ti:'
+        subject: Invitaches a %{organization}
       invite_private_user:
         subject: Invitouse a un proceso participativo privado en %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +633,7 @@ gl:
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
+        invite_friends: Invitar amigos
         notifications: Notificacións
         profile: A miña conta
         public_profile: O meu perfil público
