@@ -364,7 +364,7 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Узнать больше
+      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -428,7 +428,7 @@ ru:
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
           meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
@@ -459,7 +459,7 @@ ru:
         sub_hero:
           register: Зарегистрироваться
       index:
-        title: Узнать больше
+        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -671,7 +671,7 @@ ru:
         title: Настройки участника
         user_groups: Организации
       widget:
-        see_more: Узнать больше
+        see_more: Читать подробнее
   locale:
     name: Русский
   social_share_button:
