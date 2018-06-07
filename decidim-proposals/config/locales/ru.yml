@@ -25,6 +25,10 @@ ru:
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято
       decidim/proposals/admin/update_proposal_category_event: Разряд предложения изменен
+      decidim/proposals/creation_enabled_event: Включена возможность создания предложений
+      decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
+      decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
+      decidim/proposals/proposal_endorsed_event: Предложение поддержали
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
       decidim/proposals/rejected_proposal_event: Предложение отклонено
@@ -350,16 +354,28 @@ ru:
             many: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
+          title: Обнародуйте свое предложение
         proposal:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
+          hidden_endorsers_count:
+            one: и еще 1 человек
+            few: и еще %{count} человека
+            many: и еще %{count} человек
+            other: и еще %{count} человек
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
+          sign_in: Войти
+          sign_in_or_up: "%{in} или %{up} для того, чтобы принять участие"
+          sign_up: зарегистрироваться
+          withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
+          withdraw_confirmation: Вы действительно хотите снять это предложение?
+          withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
         vote_button:
@@ -375,6 +391,7 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
+          most_popular_proposal: Самое популярное предложение
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
