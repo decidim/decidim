@@ -52,6 +52,11 @@ fi:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Tiedostoa ei ole olemassa
+        invalid_token: Varattu token on virheellinen.
+        no_token: Ei merkintää
+        notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -177,6 +182,13 @@ fi:
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+    data_portability:
+      export:
+        ready: Valmis
+      show:
+        download_data: Lataa tiedot
+        download_data_description: Tiedosto, johon kaikki tiliin liittyvät tiedot lähetetään <strong>%{user_email}</strong>
+        request_data: Pyydä tietoja
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ fi:
           email_subject: "%{nickname} päivitti profiilinsa"
           notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
     export_mailer:
+      data_portability_export:
+        click_button: Napsauta seuraavaa painiketta, jos haluat ladata tietosi. <br/> Tiedosto on käytettävissä %{date}.
+        download: ladata
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
@@ -642,6 +657,7 @@ fi:
         account: Käyttäjätili
         authorizations: Varmennukset
         delete_my_account: Poista tilini
+        my_data: Omat tiedot
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
         user_groups: Organisaatiot
