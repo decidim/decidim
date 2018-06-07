@@ -110,6 +110,7 @@ ca:
             filter_by: Filtra per
             preview: Vista prèvia
             print: Imprimir
+            search: Cerca
           show:
             print: Imprimir
           update:
@@ -124,6 +125,7 @@ ca:
           edit:
             back: Enrere
             confirm_destroy: N'estàs segur?
+            destroy: Suprimeix
             title: Edita l'abast del tipus d'iniciativa
             update: Actualitza
           new:
@@ -141,6 +143,7 @@ ca:
             success: S'ha eliminat correctament el tipus d'iniciativa
           edit:
             confirm_destroy: N'estàs segur?
+            destroy: Suprimeix
             update: Actualitza
           form:
             title: Informació general
@@ -151,6 +154,7 @@ ca:
             title: Nou tipus d'iniciativa
           update:
             error: S'ha produït un error
+            success: El tipus d'iniciativa s'ha actualitzat correctament
       admin_log:
         initiative:
           publish: "%{user_name} ha publicat la iniciativa %{resource_name}"
@@ -167,6 +171,7 @@ ca:
       committee_requests:
         new:
           continue: Continua
+          help_text: Esteu a punt de sol·licitar-se formar part del comitè promotor d'aquesta iniciativa
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
       create_initiative:
@@ -185,7 +190,9 @@ ca:
           more_information: "(Més informació)"
         finish_help:
           access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de l'usuari.
+          help_for_organizations: Si sou una associació, haurà de carregar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
           help_in_person_signatures: Si has triat cobrar les signatures presencials o combinar-les en línia, hauràs de carregar la informació requerida.
+          help_text: Recordeu que per processar correctament la iniciativa, heu d'accedir al panell d'administració on trobareu el menú d'usuari, carregar la informació requerida i enviar-la per processar-la.
           initiatives_page_link: Podeu consultar tota aquesta informació al %{link} dedicada a informar sobre iniciatives.
           page: pàgina
         previous_form:
@@ -204,6 +211,7 @@ ca:
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
         share_committee_link:
           continue: Continua
+          invite_to_committee_help: Enllaça amb convidar persones que formaran part del comitè promotor
         show_similar_initiatives:
           back: Enrere
           compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer-se.
@@ -265,6 +273,8 @@ ca:
         show:
           any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
           offline_method: Aquesta iniciativa ciutadana només recull suports presencials.
+        signature_identities:
+          select_identity: Seleccioneu l'identificador d'usuari
         signatures_count:
           one: " signatura"
           other: " signatures"
@@ -291,6 +301,7 @@ ca:
         more_information: Aquí tens més informació sobre el procés de creació d'iniciatives.
         progress_report_body_for: La iniciativa %{title} ha arribat al %{percentage}% dels suports necessaris.
         progress_report_for: 'Repàs de la iniciativa: %{title}'
+        promotal_committee_help: Recordeu que heu de convidar almenys a %{member_count} persones al comitè promotor. Reenvia el següent enllaç per convidar persones al comitè promotor
         status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat per: %{state}'
         status_change_for: La iniciativa %{title} ha canviat d'estat
         technical_validation_body_for: La iniciativa %{title} ha demanat la seva validació tècnica.
@@ -317,6 +328,7 @@ ca:
         fill_data: Crear
         finish: Acaba
         previous_form: Començar
+        promotal_committee: Comitè promotor
         select_initiative_type: Tria
         show_similar_initiatives: Compara
       initiative_header:
