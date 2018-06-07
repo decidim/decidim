@@ -8,7 +8,6 @@ gl:
         copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
         description: Descrición
-        developer_group: Grupo de desenvolvedores
         domain: Dominio
         end_date: Data de finalización
         hashtag: Etiqueta
@@ -63,8 +62,6 @@ gl:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirmar destruír
-        destroy: Destruír
         duplicate: Duplicar
         edit: Editar
         new: Novo
@@ -110,7 +107,6 @@ gl:
             email: Correo electrónico
             name: Nome
             role: Rol
-          name: Usuario de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -125,8 +121,6 @@ gl:
           select: Seleccione os datos que desexa duplicar
           title: Duplicar o proceso participativo
       participatory_process_groups:
-        destroy:
-          success: O grupo de procesos participativo foi destruído con éxito.
         edit:
           title: Editar o grupo de procesos
           update: Actualización
@@ -156,7 +150,6 @@ gl:
           error:
             active_step: Non se pode eliminar o paso activo.
             last_step: Non se pode eliminar o último paso dun proceso.
-          success: Paso de proceso participativo destruíuse con éxito.
         edit:
           title: Edita paso de proceso participativo
           update: Actualización
@@ -173,9 +166,6 @@ gl:
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
-          success: Usuario creado con éxito para este proceso participativo.
-        destroy:
-          success: Usuario destruído con éxito por este proceso participativo.
         edit:
           title: Actualiza o usuario de proceso participativo.
           update: Actualización
@@ -191,8 +181,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo proceso participativo.
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
-        destroy:
-          success: O proceso participativo foi destruído con éxito.
         edit:
           update: Actualización
         form:
@@ -288,7 +276,6 @@ gl:
         index:
           loading: Cargando resultados ...
       show:
-        developer_group: Grupo de desenvolvedores
         end_date: Data de finalización
         local_area: Área de organización
         participatory_scope: O que se decide
