@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-core**: GDPR: Add Right of data portability. [\#3489](https://github.com/decidim/decidim/pull/3489)
+
 **Changed**:
 
 **Fixed**:

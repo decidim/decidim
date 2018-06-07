@@ -53,6 +53,11 @@ en:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: File no exists
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -178,6 +183,13 @@ en:
     core:
       actions:
         unauthorized: You are not authorized to perform this action
+    data_portability:
+      export:
+        ready: Ready
+      show:
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
     devise:
       omniauth_registrations:
         create:
@@ -268,6 +280,9 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
+      data_portability_export:
+        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        download: Download
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
@@ -643,6 +658,7 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
+        my_data: My data
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations

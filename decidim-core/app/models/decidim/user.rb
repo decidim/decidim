@@ -10,6 +10,7 @@ module Decidim
     include Resourceable
     include Decidim::Followable
     include Decidim::Loggable
+    include Decidim::DataPortability
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
@@ -135,6 +136,18 @@ module Decidim
         email: warden_conditions[:email],
         decidim_organization_id: organization.id
       )
+    end
+
+    def self.user_collection(user)
+      where(id: user.id)
+    end
+
+    def self.export_serializer
+      Decidim::DataPortabilitySerializers::DataPortabilityUserSerializer
+    end
+
+    def self.data_portability_images(user)
+      user_collection(user).map(&:avatar)
     end
 
     def tos_accepted?

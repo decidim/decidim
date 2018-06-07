@@ -7,9 +7,9 @@ module Decidim
   describe ExportMailer, type: :mailer do
     let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
     let!(:organization) { create(:organization) }
-    let(:export_data) { Decidim::Exporters::ExportData.new("content", "txt") }
 
     describe "export" do
+      let(:export_data) { Decidim::Exporters::ExportData.new("content", "txt") }
       let(:mail) { described_class.export(user, "dummy", export_data) }
 
       it "sets a subject" do
@@ -34,6 +34,22 @@ module Decidim
         entry = entries.first
         expect(entry[:name]).to match(/^dummy-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.txt$/)
         expect(entry[:content]).to eq("content")
+      end
+    end
+
+    describe "data portability export " do
+      object = "Decidim::DummyResources::DummyResource"
+      klass = Object.const_get(object)
+      let(:export_data) { [[klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter("CSV").new(klass.user_collection(user), klass.export_serializer).export]] }
+      let(:images) { [] }
+      let(:mail) { described_class.data_portability_export(user, export_data, images) }
+
+      it "sets a subject" do
+        expect(mail.subject).to include("Sarah Connor", "ready")
+      end
+
+      it "has a link" do
+        expect(mail).to have_link("Download")
       end
     end
   end

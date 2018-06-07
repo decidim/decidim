@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::DataPortability
 
       component_manifest_name "accountability"
 
