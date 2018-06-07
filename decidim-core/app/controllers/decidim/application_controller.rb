@@ -9,6 +9,7 @@ module Decidim
     include PayloadInfo
     include ImpersonateUsers
     include NeedsTosAccepted
+    include HttpCachingDisabler
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -30,6 +31,8 @@ module Decidim
     after_action :add_vary_header
 
     layout "layouts/decidim/application"
+
+    skip_before_action :disable_http_caching, unless: :user_signed_in?
 
     private
 

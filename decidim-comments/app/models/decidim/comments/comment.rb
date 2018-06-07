@@ -10,6 +10,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
       include Decidim::FriendlyDates
+      include Decidim::DataPortability
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -76,6 +77,10 @@ module Decidim
       end
 
       delegate :participatory_space, to: :root_commentable
+
+      def self.export_serializer
+        Decidim::Comments::CommentSerializer
+      end
 
       private
 

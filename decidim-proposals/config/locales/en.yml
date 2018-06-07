@@ -108,7 +108,7 @@ en:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -343,7 +343,7 @@ en:
         success: Proposal created successfully. Saved as a Draft.
       destroy_draft:
         error: There's been errors deleting the proposal draft.
-        success: Proposal draft was successfully destroyed.
+        success: Proposal draft was successfully deleted.
       models:
         collaborative_draft:
           fields:

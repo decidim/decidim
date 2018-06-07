@@ -5,7 +5,7 @@ es:
         additional_info: Información de clasificación
         decidim_category_id: Categorías del conjunto de propuestas en las que desea aplicar el sorteo
         decidim_proposals_component_id: Propuestas
-        dice: Resultado de la tirada de dados. Tira un dado de 6 caras, o busca otra forma aleatoria de generar un número del 1 al 6, e ingresa aquí el número resultante frente a algunos testigos. Esto contribuye a la calidad y garantías de la aleatoriedad del resultado
+        dice: Resultado de la tirada de dados. Tira un dado de 6 caras, o busca otra forma aleatoria de generar un número del 1 al 6, e ingresa aquí el número resultante delante de algunos testigos. Esto contribuye a la calidad y garantías de la aleatoriedad del resultado
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
@@ -42,7 +42,7 @@ es:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new: Nuevo
+          new: Añadir nuevo
           show: Detalles de la clasificación
         models:
           sortition:
@@ -87,7 +87,7 @@ es:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
             error: Se produjo un error al actualizar el sorteo.
-            success: La clasificación se actualizó correctamente
+            success: Sorteo actualizado correctamente
       admin_log:
         sortition:
           create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"

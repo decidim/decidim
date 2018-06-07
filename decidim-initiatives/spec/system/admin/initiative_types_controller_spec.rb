@@ -62,7 +62,7 @@ describe "InitiativeTypesController", type: :system do
       click_button "Update"
 
       within ".callout-wrapper" do
-        expect(page).to have_content("The given initiative has been successfully updated")
+        expect(page).to have_content("The initiative type has been successfully updated")
       end
     end
   end
@@ -73,7 +73,7 @@ describe "InitiativeTypesController", type: :system do
     it "Deletes the initiative type" do
       visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
 
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       within ".callout-wrapper" do
         expect(page).to have_content("The initiative type has been successfully removed")

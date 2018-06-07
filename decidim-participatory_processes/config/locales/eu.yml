@@ -8,7 +8,7 @@ eu:
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
         description: Deskribapena
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         domain: Domeinua
         end_date: Bukaera-data
         hashtag: Traola
@@ -63,8 +63,8 @@ eu:
       actions:
         activate: Aktibatu
         configure: Konfiguratu
-        confirm_destroy: Ziur zaude?
-        destroy: Ezabatu
+        confirm_destroy: Berretsi ezabatu
+        destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
         new: Berria
@@ -110,7 +110,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Prozesuaren erabiltzaileak
+          name: Parte-hartze prozesuaren erabiltzaileak
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -126,7 +126,7 @@ eu:
           title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
-          success: Multzoa zuzen deuseztatu da.
+          success: Parte-hartze prozesuen taldea zuzen ezabatu da.
         edit:
           title: Prozesu-multzok editatu
           update: Eguneratu
@@ -156,7 +156,7 @@ eu:
           error:
             active_step: Ezin da ezabatu fase aktiboa.
             last_step: Ezin da ezabatu prozesuaren azken fasea.
-          success: Prozesu partizipatiboaren fasea zuzen ezabatu da.
+          success: Parte-hartze prozesuaren pausoa arrakastaz ezabatu da.
         edit:
           title: Editatu prozesu partizipatiboaren fasea
           update: Eguneratu
@@ -173,9 +173,9 @@ eu:
       participatory_process_user_roles:
         create:
           error: Errore bat gertatu da partaidetza prozesu honetan erabiltzailea gehitzea.
-          success: Ongi sortu da erabiltzailea prozesu partizipatibo honetarako.
+          success: Parte hartzaile prozesu honi arrakastaz gehitu dio erabiltzaileari.
         destroy:
-          success: Ongi deuseztatu da erabiltzailea prozesu partizipatibo honetarako.
+          success: Parte hartzaile prozesu honetatik arrakastaz ezabatu da erabiltzailea.
         edit:
           title: Editatu prozesuaren erabiltzailea.
           update: Eguneratu
@@ -192,7 +192,7 @@ eu:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         destroy:
-          success: Prozesu partizipatiboa zuzen ezabatu da.
+          success: Parte-hartze prozesua behar bezala ezabatu da.
         edit:
           update: Eguneratu
         form:
@@ -288,7 +288,7 @@ eu:
         index:
           loading: Emaitzak kargatzen...
       show:
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         end_date: Bukaera-data
         local_area: Antolakuntza eremua
         participatory_scope: Zer erabaki

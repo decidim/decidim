@@ -5,14 +5,14 @@ uk:
         body: Відповісти
       survey_question:
         mandatory: Обов’язкове поле
-        max_choices: Максимальна кількість варіантів
+        max_choices: Гранична кількість варіантів
         question_type: Різновид
     errors:
       models:
         survey_answer:
           attributes:
             choices:
-              missing: деяких не вистачає
+              missing: наведені не всі
               too_many: занадто багато
     models:
       decidim/surveys/closed_survey_event: Опитування закінчилося
@@ -49,7 +49,7 @@ uk:
           email_subject: В %{participatory_space_title} завершилось опитування
           notification_title: Опитування <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> закінчилося.
         survey_opened:
-          email_intro: 'Почалось опитування %{resource_title} в %{participatory_space_title}. Ви можете взяти участь в ньому на сторінці:'
+          email_intro: 'В %{participatory_space_title} почалось опитування %{resource_title}. Ви можете взяти участь в ньому на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Нове опитування в %{participatory_space_title}
           notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
@@ -64,7 +64,7 @@ uk:
         models:
           components:
             description: Опис
-            tos: Умови використання
+            tos: Умови участі
         surveys:
           answer_option:
             answer_option: Варіант відповіді
@@ -87,7 +87,7 @@ uk:
             statement: Висловлювання
             up: Догори
           update:
-            invalid: При збереженні цього опитування сталися помилки.
+            invalid: При спробі збереження цього опитування сталися помилки.
             success: Опитування успішно збережено.
       question_types:
         long_answer: Довга відповідь
@@ -100,7 +100,7 @@ uk:
           invalid: При відповідях на опитування сталися помилки.
           success: Опитування успішно пройдено.
         question:
-          max_choices: 'Максимальна кількість варантів: %{n}'
+          max_choices: 'Гранична кількість варантів: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
@@ -114,6 +114,6 @@ uk:
             body: Опитування завершене, дати відповіді на нього не можна.
             title: Опитування завершене
           survey_for_private_users:
-            body: Це опитування доступне лише для прихованих учасників
+            body: Це опитування доступне лише для приватних учасників
             title: Опитування завершене
           tos_agreement: Беручи участь у цьому опитуванні, ви приймаєте його умови використання

@@ -9,6 +9,7 @@ module Decidim
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo
+      include HttpCachingDisabler
 
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper

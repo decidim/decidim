@@ -91,7 +91,7 @@ fr:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant mettre en avant <a href="%{resource_path}">nouvelles propositions</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -238,7 +238,7 @@ fr:
         success: Proposition créée avec succès. Enregistrée comme brouillon.
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du projet de proposition.
-        success: Le projet de proposition a été supprimé avec succès.
+        success: Le brouillon de la proposition a bien été supprimé.
       models:
         proposal:
           fields:
@@ -337,8 +337,8 @@ fr:
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
-            one: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
-            other: Vous avez la possibilité de modifier cette proposition au cours de ou des %{count} minute(s) après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
+            other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publiez votre proposition
         proposal:

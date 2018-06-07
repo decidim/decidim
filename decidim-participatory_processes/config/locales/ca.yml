@@ -63,8 +63,8 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: N'estàs segur?
-        destroy: Eliminar
+        confirm_destroy: Confirmeu suprimir
+        destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
         new: Nou/va
@@ -110,7 +110,7 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari del procés
+          name: Usuari de procés participatiu
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -126,7 +126,7 @@ ca:
           title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
-          success: Grup eliminat correctament.
+          success: Grup de procés participatiu s'ha suprimit correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
@@ -156,7 +156,7 @@ ca:
           error:
             active_step: No es pot eliminar la fase activa.
             last_step: No es pot eliminar l'última fase d'un procés.
-          success: La fase de procés participatiu s'ha eliminat correctament.
+          success: El pas del procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar
@@ -173,9 +173,9 @@ ca:
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: Usuari creat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
         destroy:
-          success: Usuari eliminat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
         edit:
           title: Editar usuari de procés participatiu.
           update: Actualitzar

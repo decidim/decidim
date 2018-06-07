@@ -3,37 +3,239 @@ ru:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
-        signature_type: Вид сбора подписей
+      initiative_author:
+        id_document: ИНН/СНИЛС
+      organization_data:
+        id_document: Документ, удостоверяющий личность
   decidim:
     admin:
       models:
+        initiatives:
+          fields:
+            supports_count: Выражений поддержки
         initiatives_type_scope:
           fields:
             scope: Охват
+            supports_required: Сколько необходимо выражений поддержки
           name: Охват вида почина
+        initiatives_types:
+          fields:
+            title: Виды починов
+          name: Вид почина
+      titles:
+        initiatives: Почины
+        initiatives_types: Виды починов
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Достигнута новая веха!
+          notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> достиг %{percentage}% подписей.
     initiatives:
       admin:
+        committee_requests:
+          index:
+            approve: Одобрить
+            confirm_revoke: Вы уверены?
+            invite_to_committee_help: Поделитесь этой ссылкой, чтобы пригласить других участников в рабочую группу по продвижению
+            no_members_yet: В рабочей группе по продвижению нет ни одного члена
+            revoke: Отозвать
+            title: Члены рабочей группы
+        initiatives:
+          edit:
+            accept: Принять почин
+            confirm: Вы уверены?
+            discard: Отбросить почин
+            export_votes: Сохранить выражения поддержки в виде файла
+            reject: Отклонить почин
+            send_to_technical_validation: Отправить на техническую проверку
+            success: Почин был направлен ​​на техническую проверку
+            update: Обновить
+          form:
+            title: Общие сведения
+          index:
+            actions_title: Действие
+            filter:
+              accepted: Принято
+              all: Все
+              created: Созданные
+              discarded: Отброшенные
+              published: Обнародованные
+              rejected: Отклоненные
+              validating: Техническая проверка
+            filter_by: 'Отобрать по признаку:'
+            preview: Предпросмотр
+            print: Распечатать
+          show:
+            print: Распечатать
+          update:
+            error: Произошла ошибка
+            success: Гражданский почин успешно обновлен
         initiatives_type_scopes:
           create:
+            error: Произошла ошибка
             success: Создан новый охват для данного вида почина
           destroy:
             success: Охват успешно удален
           edit:
+            back: Вернуться
+            confirm_destroy: Вы уверены?
+            destroy: Удалить
             title: Изменить охват вида почина
+            update: Обновить
           new:
+            back: Вернуться
+            create: Создать
             title: Создать охват вида почина
           update:
+            error: Произошла ошибка
             success: Охват успешно обновлен
         initiatives_types:
+          create:
+            error: Произошла ошибка
+            success: Успешно создан новый вид почина
+          destroy:
+            success: Этот вид почина успешно удален
+          edit:
+            confirm_destroy: Вы уверены?
+            destroy: Удалить
+            update: Обновить
+          form:
+            title: Общие сведения
           initiative_type_scopes:
             title: Охваты для вида почина
+          new:
+            create: Создать
+            title: Добавить вид почина
+          update:
+            error: Произошла ошибка
+            success: Этот вид починов успешно обновлен
+      admin_log:
+        initiative:
+          publish: "%{user_name} обнародовал почин %{resource_name}"
+          send_to_technical_validation: "%{user_name} отправил почин %{resource_name} на техническую проверку"
+          unpublish: "%{user_name} отбросил почин %{resource_name}"
+          update: "%{user_name} обновил почин %{resource_name}"
+      admin_states:
+        accepted: Принятые
+        created: Созданные
+        discarded: Отброшенные
+        published: Обнародованные
+        rejected: Отклоненные
+        validating: Техническая проверка
+      committee_requests:
+        new:
+          continue: Продолжить
+          help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
+        spawn:
+          success: Ваш запрос отправлен автору почина.
       create_initiative:
         fill_data:
+          back: Вернуться
+          continue: Продолжить
           fill_data_help: "<ul> <li>Пересмотрите содержание своего почина. Легко ли понять название? Понятна ли цель вашего почина?</li> <li>Вы должны выбрать вид сбора подписей. Лично, онлайн или сочетание обоих</li> <li>Каков географический охват почина? Город, район?</li> </ul>"
+          initiative_type: Вид почина
+          more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
+        finish:
+          back: Вернуться
+          back_to_initiatives: Вернуться к починам
+          callout_text: Поздравляем! Ваш гражданский почин был успешно создан.
+          go_to_my_initiatives: Перейти к моим починам
+          more_information: "(Дополнительные сведения)"
+        finish_help:
+          access_reminder: Помните, что вы всегда можете получить доступ к своим починам через меню участника.
+          help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
+          help_in_person_signatures: Если вы выбрали сбор подписей на личных встречах или в сочетании со сбором онлайн, вам нужно будет загрузить требуемые для этого сведения.
+          help_text: Помните, что для правильной обработки почина вы должны перейти к панели администрирования. Найдите там меню участника, загрузите требуемые сведения и отправьте их на обработку.
+          initiatives_page_link: Вы можете просмотреть все эти сведения на %{link} где рассказывается всё о починах.
+          page: страница
+        previous_form:
+          back: Вернуться
+          continue: Продолжить
+          help: В чем состоит этот почин? Изложите название и описание. Мы рекомендуем лаконичное и немногословное название и описание, направленное на предлагаемое решение.
+          more_information: "(Дополнительные сведения)"
+        promotal_committee:
+          back: Вернуться
+          individual_help_text: Для гражданских починов нужна рабочая группа по продвижению, состоящая как минимум из трех человек (удостоверяющих лиц). Вы должны поделиться следующей ссылкой с другими людьми, которые занимаются этим почином. Когда они получат эту ссылку, им нужно будет пройти указанные там шаги.
+          more_information: "(Дополнительные сведения)"
+        select_initiative_type:
+          back: Вернуться
+          more_information: "(Дополнительные сведения)"
+          select: Выбрать
+          select_initiative_type_help: Гражданские почины - это средство, с помощью которого граждане могут вмешиваться в то, чтобы Городской Совет предпринимал действия в защиту общих интересов, относящихся к сфере городских полномочий. Какой почин вы хотите запустить?
+        share_committee_link:
+          continue: Продолжить
+          invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
+        show_similar_initiatives:
+          back: Вернуться
+          compare_help: Если какой-либо из следующих починов похож на ваш, мы призываем вас поддержать его. У вашего предложения будет больше возможностей для воплощения в жизнь.
+          continue: Мой почин другой
+          more_information: "(Дополнительные сведения)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, за которым вы следите, создал новый почин. Прочитайте его и внесите свой вклад:"
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Новый почин от %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, за которым вы следите, поддержал следующую инициативу. Возможно, вы хотите поучаствовать в разговоре:"
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Инициатива поддержана %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
+      index:
+        title: Почины
+      initiative_votes:
+        create:
+          error: При попытке подписаться за этот почин произошли ошибки.
+      initiatives:
+        author:
+          deleted: Удален
+        author_list:
+          hidden_authors_count:
+            one: и еще 1 человек
+            few: и еще %{count} людей
+            many: и еще %{count} человек
+            other: и еще %{count} человек
+        count:
+          title:
+            one: "%{count} почин"
+            few: "%{count} почина"
+            many: "%{count} починов"
+            other: "%{count} починов"
+        filters:
+          any: Любые
+          author: Автор
+          closed: Закрыты
+          myself: Мои почины
+          open: Открыты
+          search: Поиск
+          state: Cостояние
+          type: Вид
+          type_prompt: Выбрать вид
+        filters_small_view:
+          close_modal: Закрыть окно
+          filter: Отобрать
+        index_header:
+          new_initiative: Добавить почин
+        result:
+          initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
+        show:
+          offline_method: Этот гражданский почин собирает выражения поддержки только на личных встречах.
+        statistics:
+          assistants_count_title: Помощников
+          comments_count_title: Комментариев
+          meetings_count_title: Встреч
+          supports_count_title: Подписей
+        vote_cabin:
+          supports_required: "Требуется %{total_supports} подписей"
+      initiatives_mailer:
+        progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
       pages:
         home:
           highlighted_initiatives:

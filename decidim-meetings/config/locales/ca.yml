@@ -1,6 +1,10 @@
 ca:
   activemodel:
     attributes:
+      agenda:
+        description: Descripció
+        duration: Durada
+        title: Títol
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -27,6 +31,13 @@ ca:
         description: Descripció
         video_url: URL del vídeo
         visible: És visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
+              too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -102,6 +113,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     meetings:
       actions:
+        agenda: Ordre del dia
         attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
@@ -114,6 +126,36 @@ ca:
         registrations: Inscripcions
         title: Accions
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Afegir un sub-ítem a l'ordre del dia
+            agenda_item: Punt de l'ordre del dia
+            agenda_item_children: Sub-ítems de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
+            up: Amunt
+          agenda_item_child:
+            agenda_item_child: Sub-ítem de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
+            up: Pujar
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta agenda
+            success: S'ha creat l'agenda correctament
+          edit:
+            title: Edita l'agenda
+            update: Actualització
+          form:
+            add_agenda_item: Afegeix un element de l'agenda
+            agenda_items: Punts de l'ordre del dia
+            end_date: Data de finalització
+            start_date: Data d'inici
+          new:
+            create: Crear
+            title: Nova agenda
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta agenda
+            success: L'agenda s'ha actualitzat correctament
         exports:
           registrations: Inscripcions
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ ca:
           unfold: Desplegar
         index:
           view_meeting: Veure trobada
+        meeting_minutes:
+          meeting_minutes: Minuts de trobada
+          related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
@@ -243,11 +288,9 @@ ca:
           contributions: Nombre d'aportacions
           going: Inscrit
           join: Inscriu-te a la reunió
-          meeting_minutes: Acta de la trobada
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
-          related_information: Informació relacionada
           remaining_slots:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"

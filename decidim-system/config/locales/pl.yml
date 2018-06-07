@@ -3,7 +3,7 @@ pl:
     system:
       actions:
         confirm_destroy: Czy na pewno chcesz to usunąć?
-        destroy: Zniszczyć
+        destroy: Kasować
         edit: Edytować
         new: Nowy
         save: Zapisać
@@ -13,7 +13,7 @@ pl:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
           success: Admin został utworzony
         destroy:
-          success: Admin z powodzeniem zniszczył
+          success: Administrator został pomyślnie usunięty
         edit:
           title: Edytuj administratora
           update: Aktualizacja

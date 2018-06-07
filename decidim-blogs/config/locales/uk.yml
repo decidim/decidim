@@ -1,7 +1,7 @@
 uk:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Новий допис у блозі
+      decidim/blogs/create_post_event: Створити допис у блозі
   activerecord:
     models:
       decidim/blogs/post:
@@ -37,7 +37,7 @@ uk:
             create: Створити
             title: Створити допис
           update:
-            invalid: При збереженні цього допису сталися помилки.
+            invalid: При спробі збереження цього допису сталися помилки.
             success: Допис успішно збережено
       models:
         post:
@@ -59,7 +59,7 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі увімкнено
+            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -73,7 +73,7 @@ uk:
     pages:
       home:
         statistics:
-          posts_count: Дописи
+          posts_count: Дописів
     participatory_processes:
       statistics:
-        posts_count: Дописи
+        posts_count: Дописів

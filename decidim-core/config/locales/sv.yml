@@ -10,8 +10,8 @@ sv:
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
-        password: Nytt lösenord
-        password_confirmation: Bekräfta ditt nya lösenord
+        password: Lösenord
+        password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         user_group_document_number: Organisationsdokumentnummer
@@ -52,6 +52,11 @@ sv:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Filnr finns
+        invalid_token: Den angivna token är ogiltig.
+        no_token: Ingen token tillhandahålls
+        notice: Dina uppgifter är pågående. Du får ett mail när det är klart.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
         confirm:
@@ -177,6 +182,13 @@ sv:
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
+    data_portability:
+      export:
+        ready: Redo
+      show:
+        download_data: Ladda ner data
+        download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
+        request_data: Begär data
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ sv:
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
+      data_portability_export:
+        click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig till %{date}.
+        download: Ladda ner
       export:
         ready: Vänligen se bifogad en zippad version av din export.
       subject: Din export "%{name}" är klar
@@ -304,6 +319,18 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    invitations:
+      create:
+        error: Det fanns några problem när du inbjöd dina vänner
+        error_empty_form: Vänligen ange några e-postadresser
+        success: Vi har skickat inbjudningarna till dina vänner!
+      index:
+        customize_message: Anpassa inbjudningsmeddelandet
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Låt dina vänner veta om den här webbplatsen
+        invitations_title: Tror du att fler röster ska höras i %{organization_name}?
+        invite: Inbjudan
+        visit_your_profile: Besök din profil
     log:
       base_presenter:
         create: "%{user_name} skapad %{resource_name}"
@@ -423,6 +450,23 @@ sv:
           register: Registrera
       index:
         title: Mer information
+      terms_and_conditions:
+        accept:
+          error: Det har funnits ett fel när du accepterar villkoren.
+          success: Bra! Du har accepterat villkoren.
+        form:
+          agreement: Jag håller med om dessa villkor
+          legend: Godkänn användarvillkoren
+        refuse:
+          modal_body: Om du vägrar, kan du inte använda plattformen, du kan <a href="%{data_portability_path}">ladda ner data</a> och / eller <a href="%{delete_path}">radera ditt konto</a>.
+          modal_btn_continue: Acceptera villkor och fortsätt
+          modal_btn_exit: Jag ska granska den senare
+          modal_button: Avvisa villkoren
+          modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
+        required_review:
+          alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
+          body: Var snäll och granska uppdateringar av våra användarvillkor. Annars kommer du inte kunna använda plattformen.
+          title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du får inte se det här innehållet
     profile:
@@ -459,6 +503,20 @@ sv:
         title: Välj %{field}
       prompt: Välj en omfattning
       scopes: Omfattningar
+    search:
+      filter:
+        all: Allt
+        component: Komponent
+      results_found_for_term: '%{count} Resultat för sökningen: "%{term}"'
+      term_input_placeholder: Sök
+    searches:
+      filters:
+        search: Sök
+      filters_small_view:
+        close_modal: Stäng modal
+        filter: Filtrera
+        filter_by: Filtrera efter
+        unfold: Veckla ut
     shared:
       action_authorization_modal:
         expired:
@@ -515,17 +573,20 @@ sv:
   devise:
     invitations:
       edit:
-        header: Ange ditt lösenord
+        header: Slutför att skapa ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
+        subtitle: Om du accepterar inbjudan, ange ditt smeknamn och lösenord.
     mailer:
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
         hello: Hej %{email},
         ignore: |-
-          Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
+          Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
+          Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_friend: "%{invited_by} har bjudit in dig till %{application}."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
@@ -534,6 +595,10 @@ sv:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_friend:
+        accept_invitation: 'Du kan acceptera inbjudan via länken nedan:'
+        friend_custom_text: 'De lämnade det här meddelandet för dig:'
+        subject: Du har blivit inbjuden till %{organization}
       invite_private_user:
         subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
       organization_admin_invitation_instructions:
@@ -583,6 +648,7 @@ sv:
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
+        invite_friends: Bjuda in vänner
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
@@ -591,6 +657,7 @@ sv:
         account: Konto
         authorizations: Tillstånd
         delete_my_account: Ta bort mitt konto
+        my_data: Min data
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Organisationer

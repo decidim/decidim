@@ -10,8 +10,8 @@ gl:
         email: O teu correo electrónico
         name: O teu nome
         nickname: O teu identificador breve e único
-        password: Novo contrasinal
-        password_confirmation: Confirma o teu novo contrasinal
+        password: Contrasinal
+        password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
         remove_avatar: Eliminar avatar
         user_group_document_number: Número de documento da organización
@@ -52,6 +52,11 @@ gl:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: O ficheiro non existe
+        invalid_token: O token fornecido non é válido.
+        no_token: Sen token fornecido
+        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
         confirm:
@@ -177,6 +182,13 @@ gl:
     core:
       actions:
         unauthorized: Non estás autorizado para realizar esta acción
+    data_portability:
+      export:
+        ready: Listo
+      show:
+        download_data: Descarga os datos
+        download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
+        request_data: Solicitar datos
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ gl:
           email_subject: "%{nickname} actualizou o seu perfil"
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.
+        download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
       subject: A exportación "%{name}" está lista
@@ -304,6 +319,18 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    invitations:
+      create:
+        error: Houbo algúns problemas ao invitar aos teus amigos
+        error_empty_form: Introduce algúns enderezos de correo electrónico
+        success: Enviamos as invitacións aos teus amigos.
+      index:
+        customize_message: Personaliza a mensaxe de invitación
+        friend_email: 'Correo electrónico do amigo #%{index}'
+        invitations_subtitle: Deixe os seus amigos saber sobre este sitio
+        invitations_title: Pensas que se deben escoitar máis voces en %{organization_name}?
+        invite: Invitar
+        visit_your_profile: Visita o teu perfil
     log:
       base_presenter:
         create: "%{user_name} creouse %{resource_name}"
@@ -423,6 +450,23 @@ gl:
           register: Rexistrarse
       index:
         title: Máis información
+      terms_and_conditions:
+        accept:
+          error: Produciuse un erro ao aceptar os termos e condicións.
+          success: Grande! Aceptou os termos e condicións.
+        form:
+          agreement: Acepto estes termos
+          legend: Concorda cos termos e condicións de uso
+        refuse:
+          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
+          modal_btn_continue: Aceptar termos e continuar
+          modal_btn_exit: Vou revisalo máis tarde
+          modal_button: Rexeitar os termos
+          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
+        required_review:
+          alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
+          body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
+          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
@@ -459,6 +503,20 @@ gl:
         title: Selecciona %{field}
       prompt: Seleccione un alcance
       scopes: Ámbitos
+    search:
+      filter:
+        all: Todo
+        component: Compoñente
+      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
+      term_input_placeholder: Busca
+    searches:
+      filters:
+        search: Busca
+      filters_small_view:
+        close_modal: Pechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Despregar
     shared:
       action_authorization_modal:
         expired:
@@ -515,17 +573,20 @@ gl:
   devise:
     invitations:
       edit:
-        header: Establece o teu contrasinal
+        header: Acaba de crear a túa conta
         nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
+        subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación farase en %{due_date}.
         hello: Ola %{email},
         ignore: |-
-          Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
+          Se non queres aceptar a invitación, ignora este correo electrónico.<br />
+          súa conta non se creará ata que acceda á ligazón anterior e configure o seu alcume e contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
+        invited_you_as_friend: "%{invited_by} convidoute a %{application}."
         invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
@@ -534,6 +595,10 @@ gl:
         subject: Invitaboute a xestionar %{organization}
       invite_collaborator:
         subject: Invitoute a colaborar en %{organization}
+      invite_friend:
+        accept_invitation: 'Podes aceptar a invitación a través da seguinte ligazón:'
+        friend_custom_text: 'Deixaron esta mensaxe para ti:'
+        subject: Invitaches a %{organization}
       invite_private_user:
         subject: Invitouse a un proceso participativo privado en %{organization}
       organization_admin_invitation_instructions:
@@ -583,6 +648,7 @@ gl:
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
+        invite_friends: Invitar amigos
         notifications: Notificacións
         profile: A miña conta
         public_profile: O meu perfil público
@@ -591,6 +657,7 @@ gl:
         account: Conta
         authorizations: Autorizacións
         delete_my_account: Eliminar a miña conta
+        my_data: Os meus datos
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Organizacións

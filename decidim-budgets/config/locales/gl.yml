@@ -33,7 +33,7 @@ gl:
             invalid: Produciuse un problema ao crear este proxecto
             success: O proxecto foi creado con éxito
           destroy:
-            success: Proxecto destruído con éxito
+            success: Proxecto eliminado con éxito
           edit:
             title: Editar proxecto
             update: Actualización

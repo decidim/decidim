@@ -8,7 +8,7 @@ it:
         scope_id: Scopo
         signature_end_time: Fine del periodo di raccolta della firma
         signature_start_time: Inizio del periodo di raccolta della firma
-        signature_type: Tipo di firma
+        signature_type: Tipo di raccolta della firma
         signature_type_values:
           any: Misto
           offline: Faccia a faccia
@@ -30,7 +30,7 @@ it:
         title: Titolo
       organization_data:
         address: Indirizzo
-        id_document: CIF
+        id_document: Documento di identità
         name: Nome completo
   activerecord:
     models:
@@ -110,7 +110,7 @@ it:
             filter_by: Filtra per
             preview: Anteprima
             print: Stampare
-            search: Busca
+            search: Ricerca
           show:
             print: Stampare
           update:
@@ -125,7 +125,7 @@ it:
           edit:
             back: Indietro
             confirm_destroy: Sei sicuro?
-            destroy: Distruggere
+            destroy: Elimina
             title: Modifica l'ambito del tipo di iniziativa
             update: Aggiornare
           new:
@@ -143,7 +143,7 @@ it:
             success: Il tipo di iniziativa è stato rimosso con successo
           edit:
             confirm_destroy: Sei sicuro?
-            destroy: Distruggere
+            destroy: Elimina
             update: Aggiornare
           form:
             title: Informazione generale
@@ -154,7 +154,7 @@ it:
             title: Nuovo tipo di iniziativa
           update:
             error: C'è stato un errore
-            success: L'iniziativa data è stata aggiornata con successo
+            success: Il tipo di iniziativa è stato aggiornato con successo
       admin_log:
         initiative:
           publish: "%{user_name} ha pubblicato l'iniziativa %{resource_name}"
@@ -171,7 +171,7 @@ it:
       committee_requests:
         new:
           continue: Continua
-          help_text: Stai per richiedere l'iscrizione al comitato promotore di questa iniziativa
+          help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
         spawn:
           success: La tua richiesta è stata inviata all'autore dell'iniziativa.
       create_initiative:
@@ -190,9 +190,9 @@ it:
           more_information: "(Maggiori informazioni)"
         finish_help:
           access_reminder: Ricorda che sarai sempre in grado di accedere alle tue iniziative attraverso il menu utente.
-          help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che conformano la Commissione Promotrice
+          help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
           help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o combinato con online, dovrai caricare le informazioni richieste.
-          help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo alla procedura.
+          help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo per l'elaborazione.
           initiatives_page_link: Puoi consultare tutte queste informazioni sul %{link} dedicato a informare sulle iniziative.
           page: pagina
         previous_form:
@@ -274,7 +274,7 @@ it:
           any_vote_method: Questa iniziativa cittadina raccoglie supporto online e faccia a faccia.
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
         signature_identities:
-          select_identity: Seleziona l'identità dell'utente
+          select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
           one: " firma"
           other: " firme"
@@ -329,7 +329,7 @@ it:
         fill_data: Creare
         finish: finire
         previous_form: Inizio
-        promotal_committee: Comitato promozionale
+        promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confrontare
       initiative_header:

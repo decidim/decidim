@@ -57,7 +57,7 @@ pt:
         settings:
           global:
             announcement: Anúncio
-            comments_enabled: Comentários habilitados
+            comments_enabled: Comentários ativados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

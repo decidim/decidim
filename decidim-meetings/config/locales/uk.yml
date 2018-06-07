@@ -1,6 +1,10 @@
 uk:
   activemodel:
     attributes:
+      agenda:
+        description: Опис
+        duration: Тривалість
+        title: Заголовок
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
@@ -21,12 +25,19 @@ uk:
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
         title: Назва
-        transparent: Прозорий
+        transparent: Прозора
       minutes:
         audio_url: Веб-адреса аудіозапису
         description: Опис
         video_url: Веб-адреса відеозапису
-        visible: Видний
+        visible: Видимий
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
+              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -55,7 +66,7 @@ uk:
     admin:
       meeting_copies:
         create:
-          error: При створенні копії цієї зустрічі сталася помилка.
+          error: При спробі створити копію цієї зустрічі сталася помилка.
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
@@ -108,6 +119,7 @@ uk:
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
       actions:
+        agenda: Порядок денний
         attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
@@ -115,11 +127,41 @@ uk:
         destroy: Видалити
         edit: Редагувати
         minutes: Протокол
-        new: Нова
+        new: Додати
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Створити вкладене питання для даного питання порядку денного
+            agenda_item: Питання порядку денного
+            agenda_item_children: Вкладені питання для даного питання порядку денного
+            down: Донизу
+            remove: Видалити
+            up: Догори
+          agenda_item_child:
+            agenda_item_child: Вкладене питання для даного питання порядку денного
+            down: Донизу
+            remove: Видалити
+            up: Догори
+          create:
+            invalid: При спробі створити цей порядок денний сталася помилка
+            success: Порядок денний успішно створено
+          edit:
+            title: Редагувати порядок денний
+            update: Оновити
+          form:
+            add_agenda_item: Додати питання порядку денного
+            agenda_items: Питання порядку денного
+            end_date: Дата закінчення
+            start_date: Дата початку
+          new:
+            create: Створити
+            title: Додати порядок денний
+          update:
+            invalid: При спробі оновити цей порядок денний сталася помилка
+            success: Порядок денний успішно оновлено
         exports:
           registrations: Реєстрації
         invite_join_meeting_mailer:
@@ -240,6 +282,9 @@ uk:
           unfold: Розгорнути
         index:
           view_meeting: Переглянути зустріч
+        meeting_minutes:
+          meeting_minutes: Протокол зустрічі
+          related_information: Супутні відомості
         meetings:
           no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
@@ -251,11 +296,9 @@ uk:
           contributions: Кількість внесених пропозицій
           going: Збирається відвідати
           join: Долучитись до зустрічі
-          meeting_minutes: Протоколи зустрічі
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          related_information: Супутні відомості
           remaining_slots:
             one: Залишилось 1 місце
             few: "Залишилось %{count} місця"
@@ -274,7 +317,7 @@ uk:
       registration_mailer:
         confirmation:
           confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
-          details: Відомості про зустріч читайте у вкладенні.
+          details: Детальні відомості про зустріч читайте у вкладенні.
       registrations:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.
@@ -284,7 +327,7 @@ uk:
           success: Ви успішно скасували реєстрацію на зустріч.
       types:
         private_meeting: Приватна зустріч
-        transparent: Прозорий
+        transparent: Прозора
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

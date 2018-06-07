@@ -96,7 +96,7 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -132,7 +132,7 @@ fr:
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
-        site: Site
+        site: Site Internet
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -524,7 +524,7 @@ fr:
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier la bannière d'actualités
+          omnipresent_banner_appearance_title: Modifier une bannière omniprésente
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.

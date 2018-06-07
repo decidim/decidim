@@ -65,7 +65,7 @@ uk:
             title: Підсумки
           new:
             create: Створити підсумки
-            title: Нові підсумки
+            title: Додати підсумки
           proposals:
             close: Закрити
             current_selection: Поточний вибір
@@ -89,7 +89,7 @@ uk:
             title: Стани
           new:
             create: Створити стан
-            title: Новий стан
+            title: Додати стан
           update:
             invalid: При спробі оновити цей стан сталася помилка
             success: Стан успішно оновлено
@@ -106,7 +106,7 @@ uk:
             title: Записи на лінії часу задуму
           new:
             create: Створити запис
-            title: Новий запис
+            title: Додати запис
           update:
             invalid: Під час оновлення цього запису сталася помилка
             success: Запис успішно оновлено
@@ -159,7 +159,7 @@ uk:
           stats:
             attendees: Учасники
             back_to_result: Повернутися до підсумків
-            comments: Коментарі
+            comments: Коментарів
             contributions: Внесені пропозиції
             last_edited_by: Останній раз редагувалося
             last_updated_at: Останній раз оновлювалося
