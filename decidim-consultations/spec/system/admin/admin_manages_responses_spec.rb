@@ -114,7 +114,7 @@ describe "Admin manages responses", type: :system do
     end
 
     it "deletes the response" do
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 
