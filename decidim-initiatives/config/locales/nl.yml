@@ -8,7 +8,7 @@ nl:
         scope_id: Bereik
         signature_end_time: Einde van de periode om handtekeningen te verzamelen
         signature_start_time: Begin van de periode om handtekeningen te verzamelen
-        signature_type: Handtekeningstype
+        signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
           offline: Face to face
@@ -30,7 +30,7 @@ nl:
         title: Titel
       organization_data:
         address: Adres
-        id_document: CIF
+        id_document: ID-document
         name: Volledige naam
   activerecord:
     models:
@@ -110,7 +110,6 @@ nl:
             filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Busca
           show:
             print: Afdrukken
           update:
@@ -125,7 +124,6 @@ nl:
           edit:
             back: Terug
             confirm_destroy: Weet je het zeker?
-            destroy: Vernietigen
             title: Bewerk het initiatieftype bereik
             update: Bijwerken
           new:
@@ -143,7 +141,6 @@ nl:
             success: Het initiatieftype is succesvol verwijderd
           edit:
             confirm_destroy: Weet je het zeker?
-            destroy: Vernietigen
             update: Bijwerken
           form:
             title: Algemene informatie
@@ -154,7 +151,6 @@ nl:
             title: Nieuw initiatiefstype
           update:
             error: Er is een fout opgetreden
-            success: Het gegeven initiatief is met succes bijgewerkt
       admin_log:
         initiative:
           publish: "%{user_name} heeft het %{resource_name} -initiatief gepubliceerd"
@@ -171,7 +167,6 @@ nl:
       committee_requests:
         new:
           continue: Doorgaan met
-          help_text: Je staat op het punt lid te worden van de promotieraad van dit initiatief
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
       create_initiative:
@@ -190,9 +185,7 @@ nl:
           more_information: "(Meer informatie)"
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
-          help_for_organizations: Als je een vereniging bent, moet je de notulen van de raad van bestuur van alle organisaties die conform de Promotcommissie zijn, uploaden
           help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
-          help_text: 'Belangrijk: om het initiatief goed te verwerken moet je toegang hebben tot het administratiepaneel waar je het gebruikersmenu kan vinden. De vereiste informatie kan je uploaden en het naar de procedure sturen.'
           initiatives_page_link: Je kunt al deze informatie op de %{link} opzoeken om je te informeren over initiatieven.
           page: pagina
         previous_form:
@@ -211,7 +204,6 @@ nl:
           select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotiecommissie
         show_similar_initiatives:
           back: Terug
           compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gedaan te worden.
@@ -273,8 +265,6 @@ nl:
         show:
           any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
-        signature_identities:
-          select_identity: Selecteer gebruikersidentiteit
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
@@ -302,7 +292,6 @@ nl:
         more_information: Hier heb je meer informatie over het proces voor het maken van initiatieven.
         progress_report_body_for: Het initiatief %{title} heeft %{percentage}% van de vereiste stemmen behaald.
         progress_report_for: 'Doorgaan over het initiatief: %{title}'
-        promotal_committee_help: Vergeet niet dat je ten minste %{member_count} mensen moet uitnodigen voor een promotiecommissie. Stuur de volgende link door om mensen uit te nodigen voor de promotiecommissie
         status_change_body_for: 'Het initiatief %{title} heeft de status gewijzigd in: %{state}'
         status_change_for: Het initiatief %{title} is van status veranderd
         technical_validation_body_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
@@ -329,7 +318,6 @@ nl:
         fill_data: creëren
         finish: Voltooien
         previous_form: Begin
-        promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
       initiative_header:
