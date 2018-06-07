@@ -85,7 +85,7 @@ uk:
       admin:
         committee_requests:
           index:
-            approve: Затвердити
+            approve: Схвалити
             confirm_revoke: Ви впевнені?
             invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до робочого гурту з просування
             no_members_yet: У робочого гурту з просування нема жодного члена
