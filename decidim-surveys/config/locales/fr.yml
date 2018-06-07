@@ -18,7 +18,7 @@ fr:
     components:
       surveys:
         actions:
-          answer: Répondre
+          answer: Réponse
         name: Enquête
         settings:
           global:
@@ -29,19 +29,19 @@ fr:
     events:
       surveys:
         survey_closed:
-          email_intro: Le sondage %{resource_title} proposé dans %{participatory_space_title} est maintenant terminé.
-          email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
+          email_intro: L'enquête %{resource_title} proposée dans %{participatory_space_title} est maintenant terminée.
+          email_outro: Vous avez reçu une notification venant de %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: L'enquête du processus participatif %{participatory_space_title} est terminée
-          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
+          notification_title: L'enquête <a href="%{resource_path}">%{resource_title}</a> lancée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminée.
         survey_opened:
           email_intro: 'L''enquête %{resource_title} est désormais ouverte sur le processus participatif %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une nouvelle enquête vient d'être créée depuis %{participatory_space_title}
+          email_outro: Vous avez reçu cette notification car vous suivez le processus %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
+          email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     forms:
       errors:
         survey_answer:
-          body: Cet espace ne peut pas être vide
+          body: Ce champ ne peut pas être vide
     surveys:
       admin:
         exports:
@@ -61,7 +61,7 @@ fr:
             title: Titre
           form:
             add_question: Ajouter une question
-            already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
+            already_answered_warning: L'enquête ayant déjà reçu des réponses, vous ne pouvez plus modifier les questions.
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
@@ -72,7 +72,7 @@ fr:
             statement: Déclaration
             up: Monter
           update:
-            invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
+            invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
       question_types:
         long_answer: Réponse longue
@@ -90,12 +90,12 @@ fr:
           answer_survey:
             anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .
             title: Participer à l'enquête
-          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez plus modifier vos réponses. Êtes-vous prêt à valider votre participation ?
           submit: Envoyer
           survey_answered:
             body: Vous avez déjà participé à cette enquête.
             title: Enquête complétée
           survey_closed:
-            body: L'enquête est fermée et n'accepte plus de réponse.
-            title: Enquête fermée
-          tos_agreement: En participant à ce sondage, vous acceptez ses conditions d'utilisation
+            body: L'enquête est terminée et n'accepte plus de réponse.
+            title: Enquête terminée
+          tos_agreement: En participant à cette enquête, vous acceptez ses conditions d'utilisation

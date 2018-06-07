@@ -3,3 +3,326 @@ uk:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        description: Опис
+        offline_votes: Підтримка на особистих зустрічах
+        scope_id: Обсяг
+        signature_end_time: Конець проміжку збору підписів
+        signature_start_time: Початок проміжку збору підписів
+        signature_type: Різновид збору підписів
+        signature_type_values:
+          any: Змішані
+          offline: На особистих зустрічах
+          online: Онлайн
+        title: Назва
+      initiative_author:
+        address: Адреса
+        city: Місто
+        id_document: ІПН / РНОКПП
+        name: Ім'я та прізвище
+        phone_number: Номер телефону
+        post_code: Поштовий індекс
+        province: Область
+      initiatives_committee_member:
+        user: Член робочого гурту
+      initiatives_type:
+        banner_image: Банерне зображення
+        description: Опис
+        title: Назва
+      organization_data:
+        address: Адреса
+        id_document: CIF
+        name: Повне ім'я
+  decidim:
+    admin:
+      menu:
+        initiatives: Почини
+        initiatives_types: Різновиди починів
+      models:
+        initiatives:
+          fields:
+            created_at: 'Створено:'
+            state: Стан
+            supports_count: Людей підтримують
+            title: Почини
+        initiatives_type_scope:
+          fields:
+            scope: Обсяг
+            supports_required: Необхідна підтримка
+          name: Обсяг різновиду почину
+        initiatives_types:
+          fields:
+            created_at: 'Створено:'
+            title: Різновиди починів
+          name: Різновид почину
+      titles:
+        initiatives: Почини
+        initiatives_types: Різновиди починів
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Затвердити
+            confirm_revoke: Ви впевнені?
+            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до робочого гурту з просування
+            no_members_yet: У робочого гурту з просування нема жодного члена
+            revoke: Відкликати
+            title: Члени робочого гурту
+        initiatives:
+          edit:
+            accept: Прийняти почин
+            confirm: Ви впевнені?
+            discard: Відкинути почин
+            export_votes: Зберегти у вигляді файлу список тих, хто підтримує
+            reject: Відхилити почин
+            send_to_technical_validation: Надіслати на технічну перевірку
+            success: Почин був відправлений на технічну перевірку
+            update: Оновити
+          form:
+            title: Загальні відомості
+          index:
+            actions_title: Дія
+            filter:
+              accepted: Прийнято
+              all: Усі
+              created: Створені
+              discarded: Відкинуті
+              published: Оприлюднені
+              rejected: Відхилені
+              validating: Технічна перевірка
+            filter_by: 'Відібрати за ознакою:'
+            preview: Попередній перегляд
+            print: Друк
+            search: Шукати
+          show:
+            print: Друк
+          update:
+            error: Сталася помилка
+            success: Громадський почин було успішно оновлено
+        initiatives_type_scopes:
+          create:
+            error: Сталася помилка
+            success: Було додано новий обсяг для даного різновиду почину
+          destroy:
+            success: Обсяг було успішно видалено
+          edit:
+            back: Повернутись
+            confirm_destroy: Ви впевнені?
+            destroy: Видалити
+            title: Редагувати обсяг різновиду почину
+            update: Оновити
+          new:
+            back: Повернутись
+            create: Створити
+            title: Створити обсяг різновиду почину
+          update:
+            error: Сталася помилка
+            success: Обсяг було успішно оновлено
+        initiatives_types:
+          create:
+            error: Сталася помилка
+            success: Був успішно створений новий різновид почину
+          destroy:
+            success: Різновид почину було успішно видалено
+          edit:
+            confirm_destroy: Ви впевнені?
+            destroy: Видалити
+            update: Оновити
+          form:
+            title: Загальні відомості
+          initiative_type_scopes:
+            title: Обсяги для цього різновиду почину
+          new:
+            create: Додати
+            title: Додати різновид почину
+          update:
+            error: Сталася помилка
+            success: Даний почин було успішно оновлено
+      admin_log:
+        initiative:
+          publish: "%{user_name} оприлюднив почин %{resource_name}"
+          send_to_technical_validation: "%{user_name} надіслав почин %{resource_name} на технічну перевірку"
+          unpublish: "%{user_name} відкинув почин %{resource_name}"
+          update: "%{user_name} оновив почин %{resource_name}"
+      admin_states:
+        accepted: Прийняті
+        created: Створені
+        discarded: Відкинуті
+        published: Оприлюднені
+        rejected: Відхилені
+        validating: Технічна перевірка
+      committee_requests:
+        new:
+          continue: Продовжити
+          help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
+        spawn:
+          success: Ваш запит було надіслано автору почину.
+      create_initiative:
+        fill_data:
+          back: Повернутись
+          continue: Продовжити
+          fill_data_help: "<ul> <li>Перегляньте зміст вашого почину. Чи легко розуміти його заголовок? Ясна мета вашого почину?</li> <li>Ви маєте обрати різновид збору підписів. На особистій зустрічі, в Інтернеті або і там, і там</li> <li>Який географічний обсяг почину? Місто, район?</li> </ul>"
+          initiative_type: Різновид почину
+          more_information: "(Додаткові відомості)"
+          select_scope: Оберіть обсяг
+        finish:
+          back: Повернутись
+          back_to_initiatives: Повернутися до починів
+          callout_text: Вітаємо! Ваш громадський почин було успішно додано.
+          go_to_my_initiatives: Перейти до моїх починів
+          more_information: "(Додаткові відомості)"
+        finish_help:
+          access_reminder: Пам'ятайте, що ви завжди зможете отримати доступ до ваших починів через меню учасника.
+          help_for_organizations: Якщо ви є асоціацією організацій, ви маєте завантажити протоколи засідань правління усіх організацій, які входять до робочої групи з просування
+          help_in_person_signatures: Якщо ви вирішили збирати підписи на особистих зустрічах або в поєднанні зі збором онлайн, вам доведеться завантажити необхідні відомості.
+          help_text: Пам'ятайте, що для властивої обробки почину ви повинні зайти до панелі адміністрування. Знайдіть там меню учасника, завантажте потрібні відомості та відправте його на обробку.
+          initiatives_page_link: Ви можете знайти всі ці відомості на %{link}, присвяченій повідомленню про ініціативи.
+          page: сторінці
+        previous_form:
+          back: Повернутись
+          continue: Продовжити
+          help: В чому полягає цей почин? Викладіть назву та опис. Ми радимо небагатослівний, стислий заголовок та опис, зосереджений на запропонованому рішенні.
+          more_information: "(Додаткові відомості)"
+        promotal_committee:
+          back: Повернутись
+          individual_help_text: Громадські ініціативи потребують робочого гурту з просування, що складається з принаймні трьох людей (засвідчуючих осіб). Ви маєте поділитися наступним посиланням з іншими людьми, які є частиною цього почину. Коли вони отримають це посилання, їм треба буде пройти зазначені там кроки.
+          more_information: "(Додаткові відомості)"
+        select_initiative_type:
+          back: Повернутись
+          more_information: "(Додаткові відомості)"
+          select: Обрати
+          select_initiative_type_help: Громадські почини - це засіб, за допомогою якого громадяни можуть втрутитися з тим, щоб міська рада вжила заходів для забезпечення спільних потреб, які належать до сфери комунальної юрисдикції. Який почин ви хочете зробити?
+        share_committee_link:
+          continue: Продовжити
+          invite_to_committee_help: Посилання для запрошення людей, які увійдуть в робочий гурт з просування
+        show_similar_initiatives:
+          back: Повернутись
+          compare_help: Якщо будь-який з наведених нижче починів подібний до вашого, ми закликаємо вас підтримати його. Ваша пропозиція матиме більше можливостей для втілення.
+          continue: Мій почин відрізняється
+          more_information: "(Додаткові відомості)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, зробив новий почин. Прочитайте його та зробіть свій внесок:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Новий почин, започаткований %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> створив почин <a href="%{resource_path}">%{resource_title}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступний почин. Чи не бажаєте ви зробити свій внесок у розмову:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: '%{author_nickname} підтримав почин'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
+      index:
+        title: Почини
+      initiative_votes:
+        create:
+          error: При голосуванні щодо цього почину сталися помилки.
+      initiatives:
+        author:
+          deleted: Видалено
+        count:
+          title:
+            one: "%{count} почин"
+            few: "%{count} почини"
+            many: "%{count} починів"
+            other: "%{count} починів"
+        filters:
+          any: Будь-які
+          author: Автор
+          closed: Закриті
+          myself: Мої почини
+          open: Відкриті
+          search: Шукати
+          state: Стан
+          type: Різновид
+          type_prompt: Оберіть різновид
+        filters_small_view:
+          close_modal: Закрити вікно
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
+        index_header:
+          new_initiative: Започаткувати почин
+        orders:
+          label: 'Впорядкувати почини за ознакою:'
+          most_commented: Найбільш коментовані
+          most_voted: Отримали найбільше голосів
+          random: Довільно
+          recent: Найновіші
+        result:
+          initiative_accepted_reason: Цей почин був прийнятий, тому що
+          initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
+        show:
+          any_vote_method: Цей громадський почин збирає онлайн-підтримку, а також підтримку на особистих зустрічах.
+          offline_method: Цей громадський почин збирає підтримку лише на особистих зустрічах.
+        signature_identities:
+          select_identity: Виберіть псевдонім учасника
+        statistics:
+          assistants_count_title: Помічники
+          comments_count_title: Коментарі
+          meetings_count_title: Зустрічі
+          supports_count_title: Людей підтримують
+        supports:
+          title: Перелік людей, що підтримують
+        supports_count:
+          count:
+            one: " людина підтримує"
+            few: " людини підтримують"
+            many: " людей підтримують"
+            other: " людей підтримують"
+        vote_cabin:
+          already_voted: Вже проголосували
+          supports_required: "Необхідно %{total_supports} голосів"
+          vote: Підписати
+          votes_blocked: Голосування вимкнене
+        votes_count:
+          count:
+            one: ПІДПИС
+            few: ПІДПИСИ
+            many: ПІДПИСІВ
+            other: ПІДПИСІВ
+      initiatives_mailer:
+        creation_subject: Ваш громадський почин "%{title}" був доданий
+        initiative_link:
+          check_initiative_details: Ви можете подивитися подробиці почину
+          here: тут
+        more_information: Тут ви можете знайти додаткові відомості про послідовність створення почину.
+        progress_report_body_for: Почин %{title} отримав %{percentage}% необхідної підтримки.
+        progress_report_for: 'Стислий виклад почину: %{title}'
+        promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочої групи з просування
+        status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
+        status_change_for: Стан почину %{title} змінився
+        technical_validation_body_for: Почин %{title} подав запит на технічну перевірку.
+        technical_validation_for: Почин %{title} подав запит на технічну перевірку.
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Діючі почини
+            see_all_initiatives: Переглянути всі почини
+      states:
+        accepted: Прийняті
+        expired: Строк дії яких закінчився
+    menu:
+      initiatives: Почини
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Вкладені файли
+          committee_members: Члени робочого гурту
+          components: Складові
+          information: Відомості
+      initiative_creation_header:
+        fill_data: Внести
+        finish: Завершити
+        previous_form: Почати
+        promotal_committee: Робочий гурт з просування
+        select_initiative_type: Обрати
+        show_similar_initiatives: Порівняти
+      initiative_header:
+        initiative_menu_item: Почин
+        unfold: Розгорнути
+      initiatives:
+        initiative:
+          check: Перевірте ще раз
+          check_and_support: Перевірте ще раз і підпишіться
+        no_initiatives_yet:
+          no_initiatives_yet: Ще нема жодного почину!

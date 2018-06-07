@@ -11,7 +11,7 @@ pt-BR:
         signature_type: Tipo de assinatura
         signature_type_values:
           any: Misturado
-          offline: Cara a cara
+          offline: Face a face
           online: Conectados
         title: Título
       initiative_author:
@@ -20,7 +20,7 @@ pt-BR:
         id_document: DNI / NIE
         name: Nome e sobrenome
         phone_number: Número de telefone
-        post_code: Código postal
+        post_code: CEP
         province: Província
       initiatives_committee_member:
         user: membro do Comitê
@@ -92,7 +92,7 @@ pt-BR:
             filter_by: Filtrar por
             preview: Visualizar
             print: Impressão
-            search: Busca
+            search: Pesquisa
           show:
             print: Impressão
           update:
@@ -112,7 +112,7 @@ pt-BR:
             update: Atualizar
           new:
             back: Costas
-            create: Crio
+            create: Criar
             title: Criar escopo de tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -132,7 +132,7 @@ pt-BR:
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
           new:
-            create: Crio
+            create: Criar
             title: Novo tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -305,8 +305,8 @@ pt-BR:
           components: Componentes
           information: Em formação
       initiative_creation_header:
-        fill_data: Crio
-        finish: Terminar
+        fill_data: Criar
+        finish: Finalizar
         previous_form: Começar
         promotal_committee: Comitê Promocional
         select_initiative_type: Escolher

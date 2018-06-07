@@ -3,3 +3,4 @@ ru:
     blogs:
       actions:
         confirm_destroy: Вы действительно хотите удалить этот проект?
+        new: Добавить

@@ -20,7 +20,7 @@ pt-BR:
     components:
       proposals:
         actions:
-          create: Crio
+          create: Criar
           endorse: Endossar
           vote: Voto
           withdraw: retirar o
@@ -293,7 +293,7 @@ pt-BR:
         identities_listing:
           see_all: Veja tudo
           see_less: Veja menos
-          title: Lista de endossos
+          title: Lista de avais
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas

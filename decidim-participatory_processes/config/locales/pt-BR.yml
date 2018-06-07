@@ -43,7 +43,7 @@ pt-BR:
       participatory_process_user_role:
         email: O email
         name: Nome
-        role: Função
+        role: Cargo
   decidim:
     admin:
       actions:
@@ -95,7 +95,7 @@ pt-BR:
           fields:
             email: O email
             name: Nome
-            role: Função
+            role: Cargo
           name: Usuário do processo participativo
           roles:
             admin: Administrador

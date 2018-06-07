@@ -2,7 +2,7 @@ ru:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Категория
+        decidim_category_id: Разряд
         decidim_scope_id: Охват
         description: Описание
         end_date: Дата завершения
@@ -40,7 +40,7 @@ ru:
             name: Запись на линии времени
         results:
           create:
-            invalid: При попытке добавить этот итог возникла проблема
+            invalid: При попытке добавить этот итог произошла ошибка
             success: Итог успешно создан
           destroy:
             success: Итог успешно удален
@@ -51,16 +51,16 @@ ru:
             title: Итоги
           new:
             create: Создать итог
-            title: Новый итог
+            title: Добавить итог
           update:
-            invalid: При попытке обновить этот итог возникла проблема
+            invalid: При попытке обновить этот итог произошла ошибка
             success: Итог успешно обновлен
         shared:
           subnav:
             statuses: Состояния
         statuses:
           create:
-            invalid: При попытке создать это состояние возникла проблема
+            invalid: При попытке создать это состояние произошла ошибка
             success: Состояние успешно создано
           destroy:
             success: Состояние успешно удалено
@@ -71,13 +71,13 @@ ru:
             title: Состояния
           new:
             create: Создать состояние
-            title: Новое состояние
+            title: Добавить состояние
           update:
-            invalid: При попытке обновить это состояние возникла проблема
+            invalid: При попытке обновить это состояние произошла ошибка
             success: Состояние успешно обновлено
         timeline_entries:
           create:
-            invalid: При попытке создать эту запись возникла проблема
+            invalid: При попытке создать эту запись произошла ошибка
             success: Запись успешно создана
           destroy:
             success: Запись успешно удалена
@@ -88,9 +88,9 @@ ru:
             title: Записи на линии времени проекта
           new:
             create: Создать запись
-            title: Новая запись
+            title: Создать запись
           update:
-            invalid: При попытке обновить эту запись возникла проблема
+            invalid: При попытке обновить эту запись произошла ошибка
             success: Запись успешно обновлена
       models:
         result:
@@ -121,8 +121,8 @@ ru:
           all: Все
           scopes: Охваты
         home:
-          categories_label: Категории
-          subcategories_label: Подкатегории
+          categories_label: Разряды
+          subcategories_label: Подразряды
         home_header:
           global_status: Состояние общего исполнения
         nav_breadcrumb:
@@ -156,6 +156,12 @@ ru:
           changes_at_title: Изменения в «%{title}»
         version:
           version_index: Версия %{index}
+    components:
+      accountability:
+        settings:
+          global:
+            categories_label: Название для "Разряды"
+            subcategories_label: Название для "Подразряды"
     resource_links:
       included_projects:
         result_projects: Проекты, включенные в эти итоги

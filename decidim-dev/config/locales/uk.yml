@@ -5,9 +5,12 @@ uk:
         created_at: 'Створено:'
         field: Моє поле
         start_date: Дата початку
-        title: Заголовок
+        title: Назва
         updated_at: 'Оновлено:'
   decidim:
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        name: Ще один приклад підтвердження особи
     dummy:
       admin:
         exports:

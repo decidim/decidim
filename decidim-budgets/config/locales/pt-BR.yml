@@ -31,7 +31,7 @@ pt-BR:
             success: Projeto destruído com sucesso
           edit:
             title: Editar projeto
-            update: Actualizar
+            update: Atualizar
           index:
             finished_orders: Votos finais
             pending_orders: Votações pendentes

@@ -33,10 +33,10 @@ uk:
           description: Чи цей вміст неприпустимий?
           details: Додаткові коментарі
           reasons:
-            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
+            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
             offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
             spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
-          title: Поскаржитись на проблему
+          title: Поскаржитись на ускладнення
       comment_order_selector:
         order:
           best_rated: З найкращим рейтингом
@@ -52,8 +52,24 @@ uk:
         title: "%{count} коментарів"
     events:
       comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} залишив коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_created:
+          email_intro: "%{resource_title} прокоментували. Ви можете прочитати коментар на сторінці:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+        reply_created:
+          email_intro: "%{author_name} відповів на ваш коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
+          email_outro: Ви отримали це сповіщення, оскільки на ваш коментар відповіли.
+          email_subject: "%{author_name} відповів на ваш коментар у %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> відповів на ваш коментар у <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Вас згадали
+          email_outro: Ви отримали це сповіщення, оскільки вас згадали в %{resource_title}.
           email_subject: Вас згадали у %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
   errors:

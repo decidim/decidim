@@ -24,10 +24,10 @@ pt-BR:
           index:
             title: Postagens
           new:
-            create: Crio
+            create: Criar
             title: Criar post
           update:
-            invalid: Houve erros ao salvar a postagem.
+            invalid: Falha ao salvar o post.
             success: Post salvo com sucesso
       models:
         post:
@@ -42,7 +42,7 @@ pt-BR:
         sidebar_blog:
           comments: comentários
           most_commented_posts: Posts mais comentados
-      read_more: Consulte Mais informação
+      read_more: Saiba mais
     components:
       blogs:
         name: Blog

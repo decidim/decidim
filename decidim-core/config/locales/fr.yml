@@ -6,13 +6,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
-        about: A propos
+        about: A propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: URL personnelle
+        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
@@ -42,7 +42,7 @@ fr:
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
-          question: Êtes-vous sûr de vouloir supprimer votre compte?
+          question: Êtes-vous sûr de vouloir supprimer votre compte ?
           title: Supprimer mon compte
         explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
       destroy:
@@ -67,7 +67,7 @@ fr:
         unpublish: "%{user_name} a dépublié le module %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
-        unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
+        unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
         create: "%{user_name} a créé la newsletter %{resource_name}"
         delete: "%{user_name} a supprimé la newsletter %{resource_name}"
@@ -138,7 +138,7 @@ fr:
           global:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut fictif 2
+            dummy_global_attribute_2: Attribut factice 2
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
@@ -153,7 +153,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant court et unique sur %{organization} (ne pas utiliser d'espace).
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -161,7 +161,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          nickname_help: Votre identifiant unique et court dans %{organization}
+          nickname_help: Votre identifiant court et unique sur %{organization}  (ne pas utiliser d'espace).
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -174,7 +174,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme?
+          are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -190,8 +190,8 @@ fr:
           see_email: Voir votre email
           see_name: Voir votre nom
           see_username: Voir votre nom d'utilisateur
-          this_application_will_be_able_to: 'Cette application sera capable de:'
-          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de:'
+          this_application_will_be_able_to: 'Cette application sera capable de :'
+          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
@@ -205,16 +205,16 @@ fr:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
           email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{resource_title}
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'La fonctinnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -281,14 +281,14 @@ fr:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir:"
-          outro: Profitez de decidim!
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
+          outro: Profitez de cette plateforme !
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:
-          greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir:"
-          outro: Profitez de decidim!
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
+          outro: Profitez de cette plateforme !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
         create:
@@ -308,9 +308,9 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet e-mail correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
-        unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">page configuration</a>
@@ -320,7 +320,7 @@ fr:
         unsubscribe: Se désabonner
     notifications_settings:
       show:
-        email_on_notification: Je veux recevoir un email chaque fois que je reçois une notification.
+        email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
@@ -333,7 +333,7 @@ fr:
         verified: Vérifié
     pages:
       index:
-        title: Plus d'information
+        title: Plus d'informations
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -374,7 +374,7 @@ fr:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
           reauthorize: Réautoriser
           title: Veuillez réautoriser
@@ -383,9 +383,9 @@ fr:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
         pending:
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours.
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
           resume: Vérifiez votre progression d'autorisation "%{authorization}"
-          title: L'autorisation est toujours en cours
+          title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           invalid_field: "%{field} valeur %{value} n'est pas valide."
@@ -412,7 +412,7 @@ fr:
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       reference:
-        reference: 'Référence: %{reference}'
+        reference: 'Référence : %{reference}'
       results_per_page:
         label: 'Résultats par page :'
       share_modal:
@@ -426,7 +426,7 @@ fr:
       edit:
         header: Définir votre mot de passe
         nickname_help: Votre identifiant unique dans %{organization}.
-        submit_button: sauvegarder
+        submit_button: Sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
@@ -438,7 +438,7 @@ fr:
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Quelqu'un vous a invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
-        someone_invited_you_as_private_user: Quelqu'un vous a invité en tant que private_user de %{application}, vous pouvez l'accepter via le lien ci-dessous.
+        someone_invited_you_as_private_user: Quelqu'un vous a invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
@@ -448,7 +448,7 @@ fr:
       organization_admin_invitation_instructions:
         subject: Vous avez été invité à gérer %{organization}
       password_change:
-        greeting: Bonjour %{recipient}!
+        greeting: Bonjour %{recipient} !
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
   doorkeeper:
@@ -479,7 +479,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé par Open Source Politics grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -563,7 +563,7 @@ fr:
     reddit: Reddit
     share_to: Partager sur %{name}
     tumblr: Tumblr
-    twitter: Gazouillement
+    twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
