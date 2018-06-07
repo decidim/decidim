@@ -158,6 +158,7 @@ ca:
           components: Components
           info: Informació
           moderations: Moderacions
+          private_users: Usuaris privats
       models:
         assembly:
           fields:
@@ -266,6 +267,7 @@ ca:
         composition: Composició
         created_by: Creat per
         creation_date: Data de creació
+        developer_group: Grup promotor
         duration: Durada
         included_at: Inclòs a
         indefinite_duration: Indefinida
