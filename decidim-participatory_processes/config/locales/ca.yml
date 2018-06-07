@@ -8,7 +8,6 @@ ca:
         copy_components: Copiar components
         copy_steps: Copiar fases
         description: Descripció
-        developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
         hashtag: Hashtag
@@ -63,8 +62,6 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: N'estàs segur?
-        destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
         new: Nou/va
@@ -110,7 +107,6 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari del procés
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -125,8 +121,6 @@ ca:
           select: Selecciona quines dades vols duplicar
           title: Duplicar procés participatiu
       participatory_process_groups:
-        destroy:
-          success: Grup eliminat correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
@@ -156,7 +150,6 @@ ca:
           error:
             active_step: No es pot eliminar la fase activa.
             last_step: No es pot eliminar l'última fase d'un procés.
-          success: La fase de procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar
@@ -173,9 +166,6 @@ ca:
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: Usuari creat amb èxit per a aquest procés participatiu.
-        destroy:
-          success: Usuari eliminat amb èxit per a aquest procés participatiu.
         edit:
           title: Editar usuari de procés participatiu.
           update: Actualitzar
@@ -191,8 +181,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
           success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
-        destroy:
-          success: El procés participatiu s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -288,7 +276,6 @@ ca:
         index:
           loading: Carregant resultats...
       show:
-        developer_group: Grup promotor
         end_date: Data de finalització
         local_area: Àrea d'organització
         participatory_scope: Què es decideix
