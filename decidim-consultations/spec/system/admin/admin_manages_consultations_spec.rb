@@ -190,7 +190,7 @@ describe "Admin manages consultations", type: :system do
 
     it "deletes a consultation" do
       click_link translated(consultation2.title)
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 
