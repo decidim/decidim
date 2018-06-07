@@ -59,10 +59,8 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі увімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі вимкнено
     events:
       blogs:
         post_created:
