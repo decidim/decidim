@@ -13,7 +13,8 @@ module Decidim
 
       private
 
-      delegate :current_user, :current_component, to: :controller, prefix: false
+      delegate :current_user, to: :controller, prefix: false
+      delegate :current_component, to: :model, prefix: false
 
       def button_classes
         return "button expanded button--sc" if big_button?
