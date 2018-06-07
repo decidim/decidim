@@ -10,8 +10,8 @@ fi:
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Lyhyt, ainutkertainen tunniste
-        password: Salasanasi
-        password_confirmation: Vahvista salasanasi
+        password: Salasana
+        password_confirmation: Vahvista salasana
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
