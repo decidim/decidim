@@ -10,7 +10,7 @@ it:
         organization: Organizzazione
         plural: Plurale
       attachment:
-        attachment_collection_id: Collezione
+        attachment_collection_id: Cartella
         description: Descrizione
         file: File
         title: Titolo
@@ -96,7 +96,7 @@ it:
       decidim/participatory_process:
         banner_image: Immagine banner
         description: Descrizione
-        developer_group: Gruppo di sviluppo
+        developer_group: Gruppo promotore
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
@@ -132,7 +132,7 @@ it:
         organization_name: Nome dell'organizzazione
         organization_url: URL dell'organizzazione
         redirect_uri: Reindirizza URI
-        site: Luogo
+        site: Sito web
   date:
     formats:
       datepicker: "%m/%d/%Y"
@@ -524,7 +524,7 @@ it:
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           layout_appearance_title: Modifica aspetto del layout
-          omnipresent_banner_appearance_title: Modifica onnipresente
+          omnipresent_banner_appearance_title: Modifica banner onnipresente
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
