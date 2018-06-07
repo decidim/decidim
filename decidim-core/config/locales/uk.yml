@@ -10,6 +10,8 @@ uk:
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
         nickname: Ваш короткий, унікальний псевдонім
+        password: Пароль
+        password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
@@ -54,6 +56,11 @@ uk:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Файл не існує
+        invalid_token: Вказаний токен недійсний.
+        no_token: Не надано жодного токену
+        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       delete:
         alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
         confirm:
@@ -185,6 +192,13 @@ uk:
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
+    data_portability:
+      export:
+        ready: Готово
+      show:
+        download_data: Завантажити дані
+        download_data_description: Файл із усіма відомостями, пов'язаними з обліковим записом, буде відправлений на <strong>%{user_email}</strong>
+        request_data: Подати запит на дані
     devise:
       omniauth_registrations:
         create:
@@ -275,6 +289,9 @@ uk:
           email_subject: "%{nickname} оновив свій профіль"
           notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
+      data_portability_export:
+        click_button: Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.
+        download: Завантажити
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
       subject: Ваш збережений файл "%{name}" готовий
@@ -312,6 +329,18 @@ uk:
       errors:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
+    invitations:
+      create:
+        error: При спробі запросити друзів сталися помилки
+        error_empty_form: Будь ласка, введіть кілька адрес електронної пошти
+        success: Ми надіслали запрошення вашим друзям!
+      index:
+        customize_message: Налаштуйте повідомлення про запрошення
+        friend_email: 'Друг #%{index} Електронна пошта'
+        invitations_subtitle: Нехай ваші друзі дізнаються про цей сайт
+        invitations_title: Як ви гадаєте, чи більше голосів мають бути почутими в %{organization_name}?
+        invite: Запросити
+        visit_your_profile: Відвідайте свій профіль
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -566,6 +595,7 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        invited_you_as_friend: "%{invited_by} запросив вас до %{application}."
         invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
@@ -574,6 +604,8 @@ uk:
         subject: Вас запросили керувати %{organization}
       invite_collaborator:
         subject: Вас запросили співпрацювати на %{organization}
+      invite_friend:
+        accept_invitation: 'Ви можете прийняти запрошення за посиланням нижче:'
       invite_private_user:
         subject: Вас запрошено до приватного руху співучасті від %{organization}
       organization_admin_invitation_instructions:
