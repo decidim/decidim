@@ -10,8 +10,6 @@ uk:
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
         nickname: Ваш короткий, унікальний псевдонім
-        password: Пароль
-        password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
