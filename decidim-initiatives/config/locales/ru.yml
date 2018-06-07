@@ -7,6 +7,8 @@ ru:
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
+      initiative_author:
+        id_document: ИНН/СНИЛС
       organization_data:
         id_document: Документ, удостоверяющий личность
   decidim:
