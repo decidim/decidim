@@ -10,7 +10,7 @@ pl:
         organization: Organizacja
         plural: Liczba mnoga
       attachment:
-        attachment_collection_id: Kolekcja
+        attachment_collection_id: Teczka
         description: Opis
         file: Plik
         title: Tytuł
@@ -96,7 +96,7 @@ pl:
       decidim/participatory_process:
         banner_image: Obraz baneru
         description: Opis
-        developer_group: Grupa programistów
+        developer_group: Grupa promotorów
         domain: Domena
         end_date: Data końcowa
         hashtag: Hasztag
@@ -132,7 +132,7 @@ pl:
         organization_name: Nazwa organizacji
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
-        site: Teren
+        site: Stronie internetowej
   date:
     formats:
       datepicker: "%m / %d / %Y"
@@ -524,7 +524,7 @@ pl:
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
-          omnipresent_banner_appearance_title: Edytuj wszechobecny
+          omnipresent_banner_appearance_title: Edytuj wszechobecny baner
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
