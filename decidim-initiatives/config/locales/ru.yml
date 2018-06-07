@@ -301,14 +301,57 @@ ru:
           already_voted: Уже подписали
           supports_required: "Требуется %{total_supports} подписей"
           vote: Подписать
+          votes_blocked: Подписание отключено
+        votes_count:
+          count:
+            one: ПОДПИСЬ
+            few: ПОДПИСИ
+            many: ПОДПИСЕЙ
+            other: ПОДПИСЕЙ
       initiatives_mailer:
+        creation_subject: Ваш гражданский почин '%{title}' был создан
+        initiative_link:
+          check_initiative_details: Вы можете посмотреть сведения о почине
+          here: здесь
+        more_information: Вот дополнительные сведения о процессе создания почина.
         progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
+        progress_report_for: 'Кратко о почине: %{title}'
+        promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
+        status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
+        status_change_for: Состояние почина %{title} изменилось
+        technical_validation_body_for: Почин %{title} запросил техническую проверку.
+        technical_validation_for: Почин %{title} запросил техническую проверку.
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Действующие почины
+            see_all_initiatives: Просмотреть все инициативы
+      states:
+        accepted: Принятые
+        expired: Истекшие
+    menu:
+      initiatives: Почины
   layouts:
     decidim:
       admin:
         initiative:
+          attachments: Прикрепленные файлы
+          committee_members: Члены рабочей группы
           components: Составляющие
+          information: Сведения
+      initiative_creation_header:
+        fill_data: Создать
+        finish: Закончить
+        previous_form: Начать
+        promotal_committee: Рабочая группа по продвижению
+        select_initiative_type: Выбрать
+        show_similar_initiatives: Сравнить
+      initiative_header:
+        initiative_menu_item: Почин
+        unfold: Развернуть
+      initiatives:
+        initiative:
+          check: Проверьте это
+          check_and_support: Проверьте это и подпишите
+        no_initiatives_yet:
+          no_initiatives_yet: Еще нет ни одного почина!
