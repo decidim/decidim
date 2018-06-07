@@ -10,8 +10,8 @@ sv:
         email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare
-        password: Nytt lösenord
-        password_confirmation: Bekräfta ditt nya lösenord
+        password: Lösenord
+        password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         user_group_document_number: Organisationsdokumentnummer
