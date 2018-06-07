@@ -10,7 +10,7 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Внести пропозицію як
+        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -77,7 +77,7 @@ uk:
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
             proposal_limit: Гранична кількість пропозицій від одного учасника
-            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
+            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
@@ -194,7 +194,7 @@ uk:
             invalid: При спробі відповісти на цю пропозицію сталася помилка
             success: Успішно дано відповідь на пропозицію
           create:
-            invalid: При спробі внести цю пропозицію сталася помилка
+            invalid: При спробі створити цю пропозицію сталася помилка
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -208,7 +208,7 @@ uk:
             update: Оновити
           new:
             create: Внести
-            title: Внести пропозицію
+            title: Створити пропозицію
           update_category:
             invalid: 'Ці пропозиції вже відносились до розряду %{category}: %{proposals}.'
             select_a_category: Будь ласка, оберіть розряд
@@ -329,7 +329,7 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
-          new_proposal: Внести пропозицію
+          new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
         linked_proposals:
