@@ -267,6 +267,7 @@ fi:
         composition: Sävellys
         created_by: Luonut
         creation_date: Päivämäärä luotu
+        developer_group: Promoottoriryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
         indefinite_duration: epämääräinen
