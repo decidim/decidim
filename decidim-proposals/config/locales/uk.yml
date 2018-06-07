@@ -99,7 +99,6 @@ uk:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
-          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість вносити <a href="%{resource_path}">нові пропозиції</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -246,7 +245,6 @@ uk:
         success: Пропозицію успішно створено. Збережено як чернетку.
       destroy_draft:
         error: При спробі видалити чернетку цієї пропозиції сталися помилки.
-        success: Чернетку пропозиції успішно знищено.
       models:
         proposal:
           fields:
