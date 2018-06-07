@@ -52,6 +52,11 @@ sv:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Filnr finns
+        invalid_token: Den angivna token är ogiltig.
+        no_token: Ingen token tillhandahålls
+        notice: Dina uppgifter är pågående. Du får ett mail när det är klart.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
         confirm:
@@ -177,6 +182,13 @@ sv:
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
+    data_portability:
+      export:
+        ready: Redo
+      show:
+        download_data: Ladda ner data
+        download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
+        request_data: Begär data
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ sv:
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
+      data_portability_export:
+        click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig till %{date}.
+        download: Ladda ner
       export:
         ready: Vänligen se bifogad en zippad version av din export.
       subject: Din export "%{name}" är klar
@@ -642,6 +657,7 @@ sv:
         account: Konto
         authorizations: Tillstånd
         delete_my_account: Ta bort mitt konto
+        my_data: Min data
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Organisationer
