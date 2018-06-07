@@ -48,6 +48,15 @@ module Decidim
       include Traceable
       include Publicable
       include Decidim::DataPortability
+      include Searchable
+
+      searchable_fields(
+        scope_id: { scope: :id },
+        participatory_space: { component: :participatory_space },
+        A: [:title],
+        D: [:address],
+        datetime: :published_at
+      )
 
       component_manifest_name "dummy"
 

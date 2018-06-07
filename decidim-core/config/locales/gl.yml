@@ -423,6 +423,23 @@ gl:
           register: Rexistrarse
       index:
         title: Máis información
+      terms_and_conditions:
+        accept:
+          error: Produciuse un erro ao aceptar os termos e condicións.
+          success: Grande! Aceptou os termos e condicións.
+        form:
+          agreement: Acepto estes termos
+          legend: Concorda cos termos e condicións de uso
+        refuse:
+          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
+          modal_btn_continue: Aceptar termos e continuar
+          modal_btn_exit: Vou revisalo máis tarde
+          modal_button: Rexeitar os termos
+          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
+        required_review:
+          alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
+          body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
+          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
@@ -459,6 +476,20 @@ gl:
         title: Selecciona %{field}
       prompt: Seleccione un alcance
       scopes: Ámbitos
+    search:
+      filter:
+        all: Todo
+        component: Compoñente
+      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
+      term_input_placeholder: Busca
+    searches:
+      filters:
+        search: Busca
+      filters_small_view:
+        close_modal: Pechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Despregar
     shared:
       action_authorization_modal:
         expired:
@@ -515,16 +546,18 @@ gl:
   devise:
     invitations:
       edit:
-        header: Establece o teu contrasinal
+        header: Acaba de crear a túa conta
         nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
+        subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación farase en %{due_date}.
         hello: Ola %{email},
         ignore: |-
-          Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
+          Se non queres aceptar a invitación, ignora este correo electrónico.<br />
+          súa conta non se creará ata que acceda á ligazón anterior e configure o seu alcume e contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
         invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.

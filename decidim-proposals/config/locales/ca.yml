@@ -21,7 +21,7 @@ ca:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Necessita tornar a connectar-se
+              needs_to_be_reattached: Necessita tornar a pujar-se
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
@@ -305,7 +305,7 @@ ca:
           category_prompt: Selecciona una categoria
           citizens: Ciutadania
           evaluating: En avaluació
-          except_rejected: Tot menys rebutjat
+          except_rejected: Totes menys rebutjades
           official: Oficial
           origin: Origen
           rejected: Rebutjades

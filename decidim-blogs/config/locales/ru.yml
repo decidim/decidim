@@ -1,5 +1,9 @@
 ru:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Создать пост в блоге
   decidim:
     blogs:
       actions:
         confirm_destroy: Вы действительно хотите удалить этот проект?
+        new: Добавить

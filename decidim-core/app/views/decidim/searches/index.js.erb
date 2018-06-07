@@ -1,0 +1,5 @@
+var $results = $('#results');
+var $resultsCount = $('#results-count');
+
+$results.html('<%= j(render partial: "results").strip.html_safe %>');
+$resultsCount.html('<%= j(render partial: "count").strip.html_safe %>');

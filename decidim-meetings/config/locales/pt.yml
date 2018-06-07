@@ -1,6 +1,10 @@
 pt:
   activemodel:
     attributes:
+      agenda:
+        description: Descrição
+        duration: Duração
+        title: Título
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
@@ -27,6 +31,13 @@ pt:
         description: Descrição
         video_url: URL do vídeo
         visible: É visível
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos
+              too_many_minutes_child: A duração do item childs excede o item da agenda "%{parent_title}" duração pai em %{count} minuto
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: encontro
@@ -102,6 +113,7 @@ pt:
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     meetings:
       actions:
+        agenda: Agenda
         attachment_collections: Coleções
         attachments: Anexos
         close: Fechar
@@ -114,6 +126,36 @@ pt:
         registrations: Inscrições
         title: Ações
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Adicionar filho do item da agenda
+            agenda_item: Item da agenda
+            agenda_item_children: Item da Agenda Childs
+            down: Baixa
+            remove: Remover
+            up: Acima
+          agenda_item_child:
+            agenda_item_child: Item da Agenda Criança
+            down: Baixa
+            remove: Remover
+            up: Acima
+          create:
+            invalid: Houve um problema ao criar esta agenda
+            success: Agenda criada com sucesso
+          edit:
+            title: Editar agenda
+            update: Atualizar
+          form:
+            add_agenda_item: Adicionar item da agenda
+            agenda_items: Itens da agenda
+            end_date: Data final
+            start_date: Data de início
+          new:
+            create: Crio
+            title: Nova agenda
+          update:
+            invalid: Houve um problema ao atualizar esta agenda
+            success: Agenda atualizada com sucesso
         exports:
           registrations: Inscrições
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ pt:
           unfold: Desdobrar
         index:
           view_meeting: Ver reunião
+        meeting_minutes:
+          meeting_minutes: Atas de Reunião
+          related_information: Informação relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
@@ -243,11 +288,9 @@ pt:
           contributions: Contagem de Contribuições
           going: Indo
           join: Participe da reunião
-          meeting_minutes: Atas de Reunião
           meeting_report: Relatório de reunião
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
-          related_information: Informação relacionada
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
