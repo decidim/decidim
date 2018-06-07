@@ -158,6 +158,7 @@ nl:
           components: Onderdelen
           info: info
           moderations: Moderaties
+          private_users: Particuliere gebruikers
       models:
         assembly:
           fields:
@@ -266,6 +267,7 @@ nl:
         composition: Samenstelling
         created_by: Aangemaakt door
         creation_date: Gemaakt op
+        developer_group: Promotergroep
         duration: Looptijd
         included_at: Inbegrepen bij
         indefinite_duration: onbepaald
