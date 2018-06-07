@@ -66,7 +66,7 @@ ru:
     admin:
       meeting_copies:
         create:
-          error: При создании копии этой встречи произошла ошибка.
+          error: При попытке создать копию этой встречи произошла ошибка.
           success: Успешно создана копия встречи.
         new:
           copy: Копировать
@@ -84,7 +84,7 @@ ru:
             default_registration_terms: Условия регистрации по умолчанию
           step:
             announcement: Объявление
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
     events:
       meetings:
         meeting_closed:
@@ -245,6 +245,19 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
+      admin_log:
+        meeting:
+          close: "%{user_name} закрыл встречу %{resource_name} в пространстве %{space_name}"
+          create: "%{user_name} создал встречу %{resource_name} в пространстве %{space_name}"
+          delete: "%{user_name} удалил встречу %{resource_name} в пространстве %{space_name}"
+          export_registrations: "%{user_name} сохранил в виде файла список зарегистрировавшихся на встречу %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил встречу %{resource_name} в пространстве %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Организатор не найден в базе данных (ID: %{id})'
+        minutes:
+          create: "%{user_name} создал протокол встречи %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил протокол встречи %{resource_name} в пространстве %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -252,6 +265,8 @@ ru:
         registration_mailer:
           confirmation:
             subject: Ваша регистрация на встречу подтверждена
+      meeting:
+        not_allowed: У вас нет прав на просмотр этой встречи
       meetings:
         filters:
           category: Разряд
@@ -267,6 +282,9 @@ ru:
           unfold: Развернуть
         index:
           view_meeting: Посмотреть встречу
+        meeting_minutes:
+          meeting_minutes: Протокол встречи
+          related_information: Сопутствующие сведения
         meetings:
           no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
@@ -286,6 +304,7 @@ ru:
             few: "Осталось %{count} места"
             many: "Осталось %{count} мест"
             other: "Осталось %{count} мест"
+          view: Посмотреть
       models:
         meeting:
           fields:
@@ -308,6 +327,19 @@ ru:
           success: Вы успешно отменили регистрацию на встречу.
       types:
         private_meeting: Частная встреча
+        transparent: Прозрачная
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Прошедшие встречи
+          upcoming_meetings: Предстоящие встречи
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Прошедшие встречи
+        see_all_meetings: Просмотреть все встречи
+        upcoming_meetings: Предстоящие встречи
+      upcoming_meeting_for_card:
+        upcoming_meeting: Предстоящая встреча
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Подобные итоги:'

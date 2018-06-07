@@ -35,7 +35,7 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił problem
             success: Projekt został pomyślnie utworzony
           destroy:
-            success: Projekt pomyślnie zniszczony
+            success: Projekt został pomyślnie usunięty
           edit:
             title: Edytuj projekt
             update: Aktualizacja

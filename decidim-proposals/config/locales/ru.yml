@@ -10,7 +10,7 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Название
-        user_group_id: Внести предложение как
+        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -25,6 +25,10 @@ ru:
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято
       decidim/proposals/admin/update_proposal_category_event: Разряд предложения изменен
+      decidim/proposals/creation_enabled_event: Включена возможность создания предложений
+      decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
+      decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
+      decidim/proposals/proposal_endorsed_event: Предложение поддержали
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
       decidim/proposals/rejected_proposal_event: Предложение отклонено
@@ -37,10 +41,10 @@ ru:
         many: Предложений
         other: Предложений
       decidim/proposals/proposal_endorsement:
-        one: Поддержал
-        few: Поддержало
-        many: Поддержали
-        other: Поддержали
+        one: Выражение поддержки
+        few: Выражения поддержки
+        many: Выражений поддержки
+        other: Выражений поддержки
       decidim/proposals/proposal_note:
         one: Примечание
         few: Примечания
@@ -64,7 +68,7 @@ ru:
           global:
             announcement: Объявление
             attachments_allowed: Разрешить прикрпеленные файлы
-            can_accumulate_supports_beyond_threshold: Может накапливать поддержку свыше порогового значения
+            can_accumulate_supports_beyond_threshold: Может накапливать выражения поддержки свыше порогового значения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
@@ -73,25 +77,26 @@ ru:
             proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
             proposal_length: Предельная длина основного текста предложения
             proposal_limit: Предельное количество предложений от одного участника
-            proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Внести"
+            proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
+            proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
             threshold_per_proposal: Порог для каждого предложения
             vote_limit: Предельное количество голосов для одного участника
           step:
             announcement: Объявление
-            comments_blocked: Комментарии выключены
-            creation_enabled: Включена возможность внесения предложений
-            endorsements_blocked: Возможность поддержки выключена
-            endorsements_enabled: Возможность поддержки включена
+            comments_blocked: Комментарии отключены
+            creation_enabled: Включена возможность создания предложений
+            endorsements_blocked: Возможность выразить поддержку отключена
+            endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
-            votes_blocked: Голосование выключено
+            votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
             votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Теперь вы можете вносить новые предложения в %{participatory_space_title}! Начните со страницы:'
+          email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность вносить <a href="%{resource_path}">новые предложения</a>
@@ -189,8 +194,8 @@ ru:
             invalid: При попытке ответить на это предложение произошла ошибка
             success: Успешно дан ответ на предложение
           create:
-            invalid: При попытке внести предложение произошла ошибка
-            success: Предложение успешно внесено
+            invalid: При попытке создать предложение произошла ошибка
+            success: Предложение успешно создано
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
             select_a_category: Выберите разряд
@@ -203,7 +208,7 @@ ru:
             update: Обновить
           new:
             create: Внести
-            title: Внести предложение
+            title: Создать предложение
           update_category:
             invalid: 'Эти предложения уже относились к разряду %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите разряд
@@ -237,10 +242,10 @@ ru:
         rejected: Отклонено
         withdrawn: Отозван
       create:
-        error: При сохранении этого предложения произошли ошибки.
-        success: Предложение создано успешно. Сохранено как черновик.
+        error: При попытке сохранить это предложение произошли ошибки.
+        success: Предложение успешно создано. Сохранено как черновик.
       destroy_draft:
-        error: При удалении этого черновика предложения произошли ошибки.
+        error: При попытке удалить этот черновик предложения произошли ошибки.
         success: Черновик предложения был успешно удален.
       models:
         proposal:
@@ -248,7 +253,7 @@ ru:
             category: Разряд
             comments: Комментарии
             created_at: 'Создано:'
-            endorsements: Поддержали
+            endorsements: Выражения поддержки
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
@@ -257,7 +262,7 @@ ru:
             title: Название
             votes: Голоса
       new:
-        limit_reached: Вы не можете вносить новые предложения, так как вы превысили лимит.
+        limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
       proposal_endorsements:
         create:
           error: При попытке поддержать это предложение произошли ошибки.
@@ -335,7 +340,7 @@ ru:
             other: голоса
         new:
           send: Продолжить
-          title: Внесите свое предложение
+          title: Создайте свое предложение
         orders:
           label: 'Упорядочить предложения по:'
           most_voted: С наибольшим количеством голосов
@@ -349,17 +354,31 @@ ru:
             many: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
+          title: Обнародуйте свое предложение
         proposal:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
+          endorsements_list: Список тех, кто поддержал
+          hidden_endorsers_count:
+            one: и еще 1 человек
+            few: и еще %{count} человека
+            many: и еще %{count} человек
+            other: и еще %{count} человек
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
+          sign_in: Войти
+          sign_in_or_up: "%{in} или %{up} для того, чтобы принять участие"
+          sign_up: зарегистрироваться
+          withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
+          withdraw_confirmation: Вы действительно хотите снять это предложение?
+          withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
+          filed_as: Отмечено как
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос
@@ -373,23 +392,42 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
+          most_popular_proposal: Самое популярное предложение
+          need_more_votes: Нужно больше голосов
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Каждое предложение может накапливать более %{limit} выражений поддержки
           proposal_limit:
-            description: Вы можете внести до %{limit} предложений.
+            description: Вы можете создать до %{limit} предложений.
+          threshold_per_proposal:
+            description: Для того чтобы пройти проверку, предложения должны получить %{limit} выражений поддержки
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
             votes: Голоса
+        wizard_aside:
+          back: Вернуться
+          info: Вы создаете <strong>предложение</strong>.
+        wizard_steps:
+          see_steps: просмотреть шаги
+          step_1: Создайте свое предложение
+          step_2: Сравните
+          step_3: Завершите
+          step_4: Обнародуйте свое предложение
+          step_of: Шаг %{current_step_num} из %{total_steps}
       publish:
+        error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.
       update:
-        error: При сохранении этого предложения произошли ошибки.
+        error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно обновлено.
       update_draft:
-        error: При сохранении этого черновика предложения произошли ошибки.
+        error: При попытке сохранить этот черновик предложения произошли ошибки.
         success: Черновик предложения успешно обновлен.
     resource_links:
+      copied_from_component:
+        proposal_proposal: Подобные предложения
       included_projects:
         project_result: 'Итоги, представленные в этом проекте:'
       included_proposals:

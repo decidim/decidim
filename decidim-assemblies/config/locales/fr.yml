@@ -18,7 +18,7 @@ fr:
         decidim_area_id: Zone d'application locale
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         domain: Domaine
         duration: Durée
         facebook: Facebook
@@ -80,7 +80,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle agora.
           success: Agora créée avec succès.
         destroy:
-          success: Agora supprimée avec succès.
+          success: L'assembly a été supprimé avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -110,7 +110,7 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
           success: Membre créé avec succès pour cette agora.
         destroy:
-          success: Membre supprimé avec succès pour cette agora.
+          success: Membre supprimé avec succès pour cet assembly.
         edit:
           title: Mettre à jour le membre de l'agora.
           update: Mettre à jour
@@ -132,9 +132,9 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
-          success: Utilisateur créé avec succès pour cette agora.
+          success: Utilisateur ajouté avec succès à cet assembly.
         destroy:
-          success: Utilisateur supprimé avec succès pour cette agora.
+          success: Utilisateur supprimé avec succès de cet assembly.
         edit:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
@@ -267,7 +267,7 @@ fr:
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         duration: Durée
         included_at: Inclus à
         indefinite_duration: Indéfini
