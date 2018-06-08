@@ -64,7 +64,7 @@ fr:
         activate: Activer
         configure: Configurer
         confirm_destroy: Confirmation de la suppression
-        destroy: Effacer
+        destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         new: Nouveau
