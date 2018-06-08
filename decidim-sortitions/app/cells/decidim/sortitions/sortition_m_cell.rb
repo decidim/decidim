@@ -41,11 +41,11 @@ module Decidim
       end
 
       # In order to render the badge inline with the paragraph text we need to
-      # find the opening `<p>` tag and include the badge right adfter it. This
+      # find the opening `<p>` tag and include the badge right after it. This
       # makes the layout look good.
       def description
         text = decidim_sanitize(translated_attribute(model.additional_info))
-        text.gsub(/^<p>/, "<p>#{render :badge}")
+        text.gsub!(/^<p>/, "<p>#{render :badge}")
         html_truncate(text, length: 100)
       end
     end

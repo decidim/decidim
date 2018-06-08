@@ -8,13 +8,11 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper Decidim::ActionAuthorizationHelper
       helper InitiativeHelper
-      include Decidim::Initiatives::ActionAuthorization
 
       # POST /initiatives/:initiative_id/initiative_vote
       def create
-        enforce_permission_to :vote, :initiative, initiative: current_initiative
+        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: params[:group_id]
         VoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload
@@ -31,7 +29,7 @@ module Decidim
 
       # DELETE /initiatives/:initiative_id/initiative_vote
       def destroy
-        enforce_permission_to :unvote, :initiative, initiative: current_initiative
+        enforce_permission_to :unvote, :initiative, initiative: current_initiative, group_id: params[:group_id]
         UnvoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload

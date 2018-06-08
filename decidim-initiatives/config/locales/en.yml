@@ -42,8 +42,8 @@ en:
         one: Comittee
         other: Comittees
       decidim/initiative_vote:
-        one: Vote
-        other: Votes
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       menu:
@@ -72,10 +72,10 @@ en:
     events:
       initiatives:
         milestone_completed:
-          email_intro: The initiative %{resource_title} has achieved the %{percentage}% of votes!
+          email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: New milestone completed!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of votes.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
     initiatives:
       admin:
         committee_requests:
@@ -233,10 +233,14 @@ en:
         title: Initiatives
       initiative_votes:
         create:
-          error: There's been errors when voting the initiative.
+          error: There's been errors when signing the initiative.
       initiatives:
         author:
           deleted: Deleted
+        author_list:
+          hidden_authors_count:
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
             one: "%{count} initiative"
@@ -261,7 +265,7 @@ en:
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
-          most_voted: Most voted
+          most_voted: Most signed
           random: Random
           recent: Most recent
         result:
@@ -272,22 +276,21 @@ en:
           offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
           select_identity: Select user identity
+        signatures_count:
+          one: " signature"
+          other: " signatures"
         statistics:
           assistants_count_title: Assistants
           comments_count_title: Comments
           meetings_count_title: Meetings
-          supports_count_title: Adhesions
+          supports_count_title: Signatures
         supports:
-          title: Listing of adhesions
-        supports_count:
-          count:
-            one: " support"
-            other: " supports"
+          title: Listing of signatures
         vote_cabin:
-          already_voted: Already voted
-          supports_required: "%{total_supports} votes required"
+          already_voted: Already signed
+          supports_required: "%{total_supports} signatures required"
           vote: Sign
-          votes_blocked: Voting disabled
+          votes_blocked: Signing disabled
         votes_count:
           count:
             one: SIGNATURE

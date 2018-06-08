@@ -8,12 +8,13 @@ module Decidim
 
     describe "seed" do
       it "registers a block of seeds to be run on development" do
+        space = double(id: 1)
         data = {}
         subject.seeds do |_participatory_space|
           data[:foo] = :bar
         end
 
-        subject.seed!(nil)
+        subject.seed!(space)
 
         expect(data[:foo]).to eq(:bar)
       end

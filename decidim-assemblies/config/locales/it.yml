@@ -62,6 +62,17 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaggio
+        other: assemblee
+      decidim/assembly_member:
+        one: Membro dell'Assemblea
+        other: Membri dell'Assemblea
+      decidim/assembly_user_role:
+        one: Ruolo dell'utente dell'assemblaggio
+        other: Assemblare i ruoli utente
   decidim:
     admin:
       assemblies:
@@ -199,6 +210,8 @@ it:
       admin:
         assemblies:
           form:
+            duration_help: Se la durata di questo assemblaggio è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinito.
+            included_at_help: Seleziona la data in cui questo assembly è stato aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
             select_an_assembly_type: Seleziona un tipo di assieme

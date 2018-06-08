@@ -16,6 +16,37 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
         origin_component_id: Komponent för att kopiera förslagen från
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Behöver återmonteras
+    models:
+      decidim/proposals/accepted_proposal_event: Förslag accepterat
+      decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
+      decidim/proposals/creation_enabled_event: Förslagstillverkning möjliggjorde
+      decidim/proposals/endorsing_enabled_event: Förslag godkännande aktiverat
+      decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
+      decidim/proposals/proposal_endorsed_event: Förslag godkänd
+      decidim/proposals/proposal_mentioned_event: Förslag som nämns
+      decidim/proposals/publish_proposal_event: Förslag publicerat
+      decidim/proposals/rejected_proposal_event: Förkastat förslag
+      decidim/proposals/voting_enabled_event: Förslag till omröstning aktiverat
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Förslag
+        other: förslag
+      decidim/proposals/proposal_endorsement:
+        one: Godkännande
+        other: påskrifter
+      decidim/proposals/proposal_note:
+        one: Notera
+        other: anteckningar
+      decidim/proposals/proposal_vote:
+        one: Rösta
+        other: röster
   decidim:
     components:
       proposals:
@@ -264,6 +295,7 @@ sv:
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
+          comments: kommentarer
           endorse: Stödja
         filters:
           accepted: Accepterad
@@ -273,6 +305,7 @@ sv:
           category_prompt: Välj en kategori
           citizens: Medborgare
           evaluating: utvärdera
+          except_rejected: Alla utom avvisas
           official: Officiell
           origin: Ursprung
           rejected: avvisade
@@ -285,10 +318,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        identities_listing:
-          see_all: Se alla
-          see_less: Se mindre
-          title: Förteckning över godkännanden
         index:
           new_proposal: Nytt förslag
           see_all_withdrawn: Se alla återtagna förslag
@@ -317,6 +346,10 @@ sv:
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
+          endorsements_list: Förteckning över godkännanden
+          hidden_endorsers_count:
+            one: och ytterligare 1 person
+            other: och %{count} fler personer
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
@@ -376,9 +409,9 @@ sv:
         success: Förslagsförslaget uppdateras framgångsrikt.
     resource_links:
       copied_from_component:
-        proposal_proposals: Relaterade förslag
+        proposal_proposal: Relaterade förslag
       included_projects:
-        project_results: 'Resultat som visas i detta projekt:'
+        project_result: 'Resultat som visas i detta projekt:'
       included_proposals:
-        proposal_projects: 'Förslag som framgår av dessa projekt:'
-        proposal_results: 'Förslag som visas i dessa resultat:'
+        proposal_project: 'Förslag som framgår av dessa projekt:'
+        proposal_result: 'Förslag som visas i dessa resultat:'

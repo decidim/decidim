@@ -21,6 +21,13 @@ nl:
       timeline_entry:
         description: Beschrijving
         entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultaat
+        other: resultaten
   decidim:
     accountability:
       actions:
@@ -202,6 +209,6 @@ nl:
         see_all_results: Bekijk alle resultaten
     resource_links:
       included_projects:
-        result_projects: Projecten opgenomen in dit resultaat
+        result_project: Projecten opgenomen in dit resultaat
       included_proposals:
-        result_proposals: Voorstellen opgenomen in dit resultaat
+        result_proposal: Voorstellen opgenomen in dit resultaat

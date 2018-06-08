@@ -1,4 +1,9 @@
 ca:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Pàgina
+        other: Pàgines
   decidim:
     admin_log:
       page:

@@ -1,4 +1,18 @@
 nl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commentaar
+      decidim/comments/comment_created_event: Commentaar
+      decidim/comments/reply_created_event: Reactie antwoord
+      decidim/comments/user_mentioned_event: Noemen
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commentaar
+        other: Comments
+      decidim/comments/comment_vote:
+        one: Stemmen
+        other: stemmen
   decidim:
     comments:
       comments: Comments

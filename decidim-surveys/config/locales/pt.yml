@@ -14,6 +14,17 @@ pt:
             choices:
               missing: não estão completos
               too_many: são muitos
+    models:
+      decidim/surveys/closed_survey_event: Pesquisa finalizada
+      decidim/surveys/opened_survey_event: Inquérito iniciado
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Pesquisa
+        other: pesquisas
+      decidim/surveys/survey_answer:
+        one: Responda
+        other: Respostas
   decidim:
     components:
       surveys:
@@ -98,4 +109,7 @@ pt:
           survey_closed:
             body: A pesquisa está fechada e não pode ser respondida.
             title: Pesquisa fechada
+          survey_for_private_users:
+            body: A pesquisa está disponível apenas para usuários particulares
+            title: Inquérito encerrado
           tos_agreement: Ao participar desta pesquisa você aceita seus Termos de Serviço

@@ -11,6 +11,15 @@ it:
         start_time: Inizia a
         title: Titolo
         user_group_id: Crea dibattito come
+    models:
+      decidim/debates/create_debate_event: Discussione
+      decidim/debates/creation_disabled_event: Discussioni disabilitate
+      decidim/debates/creation_enabled_event: Discussioni abilitate
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Discussione
+        other: dibattiti
   decidim:
     components:
       debates:

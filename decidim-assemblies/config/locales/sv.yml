@@ -62,6 +62,17 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+  activerecord:
+    models:
+      decidim/assembly:
+        one: hopsättning
+        other: Assemblies
+      decidim/assembly_member:
+        one: Församlingsmedlem
+        other: Församlingsmedlemmar
+      decidim/assembly_user_role:
+        one: Montering användarroll
+        other: Montera användarroller
   decidim:
     admin:
       assemblies:
@@ -199,6 +210,8 @@ sv:
       admin:
         assemblies:
           form:
+            duration_help: Om varaktigheten för denna montering är begränsad, välj slutdatum. Annars kommer det att visas som obestämt.
+            included_at_help: Välj datum då denna montering lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som skapningsdatumet.
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en monterings typ

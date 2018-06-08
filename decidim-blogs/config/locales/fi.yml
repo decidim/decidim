@@ -1,4 +1,12 @@
 fi:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Uusi blogikirja
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Lähettää
+        other: Viestejä
   decidim:
     blogs:
       actions:
@@ -37,6 +45,8 @@ fi:
             created_at: Luotu osoitteessa
             title: otsikko
       posts:
+        show:
+          view: näkymä
         sidebar_blog:
           comments: kommentit
           most_commented_posts: Eniten kommentoituja viestejä
@@ -58,10 +68,10 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
           email_subject: Uusi viesti julkaistiin %{participatory_space_title}
           notification_title: Viesti <a href="%{resource_path}">%{resource_title}</a> on julkaistu %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Viestejä
     participatory_processes:
-      statistics:
-        posts_count: Viestejä
-  pages:
-    home:
       statistics:
         posts_count: Viestejä

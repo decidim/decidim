@@ -43,7 +43,21 @@ pt-BR:
       participatory_process_user_role:
         email: O email
         name: Nome
-        role: Função
+        role: Cargo
+    models:
+      decidim/participatory_process_step_activated_event: Passo ativado
+      decidim/participatory_process_step_changed_event: Passo alterado
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Processo participativo
+        other: Processos participativos
+      decidim/participatory_process_group:
+        one: Grupo de processo participativo
+        other: Grupos de processo participativo
+      decidim/participatory_process_step:
+        one: Etapa
+        other: Etapas
   decidim:
     admin:
       actions:
@@ -95,7 +109,7 @@ pt-BR:
           fields:
             email: O email
             name: Nome
-            role: Função
+            role: Cargo
           name: Usuário do processo participativo
           roles:
             admin: Administrador

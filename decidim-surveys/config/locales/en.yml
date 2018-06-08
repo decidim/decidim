@@ -110,4 +110,7 @@ en:
           survey_closed:
             body: The survey is closed and cannot be answered.
             title: Survey closed
+          survey_for_private_users:
+            body: The survey is available only for private users
+            title: Survey closed
           tos_agreement: By participating in this survey you accept its Terms of Service

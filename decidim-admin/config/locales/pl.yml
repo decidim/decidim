@@ -64,6 +64,7 @@ pl:
         omnipresent_banner_url: URL
         reference_prefix: Prefiks referencyjny
         show_statistics: Pokaż statystyki
+        tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
         welcome_text: Tekst powitalny
         youtube_handler: Poradnik YouTube
@@ -79,6 +80,7 @@ pl:
         organization: Organizacja
         plural: Liczba mnoga
       static_page:
+        changed_notably: Nastąpiły zauważalne zmiany.
         content: Zadowolony
         organization: Organizacja
         slug: Ślimak URL
@@ -574,8 +576,11 @@ pl:
         destroy:
           success: Strona została z powodzeniem zniszczona
         edit:
+          changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o zaakceptowaniu nowych warunków.
           title: Edytuj stronę
           update: Aktualizacja
+        index:
+          last_notable_change: Ostatnia godna uwagi zmiana
         new:
           create: Stwórz
           title: Nowa strona

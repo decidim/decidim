@@ -16,6 +16,37 @@ gl:
       proposals_copy:
         copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necesita ser reenxerado
+    models:
+      decidim/proposals/accepted_proposal_event: A proposta foi aceptada
+      decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
+      decidim/proposals/creation_enabled_event: Creación de proposta habilitada
+      decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
+      decidim/proposals/evaluating_proposal_event: A proposta está a ser avaliada
+      decidim/proposals/proposal_endorsed_event: Proposta aprobada
+      decidim/proposals/proposal_mentioned_event: Proposta mencionada
+      decidim/proposals/publish_proposal_event: Proposta publicada
+      decidim/proposals/rejected_proposal_event: Proposta rexeitada
+      decidim/proposals/voting_enabled_event: A votación da proposta habilitada
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposta
+        other: Propostas
+      decidim/proposals/proposal_endorsement:
+        one: Aprobación
+        other: Aprobacións
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Notas
+      decidim/proposals/proposal_vote:
+        one: Vota
+        other: Votos
   decidim:
     components:
       proposals:
@@ -264,6 +295,7 @@ gl:
         endorsement_identities_cabin:
           endorse: Endosar
         endorsements_card_row:
+          comments: Comentarios
           endorse: Endosar
         filters:
           accepted: Aceptada
@@ -273,6 +305,7 @@ gl:
           category_prompt: Selecciona unha categoría
           citizens: Cidadáns
           evaluating: Avaliación
+          except_rejected: Todos excepto rexeitados
           official: Oficial
           origin: Orixe
           rejected: Rexeitado
@@ -285,10 +318,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        identities_listing:
-          see_all: Ver todo
-          see_less: Vexa menos
-          title: Lista de avales
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
@@ -317,6 +346,10 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de avales
+          hidden_endorsers_count:
+            one: e 1 persoa máis
+            other: e %{count} persoas máis
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
@@ -376,9 +409,9 @@ gl:
         success: O proxecto de proposta actualizouse con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen neste proxecto:'
+        project_result: 'Resultados que aparecen neste proxecto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nestes proxectos:'
-        proposal_results: 'Proposta que aparece nestes resultados:'
+        proposal_project: 'Proposta que aparece nestes proxectos:'
+        proposal_result: 'Proposta que aparece nestes resultados:'

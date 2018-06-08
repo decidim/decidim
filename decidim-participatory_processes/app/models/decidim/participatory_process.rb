@@ -86,5 +86,11 @@ module Decidim
     def self.private_processes
       where(private_space: true)
     end
+
+    def can_participate?(user)
+      return true unless private_space?
+      return true if private_space? && users.include?(user)
+      false
+    end
   end
 end

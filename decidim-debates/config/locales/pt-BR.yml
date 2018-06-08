@@ -11,11 +11,20 @@ pt-BR:
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates desativados
+      decidim/debates/creation_enabled_event: Debates ativados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
         actions:
-          create: Crio
+          create: Criar
         name: Debates
         settings:
           global:
@@ -84,7 +93,7 @@ pt-BR:
           new_debate: Novo debate
         new:
           back: Costas
-          create: Crio
+          create: Criar
           select_a_category: Por favor, selecione uma categoria
           title: Novo debate
         share:

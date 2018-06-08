@@ -5,10 +5,19 @@ pl:
         additional_info: Informacje o sortowaniu
         decidim_category_id: Kategorie zestawu propozycji, w których chcesz zastosować losowanie
         decidim_proposals_component_id: Ustalono wnioski
-        dice: Wynik rzutu kostką (rzuć kostką 6-stronną (lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6) i wprowadź tutaj, w przeciwieństwie do obserwowania uzyskanej liczby, przyczynia się to do jakości i gwarancji losowości wynik
+        dice: Wynik rzutu kostką. Rzuć kostką 6-stronną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź wynikową liczbę przed niektórymi świadkami. Przyczynia się to do jakości i gwarancji losowości wyniku
         target_items: Liczba wniosków, które należy wybrać (wskazuje liczbę wniosków, które chcesz wybrać, losując wybraną wcześniej grupę propozycji)
         title: Tytuł
         witnesses: Świadkowie
+    models:
+      decidim/sortitions/create_sortition_event: Sortowanie
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortowanie
+        few: Sortowanie
+        many: Sortowanie
+        other: Sortowanie
   decidim:
     components:
       sortitions:
@@ -23,6 +32,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Dodano nowe sortowanie do %{participatory_space_title}
           notification_title: Sortowanie <a href="%{resource_path}">%{resource_title}</a> zostało dodane do %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortowanie
     participatory_processes:
       statistics:
         sortitions_count: Sortowanie
@@ -148,7 +161,3 @@ pl:
             few: "%{count} sortowania"
             many: "%{count} sortowania"
             other: "%{count} sortowania"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortowanie

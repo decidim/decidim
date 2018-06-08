@@ -11,6 +11,15 @@ nl:
         start_time: Begint om
         title: Titel
         user_group_id: Maak een debat als
+    models:
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debatten uitgeschakeld
+      decidim/debates/creation_enabled_event: Debatten ingeschakeld
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: debatten
   decidim:
     components:
       debates:
@@ -20,7 +29,7 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
+            comments_enabled: Reacties geactiveerd
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd

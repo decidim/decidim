@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  $('#question-vote-modal').foundation("close");
+  $('#question-vote-confirm-modal').foundation("close");
+  $('#question-vote-modal, #question-vote-confirm-modal').remove()
   var voteButton = $('#question-<%= current_question.id %>-vote-button');
   voteButton.html('<%= j(render partial: "decidim/consultations/questions/vote_button", locals: { question: current_question }) %>');
 

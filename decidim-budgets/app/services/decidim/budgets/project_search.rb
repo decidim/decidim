@@ -24,7 +24,7 @@ module Decidim
       def results
         @results ||= Project.transaction do
           Project.connection.execute("SELECT setseed(#{Project.connection.quote(random_seed)})")
-          super.reorder("RANDOM()").load
+          super.reorder(Arel.sql("RANDOM()")).load
         end
       end
 

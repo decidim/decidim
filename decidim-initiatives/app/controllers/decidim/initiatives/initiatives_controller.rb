@@ -11,7 +11,6 @@ module Decidim
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
-      helper Decidim::ActionAuthorizationHelper
       helper Decidim::ResourceHelper
       helper Decidim::IconHelper
       helper Decidim::Comments::CommentsHelper
@@ -20,7 +19,6 @@ module Decidim
       helper InitiativeHelper
       include InitiativeSlug
 
-      include Decidim::Initiatives::ActionAuthorization
       include FilterResource
       include Paginable
       include Orderable

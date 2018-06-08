@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateOmniauthRegistration do
       describe "call" do
-        let(:organization) { create(:organization) }
+        let(:organization) { create(:organization, :with_tos) }
         let(:email) { "user@from-facebook.com" }
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
@@ -80,7 +80,7 @@ module Decidim
             expect(user.encrypted_password).not_to be_nil
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
-            expect(user.newsletter_notifications).to eq(true)
+            expect(user.newsletter_notifications).to eq(false)
             expect(user.email_on_notification).to eq(true)
             expect(user).to be_confirmed
             expect(user.valid_password?("abcde1234")).to eq(true)

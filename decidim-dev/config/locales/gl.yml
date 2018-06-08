@@ -8,13 +8,17 @@ gl:
         title: Título
         updated_at: Actualizado en
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Outra autorización de exemplo
     dummy:
       admin:
         exports:
           dummies: Dummies
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Maniquís de alta
+          dummies_count_medium: Dummies medio
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Maniquís de alta
@@ -22,10 +26,3 @@ gl:
     resource_links:
       test_link:
         dummy_resource_dummy: Dummy relacionado
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Maniquís de alta
-        dummies_count_medium: Dummies medio
-        foo: Foo

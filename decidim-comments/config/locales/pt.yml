@@ -1,4 +1,18 @@
 pt:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comente
+      decidim/comments/comment_created_event: Comente
+      decidim/comments/reply_created_event: Comentário resposta
+      decidim/comments/user_mentioned_event: Menção
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comente
+        other: Comentários
+      decidim/comments/comment_vote:
+        one: Voto
+        other: Votos
   decidim:
     comments:
       comments: Comentários

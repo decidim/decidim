@@ -132,10 +132,12 @@
 
     <div class="row column">
       <%= form.date_field :duration %>
+      <p class="help-text"><%== t(".duration_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.date_field :included_at %>
+      <p class="help-text"><%== t(".included_at_help") %></p>
     </div>
 
     <div class="row column" id="closing_date_div">

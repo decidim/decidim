@@ -23,6 +23,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         update_page
+        update_organization_tos_version if form.changed_notably
         broadcast(:ok)
       end
 
@@ -44,6 +45,10 @@ module Decidim
           slug: form.slug,
           content: form.content
         }
+      end
+
+      def update_organization_tos_version
+        UpdateOrganizationTosVersion.call(@form.organization, @page, @form)
       end
     end
   end

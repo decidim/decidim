@@ -22,7 +22,6 @@ module Decidim
         }, constraints: { question_id: /[0-9]+/ }
 
         resources :consultations, only: [:index, :show], param: :slug, path: "consultations" do
-          get "finished", on: :collection
           resource :consultation_widget, only: :show, path: "embed"
 
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
@@ -50,7 +49,7 @@ module Decidim
       initializer "decidim_consultations.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_consultations_manifest.js
-          decidim_consultations_manifest.scss
+          decidim_consultations_manifest.css
         )
       end
 
@@ -58,6 +57,11 @@ module Decidim
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Consultation.where(organization: organization).published.count
         end
+      end
+
+      initializer "decidim_consultations.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Consultations::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Consultations::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_consultations.menu" do

@@ -28,7 +28,7 @@ module Decidim
 
       def answer_survey
         SurveyAnswer.transaction do
-          @form.answers.each do |form_answer|
+          @form.survey_answers.each do |form_answer|
             answer = SurveyAnswer.new(
               user: @current_user,
               survey: @survey,

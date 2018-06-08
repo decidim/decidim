@@ -14,12 +14,14 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
@@ -37,6 +39,14 @@ module Decidim
                                       .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
                                     or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: [:description, :address],
+        datetime: :start_time
+      )
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
@@ -90,12 +100,13 @@ module Decidim
 
       # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
       def can_participate?(user)
-        return true unless participatory_space.try(:private_space?)
-        return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
-        return false if participatory_space.try(:private_space?) && participatory_space.try(:transparent?)
-        return true unless private_meeting?
-        return true if private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))
-        return false if private_meeting? && transparent?
+        return true unless participatory_space.try(:private_space?) || private_meeting?
+        return true if (participatory_space.try(:private_space?) &&
+                        participatory_space.users.include?(user)) ||
+                       (private_meeting? && registrations.exists?(decidim_user_id: user.try(:id)))
+        return false if (participatory_space.try(:private_space?) &&
+                        participatory_space.try(:transparent?)) ||
+                        (private_meeting? && transparent?)
       end
       # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
@@ -111,6 +122,11 @@ module Decidim
       def current_user_can_visit_meeting?(current_user)
         (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
           !private_meeting? || (private_meeting? && transparent?)
+      end
+
+      # Return the duration of the meeting in minutes
+      def meeting_duration
+        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
       end
     end
   end

@@ -11,6 +11,7 @@
           <tr>
             <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %></th>
             <th></th>
           </tr>
         </thead>
@@ -22,6 +23,11 @@
               </td>
               <td>
                 <%= l page.created_at, format: :short %>
+              </td>
+              <td>
+                <% if allowed_to? :update_notable_changes, :static_page, static_page: page %>
+                  <%= @tos_version_formatted %>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :static_page, static_page: page %>

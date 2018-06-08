@@ -33,12 +33,22 @@ module Decidim
       true
     end
 
+    def has_label?
+      context[:label].presence
+    end
+
+    def label
+      return if [false, "false"].include? context[:label]
+      return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+      context[:label]
+    end
+
     def title
       translated_attribute model.title
     end
 
     def description
-      attribute = model.try(:short_description) || model.description
+      attribute = model.try(:short_description) || model.try(:body) || model.description
       text = translated_attribute(attribute)
 
       decidim_sanitize(html_truncate(text, length: 100))
@@ -50,6 +60,14 @@ module Decidim
 
     def has_author?
       model.is_a?(Decidim::Authorable)
+    end
+
+    def author
+      present(model).author
+    end
+
+    def has_actions?
+      true
     end
 
     def has_state?
@@ -88,7 +106,7 @@ module Decidim
 
     def statuses
       collection = [:creation_date]
-      collection << :follow if model.is_a?(Decidim::Followable)
+      collection << :follow if model.is_a?(Decidim::Followable) && model != try(:current_user)
       collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
       collection
     end

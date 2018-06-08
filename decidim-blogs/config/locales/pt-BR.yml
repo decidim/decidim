@@ -1,4 +1,12 @@
 pt-BR:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Novo post de blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postagem
+        other: Postagens
   decidim:
     blogs:
       actions:
@@ -24,10 +32,10 @@ pt-BR:
           index:
             title: Postagens
           new:
-            create: Crio
+            create: Criar
             title: Criar post
           update:
-            invalid: Houve erros ao salvar a postagem.
+            invalid: Falha ao salvar o post.
             success: Post salvo com sucesso
       models:
         post:
@@ -37,10 +45,12 @@ pt-BR:
             created_at: Criado em
             title: título
       posts:
+        show:
+          view: Visualizar
         sidebar_blog:
           comments: comentários
           most_commented_posts: Posts mais comentados
-      read_more: Consulte Mais informação
+      read_more: Saiba mais
     components:
       blogs:
         name: Blog
@@ -58,10 +68,10 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: Nova postagem publicada em %{participatory_space_title}
           notification_title: A postagem <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Postagens
     participatory_processes:
-      statistics:
-        posts_count: Postagens
-  pages:
-    home:
       statistics:
         posts_count: Postagens

@@ -8,6 +8,11 @@ it:
         description: Descrizione
         proposal_ids: Proposte correlate
         title: Titolo
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Progetto
+        other: progetti
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ it:
             one: 1 supporto/voto
             other: "%{count} supportati/voti"
           remove: Elimina
+          view: vista
         project_budget_button:
           add: Aggiungi
           added: Aggiunto
@@ -131,7 +137,7 @@ it:
         success: OK, il tuo voto è stato cancellato.
     resource_links:
       included_proposals:
-        project_proposals: 'Proposte incluse in questo progetto:'
+        project_proposal: 'Proposte incluse in questo progetto:'
   index:
     confirmed_orders_count: Computo dei voti
   total_budget: Budget totale

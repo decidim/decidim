@@ -1,4 +1,12 @@
 fr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nouvel article
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Article
+        other: Articles
   decidim:
     blogs:
       actions:
@@ -35,10 +43,12 @@ fr:
             author: Auteur
             body: Corps du texte
             created_at: Créé à
-            title: Titre
+            title: titre
       posts:
+        show:
+          view: Vue
         sidebar_blog:
-          comments: Commentaires
+          comments: commentaires
           most_commented_posts: Articles les plus commentés
       read_more: Lire la suite
     components:

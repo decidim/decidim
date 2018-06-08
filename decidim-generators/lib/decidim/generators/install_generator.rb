@@ -103,19 +103,17 @@ module Decidim
       end
 
       def copy_migrations
-        rails "railties:install:migrations"
+        rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
       end
 
       def letter_opener_web
-        letter_opener_route = cut <<~RUBY
-          |
-          |  if Rails.env.development?
-          |    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-          |  end
-        RUBY
+        route <<~RUBY
+          if Rails.env.development?
+            mount LetterOpenerWeb::Engine, at: "/letter_opener"
+          end
 
-        route letter_opener_route
+        RUBY
 
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do

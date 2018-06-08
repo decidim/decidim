@@ -101,7 +101,8 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
-$border: 1px solid $medium-gray !default;
+$border-width: 1px !default;
+$border: $border-width solid $medium-gray !default;
 
 @include add-foundation-colors;
 

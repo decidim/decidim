@@ -1,4 +1,9 @@
 sv:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Sida
+        other: sidor
   decidim:
     admin_log:
       page:

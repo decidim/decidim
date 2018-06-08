@@ -44,6 +44,26 @@ pl:
         email: Adres e-mail
         name: Nazwa
         role: Rola
+    models:
+      decidim/participatory_process_step_activated_event: Aktywowany krok
+      decidim/participatory_process_step_changed_event: Krok zmienił się
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proces partycypacyjny
+        few: Procesy partycypacyjne
+        many: Procesy partycypacyjne
+        other: Procesy partycypacyjne
+      decidim/participatory_process_group:
+        one: Uczestnicza grupa procesowa
+        few: Uczestniczące grupy procesów
+        many: Uczestniczące grupy procesów
+        other: Uczestniczące grupy procesów
+      decidim/participatory_process_step:
+        one: Krok
+        few: Kroki
+        many: Kroki
+        other: Kroki
   decidim:
     admin:
       actions:

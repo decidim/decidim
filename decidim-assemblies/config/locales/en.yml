@@ -211,6 +211,8 @@ en:
       admin:
         assemblies:
           form:
+            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type

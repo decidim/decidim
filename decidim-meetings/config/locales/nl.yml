@@ -1,6 +1,10 @@
 nl:
   activemodel:
     attributes:
+      agenda:
+        description: Beschrijving
+        duration: Looptijd
+        title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
@@ -27,6 +31,31 @@ nl:
         description: Beschrijving
         video_url: Video URL
         visible: Is zichtbaar
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
+              too_many_minutes_child: De duur van het item childs overschrijdt de ouder-duur van het agendapunt "%{parent_title}" met %{count} minuut
+    models:
+      decidim/meetings/close_meeting_event: Vergadering gesloten
+      decidim/meetings/create_meeting_event: Vergadering
+      decidim/meetings/meeting_registrations_enabled_event: Registraties ingeschakeld
+      decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
+      decidim/meetings/upcoming_meeting_event: Aankomende vergadering
+      decidim/meetings/update_meeting_event: Vergadering bijgewerkt
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Vergadering
+        other: vergaderingen
+      decidim/meetings/minutes:
+        one: Notulen
+        other: Notulen
+      decidim/meetings/registration:
+        one: registratie
+        other: registraties
   decidim:
     admin:
       meeting_copies:
@@ -84,6 +113,7 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
     meetings:
       actions:
+        agenda: Agenda
         attachment_collections: collecties
         attachments: Bijlagen
         close: Sluit
@@ -96,6 +126,36 @@ nl:
         registrations: registraties
         title: Acties
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Agenda-item kind toevoegen
+            agenda_item: Agendapunt
+            agenda_item_children: Agendapunt Childs
+            down: naar beneden
+            remove: Verwijderen
+            up: omhoog
+          agenda_item_child:
+            agenda_item_child: Agendapunt Kind
+            down: naar beneden
+            remove: Verwijderen
+            up: omhoog
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze agenda
+            success: Agenda succesvol gemaakt
+          edit:
+            title: Agenda bewerken
+            update: Bijwerken
+          form:
+            add_agenda_item: Agendapunt toevoegen
+            agenda_items: Agenda punten
+            end_date: Einddatum
+            start_date: Begin datum
+          new:
+            create: creëren
+            title: Nieuwe agenda
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
+            success: Agenda succesvol bijgewerkt
         exports:
           registrations: registraties
         invite_join_meeting_mailer:
@@ -214,6 +274,9 @@ nl:
           unfold: Ontvouwen
         index:
           view_meeting: Bekijk de vergadering
+        meeting_minutes:
+          meeting_minutes: Meeting Minutes
+          related_information: Gerelateerde informatie
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
           upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle afgelopen vergaderingen.
@@ -225,14 +288,13 @@ nl:
           contributions: Aantal bijdragen
           going: Gaat
           join: Deelnemen aan bijeenkomst
-          meeting_minutes: Meeting Minutes
           meeting_report: Bijeenkomst verslag
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
-          related_information: Gerelateerde informatie
           remaining_slots:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
+          view: Uitzicht
       models:
         meeting:
           fields:
@@ -270,11 +332,11 @@ nl:
         upcoming_meeting: Aankomende vergadering
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Gerelateerde resultaten:'
-        result_meetings: 'Gerelateerde vergaderingen:'
+        meeting_result: 'Gerelateerde resultaten:'
+        result_meeting: 'Gerelateerde vergaderingen:'
       proposals_from_meeting:
-        meeting_proposals: 'Gerelateerde voorstellen:'
-        proposal_meetings: 'Gerelateerde vergaderingen:'
+        meeting_proposal: 'Gerelateerde voorstellen:'
+        proposal_meeting: 'Gerelateerde vergaderingen:'
   devise:
     mailer:
       join_meeting:

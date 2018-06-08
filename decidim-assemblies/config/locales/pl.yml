@@ -62,6 +62,23 @@ pl:
         email: E-mail
         name: Nazwa
         role: Rola
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaż
+        few: Złożenia
+        many: Złożenia
+        other: Złożenia
+      decidim/assembly_member:
+        one: Członek zespołu
+        few: Członkowie zgromadzenia
+        many: Członkowie zgromadzenia
+        other: Członkowie zgromadzenia
+      decidim/assembly_user_role:
+        one: Zbierz rolę użytkownika
+        few: Zbierz role użytkowników
+        many: Zbierz role użytkowników
+        other: Zbierz role użytkowników
   decidim:
     admin:
       assemblies:
@@ -199,6 +216,8 @@ pl:
       admin:
         assemblies:
           form:
+            duration_help: Jeśli czas trwania tego zestawu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
+            included_at_help: Wybierz datę dodania tego zestawu do Decidim. To niekoniecznie musi być takie samo jak data utworzenia.
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
             select_an_assembly_type: Wybierz typ zespołu

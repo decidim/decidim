@@ -94,7 +94,7 @@ module Decidim
     end
 
     def self_and_ancestors
-      self.class.where("#{self.class.table_name}.parents_path @> ?", parents_path).order("string_to_array(#{self.class.table_name}.parents_path::text, '.')")
+      self.class.where("#{self.class.table_name}.parents_path @> ?", parents_path).order(Arel.sql("string_to_array(#{self.class.table_name}.parents_path::text, '.')"))
     end
 
     def ancestors
@@ -107,6 +107,12 @@ module Decidim
 
     def self.public_spaces
       super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
+    end
+
+    def can_participate?(user)
+      return true unless private_space?
+      return true if private_space? && users.include?(user)
+      return false if private_space? && is_transparent?
     end
 
     private

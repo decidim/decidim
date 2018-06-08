@@ -44,6 +44,20 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
+    models:
+      decidim/participatory_process_step_activated_event: Urratsera aktibatuta
+      decidim/participatory_process_step_changed_event: Pasartea aldatu da
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Parte hartze prozesua
+        other: Parte hartze prozesuak
+      decidim/participatory_process_group:
+        one: Parte-hartze prozesuaren taldea
+        other: Parte-hartze prozesuko taldeak
+      decidim/participatory_process_step:
+        one: Step
+        other: Urratsak
   decidim:
     admin:
       actions:

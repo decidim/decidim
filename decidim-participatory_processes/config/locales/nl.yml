@@ -44,6 +44,20 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Stap geactiveerd
+      decidim/participatory_process_step_changed_event: Stap veranderd
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participatief proces
+        other: Participatieve processen
+      decidim/participatory_process_group:
+        one: Participerende procesgroep
+        other: Participerende procesgroepen
+      decidim/participatory_process_step:
+        one: Stap
+        other: Stappen
   decidim:
     admin:
       actions:

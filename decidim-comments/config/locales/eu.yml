@@ -1,4 +1,18 @@
 eu:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Iruzkina
+      decidim/comments/comment_created_event: Iruzkina
+      decidim/comments/reply_created_event: Iruzkinaren erantzuna
+      decidim/comments/user_mentioned_event: Aipatu
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Iruzkina
+        other: Oharrak
+      decidim/comments/comment_vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     comments:
       comments: Oharrak

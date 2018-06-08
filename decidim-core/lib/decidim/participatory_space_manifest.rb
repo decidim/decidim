@@ -35,6 +35,11 @@ module Decidim
     # The cell path to use to render the card of a resource.
     attribute :card, String
 
+    # A path with the `scss` stylesheet this engine provides. It is used to
+    # mix this engine's stylesheets with the main app's stylesheets so it can
+    # use the scss variables and mixins provided by Decidim::Core.
+    attribute :stylesheet, String, default: nil
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can
@@ -74,6 +79,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
+      print "Creating seeds for the #{name} space...\n" unless Rails.env.test?
       @seeds&.call
     end
 

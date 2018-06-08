@@ -1,4 +1,9 @@
 pt-BR:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Página
+        other: Páginas
   decidim:
     admin_log:
       page:

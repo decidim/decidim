@@ -5,10 +5,17 @@ es:
         additional_info: Información de clasificación
         decidim_category_id: Categorías del conjunto de propuestas en las que desea aplicar el sorteo
         decidim_proposals_component_id: Propuestas
-        dice: Resultado de la tirada del dado (rodar un dado de 6 caras o buscar otra forma aleatoria para generar un número del 1 al 6) e introducirlo aquí, en lugar de atestiguar el número resultante, esto contribuye a la calidad y garantías de la aleatoriedad del resultado
+        dice: Resultado de la tirada de dados. Tira un dado de 6 caras, o busca otra forma aleatoria de generar un número del 1 al 6, e ingresa aquí el número resultante delante de algunos testigos. Esto contribuye a la calidad y garantías de la aleatoriedad del resultado
         target_items: Número de propuestas que se seleccionarán (indica el número de propuestas que desea seleccionar dibujando un montón del grupo de propuestas que ha elegido previamente)
         title: Título
         witnesses: Testigos
+    models:
+      decidim/sortitions/create_sortition_event: Sorteo
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteo
+        other: Sorteos
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ es:
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nuevo sorteo añadida a %{participatory_space_title}
           notification_title: El sorteo <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sorteos
     participatory_processes:
       statistics:
         sortitions_count: Sorteos
@@ -76,7 +87,7 @@ es:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
             error: Se produjo un error al actualizar el sorteo.
-            success: El sorteo se ha actualizado con éxito.
+            success: Sorteo actualizado correctamente
       admin_log:
         sortition:
           create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"
@@ -138,7 +149,3 @@ es:
           count:
             one: 1 sorteo
             other: "%{count} clasificaciones"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sorteos

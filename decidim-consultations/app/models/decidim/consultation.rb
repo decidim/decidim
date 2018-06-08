@@ -5,6 +5,7 @@ module Decidim
   class Consultation < ApplicationRecord
     include Decidim::Participable
     include Decidim::Publicable
+    include Decidim::Resourceable
     include Decidim::Consultations::PublicableResults
 
     belongs_to :organization,
@@ -56,8 +57,8 @@ module Decidim
       questions.published.where(decidim_scope_id: decidim_highlighted_scope_id)
     end
 
-    def regular_questions
-      questions.published.where.not(decidim_scope_id: decidim_highlighted_scope_id).group_by(&:scope)
+    def questions_by_scope
+      questions.published.group_by(&:scope)
     end
 
     # This method exists with the only purpose of getting rid of whats seems to be an issue in
@@ -72,7 +73,7 @@ module Decidim
     def self.order_randomly(seed)
       transaction do
         connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_consultations".*, RANDOM()').order("RANDOM()").load
+        select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
     end
   end

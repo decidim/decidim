@@ -17,6 +17,10 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/attachment_created_event: eranskina
+      decidim/component_published_event: Osagai aktiboa
+      decidim/profile_updated_event: Profila eguneratu da
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ eu:
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
+    models:
+      decidim/user:
+        one: Erabiltzaileak
+        other: erabiltzaileak
+      decidim/user_group:
+        one: Erabiltzaile taldea
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -121,6 +132,7 @@ eu:
         explanation: Egiaztatu pasaportearen zenbakia "A"
         fields:
           passport_number: Pasaporte zenbakia
+        name: Beste adibide bat baimena
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
@@ -140,6 +152,12 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: eta beste bat
+        other: eta %{count} gehiago
+      see_less: "(ikusi gutxiago)"
+      see_more: "(gehiago ikusi)"
     components:
       dummy:
         actions:
@@ -173,6 +191,7 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso buletin bat noizbehinka informazio garrantzitsu batekin
+          newsletter_title: Harremanetarako baimena
           nickname_help: Zure identifikatzaile labur eta berezia %{organization} zenbakian
           sign_in: Sartu
           sign_up: Erregistratu
@@ -183,12 +202,19 @@ eu:
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
+          tos_title: Zerbitzu-baldintzak
           username_help: Izen publikoa, zure mezuetan agertzekoa Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
       shared:
+        newsletter_modal:
+          buttons:
+            check: Egiaztatu eta jarraitu
+            uncheck: Mantendu uncheck
+          notice: Kaixo, ziur zaude buletin bat jaso nahi duzula? Berriro begiratu berriro buletina kontrol-laukia markatuta. Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, zure jakinarazpenen ezarpenen orrian alda dezakezu beti. Kutxa markatzen ez baduzu, parte hartzaileen aukera berriei buruzko informazio garrantzitsua falta zaizu plataforman. Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu. Eskerrik asko irakurri hau!
+          title: Buletina jakinarazpenak
         omniauth_buttons:
           or: Edo
     doorkeeper:
@@ -260,6 +286,10 @@ eu:
       source: Iturria
       title: Hatz
       value: Balio
+    followers:
+      no_followers: Ez da jarraitzailerik oraindik.
+    following:
+      no_followings: Ez du inork edo ezer oraindik jarraitzen.
     follows:
       create:
         button: Jarraitu
@@ -338,6 +368,8 @@ eu:
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
+    notifications:
+      no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -352,17 +384,75 @@ eu:
         rejected: Ukatua
         verified: Egiaztatuta
     pages:
+      home:
+        extended:
+          debates: Eztabaidak
+          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          how_to_participate: Nola har dezaket parte prozesu batean?
+          meetings: Bilerak
+          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
+          more_info: Argibide gehiago
+          proposals: proposamenak
+          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
+        footer_sub_hero:
+          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          register: Erregistroa
+        hero:
+          participate: Parte hartu
+          welcome: Ongi etorri %{organization} erakundera!
+        statistics:
+          answers_count: Amaitutako inkestak
+          assemblies_count: Batzar
+          comments_count: Iruzkinak
+          debates_count: Eztabaidak
+          endorsements_count: Oniritziak
+          headline: '%{organization} erakundearen egungo egoera'
+          meetings_count: Bilerak
+          orders_count: Euskarriak
+          pages_count: Orriak
+          processes_count: Prozesuak
+          projects_count: Proiektuak
+          proposals_accepted: Onartutako proposamenak
+          proposals_count: proposamenak
+          results_count: Emaitzak
+          surveys_count: Inkestak
+          users_count: Parte-hartzaileak
+          votes_count: Euskarriak
+        sub_hero:
+          register: Erregistroa
       index:
         title: Argibide gehiago
+      terms_and_conditions:
+        accept:
+          error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
+          success: Great! Baldintzak eta baldintzak onartu dituzu.
+        form:
+          agreement: Baldintzak ados nago
+          legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
+        refuse:
+          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
+          modal_btn_continue: Baldintzak onartu eta jarraitu
+          modal_btn_exit: Berriro berrikusiko dut geroago
+          modal_button: Ezetsi terminoak
+          modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
+        required_review:
+          alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
+          body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
+          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
       deleted: Erabiltzailea ezabatua
+      view: ikusi
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
-        about_me: Niri buruz
-        personal_url: Webgune pertsonala
+        followers: Jarraitzaileak
+        following: honako hau
+        notifications: jakinarazpenak
+      user:
+        edit_profile: Editatu profila
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -386,6 +476,20 @@ eu:
         title: Hautatu %{field}
       prompt: Aukeratu esparrua
       scopes: esparru
+    search:
+      filter:
+        all: guztiak
+        component: Osagai
+      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Itxi modal
+        filter: Filter
+        filter_by: Iragazi arabera
+        unfold: Zabaldu
     shared:
       action_authorization_modal:
         expired:
@@ -442,16 +546,18 @@ eu:
   devise:
     invitations:
       edit:
-        header: Idatzi zure pasahitza
+        header: Amaitu zure kontua sortzea
         nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
+        subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
     mailer:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
         ignore: |-
-          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+          Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />
+          Zure kontua ez da sortu goiko estekan sartzeko eta zure ezizena eta pasahitza ezartzeko.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} erabiltzaile gonbidatu zaitu %{application}erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
@@ -474,17 +580,15 @@ eu:
       public: Zure informazio publikoa.
   errors:
     messages:
-      content_type_whitelist_error: fitxategi mota ez da zuzena
+      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
-      invalid_manifest: Manifestua ez da baliozkoa
-      invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
-      long_words: Hitz luzeegiak ditu
-      must_start_with_caps: Letra larriz hasi behar du
+      long_words: luzeegia den hitzak ditu
+      must_start_with_caps: txantiloiak hasi behar dira
       nesting_too_deep: ezin da egon azpikategoria batean
-      too_many_marks: Galdera- eta harridura-ikur gehiegi erabiltzen ari zara
-      too_much_caps: Letra larri gehiegi erabiltzen ari zara
-      too_short: Laburregia da
+      too_many_marks: marka gehiegi erabiltzen ari da
+      too_much_caps: txantiloiak gehiegi erabiltzen ari dira
+      too_short: oso laburra da
   forms:
     required: Nahitaezkoa da
   invisible_captcha:
@@ -509,8 +613,6 @@ eu:
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
-        no_notifications: Oraindik ez dago jakinarazpenik.
-        title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
@@ -529,44 +631,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  pages:
-    home:
-      extended:
-        debates: Eztabaidak
-        debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-        how_to_participate: Nola har dezaket parte prozesu batean?
-        meetings: Topaketa-zerrenda
-        meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-        more_info: Argibide gehiago
-        proposals: Proposamenak
-        proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
-      footer_sub_hero:
-        footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
-        footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-        register: Erregistroa
-      hero:
-        participate: Parte hartu
-        welcome: Ongi etorri %{organization} erakundera!
-      statistics:
-        answers_count: Amaitutako inkestak
-        assemblies_count: Batzar
-        comments_count: Iruzkinak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: '%{organization} erakundearen egungo egoera'
-        meetings_count: Topaketak
-        orders_count: Euskarriak
-        pages_count: Orriak
-        processes_count: Prozesuak
-        projects_count: Proiektuak
-        proposals_accepted: Onartutako proposamenak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
-      sub_hero:
-        register: Erregistratu
   social_share_button:
     delicious: Delicious
     douban: Douban

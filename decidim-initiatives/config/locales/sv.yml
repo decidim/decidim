@@ -32,6 +32,17 @@ sv:
         address: Adress
         id_document: CIF
         name: Fullständigt namn
+  activerecord:
+    models:
+      decidim/initiative:
+        one: intitiativ
+        other: Initatives
+      decidim/initiative_comittee:
+        one: KOMMITTÉN
+        other: Comittees
+      decidim/initiative_vote:
+        one: Signatur
+        other: signaturer
   decidim:
     admin:
       menu:
@@ -60,10 +71,10 @@ sv:
     events:
       initiatives:
         milestone_completed:
-          email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av rösterna!
+          email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Ny milstolpe färdigställd!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av rösterna.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av underskrifterna.
     initiatives:
       admin:
         committee_requests:
@@ -221,10 +232,14 @@ sv:
         title: initiativ
       initiative_votes:
         create:
-          error: Det har varit fel när man röstade för initiativet.
+          error: Det har varit fel när du undertecknade initiativet.
       initiatives:
         author:
           deleted: raderade
+        author_list:
+          hidden_authors_count:
+            one: och ytterligare 1 person
+            other: och %{count} fler personer
         count:
           title:
             one: "%{count} initiativ"
@@ -249,7 +264,7 @@ sv:
         orders:
           label: 'Sortera initiativ av:'
           most_commented: Mest kommenterade
-          most_voted: De flesta röstade
+          most_voted: Mest signerade
           random: Slumpmässig
           recent: Senaste
         result:
@@ -260,22 +275,21 @@ sv:
           offline_method: Detta medborgarinitiativ samlar bara ansikte mot ansikte stöd.
         signature_identities:
           select_identity: Välj användaridentitet
+        signatures_count:
+          one: " signatur"
+          other: " signaturer"
         statistics:
           assistants_count_title: assistenter
           comments_count_title: kommentarer
           meetings_count_title: möten
-          supports_count_title: sammanväxningar
+          supports_count_title: signaturer
         supports:
-          title: Förteckning över vidhäftningar
-        supports_count:
-          count:
-            one: " Stöd"
-            other: " bärare"
+          title: Förteckning över signaturer
         vote_cabin:
-          already_voted: Redan röstade
-          supports_required: "%{total_supports} röster krävs"
+          already_voted: Redan undertecknad
+          supports_required: "%{total_supports} signaturer krävs"
           vote: Skylt
-          votes_blocked: Röstning inaktiverad
+          votes_blocked: Signering inaktiverad
         votes_count:
           count:
             one: SIGNATUR

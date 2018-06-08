@@ -42,7 +42,7 @@ module Decidim
         model.end_time.to_date
       end
 
-      def shows_footer?
+      def can_join?
         model.can_be_joined_by?(current_user)
       end
     end

@@ -39,7 +39,7 @@
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>
-      <%= cell "decidim/tags", @proposal, context: {extra_classes: ["tags--proposal"]} %>
+      <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
     <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
       <% if @proposal.accepted? %>
@@ -70,10 +70,7 @@
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <div class="section">
-      <a name="list-of-endorsements"></a>
-      <%= identities_list_xxs(@proposal.endorsements.for_listing) %>
-    </div>
+    <%= cell "decidim/proposals/endorsers_list", @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>

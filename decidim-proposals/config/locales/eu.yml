@@ -16,6 +16,37 @@ eu:
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
         origin_component_id: Proposamenen kopia egiteko osagaia
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Berriro uzteko beharra
+    models:
+      decidim/proposals/accepted_proposal_event: Onartutako proposamena
+      decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
+      decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
+      decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
+      decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
+      decidim/proposals/proposal_endorsed_event: Onartutako proposamena
+      decidim/proposals/proposal_mentioned_event: Proposamena aipatua
+      decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
+      decidim/proposals/rejected_proposal_event: Proposamena baztertu da
+      decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposamen
+        other: proposamenak
+      decidim/proposals/proposal_endorsement:
+        one: abal
+        other: Oniritziak
+      decidim/proposals/proposal_note:
+        one: Ohar
+        other: Oharrak
+      decidim/proposals/proposal_vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     components:
       proposals:
@@ -264,6 +295,7 @@ eu:
         endorsement_identities_cabin:
           endorse: gatoz
         endorsements_card_row:
+          comments: Oharrak
           endorse: gatoz
         filters:
           accepted: Onartuta
@@ -273,6 +305,7 @@ eu:
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak
           evaluating: Ebaluatzen
+          except_rejected: Guztiak baztertuak izan ezik
           official: Ofiziala
           origin: Jatorria
           rejected: Ukatua
@@ -285,10 +318,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        identities_listing:
-          see_all: Dena ikusi
-          see_less: Ikusi gutxiago
-          title: Onarpenen zerrenda
         index:
           new_proposal: Proposamen berria
           see_all_withdrawn: Ikusi guztiak kendutako proposamenak
@@ -317,6 +346,10 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
+          endorsements_list: Onarpenen zerrenda
+          hidden_endorsers_count:
+            one: eta beste 1 pertsona
+            other: eta beste %{count} pertsona
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
@@ -376,9 +409,9 @@ eu:
         success: Proposamenaren zirriborroa eguneratu da.
     resource_links:
       copied_from_component:
-        proposal_proposals: Lotutako proposamenak
+        proposal_proposal: Lotutako proposamenak
       included_projects:
-        project_results: 'Proiektu honetan agertzen diren emaitzak:'
+        project_result: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
-        proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
-        proposal_results: 'Emaitza hauetatik sortutako proposamena:'
+        proposal_project: 'Proiektu hauetatik sortutako proposamena:'
+        proposal_result: 'Emaitza hauetatik sortutako proposamena:'

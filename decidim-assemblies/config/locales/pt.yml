@@ -62,6 +62,17 @@ pt:
         email: O email
         name: Nome
         role: Função
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Montagem
+        other: Assemblies
+      decidim/assembly_member:
+        one: Membro da Assembléia
+        other: Membros da Assembléia
+      decidim/assembly_user_role:
+        one: Função de usuário de montagem
+        other: Funções de usuário de montagem
   decidim:
     admin:
       assemblies:
@@ -199,6 +210,8 @@ pt:
       admin:
         assemblies:
           form:
+            duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
+            included_at_help: Selecione a data em que esta montagem foi adicionada ao Decidim. Não precisa necessariamente ser o mesmo que a data de criação.
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
             select_an_assembly_type: Selecione um tipo de montagem

@@ -1,4 +1,12 @@
 nl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nieuwe blogpost
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: berichten
   decidim:
     blogs:
       actions:
@@ -37,6 +45,8 @@ nl:
             created_at: Aangemaakt op
             title: titel
       posts:
+        show:
+          view: Uitzicht
         sidebar_blog:
           comments: reacties
           most_commented_posts: Bericht met meeste reacties
@@ -58,10 +68,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
           notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: berichten
     participatory_processes:
-      statistics:
-        posts_count: berichten
-  pages:
-    home:
       statistics:
         posts_count: berichten

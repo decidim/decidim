@@ -44,6 +44,20 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Paso activado
+      decidim/participatory_process_step_changed_event: O paso cambiou
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proceso participativo
+        other: Procesos participativos
+      decidim/participatory_process_group:
+        one: Grupo de procesos participativos
+        other: Grupos de procesos participativos
+      decidim/participatory_process_step:
+        one: Paso
+        other: Pasos
   decidim:
     admin:
       actions:

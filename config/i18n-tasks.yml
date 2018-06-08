@@ -133,13 +133,19 @@ ignore_unused:
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
   - decidim.consultations.consultations.orders.*
+  - decidim.consultations.show.badge_name.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
   - decidim.initiatives.admin_states.*
   - decidim.initiatives.events.*
+  - decidim.initiatives.initiatives.author_list.hidden_authors_count.*
+  - decidim.initiatives.initiatives.signatures_count.*
+  - decidim.collapsible_list.hidden_elements_count.*
   - decidim.events.*
   - doorkeeper.scopes.*
+  - decidim.proposals.proposals.votes_count.count.*
+  - decidim.proposals.proposals.show.hidden_endorsers_count.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose run --service-ports --rm decidim bash -c "cd development_app && bin/rails $*"
+docker-compose run --service-ports --rm decidim bash -c "bin/rails $*"

@@ -75,7 +75,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         start_date: Time.current,
         end_date: 2.months.from_now.at_midnight,
         participatory_process_group: process_groups.sample,
-        scope: n.positive? ? nil : Decidim::Scope.reorder("RANDOM()").first
+        scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
       )
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(

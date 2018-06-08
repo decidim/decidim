@@ -17,6 +17,10 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
+    models:
+      decidim/attachment_created_event: Adjunt
+      decidim/component_published_event: Component actiu
+      decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
+    models:
+      decidim/user:
+        one: Usuari
+        other: Usuaris
+      decidim/user_group:
+        one: Grup d'usuaris
+        other: Grups d'usuaris
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -121,6 +132,7 @@ ca:
         explanation: Obté la verificació introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
+        name: Una altra autorització d'exemple
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
@@ -140,6 +152,12 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: i 1 més
+        other: i %{count} més
+      see_less: "(veure menys)"
+      see_more: "(veure més)"
     components:
       dummy:
         actions:
@@ -173,6 +191,7 @@ ca:
         new:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
+          newsletter_title: Permís de contacte
           nickname_help: El vostre identificador curt i únic a %{organization}
           sign_in: Entra
           sign_up: Registra't
@@ -183,12 +202,19 @@ ca:
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
+          tos_title: Termes del servei
           username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantitzar l'anonimat pot ser qualsevol nom.
       sessions:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
       shared:
+        newsletter_modal:
+          buttons:
+            check: Marca i continua
+            uncheck: Deixa desmarcada
+          notice: Hola, estàs segur que no vols rebre un butlletí informatiu? Si us plau, avalua tornar a fer clic a la casella de verificació que apareix a continuació. Per a nosaltres és molt important que rebis correus ocasionals per fer anuncis importants, i sempre pots canviar-ho a la pàgina de configuració de les notificacions. Si no marques la casella, és possible que no rebis informació rellevant sobre noves oportunitats de participació dins de la plataforma. Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió. Gràcies per llegir això!
+          title: Notificacions de butlletins
         omniauth_buttons:
           or: O
     doorkeeper:
@@ -260,6 +286,10 @@ ca:
       source: Origen
       title: Empremta digital
       value: Valor
+    followers:
+      no_followers: Encara no hi ha seguidors.
+    following:
+      no_followings: No segueix cap persona ni res.
     follows:
       create:
         button: Seguir
@@ -338,6 +368,8 @@ ca:
         success: Has cancel·lat la subscripció amb èxit.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
+    notifications:
+      no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
@@ -352,17 +384,75 @@ ca:
         rejected: Rebutjades
         verified: Verificada
     pages:
+      home:
+        extended:
+          debates: Debats
+          debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
+          how_to_participate: Com participo en un procés?
+          meetings: Trobades
+          meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
+          more_info: Més informació
+          proposals: Propostes
+          proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
+        footer_sub_hero:
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
+          footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
+          register: Registra't
+        hero:
+          participate: Participa
+          welcome: Benvingut a %{organization}!
+        statistics:
+          answers_count: Enquestes realitzades
+          assemblies_count: Assemblees
+          comments_count: Comentaris
+          debates_count: Debats
+          endorsements_count: Adhesions
+          headline: Estat actual de %{organization}
+          meetings_count: Trobades
+          orders_count: Vots
+          pages_count: Pàgines
+          processes_count: Processos
+          projects_count: Projectes
+          proposals_accepted: Propostes acceptades
+          proposals_count: Propostes
+          results_count: Resultats
+          surveys_count: Enquestes
+          users_count: Participants
+          votes_count: Vots
+        sub_hero:
+          register: Registra't
       index:
         title: Més informació
+      terms_and_conditions:
+        accept:
+          error: S'ha produït un error en acceptar els Termes i Condicions.
+          success: Genial! Has acceptat els Termes i Condicions.
+        form:
+          agreement: Accepto aquests termes
+          legend: Accepto els termes i condicions
+        refuse:
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_btn_continue: Acceptar els termes i continuar
+          modal_btn_exit: Ho revisaré més tard
+          modal_button: Rebutjar els termes
+          modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
+        required_review:
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
+          body: Si us plau dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
+          title: 'Obligatori: revisa l''actualització de les nostres Condicions d''Ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
       deleted: Usuari eliminat
+      view: Veure
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
-        about_me: Sobre mi
-        personal_url: Lloc web personal
+        followers: Seguidors
+        following: Segueix
+        notifications: Notificacions
+      user:
+        edit_profile: Edita el perfil
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -386,6 +476,20 @@ ca:
         title: Seleccioneu %{field}
       prompt: Seleccioneu un àmbit
       scopes: Àmbits
+    search:
+      filter:
+        all: Tot
+        component: Component
+      results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
+      term_input_placeholder: Cerca
+    searches:
+      filters:
+        search: Cerca
+      filters_small_view:
+        close_modal: Tanca el modal
+        filter: Filtre
+        filter_by: Filtra per
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
@@ -442,17 +546,18 @@ ca:
   devise:
     invitations:
       edit:
-        header: Establir la contrasenya
+        header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
+        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no vols acceptar la invitació, ignora aquest correu.<br />
-          El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
+          El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -475,17 +580,15 @@ ca:
       public: La teva informació pública.
   errors:
     messages:
-      content_type_whitelist_error: El tipus de fitxer no és vàlid
+      content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      invalid_manifest: Arxiu de manifest invàlid
-      invalid_participatory_process: Procés participatiu invàlid
-      long_words: Conté paraules que són massa llargues
-      must_start_with_caps: Ha de començar amb majúscules
+      long_words: conté paraules que són massa llargues
+      must_start_with_caps: ha de començar amb majúscules
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
-      too_much_caps: Està utilitzant massa majúscules
-      too_short: És massa curt
+      too_many_marks: hi ha massa signes de puntuació
+      too_much_caps: hi ha massa majúscules
+      too_short: és massa curt
   forms:
     required: Obligatori
   invisible_captcha:
@@ -510,8 +613,6 @@ ca:
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marca tots com a llegits
-        no_notifications: Encara no hi ha notificacions.
-        title: Notificacions
       user_menu:
         admin_dashboard: Tauler d'administració
         conversations: Converses
@@ -530,44 +631,6 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-  pages:
-    home:
-      extended:
-        debates: Debats
-        debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-        how_to_participate: Com participo en un procés?
-        meetings: Trobades
-        meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-        more_info: Més informació
-        proposals: Propostes
-        proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
-      footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-        register: Registra't
-      hero:
-        participate: Participa
-        welcome: Benvingut a %{organization}!
-      statistics:
-        answers_count: Enquestes realitzades
-        assemblies_count: Assemblees
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        headline: Estat actual de %{organization}
-        meetings_count: Trobades
-        orders_count: Vots
-        pages_count: Pàgines
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_accepted: Propostes acceptades
-        proposals_count: Propostes
-        results_count: Resultats
-        surveys_count: Enquestes
-        users_count: Participants
-        votes_count: Suports
-      sub_hero:
-        register: Registre
   social_share_button:
     delicious: Delicious
     douban: Douban

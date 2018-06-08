@@ -49,6 +49,8 @@ module Decidim
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :Searchable, "decidim/searchable"
+  autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
@@ -172,6 +174,16 @@ module Decidim
   # Allow organization's administrators to track newsletter links
   config_accessor :track_newsletter_links do
     true
+  end
+
+  # Max requests in a time period to prevent DoS attacks. Only applied on production.
+  config_accessor :throttling_max_requests do
+    100
+  end
+
+  # Time window in which the throttling is applied.
+  config_accessor :throttling_period do
+    1.minute
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.

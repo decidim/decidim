@@ -70,6 +70,26 @@ yarn install
 yarn run lint --fix
 ```
 
+### Stylelinter
+
+[stylelint](https://stylelint.io/) is a CSS linter and fixer that helps to avoid errors and enforce consistent conventions in the stylesheets. Is an npm package, install it using:
+
+```console
+npm install -g stylelint
+```
+
+Linting a `.scss` file:
+
+```console
+stylelint [path-to-file]
+```
+
+With `--fix` option [stylelint](https://stylelint.io/user-guide/cli/#autofixing-errors) will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
+
+```console
+stylelint [path-to-file] --fix
+```
+
 ### Rubocop
 
 RuboCop is a code analyzer tool we use at Decidim to enforce our code formatting guidelines.

@@ -6,6 +6,7 @@ module Decidim
     class ApplicationController < ActionController::Base
       include FormFactory
       include PayloadInfo
+      include HttpCachingDisabler
 
       protect_from_forgery with: :exception, prepend: true
 

@@ -17,6 +17,10 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/attachment_created_event: gehechtheid
+      decidim/component_published_event: Actieve component
+      decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ nl:
         user_group_document_number: Organisatie documentnummer
         user_group_name: Naam van de organisatie
         user_group_phone: Telefoon organisatie
+    models:
+      decidim/user:
+        one: Gebruiker
+        other: gebruikers
+      decidim/user_group:
+        one: Gebruikersgroep
+        other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -121,6 +132,7 @@ nl:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
         fields:
           passport_number: Paspoortnummer
+        name: Een ander voorbeeld toestemming
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
@@ -140,6 +152,12 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: en nog 1
+        other: en %{count} meer
+      see_less: "(zie minder)"
+      see_more: "(Bekijk meer)"
     components:
       dummy:
         actions:
@@ -173,6 +191,7 @@ nl:
         new:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
+          newsletter_title: Contact toestemming
           nickname_help: Jouw korte, unieke ID op %{organization}
           sign_in: Aanmelden
           sign_up: Registratie
@@ -183,12 +202,19 @@ nl:
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           terms: de bepalingen en voorwaarden van gebruik
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
+          tos_title: Servicevoorwaarden
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
+        newsletter_modal:
+          buttons:
+            check: Controleer en ga door
+            uncheck: Blijf uitgeschakeld
+          notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
+          title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
     doorkeeper:
@@ -260,6 +286,10 @@ nl:
       source: Bron
       title: Vingerafdruk
       value: Waarde
+    followers:
+      no_followers: Nog geen volgers.
+    following:
+      no_followings: Volgt nog niemand of wat dan ook.
     follows:
       create:
         button: Volgen
@@ -338,6 +368,8 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    notifications:
+      no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
@@ -352,17 +384,75 @@ nl:
         rejected: Geweigerd
         verified: Geverifieerd
     pages:
+      home:
+        extended:
+          debates: Debatten
+          debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel?
+          meetings: vergaderingen
+          meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
+          more_info: Meer informatie
+          proposals: voorstellen
+          proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
+        footer_sub_hero:
+          footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+          register: Registreren
+        hero:
+          participate: Deelnemen
+          welcome: Welkom op het portaal van de burgerinspraak %{organization}!
+        statistics:
+          answers_count: Voltooide enquêtes
+          assemblies_count: Events
+          comments_count: Reacties
+          debates_count: Debatten
+          endorsements_count: Aanbevelingen
+          headline: Huidige stand van %{organization}
+          meetings_count: vergaderingen
+          orders_count: stemmen
+          pages_count: Pages
+          processes_count: Thema's
+          projects_count: projecten
+          proposals_accepted: Aanvaarde voorstellen
+          proposals_count: voorstellen
+          results_count: resultaten
+          surveys_count: Enquête
+          users_count: Deelnemers
+          votes_count: stemmen
+        sub_hero:
+          register: Registreren
       index:
         title: Meer informatie
+      terms_and_conditions:
+        accept:
+          error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
+          success: Super goed! U hebt de algemene voorwaarden geaccepteerd.
+        form:
+          agreement: Ik ga akkoord met deze voorwaarden
+          legend: Ga akkoord met de gebruiksvoorwaarden
+        refuse:
+          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
+          modal_btn_continue: Voorwaarden accepteren en doorgaan
+          modal_btn_exit: Ik zal het later bekijken
+          modal_button: Weigeren de voorwaarden
+          modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
+        required_review:
+          alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
+          body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
+          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
+      view: Uitzicht
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
-        about_me: Over mij
-        personal_url: Persoonlijke website
+        followers: Volgers
+        following: volgt
+        notifications: meldingen
+      user:
+        edit_profile: Bewerk profiel
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -386,6 +476,20 @@ nl:
         title: Selecteer %{field}
       prompt: Selecteer een scope
       scopes: scopes
+    search:
+      filter:
+        all: Alle
+        component: bestanddeel
+      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
+      term_input_placeholder: Zoeken
+    searches:
+      filters:
+        search: Zoeken
+      filters_small_view:
+        close_modal: Modal sluiten
+        filter: Filter
+        filter_by: Filteren op
+        unfold: Ontvouwen
     shared:
       action_authorization_modal:
         expired:
@@ -442,16 +546,18 @@ nl:
   devise:
     invitations:
       edit:
-        header: Uw wachtwoord instellen
+        header: Eindig met het maken van je account
         nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
+        subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
     mailer:
       invitation_instructions:
         accept: Accepteer uitnodiging
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
         hello: Hallo %{email},
         ignore: |-
-          Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
+          Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
+          Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
@@ -474,17 +580,15 @@ nl:
       public: Jouw openbare informatie.
   errors:
     messages:
-      content_type_whitelist_error: Het bestandstype is niet geldig
+      content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      invalid_manifest: Ongeldig manifest
-      invalid_participatory_process: Ongeldige participatief proces
-      long_words: Bevat woorden die te lang zijn
-      must_start_with_caps: Moet beginnen met hoofdletters
+      long_words: bevat woorden die te lang zijn
+      must_start_with_caps: moet beginnen met caps
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      too_many_marks: Gebruikt te veel markeringen
-      too_much_caps: Gebruikt te veel hoofdletters
-      too_short: Is te kort
+      too_many_marks: gebruikt te veel markeringen
+      too_much_caps: gebruikt te veel caps
+      too_short: is te kort
   forms:
     required: Vereist
   invisible_captcha:
@@ -509,8 +613,6 @@ nl:
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
-        no_notifications: Nog geen meldingen.
-        title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
@@ -529,44 +631,6 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-  pages:
-    home:
-      extended:
-        debates: Debatten
-        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-        how_to_participate: Hoe neem ik deel aan een thema?
-        meetings: Events
-        meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
-        more_info: Meer informatie
-        proposals: Voorstellen
-        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
-      footer_sub_hero:
-        footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
-        footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-        register: Registreren
-      hero:
-        participate: Deelnemen
-        welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-      statistics:
-        answers_count: Voltooide enquêtes
-        assemblies_count: Events
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelen
-        headline: Huidige stand van %{organization}
-        meetings_count: Events
-        orders_count: stemmen
-        pages_count: Pages
-        processes_count: Thema's
-        projects_count: Projecten
-        proposals_accepted: Aanvaarde voorstellen
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        surveys_count: Enquête
-        users_count: Deelnemers
-        votes_count: Stemmen
-      sub_hero:
-        register: Registeren
   social_share_button:
     delicious: Heerlijk
     douban: Douban

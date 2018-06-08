@@ -8,6 +8,7 @@ eu:
         end_voting_date: Amaiera data
         introductory_image: Sarrera-irudia
         introductory_video_url: Sarrera bideoaren URLa
+        questions: Galderak
         slug: URL slug
         start_voting_date: Hasiera data
         subtitle: azpititulua
@@ -35,6 +36,20 @@ eu:
       vote:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: kontsultak
+      decidim/consultations/question:
+        one: Galdera
+        other: Galderak
+      decidim/consultations/response:
+        one: Erantzun
+        other: Erantzunak
+      decidim/consultations/vote:
+        one: Bozkatu
+        other: Botoak
   decidim:
     admin:
       actions:
@@ -182,11 +197,8 @@ eu:
         filter: Filter
         filter_by: Iragazi arabera
         unfold: Zabaldu
-      finished:
-        active_consultations: Aholkularitza aktiboak
-        past_consultations: Azkeneko kontsultak
       highlighted_questions:
-        title: '%{scope_name} kontsultak'
+        title: '%{scope_name}galdera'
       index:
         title: kontsultak
       question:
@@ -199,11 +211,25 @@ eu:
         create:
           error: Arazoak izan dira galdera hautapenean
       regular_questions:
-        title: Beste kontsulta batzuk
+        title: Kontsulta honi buruzko galderak
       show:
-        see_finished_consultations: Ikusi aurreko kontsultak
+        badge_name:
+          finished: Amaitu
+          open: Open
+          open_votes: Ireki botoak
+          published_results: Argitaratutako emaitzak
+        footer_button_text:
+          debate: Debate
+          view: ikusi
+          view_results: Ikusi emaitzak
+          vote: Bozkatu
+        unspecified: Zehaztu gabea
     menu:
       consultations: kontsultak
+    pages:
+      home:
+        statistics:
+          consultations_count: kontsultak
     questions:
       results:
         title: Emaitzak
@@ -222,7 +248,7 @@ eu:
         starting_from: '%{date}tik hasita'
         vote: Bozkatu
       vote_modal:
-        contextual_help: Aukeratu aukera bat. Gogoan izan behin behin duzula baieztatu Zure laguntza ezin da aldatu.
+        contextual_help: Aukeratu aukera bat.
         title: 'Kontsulta: galdera-laguntza'
       vote_modal_confirm:
         change: Aldaketa
@@ -242,7 +268,3 @@ eu:
         unfold: Zabaldu
       question_header:
         back_to_consultation: Ikusi kontsulta guztiak
-  pages:
-    home:
-      statistics:
-        consultations_count: kontsultak

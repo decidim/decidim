@@ -104,6 +104,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the password confirmation is not present" do
+      let(:password_confirmation) { nil }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the password confirmation is different from password" do
       let(:password_confirmation) { "invalid" }
 

@@ -11,6 +11,15 @@ ca:
         start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
+    models:
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debats desactivats
+      decidim/debates/creation_enabled_event: Debats habilitats
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: Debats
   decidim:
     components:
       debates:

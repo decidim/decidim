@@ -1,4 +1,9 @@
 fi:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Sivu
+        other: sivut
   decidim:
     admin_log:
       page:

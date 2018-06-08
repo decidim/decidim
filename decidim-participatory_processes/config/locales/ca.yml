@@ -44,6 +44,20 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Pas activat
+      decidim/participatory_process_step_changed_event: Pas canviat
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Procés participatiu
+        other: Processos participatius
+      decidim/participatory_process_group:
+        one: Grup de procés participatiu
+        other: Grups de procés participatiu
+      decidim/participatory_process_step:
+        one: Fase
+        other: Fases
   decidim:
     admin:
       actions:

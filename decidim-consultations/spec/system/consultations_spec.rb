@@ -44,23 +44,9 @@ describe "Consultations", type: :system do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
       end
 
-      expect(page).to have_selector(".card--process", count: 2)
+      expect(page).to have_selector(".card--consultation", count: 2)
       expect(page).to have_content(translated(consultations.first.title))
       expect(page).to have_content(translated(consultations.last.title))
-    end
-  end
-
-  context "when there is only one active consultation in the organization" do
-    let!(:consultation) { create(:consultation, :active, :published, organization: organization) }
-    let!(:finished_consultation) { create :consultation, :finished, :published, organization: organization }
-
-    before do
-      switch_to_host(organization.host)
-      visit decidim_consultations.consultations_path
-    end
-
-    it "is redirected to consultation view" do
-      expect(page).to have_current_path(decidim_consultations.consultation_path(consultation))
     end
   end
 end

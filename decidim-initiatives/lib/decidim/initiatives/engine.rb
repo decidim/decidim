@@ -57,6 +57,7 @@ module Decidim
       initializer "decidim_initiatives.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_initiatives_manifest.js
+          decidim_initiatives_manifest.css
         )
       end
 
@@ -73,6 +74,11 @@ module Decidim
             }
           )
         end
+      end
+
+      initializer "decidim_initiatives.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Initiatives::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Initiatives::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_initiatives.menu" do

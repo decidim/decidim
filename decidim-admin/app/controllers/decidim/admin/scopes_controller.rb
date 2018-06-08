@@ -10,7 +10,7 @@ module Decidim
 
       def index
         enforce_permission_to :read, :scope
-        @scopes = children_scopes.order("name->'#{I18n.locale}' ASC")
+        @scopes = children_scopes.order(Arel.sql("name->'#{I18n.locale}' ASC"))
       end
 
       def new

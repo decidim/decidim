@@ -2,27 +2,38 @@ fr:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informations sur le tirage au sort
-        decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
+        additional_info: Information sur le tirage au sort
+        decidim_category_id: Catégories des propositions sur lesquelles vous souhaitez appliquer le tirage au sort
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat du jet dés (lancer un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre entre 1 et 6) et entrer le résultat ici. Cela contribue à la qualité et aux garanties de l'aléatoire du résultat
-        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions parmi ceux que vous avez choisi précédemment)
+        dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat
+        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez tirer au sort parmi celles du groupe de propositions que vous avez choisi précédemment)
         title: Titre
-        witnesses: Les témoins
+        witnesses: Témoins
+    models:
+      decidim/sortitions/create_sortition_event: Tirage au sort
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Tirage au sort
+        other: Tirages au sort
   decidim:
     components:
       sortitions:
         name: Tirages au sort
         settings:
           global:
-            comments_enabled: Activer le module de commentaire
+            comments_enabled: Commentaires activés
     events:
       sortitions:
         sortition_created:
           email_intro: Le tirage au sort "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous venez de recevoir cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment quitter cet espace participatif en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment ne plus suivre cet espace participatif en cliquant sur le lien précédent.
           email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
           notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Tirages au sort
     participatory_processes:
       statistics:
         sortitions_count: Tirages au sort
@@ -38,16 +49,16 @@ fr:
             fields:
               category: Catégorie
               created_at: Date de création
-              decidim_proposals_component: Fonctionnalité Propositions
+              decidim_proposals_component: Fonctionnalité (Propositions)
               dice: Dé
               reference: Référence
-              request_timestamp: Définir le temps
-              seed: Seed
-              target_items: Articles à sélectionner
+              request_timestamp: Date et Heure
+              seed: Valeur aléatoire
+              target_items: Eléments à sélectionner
               title: Titre
             name:
               one: Tirage au sort
-              other: Tirage au sort
+              other: Tirages au sort
         sortitions:
           confirm_destroy:
             confirm_destroy: Êtes-vous sûr de vouloir annuler ce tirage au sort ?
@@ -64,16 +75,16 @@ fr:
             update: Mettre à jour
           form:
             all_categories: Toutes les catégories
-            select_proposal_component: Sélectionnez l'ensemble des propositions
-            title: Nouveau tirage au sort pour les propositions
+            select_proposal_component: Sélectionnez un ensemble de propositions
+            title: Nouveau tirage au sort de propositions
           index:
             title: Tirages au sort
           new:
-            confirm: 'En appuyant sur le bouton suivant, Decidim enregistrera la date et l''heure à la seconde près. En y ajoutant un jet de dé, on génère une sélection aléatoire. Cette action est irréversible : une fois que vous avez cliqué sur le bouton, le résultat de ce tirage ainsi que les données saisies dans ce formulaire seront publiés. Elles ne pourront pas être modifiées, veillez donc bien à vérifier les informations renseignées en amont'
+            confirm: 'En appuyant sur le bouton suivant, Decidim enregistrera la date et l''heure à la seconde près et, en association avec le résultat du tirage de dé, génèrera un choix aléatoire. Cette action est irréversible : une fois que vous aurez cliqué sur le bouton, le résultat du tirage ainsi que les données saisies dans le formulaire seront publiés et ne pourront pas être modifiés. Veillez donc bien à vérifier les informations renseignées en amont'
             create: Créer
             title: Nouveau tirage au sort
           show:
-            selected_proposals: Propositions sélectionnées pour le tirage
+            selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
             success: Le tirage au sort a bien été mis à jour
@@ -88,7 +99,7 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
         filters:
-          active: actif
+          active: Actif
           all: Tout
           cancelled: Annulé
           category: Catégorie
@@ -97,9 +108,9 @@ fr:
           state: Etat
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
-          filter: Filtre
+          filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Déplier
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
@@ -108,26 +119,26 @@ fr:
           recent: Récent
         results_count:
           count:
-            one: propositions sélectionnées
+            one: proposition sélectionnée
             other: propositions sélectionnées
         show:
-          algorithm: Code d'algorithme du tirage au sort
+          algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
-          candidate_proposals_info: 'Le tri a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
+          candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
           category: de la catégorie %{category}
-          dice_result: "(1) Résultat du dé"
-          introduction: 'Cette page contient les résultats du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} résultats ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus des résultats, les détails affichés sur cette page fournissent toutes les informations nécessaires pour maximiser les garanties et reproduire les résultats. La clé de la réussite de ce tirage au sort est le double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La time seed pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "incontrôlable" pour garantir un résultat juste.  '
+          dice_result: "(1) Résultat du tirage de dé"
+          introduction: 'Cette page contient le résultat du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} éléments ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus du résultat, cette page fournit toutes les informations nécessaires pour maximiser les garanties et permettre de reproduire le résultat. Le tirage au sort résulte d''un double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La variable temporelle pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "infalsifiable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
           proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
           sortition_reproducibility_details: Détails de reproductibilité du tirage au sort
-          time_seed: "(2) Time seed"
-          witnesses: Les témoins
+          time_seed: "(2) Date et Heure"
+          witnesses: Témoins
         sortition:
-          random_seed: Graine aléatoire
+          random_seed: Valeur aléatoire
           selected_proposals:
-            one: 1 proposition sélectionnée
+            one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
           view: Vue
         sortition_author:
@@ -138,7 +149,3 @@ fr:
           count:
             one: 1 tirage au sort
             other: "%{count} tirage(s) au sort"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Tirages au sort

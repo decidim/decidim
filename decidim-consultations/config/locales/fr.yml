@@ -8,6 +8,7 @@ fr:
         end_voting_date: Date de fin
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
+        questions: Des questions
         slug: URL slug
         start_voting_date: Date de début
         subtitle: Sous-titre
@@ -35,6 +36,20 @@ fr:
       vote:
         decidim_consultations_response_id:
           not_found: Réponse non trouvée.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consultation
+        other: Consultations
+      decidim/consultations/question:
+        one: Question
+        other: Des questions
+      decidim/consultations/response:
+        one: Réponse
+        other: Réponses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
   decidim:
     admin:
       actions:
@@ -184,12 +199,9 @@ fr:
         close_modal: Fermer la fenêtre
         filter: Filtre
         filter_by: Filtrer par
-        unfold: Voir la suite
-      finished:
-        active_consultations: Consultations actives
-        past_consultations: Consultations passées
+        unfold: Dérouler
       highlighted_questions:
-        title: Consultations de %{scope_name}
+        title: Questions de %{scope_name}
       index:
         title: Consultations
       question:
@@ -202,11 +214,25 @@ fr:
         create:
           error: Il y a eu des erreurs lors du vote de la question
       regular_questions:
-        title: Autres consultations
+        title: Questions pour cette consultation
       show:
-        see_finished_consultations: Voir les consultations passées
+        badge_name:
+          finished: Fini
+          open: Ouvrir
+          open_votes: Votes ouverts
+          published_results: Résultats publiés
+        footer_button_text:
+          debate: Débat
+          view: Vue
+          view_results: Voir les résultats
+          vote: Vote
+        unspecified: Non précisé
     menu:
       consultations: Consultations
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultations
     questions:
       results:
         title: Résultats
@@ -225,8 +251,8 @@ fr:
         starting_from: À partir du %{date}
         vote: Soutien
       vote_modal:
-        contextual_help: Veuillez sélectionner une option. Gardez en tête qu'une fois que vous avez confirmé votre soutien, celui-ci ne peut pas être changé.
-        title: 'Consultation : soutien aux questions'
+        contextual_help: Veuillez sélectionner une option.
+        title: 'Consultation: soutien aux questions'
       vote_modal_confirm:
         change: Changer
         confirm: Confirmer
@@ -245,7 +271,3 @@ fr:
         unfold: Voir la suite
       question_header:
         back_to_consultation: Voir toutes les consultations
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultations

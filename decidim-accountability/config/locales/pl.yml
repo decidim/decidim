@@ -21,6 +21,15 @@ pl:
       timeline_entry:
         description: Opis
         entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Wniosek zawarty w wyniku
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Wynik
+        few: Wyniki
+        many: Wyniki
+        other: Wyniki
   decidim:
     accountability:
       actions:
@@ -128,6 +137,12 @@ pl:
             description: Opis
             entry_date: Data
       results:
+        count:
+          results_count:
+            one: 1 wynik
+            few: "%{count} wyników"
+            many: "%{count} wyniki"
+            other: "%{count} wyników"
         filters:
           all: Wszystkie
           scopes: Zakresy
@@ -198,6 +213,6 @@ pl:
         see_all_results: Zobacz wszystkie wyniki
     resource_links:
       included_projects:
-        result_projects: Projekty uwzględnione w tym wyniku
+        result_project: Projekty uwzględnione w tym wyniku
       included_proposals:
-        result_proposals: Propozycje zawarte w tym wyniku
+        result_proposal: Propozycje zawarte w tym wyniku

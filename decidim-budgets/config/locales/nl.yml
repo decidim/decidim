@@ -8,6 +8,11 @@ nl:
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: project
+        other: projecten
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ nl:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
           remove: Verwijderen
+          view: Uitzicht
         project_budget_button:
           add: Toevoegen
           added: Toegevoegd
@@ -131,7 +137,7 @@ nl:
         success: Uw stem is succesvol geannuleerd
     resource_links:
       included_proposals:
-        project_proposals: 'Voorstellen opgenomen in dit project:'
+        project_proposal: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen
   total_budget: Totale begroting

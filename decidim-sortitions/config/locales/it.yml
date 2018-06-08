@@ -5,10 +5,17 @@ it:
         additional_info: Informazioni di ordinamento
         decidim_category_id: Categorie dell'insieme di proposte in cui si desidera applicare l'estrazione
         decidim_proposals_component_id: Proposte impostate
-        dice: Risultato del tiro di dado (tira un dado a 6 facce (o cerca un altro modo casuale per generare un numero da 1 a 6) e inserisci qui, a differenza del numero risultante, questo contribuisce alla qualità e alle garanzie della casualità di il risultato
+        dice: Risultato del tiro di dado. Tira un dado a 6 facce, o cerca un altro modo casuale per generare un numero da 1 a 6, e inserisci qui il numero risultante davanti ad alcuni testimoni. Ciò contribuisce alla qualità e alle garanzie della casualità del risultato
         target_items: Numero di proposte da selezionare (indica il numero di proposte che si desidera selezionare tracciando lotti del gruppo di proposte che si è scelto in precedenza)
         title: Titolo
         witnesses: Testimoni
+    models:
+      decidim/sortitions/create_sortition_event: sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova sortizione aggiunta a %{participatory_space_title}
           notification_title: La sortition <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -76,7 +87,7 @@ it:
             selected_proposals: Proposte selezionate per l'estrazione
           update:
             error: Si è verificato un errore durante l'aggiornamento della sortizione.
-            success: Sortition aggiornamento con successo
+            success: Sortition aggiornato con successo
       admin_log:
         sortition:
           create: "%{user_name} ha creato la sortizione %{resource_name} in %{space_name}"
@@ -138,7 +149,3 @@ it:
           count:
             one: 1 sortition
             other: "%{count} sortizioni"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

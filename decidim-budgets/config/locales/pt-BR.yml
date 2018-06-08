@@ -8,6 +8,11 @@ pt-BR:
         description: Descrição
         proposal_ids: Propostas relacionadas
         title: Título
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projeto
+        other: Projetos
   decidim:
     budgets:
       actions:
@@ -31,7 +36,7 @@ pt-BR:
             success: Projeto destruído com sucesso
           edit:
             title: Editar projeto
-            update: Actualizar
+            update: Atualizar
           index:
             finished_orders: Votos finais
             pending_orders: Votações pendentes
@@ -99,6 +104,7 @@ pt-BR:
             one: 1 suporte
             other: "%{count} suporta"
           remove: Remover
+          view: Ver
         project_budget_button:
           add: Adicionar
           added: Adicionado
@@ -131,7 +137,7 @@ pt-BR:
         success: Seu voto foi cancelado com sucesso
     resource_links:
       included_proposals:
-        project_proposals: 'Propostas incluídas neste projeto:'
+        project_proposal: 'Propostas incluídas neste projeto:'
   index:
     confirmed_orders_count: Contagem de votos
   total_budget: Orçamento total

@@ -21,6 +21,13 @@ fi:
       timeline_entry:
         description: Kuvaus
         entry_date: Päivämäärä
+    models:
+      decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Tulos
+        other: tulokset
   decidim:
     accountability:
       actions:
@@ -202,6 +209,6 @@ fi:
         see_all_results: Katso kaikki tulokset
     resource_links:
       included_projects:
-        result_projects: Tähän tulokseen liittyvät hankkeet
+        result_project: Tähän tulokseen liittyvät hankkeet
       included_proposals:
-        result_proposals: Tähän tulokseen liittyvät ehdotukset
+        result_proposal: Tähän tulokseen liittyvät ehdotukset

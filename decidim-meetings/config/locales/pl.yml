@@ -1,6 +1,10 @@
 pl:
   activemodel:
     attributes:
+      agenda:
+        description: Opis
+        duration: Trwanie
+        title: Tytuł
       close_meeting:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
@@ -27,6 +31,37 @@ pl:
         description: Opis
         video_url: URL wideo
         visible: Jest widoczny
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
+              too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+    models:
+      decidim/meetings/close_meeting_event: Spotkanie zamknięte
+      decidim/meetings/create_meeting_event: Spotkanie
+      decidim/meetings/meeting_registrations_enabled_event: Rejestracje włączone
+      decidim/meetings/meeting_registrations_over_percentage_event: Rejestracje ponad limit
+      decidim/meetings/upcoming_meeting_event: Najbliższe spotkanie
+      decidim/meetings/update_meeting_event: Spotkanie zaktualizowane
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Spotkanie
+        few: Spotkania
+        many: Spotkania
+        other: Spotkania
+      decidim/meetings/minutes:
+        one: Minuty
+        few: Minuty
+        many: Minuty
+        other: Minuty
+      decidim/meetings/registration:
+        one: Rejestracja
+        few: Rejestracje
+        many: Rejestracje
+        other: Rejestracje
   decidim:
     admin:
       meeting_copies:
@@ -84,6 +119,7 @@ pl:
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
     meetings:
       actions:
+        agenda: Program
         attachment_collections: Kolekcje
         attachments: Załączniki
         close: Zamknij
@@ -96,6 +132,36 @@ pl:
         registrations: Rejestracje
         title: Działania
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Dodaj dziecko elementu porządku
+            agenda_item: Punkt porządku obrad
+            agenda_item_children: Agenda Item Childs
+            down: Na dół
+            remove: Usunąć
+            up: W górę
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Na dół
+            remove: Usunąć
+            up: W górę
+          create:
+            invalid: Podczas tworzenia tego programu wystąpił problem
+            success: Agenda została pomyślnie utworzona
+          edit:
+            title: Edytuj agendę
+            update: Aktualizacja
+          form:
+            add_agenda_item: Dodaj element porządku obrad
+            agenda_items: Agenda przedmiotów
+            end_date: Data końcowa
+            start_date: Data rozpoczęcia
+          new:
+            create: Stwórz
+            title: Nowa agenda
+          update:
+            invalid: Wystąpił problem podczas aktualizacji tego programu
+            success: Agenda została zaktualizowana
         exports:
           registrations: Rejestracje
         invite_join_meeting_mailer:
@@ -216,6 +282,9 @@ pl:
           unfold: Rozwiń
         index:
           view_meeting: Pokaż spotkanie
+        meeting_minutes:
+          meeting_minutes: Protokół ze spotkań
+          related_information: Powiązana informacja
         meetings:
           no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma zaplanowanych spotkań, ale są tu wymienione wszystkie poprzednie spotkania.
@@ -227,16 +296,15 @@ pl:
           contributions: Liczba składek
           going: Chodzenie
           join: Dołącz do spotkania
-          meeting_minutes: Protokół ze spotkań
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
-          related_information: Powiązana informacja
           remaining_slots:
             one: Pozostało 1 gniazdo
             few: "Pozostało %{count}"
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
+          view: Widok
       models:
         meeting:
           fields:
@@ -274,11 +342,11 @@ pl:
         upcoming_meeting: Najbliższe spotkanie
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Powiązane wyniki:'
-        result_meetings: 'Powiązane spotkania:'
+        meeting_result: 'Powiązane wyniki:'
+        result_meeting: 'Powiązane spotkania:'
       proposals_from_meeting:
-        meeting_proposals: 'Powiązane propozycje:'
-        proposal_meetings: 'Powiązane spotkania:'
+        meeting_proposal: 'Powiązane propozycje:'
+        proposal_meeting: 'Powiązane spotkania:'
   devise:
     mailer:
       join_meeting:

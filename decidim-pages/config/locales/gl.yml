@@ -1,4 +1,9 @@
 gl:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Páxina
+        other: Páxinas
   decidim:
     admin_log:
       page:

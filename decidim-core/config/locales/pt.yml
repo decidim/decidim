@@ -17,6 +17,10 @@ pt:
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Componente ativo
+      decidim/profile_updated_event: perfil atualizado
   activerecord:
     attributes:
       decidim/user:
@@ -29,6 +33,13 @@ pt:
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+    models:
+      decidim/user:
+        one: Do utilizador
+        other: Comercial
+      decidim/user_group:
+        one: Grupo de usuários
+        other: Grupos de usuários
   booleans:
     'false': 'Não'
     'true': 'Sim'
@@ -121,6 +132,7 @@ pt:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
           passport_number: Número do passaporte
+        name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento que termina com "X"
         fields:
@@ -140,6 +152,12 @@ pt:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: e mais 1
+        other: e mais %{count}
+      see_less: "(veja menos)"
+      see_more: "(ver mais)"
     components:
       dummy:
         actions:
@@ -173,6 +191,7 @@ pt:
         new:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
+          newsletter_title: Permissão de contato
           nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -183,12 +202,19 @@ pt:
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
+          tos_title: Termos de serviço
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
       shared:
+        newsletter_modal:
+          buttons:
+            check: Verifique e continue
+            uncheck: Manter desmarcado
+          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -260,6 +286,10 @@ pt:
       source: Fonte
       title: Impressão digital
       value: Valor
+    followers:
+      no_followers: Ainda não há seguidores
+    following:
+      no_followings: Não segue ninguém ou nada ainda.
     follows:
       create:
         button: Seguir
@@ -338,6 +368,8 @@ pt:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    notifications:
+      no_notifications: Ainda não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -352,17 +384,75 @@ pt:
         rejected: Rejeitadas
         verified: Verificado
     pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço parte de um processo?
+          meetings: Reuniões
+          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+          more_info: Mais informações
+          proposals: Propostas
+          proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+          footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: registo
+        hero:
+          participate: Participar
+          welcome: Bem-vindo ao %{organization}!
+        statistics:
+          answers_count: Inquéritos concluídos
+          assemblies_count: Assembléias
+          comments_count: Comentários
+          debates_count: Debates
+          endorsements_count: Endossos
+          headline: Estado atual de %{organization}
+          meetings_count: Reuniões
+          orders_count: Votos
+          pages_count: Páginas
+          processes_count: Processos
+          projects_count: Projetos
+          proposals_accepted: Propostas aceitas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: pesquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: registo
       index:
         title: Mais informação
+      terms_and_conditions:
+        accept:
+          error: Houve um erro ao aceitar os termos e condições.
+          success: Ótimo! Você aceitou os termos e condições.
+        form:
+          agreement: Eu concordo com estes termos
+          legend: Concorde com os termos e condições de uso
+        refuse:
+          modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
+          modal_btn_continue: Aceite os termos e continue
+          modal_btn_exit: Vou revisá-lo mais tarde
+          modal_button: Recuse os termos
+          modal_title: Você realmente recusa os Termos e Condições atualizados?
+        required_review:
+          alert: Atualizamos nossos Termos de Serviço, revise-os.
+          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
+          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
       deleted: Usuário deletado
+      view: Visão
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
-        about_me: Sobre mim
-        personal_url: Site pessoal
+        followers: Seguidores
+        following: Segue
+        notifications: Notificações
+      user:
+        edit_profile: Editar Perfil
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -386,6 +476,20 @@ pt:
         title: Selecione %{field}
       prompt: Selecione um escopo
       scopes: Escopos
+    search:
+      filter:
+        all: Todos
+        component: Componente
+      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
+      term_input_placeholder: Pesquisa
+    searches:
+      filters:
+        search: Pesquisa
+      filters_small_view:
+        close_modal: Fechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
     shared:
       action_authorization_modal:
         expired:
@@ -442,16 +546,18 @@ pt:
   devise:
     invitations:
       edit:
-        header: Coloque sua senha
+        header: Termine de criar sua conta
         nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
+        subtitle: Se você aceitar o convite, defina seu apelido e senha.
     mailer:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
         hello: Olá %{email},
         ignore: |-
-          Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
+          Se você não quiser aceitar o convite, ignore este e-mail.<br />
+          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
@@ -474,17 +580,15 @@ pt:
       public: Sua informação pública.
   errors:
     messages:
-      content_type_whitelist_error: O tipo de arquivo não é válido
+      content_type_whitelist_error: o tipo de arquivo não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      invalid_manifest: Manifesto inválido
-      invalid_participatory_process: Processo participativo inválido
-      long_words: Contém palavras que são muito longas
-      must_start_with_caps: Deve começar com maiúscula
+      long_words: contém palavras que são muito longas
+      must_start_with_caps: deve começar com bonés
       nesting_too_deep: não pode estar dentro de uma subcategoria
-      too_many_marks: Está usando muitas marcas
-      too_much_caps: Está usando demasiados limites
-      too_short: É muito curto
+      too_many_marks: está usando muitas marcas
+      too_much_caps: está usando bonés demais
+      too_short: é muito curto
   forms:
     required: Requeridos
   invisible_captcha:
@@ -509,8 +613,6 @@ pt:
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
-        no_notifications: Ainda não há notificações.
-        title: Notificações
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
@@ -529,44 +631,6 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
-  pages:
-    home:
-      extended:
-        debates: Debates
-        debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
-        how_to_participate: Como faço parte de um processo?
-        meetings: Reuniões
-        meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-        more_info: Mais informações
-        proposals: Propostas
-        proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
-      footer_sub_hero:
-        footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
-        footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-        register: registo
-      hero:
-        participate: Participar
-        welcome: Bem-vindo ao %{organization}!
-      statistics:
-        answers_count: Inquéritos concluídos
-        assemblies_count: Assembléias
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Estado atual de %{organization}
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        processes_count: Processos
-        projects_count: Projetos
-        proposals_accepted: Propostas aceitas
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
-      sub_hero:
-        register: registo
   social_share_button:
     delicious: Delicioso
     douban: Douban

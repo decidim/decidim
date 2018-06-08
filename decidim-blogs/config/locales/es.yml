@@ -1,4 +1,12 @@
 es:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nueva publicación del blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicación
+        other: Publicaciones
   decidim:
     blogs:
       actions:
@@ -37,6 +45,8 @@ es:
             created_at: Creado en
             title: título
       posts:
+        show:
+          view: Ver
         sidebar_blog:
           comments: comentarios
           most_commented_posts: Publicaciones más comentadas
@@ -58,10 +68,10 @@ es:
           email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva publicación publicada en %{participatory_space_title}
           notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          posts_count: Publicaciones
     participatory_processes:
-      statistics:
-        posts_count: Publicaciones
-  pages:
-    home:
       statistics:
         posts_count: Publicaciones

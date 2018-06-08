@@ -11,6 +11,15 @@ sv:
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
+    models:
+      decidim/debates/create_debate_event: Debatt
+      decidim/debates/creation_disabled_event: Debatter inaktiverade
+      decidim/debates/creation_enabled_event: Debatter aktiverade
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debatt
+        other: debatter
   decidim:
     components:
       debates:

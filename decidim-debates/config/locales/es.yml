@@ -11,6 +11,15 @@ es:
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates deshabilitados
+      decidim/debates/creation_enabled_event: Debates habilitados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
@@ -83,7 +92,7 @@ es:
         index:
           new_debate: Nuevo debate
         new:
-          back: Atrás
+          back: Volver
           create: Crear
           select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate

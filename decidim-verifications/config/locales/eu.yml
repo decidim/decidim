@@ -51,6 +51,7 @@ eu:
           success: Ongi baimendu duzu.
         first_login:
           actions:
+            another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
             dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
             dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
             id_documents: Egiaztatu zure identifikazio dokumentua kargatzen

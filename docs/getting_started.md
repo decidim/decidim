@@ -56,7 +56,7 @@ running `bundle install`, you would run `d/bundle install`.
 
 ### C. Step by step
 
-See our [manual installation tutorial](docs/manual-installation.md).
+See our [manual installation tutorial](/docs/manual-installation.md).
 
 ## Initializing your app for local development
 
@@ -157,6 +157,6 @@ There are several things you need to check before making your putting your appli
 
 We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for [issues](https://github.com/decidim/decidim/issues) labeled `good first issue` to start contibuting and learning the internals of the project by doing easy jobs.
 
-We also have a [developer's reference](docs/development_guide.md) that will help you getting started with your environment and our daily commands, routines, etc.
+We also have a [developer's reference](/docs/development_guide.md) that will help you getting started with your environment and our daily commands, routines, etc.
 
-Finally, you can also find other ways of helping us on our [contribution guide](../CONTRIBUTING.md).
+Finally, you can also find other ways of helping us on our [contribution guide](/CONTRIBUTING.md).

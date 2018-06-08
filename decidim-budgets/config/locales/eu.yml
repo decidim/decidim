@@ -8,6 +8,11 @@ eu:
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         title: Titulua
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proiektua
+        other: Proiektuak
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ eu:
             one: 1 sostengu 
             other: "%{count} sostengu"
           remove: Kendu
+          view: ikusi
         project_budget_button:
           add: Gehitu
           added: Erantsita
@@ -131,7 +137,7 @@ eu:
         success: Zure botua zuzen ezeztatu da
     resource_links:
       included_proposals:
-        project_proposals: 'Proiektu honetan jasotako proposamenak:'
+        project_proposal: 'Proiektu honetan jasotako proposamenak:'
   index:
     confirmed_orders_count: Botoen zenbaketa
   total_budget: Guztizko aurrekontua

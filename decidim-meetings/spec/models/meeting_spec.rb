@@ -17,6 +17,11 @@ module Decidim::Meetings
     include_examples "has category"
     include_examples "has reference"
 
+    it "has an association with one agenda" do
+      subject.agenda = build(:agenda)
+      expect(subject.agenda).to be_present
+    end
+
     context "without a title" do
       let(:meeting) { build :meeting, title: nil }
 
@@ -84,6 +89,15 @@ module Decidim::Meetings
         let(:meeting) { build :meeting, registrations_enabled: true }
 
         it { is_expected.to eq true }
+      end
+    end
+
+    describe "#meeting_duration" do
+      let(:start_time) { 1.day.from_now }
+      let!(:meeting) { build(:meeting, start_time: start_time, end_time: start_time.advance(hours: 2)) }
+
+      it "return the duration of the meeting in minutes" do
+        expect(subject.meeting_duration).to eq(120)
       end
     end
   end
