@@ -303,7 +303,7 @@ fr:
             map: Carte
             start_time: Date de début
             title: Titre
-      read_more: "(Lire la suite)"
+      read_more: "(Voir la suite)"
       registration_mailer:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
