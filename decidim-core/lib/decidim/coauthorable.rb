@@ -31,7 +31,7 @@ module Decidim
       #
       # Returns an Array of User and/or UserGroups.
       def identities
-        coauthorships.collect(&:identity)
+        coauthorships.order(:created_at).collect(&:identity)
       end
 
       # Syntactic sugar to access first coauthor
@@ -42,6 +42,11 @@ module Decidim
       # Syntactic sugar to access first coauthor
       def creator_user_group
         user_groups.first
+      end
+
+      # Syntactic sugar to access first identity whether it is a User or a UserGroup.
+      def creator_identity
+        coauthorships.order(:created_at).first&.identity
       end
 
       # Adds a new coauthor to the list of coauthors. The coauthorship is created with

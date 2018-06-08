@@ -4,14 +4,10 @@ require "spec_helper"
 
 shared_examples_for "coauthorable interface" do
   describe "author" do
-    let(:author) { create(:user, organization: model.participatory_space.organization) }
+    let(:author) { model.creator_author }
 
     describe "with a regular user" do
       let(:query) { "{ author { name } }" }
-
-      before do
-        model.add_coauthor(author)
-      end
 
       it "includes the user's ID" do
         expect(response["author"]["name"]).to eq(author.name)
@@ -19,11 +15,12 @@ shared_examples_for "coauthorable interface" do
     end
 
     describe "with a user group" do
-      let(:user_group) { create(:user_group, :verified, organization: model.participatory_space.organization) }
+      let(:user_group) { create(:user_group, :verified, organization: model.participatory_space.organization, users: [author]) }
       let(:query) { "{ author { name } }" }
 
       before do
-        model.add_coauthor(author, user_group: user_group)
+        coauthoship= model.coauthorships.first
+        coauthoship.update!(user_group: user_group)
       end
 
       it "includes the user's ID" do
