@@ -21,14 +21,14 @@ module Decidim
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
-        context "on create" do
+        context "when on create" do
           it "does not index a SearchableResource after Proposal creation" do
             searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
             expect(searchables).to be_empty
           end
         end
 
-        context "on update" do
+        context "when on update" do
           context "when it is NOT published" do
             it "does not index a SearchableResource when Proposal changes but is not published" do
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
@@ -38,7 +38,7 @@ module Decidim
 
           context "when it IS published" do
             before do
-              proposal.update_attribute :published_at, DateTime.current
+              proposal.update_attributes published_at: DateTime.current
             end
 
             it "inserts a SearchableResource after Proposal is published" do
@@ -65,7 +65,7 @@ module Decidim
           end
         end
 
-        context "on destroy" do
+        context "when on destroy" do
           it "destroys the associated SearchableResource after Proposal destroy" do
             proposal.destroy
 
@@ -88,9 +88,10 @@ module Decidim
             body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
           )
         end
+
         before do
-          proposal.update_attributes(published_at: DateTime.current)
-          proposal2.update_attributes(published_at: DateTime.current)
+          proposal.update(published_at: DateTime.current)
+          proposal2.update(published_at: DateTime.current)
         end
 
         it "returns Proposal results" do

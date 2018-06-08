@@ -40,16 +40,14 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
 
       searchable_fields({
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: :body,
-        datetime: :published_at
-        }, {
-          index_on_create: false,
-          index_on_update: ->(proposal) {  proposal.published? }
-        }
-      )
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :body,
+                          datetime: :published_at
+                        },
+                        index_on_create: false,
+                        index_on_update: ->(proposal) { proposal.published? })
 
       def self.order_randomly(seed)
         transaction do
