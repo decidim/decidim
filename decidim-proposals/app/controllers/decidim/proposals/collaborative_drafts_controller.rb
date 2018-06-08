@@ -117,7 +117,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("access_requested.invalid", scope: "decidim.proposals.collaborative_drafts.requests")
+            flash.now[:alert] = t("access_requested.error", scope: "decidim.proposals.collaborative_drafts.requests")
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
@@ -130,7 +130,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("accepted_request.invalid", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+            flash.now[:alert] = t("accepted_request.error", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
@@ -143,7 +143,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("rejected_request.invalid", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+            flash.now[:alert] = t("rejected_request.error", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
