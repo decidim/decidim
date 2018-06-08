@@ -114,7 +114,7 @@ fr:
     meetings:
       actions:
         agenda: Ordre du jour
-        attachment_collections: Dossier
+        attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
@@ -216,10 +216,10 @@ fr:
             update: Mettre à jour
           new:
             create: Créer
-            title: Créer des minutes
+            title: Créer un compte-rendu
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
-            success: Minutes mises à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de ce compte-rendu
+            success: Compte-rendu mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -248,8 +248,8 @@ fr:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
         minutes:
-          create: "%{user_name} a créé le procès-verbal de la rencontre %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le procès-verbal de la rencontre %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a créé le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -275,7 +275,7 @@ fr:
         index:
           view_meeting: Voir la rencontre
         meeting_minutes:
-          meeting_minutes: Comptes rendus des réunions
+          meeting_minutes: Comptes-rendus des rencontres
           related_information: Informations connexes
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
@@ -317,7 +317,7 @@ fr:
           success: Vous avez annulé votre inscription avec succès.
       types:
         private_meeting: Rencontre privée
-        transparent: Transparent
+        transparent: Visible par les non-membres
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
