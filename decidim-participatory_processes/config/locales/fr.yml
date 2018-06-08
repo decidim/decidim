@@ -13,7 +13,7 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Périmètre
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
@@ -64,7 +64,7 @@ fr:
         activate: Activer
         configure: Configurer
         confirm_destroy: Confirmation de la suppression
-        destroy: Effacer
+        destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         new: Nouveau
@@ -340,7 +340,7 @@ fr:
           take_part: Participer
       process_header:
         process_menu_item: Présentation
-        unfold: Déplier
+        unfold: Dérouler
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes

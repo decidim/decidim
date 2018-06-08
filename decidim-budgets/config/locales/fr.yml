@@ -89,7 +89,7 @@ fr:
           close_modal: Fermer la vue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Déplier
+          unfold: Dérouler
         order_progress:
           vote: Voter
         order_selected_projects:
