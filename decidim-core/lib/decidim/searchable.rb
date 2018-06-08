@@ -38,15 +38,17 @@ module Decidim
       # Public: after_update callback to update index information of the model.
       #
       def try_update_index_for_search_resource
-        return unless self.class.search_resource_fields_mapper.index_on_update?(self)
-
-        if searchable_resources.empty?
-          add_to_index_as_search_resource
-        else
-          fields = self.class.search_resource_fields_mapper.mapped(self)
-          searchable_resources.each do |sr|
-            sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
+        if self.class.search_resource_fields_mapper.index_on_update?(self)
+          if searchable_resources.empty?
+            add_to_index_as_search_resource
+          else
+            fields = self.class.search_resource_fields_mapper.mapped(self)
+            searchable_resources.each do |sr|
+              sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
+            end
           end
+        elsif searchable_resources.any?
+          searchable_resources.clear
         end
       end
 

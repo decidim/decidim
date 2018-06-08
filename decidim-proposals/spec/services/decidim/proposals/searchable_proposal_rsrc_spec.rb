@@ -62,6 +62,13 @@ module Decidim
                 expect(searchable.updated_at).to be > created_at
               end
             end
+
+            it "removes tha associated SearchableResource after unpublishing a published Proposal on update" do
+              proposal.update(published_at: nil)
+
+              searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+              expect(searchables).to be_empty
+            end
           end
         end
 

@@ -48,7 +48,7 @@ module Decidim
                           datetime: :published_at
                         },
                         index_on_create: false,
-                        index_on_update: ->(proposal) { proposal.published? })
+                        index_on_update: ->(proposal) { proposal.visible? })
 
       def self.order_randomly(seed)
         transaction do
