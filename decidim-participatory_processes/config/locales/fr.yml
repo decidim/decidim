@@ -8,7 +8,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -63,8 +63,8 @@ fr:
       actions:
         activate: Activer
         configure: Configurer
-        confirm_destroy: Confirmer la suppression
-        destroy: Supprimer
+        confirm_destroy: Confirmation de la suppression
+        destroy: Effacer
         duplicate: Dupliquer
         edit: Modifier
         new: Nouveau
@@ -110,7 +110,7 @@ fr:
             email: Email
             name: Nom
             role: Rôle
-          name: Rôle utilisateur du processus participatif
+          name: Utilisateur du processus participatif
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -126,7 +126,7 @@ fr:
           title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
-          success: Le groupe de processus participatif a été détruit avec succès.
+          success: Groupe de processus participatif supprimé avec succès.
         edit:
           title: Modifier le groupe de processus
           update: Mettre à jour
@@ -173,9 +173,9 @@ fr:
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
-          success: Utilisateur créé avec succès pour ce processus participatif.
+          success: Utilisateur ajouté avec succès à ce processus participatif.
         destroy:
-          success: L'utilisateur a été supprimé avec succès pour ce processus participatif.
+          success: Utilisateur supprimé avec succès de ce processus participatif.
         edit:
           title: Mettre à jour l'utilisateur du processus participatif.
           update: Mettre à jour
@@ -288,7 +288,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs

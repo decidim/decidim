@@ -18,7 +18,7 @@ uk:
         decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -83,7 +83,7 @@ uk:
     admin:
       assemblies:
         create:
-          error: При додаванні нових зборів сталася помилка.
+          error: При спробі додати нові збори сталася помилка.
           success: Збори успішно додано.
         destroy:
           success: Збори успішно видалено.
@@ -94,17 +94,17 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приватні
-          public: Публічні
+          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Додати
           title: Додати збори
         update:
-          error: При оновленні цих зборів сталася помилка.
+          error: При спробі оновити ці збори сталася помилка.
           success: Збори успішно оновлено.
       assemblies_copies:
         create:
-          error: При створенні копії цих зборів сталася помилка.
+          error: При спробі створити копію цих зборів сталася помилка.
           success: Успішно створено копію зборів.
       assembly_copies:
         new:
@@ -158,7 +158,7 @@ uk:
           assembly_admins: Учасники зборів
           assembly_members: Члени президії
           attachment_collections: Теки
-          attachment_files: Файли
+          attachment_files: Вкладені файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
@@ -182,7 +182,7 @@ uk:
             position: Посада
           name: Член президії
           positions:
-            other: Інше
+            other: Інша
             president: Головуючий
             secretary: Секретар
             vice_president: Заступник головуючого
@@ -194,7 +194,7 @@ uk:
           name: Учасник зборів
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
       titles:
         assemblies: Збори
@@ -216,7 +216,7 @@ uk:
       admin:
         assemblies:
           form:
-            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку ця дата відображатиметься як невизначена.
+            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку вони будуть показуватися як безстрокові.
             included_at_help: Оберіть дату, коли ці збори були додані до Десідім. Вона не обов'язково має бути тою самою ж, що і дата створення.
             select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
@@ -244,7 +244,7 @@ uk:
         index:
           members: Члени президії
       assembly_types:
-        commission: Комісія
+        commission: Робочий гурт
         consultative_advisory: Дорадчі / Консультативні
         executive: Виконавчі
         government: Урядові
@@ -273,10 +273,10 @@ uk:
         composition: Склад
         created_by: 'Автор:'
         creation_date: Дата створення
-        developer_group: Гурт просувачів
+        developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
-        indefinite_duration: Невизначена
+        indefinite_duration: Безстрокова
         internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
@@ -293,21 +293,21 @@ uk:
         social_networks: Соціальні мережі
         target: Мета
       statistics:
-        answers_count: Відповіді
-        assemblies_count: Збори
-        comments_count: Коментарі
-        debates_count: Обговорення
-        endorsements_count: Підтримали
+        answers_count: Відповідей
+        assemblies_count: Зборів
+        comments_count: Коментарів
+        debates_count: Обговорень
+        endorsements_count: Проявів підтримки
         headline: Діяльність
-        meetings_count: Зустрічі
-        orders_count: Голоси
-        pages_count: Сторінки
-        projects_count: Задуми
-        proposals_count: Пропозиції
-        results_count: Підсумки
-        surveys_count: Опитування
-        users_count: Учасники
-        votes_count: Голоси
+        meetings_count: Зустрічей
+        orders_count: Голосів
+        pages_count: Сторінок
+        projects_count: Задумів
+        proposals_count: Пропозицій
+        results_count: Підсумків
+        surveys_count: Опитувань
+        users_count: Учасників
+        votes_count: Голосів
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'

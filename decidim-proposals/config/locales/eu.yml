@@ -91,7 +91,7 @@ eu:
           email_intro: 'Orain %{participatory_space_title}proposamen berriak sor ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamenak orain eskuragarri %{participatory_space_title}
-          notification_title: Orain <a href="%{resource_path}">proposamen berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Orain jarri ahal Aurrera <a href="%{resource_path}">proposamen berriak</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: '%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -238,7 +238,7 @@ eu:
         success: Onartutako proposamena. Zirriborro gisa gorde da.
       destroy_draft:
         error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
-        success: Proposamenaren zirriborroa behar bezala suntsitu zen.
+        success: Proposamenaren zirriborroa zuzen ezabatu da.
       models:
         proposal:
           fields:

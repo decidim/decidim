@@ -8,7 +8,7 @@ gl:
         scope_id: Alcance
         signature_end_time: Fin do período de recadación de sinaturas
         signature_start_time: Inicio do período de recollida de sinaturas
-        signature_type: Tipo de sinatura
+        signature_type: Tipo de recadación de sinatura
         signature_type_values:
           any: Mesturado
           offline: Cara a cara
@@ -30,7 +30,7 @@ gl:
         title: Título
       organization_data:
         address: Enderezo
-        id_document: CIF
+        id_document: Documento ID
         name: Nome completo
   activerecord:
     models:
@@ -125,7 +125,7 @@ gl:
           edit:
             back: De volta
             confirm_destroy: Estás seguro?
-            destroy: Destruír
+            destroy: Eliminar
             title: Editar o alcance do tipo de iniciativa
             update: Actualización
           new:
@@ -143,7 +143,7 @@ gl:
             success: O tipo de iniciativa eliminouse con éxito
           edit:
             confirm_destroy: Estás seguro?
-            destroy: Destruír
+            destroy: Eliminar
             update: Actualización
           form:
             title: Información xeral
@@ -154,7 +154,7 @@ gl:
             title: Novo tipo de iniciativa
           update:
             error: Produciuse un erro
-            success: A iniciativa dada foi actualizada con éxito
+            success: O tipo de iniciativa foi actualizado con éxito
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -171,7 +171,7 @@ gl:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Está a piques de solicitar ser membro da comisión promotora desta iniciativa
+          help_text: Está a piques de solicitar ser membro do comité promotor desta iniciativa
         spawn:
           success: Enviouse a solicitude ao autor da iniciativa.
       create_initiative:
@@ -190,9 +190,9 @@ gl:
           more_information: "(Máis información)"
         finish_help:
           access_reminder: Lembre que sempre poderá acceder ás túas iniciativas a través do menú do usuario.
-          help_for_organizations: Se es unha asociación terá que subir as actas do consello de administración de todas as organizacións que conforman a Comisión de Promoción
+          help_for_organizations: Se es unha asociación terá que subir as actas do consello de administración de todas as organizacións que forman a Comisión de Promoción
           help_in_person_signatures: Se escolleu recoller as sinaturas en persoa ou combinadas con liña, terá que subir a información necesaria.
-          help_text: Lembra que para procesar correctamente a iniciativa debes acceder ao panel de administración onde atoparás o menú do usuario, cargarás a información necesaria e envialo ao procedemento.
+          help_text: Lembra que para procesar correctamente a iniciativa debes acceder ao panel de administración onde atoparás o menú de usuario, cargarás a información que necesitas e enviala para o seu procesamento.
           initiatives_page_link: Podes buscar toda esta información no %{link} dedicado a informar sobre iniciativas.
           page: páxina
         previous_form:
@@ -211,7 +211,7 @@ gl:
           select_initiative_type_help: As iniciativas cidadás son un medio polo cal a cidadanía pode intervir para que o Concello poida realizar accións en defensa do interese xeral que se atopan dentro das competencias municipais. ¿Que iniciativa desexas lanzar?
         share_committee_link:
           continue: Continuar
-          invite_to_committee_help: Ligazón para convidar persoas que formarán parte da comisión de promoción
+          invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
         show_similar_initiatives:
           back: De volta
           compare_help: Se algunha das seguintes iniciativas é similar á túa, recomendámosche que o soporte. A túa proposta terá máis posibilidades de facer.
@@ -274,7 +274,7 @@ gl:
           any_vote_method: Esta iniciativa cidadá recolle soporte en liña e cara a cara.
           offline_method: Esta iniciativa cidadá só recolle apoios cara a cara.
         signature_identities:
-          select_identity: Seleccionar a identidade do usuario
+          select_identity: Seleccione o identificador de usuario
         signatures_count:
           one: " sinatura"
           other: " sinaturas"
@@ -302,7 +302,7 @@ gl:
         more_information: Aquí tes máis información sobre o proceso de creación da iniciativa.
         progress_report_body_for: A iniciativa %{title} alcanzou o %{percentage}% dos soportes necesarios.
         progress_report_for: 'Resume sobre a iniciativa: %{title}'
-        promotal_committee_help: Lembre que debes convidar polo menos %{member_count} persoas á comisión de promoción. Reenvía a seguinte ligazón para invitar a xente á comisión de promoción
+        promotal_committee_help: Lembre que debes convidar polo menos a %{member_count} persoas ao comité promotor. Reenvía a seguinte ligazón para invitar persoas á comisión de promotores
         status_change_body_for: 'A iniciativa %{title} cambiou o seu estado a: %{state}'
         status_change_for: A iniciativa %{title} cambiou o seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou a súa validación técnica.

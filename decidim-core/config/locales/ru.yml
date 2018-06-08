@@ -18,7 +18,7 @@ ru:
         user_group_name: Название организации
         user_group_phone: Телефон организации
     models:
-      decidim/attachment_created_event: Вложение
+      decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
       decidim/profile_updated_event: Профиль обновлен
   activerecord:
@@ -56,6 +56,11 @@ ru:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Файл отсутствует
+        invalid_token: Предоставленный токен недействителен.
+        no_token: Не предоставлен токен
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
         alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
         confirm:
@@ -65,13 +70,13 @@ ru:
           title: Удалить мою учетную запись
         explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
       destroy:
-        error: При удалении вашей учетной записи произошла ошибка.
+        error: При попытке удалить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно удалена.
       show:
         change_password: Поменять пароль
         update_account: Обновить учетную запись
       update:
-        error: При обновлении вашей учетной записи произошла ошибка.
+        error: При попытке обновить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
     admin_log:
@@ -82,8 +87,8 @@ ru:
       component:
         create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
         delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
-        publish: "%{user_name} опубликовал составляющую %{resource_name} в пространстве %{space_name}"
-        unpublish: "%{user_name} отменил публикацию составляющей %{resource_name} в пространстве %{space_name}"
+        publish: "%{user_name} обнародовал составляющую %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил обнародование составляющей %{resource_name} в пространстве %{space_name}"
       moderation:
         hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
         unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
@@ -180,13 +185,20 @@ ru:
             dummy_global_attribute_1: Пример свойства 1
             dummy_global_attribute_2: Пример свойства 2
           step:
-            comments_blocked: Комментарии выключены
+            comments_blocked: Комментарии отключены
             dummy_step_attribute_1: Пример 1 свойства шага
             dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
+    data_portability:
+      export:
+        ready: Готово
+      show:
+        download_data: Загрузить данные
+        download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
+        request_data: Запросить данные
     devise:
       omniauth_registrations:
         create:
@@ -234,7 +246,7 @@ ru:
           by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
           connect_your_account_html: Подключите свою учетную запись, выполнив вход в <strong>%{organization}</strong>
-          publish_content: Публиковать за вас сообщения
+          publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
           see_name: Видеть ваше имя
           see_username: Видеть ваше имя участника
@@ -253,7 +265,7 @@ ru:
     events:
       attachments:
         attachment_created:
-          email_intro: 'В %{resource_title} добавили новый документ. Вы можете увидеть его на странице:'
+          email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{resource_title}
           notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> добавили <a href="%{resource_path}">новый документ</a>
@@ -265,7 +277,7 @@ ru:
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
-        email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
+        email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
       notification_event:
@@ -277,6 +289,9 @@ ru:
           email_subject: "%{nickname} обновил свой профиль"
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
+      data_portability_export:
+        click_button: Нажмите следующую кнопку, чтобы загрузить данные. <br/> Файл будет доступен до %{date}.
+        download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
@@ -314,6 +329,18 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    invitations:
+      create:
+        error: При попытке пригласить ваших друзей произошли ошибки
+        error_empty_form: Пожалуйста, введите несколько адресов электронной почты
+        success: Мы отправили приглашения вашим друзьям!
+      index:
+        customize_message: Настроить текст приглашения
+        friend_email: 'Друг #%{index} email'
+        invitations_subtitle: Пусть ваши друзья узнают об этом сайте
+        invitations_title: Как вы думаете, больше голосов должно быть услышано в %{organization_name}?
+        invite: Пригласить
+        visit_your_profile: Посетите свой профиль
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -337,7 +364,7 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Узнать больше
+      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -347,7 +374,7 @@ ru:
           subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы увидеть их:"
+          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
@@ -386,7 +413,7 @@ ru:
         newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
-        error: При обновлении настроек уведомлений произошла ошибка.
+        error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
     own_user_groups:
       index:
@@ -396,12 +423,12 @@ ru:
     pages:
       home:
         extended:
-          debates: Дебаты
+          debates: Обсуждения
           debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
           meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
@@ -412,26 +439,27 @@ ru:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
         statistics:
-          answers_count: Завершенные опросы
-          assemblies_count: Собрания
-          comments_count: Комментарии
-          debates_count: Дебаты
+          answers_count: Пройденных опросов
+          assemblies_count: Собраний
+          comments_count: Комментариев
+          debates_count: Обсуждения
+          endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
-          meetings_count: Встречи
-          orders_count: Голоса
-          pages_count: Страницы
-          processes_count: Движения
-          projects_count: Проекты
+          meetings_count: Встреч
+          orders_count: Голосов
+          pages_count: Страниц
+          processes_count: Движений
+          projects_count: Проектов
           proposals_accepted: Принятые предложения
-          proposals_count: Предложения
-          results_count: Итоги
-          surveys_count: Опросы
-          users_count: Участники
-          votes_count: Голоса
+          proposals_count: Предложений
+          results_count: Итогов
+          surveys_count: Опросов
+          users_count: Участников
+          votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
       index:
-        title: Узнать больше
+        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -455,7 +483,7 @@ ru:
       deleted: Удаленный участник
       view: Посмотреть
     profiles:
-      default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
+      default_officialization_text: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
         followers: Читают
         following: Следит за
@@ -475,7 +503,7 @@ ru:
         subject: О ресурсе была передана жалоба администраторам
     reports:
       create:
-        error: При создании жалобы произошла ошибка. Повторите, пожалуйста, попытку.
+        error: При попытке создать жалобу произошла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     scopes:
       global: Всеобщий охват
@@ -485,6 +513,20 @@ ru:
         title: Выберите %{field}
       prompt: Выбрать охват
       scopes: Охваты
+    search:
+      filter:
+        all: Все
+        component: Составляющие
+      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
+      term_input_placeholder: Поиск
+    searches:
+      filters:
+        search: Поиск
+      filters_small_view:
+        close_modal: Закрыть окошко
+        filter: Отобрать
+        filter_by: 'Отобрать по признаку:'
+        unfold: Развернуть
     shared:
       action_authorization_modal:
         expired:
@@ -553,6 +595,7 @@ ru:
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
+        invited_you_as_friend: "%{invited_by} пригласил вас в %{application}."
         invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
@@ -561,6 +604,10 @@ ru:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
         subject: Вы пригласили к сотрудничеству в %{organization}
+      invite_friend:
+        accept_invitation: 'Вы можете принять приглашение по ссылке ниже:'
+        friend_custom_text: 'Вам передали такое сообщение:'
+        subject: Вас пригласили в %{organization}
       invite_private_user:
         subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
@@ -571,7 +618,7 @@ ru:
         subject: Пароль изменен
   doorkeeper:
     scopes:
-      public: Публичные сведения о вас.
+      public: Обнародованные сведения о вас.
   errors:
     messages:
       content_type_whitelist_error: этот тип файла недопустим
@@ -610,6 +657,7 @@ ru:
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
+        invite_friends: Пригласить друзей
         notifications: Уведомления
         profile: Моя учетная запись
         public_profile: Мой общедоступный профиль
@@ -618,11 +666,12 @@ ru:
         account: Учетная запись
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
+        my_data: Мои данные
         notifications_settings: Настройки уведомлений
         title: Настройки участника
         user_groups: Организации
       widget:
-        see_more: Узнать больше
+        see_more: Читать подробнее
   locale:
     name: Русский
   social_share_button:

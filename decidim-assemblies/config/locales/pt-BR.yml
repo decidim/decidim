@@ -18,7 +18,7 @@ pt-BR:
         decidim_area_id: Área
         decidim_scope_id: Escopo
         description: Descrição
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Domínio
         duration: Duração
         facebook: Facebook
@@ -80,7 +80,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova assembléia.
           success: Assembleia criada com sucesso.
         destroy:
-          success: Assembleia destruída com sucesso.
+          success: Montagem excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -110,7 +110,7 @@ pt-BR:
           error: Houve um erro ao adicionar um membro para este assembly.
           success: Membro criado com sucesso para este assembly.
         destroy:
-          success: Membro destruído com êxito para este assembly.
+          success: Membro excluído com êxito para este assembly.
         edit:
           title: Atualize o membro do assembly.
           update: Atualizar
@@ -132,9 +132,9 @@ pt-BR:
       assembly_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esta montagem.
-          success: Usuário criado com sucesso para esta montagem.
+          success: Usuário adicionado com sucesso a esta montagem.
         destroy:
-          success: Usuário destruído com sucesso para esta montagem.
+          success: Usuário removido com sucesso deste assembly.
         edit:
           title: Atualize o usuário da montagem.
           update: Atualizar
@@ -158,7 +158,7 @@ pt-BR:
           components: Componentes
           info: Info
           moderations: Moderação
-          private_users: Usuários privados
+          private_users: Usuários particulares
       models:
         assembly:
           fields:
@@ -267,7 +267,7 @@ pt-BR:
         composition: Composição
         created_by: Criado por
         creation_date: Data Criada
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
         indefinite_duration: Indeterminado

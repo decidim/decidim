@@ -5,6 +5,7 @@ module Decidim
   class UserGroup < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::DataPortability
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
 
@@ -40,6 +41,14 @@ module Decidim
     # Public: Checks if the user group is pending.
     def pending?
       verified_at.blank? && rejected_at.blank?
+    end
+
+    def self.user_collection(user)
+      user.user_groups
+    end
+
+    def self.export_serializer
+      Decidim::DataPortabilitySerializers::DataPortabilityUserGroupSerializer
     end
 
     private

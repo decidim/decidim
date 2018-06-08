@@ -8,7 +8,7 @@ pt-BR:
         copy_components: Copiar componentes
         copy_steps: Copie etapas
         description: Descrição
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
         hashtag: Hashtag
@@ -63,8 +63,8 @@ pt-BR:
       actions:
         activate: Ativar
         configure: Configurar
-        confirm_destroy: Confirmar destruir
-        destroy: Destruir
+        confirm_destroy: Confirme a exclusão
+        destroy: Excluir
         duplicate: Duplicar
         edit: Editar
         new: Novo
@@ -126,7 +126,7 @@ pt-BR:
           title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
-          success: Grupo de processo participativo destruído com sucesso.
+          success: Grupo de processos participativo excluído com sucesso.
         edit:
           title: Editar grupo de processos
           update: Atualizar
@@ -156,7 +156,7 @@ pt-BR:
           error:
             active_step: Não é possível excluir a etapa ativa.
             last_step: Não é possível excluir o último passo de um processo.
-          success: Etapa do processo participativo destruída com sucesso.
+          success: Etapa do processo participativo excluída com sucesso.
         edit:
           title: Edite o passo do processo participativo
           update: Atualizar
@@ -173,9 +173,9 @@ pt-BR:
       participatory_process_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
-          success: Usuário criado com sucesso para este processo participativo.
+          success: Usuário adicionado com sucesso a este processo participativo.
         destroy:
-          success: O usuário foi destruído com sucesso para este processo participativo.
+          success: Usuário removido com sucesso deste processo participativo.
         edit:
           title: Atualize o usuário do processo participativo.
           update: Atualizar
@@ -192,7 +192,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo processo participativo.
           success: Processo participativo criado com sucesso. Configure agora seus passos.
         destroy:
-          success: Processo participativo destruído com sucesso.
+          success: Processo participativo excluído com sucesso.
         edit:
           update: Atualizar
         form:
@@ -288,7 +288,7 @@ pt-BR:
         index:
           loading: Carregando os resultados ...
       show:
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         end_date: Data final
         local_area: Área de organização
         participatory_scope: O que é decidido

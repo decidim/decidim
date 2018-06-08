@@ -21,7 +21,6 @@ module Decidim
             csv << headers.map { |header| resource[header] }
           end
         end
-
         ExportData.new(data, "csv")
       end
 

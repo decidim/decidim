@@ -37,6 +37,7 @@ Decidim::Core::Engine.routes.draw do
       member do
         get :delete
       end
+      resources :invitations, only: [:index, :create]
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     resources :notifications, only: [:destroy] do
@@ -46,6 +47,12 @@ Decidim::Core::Engine.routes.draw do
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
+    resource :data_portability, only: [:show], controller: "data_portability" do
+      member do
+        post :export
+        get :download_file
+      end
+    end
   end
 
   resources :profiles, only: [:show], param: :nickname

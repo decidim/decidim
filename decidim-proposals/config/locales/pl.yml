@@ -99,7 +99,7 @@ pl:
           email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Propozycje są teraz dostępne w %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych propozycji</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Możesz teraz przesłać <a href="%{resource_path}">nowych propozycji</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Możesz zgłaszać propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -246,7 +246,7 @@ pl:
         success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
       destroy_draft:
         error: Wystąpiły błędy podczas usuwania wersji roboczej propozycji.
-        success: Projekt propozycji został pomyślnie zniszczony.
+        success: Projekt propozycji został pomyślnie usunięty.
       models:
         proposal:
           fields:

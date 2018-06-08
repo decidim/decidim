@@ -10,7 +10,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Customize the [**look and feel**](https://github.com/decidim/decidim/blob/master/docs/customization/styles.md) (colors, pictures, fonts, etc).
 
-1. Configure **SSL**. We recommend using at least [Let's Encrypt](https://letsencrypt.org/) for a minimum security.
+1. Configure **SSL**. We recommend using at least [Let's Encrypt](https://letsencrypt.org/) for a minimum security. You should also check that there's an enforced redirection from HTTP to HTTPS on your web server.
 
 1. Configure your **SMTP** server.
 

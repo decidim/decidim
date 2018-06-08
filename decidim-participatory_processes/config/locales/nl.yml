@@ -8,7 +8,7 @@ nl:
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
         description: Beschrijving
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
@@ -63,8 +63,8 @@ nl:
       actions:
         activate: Activeren
         configure: Configureren
-        confirm_destroy: Bevestigen vernietigen
-        destroy: Vernietigen
+        confirm_destroy: Bevestig verwijderen
+        destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
         new: Nieuw
@@ -110,7 +110,7 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Rol van de gebruiker van de burgerinspraak
+          name: Participerende procesgebruiker
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -126,7 +126,7 @@ nl:
           title: Burgerinspraak dupliceren
       participatory_process_groups:
         destroy:
-          success: Deelnemende groep is succesvol vernietigd.
+          success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
           update: Bijwerken
@@ -156,7 +156,7 @@ nl:
           error:
             active_step: Kan de actieve stap niet verwijderen.
             last_step: Kan de laatste stap van een proces niet verwijderen.
-          success: Participatief processtap is succesvol vernietigd.
+          success: Participatieve processtap succesvol verwijderd.
         edit:
           title: Bewerk participatieve processtap
           update: Bijwerken
@@ -173,9 +173,9 @@ nl:
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
-          success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
+          success: Gebruiker is succesvol toegevoegd aan dit participatieproces.
         destroy:
-          success: Gebruiker met succes vernietigd voor dit participatieproces.
+          success: Gebruiker is succesvol verwijderd uit dit participatieproces.
         edit:
           title: Update participatieve procesgebruiker.
           update: Bijwerken
@@ -192,7 +192,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
           success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
         destroy:
-          success: Participatief proces is succesvol vernietigd.
+          success: Participatief proces succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -288,7 +288,7 @@ nl:
         index:
           loading: Laden van resultaten...
       show:
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten

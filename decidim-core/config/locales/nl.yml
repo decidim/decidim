@@ -10,8 +10,8 @@ nl:
         email: Je e-mailadres
         name: Uw naam
         nickname: Jouw korte unieke ID
-        password: Nieuw wachtwoord
-        password_confirmation: Bevestig uw nieuwe wachtwoord
+        password: Wachtwoord
+        password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
         user_group_document_number: Organisatie documentnummer
@@ -52,6 +52,11 @@ nl:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Bestandsnr bestaat
+        invalid_token: Het geleverde token is ongeldig.
+        no_token: Geen token verstrekt
+        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -177,6 +182,13 @@ nl:
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
+    data_portability:
+      export:
+        ready: Klaar
+      show:
+        download_data: Download de gegevens
+        download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
+        request_data: Gegevens aanvragen
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
+      data_portability_export:
+        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.
+        download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
@@ -304,6 +319,18 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    invitations:
+      create:
+        error: Er waren enkele problemen terwijl je je vrienden uitnodigde
+        error_empty_form: Voer alstublieft enkele e-mailadressen in
+        success: We hebben de uitnodigingen naar je vrienden gestuurd!
+      index:
+        customize_message: Pas het uitnodigingsbericht aan
+        friend_email: 'Vriend #%{index} email'
+        invitations_subtitle: Laat je vrienden op de hoogte van deze site
+        invitations_title: Denk je dat meer stemmen gehoord moeten worden in %{organization_name}?
+        invite: Nodig uit
+        visit_your_profile: Ga naar je profiel
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -476,6 +503,20 @@ nl:
         title: Selecteer %{field}
       prompt: Selecteer een scope
       scopes: scopes
+    search:
+      filter:
+        all: Alle
+        component: bestanddeel
+      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
+      term_input_placeholder: Zoeken
+    searches:
+      filters:
+        search: Zoeken
+      filters_small_view:
+        close_modal: Modal sluiten
+        filter: Filter
+        filter_by: Filteren op
+        unfold: Ontvouwen
     shared:
       action_authorization_modal:
         expired:
@@ -545,6 +586,7 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        invited_you_as_friend: "%{invited_by} heeft je uitgenodigd voor %{application}."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
@@ -553,6 +595,10 @@ nl:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
+      invite_friend:
+        accept_invitation: 'U kunt de uitnodiging accepteren via de onderstaande link:'
+        friend_custom_text: 'Ze hebben dit bericht voor je achtergelaten:'
+        subject: Je bent uitgenodigd voor %{organization}
       invite_private_user:
         subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
       organization_admin_invitation_instructions:
@@ -602,6 +648,7 @@ nl:
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
+        invite_friends: Nodig vrienden uit
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel
@@ -610,6 +657,7 @@ nl:
         account: Account
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
+        my_data: Mijn data
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: Organisaties

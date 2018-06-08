@@ -80,7 +80,7 @@ ca:
           error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
         destroy:
-          success: L'assemblea s'ha eliminat amb èxit.
+          success: L'ensamblat s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -110,7 +110,7 @@ ca:
           error: S'ha produït un error en afegir un membre per a aquest assemblea.
           success: Membre creat amb èxit per a aquesta assemblea.
         destroy:
-          success: Membre destruït amb èxit per a aquesta assemblea.
+          success: Membre eliminat amb èxit per a aquest ensamblat.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
@@ -132,9 +132,9 @@ ca:
       assembly_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
-          success: L'usuari s'ha creat correctament per a aquesta assemblea.
+          success: L'usuari s'ha afegit correctament a aquest ensamblat.
         destroy:
-          success: S'ha destruït l'usuari amb èxit per a aquesta assemblea.
+          success: L'usuari s'ha eliminat correctament d'aquest ensamblat.
         edit:
           title: Actualitza l'usuari de l'assemblea.
           update: Actualitza

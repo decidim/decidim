@@ -21,7 +21,7 @@ ca:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Necessita tornar a connectar-se
+              needs_to_be_reattached: Necessita tornar a pujar-se
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
@@ -91,7 +91,7 @@ ca:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Les propostes ja estan disponibles a %{participatory_space_title}
-          notification_title: Ara pots començar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ara podeu presentar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -238,7 +238,7 @@ ca:
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: L'esborrany de proposta s'ha eliminat amb èxit.
+        success: El projecte de proposta s'ha suprimit correctament.
       models:
         proposal:
           fields:
@@ -305,7 +305,7 @@ ca:
           category_prompt: Selecciona una categoria
           citizens: Ciutadania
           evaluating: En avaluació
-          except_rejected: Tot menys rebutjat
+          except_rejected: Totes menys rebutjades
           official: Oficial
           origin: Origen
           rejected: Rebutjades

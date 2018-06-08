@@ -5,12 +5,12 @@ uk:
         banner_image: Банер зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
-        end_voting_date: Дата закінчення
+        end_voting_date: Голосування закінчується
         introductory_image: Вступне зображення
         introductory_video_url: Веб-адреса вступного відео
         questions: Питання
         slug: Скорочена веб-адреса
-        start_voting_date: Дата початку
+        start_voting_date: Голосування починається
         subtitle: Підзаголовок
         title: Назва
       question:
@@ -23,7 +23,7 @@ uk:
         origin_title: Джерело
         origin_url: Веб-адреса джерела
         participatory_scope: Обсяг співучасті
-        promoter_group: Гурт просувачів
+        promoter_group: Робочий гурт з просування
         question_context: Контекст
         reference: Посилання на джерело
         scope: Дільниця міста
@@ -79,7 +79,7 @@ uk:
           success: Оприлюднення підсумків консультації успішно скасовано.
       consultations:
         create:
-          error: При створенні нової консультації сталася помилка.
+          error: При спробі створити нову консультацію сталася помилка.
           success: Консультацію успішно створено.
         destroy:
           success: Консультацію успішно видалено.
@@ -95,7 +95,7 @@ uk:
           create: Створити
           title: Додати консультацію
         update:
-          error: При оновленні цієї консультації сталася помилка.
+          error: При спробі оновити цю консультацію сталася помилка.
           success: Консультацію успішно оновлено.
       menu:
         consultations: Консультації
@@ -161,14 +161,14 @@ uk:
           create: Додати
           title: Додати питання
         update:
-          error: При оновленні цього питання сталася помилка.
+          error: При спробі оновити це питання сталася помилка.
           success: Питання успішно оновлено.
       responses:
         create:
-          error: При створенні нової відповіді сталася помилка.
+          error: При спробі створити нову відповідь сталася помилка.
           success: Відповідь успішно створено.
         destroy:
-          error: При видаленні відповіді сталася помилка.
+          error: При спробі видалити відповідь сталася помилка.
           success: Відповідь успішно видалено.
         edit:
           update: Оновити
@@ -178,7 +178,7 @@ uk:
           create: Створити
           title: Додати відповідь
         update:
-          error: При оновленні цієї відповіді сталася помилка.
+          error: При спробі оновити цю відповідь сталася помилка.
           success: Відповідь успішно оновлено.
       titles:
         consultations: Консультації
@@ -247,17 +247,17 @@ uk:
     pages:
       home:
         statistics:
-          consultations_count: Консультації
+          consultations_count: Консультацій
     questions:
       results:
         title: Підсумки
       show:
         read_more: Читати далі
       statistics:
-        assistants_count_title: Помічники
-        comments_count_title: Коментарі
-        meetings_count_title: Зустрічі
-        supports_count_title: Людей підтримують
+        assistants_count_title: Помічників
+        comments_count_title: Коментарів
+        meetings_count_title: Зустрічей
+        supports_count_title: Проявів підтримки
       technical_info:
         technical_data: Технічні відомості
       vote_button:

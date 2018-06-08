@@ -91,7 +91,7 @@ sv:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Förslag som nu finns tillgängliga på %{participatory_space_title}
-          notification_title: Du kan nu starta <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan godkänna förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
@@ -238,7 +238,7 @@ sv:
         success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
       destroy_draft:
         error: Det har funnits fel att radera förslaget.
-        success: Förslagsförslaget blev framgångsrikt förstört.
+        success: Förslagsförslaget har tagits bort.
       models:
         proposal:
           fields:

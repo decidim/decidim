@@ -37,7 +37,7 @@ uk:
           attributes:
             base:
               too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
-              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість батьківського питання порядку денного "%{parent_title}" на %{count} хвилин
+              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -66,7 +66,7 @@ uk:
     admin:
       meeting_copies:
         create:
-          error: При створенні копії цієї зустрічі сталася помилка.
+          error: При спробі створити копію цієї зустрічі сталася помилка.
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
@@ -317,7 +317,7 @@ uk:
       registration_mailer:
         confirmation:
           confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
-          details: Відомості про зустріч читайте у вкладенні.
+          details: Детальні відомості про зустріч читайте у вкладенні.
       registrations:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.

@@ -8,6 +8,8 @@ module Decidim
     # a group or a one-to-one conversation.
     #
     class Conversation < ApplicationRecord
+      include Decidim::DataPortability
+
       has_many :participations, foreign_key: :decidim_conversation_id,
                                 class_name: "Decidim::Messaging::Participation",
                                 dependent: :destroy,
@@ -125,6 +127,14 @@ module Decidim
       #
       def unread_count(user)
         receipts.unread_by(user).count
+      end
+
+      def self.user_collection(user)
+        Decidim::Messaging::UserConversations.for(user)
+      end
+
+      def self.export_serializer
+        Decidim::DataPortabilitySerializers::DataPortabilityConversationSerializer
       end
     end
   end
