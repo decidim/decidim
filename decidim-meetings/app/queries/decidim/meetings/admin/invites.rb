@@ -44,7 +44,7 @@ module Decidim
         def filter_by_status(invites)
           case @status
           when "accepted"
-            invites.where.not(accepted_at: nil).where(rejected_at: nil)
+            invites.where.not(accepted_at: nil)
           when "rejected"
             invites.where.not(rejected_at: nil)
           when "sent"

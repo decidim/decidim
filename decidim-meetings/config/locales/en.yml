@@ -251,9 +251,9 @@ en:
             success: Meeting registrations settings successfully saved.
       admin_log:
         invite:
-          create: "%{user_name} invited %{attendde_name} to join %{resource_name} meeting on the %{space_name} space"
-          deleted: "%{user_name} uninvited %{attendde_name} from joining %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} invited %{attendde_name} to join %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
           close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"

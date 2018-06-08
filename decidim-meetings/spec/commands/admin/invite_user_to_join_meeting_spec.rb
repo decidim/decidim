@@ -32,6 +32,30 @@ module Decidim::Meetings
         clear_enqueued_jobs
       end
 
+      shared_examples "creates the invitation and traces the action" do
+        let(:invite) { Decidim::Meetings::Invite.last }
+
+        it "creates the invitation" do
+          expect do
+            subject.call
+          end.to change(Decidim::Meetings::Invite, :count).by(1)
+
+          expect(invite.meeting).to eq(meeting)
+          expect(invite.user).to eq(attendee)
+        end
+
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(Decidim::Meetings::Invite, current_user, kind_of(Hash), hash_including(resource: hash_including(:title), participatory_space: hash_including(:title)))
+            .and_call_original
+
+          expect { subject.call }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+        end
+      end
+
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
@@ -43,6 +67,10 @@ module Decidim::Meetings
           expect do
             subject.call
           end.not_to change(Decidim::User, :count)
+        end
+
+        it_behaves_like "creates the invitation and traces the action" do
+          let(:attendee) { user }
         end
 
         it "sends the invitation instructions" do
@@ -67,6 +95,10 @@ module Decidim::Meetings
 
           expect(queued_user).to eq(Decidim::User.last)
           expect(queued_options).to eq(invitation_instructions: "join_meeting", meeting: meeting)
+        end
+
+        it_behaves_like "creates the invitation and traces the action" do
+          let(:attendee) { Decidim::User.last }
         end
       end
     end

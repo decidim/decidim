@@ -26,7 +26,7 @@ module Decidim
 
         def i18n_params
           super.merge(
-            attendde_name: action_log.resource.user.name
+            attendee_name: action_log.resource.user.name
           )
         end
       end
