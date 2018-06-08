@@ -4,7 +4,7 @@
       <%= t "decidim.admin.titles.responses" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.response.name", scope: "decidim.admin")),
                   new_response_path(current_question),
-                  class: "button tiny button--title" if can? :create, Decidim::Consultations::Response %>
+                  class: "button tiny button--title" if allowed_to? :create, :response %>
     </h2>
   </div>
   <div class="card-section">
@@ -21,7 +21,7 @@
           <% current_question.responses.each do |response| %>
             <tr>
               <td>
-                <% if can? :update, response %>
+                <% if allowed_to? :update, :response, response: response %>
                   <%= link_to translated_attribute(response.title),
                               edit_response_path(current_question, response) %>
                 <% else %>
@@ -32,7 +32,7 @@
                 <%= l response.created_at, format: :short %>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, response %>
+                <% if allowed_to? :update, :response, response: response %>
                   <%= icon_link_to "pencil",
                                    edit_response_path(current_question, response),
                                    t("actions.configure", scope: "decidim.admin"),

@@ -34,6 +34,7 @@ pt:
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
+        private_space: Espaço privado
         promoted: Destacado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
@@ -42,15 +43,36 @@ pt:
         short_description: Pequena descrição
         show_statistics: Mostre estatisticas
         slug: Slug de URL
+        special_features: Características especiais
         subtitle: Subtítulo
         target: Alvo
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Aniversário
+        birthplace: Berço
+        ceased_date: Data de cessação
+        designation_date: Data de designação
+        designation_mode: Modo de designação
+        full_name: Nome completo
+        gender: Gênero
+        position: Posição
       assembly_user_role:
         email: O email
         name: Nome
         role: Função
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Montagem
+        other: Assemblies
+      decidim/assembly_member:
+        one: Membro da Assembléia
+        other: Membros da Assembléia
+      decidim/assembly_user_role:
+        one: Função de usuário de montagem
+        other: Funções de usuário de montagem
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ pt:
           copy: cópia de
           select: Selecione os dados que você gostaria de duplicar
           title: Duplicar assembléia
+      assembly_members:
+        create:
+          error: Houve um erro ao adicionar um membro para este assembly.
+          success: Membro criado com sucesso para este assembly.
+        destroy:
+          success: Membro destruído com êxito para este assembly.
+        edit:
+          title: Atualize o membro do assembly.
+          update: Atualizar
+        index:
+          assembly_members_title: Membros da Assembléia
+        new:
+          create: Crio
+          title: Novo membro do assembly.
+        update:
+          error: Houve um erro ao atualizar o membro para este assembly.
+          success: Membro atualizado com êxito para este assembly.
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembléia.
@@ -111,6 +150,7 @@ pt:
         assemblies: Assembléias
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
+          assembly_members: Membros
           attachment_collections: Coleções
           attachment_files: arquivos
           attachments: Anexos
@@ -128,6 +168,18 @@ pt:
             published: Publicados
             title: Título
           name: Assembléia
+        assembly_member:
+          fields:
+            ceased_date: Data de cessação
+            designation_date: Data de designação
+            full_name: Nome
+            position: Posição
+          name: Membro
+          positions:
+            other: De outros
+            president: Presidente
+            secretary: secretário
+            vice_president: Vice presidente
         assembly_user_role:
           fields:
             email: O email
@@ -146,6 +198,10 @@ pt:
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
         update: "%{user_name} atualizou a montagem %{resource_name}"
+      assembly_member:
+        create: "%{user_name} criou o membro %{resource_name} na montagem %{space_name}"
+        delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
+        update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
@@ -154,6 +210,8 @@ pt:
       admin:
         assemblies:
           form:
+            duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
+            included_at_help: Selecione a data em que esta montagem foi adicionada ao Decidim. Não precisa necessariamente ser o mesmo que a data de criação.
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
             select_an_assembly_type: Selecione um tipo de montagem
@@ -162,6 +220,23 @@ pt:
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuário existente
+            non_user: Não usuário
+            select_a_position: Selecione uma posição
+            select_user: Selecione um usuário
+            user_type: Tipo de usuário
+          index:
+            filter:
+              all: Todos
+              ceased: Cessou
+              not_ceased: Não cessou
+            filter_by: Filtrar por
+            search: Pesquisa
+      assembly_members:
+        index:
+          members: Membros
       assembly_types:
         commission: Comissão
         consultative_advisory: Consultivo / Consultivo
@@ -181,6 +256,9 @@ pt:
           highlighted_assemblies:
             active_assemblies: Conjuntos ativos
             see_all_assemblies: Veja todas as assembléias
+        user_profile:
+          member_of:
+            member_of: Membro de
       show:
         area: Área
         assembly_type: Tipo de montagem
@@ -224,6 +302,11 @@ pt:
         surveys_count: pesquisas
         users_count: Participantes
         votes_count: Votos
+    assembly_members:
+      assembly_member:
+        designated_on: Designado em
+      index:
+        title: Membros
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +331,7 @@ pt:
           more_info: Mais informações
           take_part: Participar
       assembly_header:
+        assembly_member_menu_item: Membros
         assembly_menu_item: A assembléia
         unfold: Desdobrar
       assembly_widgets:

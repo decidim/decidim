@@ -1,0 +1,9 @@
+<div class="author author--inline">
+  <% if profile_path? %>
+    <%= link_to profile_path do %>
+      <%= render :profile_inline %>
+    <% end %>
+  <% else %>
+    <%= render :profile_inline %>
+  <% end %>
+</div>

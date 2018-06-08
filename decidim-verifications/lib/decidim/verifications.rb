@@ -6,7 +6,6 @@ require "decidim/verifications/workflows"
 
 require "decidim/verifications/id_documents"
 require "decidim/verifications/postal_letter"
-require "decidim/verifications/dummy"
 
 module Decidim
   def self.authorization_workflows

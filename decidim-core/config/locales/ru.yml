@@ -6,14 +6,21 @@ ru:
       report:
         details: Дополнительные комментарии
       user:
+        about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
-        password: Новый пароль
-        password_confirmation: Подтвердите свой новый пароль
+        nickname: Ваш короткий, уникальный псевдоним
+        password: Пароль
+        password_confirmation: Подтвердите свой пароль
+        personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
+    models:
+      decidim/attachment_created_event: Прикрепленный файл
+      decidim/component_published_event: Действующая составляющая
+      decidim/profile_updated_event: Профиль обновлен
   activerecord:
     attributes:
       decidim/user:
@@ -26,12 +33,27 @@ ru:
         user_group_document_number: Номер документа организации
         user_group_name: Название организации
         user_group_phone: Телефон организации
+    models:
+      decidim/user:
+        one: Участник
+        few: Участника
+        many: Участников
+        other: Участников
+      decidim/user_group:
+        one: Группа участников
+        few: Группы участников
+        many: Групп участников
+        other: Групп участников
   booleans:
     'false': 'Нет'
     'true': 'Да'
   carrierwave:
     errors:
       image_too_big: Изображение слишком велико
+  date:
+    formats:
+      decidim_short: "%d.%m.%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -43,22 +65,82 @@ ru:
           title: Удалить мою учетную запись
         explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
       destroy:
-        error: При удалении вашей учетной записи произошла ошибка.
+        error: При попытке удалить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно удалена.
       show:
         change_password: Поменять пароль
         update_account: Обновить учетную запись
       update:
-        error: При обновлении вашей учетной записи произошла ошибка.
+        error: При попытке обновить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно обновлена.
         success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    admin_log:
+      area:
+        create: "%{user_name} добавил участок %{resource_name}"
+        delete: "%{user_name} удалил участок %{resource_name}"
+        update: "%{user_name} обновил участок %{resource_name}"
+      component:
+        create: "%{user_name} добавил составляющую %{resource_name} в пространство %{space_name}"
+        delete: "%{user_name} удалил составляющую %{resource_name} из пространства %{space_name}"
+        publish: "%{user_name} обнародовал составляющую %{resource_name} в пространстве %{space_name}"
+        unpublish: "%{user_name} отменил обнародование составляющей %{resource_name} в пространстве %{space_name}"
+      moderation:
+        hide: "%{user_name} скрыл ресурс вида %{resource_type} в пространстве %{space_name}"
+        unreport: "%{user_name} отменил жалобу на ресурс вида %{resource_type} в пространстве %{space_name}"
+      newsletter:
+        create: "%{user_name} создал рассылку %{resource_name}"
+        delete: "%{user_name} удалил рассылку %{resource_name}"
+        deliver: "%{user_name} разослал рассылку %{resource_name}"
+        update: "%{user_name} обновил рассылку %{resource_name}"
+      oauth_application:
+        create: "%{user_name} создал приложение OAuth %{resource_name}"
+        delete: "%{user_name} удалил приложение OAuth %{resource_name}"
+        update: "%{user_name} обновил приложение OAuth %{resource_name}"
+      organization:
+        update: "%{user_name} обновил настройки организации"
+      scope:
+        create: "%{user_name} добавил охват %{resource_name}"
+        create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
+        delete: "%{user_name} удалил охват %{resource_name}"
+        delete_with_parent: "%{user_name} удалил охват %{resource_name} внутри охвата %{parent_scope}"
+        update: "%{user_name} обновил охват %{resource_name}"
+        update_with_parent: "%{user_name} обновил охват %{resource_name} внутри охвата %{parent_scope}"
+      static_page:
+        create: "%{user_name} создал статическую страницу %{resource_name}"
+        delete: "%{user_name} удалил статическую страницу %{resource_name}"
+        update: "%{user_name} обновил статическую страницу %{resource_name}"
+      user:
+        invite: "%{user_name} пригласил участника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} предоставил служебный статус участнику %{resource_name}"
+        remove_from_admin: "%{user_name} удалил участника %{resource_name} с ролью: %{role}"
+        unofficialize: "%{user_name} отменил служебный статус участника %{resource_name}"
+      user_group:
+        reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
+        verify: "%{user_name} подтвердил группу участников %{resource_name}"
     anonymous_user: Анонимный
     application:
+      collection:
+        documents:
+          one: Документ
+          few: Документа
+          many: Документов
+          other: Документов
       documents:
         related_documents: Сопутствующие документы
       photos:
         related_photos: Сопутствующие фотографии
+    author:
+      comments:
+        one: комментарий
+        few: комментария
+        many: комментариев
+        other: комментариев
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Подтвердите свою личность, введя номер паспорта, начинающийся с «А»
+        fields:
+          passport_number: Номер паспорта
+        name: Еще один пример подтверждения личности
       dummy_authorization_handler:
         explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»
         fields:
@@ -73,11 +155,34 @@ ru:
       expires_at: Срок действия истекает в %{timestamp}
       foo_authorization:
         fields:
-          bar: Нерабочая псевдо-переменная 1
-          foo: Нерабочая псевдо-переменная 2
-        name: Нерабочее псевдо-подтверждение личности
+          bar: Пример переменной 1
+          foo: Пример переменной 2
+        name: Пример подтверждения личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    collapsible_list:
+      hidden_elements_count:
+        one: и еще 1
+        few: и еще %{count}
+        many: и еще %{count}
+        other: и еще %{count}
+      see_less: "(читать меньше)"
+      see_more: "(читать подробнее)"
+    components:
+      dummy:
+        actions:
+          bar: Пример переменной 1
+          foo: Пример переменной 2
+        name: Пример составляющей
+        settings:
+          global:
+            comments_enabled: Комментарии включены
+            dummy_global_attribute_1: Пример свойства 1
+            dummy_global_attribute_2: Пример свойства 2
+          step:
+            comments_blocked: Комментарии отключены
+            dummy_step_attribute_1: Пример 1 свойства шага
+            dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
     core:
       actions:
@@ -88,12 +193,16 @@ ru:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
+          newsletter: Получать время от времени рассылку с новостями
+          newsletter_title: Разрешение на связь с вами
+          nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -101,32 +210,72 @@ ru:
             user: Частное лицо
             user_group: Организация/коллектив
           subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
-          terms: условия использования
+          terms: условия участия
           tos_agreement: Регистрируясь, вы принимаете %{link}.
+          tos_title: Условия участия
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
           are_you_new?: Вы в первый раз на этой платформе?
           register: Создать учетную запись
       shared:
+        newsletter_modal:
+          buttons:
+            check: Поставить галочку и продолжить
+            uncheck: Не ставить галочку
+          notice: Привет, вы уверены, что не хотите получать рассылку новостей? Пожалуйста, еще раз подумайте насчет того, чтобы поставить галочку ниже. Для нас очень важно, чтобы вы могли иногда получать сообщения с важными объявлениями. Вы всегда сможете изменить это на странице настроек уведомлений. Если вы не отметите это поле, вы можете упустить свежие возможности участия в платформе. Если вы все же не хотите получать рассылку, мы прекрасно понимаем такое ваше решение. Спасибо, что прочитали это!
+          title: Уведомления о новостях
         omniauth_buttons:
           or: Или
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Подтвердить приложение
+          by_organization_link_html: <small class="heading-small">по %{link}</small>
+          cancel: Отменить
+          connect_your_account_html: Подключите свою учетную запись, выполнив вход в <strong>%{organization}</strong>
+          publish_content: Обнародовать за вас сообщения
+          see_email: Видеть ваш адрес электронной почты
+          see_name: Видеть ваше имя
+          see_username: Видеть ваше имя участника
+          this_application_will_be_able_to: 'Это приложение сможет:'
+          this_application_will_not_be_able_to: 'Это приложение не сможет:'
+          update_profile: Обновить свой профиль
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
     errors:
       internal_server_error:
-        title: Возникла проблема с нашим сервером
+        title: При попытке связи с нашим сервером произошла ошибка
         try_later: Пожалуйста, повторите попытку позже.
       not_found:
         back_home: Вернуться на главную
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{resource_title}
+          notification_title: В <a href="%{attached_to_url}">%{resource_title}</a> добавили <a href="%{resource_path}">новый документ</a>
+      components:
+        component_published:
+          email_intro: 'Теперь в %{participatory_space_title} приведена в действие составляющая %{resource_title}. Вы можете посмотреть её на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{participatory_space_title}
+          notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
-        email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
+        email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
+      users:
+        profile_updated:
+          email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: "%{nickname} обновил свой профиль"
+          notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -139,6 +288,18 @@ ru:
         project: Проекты
         proposal: Предложения
         result: Итоги
+    fingerprint:
+      check: Проверить контрольный итог
+      explanation: Отрывок текста ниже представляет собой сокращенное, хэшированное представление этого содержимого. Благодаря ему вы можете проверить, не было ли содержание подменено, так как любое изменение приведет к совершенно иному значению итога.
+      online_calculator_name: онлайн калькулятор MD5
+      replicate_help: Этот контрольный итог рассчитывается с использованием алгоритма хеширования SHA256. Чтобы воспроизвести его самостоятельно, вы можете использовать %{online_calculator_link}.
+      source: Источник
+      title: Контрольный итог
+      value: Значение
+    followers:
+      no_followers: Еще нет подписчиков.
+    following:
+      no_followings: Еще ни на что не подписался.
     follows:
       create:
         button: Следить
@@ -153,11 +314,30 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    log:
+      base_presenter:
+        create: "%{user_name} добавил %{resource_name}"
+        create_with_space: "%{user_name} создал %{resource_name} в %{space_name}"
+        delete: "%{user_name} удалил %{resource_name}"
+        delete_with_space: "%{user_name} удалил %{resource_name} в %{space_name}"
+        unknown_action: "%{user_name} выполнил некоторые действия с %{resource_name}"
+        unknown_action_with_space: "%{user_name} выполнил какое-то действие с %{resource_name} в %{space_name}"
+        update: "%{user_name} обновил %{resource_name}"
+        update_with_space: "%{user_name} обновил %{resource_name} в %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Участок не найден в базе данных (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Вид участка не найден в базе данных (ID: %{id})'
+        scope_presenter:
+          not_found: 'Охват не найден в базе данных (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Вид охвата не найден в базе данных (ID: %{id})'
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Узнать больше
+      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -167,7 +347,7 @@ ru:
           subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы увидеть их:"
+          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
@@ -189,12 +369,24 @@ ru:
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
+        see_on_website: Не удается толком прочитать это письмо? Прочитайте его на <a href="%{link}" target="_blank">сайте</a>.
+        unsubscribe: Чтобы отказаться от получения таких сообщений, кликните <a href="%{link}" target="_blank" class="unsubscribe">Отменить подписку</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Если вы хотите изменить свои предпочтения, вы можете сделать это на <a href="%{link}" target="_blank">странице настроек</a>
+        error: При попытке отменить подписку произошла ошибка
+        success: Вы успешно отменили подписку.
+        token_error: Срок действия ссылки истек.
+        unsubscribe: Отписаться
+    notifications:
+      no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
+        newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
-        error: При обновлении настроек уведомлений произошла ошибка.
+        error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
     own_user_groups:
       index:
@@ -202,10 +394,75 @@ ru:
         rejected: Отклонено
         verified: Проверено
     pages:
+      home:
+        extended:
+          debates: Обсуждения
+          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
+          how_to_participate: Как принять участие в движении?
+          meetings: Встречи
+          meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
+          more_info: Дополнительные сведения
+          proposals: Предложения
+          proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
+        footer_sub_hero:
+          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
+          footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+          register: Зарегистрироваться
+        hero:
+          participate: Принять участие
+          welcome: Добро пожаловать в %{organization}!
+        statistics:
+          answers_count: Пройденных опросов
+          assemblies_count: Собраний
+          comments_count: Комментариев
+          debates_count: Обсуждения
+          endorsements_count: Выражений поддержки
+          headline: Текущее состояние %{organization}
+          meetings_count: Встреч
+          orders_count: Голосов
+          pages_count: Страниц
+          processes_count: Движений
+          projects_count: Проектов
+          proposals_accepted: Принятые предложения
+          proposals_count: Предложений
+          results_count: Итогов
+          surveys_count: Опросов
+          users_count: Участников
+          votes_count: Голосов
+        sub_hero:
+          register: Зарегистрироваться
       index:
-        title: Узнать больше
+        title: Дополнительные сведения
+      terms_and_conditions:
+        accept:
+          error: При принятии условий участия произошла ошибка.
+          success: Прекрасно! Вы приняли условия участия.
+        form:
+          agreement: Я согласен с этими условиями
+          legend: Согласиться с условиями участия
+        refuse:
+          modal_body: Если вы откажетесь, вы не сможете использовать платформу, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
+          modal_btn_continue: Принять условия и продолжить
+          modal_btn_exit: Я просмотрю это позже
+          modal_button: Отказаться от условий участия
+          modal_title: Вы действительно отказываетесь от обновленных "Условий участия"?
+        required_review:
+          alert: Мы обновили наши "Условия участия", пожалуйста, просмотрите их.
+          body: Пожалуйста, найдите минутку, чтобы ознакомиться с обновлениями наших "Условий участия". В противном случае вы не сможете использовать платформу.
+          title: 'Обязательно: просмотрите обновления наших условий участия'
+    participatory_space_private_users:
+      not_allowed: У вас нет прав на просмотр этого содержимого
+    profile:
+      deleted: Удаленный участник
+      view: Посмотреть
     profiles:
-      default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
+      default_officialization_text: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
+      show:
+        followers: Читают
+        following: Следит за
+        notifications: Уведомления
+      user:
+        edit_profile: Редактировать профиль
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -219,7 +476,7 @@ ru:
         subject: О ресурсе была передана жалоба администраторам
     reports:
       create:
-        error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
+        error: При попытке создать жалобу произошла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     scopes:
       global: Всеобщий охват
@@ -229,6 +486,20 @@ ru:
         title: Выберите %{field}
       prompt: Выбрать охват
       scopes: Охваты
+    search:
+      filter:
+        all: Все
+        component: Составляющие
+      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
+      term_input_placeholder: Поиск
+    searches:
+      filters:
+        search: Поиск
+      filters_small_view:
+        close_modal: Закрыть окошко
+        filter: Отобрать
+        filter_by: 'Отобрать по признаку:'
+        unfold: Развернуть
     shared:
       action_authorization_modal:
         expired:
@@ -238,6 +509,7 @@ ru:
         incomplete:
           cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
+          invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность
           title: Пожалуйста, заново подтвердите свою личность
         missing:
@@ -250,10 +522,9 @@ ru:
           title: Подтверждение личности еще не проведено
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
+          invalid_field: "Для %{field} недопустимо значение %{value}."
           ok: Хорошо
           title: Не подтвердили свою личность
-      author:
-        deleted: Удаленный участник
       embed_modal:
         close_window: Закрыть окно
         embed: Пожалуйста, вставьте этот код в свою страницу
@@ -262,7 +533,7 @@ ru:
         already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
         close: Закрыть
         description: Это сообщение неприемлемо?
-        does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
+        does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личные сведения или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
         offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
         report: Пожаловаться
         spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
@@ -285,41 +556,48 @@ ru:
   devise:
     invitations:
       edit:
-        header: Установите свой пароль
+        header: Завершите создание своей учетной записи
+        nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
+        subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
     mailer:
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
         hello: Здравствуйте, %{email}!
         ignore: |-
-          Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой пароль.
-        invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это прглашение по ссылке ниже."
+          Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
+        invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
+        invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
-        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.
+        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
+        someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
         subject: Вы пригласили к сотрудничеству в %{organization}
+      invite_private_user:
+        subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
         subject: Вам было предложено распоряжаться %{organization}
       password_change:
         greeting: Здравствуйте, %{recipient}!
         message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
         subject: Пароль изменен
+  doorkeeper:
+    scopes:
+      public: Обнародованные сведения о вас.
   errors:
     messages:
-      content_type_whitelist_error: Тип файла не является допустимым
+      content_type_whitelist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
-      invalid_manifest: Недопустимый манифест
-      invalid_participatory_process: Недопустимое движение соучастия
-      long_words: Содержит слишком длинные слова
-      must_start_with_caps: Должно начинаться с заглавных букв
-      nesting_too_deep: не может быть внутри подкатегории
-      too_many_marks: Содержит слишком много знаков вопроса или восклицания
-      too_much_caps: Содержит слишком много заглавных букв
-      too_short: Слишком короткое
+      long_words: содержит слишком длинные слова
+      must_start_with_caps: должно начинаться с заглавных букв
+      nesting_too_deep: не может быть внутри подразряда
+      too_many_marks: содержит слишком много знаков вопроса или восклицания
+      too_much_caps: содержит слишком много заглавных букв
+      too_short: слишком короткое
   forms:
     required: Обязательно
   invisible_captcha:
@@ -344,8 +622,6 @@ ru:
         expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
-        no_notifications: Пока нет уведомлений.
-        title: Уведомления
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
@@ -358,48 +634,12 @@ ru:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
         notifications_settings: Настройки уведомлений
-        title: Пользовательские настройки
+        title: Настройки участника
         user_groups: Организации
       widget:
-        see_more: Узнать больше
+        see_more: Читать подробнее
   locale:
     name: Русский
-  pages:
-    home:
-      extended:
-        debates: Дебаты
-        debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
-        how_to_participate: Как принять участие в движении?
-        meetings: Встречи
-        meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-        more_info: Узнать больше
-        proposals: Предложения
-        proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
-      footer_sub_hero:
-        footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
-        footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
-        register: Зарегистрироваться
-      hero:
-        participate: Принять участие
-        welcome: Добро пожаловать в %{organization}!
-      statistics:
-        answers_count: Завершенные опросы
-        assemblies_count: Собрания
-        comments_count: Комментарии
-        headline: Текущее состояние %{organization}
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        processes_count: Движения
-        projects_count: Проекты
-        proposals_accepted: Принятые предложения
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
-      sub_hero:
-        register: Зарегистрироваться
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -425,6 +665,7 @@ ru:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%H:%M %d.%m.%Y"
       time_of_day: "%H:%M"
   views:

@@ -21,7 +21,9 @@ module Decidim
                     :user_groups
 
       before_action :current_user
-      authorize_resource :current_user
+      before_action do
+        enforce_permission_to :update_profile, :user, current_user: current_user
+      end
     end
 
     # Public: Available authorization handlers in order to conditionally

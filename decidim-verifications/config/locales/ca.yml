@@ -52,6 +52,7 @@ ca:
           success: Has estat autoritzat amb èxit.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització
             dummy_authorization_handler: Verificar contra l'autorització d'exemple
             dummy_authorization_workflow: Verificar contra l'exemple de flux d'autorització
             id_documents: Verifica't carregant el teu document d'identitat

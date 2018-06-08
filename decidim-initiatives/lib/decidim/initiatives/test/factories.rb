@@ -25,7 +25,7 @@ FactoryBot.define do
     published_at { Time.current }
     state "published"
     signature_type "online"
-    signature_start_time { Time.now.utc }
+    signature_start_time { Time.now.utc - 1.hour }
     signature_end_time { Time.now.utc + 120.days }
 
     scoped_type do
@@ -52,6 +52,10 @@ FactoryBot.define do
       signature_end_time nil
     end
 
+    trait :published do
+      state "published"
+    end
+
     trait :accepted do
       state "accepted"
     end
@@ -62,6 +66,14 @@ FactoryBot.define do
 
     trait :rejected do
       state "rejected"
+    end
+
+    trait :online do
+      signature_type "online"
+    end
+
+    trait :offline do
+      signature_type "offline"
     end
 
     trait :acceptable do
@@ -103,6 +115,10 @@ FactoryBot.define do
     initiative { create(:initiative) }
     user { create(:user, :confirmed, organization: initiative.organization) }
     state "accepted"
+
+    trait :accepted do
+      state "accepted"
+    end
 
     trait :requested do
       state "requested"

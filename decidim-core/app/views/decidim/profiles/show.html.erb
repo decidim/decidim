@@ -1,64 +1,37 @@
-<% add_decidim_page_title(user.nickname) %>
-
 <main class="wrapper">
-  <% present(user) do |profile_user| %>
-    <div class="user-header row collapse">
-      <div class="columns">
-        <div class="user-header__main">
-          <div class="user-header__avatar">
-            <%= image_tag profile_user.avatar_url(:big) %>
-          </div>
-
-          <h1 class="heading1 user-header__heading">
-            <strong><%= profile_user.name %></strong>
-            <div class="user-nickname">
-              <%= profile_user.nickname %>
-              <% if !current_user || (current_user && current_user != user) %>
-                <span class="user-contact_link">
-                  <%= link_to_current_or_new_conversation_with(user) %>
-                </span>
-              <% end %>
-            </div>
-
-            <% if current_user && current_user != user %>
-              <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
-            <% end %>
-          </h1>
-
+  <div class="row">
+    <div class="columns medium-9 medium-offset-3">
+      <ul class="tabs" id="profile-tabs">
+        <% if current_user && current_user == user %>
+          <li class="tabs-title<%= " is-active" if active_content == "notifications" %>">
+            <%= aria_selected_link_to t(".notifications"), profile_notifications_path(nickname: user.nickname), aria_link_type: active_content == "notifications" %>
+          </li>
+        <% end %>
+        <li class="tabs-title<%= " is-active" if active_content == "following" %>">
+          <%= aria_selected_link_to t(".following"), profile_following_path(nickname: user.nickname), aria_link_type: active_content == "following" %>
+        </li>
+        <li class="tabs-title<%= " is-active" if active_content == "followers" %>">
+          <%= aria_selected_link_to t(".followers"), profile_followers_path(nickname: user.nickname), aria_link_type: active_content == "followers" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-3">
+      <%= render partial: "user", locals: { user: user } %>
+    </div>
+    <div class="columns medium-9">
+      <div class="tabs-content" data-tabs-content="profile-tabs">
+        <div class="tabs-panel is-active">
+          <% if active_content == "notifications" %>
+            <%= cell "decidim/notifications", current_user, context: { current_user: current_user } %>
+          <% elsif active_content == "following" %>
+            <%= cell "decidim/following", user, context: { current_user: current_user } %>
+          <% elsif active_content == "followers" %>
+            <%= cell "decidim/followers", user, context: { current_user: current_user } %>
+          <% end %>
         </div>
       </div>
     </div>
-
-    <% if profile_user.about.present? %>
-      <div class="row">
-        <strong><%= t(".about_me") %></strong>
-        <p><%= profile_user.about %></p>
-      </div>
-    <% end %>
-
-    <% if profile_user.personal_url.present? %>
-      <div class="row">
-        <strong><%= t(".personal_url") %></strong>
-        <p><%= link_to profile_user.personal_url, profile_user.personal_url %></p>
-      </div>
-    <% end %>
-
-    <% if profile_user.officialized? %>
-      <div class="row">
-        <div class="mediumlarge-6 large-6">
-          <div class="card">
-            <div class="badge-card__content">
-              <span>
-                <%= icon "verified-badge" %>
-              </span>
-
-              <span>
-                <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  </div>
 </main>

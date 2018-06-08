@@ -3,13 +3,14 @@
 module Decidim
   # The controller to handle the user's public profile page.
   class ProfilesController < Decidim::ApplicationController
-    skip_authorization_check
-
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :user
+    helper_method :user, :active_content
 
-    def show; end
+    def show
+      return redirect_to profile_notifications_path(nickname: params[:nickname]) if current_user == user && params[:active].blank?
+      return redirect_to profile_path(nickname: params[:nickname]) if current_user != user && params[:active] == "notifications"
+    end
 
     private
 
@@ -18,6 +19,11 @@ module Decidim
         nickname: params[:nickname],
         organization: current_organization
       )
+    end
+
+    def active_content
+      return "following" if current_user != user && params[:active].blank?
+      params[:active].presence
     end
   end
 end

@@ -27,11 +27,9 @@
                   spawn_initiative_committee_requests_path(current_initiative),
                   class: "title-action__action button small hollow" if current_user %>
 
-      <%= action_authorized_link_to :spawn,
-                                    t(".continue"),
-                                    spawn_initiative_committee_requests_path(current_initiative),
-                                    class: "title-action__action button small hollow" unless current_user %>
+      <%= link_to t(".continue"),
+                  spawn_initiative_committee_requests_path(current_initiative),
+                  class: "title-action__action button small hollow" unless current_user %>
     </div>
   </div>
 </div>
-<%= stylesheet_link_tag "decidim/initiatives/application" %>

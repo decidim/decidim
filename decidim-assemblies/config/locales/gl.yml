@@ -34,6 +34,7 @@ gl:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
@@ -42,15 +43,36 @@ gl:
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
         slug: URL slug
+        special_features: Características especiais
         subtitle: Subtítulo
         target: Obxectivo
         title: Título
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Aniversario
+        birthplace: Lugar de nacemento
+        ceased_date: Data de suspensión
+        designation_date: Data de designación
+        designation_mode: Modo de designación
+        full_name: Nome completo
+        gender: Xénero
+        position: Posición
       assembly_user_role:
         email: Correo electrónico
         name: Nome
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Asemblea
+        other: Asembleas
+      decidim/assembly_member:
+        one: Membro da asemblea
+        other: Membros da asemblea
+      decidim/assembly_user_role:
+        one: Reproducir rol de usuario
+        other: Asignar roles de usuario
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ gl:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Conxunto duplicado
+      assembly_members:
+        create:
+          error: Produciuse un erro ao engadir un membro para este conxunto.
+          success: Membro creado con éxito para este conxunto.
+        destroy:
+          success: Membro destruído con éxito por este conxunto.
+        edit:
+          title: Actualiza o membro da montaxe.
+          update: Actualización
+        index:
+          assembly_members_title: Membros da asemblea
+        new:
+          create: Crear
+          title: Novo membro da montaxe.
+        update:
+          error: Produciuse un erro ao actualizar o membro para este conxunto.
+          success: Membro actualizado correctamente para este conxunto.
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.
@@ -111,6 +150,7 @@ gl:
         assemblies: Asembleas
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
+          assembly_members: Membros
           attachment_collections: Coleccións
           attachment_files: Arquivos
           attachments: Anexos
@@ -128,6 +168,18 @@ gl:
             published: Publicado
             title: Título
           name: Asemblea
+        assembly_member:
+          fields:
+            ceased_date: Data de suspensión
+            designation_date: Data de designación
+            full_name: Nome
+            position: Posición
+          name: Membro
+          positions:
+            other: Outra
+            president: Presidente
+            secretary: Secretario
+            vice_president: Vicepresidente
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -146,6 +198,10 @@ gl:
         publish: "%{user_name} publicou o conxunto %{resource_name}"
         unpublish: "%{user_name} inédita a montaxe %{resource_name}"
         update: "%{user_name} actualizou o conxunto %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
+        delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
+        update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
@@ -154,6 +210,8 @@ gl:
       admin:
         assemblies:
           form:
+            duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            included_at_help: Seleccione a data en que se engadiu este conxunto a Decidim. Non ten que ser necesariamente o mesmo que a data de creación.
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
@@ -162,6 +220,23 @@ gl:
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuario existente
+            non_user: Non usuario
+            select_a_position: Seleccione unha posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
+          index:
+            filter:
+              all: Todo
+              ceased: Cesado
+              not_ceased: Non cesou
+            filter_by: Filtrar por
+            search: Busca
+      assembly_members:
+        index:
+          members: Membros
       assembly_types:
         commission: Comisión
         consultative_advisory: Consultivo / asesor
@@ -181,6 +256,9 @@ gl:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
+        user_profile:
+          member_of:
+            member_of: Membro de
       show:
         area: Área
         assembly_type: Tipo de montaxe
@@ -224,6 +302,11 @@ gl:
         surveys_count: Enquisas
         users_count: Participantes
         votes_count: Votos
+    assembly_members:
+      assembly_member:
+        designated_on: Designado en
+      index:
+        title: Membros
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +331,7 @@ gl:
           more_info: Máis información
           take_part: Tomar parte en
       assembly_header:
+        assembly_member_menu_item: Membros
         assembly_menu_item: A asemblea
         unfold: Despregar
       assembly_widgets:

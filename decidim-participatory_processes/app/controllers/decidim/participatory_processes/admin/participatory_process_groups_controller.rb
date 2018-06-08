@@ -5,26 +5,26 @@ module Decidim
     module Admin
       # Controller that allows managing participatory process groups.
       #
-      class ParticipatoryProcessGroupsController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         helper ProcessesForSelectHelper
 
         helper_method :collection, :participatory_process_group
 
         def index
-          authorize! :read, ParticipatoryProcessGroup
+          enforce_permission_to :read, :process_group
         end
 
         def show
-          authorize! :read, participatory_process_group
+          enforce_permission_to :read, :process_group, process_group: participatory_process_group
         end
 
         def new
-          authorize! :new, Decidim::ParticipatoryProcessGroup
+          enforce_permission_to :create, :process_group
           @form = form(ParticipatoryProcessGroupForm).instance
         end
 
         def create
-          authorize! :new, Decidim::ParticipatoryProcessGroup
+          enforce_permission_to :create, :process_group
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
           CreateParticipatoryProcessGroup.call(@form) do
@@ -42,13 +42,13 @@ module Decidim
 
         def edit
           @participatory_process_group = collection.find(params[:id])
-          authorize! :update, @participatory_process_group
+          enforce_permission_to :update, :process_group, process_group: @participatory_process_group
           @form = form(ParticipatoryProcessGroupForm).from_model(@participatory_process_group)
         end
 
         def update
           @participatory_process_group = collection.find(params[:id])
-          authorize! :update, @participatory_process_group
+          enforce_permission_to :update, :process_group, process_group: @participatory_process_group
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
           UpdateParticipatoryProcessGroup.call(@participatory_process_group, @form) do
@@ -66,7 +66,7 @@ module Decidim
 
         def destroy
           @participatory_process_group = collection.find(params[:id])
-          authorize! :destroy, @participatory_process_group
+          enforce_permission_to :destroy, :process_group, process_group: @participatory_process_group
           @participatory_process_group.destroy!
 
           flash[:notice] = I18n.t("participatory_process_groups.destroy.success", scope: "decidim.admin")

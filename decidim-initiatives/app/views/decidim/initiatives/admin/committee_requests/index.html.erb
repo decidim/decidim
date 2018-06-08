@@ -39,14 +39,14 @@
                 <%= link_to request.user.name, "mailto:#{request.user.email}" %>
               </td>
               <td class="table-list__actions">
-                <% if can? :approve, request %>
+                <% if allowed_to? :approve, :initiative_committee_member, request: request %>
                   <%= icon_link_to "check",
                                    approve_initiative_committee_request_path(current_initiative, request),
                                    t(".approve"),
                                    class: "action-icon--check" %>
                 <% end %>
 
-                <% if can? :revoke, request %>
+                <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
                   <%= icon_link_to "circle-x",
                                    revoke_initiative_committee_request_path(current_initiative, request),
                                    t(".revoke"),
@@ -64,4 +64,3 @@
 </div>
 
 <%= javascript_include_tag "decidim/initiatives/admin/invite_users.js" %>
-<%= stylesheet_link_tag "decidim/initiatives/application.css" %>

@@ -1,4 +1,12 @@
 sv:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogginlägg
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Posta
+        other: inlägg
   decidim:
     blogs:
       actions:
@@ -37,8 +45,8 @@ sv:
             created_at: Skapad vid
             title: titel
       posts:
-        author_data:
-          comments: kommentarer
+        show:
+          view: Se
         sidebar_blog:
           comments: kommentarer
           most_commented_posts: Mest kommenterade inlägg
@@ -60,10 +68,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
           email_subject: Nytt inlägg publicerat i %{participatory_space_title}
           notification_title: Posten <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: inlägg
     participatory_processes:
-      statistics:
-        posts_count: inlägg
-  pages:
-    home:
       statistics:
         posts_count: inlägg

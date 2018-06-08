@@ -57,18 +57,8 @@ module Decidim
       initializer "decidim_initiatives.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_initiatives_manifest.js
+          decidim_initiatives_manifest.css
         )
-      end
-
-      initializer "decidim_initiatives.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += %w(
-            Decidim::Initiatives::Abilities::NonLoggedUserAbility
-            Decidim::Initiatives::Abilities::EveryoneAbility
-            Decidim::Initiatives::Abilities::CurrentUserAbility
-            Decidim::Initiatives::Abilities::VoteAbility
-          )
-        end
       end
 
       initializer "decidim_initiatives.view_hooks" do
@@ -84,6 +74,11 @@ module Decidim
             }
           )
         end
+      end
+
+      initializer "decidim_initiatives.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Initiatives::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Initiatives::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_initiatives.menu" do

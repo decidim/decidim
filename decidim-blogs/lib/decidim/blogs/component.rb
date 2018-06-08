@@ -6,6 +6,7 @@ Decidim.register_component(:blogs) do |component|
   component.engine = Decidim::Blogs::Engine
   component.admin_engine = Decidim::Blogs::AdminEngine
   component.icon = "decidim/blogs/icon.svg"
+  component.permissions_class_name = "Decidim::Blog::Permissions"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Blogs::Post.where(component: instance).any?
@@ -25,8 +26,9 @@ Decidim.register_component(:blogs) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
+    resource.card = "decidim/blogs/post"
   end
 
   component.seeds do |participatory_space|

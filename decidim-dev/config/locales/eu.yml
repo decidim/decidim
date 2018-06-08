@@ -8,13 +8,17 @@ eu:
         title: Izenburua
         updated_at: Eguneratuta
   decidim:
-    authorization_handlers:
-      another_dummy_authorization_handler:
-        name: Beste adibide bat baimena
     dummy:
       admin:
         exports:
           dummies: Manikiak
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies altua
+          dummies_count_medium: Dummies ertainak
+          foo: foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies altua
@@ -22,10 +26,3 @@ eu:
     resource_links:
       test_link:
         dummy_resource_dummy: ' Honi buruzko adibidea '
-  pages:
-    home:
-      statistics:
-        bar: Bar
-        dummies_count_high: Dummies altua
-        dummies_count_medium: Dummies ertainak
-        foo: foo

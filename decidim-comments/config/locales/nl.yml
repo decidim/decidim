@@ -1,28 +1,31 @@
 nl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commentaar
+      decidim/comments/comment_created_event: Commentaar
+      decidim/comments/reply_created_event: Reactie antwoord
+      decidim/comments/user_mentioned_event: Noemen
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commentaar
+        other: Comments
+      decidim/comments/comment_vote:
+        one: Stemmen
+        other: stemmen
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" is becommentarieerd. U kunt de reactie op deze pagina lezen:'
-            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
-            email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
-            notification_title: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: '"%{resource_title}" heeft een nieuwe reactie gekregen'
-            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met volgen via vorige link.
-            email_subject: Er is een nieuw antwoord op uw reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Er is een nieuw antwoord op uw reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+      comments: Comments
       votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van de reactie.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Meld u aan met uw account</a> of <a href="%{sign_up_url}">schrijf u in</a> om uw reactie toe te voegen.
+        account_message: <a href="%{sign_in_url}">Meld je aan met je account</a> of <a href="%{sign_up_url}">registreer je</a> om een nieuwe reactie toe te voegen.
         form:
           body:
             label: Reactie
-            placeholder: Wat is jouw mening hierover?
+            placeholder: Wat vind je hierover?
           form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:

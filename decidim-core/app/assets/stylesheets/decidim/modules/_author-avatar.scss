@@ -8,7 +8,8 @@ $author-data-color: $muted;
 //Styles
 
 .author-data{
-  @include clearfix();
+  @include flex;
+  @include flex-align($x: left, $y: middle);
 
   color: $author-data-color;
   font-size: .9rem;

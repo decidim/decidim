@@ -9,16 +9,16 @@ module Decidim
       helper_method :area_types
 
       def index
-        authorize! :index, AreaType
+        enforce_permission_to :read, :area_type
       end
 
       def new
-        authorize! :new, AreaType
+        enforce_permission_to :create, :area_type
         @form = form(AreaTypeForm).instance
       end
 
       def create
-        authorize! :new, AreaType
+        enforce_permission_to :create, :area_type
         @form = form(AreaTypeForm).from_params(params)
 
         CreateAreaType.call(@form) do
@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        authorize! :update, area_type
+        enforce_permission_to :update, :area_type, area_type: area_type
         @form = form(AreaTypeForm).from_model(area_type)
       end
 
       def update
-        authorize! :update, area_type
+        enforce_permission_to :update, :area_type, area_type: area_type
         @form = form(AreaTypeForm).from_params(params)
 
         UpdateAreaType.call(area_type, @form) do
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, area_type
+        enforce_permission_to :destroy, :area_type, area_type: area_type
         area_type.destroy!
 
         flash[:notice] = I18n.t("area_types.destroy.success", scope: "decidim.admin")

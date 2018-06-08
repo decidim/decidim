@@ -41,9 +41,14 @@ module Decidim
     end
 
     def run(command, out: STDOUT)
-      Dir.chdir(@dir) do
-        command = command.gsub("%version", version).gsub("%name", name)
-        self.class.run(command, out: out)
+      interpolated_in_folder(command) do |cmd|
+        self.class.run(cmd, out: out)
+      end
+    end
+
+    def capture(command)
+      interpolated_in_folder(command) do |cmd|
+        self.class.capture(cmd)
       end
     end
 
@@ -62,18 +67,12 @@ module Decidim
     end
 
     class << self
-      def run(cmd, out: STDOUT)
-        output, status = Open3.capture2e(cmd)
-
-        STDOUT.puts output if out == STDOUT || !continue?(status)
-
-        abort unless continue?(status)
-
-        [output, status]
+      def capture(cmd, env: {})
+        Open3.capture2e(env, cmd)
       end
 
-      def continue?(status)
-        status.success? || ENV["FAIL_FAST"] == "false"
+      def run(cmd, out: STDOUT)
+        system(cmd, out: out)
       end
 
       def test_participatory_space
@@ -88,7 +87,7 @@ module Decidim
         replace_file(
           "package.json",
           /^  "version": "[^"]*"/,
-          "  \"version\": \"#{version.gsub(/\.pre/, "-pre")}\""
+          "  \"version\": \"#{semver_friendly_version}\""
         )
 
         all_dirs do |dir|
@@ -98,16 +97,14 @@ module Decidim
 
       def run_all(command, out: STDOUT, include_root: true)
         all_dirs(include_root: include_root) do |dir|
-          new(dir).run(command, out: out)
+          status = new(dir).run(command, out: out)
+
+          break unless status || ENV["FAIL_FAST"] == "false"
         end
       end
 
       def version
-        File.read(version_file).strip
-      end
-
-      def version_file
-        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
+        @version ||= File.read(version_file).strip
       end
 
       def replace_file(name, regexp, replacement)
@@ -125,9 +122,25 @@ module Decidim
            .select { |f| File.directory?(f) }
            .each { |dir| yield(dir) }
       end
+
+      private
+
+      def semver_friendly_version
+        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
+      end
+
+      def version_file
+        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
+      end
     end
 
     private
+
+    def interpolated_in_folder(command)
+      Dir.chdir(@dir) do
+        yield command.gsub("%version", version).gsub("%name", name)
+      end
+    end
 
     def folder_name
       File.basename(@dir)

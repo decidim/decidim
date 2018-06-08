@@ -8,6 +8,13 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
   end
 
+  participatory_space.permissions_class_name = "Decidim::Assemblies::Permissions"
+
+  participatory_space.register_resource(:assembly) do |resource|
+    resource.model_class_name = "Decidim::Assembly"
+    resource.card = "decidim/assemblies/assembly"
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"
@@ -45,7 +52,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil,
+        scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         purpose_of_action: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
@@ -75,6 +82,29 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         github_handler: Faker::Lorem.word
       )
 
+      # Create users with specific roles
+      Decidim::AssemblyUserRole::ROLES.each do |role|
+        email = "assembly_#{assembly.id}_#{role}@example.org"
+
+        user = Decidim::User.find_or_initialize_by(email: email)
+        user.update!(
+          name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
+          organization: organization,
+          confirmed_at: Time.current,
+          locale: I18n.default_locale,
+          tos_agreement: true
+        )
+
+        Decidim::AssemblyUserRole.find_or_create_by!(
+          user: user,
+          assembly: assembly,
+          role: role
+        )
+      end
+
       child = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
@@ -97,7 +127,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil,
+        scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         parent: assembly
       )
 
@@ -139,6 +169,32 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
             participatory_space: current_assembly
           )
         end
+
+        Decidim::AssemblyMember::POSITIONS.each do |position|
+          Decidim::AssemblyMember.create!(
+            full_name: Faker::Name.name,
+            gender: Faker::Lorem.word,
+            birthday: Faker::Date.birthday(18, 65),
+            birthplace: Faker::Demographic.demonym,
+            designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+            designation_mode: Faker::Lorem.word,
+            position: position,
+            position_other: position == "other" ? Faker::Job.position : nil,
+            assembly: current_assembly
+          )
+        end
+
+        Decidim::AssemblyMember.create!(
+          user: current_assembly.organization.users.first,
+          gender: Faker::Lorem.word,
+          birthday: Faker::Date.birthday(18, 65),
+          birthplace: Faker::Demographic.demonym,
+          designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+          designation_mode: Faker::Lorem.word,
+          position: "other",
+          position_other: Faker::Job.position,
+          assembly: current_assembly
+        )
 
         Decidim.component_manifests.each do |manifest|
           manifest.seed!(current_assembly.reload)

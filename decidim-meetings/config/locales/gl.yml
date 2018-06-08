@@ -1,6 +1,10 @@
 gl:
   activemodel:
     attributes:
+      agenda:
+        description: Descrición
+        duration: Duración
+        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
@@ -16,10 +20,42 @@ gl:
         end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
+        private_meeting: Encontro privado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
         title: Título
+        transparent: Transparente
+      minutes:
+        audio_url: URL de audio
+        description: Descrición
+        video_url: URL do vídeo
+        visible: É visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
+              too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
+    models:
+      decidim/meetings/close_meeting_event: Reunión pechada
+      decidim/meetings/create_meeting_event: Reunión
+      decidim/meetings/meeting_registrations_enabled_event: Rexistros habilitados
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscricións por límite
+      decidim/meetings/upcoming_meeting_event: Próxima reunión
+      decidim/meetings/update_meeting_event: Reunión actualizada
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Reunión
+        other: Reunións
+      decidim/meetings/minutes:
+        one: Minutos
+        other: Minutos
+      decidim/meetings/registration:
+        one: Rexistro
+        other: Rexistros
   decidim:
     admin:
       meeting_copies:
@@ -77,17 +113,49 @@ gl:
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de 48 horas.
     meetings:
       actions:
+        agenda: Axenda
         attachment_collections: Coleccións
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
+        minutes: Minutos
         new: Novo
         preview: Vista previa
         registrations: Rexistros
         title: Accións
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Engadir elemento do tema da axenda
+            agenda_item: Punto de axenda
+            agenda_item_children: Elemento da axenda Childs
+            down: Baixo
+            remove: Quitar
+            up: Arriba
+          agenda_item_child:
+            agenda_item_child: Tema do programa Neno
+            down: Baixo
+            remove: Quitar
+            up: Arriba
+          create:
+            invalid: Produciuse un problema ao crear esta axenda
+            success: Axenda creada con éxito
+          edit:
+            title: Editar axenda
+            update: Actualización
+          form:
+            add_agenda_item: Engadir un elemento da axenda
+            agenda_items: Elementos da axenda
+            end_date: Data de finalización
+            start_date: Data de inicio
+          new:
+            create: Crear
+            title: Nova axenda
+          update:
+            invalid: Produciuse un problema ao actualizar esta axenda
+            success: A axenda actualizouse correctamente
         exports:
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -106,6 +174,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_organizer: Selecciona o organizador
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -117,6 +188,8 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
+          form:
+            select_organizer: Selecciona o organizador
           index:
             title: Reunións
           new:
@@ -135,6 +208,18 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar esta reunión
             success: Reunión actualizada correctamente
+        minutes:
+          create:
+            invalid: Produciuse un problema ao crear estes minutos
+            success: Minutos creados con éxito
+          edit:
+            update: Actualización
+          new:
+            create: Crear
+            title: Crea minutos
+          update:
+            invalid: Produciuse un problema ao actualizar estes minutos
+            success: Minutos actualizados correctamente
         models:
           meeting:
             name: Reunión
@@ -159,6 +244,12 @@ gl:
           delete: "%{user_name} eliminou a %{resource_name} reunión no espazo %{space_name}"
           export_registrations: "%{user_name} exportou os rexistros da %{resource_name} reunión no espazo %{space_name}"
           update: "%{user_name} actualizou a %{resource_name} reunión no espazo %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
+        minutes:
+          create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
+          update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +257,8 @@ gl:
         registration_mailer:
           confirmation:
             subject: O rexistro da túa xuntanza foi confirmado
+      meeting:
+        not_allowed: Non tes permiso para ver esta reunión
       meetings:
         filters:
           category: Categoría
@@ -181,6 +274,9 @@ gl:
           unfold: Despregar
         index:
           view_meeting: Ver reunión
+        meeting_minutes:
+          meeting_minutes: Minutos de reunión
+          related_information: Información relacionada
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
@@ -198,6 +294,7 @@ gl:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+          view: Ver
       models:
         meeting:
           fields:
@@ -218,6 +315,9 @@ gl:
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
+      types:
+        private_meeting: Encontro privado
+        transparent: Transparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,13 +328,15 @@ gl:
         past_meetings: Reunións pasadas
         see_all_meetings: Ver todas as reunións
         upcoming_meetings: Próximas reunións
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Resultados relacionados:'
-        result_meetings: 'Reunións relacionadas:'
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Reunións relacionadas:'
       proposals_from_meeting:
-        meeting_proposals: 'Propostas relacionadas:'
-        proposal_meetings: 'Reunións relacionadas:'
+        meeting_proposal: 'Propostas relacionadas:'
+        proposal_meeting: 'Reunións relacionadas:'
   devise:
     mailer:
       join_meeting:

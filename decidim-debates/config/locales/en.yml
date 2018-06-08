@@ -12,6 +12,15 @@ en:
         start_time: Starts at
         title: Title
         user_group_id: Create debate as
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates disabled
+      decidim/debates/creation_enabled_event: Debates enabled
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
@@ -67,9 +76,6 @@ en:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
         debate:
-          comments:
-            one: Comment
-            other: Comments
           participate: Participate
         filters:
           all: All
@@ -95,9 +101,6 @@ en:
           close_window: Close window
           share: Share
           share_link: Share link
-        show:
-          comments: Comments
-          report: Report
       models:
         debate:
           fields:

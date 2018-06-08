@@ -98,4 +98,39 @@ FactoryBot.define do
              role: :moderator
     end
   end
+
+  factory :assembly_collaborator, parent: :user, class: "Decidim::User" do
+    transient do
+      assembly { create(:assembly) }
+    end
+
+    organization { assembly.organization }
+
+    after(:create) do |user, evaluator|
+      create :assembly_user_role,
+             user: user,
+             assembly: evaluator.assembly,
+             role: :collaborator
+    end
+  end
+
+  factory :assembly_member, class: "Decidim::AssemblyMember" do
+    assembly { create(:assembly) }
+
+    full_name { Faker::Name.name }
+    gender { Faker::Lorem.word }
+    birthday { Faker::Date.birthday(18, 65) }
+    birthplace { Faker::Lorem.word }
+    position { Decidim::AssemblyMember::POSITIONS.first }
+    designation_date { Faker::Date.between(1.year.ago, 1.month.ago) }
+    designation_mode { Faker::Lorem.word }
+
+    trait :ceased do
+      ceased_date { Faker::Date.between(1.day.ago, 5.days.ago) }
+    end
+
+    trait :with_user do
+      user { create(:user, organization: assembly.organization) }
+    end
+  end
 end

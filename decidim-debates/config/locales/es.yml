@@ -11,6 +11,15 @@ es:
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates deshabilitados
+      decidim/debates/creation_enabled_event: Debates habilitados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ es:
           invalid: Ha habido un problema al crear el debate.
           success: Debate creado con éxito.
         debate:
-          comments:
-            one: Comentario
-            other: Comentarios
           participate: Participar
         filters:
           all: Todos
@@ -86,7 +92,7 @@ es:
         index:
           new_debate: Nuevo debate
         new:
-          back: Atrás
+          back: Volver
           create: Crear
           select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
@@ -94,9 +100,6 @@ es:
           close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
-        show:
-          comments: Comentarios
-          report: Informe
       models:
         debate:
           fields:

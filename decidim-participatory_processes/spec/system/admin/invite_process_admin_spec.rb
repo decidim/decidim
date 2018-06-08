@@ -23,6 +23,7 @@ describe "Invite process administrator", type: :system do
         fill_in :user_nickname, with: "caballo_loco"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
+        check :user_tos_agreement
         find("*[type=submit]").click
       end
 
@@ -37,7 +38,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Info Steps Components Categories Attachments Collections Files Process users Moderations"
+        expect(page.text).to eq "Info\nSteps\nComponents\nCategories\nAttachments\nCollections\nFiles\nProcess users\nModerations"
       end
     end
   end
@@ -67,7 +68,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Info Steps Components Categories Attachments Collections Files Process users Moderations"
+        expect(page.text).to eq "Info\nSteps\nComponents\nCategories\nAttachments\nCollections\nFiles\nProcess users\nModerations"
       end
     end
   end

@@ -13,7 +13,8 @@ module Decidim
       end
 
       def answer
-        authorize! :answer, Survey
+        enforce_permission_to :answer, :survey
+
         @form = form(SurveyForm).from_params(params)
 
         AnswerSurvey.call(@form, current_user, survey) do
@@ -32,7 +33,7 @@ module Decidim
       private
 
       def survey
-        @survey ||= Survey.find_by(component: current_component)
+        @survey ||= Survey.includes(questions: :answer_options).find_by(component: current_component)
       end
     end
   end

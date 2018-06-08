@@ -6,19 +6,20 @@ module Decidim
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/pages"
+      before_action :tos_version_formatted, only: [:index, :edit]
 
       def index
-        authorize! :index, StaticPage
+        enforce_permission_to :read, :static_page
         @pages = collection
       end
 
       def new
-        authorize! :new, StaticPage
+        enforce_permission_to :create, :static_page
         @form = form(StaticPageForm).instance
       end
 
       def create
-        authorize! :new, StaticPage
+        enforce_permission_to :create, :static_page
         @form = form(StaticPageForm).from_params(form_params)
 
         CreateStaticPage.call(@form) do
@@ -35,13 +36,13 @@ module Decidim
       end
 
       def edit
-        authorize! :update, page
+        enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_model(page)
       end
 
       def update
         @page = collection.find(params[:id])
-        authorize! :update, page
+        enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_params(form_params)
 
         UpdateStaticPage.call(page, @form) do
@@ -58,11 +59,11 @@ module Decidim
       end
 
       def show
-        authorize! :read, page
+        enforce_permission_to :read, :static_page
       end
 
       def destroy
-        authorize! :destroy, page
+        enforce_permission_to :destroy, :static_page, static_page: page
 
         DestroyStaticPage.call(page, current_user) do
           on(:ok) do
@@ -91,6 +92,14 @@ module Decidim
 
       def collection
         current_organization.static_pages
+      end
+
+      def tos_version
+        current_organization.tos_version
+      end
+
+      def tos_version_formatted
+        @tos_version_formatted ||= l(tos_version, format: :short) if tos_version.present?
       end
     end
   end

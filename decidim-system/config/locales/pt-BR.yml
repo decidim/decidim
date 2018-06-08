@@ -16,7 +16,7 @@ pt-BR:
           success: Admin destruído com sucesso
         edit:
           title: Edit admin
-          update: Actualizar
+          update: Atualizar
         index:
           title: Administradores
         new:

@@ -14,7 +14,7 @@ module Decidim
       helper_method :username_list, :conversation
 
       def new
-        authorize! :create, Conversation
+        enforce_permission_to :create, :conversation
         @form = form(ConversationForm).from_params(params)
 
         redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
@@ -24,7 +24,7 @@ module Decidim
       end
 
       def create
-        authorize! :create, Conversation
+        enforce_permission_to :create, :conversation
 
         @form = form(ConversationForm).from_params(params)
 
@@ -43,13 +43,13 @@ module Decidim
       end
 
       def index
-        authorize! :index, Conversation
+        enforce_permission_to :list, :conversation
 
         @conversations = UserConversations.for(current_user)
       end
 
       def show
-        authorize! :show, conversation
+        enforce_permission_to :read, :conversation, conversation: conversation
 
         @conversation.mark_as_read(current_user)
 
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def update
-        authorize! :update, conversation
+        enforce_permission_to :update, :conversation, conversation: conversation
 
         @form = form(MessageForm).from_params(params)
 

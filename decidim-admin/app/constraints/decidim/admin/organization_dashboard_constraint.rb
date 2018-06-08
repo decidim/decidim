@@ -16,7 +16,7 @@ module Decidim
       #
       # Returns boolean.
       def matches?
-        user && user.organization == organization && ability.can?(:read, :admin_dashboard)
+        user && user.organization == organization && user_has_permission_to_access_dashboard?
       end
 
       private
@@ -33,8 +33,11 @@ module Decidim
         @user ||= request.env["warden"].user("user")
       end
 
-      def ability
-        Decidim::Admin::Abilities::BaseAbility.new(user, current_organization: organization)
+      def user_has_permission_to_access_dashboard?
+        Decidim::Admin::Permissions.new(
+          user,
+          Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
+        ).permissions.allowed?
       end
     end
   end

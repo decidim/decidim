@@ -3,7 +3,7 @@
 </h2>
 <div class="content">
   <p><%= t ".welcome" %></p>
-  <% if can? :read, :admin_log %>
+  <% if allowed_to? :read, :admin_log %>
     <div class="row">
       <h3 class="card-title">
       </h3>

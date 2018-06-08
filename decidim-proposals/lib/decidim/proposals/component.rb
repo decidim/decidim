@@ -15,6 +15,8 @@ Decidim.register_component(:proposals) do |component|
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
+  component.permissions_class_name = "Decidim::Proposals::Permissions"
+
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
@@ -48,9 +50,10 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:proposal) do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
+    resource.card = "decidim/proposals/proposal"
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

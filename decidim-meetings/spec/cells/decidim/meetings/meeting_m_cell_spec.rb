@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe MeetingCell, type: :cell do
+    controller Decidim::Meetings::MeetingsController
+
     let!(:meeting) { create(:meeting) }
 
     context "when rendering" do

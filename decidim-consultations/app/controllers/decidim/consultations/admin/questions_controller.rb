@@ -7,19 +7,19 @@ module Decidim
         include QuestionAdmin
 
         def index
-          authorize! :index, Decidim::Consultations::Question
+          enforce_permission_to :read, :question
           @questions = collection
           render layout: "decidim/admin/consultation"
         end
 
         def new
-          authorize! :new, Decidim::Consultations::Question
+          enforce_permission_to :create, :question
           @form = question_form.instance
           render layout: "decidim/admin/consultation"
         end
 
         def create
-          authorize! :create, Decidim::Consultations::Question
+          enforce_permission_to :create, :question
           @form = question_form.from_params(params, current_consultation: current_consultation)
 
           CreateQuestion.call(@form) do
@@ -36,13 +36,13 @@ module Decidim
         end
 
         def edit
-          authorize! :edit, current_question
+          enforce_permission_to :update, :question, question: current_question
           @form = question_form.from_model(current_question, current_consultation: current_consultation)
           render layout: "decidim/admin/question"
         end
 
         def update
-          authorize! :update, current_question
+          enforce_permission_to :update, :question, question: current_question
 
           @form = question_form
                   .from_params(params, question_id: current_question.id, current_consultation: current_consultation)
@@ -61,7 +61,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, current_question
+          enforce_permission_to :destroy, :question, question: current_question
           current_question.destroy!
 
           flash[:notice] = I18n.t("questions.destroy.success", scope: "decidim.admin")
@@ -73,10 +73,6 @@ module Decidim
 
         def collection
           @collection ||= current_consultation&.questions
-        end
-
-        def ability_context
-          super.merge(current_consultation: current_consultation)
         end
 
         def question_form

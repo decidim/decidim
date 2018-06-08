@@ -44,6 +44,20 @@ it:
         email: Email
         name: Nome
         role: Ruolo
+    models:
+      decidim/participatory_process_step_activated_event: Fase attivata
+      decidim/participatory_process_step_changed_event: Passo cambiato
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Processo partecipativo
+        other: Processi partecipativi
+      decidim/participatory_process_group:
+        one: Gruppo di processo partecipativo
+        other: Gruppi di processi partecipativi
+      decidim/participatory_process_step:
+        one: Passo
+        other: passi
   decidim:
     admin:
       actions:
@@ -283,6 +297,7 @@ it:
         scope: Objetivos
         start_date: Date di inizio
         target: Chi partecipa
+        unspecified: Non specificato
       statistics:
         answers_count: risposte
         comments_count: Commenti
@@ -304,6 +319,7 @@ it:
       participatory_process_groups:
         participatory_process_group:
           browse: Naviga
+          processes_count: 'Processi:'
       participatory_process_widgets:
         show:
           active_step: Fase attiva

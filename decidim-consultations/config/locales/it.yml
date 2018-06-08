@@ -8,6 +8,7 @@ it:
         end_voting_date: Data di fine
         introductory_image: Immagine introduttiva
         introductory_video_url: URL video introduttivo
+        questions: Domande
         slug: Slug URL
         start_voting_date: Data d'inizio
         subtitle: Sottotitolo
@@ -35,6 +36,20 @@ it:
       vote:
         decidim_consultations_response_id:
           not_found: Risposta non trovata
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consultazione
+        other: consultazioni
+      decidim/consultations/question:
+        one: Domanda
+        other: Domande
+      decidim/consultations/response:
+        one: Risposta
+        other: risposte
+      decidim/consultations/vote:
+        one: Votazione
+        other: voti
   decidim:
     admin:
       actions:
@@ -182,11 +197,8 @@ it:
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
-      finished:
-        active_consultations: Consultazioni attive
-        past_consultations: Consultazioni precedenti
       highlighted_questions:
-        title: Consultazioni da %{scope_name}
+        title: Domande da %{scope_name}
       index:
         title: consultazioni
       question:
@@ -199,11 +211,25 @@ it:
         create:
           error: Ci sono stati errori nel votare la domanda
       regular_questions:
-        title: Altre consultazioni
+        title: Domande per questa consultazione
       show:
-        see_finished_consultations: Vedi consultazioni precedenti
+        badge_name:
+          finished: Finito
+          open: Aperto
+          open_votes: Voti aperti
+          published_results: Risultati pubblicati
+        footer_button_text:
+          debate: Discussione
+          view: vista
+          view_results: Vedi i risultati
+          vote: Votazione
+        unspecified: Non specificato
     menu:
       consultations: consultazioni
+    pages:
+      home:
+        statistics:
+          consultations_count: consultazioni
     questions:
       results:
         title: risultati
@@ -222,7 +248,7 @@ it:
         starting_from: A partire da %{date}
         vote: Votazione
       vote_modal:
-        contextual_help: Per favore selezionate un'opzione. Ricorda che una volta confermato il tuo supporto non può essere modificato.
+        contextual_help: Per favore selezionate un'opzione.
         title: 'Consultazione: domanda di supporto'
       vote_modal_confirm:
         change: Modificare
@@ -242,7 +268,3 @@ it:
         unfold: spiegare
       question_header:
         back_to_consultation: Vedi tutte le consultazioni
-  pages:
-    home:
-      statistics:
-        consultations_count: consultazioni

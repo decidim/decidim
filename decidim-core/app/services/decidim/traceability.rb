@@ -59,15 +59,12 @@ module Decidim
     #
     # Returns whatever the given block returns.
     def perform_action!(action, resource, author, extra_log_info = {})
-      PaperTrail.whodunnit(gid(author)) do
-        klass = resource.is_a?(Class) ? resource : resource.class
-        klass.transaction do
-          Decidim::ApplicationRecord.transaction do
-            result = block_given? ? yield : nil
-            loggable_resource = resource.is_a?(Class) ? result : resource
-            log(action, author, loggable_resource, extra_log_info)
-            result
-          end
+      PaperTrail.request(whodunnit: gid(author)) do
+        Decidim::ApplicationRecord.transaction do
+          result = block_given? ? yield : nil
+          loggable_resource = resource.is_a?(Class) ? result : resource
+          log(action, author, loggable_resource, extra_log_info)
+          return result
         end
       end
     end

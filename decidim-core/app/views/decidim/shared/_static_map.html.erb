@@ -5,7 +5,9 @@
         <div class="address__icon">
           <%= icon icon_name, width: 40, height: 70 %>
         </div>
-        <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+        <div class="address__details">
+          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+        </div>
       </div>
       <% if Decidim.geocoder.present? %>
         <div class="address__map">

@@ -10,8 +10,7 @@ module Decidim
       helper_method :user
 
       def index
-        authorize! :index, :officializations
-
+        enforce_permission_to :read, :officialization
         @query = params[:q]
         @state = params[:state]
 
@@ -21,13 +20,13 @@ module Decidim
       end
 
       def new
-        authorize! :new, :officializations
+        enforce_permission_to :create, :officialization
 
         @form = form(OfficializationForm).from_model(user)
       end
 
       def create
-        authorize! :create, :officializations
+        enforce_permission_to :create, :officialization
 
         @form = form(OfficializationForm).from_params(params)
 
@@ -41,7 +40,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, :officializations
+        enforce_permission_to :destroy, :officialization
 
         UnofficializeUser.call(user, current_user) do
           on(:ok) do

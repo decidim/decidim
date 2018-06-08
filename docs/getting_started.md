@@ -56,29 +56,7 @@ running `bundle install`, you would run `d/bundle install`.
 
 ### C. Step by step
 
-In order to develop on decidim, you'll need:
-
-* **Git** 2.15+
-* **PostgreSQL** 9.4+
-* **Ruby** 2.5.0 (2.3+ should work just fine, but that's the version we test against)
-* **NodeJS** 9.x.x
-* **ImageMagick**
-* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
-
-First of all, you need to install the `decidim` gem:
-
-```console
-gem install decidim
-```
-
-afterwards, you can create an application with the nice `decidim` executable:
-
-```console
-decidim decidim_application
-cd decidim_application
-bundle install
-rails server
-```
+See our [manual installation tutorial](/docs/manual-installation.md).
 
 ## Initializing your app for local development
 
@@ -170,7 +148,15 @@ also manually check your application before upgrading.
 
 ## Checklist
 
-There are several things you need to check before making your putting your application on production. See the [checklist](docs/checklist.md).
+There are several things you need to check before making your putting your application on production. See the [checklist](checklist.md).
 
 [docker]: https://docs.docker.com/engine/installation/
 [docker-compose]: https://docs.docker.com/compose/install/
+
+## Contributing
+
+We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for [issues](https://github.com/decidim/decidim/issues) labeled `good first issue` to start contibuting and learning the internals of the project by doing easy jobs.
+
+We also have a [developer's reference](/docs/development_guide.md) that will help you getting started with your environment and our daily commands, routines, etc.
+
+Finally, you can also find other ways of helping us on our [contribution guide](/CONTRIBUTING.md).

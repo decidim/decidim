@@ -8,7 +8,7 @@ module Decidim
           layout "decidim/admin/users"
 
           def index
-            authorize! :index, Authorization
+            enforce_permission_to :index, :authorization
 
             @pending_authorizations = pending_authorizations
           end

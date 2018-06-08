@@ -2,7 +2,7 @@
 
 shared_examples "manage posts" do
   it "updates a post" do
-    within find("tr", text: translated(post.title)) do
+    within find("tr", text: translated(post1.title)) do
       click_link "Edit"
     end
 
@@ -29,6 +29,7 @@ shared_examples "manage posts" do
 
     within "table" do
       expect(page).to have_content("My new title")
+      expect(page).to have_content("Post title 2")
     end
   end
 
@@ -59,31 +60,26 @@ shared_examples "manage posts" do
 
     within "table" do
       expect(page).to have_content("My post")
+      expect(page).to have_content("Post title 1")
+      expect(page).to have_content("Post title 2")
     end
   end
 
   describe "deleting a post" do
-    let(:title) do
-      {
-        en: "This is the title of deleted post",
-        es: "Este es el título del post eliminado",
-        ca: "Aquest és el títol del post eliminat"
-      }
-    end
-
     before do
       visit current_path
     end
 
     it "deletes a post" do
-      within find("tr", text: translated(post.title)) do
+      within find("tr", text: translated(post1.title)) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(post.title))
+        expect(page).to have_no_content(translated(post1.title))
+        expect(page).to have_content(translated(post2.title))
       end
     end
   end

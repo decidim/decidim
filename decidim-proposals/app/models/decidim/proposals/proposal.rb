@@ -14,8 +14,12 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Fingerprintable
+
+      fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"
 
@@ -31,13 +35,22 @@ module Decidim
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where.not(published_at: nil) }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :body,
+        datetime: :published_at
+      )
 
       def self.order_randomly(seed)
         transaction do
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order("RANDOM()").load
+          order(Arel.sql("RANDOM()")).load
         end
       end
 
@@ -60,11 +73,18 @@ module Decidim
         endorsements.where(author: user, user_group: user_group).any?
       end
 
+      # Public: Checks if the proposal has been published or not.
+      #
+      # Returns Boolean.
+      def published?
+        published_at.present?
+      end
+
       # Public: Checks if the organization has given an answer for the proposal.
       #
       # Returns Boolean.
       def answered?
-        answered_at.present?
+        answered_at.present? && state.present?
       end
 
       # Public: Checks if the organization has accepted a proposal.

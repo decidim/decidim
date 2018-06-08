@@ -32,6 +32,17 @@ nl:
         address: Adres
         id_document: CIF
         name: Volledige naam
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initiative
+        other: initatieven
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comités
+      decidim/initiative_vote:
+        one: Handtekening
+        other: handtekeningen
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ nl:
       titles:
         initiatives: initiatieven
         initiatives_types: Initiatieftypen
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Nieuwe mijlpaal voltooid!
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ nl:
         title: initiatieven
       initiative_votes:
         create:
-          error: Er zijn fouten opgetreden bij het stemmen op het initiatief.
+          error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
       initiatives:
         author:
           deleted: verwijderde
+        author_list:
+          hidden_authors_count:
+            one: en nog 1 persoon
+            other: en nog %{count} mensen
         count:
           title:
             one: "%{count} initiatief"
@@ -242,7 +264,7 @@ nl:
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meest gereageerd
-          most_voted: Meest gestemd
+          most_voted: Meest ondertekend
           random: Willekeurig
           recent: Meest recente
         result:
@@ -253,22 +275,21 @@ nl:
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
         signature_identities:
           select_identity: Selecteer gebruikersidentiteit
+        signatures_count:
+          one: " handtekening"
+          other: " handtekeningen"
         statistics:
           assistants_count_title: assistenten
           comments_count_title: Reacties
           meetings_count_title: Events
-          supports_count_title: verklevingen
+          supports_count_title: handtekeningen
         supports:
-          title: Lijst van verklevingen
-        supports_count:
-          count:
-            one: " ondersteuning"
-            other: " ondersteuningen"
+          title: Lijst van handtekeningen
         vote_cabin:
-          already_voted: Reeds gestemd
-          supports_required: "%{total_supports} stemmen vereist"
+          already_voted: Al getekend
+          supports_required: "%{total_supports} handtekeningen vereist"
           vote: Teken
-          votes_blocked: Stemmen uitgeschakeld
+          votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
           count:
             one: HANDTEKENING

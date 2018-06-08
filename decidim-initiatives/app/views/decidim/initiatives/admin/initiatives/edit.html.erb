@@ -1,9 +1,9 @@
 <%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t(".update"), class: "button" if can? :update, current_initiative %>
+    <%= f.submit t(".update"), class: "button" if allowed_to? :update, :initiative, initiative: current_initiative %>
 
-    <% if can? :send_to_technical_validation, current_initiative %>
+    <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
       <%= link_to t(".send_to_technical_validation"),
                   send_to_technical_validation_initiative_path(current_initiative),
                   class: "button muted",
@@ -12,7 +12,7 @@
       <%= link_to t(".send_to_technical_validation"), "#", class: "button muted disabled" if current_initiative.created? %>
     <% end %>
 
-    <% if can? :publish, current_initiative %>
+    <% if allowed_to? :publish, :initiative, initiative: current_initiative %>
       <%= link_to t("actions.publish", scope: "decidim.admin"),
                   publish_initiative_path(current_initiative),
                   method: :post,
@@ -20,7 +20,7 @@
                   data: { confirm: t(".confirm") } %>
     <% end %>
 
-    <% if can? :unpublish, current_initiative %>
+    <% if allowed_to? :unpublish, :initiative, initiative: current_initiative %>
       <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                   unpublish_initiative_path(current_initiative),
                   method: :delete,
@@ -28,7 +28,7 @@
                   data: { confirm: t(".confirm") } %>
     <% end %>
 
-    <% if can? :accept, current_initiative %>
+    <% if allowed_to? :accept, :initiative, initiative: current_initiative %>
         <%= link_to t(".accept"),
                     accept_initiative_path(current_initiative),
                     method: :post,
@@ -36,7 +36,7 @@
                     data: { confirm: t(".confirm") } %>
     <% end %>
 
-    <% if can? :reject, current_initiative %>
+    <% if allowed_to? :reject, :initiative, initiative: current_initiative %>
         <%= link_to t(".reject"),
                     reject_initiative_path(current_initiative),
                     method: :delete,
@@ -44,7 +44,7 @@
                     data: { confirm: t(".confirm") } %>
     <% end %>
 
-    <% if can? :discard, current_initiative %>
+    <% if allowed_to? :discard, :initiative, initiative: current_initiative %>
       <%= link_to t(".discard"),
                   discard_initiative_path(current_initiative),
                   method: :delete,
@@ -52,7 +52,7 @@
                   data: { confirm: t(".confirm") } %>
     <% end %>
 
-    <% if can? :export_votes, current_initiative %>
+    <% if allowed_to? :export_votes, :initiative, initiative: current_initiative %>
       <%= link_to t(".export_votes"),
                   export_votes_initiative_path(current_initiative, format: :csv),
                   class: "button alert",

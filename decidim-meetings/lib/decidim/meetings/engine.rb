@@ -28,12 +28,6 @@ module Decidim
         root to: "meetings#index"
       end
 
-      initializer "decidim_meetings.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Meetings::Abilities::CurrentUserAbility"]
-        end
-      end
-
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
@@ -78,6 +72,22 @@ module Decidim
             locals: {
               past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
               upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
+            }
+          )
+        end
+
+        # This view hook is used in card cells. It renders the next upcoming
+        # meeting for the given participatory space.
+        Decidim.view_hooks.register(:upcoming_meeting_for_card, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          upcoming_meeting = Decidim::Meetings::Meeting.where(component: published_components).upcoming.order(:start_time, :end_time).first
+
+          next unless upcoming_meeting
+
+          view_context.render(
+            partial: "decidim/participatory_spaces/upcoming_meeting_for_card.html",
+            locals: {
+              upcoming_meeting: upcoming_meeting
             }
           )
         end

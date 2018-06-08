@@ -67,21 +67,15 @@ module Decidim
           "&nbsp;".html_safe
         else
           safe_join([
-                      content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+                      content_tag(:h4, I18n.t(name, scope: "decidim.pages.home.statistics"), class: "home-pam__title"),
                       content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
                     ])
         end
       end
     end
 
-    def public_participatory_spaces
-      @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
-        manifest.participatory_spaces.call(organization).public_spaces
-      end
-    end
-
     def published_components
-      @published_components ||= Component.where(participatory_space: public_participatory_spaces).published
+      @published_components ||= organization.published_components
     end
   end
 end

@@ -14,12 +14,11 @@ describe "Question vote", type: :system do
       visit decidim_consultations.question_path(question)
     end
 
-    it "Page contains a disabled vote button" do
-      expect(page).to have_button(id: "vote_button")
-      expect(page).to have_css("#vote_button.disabled")
+    it "contains a disabled vote button" do
+      expect(page).to have_css(".question-vote-cabin .card__button.disabled")
     end
 
-    it "Shows when the voting period starts" do
+    it "shows when the voting period starts" do
       expect(page).to have_content("Starting from #{I18n.l(question.start_voting_date)}")
     end
   end
@@ -47,7 +46,7 @@ describe "Question vote", type: :system do
       context "and never voted before" do
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -65,7 +64,7 @@ describe "Question vote", type: :system do
 
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -102,7 +101,7 @@ describe "Question vote", type: :system do
       context "and never voted before" do
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 
@@ -125,7 +124,7 @@ describe "Question vote", type: :system do
 
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user, run_callbacks: false
+          login_as user, scope: :user
           visit decidim_consultations.question_path(question)
         end
 

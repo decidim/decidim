@@ -1,19 +1,22 @@
 ---
 ca:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentari
+      decidim/comments/comment_created_event: Comentari
+      decidim/comments/reply_created_event: Resposta al comentari
+      decidim/comments/user_mentioned_event: Menció
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentari
+        other: Comentaris
+      decidim/comments/comment_vote:
+        one: Votació
+        other: Vots
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: 'S''ha comentat "%{resource_title}". Pots llegir-lo en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-            notification_title: Hi ha un nou comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: S'ha comentat "%{resource_title}"
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Hi ha una nova resposta del vostre comentari de %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hi ha una nova resposta del teu comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
+      comments: Comentaris
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.

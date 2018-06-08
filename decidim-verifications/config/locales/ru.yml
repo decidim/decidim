@@ -3,12 +3,19 @@ ru:
     attributes:
       id_document_information:
         document_number: Номер документа (с буквой)
-        document_type: Тип документа
+        document_type: Вид документа
       id_document_upload:
         document_number: Номер документа (с буквой)
-        document_type: Тип документа
+        document_type: Вид вашего документа
         user: Участник
         verification_attachment: Скан вашего документа
+      postal_letter_address:
+        full_address: Полный адрес
+      postal_letter_confirmation:
+        verification_code: Проверочный код
+      postal_letter_postage:
+        full_address: Полный адрес
+        verification_code: Проверочный код
   decidim:
     admin:
       menu:
@@ -40,10 +47,11 @@ ru:
     verifications:
       authorizations:
         create:
-          error: При создании этого подтверждения личности произошла ошибка.
+          error: При попытке создать это подтверждение личности произошла ошибка.
           success: Вы успешно подтвердили свою личность.
         first_login:
           actions:
+            another_dummy_authorization_handler: Проведите подтверждение, сравнив с другим примером подтверждения личности
             dummy_authorization_handler: Проведите подтверждение, сравнив с примером подтверждения личности
             dummy_authorization_workflow: Проведите подтверждение, сравнив с примером пути подтверждения личности
             id_documents: Подтвердите личность, загрузив документ, удостоверяющий её
@@ -55,6 +63,12 @@ ru:
           authorize_with: Подтвердить личность с помощью %{authorizer}
         skip_verification: Вы можете пока что пропустить это и %{link}
         start_exploring: начать изучать
+      dummy_authorization:
+        extra_explanation:
+          one: Участие ограничено участниками с почтовым кодом %{postal_codes}.
+          few: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
+          many: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
+          other: 'Участие ограничено участниками с почтовыми кодами %{postal_codes}.'
       id_documents:
         admin:
           confirmations:
@@ -80,7 +94,7 @@ ru:
             being_reviewed: Мы рассматриваем ваши документы. Ваша личность вскоре будет проверена
             rejection_clarity: Убедитесь, что в загруженном изображении ясно видны данные
             rejection_correctness: Убедитесь, что введенные данные верны
-            rejection_notice: С проверкой вашей личности возникла проблема. Пожалуйста, попробуйте еще раз
+            rejection_notice: С проверкой вашей личности произошла ошибка. Пожалуйста, попробуйте еще раз
             send: Снова подать запрос на подтверждение личности
           new:
             send: Подать запрос на подтверждение личности
@@ -108,7 +122,7 @@ ru:
               success: Письмо успешно помечено как отправленное
         authorizations:
           create:
-            error: С вашим запросом возникла проблема
+            error: С вашим запросом произошла ошибка
             success: Спасибо! Мы вышлем проверочный код на ваш адрес
           edit:
             send: Подтвердить

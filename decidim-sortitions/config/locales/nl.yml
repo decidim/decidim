@@ -5,10 +5,17 @@ nl:
         additional_info: Informatie over de loting
         decidim_category_id: Categorieën van de set voorstellen waarin u de trekking wilt toepassen
         decidim_proposals_component_id: Voorstellen geplaatst
-        dice: Resultaat van de worp (rol een 6-zijdige dobbelsteen (of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren) en voer hier in, in tegenstelling tot het getuige zijn van het resulterende aantal, dit draagt ​​bij aan de kwaliteit en garanties van de willekeur van het resultaat
+        dice: Resultaat van de worp. Rol een 6-zijdige dobbelsteen uit, of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren, en voer hier het resulterende getal in voor sommige getuigen. Dit draagt ​​bij aan de kwaliteit en garanties van de willekeurigheid van het resultaat
         target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat je wil selecteren door groepsvoorstellen te selecteren die je eerder hebt gekozen)
         title: Titel
         witnesses: getuigen
+    models:
+      decidim/sortitions/create_sortition_event: toss
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: toss
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Nieuwe loting toegevoegd aan %{participatory_space_title}
           notification_title: De loting <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Lotingen
@@ -106,8 +117,6 @@ nl:
           label: 'Sorteringen bestellen op:'
           random: Willekeurig
           recent: recent
-        proposal:
-          view_proposal: Bekijk voorstel
         results_count:
           count:
             one: geselecteerd voorstel
@@ -127,10 +136,11 @@ nl:
           time_seed: "(2) Tijdzaad"
           witnesses: getuigen
         sortition:
+          random_seed: Willekeurig zaad
           selected_proposals:
             one: 1 voorstel geselecteerd
-            other: "%{count} voorstellen geselecteerd"
-          view_sortition: Bekijk sortering
+            other: '%{count} voorstellen geselecteerd'
+          view: Uitzicht
         sortition_author:
           deleted: Verwijder gebruiker
         sortition_cancel_author:
@@ -139,7 +149,3 @@ nl:
           count:
             one: 1 sortering
             other: "%{count} sorteringen "
-  pages:
-    home:
-      statistics:
-        sortitions_count: Loting

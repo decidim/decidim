@@ -34,6 +34,17 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when name is not unique" do
+        before do
+          create(:area, organization: organization, name: name)
+        end
+
+        it "is not valid" do
+          expect(subject).not_to be_valid
+          expect(subject.errors[:name]).not_to be_empty
+        end
+      end
+
       context "when the name exists in another organization" do
         before do
           create(:area, name: name)

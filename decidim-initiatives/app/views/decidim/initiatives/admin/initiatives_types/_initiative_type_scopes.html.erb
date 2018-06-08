@@ -4,7 +4,7 @@
       <%= t ".title" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.initiatives_type_scope.name", scope: "decidim.admin")),
                   new_initiatives_type_initiatives_type_scope_path(initiative_type),
-                  class: "button tiny button--title" if can? :create, Decidim::InitiativesTypeScope %>
+                  class: "button tiny button--title" if allowed_to? :create, :initiative_type_scope %>
     </h2>
   </div>
   <div class="row column">
@@ -28,7 +28,7 @@
               <%= icon_link_to "pencil",
                                decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
                                t("actions.configure", scope: "decidim.admin"),
-                               class: "action-icon--new" if can? :edit, s %>
+                               class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
             </td>
           </tr>
         <% end %>

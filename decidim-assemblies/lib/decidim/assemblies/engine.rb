@@ -23,6 +23,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+          resources :assembly_members, only: :index, path: "members"
           resource :assembly_widget, only: :show, path: "embed"
         end
 
@@ -41,16 +42,9 @@ module Decidim
         app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
       end
 
-      initializer "decidim_assemblies.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += [
-            "Decidim::Assemblies::Abilities::EveryoneAbility",
-            "Decidim::Assemblies::Abilities::AssemblyAdminAbility",
-            "Decidim::Assemblies::Abilities::AssemblyCollaboratorAbility",
-            "Decidim::Assemblies::Abilities::AssemblyModeratorAbility",
-            "Decidim::Assemblies::Abilities::AdminAbility"
-          ]
-        end
+      initializer "decidim_assemblies.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim.stats" do
@@ -79,6 +73,23 @@ module Decidim
             partial: "decidim/assemblies/pages/home/highlighted_assemblies",
             locals: {
               highlighted_assemblies: highlighted_assemblies
+            }
+          )
+        end
+
+        Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
+          assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
+                                                      .query.distinct
+                                                      .joins(:members)
+                                                      .merge(Decidim::AssemblyMember.where(user: view_context.user))
+                                                      .reorder(title: :asc)
+
+          next unless assemblies.any?
+
+          view_context.render(
+            partial: "decidim/assemblies/pages/user_profile/member_of",
+            locals: {
+              assemblies: assemblies
             }
           )
         end

@@ -38,5 +38,13 @@ module Decidim
     def display_mention
       link_to nickname, profile_path, class: "user-mention"
     end
+
+    def followers_count
+      __getobj__.followers.count
+    end
+
+    def following_count
+      __getobj__.following_follows.count
+    end
   end
 end

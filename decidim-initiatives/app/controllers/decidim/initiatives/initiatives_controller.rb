@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # This controller contains the logic regarding citizen initiatives
-    class InitiativesController < Decidim::ApplicationController
+    class InitiativesController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show]
 
@@ -11,7 +11,6 @@ module Decidim
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
-      helper Decidim::ActionAuthorizationHelper
       helper Decidim::ResourceHelper
       helper Decidim::IconHelper
       helper Decidim::Comments::CommentsHelper
@@ -20,7 +19,6 @@ module Decidim
       helper InitiativeHelper
       include InitiativeSlug
 
-      include Decidim::Initiatives::ActionAuthorization
       include FilterResource
       include Paginable
       include Orderable
@@ -29,16 +27,14 @@ module Decidim
 
       helper_method :collection, :initiatives, :filter, :stats
 
-      skip_authorization_check only: :signature_identities
-
       # GET /initiatives
       def index
-        authorize! :read, Initiative
+        enforce_permission_to :list, :initiative
       end
 
       # GET /initiatives/:id
       def show
-        authorize! :read, current_initiative
+        enforce_permission_to :read, :initiative, initiative: current_initiative
       end
 
       # GET /initiatives/:id/signature_identities

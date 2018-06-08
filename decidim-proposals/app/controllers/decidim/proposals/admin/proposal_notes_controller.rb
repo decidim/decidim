@@ -8,12 +8,12 @@ module Decidim
         helper_method :proposal
 
         def index
-          authorize! :create, ProposalNote
+          enforce_permission_to :create, :proposal_note
           @form = form(ProposalNoteForm).instance
         end
 
         def create
-          authorize! :create, ProposalNote
+          enforce_permission_to :create, :proposal_note
           @form = form(ProposalNoteForm).from_params(params)
 
           CreateProposalNote.call(@form, proposal) do

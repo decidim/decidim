@@ -118,7 +118,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "when it has some versions" do
       it "does shows version data" do
-        expect(page).to have_content("VERSION NUMBER 1")
+        expect(page).to have_content("VERSION NUMBER\n1")
       end
     end
 

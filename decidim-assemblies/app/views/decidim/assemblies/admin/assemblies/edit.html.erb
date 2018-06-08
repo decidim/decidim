@@ -3,7 +3,7 @@
   <div class="button--double form-general-submit">
     <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
 
-    <% if can? :publish, current_assembly %>
+    <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
       <% if current_assembly.published? %>
         <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button muted" %>
       <% else %>
@@ -11,7 +11,7 @@
       <% end %>
     <% end %>
 
-    <% if can? :destroy, current_assembly %>
+    <% if allowed_to? :destroy, :assembly, assembly: current_assembly %>
       <%= link_to t("decidim.admin.actions.destroy"), current_assembly, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
     <% end %>
   </div>

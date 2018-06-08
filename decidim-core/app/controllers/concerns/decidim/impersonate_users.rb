@@ -49,13 +49,8 @@ module Decidim
         redirect_to decidim_admin.impersonatable_users_path
       end
 
-      # Gets the ability instance for the real user logged in.
-      def real_ability
-        @real_ability ||= current_ability_klass.new(real_user, ability_context)
-      end
-
       def can_impersonate_users?
-        real_user && real_ability.can?(:impersonate, :managed_users)
+        real_user && allowed_to?(:impersonate, :managed_user, {}, [Decidim::Admin::Permissions], real_user)
       end
 
       def expired_log

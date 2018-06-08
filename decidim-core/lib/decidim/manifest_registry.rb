@@ -21,16 +21,10 @@ module Decidim
     end
 
     def find(name)
-      manifests.find { |manifest| manifest.name == name }
-    end
-
-    def resource_manifests
-      @resource_manifests ||= manifests.flat_map(&:resource_manifests)
-    end
-
-    def find_resource_manifest(resource_name_or_klass)
-      resource_manifests.find do |manifest|
-        manifest.model_class == resource_name_or_klass || manifest.name.to_s == resource_name_or_klass.to_s
+      manifests.find do |manifest|
+        manifest.try(:model_class_name) == name.to_s ||
+          manifest.name.to_s == name.to_s ||
+          manifest.name.to_s.pluralize == name.to_s
       end
     end
 

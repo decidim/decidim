@@ -5,10 +5,17 @@ gl:
         additional_info: Información de sorteo
         decidim_category_id: Categorías do conxunto de propostas nas que desexa aplicar o sorteo
         decidim_proposals_component_id: Propostas establecidas
-        dice: Resultado do rolo (rolar un dado de 6 caras (ou buscar outro xeito aleatorio de xerar un número do 1 ao 6) e introducir aquí, en vez de testemuñar o número resultante, isto contribúe á calidade e garantías da aleatoriedad o resultado
+        dice: Resultado da rolda. Move unha morea de 6 caras ou busque outra forma aleatoria de xerar un número do 1 ao 6 e insira aquí o número resultante diante dalgunhas testemuñas. Isto contribúe á calidade e garantías da aleatoriedade do resultado
         target_items: Número de propostas que se seleccionarán (indica a cantidade de propostas que desexa seleccionar trazando o grupo de propostas que escolleu previamente)
         title: Título
         witnesses: Testemuñas
+    models:
+      decidim/sortitions/create_sortition_event: Sortición
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortición
+        other: Edicións
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova xeración engadida a %{participatory_space_title}
           notification_title: A clasificación <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Edicións
     participatory_processes:
       statistics:
         sortitions_count: Edicións
@@ -106,8 +117,6 @@ gl:
           label: 'Solicitar sortións por:'
           random: Aleatorio
           recent: Recentes
-        proposal:
-          view_proposal: Ver proposta
         results_count:
           count:
             one: proposta seleccionada
@@ -127,10 +136,11 @@ gl:
           time_seed: "(2) Semente de tempo"
           witnesses: Testemuñas
         sortition:
+          random_seed: Semente aleatoria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: "%{count} propostas seleccionadas"
-          view_sortition: Ver sortition
+            other: '%{count} propostas seleccionadas'
+          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:
@@ -139,7 +149,3 @@ gl:
           count:
             one: 1 sortition
             other: "%{count} sortións"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Edicións

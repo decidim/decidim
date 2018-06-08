@@ -23,6 +23,17 @@ module Decidim
         expect(subject.attributes[:something].default_value).to eq(true)
       end
 
+      it "stores presenceness" do
+        subject.attribute :something
+        expect(subject.attributes[:something].required).to eq(true)
+
+        subject.attribute :something, required: true
+        expect(subject.attributes[:something].required).to eq(true)
+
+        subject.attribute :something, required: false
+        expect(subject.attributes[:something].required).to eq(false)
+      end
+
       describe "supported types" do
         it "supports booleans" do
           attribute = SettingsManifest::Attribute.new(type: :boolean)
@@ -73,6 +84,17 @@ module Decidim
         expect(settings.attributes).to include(something_enabled: true)
         expect(settings.attributes).to include(comments_enabled: false)
         expect(settings.attributes).not_to include(invalid_option: true)
+      end
+
+      it "adds presence validation to the model according the the presenceness of the setting" do
+        subject.attribute :something_enabled, required: false
+        subject.attribute :comments_enabled
+
+        settings = subject.schema.new(something_enabled: true)
+        expect(settings).not_to be_valid
+
+        settings = subject.schema.new(comments_enabled: true)
+        expect(settings).to be_valid
       end
     end
   end

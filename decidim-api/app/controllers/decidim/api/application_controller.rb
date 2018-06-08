@@ -6,13 +6,15 @@ module Decidim
     class ApplicationController < ::DecidimController
       skip_before_action :verify_authenticity_token
       include NeedsOrganization
-      include NeedsAuthorization
+      include NeedsPermission
       include ImpersonateUsers
 
-      # Overwrites `cancancan`'s method to point to the correct ability class,
-      # since the gem expects the ability class to be in the root namespace.
-      def current_ability_klass
-        Decidim::Abilities::BaseAbility
+      def permission_class_chain
+        [Decidim::Permissions]
+      end
+
+      def permission_scope
+        :public
       end
     end
   end

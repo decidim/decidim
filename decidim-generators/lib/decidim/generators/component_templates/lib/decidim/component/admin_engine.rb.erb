@@ -18,12 +18,6 @@ module Decidim
         # root to: "<%= component_name %>#index"
       end
 
-      initializer "decidim_<%= component_name %>.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += ["Decidim::<%= component_module_name %>::Abilities::Admin::AdminAbility"]
-        end
-      end
-
       def load_seed
         nil
       end

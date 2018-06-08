@@ -8,7 +8,7 @@ module Decidim
       description "A commentable object"
 
       interfaces [
-        Decidim::Comments::CommentableInterface
+        -> { Decidim::Comments::CommentableInterface }
       ]
     end
   end

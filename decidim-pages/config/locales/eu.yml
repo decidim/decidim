@@ -1,4 +1,9 @@
 eu:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: page
+        other: orrialdeak
   decidim:
     admin_log:
       page:

@@ -32,6 +32,17 @@ eu:
         address: Helbidea
         id_document: CIF
         name: Izen osoa
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        other: Initatives
+      decidim/initiative_comittee:
+        one: batzordea
+        other: Comittees
+      decidim/initiative_vote:
+        one: Sinadura
+        other: sinadurak
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ eu:
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+          email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Mugarri berria osatu da!
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ eu:
         title: Ekimenak
       initiative_votes:
         create:
-          error: Erroreak gertatu dira ekimena botatzean.
+          error: Ekimena sinatu zenean akatsak izan dira.
       initiatives:
         author:
           deleted: Ezabatutako
+        author_list:
+          hidden_authors_count:
+            one: eta beste 1 pertsona
+            other: eta beste %{count} pertsona
         count:
           title:
             one: "%{count} ekimena"
@@ -242,7 +264,7 @@ eu:
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkinik gehien
-          most_voted: Bozkatuena
+          most_voted: Gehien sinatuta
           random: Random
           recent: Berrienak
         result:
@@ -253,22 +275,21 @@ eu:
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
         signature_identities:
           select_identity: Hautatu erabiltzailearen identitatea
+        signatures_count:
+          one: " sinadura"
+          other: " sinadurak"
         statistics:
           assistants_count_title: laguntzaileak
           comments_count_title: Oharrak
           meetings_count_title: Bilerak
-          supports_count_title: atxikimendu
+          supports_count_title: sinadurak
         supports:
-          title: Iragarkien zerrenda
-        supports_count:
-          count:
-            one: " laguntza"
-            other: " euskarri"
+          title: Sinadura zerrenda
         vote_cabin:
-          already_voted: Bozkatu
-          supports_required: "%{total_supports} boto behar dira"
+          already_voted: Dagoeneko sinatuta
+          supports_required: "%{total_supports} sinadura beharrezkoa da"
           vote: Saioa
-          votes_blocked: Voting disabled
+          votes_blocked: Sinadura desgaituta dago
         votes_count:
           count:
             one: SIGNATURE

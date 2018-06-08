@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="topbar__dropmenu language-choose">
-      <ul class="dropdown menu" data-dropdown-menu>
+      <ul id="topbar__language-choose" class="dropdown menu" data-dropdown-menu>
         <li class="is-dropdown-submenu-parent">
           <a href="#">Català</a>
           <ul class="menu is-dropdown-submenu">
@@ -33,27 +33,53 @@
     </div>
     <% if @activeuser == "logged" %>
       <div class="topbar__dropmenu topbar__user__logged">
-        <!-- No new notifications? Remove is-active class -->
-        <a href="/user-notifications" class="topbar__notifications is-active"
-           title="Notificaciones">
-          <%= icon "bell" %>
-        </a>
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul id="topbar__user-notifications" class="dropdown menu" data-dropdown-menu>
           <li class="is-dropdown-submenu-parent show-for-medium">
-              <a href="#">
-                  María Martínez
-              </a>
+            <!-- No new notifications? Remove is-active class -->
+            <a href="#" class="topbar__notifications" title="Notificaciones">
+              <%= icon "bell" %>
+            </a>
             <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
-              <li><a href="#">Notificaciones (35)</a></li>
-              <li><a href="#">Siguiendo (12)</a></li>
-              <li><a href="#">Tu cuenta</a></li>
-              <li><a href="#">Salir</a></li>
+              <% 3.times do %>
+                <li>
+                  <div class="topbar__notifications__item">
+                    <div><%= icon "profile", class: "icon--large" %></div>
+                    <div>
+                      <small class="text-small">Accepted proposal</small>
+                      <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+              <li class="topbar__notifications__item--more">Ver más notificaciones</li>
+            </ul>
+          </li>
+        </ul>
+        <ul id="topbar__user-profile" class="dropdown menu" data-dropdown-menu>
+          <li class="is-dropdown-submenu-parent show-for-medium">
+            <%= link_to page_path("user/user-profile") do %>
+              <%= image_tag "demo-avatar.jpg", class: "topbar__user__logged__picture" %>
+            <% end %>
+            <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+              <li>
+                <div class="topbar__user__logged__name">
+                  <strong><%= Faker::Name.name %></strong>
+                  <small>@<%= Faker::Twitter.screen_name %></small>
+                </div>
+              </li>
+              <li><a href="#" class="">Tu cuenta</a></li>
+              <li><a href="#" class="">Salir</a></li>
             </ul>
             <span data-set="nav-login-holder" class="show-for-medium">
               <!-- Repeated due to dropdown limitations -->
               <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
-                <li><a href="#">Notificaciones (35)</a></li>
-                <li><a href="#">Siguiendo (12)</a></li>
+                <li class="show-for-medium">
+                  <div class="topbar__user__logged__name">
+                    <strong><%= Faker::Name.name %></strong>
+                    <small>@<%= Faker::Twitter.screen_name %></small>
+                  </div>
+                </li>
                 <li><a href="#">Tu cuenta</a></li>
                 <li><a href="#">Salir</a></li>
               </ul>
@@ -64,8 +90,8 @@
     <% else %>
       <div class="topbar__user show-for-medium" data-set="nav-login-holder">
           <div class="topbar__user__login js-append">
-            <%= link_to "Regístrate", page_path("user-register") %>
-            <%= link_to "Entra", page_path("user-login") %>
+            <%= link_to "Regístrate", page_path("user/user-register") %>
+            <%= link_to "Entra", page_path("user/user-login") %>
           </div>
       </div>
     <% end %>

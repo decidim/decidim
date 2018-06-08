@@ -3,12 +3,11 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, :with_tos) }
   let(:last_user) { Decidim::User.last }
 
   before do
     switch_to_host(organization.host)
-    create(:static_page, slug: "terms-and-conditions", organization: organization)
     visit decidim.root_path
   end
 
@@ -24,6 +23,7 @@ describe "Authentication", type: :system do
           fill_in :user_password, with: "123456"
           fill_in :user_password_confirmation, with: "123456"
           check :user_tos_agreement
+          check :user_newsletter
           find("*[type=submit]").click
         end
 
@@ -35,14 +35,15 @@ describe "Authentication", type: :system do
       it "denies the sign up" do
         find(".sign-up-link").click
 
-        within "form#new_user" do
-          page.execute_script("$($('form#new_user > div > input')[0]).val('Ima robot :D')")
+        within ".new_user" do
+          page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :user_email, with: "user@example.org"
           fill_in :user_name, with: "Responsible Citizen"
           fill_in :user_nickname, with: "responsible"
           fill_in :user_password, with: "123456"
           fill_in :user_password_confirmation, with: "123456"
           check :user_tos_agreement
+          check :user_newsletter
           find("*[type=submit]").click
         end
 
@@ -209,6 +210,8 @@ describe "Authentication", type: :system do
         fill_in :user_user_group_phone, with: "333-333-3333"
 
         check :user_tos_agreement
+        check :user_newsletter
+
         find("*[type=submit]").click
       end
 
@@ -367,6 +370,7 @@ describe "Authentication", type: :system do
             fill_in :user_password, with: "123456"
             fill_in :user_password_confirmation, with: "123456"
             check :user_tos_agreement
+            check :user_newsletter
             find("*[type=submit]").click
           end
 

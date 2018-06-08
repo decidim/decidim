@@ -32,6 +32,17 @@ gl:
         address: Enderezo
         id_document: CIF
         name: Nome completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initativo
+        other: Iniciais
+      decidim/initiative_comittee:
+        one: Comite
+        other: Comités
+      decidim/initiative_vote:
+        one: Sinatura
+        other: Sinaturas
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ gl:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Novo fito rematado!
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ gl:
         title: Iniciativas
       initiative_votes:
         create:
-          error: Houbo erros ao votar a iniciativa.
+          error: Houbo erros ao asinar a iniciativa.
       initiatives:
         author:
           deleted: Eliminado
+        author_list:
+          hidden_authors_count:
+            one: e 1 persoa máis
+            other: e %{count} persoas máis
         count:
           title:
             one: "Iniciativa %{count}"
@@ -242,7 +264,7 @@ gl:
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: A maioría comentada
-          most_voted: A maioría votada
+          most_voted: Máis asinado
           random: Aleatorio
           recent: Máis recente
         result:
@@ -253,22 +275,21 @@ gl:
           offline_method: Esta iniciativa cidadá só recolle apoios cara a cara.
         signature_identities:
           select_identity: Seleccionar a identidade do usuario
+        signatures_count:
+          one: " sinatura"
+          other: " sinaturas"
         statistics:
           assistants_count_title: Asistentes
           comments_count_title: Comentarios
           meetings_count_title: Reunións
-          supports_count_title: Adhesións
+          supports_count_title: Sinaturas
         supports:
-          title: Listado de adhesións
-        supports_count:
-          count:
-            one: " apoiar"
-            other: " soportes"
+          title: Listado de sinaturas
         vote_cabin:
-          already_voted: Xa votou
-          supports_required: "Requírese %{total_supports} votos"
+          already_voted: Xa está asinado
+          supports_required: "Requírense as %{total_supports} firmas"
           vote: Iniciar sesión
-          votes_blocked: Votación desactivada
+          votes_blocked: A sinatura está desactivada
         votes_count:
           count:
             one: FIRMA

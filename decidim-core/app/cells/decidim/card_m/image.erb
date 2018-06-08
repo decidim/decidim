@@ -1,0 +1,5 @@
+<% if resource_image_path.present? %>
+  <%= link_to resource_path do %>
+    <%= image_tag resource_image_path, class: "card__image" %>
+  <% end %>
+<% end %>

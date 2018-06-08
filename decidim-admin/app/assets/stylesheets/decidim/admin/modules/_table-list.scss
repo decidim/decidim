@@ -52,6 +52,13 @@
     }
   }
 
+  &.table-list--selectable{
+    th:nth-child(2),
+    td:nth-child(2){
+      text-align: left;
+    }
+  }
+
   tr.selected{
     background-color: rgba($brand, .05);
   }

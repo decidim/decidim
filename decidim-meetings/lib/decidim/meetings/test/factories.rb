@@ -20,6 +20,8 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    private_meeting false
+    transparent true
     services do
       [
         { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
@@ -27,6 +29,10 @@ FactoryBot.define do
       ]
     end
     component { build(:component, manifest_name: "meetings") }
+
+    organizer do
+      create(:user, organization: component.organization) if component
+    end
 
     trait :closed do
       closing_report { Decidim::Faker::Localized.sentence(3) }
@@ -56,5 +62,43 @@ FactoryBot.define do
   factory :registration, class: "Decidim::Meetings::Registration" do
     meeting
     user
+  end
+
+  factory :agenda, class: "Decidim::Meetings::Agenda" do
+    meeting
+    title { Decidim::Faker::Localized.sentence(3) }
+    visible { true }
+
+    trait :with_agenda_items do
+      after(:create) do |agenda, _evaluator|
+        create_list(:agenda_item, 2, :with_children, agenda: agenda)
+      end
+    end
+  end
+
+  factory :agenda_item, class: "Decidim::Meetings::AgendaItem" do
+    agenda
+    title { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    duration { 15 }
+    position { 0 }
+
+    trait :with_parent do
+      parent { create(:agenda_item, agenda: agenda) }
+    end
+
+    trait :with_children do
+      after(:create) do |agenda_item, evaluator|
+        create_list(:agenda_item, 2, parent: agenda_item, agenda: evaluator.agenda)
+      end
+    end
+  end
+
+  factory :minutes, class: "Decidim::Meetings::Minutes" do
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    video_url { Faker::Internet.url }
+    audio_url { Faker::Internet.url }
+    visible true
+    meeting
   end
 end

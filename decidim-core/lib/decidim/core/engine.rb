@@ -22,11 +22,9 @@ require "rectify"
 require "decidim/rectify_ext"
 
 require "carrierwave"
-require "high_voltage"
 require "rails-i18n"
 require "date_validator"
 require "sprockets/es6"
-require "cancancan"
 require "truncato"
 require "file_validators"
 require "omniauth"
@@ -39,6 +37,7 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
 
@@ -72,29 +71,12 @@ module Decidim
         app.config.assets.debug = true if Rails.env.test?
       end
 
-      initializer "decidim.high_voltage" do |_app|
-        HighVoltage.configure do |config|
-          config.routes = false
-        end
-      end
-
       initializer "decidim.default_form_builder" do |_app|
         ActionView::Base.default_form_builder = Decidim::FormBuilder
       end
 
       initializer "decidim.exceptions_app" do |app|
         app.config.exceptions_app = Decidim::Core::Engine.routes
-      end
-
-      initializer "decidim.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities << "Decidim::Abilities::EveryoneAbility"
-          config.abilities << "Decidim::Abilities::AdminAbility"
-          config.abilities << "Decidim::Abilities::UserManagerAbility"
-          config.abilities << "Decidim::Abilities::ParticipatoryProcessAdminAbility"
-          config.abilities << "Decidim::Abilities::ParticipatoryProcessCollaboratorAbility"
-          config.abilities << "Decidim::Abilities::ParticipatoryProcessModeratorAbility"
-        end
       end
 
       initializer "decidim.locales" do |app|
@@ -286,6 +268,13 @@ module Decidim
       initializer "OAuth inflections" do
         ActiveSupport::Inflector.inflections do |inflect|
           inflect.acronym "OAuth"
+        end
+      end
+
+      initializer "decidim.core.register_resources" do
+        Decidim.register_resource(:user) do |resource|
+          resource.model_class_name = "Decidim::User"
+          resource.card = "decidim/user_profile"
         end
       end
     end

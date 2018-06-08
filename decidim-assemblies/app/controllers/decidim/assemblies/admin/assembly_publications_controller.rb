@@ -5,11 +5,11 @@ module Decidim
     module Admin
       # Controller that allows managing assembly publications.
       #
-      class AssemblyPublicationsController < Decidim::Admin::ApplicationController
+      class AssemblyPublicationsController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def create
-          authorize! :publish, current_assembly
+          enforce_permission_to :publish, :assembly, assembly: current_assembly
 
           PublishAssembly.call(current_assembly, current_user) do
             on(:ok) do
@@ -25,7 +25,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :publish, current_assembly
+          enforce_permission_to :publish, :assembly, assembly: current_assembly
 
           UnpublishAssembly.call(current_assembly, current_user) do
             on(:ok) do

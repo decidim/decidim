@@ -65,6 +65,7 @@ ca:
         omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
         show_statistics: Mostra estadístiques
+        tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
         welcome_text: Text de benvinguda
         youtube_handler: Nom d'usuari de YouTube
@@ -80,6 +81,7 @@ ca:
         organization: Organització
         plural: Plural
       static_page:
+        changed_notably: S'han produït canvis notables.
         content: Contingut
         organization: Organització
         slug: Nom curt d'URL
@@ -211,6 +213,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest arxiu adjunt.
           success: Adjunt actualitzat correctament.
+      autocomplete:
+        no_results: No s'ha trobat resultats
+        search_prompt: Escriu com a mínim tres caràcters per cercar
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
@@ -572,8 +577,11 @@ ca:
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
+          changed_notably_help: Si està marcada, els usuaris seran notificats per acceptar els nous termes i condicions.
           title: Editar pàgina
           update: Actualitzar
+        index:
+          last_notable_change: Últims canvis notables
         new:
           create: Crea
           title: Nova pàgina

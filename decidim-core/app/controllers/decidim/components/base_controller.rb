@@ -8,6 +8,7 @@ module Decidim
     class BaseController < Decidim::ApplicationController
       include Settings
       include ActionAuthorization
+      include Decidim::NeedsPermission
 
       include ParticipatorySpaceContext
       participatory_space_layout
@@ -27,11 +28,10 @@ module Decidim
                     :current_participatory_space,
                     :current_manifest
 
-      skip_authorize_resource
-
       before_action do
-        authorize! :read, current_component
+        enforce_permission_to :read, :component, component: current_component
       end
+
       before_action :redirect_unless_feature_private
 
       def current_participatory_space
@@ -49,12 +49,17 @@ module Decidim
         @current_manifest ||= current_component.manifest
       end
 
-      def ability_context
-        super.merge(
-          current_manifest: current_manifest,
-          current_settings: current_settings,
-          component_settings: component_settings
-        )
+      def permission_scope
+        :public
+      end
+
+      def permission_class_chain
+        [
+          current_component.manifest.permissions_class,
+          current_participatory_space.manifest.permissions_class,
+          Decidim::Admin::Permissions,
+          Decidim::Permissions
+        ]
       end
 
       def redirect_unless_feature_private

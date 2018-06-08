@@ -8,7 +8,7 @@ describe "Admin manages questions", type: :system do
   describe "creating a question" do
     it "creates a new question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link("New")
 
@@ -63,7 +63,7 @@ describe "Admin manages questions", type: :system do
   describe "trying to create a question with invalid data" do
     it "fails to create a new question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link("New")
 
@@ -108,7 +108,7 @@ describe "Admin manages questions", type: :system do
   describe "updating a question" do
     it "updates a question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
 
@@ -136,7 +136,7 @@ describe "Admin manages questions", type: :system do
   describe "updating a question with invalid values" do
     it "do not updates the question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
 
@@ -159,7 +159,7 @@ describe "Admin manages questions", type: :system do
   describe "updating an question without images" do
     it "update a question without images does not deletes them" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
 
@@ -176,7 +176,7 @@ describe "Admin manages questions", type: :system do
   describe "deleting a question" do
     it "deletes the question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
       accept_confirm { click_link "Destroy" }
@@ -192,7 +192,7 @@ describe "Admin manages questions", type: :system do
   describe "previewing questions" do
     it "allows the user to preview the question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
 
       within find("tr", text: translated(question.title)) do
@@ -212,7 +212,7 @@ describe "Admin manages questions", type: :system do
     it_behaves_like "a 404 page" do
       before do
         switch_to_host(organization.host)
-        login_as user, scope: :user, run_callbacks: false
+        login_as user, scope: :user
       end
 
       let(:target_path) { decidim_admin_consultations.question_path(99_999_999) }
@@ -224,7 +224,7 @@ describe "Admin manages questions", type: :system do
 
     it "publishes the question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
       click_link "Publish"
@@ -242,7 +242,7 @@ describe "Admin manages questions", type: :system do
 
     it "unpublishes the question" do
       switch_to_host(organization.host)
-      login_as user, scope: :user, run_callbacks: false
+      login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
       click_link translated(question.title)
       click_link "Unpublish"

@@ -7,7 +7,7 @@ module Decidim
     describe InitiativeVotesController, type: :controller do
       routes { Decidim::Initiatives::Engine.routes }
 
-      let(:organization) { create(:organization) }
+      let(:organization) { create(:organization, :with_tos) }
       let(:initiative) { create(:initiative, organization: organization) }
 
       before do

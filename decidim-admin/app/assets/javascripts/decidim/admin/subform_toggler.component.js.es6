@@ -3,16 +3,23 @@
     constructor(options = {}) {
       this.controllerSelect = options.controllerSelect;
       this.subformWrapperClass = options.subformWrapperClass;
+      this.globalWrapperSelector = options.globalWrapperSelector;
       this._bindEvent();
-      this.run();
+      this._runAll();
     }
 
-    run() {
-      let $controllerSelect = this.controllerSelect;
-      let subformWrapperClass = this.subformWrapperClass;
-      let value = $controllerSelect.val();
+    _runAll() {
+      this.controllerSelect.each((idx, el) => {
+        this.run(el);
+      });
+    }
 
-      let $form = $controllerSelect.parents("form");
+    run(target) {
+      let $target = $(target);
+      let subformWrapperClass = this.subformWrapperClass;
+      let value = $target.val();
+
+      let $form = $target.parents(this.globalWrapperSelector);
       let $subforms = $form.find(`.${subformWrapperClass}`);
       let $selectedSubform = $subforms.filter(`#${subformWrapperClass}-${value}`)
 
@@ -24,8 +31,8 @@
     }
 
     _bindEvent() {
-      this.controllerSelect.on("change", () => {
-        this.run();
+      this.controllerSelect.on("change", (event) => {
+        this.run(event.target);
       });
     }
   }

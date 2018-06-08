@@ -25,11 +25,14 @@
                 <%= icon "meetings", class: "icon--big" %>
               </li>
               <li class="card-data__item">
-                <div class="text-left">
-                  <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
-                  <span><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
-                  <strong><%= Faker::Address.community %></strong>
-                  <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+                <div>
+                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong><br />
+                  <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
+                </div>
+                <br />
+                <div>
+                  <strong class="text-uppercase"><%= Faker::Address.community %></strong><br />
+                  <span class="text-medium"><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
                 </div>
               </li>
             </ul>
@@ -40,9 +43,9 @@
                 <%= icon "meetings", class: "icon--big" %>
               </li>
               <li class="card-data__item">
-                <div class="text-left">
-                  <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
-                  <span><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
+                <div>
+                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
+                  <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
                 </div>
               </li>
             </ul>

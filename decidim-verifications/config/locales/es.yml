@@ -52,6 +52,7 @@ es:
           success: Has sido autorizado/a correctamente.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
             dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
             dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
             id_documents: Verifícate subiendo tu documento de identidad

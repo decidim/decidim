@@ -4,8 +4,10 @@ require "spec_helper"
 
 describe "Scopes picker", type: :system do
   let(:organization) { create(:organization) }
+  let(:other_organization) { create(:organization) }
   let!(:scopes) { create_list(:scope, 3, organization: organization) }
   let!(:subscope) { create(:subscope, parent: scopes.first) }
+  let!(:other_scopes) { create_list(:scope, 3, organization: other_organization) }
 
   describe "scope picker page" do
     before do
@@ -25,6 +27,18 @@ describe "Scopes picker", type: :system do
 
       it "does not allow to choose current scope (none)" do
         expect(page).to have_css(".scope-picker.picker-footer .buttons a.button.muted")
+      end
+
+      it "shows organization top scopes in content" do
+        scopes.each do |scope|
+          expect(page).to have_css(".scope-picker.picker-content li a", text: scope.name["en"])
+        end
+      end
+
+      it "does not show other organization top scopes in content" do
+        other_scopes.each do |scope|
+          expect(page).not_to have_css(".scope-picker.picker-content li a", text: scope.name["en"])
+        end
       end
 
       context "when has a current scope" do

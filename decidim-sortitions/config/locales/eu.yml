@@ -5,10 +5,17 @@ eu:
         additional_info: Sortzeko informazioa
         decidim_category_id: Zozketa aplikatu nahi dituzun proposamenen kategoriak
         decidim_proposals_component_id: Proposamenak ezarri
-        dice: Biribiltzearen emaitza (6 ataleko hiltzeko (edo beste 1etik 6ra bitarteko zenbaki bat sortzeko ausazko modua bilatzeko) eta sartu hona, ondorioz lortzen den zenbakiaren aurrean, honek ausazkotasunaren kalitatea eta bermeak laguntzen du emaitza
+        dice: Errotako emaitza. 6 ataleko hodi bat mugitu edo 1etik 6ra bitarteko zenbaki bat sortzeko ausazko ausazko modua bilatzeko, eta sartu zenbaki horren aurrean zenbait lekukoren aurrean. Horrek emaitzen ausentziaren kalitatearen eta bermearen alde egiten du
         target_items: Aukeratutako proposamen kopurua (lehenago aukeratu dituzun proposamenen multzoa hautatzeko hautatu dituzun proposamenen kopurua adierazten du)
         title: Izenburua
         witnesses: Lekukoak
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Sortze berria %{participatory_space_title}-ra gehitu da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokalekua %{participatory_space_title} gehitu da
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -76,7 +87,7 @@ eu:
             selected_proposals: Aukeratutako proposamenak zozketan
           update:
             error: Errore bat gertatu da sortzapena eguneratzean.
-            success: Ordenaketa ondo eguneratu da
+            success: Antolaketa eguneratu da
       admin_log:
         sortition:
           create: "%{user_name} %{resource_name} sortzea %{space_name} urtean sortu da"
@@ -106,8 +117,6 @@ eu:
           label: 'Agindu ordenantzak honela:'
           random: Random
           recent: Berriki
-        proposal:
-          view_proposal: Ikusi proposamena
         results_count:
           count:
             one: hautatutako proposamena
@@ -127,10 +136,11 @@ eu:
           time_seed: "(2) Denbora hazia"
           witnesses: Lekukoak
         sortition:
+          random_seed: Ausazko hazia
           selected_proposals:
             one: Aukeratutako 1 proposamena
-            other: "%{count} proposamen hautatuak"
-          view_sortition: Ikusi sortioa
+            other: '%{count} proposamen hautatuak'
+          view: ikusi
         sortition_author:
           deleted: Erabiltzailea ezabatua
         sortition_cancel_author:
@@ -139,7 +149,3 @@ eu:
           count:
             one: 1 sortion
             other: "%{count} sortapenak"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

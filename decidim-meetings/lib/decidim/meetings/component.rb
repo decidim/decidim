@@ -6,7 +6,7 @@ Decidim.register_component(:meetings) do |component|
   component.engine = Decidim::Meetings::Engine
   component.admin_engine = Decidim::Meetings::AdminEngine
   component.icon = "decidim/meetings/icon.svg"
-  component.card = "decidim/meetings/meeting"
+  component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
 
@@ -14,9 +14,10 @@ Decidim.register_component(:meetings) do |component|
     raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:meeting) do |resource|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
+    resource.card = "decidim/meetings/meeting"
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|

@@ -76,6 +76,8 @@ module Decidim
         @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
       end
 
+      delegate :participatory_space, to: :root_commentable
+
       private
 
       # Private: Check if commentable can have comments and if not adds

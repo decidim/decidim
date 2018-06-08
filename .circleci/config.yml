@@ -9,7 +9,7 @@ defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
-    - image: decidim/decidim@sha256:2643b48944b2a2aedfb84ef6e48c1beec285c167319923422522bfa6df53d287
+    - image: decidim/decidim@sha256:889d2f57b238518d0d9bd1177db860f2cc58caae4d1094b86e4e154e41b6aaa4
       environment:
         BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
@@ -20,30 +20,94 @@ defaults: &defaults
         POSTGRES_USER: postgres
   working_directory: /app
 
+references:
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: /app
+  restore_ruby_cache: &restore_ruby_cache
+    restore_cache:
+      keys:
+        - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+  restore_npm_cache: &restore_npm_cache
+    restore_cache:
+      keys:
+        - npm-dependencies-{{ checksum "package-lock.json" }}
+  install_ruby_dependencies: &install_ruby_dependencies
+    run:
+      name: Install ruby dependencies
+      command: bundle install
+  install_npm_dependencies: &install_npm_dependencies
+    run:
+      name: Install npm dependencies
+      command: npm install
+  save_ruby_cache: &save_ruby_cache
+    save_cache:
+      key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      paths:
+        - /usr/local/bundle/
+  save_npm_cache: &save_npm_cache
+    save_cache:
+      key: npm-dependencies-{{ checksum "package-lock.json" }}
+      paths:
+        - node_modules
+  wait_for_db: &wait_for_db
+    run:
+      name: Wait for db
+      command: dockerize -wait tcp://localhost:5432 -timeout 2m
+  install_test_reporter: &install_test_reporter
+    run:
+      name: Install CodeClimate test reporter
+      command: /app/.circleci/install_cc_test_reporter.sh
+  create_test_db: &create_test_db
+    run:
+      name: Create test DB
+      command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
+  extract_failure_logs: &extract_failure_logs
+    run:
+      name: Extract failure logs
+      command: |
+        mkdir -p /app/spec/decidim_dummy_app/tmp/logs/
+        tail -1000 /app/spec/decidim_dummy_app/log/test.log > /app/spec/decidim_dummy_app/tmp/logs/failures.log
+      when: on_fail
+  store_screenshot_artifacts: &store_screenshot_artifacts
+    store_artifacts:
+      path: /app/spec/decidim_dummy_app/tmp/screenshots
+  store_log_artifacts: &store_log_artifacts
+    store_artifacts:
+      path: /app/spec/decidim_dummy_app/tmp/logs
+  store_test_results: &store_test_results
+    store_test_results:
+      path: ~/rspec
+  run_rspec: &run_rspec
+    run:
+      name: Run RSpec
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && rake
+  format_test_coverage: &format_test_coverage
+    run:
+      name: Format CodeClimate test coverage
+      command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json coverage/.resultset.json
+  persist_coverage_to_workspace: &persist_coverage_to_workspace
+    persist_to_workspace:
+      root: coverage
+      paths:
+        - codeclimate.*.json
+
 jobs:
   build_test_app:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Install ruby dependencies
-          command: bundle install
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - *restore_ruby_cache
+      - *restore_npm_cache
+      - *install_ruby_dependencies
+      - *install_npm_dependencies
+      - *save_ruby_cache
+      - *save_npm_cache
+      - *wait_for_db
       - run:
           name: Generate test app
           command: bundle exec rake test_app
-      - run:
-          name: Install CodeClimate test reporter
-          command: /app/.circleci/install_cc_test_reporter.sh
+      - *install_test_reporter
       - persist_to_workspace:
           root: /app
           paths:
@@ -51,22 +115,12 @@ jobs:
   main:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
+      - *attach_workspace
       - checkout
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Install ruby dependencies
-          command: bundle install
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - *restore_ruby_cache
+      - *install_ruby_dependencies
+      - *save_ruby_cache
+      - *wait_for_db
       - run:
           name: Run main folder RSpec
           command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
@@ -76,577 +130,295 @@ jobs:
       - run:
           name: Run erb_lint
           command: bundle exec erblint --lint-all
-      - store_test_results:
-          path: ~/rspec
+      - run:
+          name: Run erb_lint on cells views
+          command: bundle exec erblint **/app/cells/**/*.erb
+      - *store_test_results
   generators:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
+      - *attach_workspace
       - checkout
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Install ruby dependencies
-          command: bundle install
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle/
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Run generators RSpec
-          command: mkdir ~/rspec && cd decidim-generators && rake
-      - store_test_results:
-          path: ~/rspec
+      - *restore_ruby_cache
+      - *install_ruby_dependencies
+      - *save_ruby_cache
+      - *wait_for_db
+      - *run_rspec
+      - *install_test_reporter
+      - *format_test_coverage
+      - *store_test_results
+      - *persist_coverage_to_workspace
   core:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run core RSpec
-          command: mkdir ~/rspec && cd decidim-core && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.core.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.core.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   assemblies:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run assemblies RSpec
-          command: mkdir ~/rspec && cd decidim-assemblies && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.assemblies.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.assemblies.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   initiatives:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run initiatives RSpec
-          command: mkdir ~/rspec && cd decidim-initiatives && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.initiatives.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.initiatives.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   api:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run api RSpec
-          command: mkdir ~/rspec && cd decidim-api && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.api.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.api.json
-  processes:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
+  participatory_processes:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run participatory_processes RSpec
-          command: mkdir ~/rspec && cd decidim-participatory_processes && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.processes.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.processes.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   admin:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run admin RSpec
-          command: mkdir ~/rspec && cd decidim-admin && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.admin.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.admin.json
+      - *attach_workspace
+      - *restore_npm_cache
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   system:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run system RSpec
-          command: mkdir ~/rspec && cd decidim-system && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.system.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.system.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   proposals:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run proposals RSpec
-          command: mkdir ~/rspec && cd decidim-proposals && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.proposals.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.proposals.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   comments:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - npm-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install npm dependencies
-          command: npm install
-      - save_cache:
-          key: npm-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+      - *attach_workspace
+      - *restore_npm_cache
       - run:
           name: Run main folder lint & tests
           command: npm run test:ci
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run comments RSpec
-          command: mkdir ~/rspec && cd decidim-comments && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.comments.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.comments.json
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   meetings:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run meetings RSpec
-          command: mkdir ~/rspec && cd decidim-meetings && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.meetings.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.meetings.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   pages:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run pages RSpec
-          command: mkdir ~/rspec && cd decidim-pages && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.pages.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.pages.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   accountability:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run accountability RSpec
-          command: mkdir ~/rspec && cd decidim-accountability && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.accountability.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.accountability.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   budgets:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run budgets RSpec
-          command: mkdir ~/rspec && cd decidim-budgets && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.budgets.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.budgets.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   surveys:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run surveys RSpec
-          command: mkdir ~/rspec && cd decidim-surveys && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.surveys.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.surveys.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   verifications:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run verifications RSpec
-          command: mkdir ~/rspec && cd decidim-verifications && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.verifications.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.verifications.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   debates:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run debates RSpec
-          command: mkdir ~/rspec && cd decidim-debates && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.debates.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.debates.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   sortitions:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run sortitions RSpec
-          command: mkdir ~/rspec && cd decidim-sortitions && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.sortitions.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.sortitions.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   blogs:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run blogs RSpec
-          command: mkdir ~/rspec && cd decidim-blogs && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.blogs.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.blogs.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   consultations:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 2m
-      - run:
-          name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
-      - run:
-          name: Run consultations RSpec
-          command: mkdir ~/rspec && cd decidim-consultations && rake
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.consultations.json coverage/.resultset.json
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
-      - store_test_results:
-          path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.consultations.json
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   build_design_app:
     working_directory: /app
     docker:
@@ -670,12 +442,11 @@ jobs:
     environment:
       - CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
     steps:
-      - attach_workspace:
-          at: /app
+      - *attach_workspace
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 19 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 20 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -687,25 +458,21 @@ workflows:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - build_test_app:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - main:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - generators:
           filters:
             branches:
               ignore:
                 - l10n_master
-                - l10n_0.10-stable
       - core:
           requires:
             - build_test_app
@@ -718,7 +485,7 @@ workflows:
       - api:
           requires:
             - build_test_app
-      - processes:
+      - participatory_processes:
           requires:
             - build_test_app
       - admin:
@@ -771,7 +538,7 @@ workflows:
             - assemblies
             - initiatives
             - api
-            - processes
+            - participatory_processes
             - admin
             - system
             - proposals

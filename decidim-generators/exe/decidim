@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+if File.exist?(File.expand_path("../../.git", __dir__))
+  ENV["RUBYOPT"] = ENV["RUBYOPT"].sub("-rsimplecov ", "")
+
+  gem "decidim-core"
+end
+
 if ARGV[0] == "--component"
   ARGV.replace(["component", *ARGV[1..-1]])
 

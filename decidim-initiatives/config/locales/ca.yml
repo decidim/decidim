@@ -32,6 +32,17 @@ ca:
         address: Adreça
         id_document: CIF
         name: Nom complet
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciatives
+      decidim/initiative_comittee:
+        one: Comitè
+        other: Comitès
+      decidim/initiative_vote:
+        one: Signatura
+        other: Firmes
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ ca:
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha completat una nova fita!
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ ca:
         title: Iniciatives
       initiative_votes:
         create:
-          error: Hi ha hagut errors en votar la iniciativa.
+          error: Hi ha hagut errors en signar la iniciativa.
       initiatives:
         author:
           deleted: S'ha suprimit
+        author_list:
+          hidden_authors_count:
+            one: i 1 persona més
+            other: i %{count} persones més
         count:
           title:
             one: "%{count} iniciativa"
@@ -242,7 +264,7 @@ ca:
         orders:
           label: 'Ordena iniciatives per:'
           most_commented: Els més comentats
-          most_voted: El més votat
+          most_voted: Més signades
           random: Aleatori
           recent: Més recent
         result:
@@ -253,22 +275,20 @@ ca:
           offline_method: Aquesta iniciativa ciutadana només recull suports presencials.
         signature_identities:
           select_identity: Selecciona la identitat de l'usuari
+        signatures_count:
+          one: " signatura"
+          other: " signatures"
         statistics:
           assistants_count_title: Assistents
           comments_count_title: Comentaris
           meetings_count_title: Trobades
-          supports_count_title: Adhesions
+          supports_count_title: Signatures
         supports:
-          title: Llistat d'adhesions
-        supports_count:
-          count:
-            one: " suport"
-            other: " suports"
+          title: Llistat de signatures
         vote_cabin:
-          already_voted: Ja votat
-          supports_required: "%{total_supports} vots obligatoris"
+          already_voted: Ja has signat
           vote: Signar
-          votes_blocked: Votació inhabilitada
+          votes_blocked: S'ha desactivat la signatura
         votes_count:
           count:
             one: SIGNATURA

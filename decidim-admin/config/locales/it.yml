@@ -64,6 +64,7 @@ it:
         omnipresent_banner_url: URL
         reference_prefix: Prefisso
         show_statistics: Mostra statistiche
+        tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         welcome_text: Testo di benvenuto
         youtube_handler: Gestore di YouTube
@@ -79,6 +80,7 @@ it:
         organization: Organizzazione
         plural: Plurale
       static_page:
+        changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
         slug: URL slug
@@ -210,6 +212,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
+      autocomplete:
+        no_results: nessun risultato trovato
+        search_prompt: Digitare almeno tre caratteri da cercare
       categories:
         create:
           error: Si è verificato un errore durante la creazione di questa categoria.
@@ -571,8 +576,11 @@ it:
         destroy:
           success: OK, la pagina è stata eliminata.
         edit:
+          changed_notably_help: Se selezionato, gli utenti saranno avvisati di accettare i nuovi termini e condizioni.
           title: Modifica la pagina
           update: Aggiorna
+        index:
+          last_notable_change: Ultimo cambiamento notevole
         new:
           create: Creare
           title: Nuova pagina

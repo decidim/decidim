@@ -45,15 +45,18 @@ module Decidim
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
-  autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :Searchable, "decidim/searchable"
+  autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
   autoload :ViewModel, "decidim/view_model"
+  autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
+  autoload :Fingerprintable, "decidim/fingerprintable"
 
   include ActiveSupport::Configurable
 
@@ -81,20 +84,6 @@ module Decidim
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
   config_accessor :mailer_sender
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the base `Decidim::Abilities::BaseAbility`
-  # class.
-  config_accessor :abilities do
-    []
-  end
-
-  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the `Decidim::Admin::Abilities::BaseAbility`
-  # class.
-  config_accessor :admin_abilities do
-    []
-  end
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
@@ -192,6 +181,16 @@ module Decidim
     true
   end
 
+  # Max requests in a time period to prevent DoS attacks. Only applied on production.
+  config_accessor :throttling_max_requests do
+    100
+  end
+
+  # Time window in which the throttling is applied.
+  config_accessor :throttling_period do
+    1.minute
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
@@ -264,6 +263,13 @@ module Decidim
     participatory_space_registry.register(name, &block)
   end
 
+  # Public: Registers a resource.
+  #
+  # Returns nothing.
+  def self.register_resource(name, &block)
+    resource_registry.register(name, &block)
+  end
+
   # Public: Finds all registered component manifest's via the `register_component`
   # method.
   #
@@ -306,7 +312,7 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    component_registry.find_resource_manifest(resource_name_or_klass)
+    resource_registry.find(resource_name_or_klass)
   end
 
   # Public: Stores the registry of components
@@ -317,6 +323,11 @@ module Decidim
   # Public: Stores the registry of participatory spaces
   def self.participatory_space_registry
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
+  end
+
+  # Public: Stores the registry of resource spaces
+  def self.resource_registry
+    @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
   # Public: Stores an instance of StatsRegistry

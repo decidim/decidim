@@ -1,14 +1,11 @@
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t "decidim.admin.titles.assemblies" %>
-    </div>
-    <div class="secondary-nav__actions">
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), new_assembly_path(parent_id: parent_assembly&.id), class: "button expanded small" if can? :create, Decidim::Assembly %>
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to t("decidim.admin.titles.assemblies"), decidim_assemblies.assemblies_path, target: "_blank" %>
     </div>
   </div>
-<% end %>
 
-<%= render "layouts/decidim/admin/application" do %>
-  <%= yield %>
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

@@ -32,6 +32,17 @@ it:
         address: Indirizzo
         id_document: CIF
         name: Nome completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        other: Interventi a favore
+      decidim/initiative_comittee:
+        one: Comitato di
+        other: COMITATI
+      decidim/initiative_vote:
+        one: Firma
+        other: firme
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ it:
       titles:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Nuova pietra miliare completata!
+          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +232,14 @@ it:
         title: iniziative
       initiative_votes:
         create:
-          error: Ci sono stati errori nel votare l'iniziativa.
+          error: Ci sono stati degli errori durante la firma dell'iniziativa.
       initiatives:
         author:
           deleted: eliminata
+        author_list:
+          hidden_authors_count:
+            one: e 1 altra persona
+            other: e altre %{count} persone
         count:
           title:
             one: "%{count} iniziativa"
@@ -242,7 +264,7 @@ it:
         orders:
           label: 'Ordina le iniziative per:'
           most_commented: Più commentato
-          most_voted: Più votati
+          most_voted: Più firmato
           random: Casuale
           recent: Piu recente
         result:
@@ -253,22 +275,21 @@ it:
           offline_method: Questa iniziativa cittadina raccoglie solo supporti faccia a faccia.
         signature_identities:
           select_identity: Seleziona l'identità dell'utente
+        signatures_count:
+          one: " firma"
+          other: " firme"
         statistics:
           assistants_count_title: assistenti
           comments_count_title: Commenti
           meetings_count_title: incontri
-          supports_count_title: adesioni
+          supports_count_title: firme
         supports:
-          title: Elenco delle adesioni
-        supports_count:
-          count:
-            one: " supporto"
-            other: " supporti"
+          title: Elenco delle firme
         vote_cabin:
-          already_voted: Già votato
-          supports_required: "%{total_supports} voti richiesti"
+          already_voted: Già firmato
+          supports_required: "%{total_supports} firme richieste"
           vote: Cartello
-          votes_blocked: Voto disabilitato
+          votes_blocked: Firma disabilitata
         votes_count:
           count:
             one: FIRMA

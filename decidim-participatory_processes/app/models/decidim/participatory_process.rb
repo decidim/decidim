@@ -70,6 +70,11 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def past?
+      return false if end_date.blank?
+      end_date < Time.current
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
@@ -80,6 +85,12 @@ module Decidim
 
     def self.private_processes
       where(private_space: true)
+    end
+
+    def can_participate?(user)
+      return true unless private_space?
+      return true if private_space? && users.include?(user)
+      false
     end
   end
 end

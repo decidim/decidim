@@ -8,12 +8,13 @@ module Decidim
 
     describe "seed" do
       it "registers a block of seeds to be run on development" do
+        space = double(id: 1)
         data = {}
         subject.seeds do |_participatory_space|
           data[:foo] = :bar
         end
 
-        subject.seed!(nil)
+        subject.seed!(space)
 
         expect(data[:foo]).to eq(:bar)
       end
@@ -101,6 +102,34 @@ module Decidim
         it "passes through the manifest instance as block parameter" do
           expect(manifests[0].collection.call).to eq(collection1)
           expect(manifests[1].collection.call).to eq(collection2)
+        end
+      end
+    end
+
+    describe "permissions_class" do
+      context "when permissions_class_name is set" do
+        it "finds the permissions class from its name" do
+          class ::TestPermissions
+          end
+          subject.permissions_class_name = "TestPermissions"
+
+          expect(subject.permissions_class).to eq(TestPermissions)
+        end
+      end
+
+      context "when permissions_class_name is not set" do
+        it "returns nil" do
+          subject.permissions_class_name = nil
+
+          expect(subject.permissions_class).to be_nil
+        end
+      end
+
+      context "when permissions_class_name is set to a class that does not exist" do
+        it "raises an error" do
+          subject.permissions_class_name = "FakeTestPermissions"
+
+          expect { subject.permissions_class }.to raise_error(NameError)
         end
       end
     end

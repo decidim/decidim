@@ -8,6 +8,9 @@
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
+  <% if meeting.organizer.present? %>
+    <%= render partial: "decidim/shared/author_reference", locals: { author: present(meeting.organizer) } %>
+  <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
@@ -20,16 +23,7 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <% if !meeting.closed? && meeting.registrations_enabled? && meeting.can_participate?(current_user) %>
-          <% if meeting.has_registration_for? current_user %>
-            <%= action_authorized_button_to :leave, t(".going"), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success", data: { disable: true } %>
-          <% else %>
-            <%= action_authorized_button_to :join, meeting.has_available_slots? ? t(".join") : t(".no_slots_available"), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { open: current_user.present? ? "meeting-registration-confirm" : "loginModal" } %>
-          <% end %>
-          <% if meeting.available_slots.positive? %>
-            <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
-          <% end %>
-        <% end %>
+        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
       </div>
       <% if meeting.closed? %>
@@ -79,10 +73,29 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <% if meeting.private_meeting? %>
+        <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
+          <%= t("private_meeting", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.private_meeting? and meeting.transparent? %>
+        <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
+          <%= t("transparent", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
       <p><%= decidim_sanitize translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
+
+    <% if meeting.agenda.present? && meeting.agenda.visible? %>
+      <%= render "meeting_agenda" %>
+    <% end %>
+
+    <% if meeting.minutes.present? && meeting.minutes.visible? %>
+      <%= render "meeting_minutes" %>
+    <% end %>
+
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>
@@ -95,8 +108,6 @@
 </div>
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
-
-<%= render partial: "registration_confirm" %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

@@ -1,5 +1,15 @@
 uk:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Сторінка
+        few: Сторінки
+        many: Сторінок
+        other: Сторінок
   decidim:
+    admin_log:
+      page:
+        update: "%{user_name} оновив сторінку %{resource_name} у %{space_name}"
     components:
       pages:
         name: Сторінка
@@ -18,5 +28,5 @@ uk:
             save: Оновити
             title: Редагувати сторінку
           update:
-            invalid: При збереженні цієї сторінки сталися помилки.
+            invalid: При спробі збереження цієї сторінки сталися помилки.
             success: Сторінку успішно збережено.

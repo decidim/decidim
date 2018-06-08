@@ -11,7 +11,7 @@ pt-BR:
         signature_type: Tipo de assinatura
         signature_type_values:
           any: Misturado
-          offline: Cara a cara
+          offline: Face a face
           online: Conectados
         title: Título
       initiative_author:
@@ -20,7 +20,7 @@ pt-BR:
         id_document: DNI / NIE
         name: Nome e sobrenome
         phone_number: Número de telefone
-        post_code: Código postal
+        post_code: CEP
         province: Província
       initiatives_committee_member:
         user: membro do Comitê
@@ -32,6 +32,17 @@ pt-BR:
         address: Endereço
         id_document: CIF
         name: Nome completo
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
+      decidim/initiative_comittee:
+        one: Comissão
+        other: Comissões
+      decidim/initiative_vote:
+        one: Assinatura
+        other: Assinaturas
   decidim:
     admin:
       menu:
@@ -57,6 +68,13 @@ pt-BR:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
+          email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Novo marco concluído!
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
     initiatives:
       admin:
         committee_requests:
@@ -92,7 +110,7 @@ pt-BR:
             filter_by: Filtrar por
             preview: Visualizar
             print: Impressão
-            search: Busca
+            search: Pesquisa
           show:
             print: Impressão
           update:
@@ -112,7 +130,7 @@ pt-BR:
             update: Atualizar
           new:
             back: Costas
-            create: Crio
+            create: Criar
             title: Criar escopo de tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -132,7 +150,7 @@ pt-BR:
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
           new:
-            create: Crio
+            create: Criar
             title: Novo tipo de iniciativa
           update:
             error: ocorreu um erro
@@ -214,10 +232,14 @@ pt-BR:
         title: Iniciativas
       initiative_votes:
         create:
-          error: Houve erros ao votar a iniciativa.
+          error: Houve erros ao assinar a iniciativa.
       initiatives:
         author:
           deleted: Excluído
+        author_list:
+          hidden_authors_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
         count:
           title:
             one: "%{count} iniciativa"
@@ -242,7 +264,7 @@ pt-BR:
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: Mais comentado
-          most_voted: Mais votado
+          most_voted: Mais assinadas
           random: Aleatória
           recent: Mais recente
         result:
@@ -253,22 +275,21 @@ pt-BR:
           offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
         signature_identities:
           select_identity: Selecione a identidade do usuário
+        signatures_count:
+          one: " assinatura"
+          other: " assinaturas"
         statistics:
           assistants_count_title: Assistentes
           comments_count_title: Comentários
           meetings_count_title: Reuniões
-          supports_count_title: Adesões
+          supports_count_title: Assinaturas
         supports:
-          title: Listagem de aderências
-        supports_count:
-          count:
-            one: " Apoio, suporte"
-            other: " suporta"
+          title: Listagem de assinaturas
         vote_cabin:
-          already_voted: Já votei
-          supports_required: "São necessários %{total_supports} votos"
+          already_voted: Já assinadas
+          supports_required: "São necessárias %{total_supports} assinaturas"
           vote: Placa
-          votes_blocked: Votação desativada
+          votes_blocked: Assinatura desativada
         votes_count:
           count:
             one: ASSINATURA
@@ -305,8 +326,8 @@ pt-BR:
           components: Componentes
           information: Em formação
       initiative_creation_header:
-        fill_data: Crio
-        finish: Terminar
+        fill_data: Criar
+        finish: Finalizar
         previous_form: Começar
         promotal_committee: Comitê Promocional
         select_initiative_type: Escolher

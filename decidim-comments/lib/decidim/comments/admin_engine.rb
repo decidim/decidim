@@ -8,16 +8,6 @@ module Decidim
 
       paths["db/migrate"] = nil
 
-      initializer "decidim_comments.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::Comments::Abilities::AdminAbility",
-            "Decidim::Comments::Abilities::ParticipatoryProcessAdminAbility",
-            "Decidim::Comments::Abilities::ParticipatoryProcessModeratorAbility"
-          ]
-        end
-      end
-
       def load_seed
         nil
       end

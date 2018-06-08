@@ -6,6 +6,7 @@ module Decidim
     # add more logic to a `Decidim::Notification` and are used to render them in the
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
+      extend ActiveModel::Translation
       include Decidim::TranslatableAttributes
 
       class_attribute :types
@@ -67,11 +68,14 @@ module Decidim
       # event to decide based on the params.
       #
       # It returns false when the resource or any element in the chain is a
-      # `Decidim::Publicable` and it isn't published.
+      # `Decidim::Publicable` and it isn't published or participatory_space
+      # is a `Decidim::Participable` and the user can't participate.
       def notifiable?
         return false if resource.is_a?(Decidim::Publicable) && !resource.published?
         return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
         return false unless component&.published?
+
+        return false if participatory_space.is_a?(Decidim::Participable) && !participatory_space.can_participate?(user)
 
         true
       end

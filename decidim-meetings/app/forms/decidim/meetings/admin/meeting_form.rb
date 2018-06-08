@@ -20,6 +20,9 @@ module Decidim
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
+        attribute :private_meeting, Boolean
+        attribute :transparent, Boolean
+        attribute :organizer_id, Integer
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -32,6 +35,7 @@ module Decidim
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
 
         validate :scope_belongs_to_participatory_space_scope
 
@@ -51,6 +55,10 @@ module Decidim
 
         def number_of_services
           services.size
+        end
+
+        def organizer
+          @organizer ||= current_organization.users.find_by(id: organizer_id)
         end
 
         alias component current_component

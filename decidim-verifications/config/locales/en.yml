@@ -52,6 +52,7 @@ en:
           success: You've been successfully authorized.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verify against another example of authorization handler
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document

@@ -34,6 +34,7 @@ fi:
         participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
         purpose_of_action: Toimen tarkoitus
@@ -42,15 +43,36 @@ fi:
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
+        special_features: Lisäominaisuudet
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
         twitter: Viserrys
         youtube: YouTube
+      assembly_member:
+        birthday: Syntymäpäivä
+        birthplace: Syntymäpaikka
+        ceased_date: Viivästynyt päivämäärä
+        designation_date: Nimityspäivä
+        designation_mode: Nimitystila
+        full_name: Koko nimi
+        gender: sukupuoli
+        position: asento
       assembly_user_role:
         email: Sähköposti
         name: Nimi
         role: Rooli
+  activerecord:
+    models:
+      decidim/assembly:
+        one: kokoonpano
+        other: osat
+      decidim/assembly_member:
+        one: Edustaja
+        other: Edustajat
+      decidim/assembly_user_role:
+        one: Asennuksen käyttäjärooli
+        other: Asennuksen käyttäjäroolit
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ fi:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi kehitysryhmä
+      assembly_members:
+        create:
+          error: Virhe lisäsi tämän kokoonpanon jäsentä.
+          success: Jäsen perustettiin onnistuneesti kokoonpanoon.
+        destroy:
+          success: Jäsenet tuhoutuivat onnistuneesti tämän kokoonpanon yhteydessä
+        edit:
+          title: Päivitä kokoonpanoryhmä.
+          update: Päivittää
+        index:
+          assembly_members_title: Edustajat
+        new:
+          create: Luoda
+          title: Uusi kokoonpanoryhmä.
+        update:
+          error: Virhe päivitti jäsenen kokoonpanoa varten.
+          success: Jäsen päivitettiin onnistuneesti kokoonpanolla.
       assembly_publications:
         create:
           error: Kehitysryhmän julkaisussa tapahtui virhe.
@@ -111,6 +150,7 @@ fi:
         assemblies: Kehitysryhmät
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
+          assembly_members: Jäsenet
           attachment_collections: kokoelmat
           attachment_files: Tiedostot
           attachments: Liitteet
@@ -128,6 +168,18 @@ fi:
             published: Julkaistu
             title: Otsikko
           name: Kehitysryhmä
+        assembly_member:
+          fields:
+            ceased_date: Viivästynyt päivämäärä
+            designation_date: Nimityspäivä
+            full_name: Nimi
+            position: asento
+          name: Jäsen
+          positions:
+            other: muut
+            president: Presidentti
+            secretary: Sihteeri
+            vice_president: Varapresidentti
         assembly_user_role:
           fields:
             email: Sähköposti
@@ -146,6 +198,10 @@ fi:
         publish: "%{user_name} julkaisi %{resource_name} kokoonpanon"
         unpublish: "%{user_name} julkaisematon %{resource_name} kokoonpano"
         update: "%{user_name} päivitti %{resource_name} kokoonpanon"
+      assembly_member:
+        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kokoonpanosta"
+        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kokoonpanosta"
+        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} kokoonpanon"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
         delete: "%{user_name} poistanut käyttäjän %{resource_name} %{space_name} kokoonpanosta"
@@ -154,6 +210,8 @@ fi:
       admin:
         assemblies:
           form:
+            duration_help: Jos kokoonpanon kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            included_at_help: Valitse päivämäärä, jolloin kokoonpano lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
             select_a_created_by: Valitse luoma
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse kokoonpanotyyppi
@@ -162,6 +220,23 @@ fi:
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+        assembly_members:
+          form:
+            existing_user: Olemassa oleva käyttäjä
+            non_user: Ei käyttäjä
+            select_a_position: Valitse paikka
+            select_user: Valitse käyttäjä
+            user_type: Käyttäjätyyppi
+          index:
+            filter:
+              all: Kaikki
+              ceased: lakkasi
+              not_ceased: Ei lopeta
+            filter_by: Suodata
+            search: Hae
+      assembly_members:
+        index:
+          members: Jäsenet
       assembly_types:
         commission: poisjättäminen
         consultative_advisory: Neuvoa / Advisory
@@ -181,6 +256,9 @@ fi:
           highlighted_assemblies:
             active_assemblies: Aktiiviset kehitysryhmät
             see_all_assemblies: Näytä kaikki kehitysryhmät
+        user_profile:
+          member_of:
+            member_of: Jonkin jäsen
       show:
         area: alue
         assembly_type: Asennustyyppi
@@ -224,6 +302,11 @@ fi:
         surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
+    assembly_members:
+      assembly_member:
+        designated_on: Nimetty
+      index:
+        title: Jäsenet
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +331,7 @@ fi:
           more_info: Lisätiedot
           take_part: Osallistu
       assembly_header:
+        assembly_member_menu_item: Jäsenet
         assembly_menu_item: Kehitysryhmä
         unfold: Avaa
       assembly_widgets:

@@ -5,6 +5,7 @@ shared_examples "manage meetings" do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
+  let(:organizer) { create(:user, :confirmed, organization: organization) }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do
@@ -124,6 +125,8 @@ shared_examples "manage meetings" do
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
 
+    autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
+
     within ".new_meeting" do
       find("*[type=submit]").click
     end
@@ -181,6 +184,8 @@ shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
+
+      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -289,6 +294,8 @@ shared_examples "manage meetings" do
 
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id
+
+      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
 
       within ".new_meeting" do
         find("*[type=submit]").click

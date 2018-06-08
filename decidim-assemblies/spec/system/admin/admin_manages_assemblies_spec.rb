@@ -13,9 +13,7 @@ describe "Admin manages assemblies", type: :system do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      within ".secondary-nav__actions" do
-        page.find("a.button").click
-      end
+      click_link "New"
     end
 
     it "creates a new assembly" do

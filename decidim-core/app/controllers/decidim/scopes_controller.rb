@@ -6,10 +6,10 @@ module Decidim
     skip_before_action :store_current_location
 
     def picker
-      authorize! :pick, Scope
+      enforce_permission_to :pick, :scope
 
       title = params[:title] || t("decidim.scopes.picker.title", field: params[:field]&.downcase)
-      root = Scope.find(params[:root]) if params[:root]
+      root = current_organization.scopes.find(params[:root]) if params[:root]
       context = root ? { root: root.id, title: title } : { title: title }
       required = params[:required] && params[:required] != "false"
       if params[:current]
@@ -18,7 +18,7 @@ module Decidim
         parent_scopes = current.part_of_scopes(root)
       else
         current = root
-        scopes = root&.children || Scope.top_level
+        scopes = root&.children || current_organization.scopes.top_level
         parent_scopes = [root].compact
       end
       render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),

@@ -1,6 +1,10 @@
 sv:
   activemodel:
     attributes:
+      agenda:
+        description: Beskrivning
+        duration: Varaktighet
+        title: Titel
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
@@ -16,10 +20,42 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
+        transparent: Transparent
+      minutes:
+        audio_url: Ljudadress
+        description: Beskrivning
+        video_url: Video-url
+        visible: Är synlig
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Varaktigheten av objekten överstiger mötesperioden med %{count} minuter
+              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendan "%{parent_title}" med %{count} minut
+    models:
+      decidim/meetings/close_meeting_event: Möte avslutat
+      decidim/meetings/create_meeting_event: Möte
+      decidim/meetings/meeting_registrations_enabled_event: Registreringar aktiverade
+      decidim/meetings/meeting_registrations_over_percentage_event: Registreringar över gränsen
+      decidim/meetings/upcoming_meeting_event: Kommande möte
+      decidim/meetings/update_meeting_event: Möte uppdaterat
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Möte
+        other: möten
+      decidim/meetings/minutes:
+        one: Minuter
+        other: Minuter
+      decidim/meetings/registration:
+        one: Registrering
+        other: registreringar
   decidim:
     admin:
       meeting_copies:
@@ -77,17 +113,49 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
     meetings:
       actions:
+        agenda: Dagordning
         attachment_collections: Samlingar
         attachments: Bifogade filer
         close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
+        minutes: Minuter
         new: Ny
         preview: Förhandsvisa
         registrations: Registreringar
         title: Handlingar
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lägg till dagordning objekt barn
+            agenda_item: Dagordningspost
+            agenda_item_children: Agenda Item Childs
+            down: Ner
+            remove: Avlägsna
+            up: Upp
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Ner
+            remove: Avlägsna
+            up: Upp
+          create:
+            invalid: Det har varit ett problem att skapa denna dagordning
+            success: Agenda skapades framgångsrikt
+          edit:
+            title: Redigera dagordning
+            update: Uppdatering
+          form:
+            add_agenda_item: Lägg till agendapost
+            agenda_items: Dagordningsposter
+            end_date: Slutdatum
+            start_date: Start datum
+          new:
+            create: Skapa
+            title: Ny dagordning
+          update:
+            invalid: Det har varit ett problem att uppdatera den här agendan
+            success: Agenda uppdaterad
         exports:
           registrations: Registreringar
         invite_join_meeting_mailer:
@@ -106,6 +174,9 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
+        meeting_copies:
+          form:
+            select_organizer: Välj arrangören
         meetings:
           close:
             invalid: Det här problemet har avslutats
@@ -117,6 +188,8 @@ sv:
             success: Mötet har tagits bort
           edit:
             update: Uppdatera
+          form:
+            select_organizer: Välj arrangören
           index:
             title: Möten
           new:
@@ -135,6 +208,18 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera det här mötet
             success: Mötet har blivit uppdaterat
+        minutes:
+          create:
+            invalid: Det har varit ett problem att skapa det här protokollet
+            success: Protokoll skapades framgångsrikt
+          edit:
+            update: Uppdatering
+          new:
+            create: Skapa
+            title: Skapa minuter
+          update:
+            invalid: Det har varit ett problem att uppdatera det här protokollet
+            success: Protokoll uppdaterades
         models:
           meeting:
             name: Möte
@@ -159,6 +244,12 @@ sv:
           delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
           export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
           update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
+          value_types:
+            organizer_presenter:
+              not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
+        minutes:
+          create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
+          update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +257,8 @@ sv:
         registration_mailer:
           confirmation:
             subject: Ditt mötesregistrering har bekräftats
+      meeting:
+        not_allowed: Du får inte se det här mötet
       meetings:
         filters:
           category: Kategori
@@ -181,6 +274,9 @@ sv:
           unfold: Veckla ut
         index:
           view_meeting: Visa möte
+        meeting_minutes:
+          meeting_minutes: Möte protokoll
+          related_information: Relaterad information
         meetings:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
@@ -198,6 +294,7 @@ sv:
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"
+          view: Se
       models:
         meeting:
           fields:
@@ -218,6 +315,9 @@ sv:
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.
+      types:
+        private_meeting: Privat möte
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,13 +328,15 @@ sv:
         past_meetings: Tidigare möten
         see_all_meetings: Se alla möten
         upcoming_meetings: Kommande möten
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommande möte
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Relaterade resultat:'
-        result_meetings: 'Relaterade möten:'
+        meeting_result: 'Relaterade resultat:'
+        result_meeting: 'Relaterade möten:'
       proposals_from_meeting:
-        meeting_proposals: 'Relaterade förslag:'
-        proposal_meetings: 'Relaterade möten:'
+        meeting_proposal: 'Relaterade förslag:'
+        proposal_meeting: 'Relaterade möten:'
   devise:
     mailer:
       join_meeting:

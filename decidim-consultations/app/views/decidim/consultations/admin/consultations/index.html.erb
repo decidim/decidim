@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.consultations" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.consultation.name", scope: "decidim.admin")),
-                  ["new", "consultation"], class: "button tiny button--title" if can? :create, Decidim::Consultation %>
+                  ["new", "consultation"], class: "button tiny button--title" if allowed_to? :create, :consultation %>
     </h2>
   </div>
   <div class="card-section">
@@ -23,10 +23,10 @@
           <% @consultations.each do |consultation| %>
             <tr>
               <td>
-                <% if can? :update, consultation %>
+                <% if allowed_to? :update, :consultation, consultation: consultation %>
                   <%= link_to translated_attribute(consultation.title), edit_consultation_path(consultation) %>
                   <br />
-                <% elsif can? :preview, consultation %>
+                <% elsif allowed_to? :preview, :consultation, consultation: consultation %>
                   <%= link_to translated_attribute(consultation.title),
                               decidim_consultations.consultation_path(consultation),
                               target: "_blank" %>
@@ -50,14 +50,14 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, consultation %>
+                <% if allowed_to? :update, :consultation, consultation: consultation %>
                   <%= icon_link_to "pencil",
                                    edit_consultation_path(consultation),
                                    t("actions.configure", scope: "decidim.admin"),
                                    class: "action-icon--edit" %>
                 <% end %>
 
-                <% if can? :preview, consultation %>
+                <% if allowed_to? :preview, :consultation, consultation: consultation %>
                   <%= icon_link_to "eye",
                                    decidim_consultations.consultation_path(consultation),
                                    t("actions.preview", scope: "decidim.admin"),

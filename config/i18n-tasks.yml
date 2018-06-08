@@ -58,6 +58,7 @@ search:
       <%= "- #{path}/app/presenters\n" %>
       <%= "- #{path}/app/services\n" %>
       <%= "- #{path}/app/views\n" %>
+      <%= "- #{path}/app/cells\n" %>
     <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
@@ -95,11 +96,14 @@ ignore_missing:
 ignore_unused:
   - activemodel.attributes.*
   - activemodel.errors.*
+  - activemodel.models.*
   - activerecord.attributes.*
+  - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
+  - decidim.admin.models.assembly_member.positions.*
   - decidim.assemblies.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
@@ -112,7 +116,7 @@ ignore_unused:
   - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*
-  - pages.home.statistics.*
+  - decidim.pages.home.statistics.*
   - social_share_button.*
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
@@ -129,12 +133,19 @@ ignore_unused:
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
   - decidim.consultations.consultations.orders.*
+  - decidim.consultations.show.badge_name.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
   - decidim.initiatives.admin_states.*
+  - decidim.initiatives.events.*
+  - decidim.initiatives.initiatives.author_list.hidden_authors_count.*
+  - decidim.initiatives.initiatives.signatures_count.*
+  - decidim.collapsible_list.hidden_elements_count.*
   - decidim.events.*
   - doorkeeper.scopes.*
+  - decidim.proposals.proposals.votes_count.count.*
+  - decidim.proposals.proposals.show.hidden_endorsers_count.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

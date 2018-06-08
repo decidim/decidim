@@ -2,6 +2,10 @@
 ca:
   activemodel:
     attributes:
+      agenda:
+        description: Descripció
+        duration: Durada
+        title: Títol
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -17,10 +21,42 @@ ca:
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        private_meeting: Trobada privada
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
+        transparent: Transparent
+      minutes:
+        audio_url: URL de l'àudio
+        description: Descripció
+        video_url: URL del vídeo
+        visible: És visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
+              too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
+    models:
+      decidim/meetings/close_meeting_event: Trobada tancada
+      decidim/meetings/create_meeting_event: Trobada
+      decidim/meetings/meeting_registrations_enabled_event: S'han activat registres
+      decidim/meetings/meeting_registrations_over_percentage_event: Inscripcions per sobre del límit
+      decidim/meetings/upcoming_meeting_event: Propera trobada
+      decidim/meetings/update_meeting_event: Trobada actualitzada
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Trobada
+        other: Trobades
+      decidim/meetings/minutes:
+        one: Acta
+        other: Actes
+      decidim/meetings/registration:
+        one: Inscripció
+        other: Inscripcions
   decidim:
     admin:
       meeting_copies:
@@ -78,17 +114,49 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     meetings:
       actions:
+        agenda: Ordre del dia
         attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
+        minutes: Acta
         new: Nova
         preview: Previsualitzar
         registrations: Inscripcions
         title: Accions
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Afegir un sub-ítem a l'ordre del dia
+            agenda_item: Punt de l'ordre del dia
+            agenda_item_children: Sub-ítems de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
+            up: Amunt
+          agenda_item_child:
+            agenda_item_child: Sub-ítem de l'ordre del dia
+            down: Baixar
+            remove: Eliminar
+            up: Pujar
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta agenda
+            success: S'ha creat l'agenda correctament
+          edit:
+            title: Edita l'agenda
+            update: Actualització
+          form:
+            add_agenda_item: Afegeix un element de l'agenda
+            agenda_items: Punts de l'ordre del dia
+            end_date: Data de finalització
+            start_date: Data d'inici
+          new:
+            create: Crear
+            title: Nova agenda
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta agenda
+            success: L'agenda s'ha actualitzat correctament
         exports:
           registrations: Inscripcions
         invite_join_meeting_mailer:
@@ -107,6 +175,9 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          form:
+            select_organizer: Selecciona l'organitzador
         meetings:
           close:
             invalid: Hi ha hagut un problema en tancar aquesta trobada
@@ -118,6 +189,8 @@ ca:
             success: La trobada s'ha eliminat correctament
           edit:
             update: Actualitzar
+          form:
+            select_organizer: Selecciona l'organitzador
           index:
             title: Trobades
           new:
@@ -136,6 +209,18 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
+        minutes:
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta acta
+            success: S'ha creat l'acta amb èxit
+          edit:
+            update: Actualitza
+          new:
+            create: Crea
+            title: Crea l'acta
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta acta
+            success: L'acta s'ha actualitzat correctament
         models:
           meeting:
             name: Trobada
@@ -160,6 +245,12 @@ ca:
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
           export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
+        minutes:
+          create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -167,6 +258,8 @@ ca:
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
+      meeting:
+        not_allowed: No tens permís per veure aquesta trobada
       meetings:
         filters:
           category: Categoria
@@ -182,6 +275,9 @@ ca:
           unfold: Desplegar
         index:
           view_meeting: Veure trobada
+        meeting_minutes:
+          meeting_minutes: Minuts de trobada
+          related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
@@ -199,6 +295,7 @@ ca:
           remaining_slots:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
+          view: Veure
       models:
         meeting:
           fields:
@@ -219,6 +316,9 @@ ca:
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
+      types:
+        private_meeting: Trobada privada
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -229,13 +329,15 @@ ca:
         past_meetings: Trobades anteriors
         see_all_meetings: Veure totes les trobades
         upcoming_meetings: Properes trobades
+      upcoming_meeting_for_card:
+        upcoming_meeting: Propera reunió
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Resultats relacionats:'
-        result_meetings: 'Trobades relacionades:'
+        meeting_result: 'Resultats relacionats:'
+        result_meeting: 'Trobades relacionades:'
       proposals_from_meeting:
-        meeting_proposals: 'Propostes relacionades:'
-        proposal_meetings: 'Trobades relacionades:'
+        meeting_proposal: 'Propostes relacionades:'
+        proposal_meeting: 'Trobades relacionades:'
   devise:
     mailer:
       join_meeting:

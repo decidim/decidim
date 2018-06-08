@@ -2,7 +2,7 @@
   <%= form.translated :text_field, :title, autofocus: true %>
 </div>
 
-<% if can? :update_slug, form.object %>
+<% if allowed_to? :update_slug, :static_page, static_page: form.object %>
   <div class="row column">
     <%= form.text_field :slug %>
   </div>
@@ -11,3 +11,5 @@
 <div class="row column">
   <%= form.translated :editor, :content, toolbar: :full, lines: 25 %>
 </div>
+
+<%= render partial: "form_notable_changes", locals: { form: form } %>

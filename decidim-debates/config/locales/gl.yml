@@ -11,6 +11,15 @@ gl:
         start_time: Comeza en
         title: Título
         user_group_id: Crear debate como
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates desactivados
+      decidim/debates/creation_enabled_event: Debates habilitados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ gl:
           invalid: Produciuse un problema ao crear o debate.
           success: Debate creouse con éxito.
         debate:
-          comments:
-            one: Comentario
-            other: Comentarios
           participate: Participar
         filters:
           all: Todo
@@ -94,9 +100,6 @@ gl:
           close_window: Pechar ventá
           share: Comparte
           share_link: Compartir a ligazón
-        show:
-          comments: Comentarios
-          report: Informe
       models:
         debate:
           fields:

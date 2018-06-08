@@ -8,10 +8,14 @@ module Decidim
         helper_method :projects, :finished_orders, :pending_orders
 
         def new
+          enforce_permission_to :create, :project
+
           @form = form(ProjectForm).instance
         end
 
         def create
+          enforce_permission_to :create, :project
+
           @form = form(ProjectForm).from_params(params)
 
           CreateProject.call(@form) do
@@ -28,10 +32,14 @@ module Decidim
         end
 
         def edit
+          enforce_permission_to :update, :project, project: project
+
           @form = form(ProjectForm).from_model(project)
         end
 
         def update
+          enforce_permission_to :update, :project, project: project
+
           @form = form(ProjectForm).from_params(params)
 
           UpdateProject.call(@form, project) do
@@ -48,6 +56,8 @@ module Decidim
         end
 
         def destroy
+          enforce_permission_to :destroy, :project, project: project
+
           DestroyProject.call(project, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")

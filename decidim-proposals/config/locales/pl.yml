@@ -16,6 +16,45 @@ pl:
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent do skopiowania propozycji z
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Musi zostać ponownie podłączony
+    models:
+      decidim/proposals/accepted_proposal_event: Wniosek przyjęty
+      decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię oferty
+      decidim/proposals/creation_enabled_event: Włączono tworzenie ofert
+      decidim/proposals/endorsing_enabled_event: Włączono propozycję zatwierdzenia
+      decidim/proposals/evaluating_proposal_event: Propozycja jest oceniana
+      decidim/proposals/proposal_endorsed_event: Propozycja została zatwierdzona
+      decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
+      decidim/proposals/publish_proposal_event: Oferta została opublikowana
+      decidim/proposals/rejected_proposal_event: Propozycja odrzucona
+      decidim/proposals/voting_enabled_event: Włączenie głosowania w ramach propozycji
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Wniosek
+        few: Propozycje
+        many: Propozycje
+        other: Propozycje
+      decidim/proposals/proposal_endorsement:
+        one: Poparcie
+        few: Adnotacje
+        many: Adnotacje
+        other: Adnotacje
+      decidim/proposals/proposal_note:
+        one: Uwaga
+        few: Uwagi
+        many: Uwagi
+        other: Uwagi
+      decidim/proposals/proposal_vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     components:
       proposals:
@@ -114,16 +153,10 @@ pl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propozycje
-        proposal:
-          creation_date: 'Tworzenie: %{date}'
-          view_proposal: Wyświetl propozycję
     participatory_spaces:
       highlighted_proposals:
         proposals: Propozycje
         see_all_proposals: Zobacz wszystkie propozycje
-      proposal:
-        creation_date: 'Tworzenie: %{date}'
-        view_proposal: Wyświetl propozycję
     proposals:
       actions:
         answer: Odpowiedź
@@ -220,6 +253,7 @@ pl:
             category: Kategoria
             comments: Komentarze
             created_at: Utworzono w
+            endorsements: Adnotacje
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
@@ -252,6 +286,12 @@ pl:
           select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swoją propozycję
+        count:
+          proposals_count:
+            one: 1 propozycja
+            few: "%{count} propozycje"
+            many: "%{count} propozycje"
+            other: "%{count} propozycje"
         edit:
           back: Plecy
           select_a_category: Proszę wybrać kategorię
@@ -265,6 +305,7 @@ pl:
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:
+          comments: Komentarze
           endorse: Podpisać się
         filters:
           accepted: Przyjęty
@@ -274,6 +315,7 @@ pl:
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           evaluating: Ocena
+          except_rejected: Wszystkie oprócz odrzuconych
           official: Urzędnik
           origin: Pochodzenie
           rejected: Odrzucone
@@ -286,14 +328,16 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
-        identities_listing:
-          see_all: Widzieć wszystko
-          see_less: Zobacz mniej
-          title: Lista rekomendacji
         index:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
+        linked_proposals:
+          proposal_votes:
+            one: głosować
+            few: głosów
+            many: głosów
+            other: głosów
         new:
           send: dalej
           title: Utwórz swoją ofertę
@@ -304,6 +348,11 @@ pl:
           recent: Niedawny
         preview:
           modify: Zmodyfikuj propozycję
+          proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
         proposal:
@@ -311,6 +360,12 @@ pl:
           view_proposal: Wyświetl propozycję
         show:
           edit_proposal: Edytuj propozycję
+          endorsements_list: Lista rekomendacji
+          hidden_endorsers_count:
+            one: i jeszcze 1 osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
@@ -332,6 +387,11 @@ pl:
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
+          count:
+            one: GŁOSOWAĆ
+            few: GŁOSOWANIA
+            many: GŁOSY
+            other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
@@ -367,9 +427,9 @@ pl:
         success: Projekt propozycji został pomyślnie zaktualizowany.
     resource_links:
       copied_from_component:
-        proposal_proposals: Powiązane propozycje
+        proposal_proposal: Powiązane propozycje
       included_projects:
-        project_results: 'Wyniki pojawiające się w tym projekcie:'
+        project_result: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:
-        proposal_projects: 'Propozycja występująca w tych projektach:'
-        proposal_results: 'Propozycja pojawiająca się w tych wynikach:'
+        proposal_project: 'Propozycja występująca w tych projektach:'
+        proposal_result: 'Propozycja pojawiająca się w tych wynikach:'

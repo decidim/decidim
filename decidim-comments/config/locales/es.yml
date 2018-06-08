@@ -1,19 +1,22 @@
 ---
 es:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentario
+      decidim/comments/comment_created_event: Comentario
+      decidim/comments/reply_created_event: Respuesta al comentario
+      decidim/comments/user_mentioned_event: Mencionar
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentario
+        other: Comentarios
+      decidim/comments/comment_vote:
+        one: Voto
+        other: Votos
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-            notification_title: Hay un nuevo comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: Se ha comentado en "%{resource_title}"
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay una nueva respuesta a tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hay una nueva respuesta a su comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
+      comments: Comentarios
       votes:
         create:
           error: Ha habido errores al votar el comentario.

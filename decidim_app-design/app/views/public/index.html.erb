@@ -9,14 +9,9 @@
   <div class="row collapse">
     <div class="columns large-12">
       <h1>Decidim Barcelona</h1>
+      <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
       <div class="section" style="columns:2">
-        <h2 class="section-heading">Vistas principales</h2>
-        <ul>
-          <li><%= link_to "Home", page_path("home") %></li>
-          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
-          <li><%= link_to "Más información", page_path("more-information") %></li>
-        </ul>
-        <h2 class="section-heading">Proceso</h2>
+        <h2 class="section-heading">Process</h2>
         <ul>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
@@ -24,17 +19,18 @@
           <li><%= link_to "Resultados - Lista", page_path("results") %></li>
           <li><%= link_to "Gestor de documentos", page_path("documents") %></li>
         </ul>
-        <h2 class="section-heading">Propuestas</h2>
+        <h2 class="section-heading">Proposals</h2>
         <ul>
           <li>
-            <%= link_to "Propuestas - Lista (voto habilitado)", page_path("proposals/proposals") %>
+            <%= link_to "Propuestas - Lista", page_path("proposals/proposals") %>
             <ul>
-              <li><%= link_to "Propuestas - Lista (voto no habilitado)", page_path("proposals/proposals-no-vote") %></li>
-              <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
               <li><%= link_to "Propuestas con filtros activos", page_path("proposals/proposals-with-filters") %></li>
-              <li><%= link_to "Crear propuesta - Formulario [OLD]", page_path("new-proposal") %></li>
+              <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
             </ul>
           </li>
+          <li><%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %></li>
+          <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+          <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
           <li>
             <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
             <ul>
@@ -54,7 +50,7 @@
             </ul>
           </li>
         </ul>
-        <h2 class="section-heading">Iniciativas</h2>
+        <h2 class="section-heading">Initiatives</h2>
         <ul>
           <li><%= link_to "Iniciativa", page_path("initiatives/initiative-view") %></li>
           <li>
@@ -68,12 +64,23 @@
             </ul>
           </li>
         </ul>
-        <h2 class="section-heading">Asambleas</h2>
+        <h2 class="section-heading">Drafts</h2>
+        <ul>
+          <li><%= link_to "Espacio colaborativo - borrador actual", page_path("collaborative-drafts/collaborative-draft-view") %></li>
+          <ul>
+            <li><%= link_to "Espacio colaborativo - borradores anteriores", page_path("collaborative-drafts/collaborative-draft-view-previous") %></li>
+            <li><%= link_to "Espacio colaborativo - colaborador", page_path("collaborative-drafts/collaborative-draft-view-collaborator") %></li>
+            <li><%= link_to "Espacio colaborativo - no colaborador", page_path("collaborative-drafts/collaborative-draft-view-non-collaborator") %></li>
+            <li><%= link_to "Espacio colaborativo - acceso solicitado", page_path("collaborative-drafts/collaborative-draft-view-access-requested") %></li>
+            <li><%= link_to "Espacio colaborativo - propuesta final", page_path("collaborative-drafts/collaborative-draft-view-final-proposal") %></li>
+          </ul>
+        </ul>
+        <h2 class="section-heading">Assemblies</h2>
         <ul>
           <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
           <li><%= link_to "Asamblea", page_path("assemblies/assembly-view") %></li>
         </ul>
-        <h2 class="section-heading">Encuentros</h2>
+        <h2 class="section-heading">Meetings</h2>
         <ul>
           <li>
             <%= link_to "Encuentro (abierto)", page_path("meetings/meeting-view") %>
@@ -90,6 +97,78 @@
             </ul>
           </li>
         </ul>
+        <h2 class="section-heading">Blog</h2>
+        <ul>
+          <li><%= link_to "Blog home", page_path("blog/blog") %></li>
+          <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
+          <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
+        </ul>
+        <h2 class="section-heading">User</h2>
+        <ul>
+          <li>
+            <%= link_to "Usuario - entrar", page_path("user/user-login") %>
+            <ul>
+              <li><%= link_to "Usuario - registro", page_path("user/user-register") %></li>
+              <li><%= link_to "Usuario - registro ok", page_path("user/user-register-success") %></li>
+              <li><%= link_to "Usuario - registro email ok", page_path("user/user-welcome") %></li>
+              <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user/user-settings") %></li>
+              <li><%= link_to "Usuario - verifica residencia", page_path("user/user-verification") %></li>
+              <li><%= link_to "Usuario - Recordar contraseña", page_path("user/user-new-password") %></li>
+              <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user/user-confirm") %></li>
+              <li><%= link_to "Usuario - Invitar", page_path("user/user-invitation") %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
+            <ul>
+              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
+            </ul>
+          </li>
+          <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
+          <li>
+            <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>
+            <ul>
+              <li><%= link_to "Usuario - notificaciones (versión antigua)", page_path("user/user-notifications-old") %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <h2 class="text-center heading2 mb-m">Technical</h2>
+      <div class="section" style="columns:2">
+        <h2 class="section-heading">Librería de patrones</h2>
+        <ul>
+          <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
+          <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
+          <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
+          <li><%= link_to "User stories", page_path("user-stories") %></li>
+          <li><%= link_to "Manual de estilo", page_path("style-manual") %></li>
+        </ul>
+        <h2 class="section-heading">Plantilla para email</h2>
+        <p>
+          La plantilla de email está creada con
+          <a href="http://foundation.zurb.com/emails/docs/" target="_blank">
+            Foundation para email</a>, y el HTML y CSS original están en la carpeta
+            <code>/source/emails/</code>.
+          </p>
+          <p>
+            El HTML y CSS de los emails se puede combinar con la
+            <a href="http://foundation.zurb.com/emails/inliner-v2.html" target="_blank">
+              herramienta inliner</a> de Foundation.
+            </p>
+            <ul>
+              <li><%= link_to "Ejemplo de email con estilos inline", page_path("email-inline") %></li>
+            </ul>
+          </div>
+      <hr />
+      <h2 class="text-center heading2 mb-m">Legacy views</h2>
+      <div class="section" style="columns:2">
+        <h2 class="section-heading">Vistas principales</h2>
+        <ul>
+          <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
+          <li><%= link_to "Más información", page_path("more-information") %></li>
+        </ul>
         <h2 class="section-heading">Vistas de componente</h2>
         <ul>
           <li>
@@ -100,25 +179,6 @@
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
-        </ul>
-        <h2 class="section-heading">Blog</h2>
-        <ul>
-          <li><%= link_to "Blog home", page_path("blog") %></li>
-          <li><%= link_to "Blog post", page_path("blog-view") %></li>
-          <li><%= link_to "Blog archives", page_path("blog-archives") %></li>
-        </ul>
-        <h2 class="section-heading">Usuario</h2>
-        <ul>
-          <li><%= link_to "Usuario - registro", page_path("user-register") %></li>
-          <li><%= link_to "Usuario - registro ok", page_path("user-register-success") %></li>
-          <li><%= link_to "Usuario - registro email ok", page_path("user-welcome") %></li>
-          <li><%= link_to "Usuario - entrar", page_path("user-login") %></li>
-          <li><%= link_to "Usuario - mi cuenta (con cabecera logged)", page_path("user-settings") %></li>
-          <li><%= link_to "Usuario - perfil", page_path("user-profile") %></li>
-          <li><%= link_to "Usuario - notificaciones", page_path("user-notifications") %></li>
-          <li><%= link_to "Usuario - verifica residencia", page_path("user-verification") %></li>
-          <li><%= link_to "Usuario - Recordar contraseña", page_path("user-new-password") %></li>
-          <li><%= link_to "Usuario - Reeenviar confirmación", page_path("user-confirm") %></li>
         </ul>
         <h2 class="section-heading">Presupuestos participativos</h2>
         <ul>
@@ -149,34 +209,7 @@
           <li><%= link_to "Error 404", page_path("404") %></li>
           <li><%= link_to "Error 500", page_path("500") %></li>
           <li><%= link_to "Cookie warning", page_path("cookie-bar") %></li>
-          <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
         </ul>
-      </div>
-      <hr />
-      <div class="section" style="columns:2">
-        <h2 class="section-heading">Librería de patrones</h2>
-        <ul>
-          <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
-          <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
-          <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
-          <li><%= link_to "User stories", page_path("user-stories") %></li>
-          <li><%= link_to "Manual de estilo", page_path("style-manual") %></li>
-        </ul>
-        <h2 class="section-heading">Plantilla para email</h2>
-        <p>
-          La plantilla de email está creada con
-          <a href="http://foundation.zurb.com/emails/docs/" target="_blank">
-            Foundation para email</a>, y el HTML y CSS original están en la carpeta
-            <code>/source/emails/</code>.
-          </p>
-          <p>
-            El HTML y CSS de los emails se puede combinar con la
-            <a href="http://foundation.zurb.com/emails/inliner-v2.html" target="_blank">
-              herramienta inliner</a> de Foundation.
-            </p>
-            <ul>
-              <li><%= link_to "Ejemplo de email con estilos inline", page_path("email-inline") %></li>
-            </ul>
       </div>
     </div>
   </div>

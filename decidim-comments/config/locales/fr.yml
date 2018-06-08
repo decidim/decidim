@@ -1,6 +1,21 @@
 fr:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commentaire
+      decidim/comments/comment_created_event: Commentaire
+      decidim/comments/reply_created_event: Réponse à un commentaire
+      decidim/comments/user_mentioned_event: Mention
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commentaire
+        other: Commentaires
+      decidim/comments/comment_vote:
+        one: Vote
+        other: Votes
   decidim:
     comments:
+      comments: Commentaires
       votes:
         create:
           error: Une erreur s'est produite lors du soutien du commentaire.
@@ -30,7 +45,7 @@ fr:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
           close: Fermer
-          description: Ce contenu est-il inapproprié?
+          description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
             does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.

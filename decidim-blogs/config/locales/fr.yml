@@ -1,18 +1,26 @@
 fr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nouvel article
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Article
+        other: Articles
   decidim:
     blogs:
       actions:
-        confirm_destroy: Es-tu sûr de vouloir supprimer cette annonce ?
-        destroy: Effacer
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
+        destroy: Supprimer
         edit: Modifier
         new: Nouveau
         title: Actions
       admin:
         models:
           components:
-            body: Corps
+            body: Corps du texte
           post:
-            name: Publier l'article
+            name: Publier
         posts:
           create:
             invalid: Un problème est survenu lors de la création de cet article
@@ -33,12 +41,12 @@ fr:
         post:
           fields:
             author: Auteur
-            body: Corps
+            body: Corps du texte
             created_at: Créé à
-            title: Titre
+            title: titre
       posts:
-        author_data:
-          comments: commentaires
+        show:
+          view: Vue
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
@@ -59,7 +67,7 @@ fr:
           email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
     participatory_processes:
       statistics:
         posts_count: Articles

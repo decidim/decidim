@@ -1,18 +1,21 @@
 it:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commento
+      decidim/comments/comment_created_event: Commento
+      decidim/comments/reply_created_event: Risposta al commento
+      decidim/comments/user_mentioned_event: Citare
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commento
+        other: Commenti
+      decidim/comments/comment_vote:
+        one: Votazione
+        other: voti
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" è stato commentato. Puoi leggere il commento in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
-            email_subject: C'è un nuovo commento da parte di %{author_name} al link %{resource_title}
-            notification_title: C'è un nuovo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: Il "%{resource_title}" è stato commentato
-            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
-            email_subject: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+      comments: Commenti
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.

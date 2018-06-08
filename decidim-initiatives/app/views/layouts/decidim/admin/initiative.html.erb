@@ -1,19 +1,19 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
-      <% if can? :edit, current_initiative %>
+      <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
         <li <% if is_active_link?(decidim_admin_initiatives.edit_initiative_path(current_initiative)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".information"), decidim_admin_initiatives.edit_initiative_path(current_initiative) %>
         </li>
       <% end %>
 
-      <% if can? :manage_membership, current_initiative %>
+      <% if allowed_to? :manage_membership, :initiative, initiative: current_initiative %>
         <li <% if is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_initiative)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".committee_members"), decidim_admin_initiatives.initiative_committee_requests_path(current_initiative) %>
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Component %>
+      <% if allowed_to? :read, :component, initiative: current_initiative %>
         <li <% if is_active_link?(decidim_admin_initiatives.components_path(current_initiative)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".components"), decidim_admin_initiatives.components_path(current_initiative) %>
           <ul>
@@ -35,7 +35,7 @@
         </li>
       <% end %>
 
-      <% if can? :read, Decidim::Attachment %>
+      <% if allowed_to? :read, :attachment, initiative: current_initiative %>
         <li <% if is_active_link?(decidim_admin_initiatives.initiative_attachments_path(current_initiative)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t(".attachments"), decidim_admin_initiatives.initiative_attachments_path(current_initiative) %>
         </li>
@@ -47,8 +47,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= current_initiative.title.try(:[], I18n.locale.to_s) || current_initiative.title.values.compact.first %>
+      <%= link_to translated_attribute(current_initiative.title), decidim_initiatives.initiative_path(current_initiative), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

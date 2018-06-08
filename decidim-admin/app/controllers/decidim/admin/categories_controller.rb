@@ -9,16 +9,16 @@ module Decidim
       participatory_space_admin_layout
 
       def index
-        authorize! :read, Decidim::Category
+        enforce_permission_to :read, :category
       end
 
       def new
-        authorize! :create, Decidim::Category
+        enforce_permission_to :create, :category
         @form = form(CategoryForm).from_params({}, current_participatory_space: current_participatory_space)
       end
 
       def create
-        authorize! :create, Decidim::Category
+        enforce_permission_to :create, :category
         @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
 
         CreateCategory.call(@form, current_participatory_space) do
@@ -36,13 +36,13 @@ module Decidim
 
       def edit
         @category = collection.find(params[:id])
-        authorize! :update, @category
+        enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_model(@category, current_participatory_space: current_participatory_space)
       end
 
       def update
         @category = collection.find(params[:id])
-        authorize! :update, @category
+        enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
 
         UpdateCategory.call(@category, @form) do
@@ -60,12 +60,12 @@ module Decidim
 
       def show
         @category = collection.find(params[:id])
-        authorize! :read, @category
+        enforce_permission_to :read, :category, category: @category
       end
 
       def destroy
         @category = collection.find(params[:id])
-        authorize! :destroy, @category
+        enforce_permission_to :destroy, :category, category: @category
 
         DestroyCategory.call(@category) do
           on(:ok) do

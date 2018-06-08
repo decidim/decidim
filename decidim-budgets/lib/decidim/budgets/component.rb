@@ -7,6 +7,7 @@ Decidim.register_component(:budgets) do |component|
   component.admin_engine = Decidim::Budgets::AdminEngine
   component.icon = "decidim/budgets/icon.svg"
   component.stylesheet = "decidim/budgets/budgets"
+  component.permissions_class_name = "Decidim::Budgets::Permissions"
 
   component.actions = %(vote)
 
@@ -14,9 +15,10 @@ Decidim.register_component(:budgets) do |component|
     raise StandardError, "Can't remove this component" if Decidim::Budgets::Project.where(component: instance).any?
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:project) do |resource|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
+    resource.card = "decidim/budgets/project"
   end
 
   component.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|

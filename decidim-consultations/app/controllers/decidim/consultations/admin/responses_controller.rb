@@ -4,22 +4,22 @@ module Decidim
   module Consultations
     module Admin
       # Controller that manages responses for a question
-      class ResponsesController < Decidim::Admin::ApplicationController
+      class ResponsesController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
         helper_method :current_response
 
         def index
-          authorize! :index, Decidim::Consultations::Response
+          enforce_permission_to :read, :response
         end
 
         def new
-          authorize! :create, Decidim::Consultations::Response
+          enforce_permission_to :create, :response
           @form = response_form.instance
         end
 
         def create
-          authorize! :create, Decidim::Consultations::Response
+          enforce_permission_to :create, :response
           @form = response_form.from_params(params, current_question: current_question)
 
           CreateResponse.call(@form) do
@@ -36,12 +36,12 @@ module Decidim
         end
 
         def edit
-          authorize! :update, current_response
+          enforce_permission_to :update, :response, response: current_response
           @form = response_form.from_model(current_response, current_question: current_question)
         end
 
         def update
-          authorize! :update, current_response
+          enforce_permission_to :update, :response, response: current_response
 
           @form = response_form.from_params(params, current_question: current_question)
           UpdateResponse.call(current_response, @form) do
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, current_response
+          enforce_permission_to :destroy, :response, response: current_response
 
           current_response.destroy
           if current_response.valid?

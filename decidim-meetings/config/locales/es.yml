@@ -2,6 +2,10 @@
 es:
   activemodel:
     attributes:
+      agenda:
+        description: Descripción
+        duration: Duración
+        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -17,10 +21,42 @@ es:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
+        transparent: Transparente
+      minutes:
+        audio_url: URL del audio
+        description: Descripción
+        video_url: URL del vídeo
+        visible: Es visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La duración de los ítems supera la duración del encuentro en %{count} minutos
+              too_many_minutes_child: La duración de los sub-ítems excede el punto "%{parent_title}" del orden del dia en %{count} minuto
+    models:
+      decidim/meetings/close_meeting_event: Encuentro cerrado
+      decidim/meetings/create_meeting_event: Encuentro
+      decidim/meetings/meeting_registrations_enabled_event: Registro habilitado
+      decidim/meetings/meeting_registrations_over_percentage_event: Registros por encima del límite
+      decidim/meetings/upcoming_meeting_event: Próximo encuentro
+      decidim/meetings/update_meeting_event: Encuentro actualizado
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Encuentro
+        other: Encuentros
+      decidim/meetings/minutes:
+        one: Acta
+        other: Actas
+      decidim/meetings/registration:
+        one: Registro
+        other: Registros
   decidim:
     admin:
       meeting_copies:
@@ -78,17 +114,49 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     meetings:
       actions:
+        agenda: Orden del día
         attachment_collections: Colecciones
         attachments: Archivos adjuntos
         close: Cerrar
         confirm_destroy: "¿Está seguro de que quiere eliminar este encuentro?"
         destroy: Borrar
         edit: Editar
+        minutes: Acta
         new: Nuevo
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Añadir un sub-ítem en el orden del día
+            agenda_item: Punto del orden del día
+            agenda_item_children: Sub-ítems del orden del día
+            down: Bajar
+            remove: Eliminar
+            up: Subir
+          agenda_item_child:
+            agenda_item_child: Sub-ítem del orden del día
+            down: Bajar
+            remove: Eliminar
+            up: Subir
+          create:
+            invalid: Ha habido un problema al crear este orden del día
+            success: Orden del día creado correctamente
+          edit:
+            title: Editar orden del día
+            update: Actualizar
+          form:
+            add_agenda_item: Añadir punto del orden del día
+            agenda_items: Puntos del orden del día
+            end_date: Fecha final
+            start_date: Fecha de inicio
+          new:
+            create: Crear
+            title: Nuevo orden del día
+          update:
+            invalid: Ha habido un problema al actualizar el orden del día
+            success: Orden del día actualizado correctamente
         exports:
           registrations: Inscripciones
         invite_join_meeting_mailer:
@@ -107,6 +175,9 @@ es:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          form:
+            select_organizer: Selecciona el organizador
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
@@ -118,6 +189,8 @@ es:
             success: El encuentro se ha eliminado correctamente
           edit:
             update: Actualizar
+          form:
+            select_organizer: Selecciona el organizador
           index:
             title: Encuentros
           new:
@@ -136,6 +209,18 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
+        minutes:
+          create:
+            invalid: Ha habido un problema al crear el acta
+            success: Acta creada con éxito
+          edit:
+            update: Actualizar
+          new:
+            create: Crear
+            title: Crear acta
+          update:
+            invalid: Ha habido un problema al actualizar el acta
+            success: Acta actualizada con éxito
         models:
           meeting:
             name: Encuentro
@@ -160,6 +245,12 @@ es:
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
+        minutes:
+          create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -167,6 +258,8 @@ es:
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
+      meeting:
+        not_allowed: No puedes ver esta reunión
       meetings:
         filters:
           category: Categoría
@@ -182,6 +275,9 @@ es:
           unfold: Desplegar
         index:
           view_meeting: Ver encuentro
+        meeting_minutes:
+          meeting_minutes: Acta del encuentro
+          related_information: Información relacionada
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -199,6 +295,7 @@ es:
           remaining_slots:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
+          view: Ver
       models:
         meeting:
           fields:
@@ -219,6 +316,9 @@ es:
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
+      types:
+        private_meeting: Encuentro privado
+        transparent: Transparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -229,13 +329,15 @@ es:
         past_meetings: Encuentros pasados
         see_all_meetings: Ver todos los encuentros
         upcoming_meetings: Próximos encuentros
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunion
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Resultados relacionados:'
-        result_meetings: 'Encuentros relacionados:'
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Encuentros relacionados:'
       proposals_from_meeting:
-        meeting_proposals: 'Propuestas relacionadas:'
-        proposal_meetings: 'Encuentros relacionados:'
+        meeting_proposal: 'Propuestas relacionadas:'
+        proposal_meeting: 'Encuentros relacionados:'
   devise:
     mailer:
       join_meeting:

@@ -16,6 +16,37 @@ pt:
       proposals_copy:
         copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser recolocado
+    models:
+      decidim/proposals/accepted_proposal_event: Proposta aceita
+      decidim/proposals/admin/update_proposal_category_event: Categoria da proposta alterada
+      decidim/proposals/creation_enabled_event: Criação de proposta ativada
+      decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
+      decidim/proposals/evaluating_proposal_event: Proposta está sendo avaliada
+      decidim/proposals/proposal_endorsed_event: Proposta endossada
+      decidim/proposals/proposal_mentioned_event: Proposta mencionada
+      decidim/proposals/publish_proposal_event: Proposta publicada
+      decidim/proposals/rejected_proposal_event: Proposta rejeitada
+      decidim/proposals/voting_enabled_event: Proposta de votação ativada
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposta
+        other: Propostas
+      decidim/proposals/proposal_endorsement:
+        one: Endosso
+        other: Endossos
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Notas
+      decidim/proposals/proposal_vote:
+        one: Voto
+        other: Votos
   decidim:
     components:
       proposals:
@@ -114,16 +145,10 @@ pt:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostas
-        proposal:
-          creation_date: 'Criação: %{date}'
-          view_proposal: Ver proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propostas
         see_all_proposals: Veja todas as propostas
-      proposal:
-        creation_date: 'Criação: %{date}'
-        view_proposal: Ver proposta
     proposals:
       actions:
         answer: Responda
@@ -220,6 +245,7 @@ pt:
             category: Categoria
             comments: Comentários
             created_at: Criado em
+            endorsements: Endossos
             id: identidade
             notes: Notas
             official_proposal: Proposta oficial
@@ -269,6 +295,7 @@ pt:
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:
+          comments: Comentários
           endorse: Endossar
         filters:
           accepted: Aceitaram
@@ -278,6 +305,7 @@ pt:
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
           official: Oficial
           origin: Origem
           rejected: Rejeitado
@@ -290,10 +318,6 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        identities_listing:
-          see_all: Veja tudo
-          see_less: Veja menos
-          title: Lista de endossos
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
@@ -322,6 +346,10 @@ pt:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de endossos
+          hidden_endorsers_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -381,9 +409,9 @@ pt:
         success: Rascunho da proposta atualizado com sucesso.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostas relacionadas
+        proposal_proposal: Propostas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecem neste projeto:'
+        project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_projects: 'Proposta que aparece nesses projetos:'
-        proposal_results: 'Proposta que aparece nesses resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'

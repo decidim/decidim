@@ -74,7 +74,7 @@ module Decidim
 
       def follow_button_for(model)
         if current_user
-          render partial: "decidim/shared/follow_button", locals: { followable: model }
+          render partial: "decidim/shared/follow_button.html", locals: { followable: model }
         else
           content_tag(:p, class: "mt-s mb-none") do
             t("decidim.proposals.proposals.show.sign_in_or_up",
@@ -82,29 +82,6 @@ module Decidim
               up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
           end
         end
-      end
-
-      # Public - A widget that lists all identities in an xxs card format.
-      # Shows the first 5 identities and hides the rest, but presents a 'see all'
-      # button to make the rest of identities visible.
-      #
-      # @param identities: The list of identities. Each item must have a user_group or author method.
-      # @param widget_id: Mandatory when placing more than 1 widget in a page, optional otherwise. Is the id
-      #   uniquely identify this widget in the page.
-      #
-      def identities_list_xxs(identities, widget_id = "identities-xxs")
-        widget_ids = {
-          ellipsis: "#{widget_id}-ellipsis",
-          remaining_identities: "#{widget_id}-remaining-identities",
-          see_all_identities: "#{widget_id}-see-all-identities"
-        }
-        render partial: "identities_listing", locals: { identities: identities, widget_ids: widget_ids }
-      end
-
-      def identities_xxs(identities)
-        identities.collect do |identity|
-          render partial: "identity_xxs", locals: { identity: identity.normalized_author }
-        end.join(", ").html_safe
       end
     end
   end

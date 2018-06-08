@@ -35,6 +35,7 @@ es:
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
@@ -43,15 +44,36 @@ es:
         short_description: Descripción breve
         show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
+        special_features: Características especiales
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Cumpleaños
+        birthplace: Lugar de nacimiento
+        ceased_date: Fecha de vencimiento
+        designation_date: Fecha de designación
+        designation_mode: Modo de designación
+        full_name: Nombre completo
+        gender: Género
+        position: Posición
       assembly_user_role:
         email: Email
         name: Nombre
         role: Rol de usuario
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Asamblea
+        other: Asambleas
+      decidim/assembly_member:
+        one: Miembro de la asamblea
+        other: Miembros de la asamblea
+      decidim/assembly_user_role:
+        one: Rol de usuario de la asamblea
+        other: Roles de usuario de la asamblea
   decidim:
     admin:
       assemblies:
@@ -84,6 +106,23 @@ es:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar asamblea
+      assembly_members:
+        create:
+          error: Se produjo un error al agregar un miembro para esta asamblea.
+          success: Miembro creado con éxito para esta asamblea.
+        destroy:
+          success: Miembro destruido con éxito para esta asamblea.
+        edit:
+          title: Actualizar miembro de la asamblea.
+          update: Actualizar
+        index:
+          assembly_members_title: Miembros de la asamblea
+        new:
+          create: Crear
+          title: Nuevo miembro de la asamblea.
+        update:
+          error: Se produjo un error al actualizar el miembro para esta asamblea.
+          success: Miembro actualizado con éxito para esta asamblea.
       assembly_publications:
         create:
           error: Se produjo un error al publicar esta asamblea.
@@ -112,6 +151,7 @@ es:
         assemblies: Asambleas
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
+          assembly_members: Miembros
           attachment_collections: Colecciones
           attachment_files: Archivos
           attachments: Archivos adjuntos
@@ -129,6 +169,18 @@ es:
             published: Publicada
             title: Título
           name: Asamblea
+        assembly_member:
+          fields:
+            ceased_date: Fecha de vencimiento
+            designation_date: Fecha de designación
+            full_name: Nombre
+            position: Posición
+          name: Miembro
+          positions:
+            other: Otro
+            president: Presidente
+            secretary: Secretario
+            vice_president: Vicepresidente
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -147,6 +199,10 @@ es:
         publish: "%{user_name} publicó la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
+        delete: "%{user_name} eliminó %{resource_name} de la asamblea %{space_name}"
+        update: "%{user_name} actualizó el miembro %{resource_name} de la asamblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
@@ -155,6 +211,8 @@ es:
       admin:
         assemblies:
           form:
+            duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
@@ -163,6 +221,23 @@ es:
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuario existente
+            non_user: No usuario
+            select_a_position: Selecciona una posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
+          index:
+            filter:
+              all: Todas
+              ceased: Cesado
+              not_ceased: No cesado
+            filter_by: Filtrado por
+            search: Buscar
+      assembly_members:
+        index:
+          members: Miembros
       assembly_types:
         commission: Comisión
         consultative_advisory: Consultivo / Asesor
@@ -182,6 +257,9 @@ es:
           highlighted_assemblies:
             active_assemblies: Asambleas activas
             see_all_assemblies: Ver todas las asambleas
+        user_profile:
+          member_of:
+            member_of: Miembro de
       show:
         area: Área
         assembly_type: Tipo de asambleas
@@ -225,6 +303,11 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    assembly_members:
+      assembly_member:
+        designated_on: Designado en
+      index:
+        title: Miembros
     log:
       value_types:
         assembly_presenter:
@@ -249,6 +332,7 @@ es:
           more_info: Más información
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Miembros
         assembly_menu_item: La asamblea
         unfold: Desplegar
       assembly_widgets:

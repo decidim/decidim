@@ -13,6 +13,14 @@ module Decidim
 
       private
 
+      def resource_path
+        resource_locator(model).path
+      end
+
+      def title
+        translated_attribute model.title
+      end
+
       def resource_date_time
         str = l model.start_time, format: :decidim_day_of_year
         str += " - "

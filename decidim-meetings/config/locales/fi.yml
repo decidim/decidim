@@ -1,6 +1,10 @@
 fi:
   activemodel:
     attributes:
+      agenda:
+        description: Kuvaus
+        duration: Kesto
+        title: otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -16,10 +20,42 @@ fi:
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        private_meeting: Yksityinen kokous
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
+        transparent: läpinäkyvä
+      minutes:
+        audio_url: Audio url
+        description: Kuvaus
+        video_url: Video url
+        visible: Se on näkyvissä
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
+              too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
+    models:
+      decidim/meetings/close_meeting_event: Kokous päättyi
+      decidim/meetings/create_meeting_event: Tapaaminen
+      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/upcoming_meeting_event: Tuleva kokous
+      decidim/meetings/update_meeting_event: Kokous päivitettiin
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Tapaaminen
+        other: kokoukset
+      decidim/meetings/minutes:
+        one: Minuutit
+        other: Minuutit
+      decidim/meetings/registration:
+        one: Rekisteröinti
+        other: rekisteröinnit
   decidim:
     admin:
       meeting_copies:
@@ -77,17 +113,49 @@ fi:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     meetings:
       actions:
+        agenda: esityslista
         attachment_collections: kokoelmat
         attachments: Liitteet
         close: Sulje
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
+        minutes: Minuutit
         new: Uusi
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lisää esityslistan lapsi
+            agenda_item: Esityslistan kohta
+            agenda_item_children: Agenda Item Childs
+            down: Alas
+            remove: Poistaa
+            up: ylös
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Alas
+            remove: Poistaa
+            up: ylös
+          create:
+            invalid: Ongelmana on luoda tämä ohjelma
+            success: Esityslista on luotu
+          edit:
+            title: Muokkaa esityslistaa
+            update: Päivittää
+          form:
+            add_agenda_item: Lisää esityslistan kohde
+            agenda_items: Esityslistan kohdat
+            end_date: Päättymispäivä
+            start_date: Aloituspäivämäärä
+          new:
+            create: Luoda
+            title: Uusi esityslista
+          update:
+            invalid: Ongelmana on päivittää tämä esityslista
+            success: Esityslista on päivitetty
         exports:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
@@ -106,6 +174,9 @@ fi:
           edit:
             close: Lopeta
             title: Lopeta tapaaminen
+        meeting_copies:
+          form:
+            select_organizer: Valitse järjestäjä
         meetings:
           close:
             invalid: Tapaamisen lopettamisessa tapahtui virhe
@@ -117,6 +188,8 @@ fi:
             success: Tapaaminen onnistuneesti poistettu
           edit:
             update: Päivitä
+          form:
+            select_organizer: Valitse järjestäjä
           index:
             title: Tapaamiset
           new:
@@ -135,6 +208,18 @@ fi:
           update:
             invalid: Tapaamisen luonnissa tapahtui virhe
             success: Tapaaminen luotu onnistuneesti
+        minutes:
+          create:
+            invalid: On ollut ongelma, joka luo tämän minuutin
+            success: Pöytäkirjat luodaan onnistuneesti
+          edit:
+            update: Päivittää
+          new:
+            create: Luoda
+            title: Luo minuutit
+          update:
+            invalid: On ollut ongelma päivittää tämä minuutti
+            success: Pöytäkirjat päivitettiin onnistuneesti
         models:
           meeting:
             name: Tapaaminen
@@ -159,6 +244,12 @@ fi:
           delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
           export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
           update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
+          value_types:
+            organizer_presenter:
+              not_found: 'Järjestäjää ei löydy tietokannasta (ID: %{id})'
+        minutes:
+          create: "%{user_name} luotiin kokouspöytäkirjat %{resource_name} %{space_name} -tilassa"
+          update: "%{user_name} päivitti kokouksen pöytäkirjan %{resource_name} %{space_name} -tilaan"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +257,8 @@ fi:
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
+      meeting:
+        not_allowed: Et voi katsoa tätä kokousta
       meetings:
         filters:
           category: Aihepiiri
@@ -181,6 +274,9 @@ fi:
           unfold: Avaa
         index:
           view_meeting: Näytä tapaaminen
+        meeting_minutes:
+          meeting_minutes: Kokouspöytäkirjat
+          related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
           upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
@@ -198,6 +294,7 @@ fi:
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
+          view: näkymä
       models:
         meeting:
           fields:
@@ -218,6 +315,9 @@ fi:
         destroy:
           invalid: Tapahtuman ilmoittautumisen perumisessa on tapahtunut virhe.
           success: Olet perunut ilmoittautumisesi tapahtumaan onnistuneesti.
+      types:
+        private_meeting: Yksityinen kokous
+        transparent: läpinäkyvä
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,13 +328,15 @@ fi:
         past_meetings: Aiemmat kokoukset
         see_all_meetings: Katso kaikki kokoukset
         upcoming_meetings: Tulevat kokoukset
+      upcoming_meeting_for_card:
+        upcoming_meeting: Tuleva kokous
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Liittyvät tulokset:'
-        result_meetings: 'Liittyvät tapaamiset:'
+        meeting_result: 'Liittyvät tulokset:'
+        result_meeting: 'Liittyvät tapaamiset:'
       proposals_from_meeting:
-        meeting_proposals: 'Liittyvät ehdotukset:'
-        proposal_meetings: 'Liittyvät tapaamiset:'
+        meeting_proposal: 'Liittyvät ehdotukset:'
+        proposal_meeting: 'Liittyvät tapaamiset:'
   devise:
     mailer:
       join_meeting:

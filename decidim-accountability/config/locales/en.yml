@@ -22,6 +22,13 @@ en:
       timeline_entry:
         description: Description
         entry_date: Date
+    models:
+      decidim/accountability/proposal_linked_event: Proposal included in a result
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Result
+        other: Results
   decidim:
     accountability:
       actions:
@@ -203,6 +210,6 @@ en:
         see_all_results: See all results
     resource_links:
       included_projects:
-        result_projects: Projects included in this result
+        result_project: Projects included in this result
       included_proposals:
-        result_proposals: Proposals included in this result
+        result_proposal: Proposals included in this result

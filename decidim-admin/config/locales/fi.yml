@@ -64,6 +64,7 @@ fi:
         omnipresent_banner_url: URL-
         reference_prefix: Viitteen etuliite
         show_statistics: Näytä tilastot
+        tos_version: Käyttöehdot versio
         twitter_handler: Twitter käsittelijä
         welcome_text: Tervetulotoivotus
         youtube_handler: YouTube-käsittelijä
@@ -79,6 +80,7 @@ fi:
         organization: Organisaatio
         plural: Monikko
       static_page:
+        changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
         slug: URL-tunniste
@@ -210,6 +212,9 @@ fi:
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
           success: Liite luotu onnistuneesti.
+      autocomplete:
+        no_results: Ei tuloksia
+        search_prompt: Kirjoita vähintään kolme merkkiä etsimään
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
@@ -571,8 +576,11 @@ fi:
         destroy:
           success: Sivu tuhottu onnistuneesti
         edit:
+          changed_notably_help: Jos tarkistat, käyttäjät ilmoitetaan hyväksymään uudet ehdot.
           title: Muokkaa sivua
           update: Päivitä
+        index:
+          last_notable_change: Viimeinen huomattava muutos
         new:
           create: Luo
           title: Uusi sivu

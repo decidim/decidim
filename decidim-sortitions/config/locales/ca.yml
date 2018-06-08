@@ -5,10 +5,17 @@ ca:
         additional_info: Informació sobre el sorteig
         decidim_category_id: Categories del conjunt de propostes en què voleu aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
-        dice: Resultat de la tirada de daus (tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6) i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
+        dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6 i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
+    models:
+      decidim/sortitions/create_sortition_event: Sorteig
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteig
+        other: Sortejos
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: S'ha afegit un nou sorteig a %{participatory_space_title}
           notification_title: El sorteig <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortejos
     participatory_processes:
       statistics:
         sortitions_count: Sortejos
@@ -106,8 +117,6 @@ ca:
           label: 'Ordeneu els sortejos per:'
           random: Aleatori
           recent: Recent
-        proposal:
-          view_proposal: Veure proposta
         results_count:
           count:
             one: proposta seleccionada
@@ -127,10 +136,11 @@ ca:
           time_seed: "(2) Llavor de temps"
           witnesses: Testimonis
         sortition:
+          random_seed: Llavor aleatòria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: "%{count} propostes seleccionades"
-          view_sortition: Mostra el sorteig
+            other: '%{count} propostes seleccionades'
+          view: Veure
         sortition_author:
           deleted: Usuari eliminat
         sortition_cancel_author:
@@ -139,7 +149,3 @@ ca:
           count:
             one: 1 sorteig
             other: "%{count} classificacions"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortejos

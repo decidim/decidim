@@ -18,12 +18,6 @@ module Decidim
       initializer "decidim_<%= component_name %>.assets" do |app|
         app.config.assets.precompile += %w[decidim_<%= component_name %>_manifest.js decidim_<%= component_name %>_manifest.css]
       end
-
-      initializer "decidim_<%= component_name %>.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::<%= component_module_name %>::Abilities::CurrentUserAbility"]
-        end
-      end
     end
   end
 end

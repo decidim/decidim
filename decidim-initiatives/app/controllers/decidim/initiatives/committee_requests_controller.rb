@@ -3,22 +3,21 @@
 module Decidim
   module Initiatives
     # Controller in charge of managing committee membership
-    class CommitteeRequestsController < Decidim::ApplicationController
+    class CommitteeRequestsController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
 
-      helper Decidim::ActionAuthorizationHelper
       helper InitiativeHelper
 
-      include Decidim::Initiatives::ActionAuthorization
+      layout "layouts/decidim/application"
 
       # GET /initiatives/:initiative_id/committee_requests/new
       def new
-        authorize! :request_membership, current_initiative
+        enforce_permission_to :request_membership, :initiative, initiative: current_initiative
       end
 
       # GET /initiatives/:initiative_id/committee_requests/spawn
       def spawn
-        authorize! :request_membership, current_initiative
+        enforce_permission_to :request_membership, :initiative, initiative: current_initiative
 
         SpawnCommitteeRequest.call(current_initiative, current_user) do
           on(:ok) do

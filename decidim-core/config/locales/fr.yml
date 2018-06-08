@@ -21,6 +21,10 @@ fr:
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
+    models:
+      decidim/attachment_created_event: Document joint
+      decidim/component_published_event: Composant actif
+      decidim/profile_updated_event: Profil mis à jour
   activerecord:
     attributes:
       decidim/user:
@@ -34,12 +38,23 @@ fr:
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
+    models:
+      decidim/user:
+        one: Utilisateur
+        other: Utilisateurs
+      decidim/user_group:
+        one: Groupe d'utilisateurs
+        other: Groupes d'utilisateurs
   booleans:
     'false': 'Non'
     'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
@@ -113,9 +128,18 @@ fr:
         related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
+    author:
+      comments:
+        one: commentaire
+        other: commentaires
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
+        fields:
+          passport_number: Numéro de passeport
+        name: Un autre exemple d'autorisation
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document d'identité
+        explanation: Obtenir une vérification en saisissant un numéro de document
         fields:
           document_number: Numéro de document d'identité
           postal_code: Code postal
@@ -134,6 +158,12 @@ fr:
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
       started_at: Commencé à %{timestamp}
+    collapsible_list:
+      hidden_elements_count:
+        one: et 1 de plus
+        other: et %{count} de plus
+      see_less: "(voir moins)"
+      see_more: "(voir plus)"
     components:
       dummy:
         actions:
@@ -156,18 +186,19 @@ fr:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse de email
+          email_already_exists: Un autre compte utilise la même adresse mail
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant court et unique sur cette plateforme (ne pas utiliser d'espace).
+          nickname_help: Votre identifiant court et unique sur %{organization} (ne pas utiliser d'espace).
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
-          newsletter: Recevoir une newsletter sur l'actualité de la plateforme.
-          nickname_help: Votre identifiant court et unique sur cette plateforme (ne pas utiliser d'espace).
+          newsletter: Recevoir une newsletter sur l'actualité de la plateforme
+          newsletter_title: Autorisation de contact
+          nickname_help: Votre identifiant court et unique sur %{organization}  (ne pas utiliser d'espace).
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -177,12 +208,19 @@ fr:
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
+          tos_title: Conditions d'utilisation
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
       shared:
+        newsletter_modal:
+          buttons:
+            check: Vérifiez et continuez
+            uncheck: Désactiver
+          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter ? Nous vous prions de bien réfléchir. Il est très important pour nous que vous puissiez recevoir des emails occasionnels pour les annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous souhaitez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ce message !
+          title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -197,7 +235,7 @@ fr:
           see_name: Voir votre nom
           see_username: Voir votre nom d'utilisateur
           this_application_will_be_able_to: 'Cette application sera capable de :'
-          this_application_will_not_be_able_to: 'Cette application ne sera pas capable d e:'
+          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
@@ -217,7 +255,7 @@ fr:
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'La fonctionnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'La fonctinnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -246,6 +284,18 @@ fr:
         project: Projets
         proposal: Propositions
         result: Résultats
+    fingerprint:
+      check: Vérifiez l'empreinte numérique
+      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
+      online_calculator_name: calculateur de hash MD5 en ligne
+      replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
+      source: Source
+      title: Empreinte numérique
+      value: Valeur
+    followers:
+      no_followers: Aucun abonné pour le moment.
+    following:
+      no_followings: Aucun abonnement
     follows:
       create:
         button: Suivre
@@ -292,8 +342,8 @@ fr:
           outro: Profitez de cette plateforme !
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:
-          greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir:"
+          greeting: Bonjour, %{recipient} !
+          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
           outro: Profitez de cette plateforme !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
@@ -324,10 +374,12 @@ fr:
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
+    notifications:
+      no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir une newletter sur l'actualité de la plateforme.
+        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -338,17 +390,75 @@ fr:
         rejected: Non retenue
         verified: Vérifié
     pages:
+      home:
+        extended:
+          debates: Débats
+          debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
+          how_to_participate: Comment participer ?
+          meetings: Rencontres
+          meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
+          more_info: En savoir plus
+          proposals: Propositions
+          proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
+        footer_sub_hero:
+          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+          footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
+          register: S'inscrire
+        hero:
+          participate: Participez
+          welcome: Bienvenue sur %{organization} !
+        statistics:
+          answers_count: Enquêtes terminées
+          assemblies_count: Agora
+          comments_count: Commentaires
+          debates_count: Débats
+          endorsements_count: Recommandations
+          headline: État actuel de %{organization}
+          meetings_count: Rencontres
+          orders_count: Soutiens
+          pages_count: Pages
+          processes_count: Processus participatifs
+          projects_count: Projets
+          proposals_accepted: Propositions acceptées
+          proposals_count: Propositions
+          results_count: Résultats
+          surveys_count: Enquêtes
+          users_count: Participants
+          votes_count: Soutiens
+        sub_hero:
+          register: S'inscrire
       index:
         title: Plus d'informations
+      terms_and_conditions:
+        accept:
+          error: Une erreur s'est produite lors de l'acceptation des termes et conditions.
+          success: Génial! Vous avez accepté les termes et conditions.
+        form:
+          agreement: Je suis d'accord avec les termes et conditions d'utilisation
+          legend: Accepter les termes et conditions d'utilisation
+        refuse:
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme, vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les termes et continuer
+          modal_btn_exit: Je l'examinerai plus tard
+          modal_button: Refuser les termes
+          modal_title: Refusez-vous vraiment les termes et conditions mis à jour ?
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour examiner les mises à jour de nos conditions d'utilisation. Sinon, vous ne pourrez pas utiliser la plate-forme.
+          title: 'Obligatoire : consultez les mises à jour de nos conditions d''utilisation'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
       deleted: Utilisateur supprimé
+      view: Voir
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
-        about_me: À propos de moi
-        personal_url: Site Web personnel
+        followers: Abonnés
+        following: Est abonné à
+        notifications: Notifications
+      user:
+        edit_profile: Editer le profil
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -372,6 +482,20 @@ fr:
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètres d'application
+    search:
+      filter:
+        all: Tout
+        component: Composant
+      results_found_for_term: '%{count} Résultats pour la recherche: "%{term}"'
+      term_input_placeholder: Chercher
+    searches:
+      filters:
+        search: Chercher
+      filters_small_view:
+        close_modal: Fermer modal
+        filter: Filtre
+        filter_by: Filtrer par
+        unfold: Se dérouler
     shared:
       action_authorization_modal:
         expired:
@@ -397,8 +521,6 @@ fr:
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
-      author:
-        deleted: Utilisateur supprimé
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
@@ -418,7 +540,7 @@ fr:
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       reference:
-        reference: 'Référence: %{reference}'
+        reference: 'Référence : %{reference}'
       results_per_page:
         label: 'Résultats par page :'
       share_modal:
@@ -430,16 +552,18 @@ fr:
   devise:
     invitations:
       edit:
-        header: Définir votre mot de passe
-        nickname_help: Votre identifiant court et unique sur cette plateforme (ne pas utiliser d'espace).
+        header: Terminer la création de votre compte
+        nickname_help: Votre identifiant unique dans %{organization}.
         submit_button: Sauvegarder
+        subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudo et votre mot de passe.
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
+          Votre compte ne sera pas créé avant d'avoir accédé au lien ci-dessus et d'avoir défini votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -462,17 +586,15 @@ fr:
       public: Votre information publique
   errors:
     messages:
-      content_type_whitelist_error: Le type de fichier n'est pas valide
+      content_type_whitelist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
-      invalid_manifest: Manifeste invalide
-      invalid_participatory_process: Concertation invalide
-      long_words: Contient des mots trop longs
-      must_start_with_caps: Doit commencer par des majuscules
+      long_words: contient des mots qui sont trop longs
+      must_start_with_caps: doit commencer avec des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      too_many_marks: Utilise trop de signes de ponctuations
-      too_much_caps: Utilise trop de majuscule
-      too_short: Est trop court
+      too_many_marks: utilise trop de marques
+      too_much_caps: utilise trop de bouchons
+      too_short: est trop court
   forms:
     required: Champs obligatoires
   invisible_captcha:
@@ -497,8 +619,6 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
-        no_notifications: Il n'y a pas encore de notifications.
-        title: Notifications
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
@@ -517,44 +637,6 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-  pages:
-    home:
-      extended:
-        debates: Débats
-        debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
-        how_to_participate: Comment participer ?
-        meetings: Rencontres
-        meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
-        more_info: En savoir plus
-        proposals: Propositions
-        proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
-      footer_sub_hero:
-        footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur %{organization}.
-        register: S'inscrire
-      hero:
-        participate: Participez
-        welcome: Bienvenue sur %{organization} !
-      statistics:
-        answers_count: Enquêtes terminées
-        assemblies_count: Agora
-        comments_count: Commentaires
-        debates_count: Débats
-        endorsements_count: Recommandations
-        headline: État actuel de %{organization}
-        meetings_count: Rencontres
-        orders_count: Soutiens
-        pages_count: Pages
-        processes_count: Concertations
-        projects_count: Projets
-        proposals_accepted: Propositions acceptées
-        proposals_count: Propositions
-        results_count: Résultats
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Soutiens
-      sub_hero:
-        register: S'inscrire
   social_share_button:
     delicious: Delicious
     douban: Douban

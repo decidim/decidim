@@ -7,7 +7,7 @@
                  class: "button",
                  data: { disable_with: true } %>
 
-    <% if can? :publish, current_question %>
+    <% if allowed_to? :publish, :question, question: current_question %>
       <% if current_question.published? %>
         <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                     question_publish_path(current_question),
@@ -21,7 +21,7 @@
       <% end %>
     <% end %>
 
-    <% if can? :destroy, current_question %>
+    <% if allowed_to? :destroy, :question, question: current_question %>
       <%= link_to t("decidim.admin.actions.destroy"),
                   question_path(current_question),
                   method: :delete,

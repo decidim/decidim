@@ -140,7 +140,7 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal is in evaluation" do
-      let!(:proposal) { create(:proposal, :evaluating, :with_answer, component: component) }
+      let!(:proposal) { create(:proposal, :with_answer, :evaluating, component: component) }
 
       it "shows a badge and an answer" do
         visit_component
@@ -156,10 +156,12 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been rejected" do
-      let!(:proposal) { create(:proposal, :rejected, :with_answer, component: component) }
+      let!(:proposal) { create(:proposal, :with_answer, :rejected, component: component) }
 
       it "shows the rejection reason" do
         visit_component
+        choose "filter_state_rejected"
+        page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
         expect(page).to have_content("Rejected")
@@ -172,7 +174,7 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, :with_answer, component: component) }
+      let!(:proposal) { create(:proposal, :with_answer, :accepted, component: component) }
 
       it "shows the acceptance reason" do
         visit_component
@@ -514,7 +516,7 @@ describe "Proposals", type: :system do
             expect(page).to have_content("1 PROPOSAL")
 
             within ".card--proposal" do
-              expect(page).to have_content("Accepted")
+              expect(page).to have_content("ACCEPTED")
             end
           end
 
@@ -530,7 +532,7 @@ describe "Proposals", type: :system do
             expect(page).to have_content("1 PROPOSAL")
 
             within ".card--proposal" do
-              expect(page).to have_content("Rejected")
+              expect(page).to have_content("REJECTED")
             end
           end
         end

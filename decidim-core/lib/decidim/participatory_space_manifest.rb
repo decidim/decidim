@@ -28,6 +28,18 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # The name of the class that handles the permissions for this space. It will
+    # probably have the form of `Decidim::<MySpace>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
+
+    # A path with the `scss` stylesheet this engine provides. It is used to
+    # mix this engine's stylesheets with the main app's stylesheets so it can
+    # use the scss variables and mixins provided by Decidim::Core.
+    attribute :stylesheet, String, default: nil
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can
@@ -67,6 +79,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
+      print "Creating seeds for the #{name} space...\n" unless Rails.env.test?
       @seeds&.call
     end
 
@@ -84,6 +97,29 @@ module Decidim
     # Returns nothing.
     def participatory_spaces(&block)
       @participatory_spaces ||= block
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
+    end
+
+    # Public: Registers a resource. Exposes a DSL defined by
+    # `Decidim::ResourceManifest`.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This way resources can be linked between them.
+    #
+    # name - A name for that resource. Should be singular (ie not plural).
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(name, &block)
+      Decidim.register_resource(name, &block)
     end
   end
 end

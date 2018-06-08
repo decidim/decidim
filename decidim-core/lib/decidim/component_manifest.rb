@@ -46,8 +46,9 @@ module Decidim
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
-    # The cell path to use to render the card of a resource.
-    attribute :card, String
+    # The name of the class that handles the permissions for this component. It will
+    # probably have the form of `Decidim::<MyComponent>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
     validates :name, presence: true
 
@@ -98,6 +99,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!(participatory_space)
+      print "-- Creating #{name} component seeds for the participatory space with ID: #{participatory_space.id}...\n" unless Rails.env.test?
       @seeds&.call(participatory_space)
     end
 
@@ -120,23 +122,6 @@ module Decidim
       settings = (@settings[name] ||= SettingsManifest.new)
       yield(settings) if block
       settings
-    end
-
-    # Public: Registers a resource inside a component manifest. Exposes a DSL
-    # defined by `Decidim::ResourceManifest`.
-    #
-    # Resource manifests are a way to expose a resource from one engine to
-    # the whole system. This was resoruces can be linked between them.
-    #
-    # block - A Block that will be called to set the Resource attributes.
-    #
-    # Returns nothing.
-    def register_resource
-      manifest = ResourceManifest.new
-      manifest.component_manifest = self
-      yield(manifest)
-      manifest.validate!
-      resource_manifests << manifest
     end
 
     # Public: Registers an export artifact with a name and its properties
@@ -169,14 +154,6 @@ module Decidim
       end
     end
 
-    # Public: Finds all the registered resource manifest's via the
-    # `register_resource` method.
-    #
-    # Returns an Array[ResourceManifest].
-    def resource_manifests
-      @resource_manifests ||= []
-    end
-
     # Public: Stores an instance of StatsRegistry
     def stats
       @stats ||= StatsRegistry.new
@@ -193,6 +170,37 @@ module Decidim
     # Returns nothing.
     def register_stat(name, options = {}, &block)
       stats.register(name, options, &block)
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
+    end
+
+    # Public: Registers a resource. Exposes a DSL defined by
+    # `Decidim::ResourceManifest`. Automatically sets the component manifest
+    # for that resource to the current one.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This way resources can be linked between them.
+    #
+    # name - A name for that resource. Should be singular (ie not plural).
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(name)
+      my_component_manifest = self
+
+      my_block = proc do |resource|
+        resource.component_manifest = my_component_manifest
+        yield(resource)
+      end
+
+      Decidim.register_resource(name, &my_block)
     end
   end
 end

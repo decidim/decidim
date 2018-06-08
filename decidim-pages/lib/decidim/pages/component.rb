@@ -6,6 +6,7 @@ Decidim.register_component(:pages) do |component|
   component.engine = Decidim::Pages::Engine
   component.admin_engine = Decidim::Pages::AdminEngine
   component.icon = "decidim/pages/icon.svg"
+  component.permissions_class_name = "Decidim::Pages::Permissions"
 
   component.on(:create) do |instance|
     Decidim::Pages::CreatePage.call(instance) do
@@ -40,7 +41,7 @@ Decidim.register_component(:pages) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_resource do |resource|
+  component.register_resource(:page) do |resource|
     resource.model_class_name = "Decidim::Pages::Page"
   end
 

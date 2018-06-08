@@ -74,7 +74,7 @@
               <% end %>
               </td>
               <td class="table-list__actions">
-                <% if can?(:verify, user_group) %>
+                <% if allowed_to?(:verify, :user_group, user_group: user_group) %>
                   <% if !user_group.verified? %>
                     <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--verify" %>
                   <% else %>
@@ -82,7 +82,7 @@
                   <% end %>
                 <% end %>
 
-                <% if can?(:reject, user_group) %>
+                <% if allowed_to?(:reject, :user_group, user_group: user_group) %>
                   <% if !user_group.rejected? %>
                     <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--reject" %>
                   <% else %>

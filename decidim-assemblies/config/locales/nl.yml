@@ -34,6 +34,7 @@ nl:
         participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
+        private_space: Prive ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doel van actie
@@ -42,15 +43,36 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
+        special_features: Speciale functies
         subtitle: Ondertiteling
         target: Doel
         title: Titel
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Verjaardag
+        birthplace: Geboorteplaats
+        ceased_date: Gestaakte datum
+        designation_date: Aanwijzingsdatum
+        designation_mode: Aanwijzingsmodus
+        full_name: Voor-en achternaam
+        gender: Geslacht
+        position: Positie
       assembly_user_role:
         email: E-mail
         name: Naam
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: bijeenkomst
+        other: Assemblies
+      decidim/assembly_member:
+        one: Montage lid
+        other: Vergadering leden
+      decidim/assembly_user_role:
+        one: Assemblage gebruikersrol
+        other: Assemblage van gebruikersrollen
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ nl:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Dupliceer bijeenkomst
+      assembly_members:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
+          success: Lid is met succes voor deze assembly gemaakt.
+        destroy:
+          success: Lid succesvol vernietigd voor deze assembly.
+        edit:
+          title: Update assembly-lid.
+          update: Bijwerken
+        index:
+          assembly_members_title: Vergadering leden
+        new:
+          create: creëren
+          title: Nieuw assemblagelid.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze assembly.
+          success: Lid is succesvol bijgewerkt voor deze assembly.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
@@ -111,6 +150,7 @@ nl:
         assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
+          assembly_members: leden
           attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
@@ -128,6 +168,18 @@ nl:
             published: Gepubliceerd
             title: Titel
           name: Bijeenkomst
+        assembly_member:
+          fields:
+            ceased_date: Gestaakte datum
+            designation_date: Aanwijzingsdatum
+            full_name: Naam
+            position: Positie
+          name: Lid
+          positions:
+            other: anders
+            president: President
+            secretary: Secretaris
+            vice_president: Onderdirecteur
         assembly_user_role:
           fields:
             email: E-mail
@@ -146,6 +198,10 @@ nl:
         publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
         update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
+      assembly_member:
+        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly gemaakt"
+        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} assembly"
+        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly bijgewerkt"
       assembly_user_role:
         create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
         delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
@@ -154,6 +210,8 @@ nl:
       admin:
         assemblies:
           form:
+            duration_help: Als de duur van deze assembly beperkt is, selecteert u de einddatum. Anders zal het verschijnen als onbepaald.
+            included_at_help: Selecteer de datum waarop deze assembly aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
@@ -162,6 +220,23 @@ nl:
         assembly_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        assembly_members:
+          form:
+            existing_user: Bestaande gebruiker
+            non_user: Niet gebruiker
+            select_a_position: Selecteer een positie
+            select_user: Selecteer een gebruiker
+            user_type: Gebruikerstype
+          index:
+            filter:
+              all: Alle
+              ceased: opgehouden
+              not_ceased: Niet opgehouden
+            filter_by: Filteren op
+            search: Zoeken
+      assembly_members:
+        index:
+          members: leden
       assembly_types:
         commission: Comissie
         consultative_advisory: Consultative / Advisory
@@ -181,6 +256,9 @@ nl:
           highlighted_assemblies:
             active_assemblies: Huidige events
             see_all_assemblies: Bekijk alle events
+        user_profile:
+          member_of:
+            member_of: Lid van
       show:
         area: onderwerp
         assembly_type: Montage type
@@ -224,6 +302,11 @@ nl:
         surveys_count: Enquêtes
         users_count: Deelnemers
         votes_count: Stemmen
+    assembly_members:
+      assembly_member:
+        designated_on: Aangewezen op
+      index:
+        title: leden
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +331,7 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_header:
+        assembly_member_menu_item: leden
         assembly_menu_item: De bijeenkomst
         unfold: Uitvouwen
       assembly_widgets:

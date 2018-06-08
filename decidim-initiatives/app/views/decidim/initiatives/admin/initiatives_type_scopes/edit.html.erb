@@ -9,7 +9,7 @@
   <div class="button--double form-general-submit">
     <%= f.submit t(".update"), class: "button" %>
 
-    <% if can? :destroy, current_initiative_type_scope %>
+    <% if allowed_to? :destroy, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope %>
         <%= link_to t(".destroy"), initiatives_type_initiatives_type_scope_path(params[:initiatives_type_id], current_initiative_type_scope),
                     method: :delete,
                     class: "alert button",

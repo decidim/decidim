@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     # A controller that holds the logic to show questions in a
     # public layout.
-    class QuestionsController < Decidim::ApplicationController
+    class QuestionsController < Decidim::Consultations::ApplicationController
       layout "layouts/decidim/question"
 
       include NeedsQuestion
@@ -16,7 +16,7 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
 
       def show
-        authorize! :read, current_question
+        enforce_permission_to :read, :question, question: current_question
       end
     end
   end

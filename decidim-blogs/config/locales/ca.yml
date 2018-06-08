@@ -1,4 +1,12 @@
 ca:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova publicació del bloc
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicació
+        other: Publicacions
   decidim:
     blogs:
       actions:
@@ -37,8 +45,8 @@ ca:
             created_at: Creat el
             title: títol
       posts:
-        author_data:
-          comments: comentaris
+        show:
+          view: Veure
         sidebar_blog:
           comments: comentaris
           most_commented_posts: Publicacions més comentades
@@ -60,10 +68,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova publicació publicada a %{participatory_space_title}
           notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Publicacions
     participatory_processes:
-      statistics:
-        posts_count: Publicacions
-  pages:
-    home:
       statistics:
         posts_count: Publicacions

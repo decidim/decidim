@@ -15,10 +15,16 @@ namespace :decidim do
     Dir.chdir(original_folder)
   end
 
+  def base_app_name
+    File.basename(Dir.pwd).underscore
+  end
+
   desc "Generates a dummy app for testing in external installations"
   task :generate_external_test_app do
     generate_decidim_app(
       "spec/decidim_dummy_app",
+      "--app_name",
+      "#{base_app_name}_test_app",
       "--path",
       "../..",
       "--recreate_db",
@@ -31,6 +37,8 @@ namespace :decidim do
   task :generate_external_development_app do
     generate_decidim_app(
       "development_app",
+      "--app_name",
+      "#{base_app_name}_development_app",
       "--path",
       "..",
       "--recreate_db",

@@ -9,10 +9,14 @@ module Decidim
         helper_method :meeting, :blank_service
 
         def new
+          enforce_permission_to :copy, :meeting, meeting: meeting
+
           @form = form(MeetingCopyForm).from_model(meeting)
         end
 
         def create
+          enforce_permission_to :copy, :meeting, meeting: meeting
+
           @form = form(MeetingCopyForm).from_params(params, current_component: current_component)
 
           CopyMeeting.call(@form, meeting) do

@@ -17,6 +17,13 @@ module Decidim
           layout "decidim/admin/consultation"
 
           alias_method :current_participatory_space, :current_consultation
+
+          def permission_class_chain
+            [
+              Decidim::Consultations::Permissions,
+              Decidim::Admin::Permissions
+            ]
+          end
         end
       end
     end

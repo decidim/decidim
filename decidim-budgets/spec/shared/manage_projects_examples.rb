@@ -58,8 +58,8 @@ shared_examples "manage projects" do
 
     it "shows the order count" do
       visit current_path
-      expect(page).to have_content("Finished votes: 10")
-      expect(page).to have_content("Pending votes: 5")
+      expect(page).to have_content("Finished votes: \n10")
+      expect(page).to have_content("Pending votes: \n5")
     end
   end
 

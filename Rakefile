@@ -68,3 +68,12 @@ desc "Build webpack bundle files"
 task :webpack do
   sh "npm install && npm run build:prod"
 end
+
+desc "Bundle all Gemfiles"
+task :bundle do
+  [".", "decidim-generators", "decidim_app-design"].each do |dir|
+    Bundler.with_original_env do
+      Dir.chdir(dir) { sh "BUNDLE_GEMFILE=Gemfile bundle install" }
+    end
+  end
+end

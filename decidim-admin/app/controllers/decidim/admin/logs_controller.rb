@@ -5,9 +5,11 @@ module Decidim
     # Controller that shows a simple dashboard.
     #
     class LogsController < Decidim::Admin::ApplicationController
-      authorize_resource :admin_log, class: false
-
       helper_method :logs
+
+      def index
+        enforce_permission_to :read, :admin_log
+      end
 
       private
 

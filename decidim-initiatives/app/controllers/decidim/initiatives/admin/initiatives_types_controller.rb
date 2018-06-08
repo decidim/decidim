@@ -7,25 +7,25 @@ module Decidim
     module Admin
       # Controller used to manage the available initiative types for the current
       # organization.
-      class InitiativesTypesController < ApplicationController
+      class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
         helper_method :current_initiative_type
 
         # GET /admin/initiatives_types
         def index
-          authorize! :index, Decidim::InitiativesType
+          enforce_permission_to :index, :initiative_type
 
           @initiatives_types = InitiativeTypes.for(current_organization)
         end
 
         # GET /admin/initiatives_types/new
         def new
-          authorize! :new, Decidim::InitiativesType
+          enforce_permission_to :create, :initiative_type
           @form = initiative_type_form.instance
         end
 
         # POST /admin/initiatives_types
         def create
-          authorize! :create, Decidim::InitiativesType
+          enforce_permission_to :create, :initiative_type
           @form = initiative_type_form.from_params(params)
 
           CreateInitiativeType.call(@form) do
@@ -43,7 +43,7 @@ module Decidim
 
         # GET /admin/initiatives_types/:id/edit
         def edit
-          authorize! :edit, current_initiative_type
+          enforce_permission_to :edit, :initiative_type, initiative_type: current_initiative_type
           @form = initiative_type_form
                   .from_model(current_initiative_type,
                               initiative_type: current_initiative_type)
@@ -51,7 +51,7 @@ module Decidim
 
         # PUT /admin/initiatives_types/:id
         def update
-          authorize! :update, current_initiative_type
+          enforce_permission_to :update, :initiative_type, initiative_type: current_initiative_type
 
           @form = initiative_type_form
                   .from_params(params, initiative_type: current_initiative_type)
@@ -71,7 +71,7 @@ module Decidim
 
         # DELETE /admin/initiatives_types/:id
         def destroy
-          authorize! :destroy, current_initiative_type
+          enforce_permission_to :destroy, :initiative_type, initiative_type: current_initiative_type
           current_initiative_type.destroy!
 
           redirect_to initiatives_types_path, flash: {

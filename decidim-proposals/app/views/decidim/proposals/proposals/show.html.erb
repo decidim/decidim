@@ -7,25 +7,11 @@
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
-  <%= cell "decidim/author_box", present(@proposal).author, extra: (capture do %>
-      <span><%= l @proposal.created_at, format: :decidim_short %></span>
-      <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
-        <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
-      </button>
-      <% unless @proposal.official? %>
-        <%= link_to_current_or_new_conversation_with(@proposal.author) %>
-      <% end %>
-      <% if @proposal.withdrawable_by?(current_user) %>
-        <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t(".withdraw_btn_hint"), data: {confirm: t(".withdraw_confirmation")}  do %>
-          <%= t(".withdraw_proposal") %>
-          <%= icon "x" %>
-        <% end %>
-    <% end %>
-  <% end) %>
+  <%= cell "decidim/author", present(@proposal).author, from: @proposal %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if can?(:edit, @proposal) %>
+    <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
@@ -42,18 +28,18 @@
       </div>
     <% end %>
     <%= resource_reference(@proposal) %>
+    <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
+      <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <%= simple_format @proposal.body %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>
-      <%= render partial: "tags", locals: { resource: @proposal } %>
-
+      <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
     <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
       <% if @proposal.accepted? %>
@@ -83,12 +69,12 @@
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
+
+    <%= cell "decidim/proposals/endorsers_list", @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>
 
-<a name="list-of-endorsements"></a>
-<%= identities_list_xxs(@proposal.endorsements.for_listing) %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

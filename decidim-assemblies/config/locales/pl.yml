@@ -34,6 +34,7 @@ pl:
         participatory_processes_ids: Powiązane procesy uczestnictwa
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
+        private_space: Prywatna przestrzeń
         promoted: Lansowany
         published_at: Opublikowano na
         purpose_of_action: Cel działania
@@ -42,15 +43,42 @@ pl:
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
         slug: Ślimak URL
+        special_features: Cechy szczególne
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
         twitter: Świergot
         youtube: Youtube
+      assembly_member:
+        birthday: Urodziny
+        birthplace: Miejsce urodzenia
+        ceased_date: Przerywana data
+        designation_date: Data wyznaczenia
+        designation_mode: Tryb oznaczania
+        full_name: Pełne imię i nazwisko
+        gender: Płeć
+        position: Pozycja
       assembly_user_role:
         email: E-mail
         name: Nazwa
         role: Rola
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaż
+        few: Złożenia
+        many: Złożenia
+        other: Złożenia
+      decidim/assembly_member:
+        one: Członek zespołu
+        few: Członkowie zgromadzenia
+        many: Członkowie zgromadzenia
+        other: Członkowie zgromadzenia
+      decidim/assembly_user_role:
+        one: Zbierz rolę użytkownika
+        few: Zbierz role użytkowników
+        many: Zbierz role użytkowników
+        other: Zbierz role użytkowników
   decidim:
     admin:
       assemblies:
@@ -83,6 +111,23 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat montażu
+      assembly_members:
+        create:
+          error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
+          success: Członek utworzony pomyślnie dla tego zespołu.
+        destroy:
+          success: Członek został pomyślnie zniszczony dla tego zespołu.
+        edit:
+          title: Zaktualizuj element złożenia.
+          update: Aktualizacja
+        index:
+          assembly_members_title: Członkowie zgromadzenia
+        new:
+          create: Stwórz
+          title: Nowy członek zespołu.
+        update:
+          error: Wystąpił błąd podczas aktualizowania elementu dla tego zespołu.
+          success: Członek zaktualizowany pomyślnie dla tego zespołu.
       assembly_publications:
         create:
           error: Podczas publikowania tego wystąpienia wystąpił błąd.
@@ -111,6 +156,7 @@ pl:
         assemblies: Zespoły
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
+          assembly_members: Członkowie
           attachment_collections: Kolekcje
           attachment_files: Akta
           attachments: Załączniki
@@ -128,6 +174,18 @@ pl:
             published: Opublikowany
             title: Tytuł
           name: Montaż
+        assembly_member:
+          fields:
+            ceased_date: Przerywana data
+            designation_date: Data wyznaczenia
+            full_name: Nazwa
+            position: Pozycja
+          name: Członek
+          positions:
+            other: Inny
+            president: Prezydent
+            secretary: Sekretarz
+            vice_president: Wiceprezydent
         assembly_user_role:
           fields:
             email: E-mail
@@ -146,6 +204,10 @@ pl:
         publish: "%{user_name} opublikował montaż %{resource_name}"
         unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
         update: "%{user_name} zaktualizował zespół %{resource_name}"
+      assembly_member:
+        create: "%{user_name} utworzył %{resource_name} element w %{space_name} zespole"
+        delete: "%{user_name} usunął %{resource_name} element z %{space_name} zespołu"
+        update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
       assembly_user_role:
         create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
         delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
@@ -154,6 +216,8 @@ pl:
       admin:
         assemblies:
           form:
+            duration_help: Jeśli czas trwania tego zestawu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
+            included_at_help: Wybierz datę dodania tego zestawu do Decidim. To niekoniecznie musi być takie samo jak data utworzenia.
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
             select_an_assembly_type: Wybierz typ zespołu
@@ -162,6 +226,23 @@ pl:
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        assembly_members:
+          form:
+            existing_user: Istniejący użytkownik
+            non_user: Brak użytkownika
+            select_a_position: Wybierz pozycję
+            select_user: Wybierz użytkownika
+            user_type: Rodzaj użytkownika
+          index:
+            filter:
+              all: Wszystko
+              ceased: Przestałem
+              not_ceased: Nie przestał
+            filter_by: Filtruj według
+            search: Szukaj
+      assembly_members:
+        index:
+          members: Członkowie
       assembly_types:
         commission: Prowizja
         consultative_advisory: Konsultacyjne / doradcze
@@ -181,6 +262,9 @@ pl:
           highlighted_assemblies:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
+        user_profile:
+          member_of:
+            member_of: Członkiem
       show:
         area: Powierzchnia
         assembly_type: Typ zespołu
@@ -224,6 +308,11 @@ pl:
         surveys_count: Ankiety
         users_count: Uczestnicy
         votes_count: Głosowania
+    assembly_members:
+      assembly_member:
+        designated_on: Wyznaczony na
+      index:
+        title: Członkowie
     log:
       value_types:
         assembly_presenter:
@@ -240,10 +329,17 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaż"
+            few: "%{count} złożeń"
+            many: "%{count} złożeń"
+            other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział
       assembly_header:
+        assembly_member_menu_item: Członkowie
         assembly_menu_item: Zgromadzenie
         unfold: Rozwiń
       assembly_widgets:

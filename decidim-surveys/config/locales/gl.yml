@@ -14,6 +14,17 @@ gl:
             choices:
               missing: non están completos
               too_many: son demasiados
+    models:
+      decidim/surveys/closed_survey_event: A investigación finalizou
+      decidim/surveys/opened_survey_event: Iniciouse a enquisa
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquisa
+        other: Enquisas
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostas
   decidim:
     components:
       surveys:
@@ -97,5 +108,8 @@ gl:
             title: A enquisa respondeu
           survey_closed:
             body: A enquisa está pechada e non se pode responder.
+            title: Enquisa pechada
+          survey_for_private_users:
+            body: A enquisa só está dispoñible para usuarios privados
             title: Enquisa pechada
           tos_agreement: Ao participar nesta enquisa aceptas as Condicións de servizo

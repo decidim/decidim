@@ -9,17 +9,17 @@ module Decidim
         include Concerns::AssemblyAdmin
 
         def index
-          authorize! :read, Decidim::AssemblyUserRole
+          enforce_permission_to :index, :assembly_user_role
           @assembly_user_roles = collection
         end
 
         def new
-          authorize! :create, Decidim::AssemblyUserRole
+          enforce_permission_to :create, :assembly_user_role
           @form = form(AssemblyUserRoleForm).instance
         end
 
         def create
-          authorize! :create, Decidim::AssemblyUserRole
+          enforce_permission_to :create, :assembly_user_role
           @form = form(AssemblyUserRoleForm).from_params(params)
 
           CreateAssemblyAdmin.call(@form, current_user, current_assembly) do
@@ -36,13 +36,13 @@ module Decidim
 
         def edit
           @user_role = collection.find(params[:id])
-          authorize! :update, @user_role
+          enforce_permission_to :update, :assembly_user_role, user_role: @user_role
           @form = form(AssemblyUserRoleForm).from_model(@user_role.user)
         end
 
         def update
           @user_role = collection.find(params[:id])
-          authorize! :update, @user_role
+          enforce_permission_to :update, :assembly_user_role, user_role: @user_role
           @form = form(AssemblyUserRoleForm).from_params(params)
 
           UpdateAssemblyAdmin.call(@form, @user_role) do
@@ -60,7 +60,7 @@ module Decidim
 
         def destroy
           @assembly_user_role = collection.find(params[:id])
-          authorize! :destroy, @assembly_user_role
+          enforce_permission_to :destroy, :assembly_user_role, user_role: @assembly_user_role
 
           DestroyAssemblyAdmin.call(@assembly_user_role, current_user) do
             on(:ok) do
@@ -72,7 +72,7 @@ module Decidim
 
         def resend_invitation
           @user_role = collection.find(params[:id])
-          authorize! :invite, @user_role
+          enforce_permission_to :invite, :assembly_user_role, user_role: @user_role
 
           InviteUserAgain.call(@user_role.user, "invite_admin") do
             on(:ok) do

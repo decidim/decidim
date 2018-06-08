@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const webpackConfigUtils = require("webpack-config-utils");
 const getIfUtils = webpackConfigUtils.getIfUtils;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
@@ -12,6 +13,7 @@ module.exports = env => {
 
   const config = {
     entry: {
+      admin: "./decidim-admin/app/frontend/entry.ts",
       comments: "./decidim-comments/app/frontend/entry.ts",
     },
     output: {
@@ -32,7 +34,7 @@ module.exports = env => {
         },
         {
           test: /\.tsx?$/,
-          loaders: ["babel-loader", "awesome-typescript-loader"],
+          loaders: ["babel-loader", "ts-loader"],
         },
         {
           test: /\.js.es6$/,
@@ -59,6 +61,14 @@ module.exports = env => {
           test: require.resolve("jquery"),
           loader: "expose-loader?$",
         },
+        {
+          test: /\.scss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader",
+            "sass-loader"
+          ]
+        }
       ],
     },
     plugins: [
@@ -73,6 +83,9 @@ module.exports = env => {
         reportFilename: "webpack.report.html",
         openAnalyzer: false,
       }),
+      new MiniCssExtractPlugin({
+        filename: "decidim-[name]/app/assets/stylesheets/decidim/[name]/bundle.scss"
+      })
     ],
   };
   return config;

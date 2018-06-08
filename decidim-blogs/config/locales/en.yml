@@ -1,5 +1,13 @@
 ---
 en:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: New blog post
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Posts
   decidim:
     blogs:
       actions:
@@ -38,8 +46,8 @@ en:
             created_at: Created at
             title: title
       posts:
-        author_data:
-          comments: comments
+        show:
+          view: View
         sidebar_blog:
           comments: comments
           most_commented_posts: Most commented posts
@@ -61,10 +69,10 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New post published in %{participatory_space_title}
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posts
     participatory_processes:
-      statistics:
-        posts_count: Posts
-  pages:
-    home:
       statistics:
         posts_count: Posts

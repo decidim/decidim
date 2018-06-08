@@ -1,18 +1,20 @@
-<% if can? :vote, initiative %>
-    <%= action_authorized_button_to :vote,
-                                    vote_label,
-                                    initiative_initiative_vote_path(initiative_slug: initiative.slug),
-                                    remote: true,
-                                    data: { disable: true },
-                                    class: "card__button button expanded button--sc" %>
+<% if allowed_to? :vote, :initiative, initiative: initiative %>
+  <%= button_to(
+    vote_label,
+    initiative_initiative_vote_path(initiative_slug: current_initiative.slug),
+    remote: true,
+    data: { disable: true },
+    class: "card__button button expanded button--sc"
+  ) %>
 <% end %>
 
-<% if can? :unvote, initiative %>
-    <%= action_authorized_button_to :vote,
-                                    unvote_label,
-                                    initiative_initiative_vote_path(initiative_slug: initiative.slug),
-                                    method: :delete,
-                                    remote: true,
-                                    data: { disable: true },
-                                    class: "card__button button expanded button--sc success" %>
+<% if allowed_to? :unvote, :initiative, initiative: initiative %>
+  <%= button_to(
+    vote_label,
+    initiative_initiative_vote_path(initiative_slug: current_initiative.slug),
+    method: :delete,
+    remote: true,
+    data: { disable: true },
+    class: "card__button button expanded button--sc success"
+  ) %>
 <% end %>

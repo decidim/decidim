@@ -1,6 +1,10 @@
 uk:
   activemodel:
     attributes:
+      agenda:
+        description: Опис
+        duration: Тривалість
+        title: Заголовок
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
@@ -10,35 +14,154 @@ uk:
       meeting:
         address: Адреса
         available_slots: Наявні місця на цю зустріч
-        decidim_category_id: Розділ
-        decidim_scope_id: Терен
+        decidim_category_id: Розряд
+        decidim_scope_id: Обсяг
         description: Опис
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
-        title: Заголовок
+        title: Назва
+        transparent: Прозора
+      minutes:
+        audio_url: Веб-адреса аудіозапису
+        description: Опис
+        video_url: Веб-адреса відеозапису
+        visible: Видимий
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
+              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
+    models:
+      decidim/meetings/close_meeting_event: Зустріч закрито
+      decidim/meetings/create_meeting_event: Зустріч
+      decidim/meetings/meeting_registrations_enabled_event: Реєстрацію відкрито
+      decidim/meetings/meeting_registrations_over_percentage_event: Перевищено межу кількості зареєстрованих
+      decidim/meetings/upcoming_meeting_event: Прийдешня зустріч
+      decidim/meetings/update_meeting_event: Зустріч оновлено
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Зустріч
+        few: Зустрічі
+        many: Зустрічей
+        other: Зустрічей
+      decidim/meetings/minutes:
+        one: Протокол
+        few: Протоколи
+        many: Протоколів
+        other: Протоколів
+      decidim/meetings/registration:
+        one: Зареєстрований
+        few: Зареєстрованих
+        many: Зареєстрованих
+        other: Зареєстрованих
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: При спробі створити копію цієї зустрічі сталася помилка.
+          success: Успішно створено копію зустрічі.
+        new:
+          copy: Скопіювати
+          select: Оберіть відомості, копію яких ви хотіли б створити
+          title: Створити копію зустрічі
+    components:
+      meetings:
+        actions:
+          join: Долучитись
+        name: Зустрічі
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі увімкнено
+            default_registration_terms: Умови реєстрації за умовчанням
+          step:
+            announcement: Оголошення
+            comments_blocked: Коментарі вимкнено
     events:
       meetings:
         meeting_closed:
           email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" було завершено
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
+        meeting_created:
+          email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана зустріч "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: До %{participatory_space_title} додано нову зустріч
+          notification_title: До %{participatory_space_title} була додано зустріч <a href="%{resource_path}">%{resource_title}</a>
+        meeting_registrations_over_percentage:
+          email_intro: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць.
+          email_outro: Ви отримали це сповіщення, оскільки ви адміністратор простору співучасті цієї зустрічі.
+          email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
+          notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
+        meeting_updated:
+          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" було оновлено
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
+        registrations_enabled:
+          email_intro: 'Розпочалася реєстрація на зустріч "%{resource_title}". Ви можете зареєструватися на сторінці:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Розпочато реєстрацію на зустріч "%{resource_title}".
+          notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
+          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
       actions:
-        attachment_collections: Збірки
+        agenda: Порядок денний
+        attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Нова
+        minutes: Протокол
+        new: Додати
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Створити вкладене питання для даного питання порядку денного
+            agenda_item: Питання порядку денного
+            agenda_item_children: Вкладені питання для даного питання порядку денного
+            down: Донизу
+            remove: Видалити
+            up: Догори
+          agenda_item_child:
+            agenda_item_child: Вкладене питання для даного питання порядку денного
+            down: Донизу
+            remove: Видалити
+            up: Догори
+          create:
+            invalid: При спробі створити цей порядок денний сталася помилка
+            success: Порядок денний успішно створено
+          edit:
+            title: Редагувати порядок денний
+            update: Оновити
+          form:
+            add_agenda_item: Додати питання порядку денного
+            agenda_items: Питання порядку денного
+            end_date: Дата закінчення
+            start_date: Дата початку
+          new:
+            create: Створити
+            title: Додати порядок денний
+          update:
+            invalid: При спробі оновити цей порядок денний сталася помилка
+            success: Порядок денний успішно оновлено
         exports:
           registrations: Реєстрації
         invite_join_meeting_mailer:
@@ -47,7 +170,7 @@ uk:
             join: Долучитись до зустрічі '%{meeting_title}'
         invites:
           create:
-            error: При спробі запросити учасника на зустріч виникла проблема.
+            error: При спробі запросити учасника на зустріч сталася помилка.
             success: Учасника успішно запрошено на зустріч.
           new:
             explanation: Учасника буде запрошено на зустріч. Якщо його адресу електронної пошти не зареєстровано, його буде також запрошено до організації.
@@ -57,25 +180,52 @@ uk:
           edit:
             close: Закрити
             title: Закрити зустріч
+        meeting_copies:
+          form:
+            select_organizer: Оберіть організатора
         meetings:
           close:
-            invalid: При спробі закрити цю зустріч виникла проблема
+            invalid: При спробі закрити цю зустріч сталася помилка
             success: Зустріч успішно завершено
           create:
-            invalid: При спробі створити цю зустріч виникла проблема
+            invalid: При спробі додати цю зустріч сталася помилка
             success: Зустріч успішно додано
           destroy:
             success: Зустріч успішно видалено
           edit:
             update: Оновити
+          form:
+            select_organizer: Оберіть організатора
           index:
             title: Зустрічі
           new:
-            create: Створити
+            create: Додати
             title: Додати зустріч
+          service:
+            description: Опис
+            down: Донизу
+            remove: Видалити
+            service: Послуга
+            title: Назва
+            up: Догори
+          services:
+            add_service: Додати послугу
+            services: Послуги
           update:
-            invalid: При спробі оновити цю зустріч виникла проблема
+            invalid: При спробі оновити цю зустріч сталася помилка
             success: Зустріч успішно оновлено
+        minutes:
+          create:
+            invalid: При спробі створити цей протокол сталася помилка
+            success: Протокол успішно створено
+          edit:
+            update: Оновити
+          new:
+            create: Додати
+            title: Додати протокол
+          update:
+            invalid: При спробі оновити цей протокол сталася помилка
+            success: Протокол успішно оновлено
         models:
           meeting:
             name: Зустріч
@@ -90,9 +240,24 @@ uk:
               few: Зареєструвалось %{count} людей.
               many: Зареєструвалось %{count} людей.
               other: Зареєструвалось %{count} людей.
+            reserved_slots_help: Залиште його 0, якщо у вас немає заброньованих місць
+            reserved_slots_less_than: Має бути меншим або рівним %{count}
           update:
-            invalid: При спробі зберегти налаштування реєстрації виникла проблема.
+            invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
+      admin_log:
+        meeting:
+          close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
+          create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
+          delete: "%{user_name} видалив зустріч %{resource_name} у просторі %{space_name}"
+          export_registrations: "%{user_name} зберіг у вигляді файлу список зареєстрованих на зустріч %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив зустріч %{resource_name} у просторі %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
+        minutes:
+          create: "%{user_name} створив протокол зустрічі %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив протокол зустрічі %{resource_name} у просторі %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -100,10 +265,12 @@ uk:
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
+      meeting:
+        not_allowed: У вас нема прав на перегляд цієї зустрічі
       meetings:
         filters:
-          category: Розділ
-          category_prompt: Оберіть розділ
+          category: Розряд
+          category_prompt: Оберіть розряд
           date: Дата
           past: Минулі
           search: Шукати
@@ -115,6 +282,9 @@ uk:
           unfold: Розгорнути
         index:
           view_meeting: Переглянути зустріч
+        meeting_minutes:
+          meeting_minutes: Протокол зустрічі
+          related_information: Супутні відомості
         meetings:
           no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
@@ -134,6 +304,7 @@ uk:
             few: "Залишилось %{count} місця"
             many: "Залишилось %{count} місць"
             other: "Залишилось %{count} місць"
+          view: Переглянути
       models:
         meeting:
           fields:
@@ -141,19 +312,22 @@ uk:
             end_time: Дата закінчення
             map: Мапа
             start_time: Дата початку
-            title: Заголовок
+            title: Назва
       read_more: "(читати далі)"
       registration_mailer:
         confirmation:
           confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
-          details: Відомості про зустріч читайте у вкладенні.
+          details: Детальні відомості про зустріч читайте у вкладенні.
       registrations:
         create:
-          invalid: При спробі долучитися до цієї зустрічі виникла проблема.
+          invalid: При спробі долучитися до цієї зустрічі сталася помилка.
           success: Ви успішно долучилися до цієї зустрічі.
         destroy:
-          invalid: При спробі скасувати реєстрацію на цю зустріч виникла проблема.
+          invalid: При спробі скасувати реєстрацію на цю зустріч сталася помилка.
           success: Ви успішно скасували реєстрацію на зустріч.
+      types:
+        private_meeting: Приватна зустріч
+        transparent: Прозора
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -164,13 +338,15 @@ uk:
         past_meetings: Минулі зустрічі
         see_all_meetings: Переглянути всі зустрічі
         upcoming_meetings: Прийдешні зустрічі
+      upcoming_meeting_for_card:
+        upcoming_meeting: Прийдешня зустріч
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Пов''язані підсумки:'
-        result_meetings: 'Пов''язані зустрічі:'
+        meeting_result: 'Пов''язані підсумки:'
+        result_meeting: 'Пов''язані зустрічі:'
       proposals_from_meeting:
-        meeting_proposals: 'Супутні пропозиції:'
-        proposal_meetings: 'Пов''язані зустрічі:'
+        meeting_proposal: 'Супутні пропозиції:'
+        proposal_meeting: 'Пов''язані зустрічі:'
   devise:
     mailer:
       join_meeting:

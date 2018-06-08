@@ -7,6 +7,7 @@ Decidim.register_component(:surveys) do |component|
   component.admin_engine = Decidim::Surveys::AdminEngine
   component.icon = "decidim/surveys/icon.svg"
   component.stylesheet = "decidim/surveys/surveys"
+  component.permissions_class_name = "Decidim::Surveys::Permissions"
 
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
@@ -44,16 +45,6 @@ Decidim.register_component(:surveys) do |component|
     settings.attribute :allow_answers, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
-
-  # component.register_resource do |resource|
-  #   # Register a optional resource that can be references from other resources.
-  #   resource.model_class_name = "Decidim::Surveys::SomeResource"
-  #   resource.template = "decidim/surveys/some_resources/linked_some_resources"
-  # end
-
-  # component.register_stat :some_stat do |context, start_at, end_at|
-  #   # Register some stat number to the application
-  # end
 
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|

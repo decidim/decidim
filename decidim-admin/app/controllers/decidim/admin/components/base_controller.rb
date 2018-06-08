@@ -6,10 +6,10 @@ module Decidim
       # This controller is the abstract class from which all component
       # controllers in their admin engines should inherit from.
       class BaseController < Admin::ApplicationController
-        skip_authorize_resource
         include Settings
 
         include Decidim::Admin::ParticipatorySpaceAdminContext
+        include Decidim::NeedsPermission
         participatory_space_admin_layout
 
         helper Decidim::ResourceHelper
@@ -21,11 +21,27 @@ module Decidim
                       :parent_path
 
         before_action except: [:index, :show] do
-          authorize! :manage, current_component
+          enforce_permission_to :manage, :component, component: current_component
         end
 
         before_action on: [:index, :show] do
-          authorize! :read, current_component
+          enforce_permission_to :read, :component, component: current_component
+        end
+
+        def permissions_context
+          super.merge(participatory_space: current_participatory_space)
+        end
+
+        def permission_class_chain
+          [
+            current_component.manifest.permissions_class,
+            current_participatory_space.manifest.permissions_class,
+            Decidim::Admin::Permissions
+          ]
+        end
+
+        def permission_scope
+          :admin
         end
 
         def current_component

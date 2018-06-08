@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing all the attachment collections for an assembly.
       #
-      class AssemblyAttachmentCollectionsController < Decidim::Admin::ApplicationController
+      class AssemblyAttachmentCollectionsController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasAttachmentCollections
 

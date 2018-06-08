@@ -66,3 +66,45 @@
   max-height: 50vh;
   overflow-y: scroll;
 }
+
+// Make parent relative to absolute positioning children
+.absolutes{
+  position: relative;
+
+  .left,
+  .right,
+  .top,
+  .bottom{
+    position: absolute;
+  }
+
+  .left{
+    left: 0;
+  }
+
+  .right{
+    right: 0;
+  }
+
+  .top{
+    top: 0;
+  }
+
+  .bottom{
+    bottom: 0;
+  }
+
+  .left,
+  .right{
+    &.center{
+      @include vertical-center;
+    }
+  }
+
+  .top,
+  .bottom{
+    &.center{
+      @include horizontal-center;
+    }
+  }
+}

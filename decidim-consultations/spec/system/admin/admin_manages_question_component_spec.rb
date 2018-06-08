@@ -10,7 +10,7 @@ describe "Admin manages consultation components", type: :system do
 
   before do
     switch_to_host(organization.host)
-    login_as user, scope: :user, run_callbacks: false
+    login_as user, scope: :user
   end
 
   describe "add a component" do

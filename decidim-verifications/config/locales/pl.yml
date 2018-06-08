@@ -51,6 +51,7 @@ pl:
           success: Pomyślnie autoryzowano.
         first_login:
           actions:
+            another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
             dummy_authorization_handler: Sprawdź na przykładzie przykładowej procedury autoryzacji
             dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
             id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
@@ -62,6 +63,12 @@ pl:
           authorize_with: Zweryfikuj przy pomocy %{authorizer}
         skip_verification: Możesz teraz pominąć to i %{link}
         start_exploring: zacznij odkrywać
+      dummy_authorization:
+        extra_explanation:
+          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
+          few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
+          many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
+          other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

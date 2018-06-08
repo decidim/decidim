@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/settings_manifest"
+
 module Decidim
   module Verifications
     autoload :DefaultActionAuthorizer, "decidim/verifications/default_action_authorizer"
@@ -62,6 +64,26 @@ module Decidim
         else
           DefaultActionAuthorizer
         end
+      end
+
+      # Public: Adds configurable settings for this verification workflow. It
+      # uses the DSL specified under `Decidim::SettingsManifest`.
+      #
+      # &block - The DSL present on `Decidim::SettingsManifest`
+      #
+      # Examples:
+      #
+      #   workflow.options do |options|
+      #     options.attribute :minimum_age, type: :integer, default: 18
+      #   end
+      #
+      # Returns nothing.
+      def options
+        @options ||= SettingsManifest.new
+
+        yield(@options) if block_given?
+
+        @options
       end
     end
   end

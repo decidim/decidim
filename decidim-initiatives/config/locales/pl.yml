@@ -32,6 +32,23 @@ pl:
         address: Adres
         id_document: CIF
         name: Pełne imię
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        few: Inicjatywy
+        many: Inicjatywy
+        other: Inicjatywy
+      decidim/initiative_comittee:
+        one: Komitet
+        few: Komitety
+        many: Komitety
+        other: Komitety
+      decidim/initiative_vote:
+        one: Podpis
+        few: Podpisy
+        many: Podpisy
+        other: Podpisy
   decidim:
     admin:
       menu:
@@ -57,6 +74,13 @@ pl:
       titles:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowy kamień milowy zakończony!
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
     initiatives:
       admin:
         committee_requests:
@@ -214,10 +238,16 @@ pl:
         title: Inicjatywy
       initiative_votes:
         create:
-          error: Podczas głosowania nad inicjatywą wystąpiły błędy.
+          error: Podczas podpisywania inicjatywy wystąpiły błędy.
       initiatives:
         author:
           deleted: Usunięto
+        author_list:
+          hidden_authors_count:
+            one: i jeszcze 1 osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
         count:
           title:
             one: "%{count} inicjatywa"
@@ -244,7 +274,7 @@ pl:
         orders:
           label: 'Sortuj inicjatywy według:'
           most_commented: Najczęściej komentowane
-          most_voted: Większość głosów
+          most_voted: Większość podpisana
           random: Losowy
           recent: Najnowszy
         result:
@@ -255,24 +285,23 @@ pl:
           offline_method: Ta inicjatywa obywatelska zbiera jedynie osobiste wsparcie.
         signature_identities:
           select_identity: Wybierz tożsamość użytkownika
+        signatures_count:
+          one: " podpis"
+          few: " podpisy"
+          many: " podpisy"
+          other: " podpisy"
         statistics:
           assistants_count_title: Asystenci
           comments_count_title: Komentarze
           meetings_count_title: Spotkania
-          supports_count_title: Adhesions
+          supports_count_title: Podpisy
         supports:
-          title: Lista zrostów
-        supports_count:
-          count:
-            one: " wsparcie"
-            few: " obsługuje"
-            many: " obsługuje"
-            other: " obsługuje"
+          title: Lista podpisów
         vote_cabin:
-          already_voted: Już głosowałem
-          supports_required: "%{total_supports} głosów wymaganych"
+          already_voted: Już podpisane
+          supports_required: "Wymagane %{total_supports} podpisów"
           vote: Znak
-          votes_blocked: Głosowanie wyłączone
+          votes_blocked: Podpisywanie wyłączone
         votes_count:
           count:
             one: PODPIS

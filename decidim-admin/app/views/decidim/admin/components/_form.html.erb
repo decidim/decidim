@@ -17,12 +17,12 @@
             <div class="card-section">
               <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
-                          locals: {
-                            form: settings_fields,
-                            component: @component,
-                            settings_name: "global",
-                            tabs_prefix: "global-settings"
-                          } %>
+                           locals: {
+                             form: settings_fields,
+                             component: @component,
+                             settings_name: "global",
+                             tabs_prefix: "global-settings"
+                           } %>
               <% end %>
             </div>
           </div>

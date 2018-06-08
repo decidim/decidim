@@ -35,6 +35,7 @@ ca:
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
+        private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
@@ -43,15 +44,36 @@ ca:
         short_description: Descripció breu
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
+        special_features: Característiques especials
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Aniversari
+        birthplace: Lloc de naixement
+        ceased_date: Data de cessament
+        designation_date: Data de designació
+        designation_mode: Mode de designació
+        full_name: Nom complet
+        gender: Gènere
+        position: Posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assemblea
+        other: Assemblees
+      decidim/assembly_member:
+        one: Membre de l'assemblea
+        other: Membres de l'assemblea
+      decidim/assembly_user_role:
+        one: Rol d'usuari de l'assemblea
+        other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
       assemblies:
@@ -84,6 +106,23 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Assemblea duplicada
+      assembly_members:
+        create:
+          error: S'ha produït un error en afegir un membre per a aquest assemblea.
+          success: Membre creat amb èxit per a aquesta assemblea.
+        destroy:
+          success: Membre destruït amb èxit per a aquesta assemblea.
+        edit:
+          title: Actualitza el membre de l'assemblea.
+          update: Actualitza
+        index:
+          assembly_members_title: Membres de l'assemblea
+        new:
+          create: Crear
+          title: Nou membre de l'assemblea.
+        update:
+          error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
+          success: Membre actualitzat amb èxit per a aquesta assemblea.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
@@ -112,6 +151,7 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
+          assembly_members: Membres
           attachment_collections: Col·leccions
           attachment_files: Fitxers
           attachments: Adjunts
@@ -129,6 +169,18 @@ ca:
             published: Publicat
             title: Títol
           name: Assemblea
+        assembly_member:
+          fields:
+            ceased_date: Data de cessament
+            designation_date: Data de designació
+            full_name: Nom
+            position: Posició
+          name: Membre
+          positions:
+            other: Un altre
+            president: President
+            secretary: Secretari
+            vice_president: Vicepresident
         assembly_user_role:
           fields:
             email: Correu electrònic
@@ -147,6 +199,10 @@ ca:
         publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
+      assembly_member:
+        create: "%{user_name} ha afegit el membre %{resource_name} a l'assemblea %{space_name}"
+        delete: "%{user_name} esborrat el membre %{resource_name} de l'assemblea %{space_name}"
+        update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
@@ -155,6 +211,8 @@ ca:
       admin:
         assemblies:
           form:
+            duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus d'assemblea
@@ -163,6 +221,23 @@ ca:
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuari existent
+            non_user: No usuari
+            select_a_position: Selecciona una posició
+            select_user: Selecciona un usuari
+            user_type: Tipus d'usuari
+          index:
+            filter:
+              all: Tots
+              ceased: Cessat
+              not_ceased: No cessat
+            filter_by: Filtra per
+            search: Cerca
+      assembly_members:
+        index:
+          members: Membres
       assembly_types:
         commission: Comissió
         consultative_advisory: Consultiva / assessora
@@ -182,6 +257,9 @@ ca:
           highlighted_assemblies:
             active_assemblies: Assemblees actives
             see_all_assemblies: Veure totes les assemblees
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Àrea
         assembly_type: Tipus d'assemblea
@@ -225,6 +303,11 @@ ca:
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
+    assembly_members:
+      assembly_member:
+        designated_on: Designat a
+      index:
+        title: Membres
     log:
       value_types:
         assembly_presenter:
@@ -249,6 +332,7 @@ ca:
           more_info: Més informació
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblea
         unfold: Desplega
       assembly_widgets:

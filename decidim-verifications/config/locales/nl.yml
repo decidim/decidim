@@ -51,6 +51,7 @@ nl:
           success: U bent geautoriseerd.
         first_login:
           actions:
+            another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
             dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
             dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
             id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden

@@ -8,12 +8,17 @@ fr:
         description: Description
         proposal_ids: Propositions liées
         title: Titre
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projet
+        other: Projets
   decidim:
     budgets:
       actions:
         attachment_collections: Dossiers
         attachments: Pièces jointes
-        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet ?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau
@@ -40,7 +45,7 @@ fr:
             create: Créer
             title: Nouveau résultat
           update:
-            invalid: Il y a eu un problème de mise à jour de ce projet
+            invalid: Il y a eu un problème lors de mise à jour de ce projet
             success: Projet mis à jour avec succès
       admin_log:
         project:
@@ -99,6 +104,7 @@ fr:
             one: 1 soutien
             other: "%{count} soutiens"
           remove: Supprimer
+          view: Voir
         project_budget_button:
           add: Ajouter
           added: Ajouté
@@ -131,7 +137,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposals: 'Propositions incluses dans ce projet:'
+        project_proposal: 'Propositions incluses dans ce projet:'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total

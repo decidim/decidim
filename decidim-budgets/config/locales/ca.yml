@@ -9,6 +9,11 @@ ca:
         description: Descripció
         proposal_ids: Propostes relacionades
         title: Títol
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projecte
+        other: Projectes
   decidim:
     budgets:
       actions:
@@ -100,6 +105,7 @@ ca:
             one: 1 suport
             other: "%{count} suports"
           remove: Esborrar
+          view: Veure
         project_budget_button:
           add: Afegir
           added: Afegit
@@ -132,7 +138,7 @@ ca:
         success: El seu vot ha estat cancel·lat correctament
     resource_links:
       included_proposals:
-        project_proposals: 'Propostes incloses en aquest projecte:'
+        project_proposal: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Recompte de vots
   total_budget: Pressupost total

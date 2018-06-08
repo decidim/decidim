@@ -31,6 +31,8 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
+Capybara.server = :puma, { Silent: true }
+
 Capybara.asset_host = "http://localhost:3000"
 
 Capybara.server_errors = [SyntaxError, StandardError]

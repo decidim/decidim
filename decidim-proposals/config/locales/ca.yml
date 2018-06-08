@@ -17,6 +17,37 @@ ca:
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
         origin_component_id: Component des d'on copiar les propostes
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita tornar a pujar-se
+    models:
+      decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
+      decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
+      decidim/proposals/creation_enabled_event: S'ha activat la creació de la proposta
+      decidim/proposals/endorsing_enabled_event: Les propostes admeten adhesions
+      decidim/proposals/evaluating_proposal_event: S'està avaluant la proposta
+      decidim/proposals/proposal_endorsed_event: Proposta aprovada
+      decidim/proposals/proposal_mentioned_event: Proposta esmentada
+      decidim/proposals/publish_proposal_event: Proposta publicada
+      decidim/proposals/rejected_proposal_event: S'ha rebutjat la proposta
+      decidim/proposals/voting_enabled_event: S'ha habilitat la votació de propostes
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Proposta
+        other: Propostes
+      decidim/proposals/proposal_endorsement:
+        one: Adhesió
+        other: Adhesions
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Notes
+      decidim/proposals/proposal_vote:
+        one: Vot
+        other: Vots
   decidim:
     components:
       proposals:
@@ -49,8 +80,8 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Bloquejar adhesions
-            endorsements_enabled: Adhesions habilitades
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -115,16 +146,10 @@ ca:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostes
-        proposal:
-          creation_date: 'Data de creació: %{date}'
-          view_proposal: Veure proposta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propostes
         see_all_proposals: Veure totes les propostes
-      proposal:
-        creation_date: 'Creació: %{date}'
-        view_proposal: Veure proposta
     proposals:
       actions:
         answer: Respondre
@@ -221,6 +246,7 @@ ca:
             category: Categoria
             comments: Comentaris
             created_at: Creat el
+            endorsements: Adhesions
             id: ID
             notes: Notes
             official_proposal: Proposta oficial
@@ -270,6 +296,7 @@ ca:
         endorsement_identities_cabin:
           endorse: Adherir-se
         endorsements_card_row:
+          comments: Comentaris
           endorse: Adherir-se
         filters:
           accepted: Acceptades
@@ -279,6 +306,7 @@ ca:
           category_prompt: Selecciona una categoria
           citizens: Ciutadania
           evaluating: En avaluació
+          except_rejected: Totes menys rebutjades
           official: Oficial
           origin: Origen
           rejected: Rebutjades
@@ -291,10 +319,6 @@ ca:
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
-        identities_listing:
-          see_all: Veure tot
-          see_less: Veure menys
-          title: Llista d'adhesions
         index:
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
@@ -323,6 +347,10 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Llista d'adhesions
+          hidden_endorsers_count:
+            one: i 1 persona més
+            other: i %{count} persones més
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
@@ -355,7 +383,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser acceptat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validat, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
@@ -382,9 +410,9 @@ ca:
         success: El projecte de proposta s'ha actualitzat correctament.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propostes relacionades
+        proposal_proposal: Propostes relacionades
       included_projects:
-        project_results: 'Resultats que apareixen en aquest projecte:'
+        project_result: 'Resultats que apareixen en aquest projecte:'
       included_proposals:
-        proposal_projects: 'Proposta formulada en aquests projectes:'
-        proposal_results: 'La proposta apareix en aquests resultats:'
+        proposal_project: 'Proposta formulada en aquests projectes:'
+        proposal_result: 'La proposta apareix en aquests resultats:'

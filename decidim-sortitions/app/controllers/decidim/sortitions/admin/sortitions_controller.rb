@@ -11,16 +11,18 @@ module Decidim
         def index; end
 
         def show
-          authorize! :show, sortition
+          enforce_permission_to :read, :sortition, sortition: sortition
         end
 
         def edit
-          authorize! :update, sortition
+          enforce_permission_to :update, :sortition, sortition: sortition
+
           @form = edit_sortition_form.from_model(sortition, current_participatory_space: current_participatory_space)
         end
 
         def update
-          authorize! :update, sortition
+          enforce_permission_to :update, :sortition, sortition: sortition
+
           @form = edit_sortition_form.from_params(params, current_participatory_space: current_participatory_space)
           UpdateSortition.call(@form) do
             on(:ok) do |_sortition|
@@ -36,12 +38,14 @@ module Decidim
         end
 
         def new
-          authorize! :create, Sortition
+          enforce_permission_to :create, :sortition
+
           @form = sortition_form.instance(current_participatory_space: current_participatory_space)
         end
 
         def create
-          authorize! :create, Sortition
+          enforce_permission_to :create, :sortition
+
           @form = sortition_form.from_params(params, current_participatory_space: current_participatory_space)
           CreateSortition.call(@form) do
             on(:ok) do |sortition|
@@ -57,12 +61,14 @@ module Decidim
         end
 
         def confirm_destroy
-          authorize! :destroy, sortition
+          enforce_permission_to :destroy, :sortition, sortition: sortition
+
           @form = destroy_sortition_form.from_model(sortition, current_participatory_space: current_participatory_space)
         end
 
         def destroy
-          authorize! :destroy, sortition
+          enforce_permission_to :destroy, :sortition, sortition: sortition
+
           @form = destroy_sortition_form.from_params(params, current_participatory_space: current_participatory_space)
           DestroySortition.call(@form) do
             on(:ok) do |_sortition|
@@ -93,10 +99,6 @@ module Decidim
 
         def proposal_components
           ParticipatorySpaceProposalComponents.for(current_participatory_space)
-        end
-
-        def ability_context
-          super.merge(current_participatory_space: current_participatory_space)
         end
       end
     end

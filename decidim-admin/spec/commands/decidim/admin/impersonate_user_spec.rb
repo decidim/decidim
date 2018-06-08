@@ -29,7 +29,7 @@ module Decidim::Admin
       )
     end
     let(:handler) do
-      Decidim::DummyAuthorizationHandler.from_params(
+      DummyAuthorizationHandler.from_params(
         document_number: document_number,
         user: user
       )

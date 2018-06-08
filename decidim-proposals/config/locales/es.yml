@@ -17,6 +17,37 @@ es:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+    models:
+      decidim/proposals/accepted_proposal_event: Propuesta aceptada
+      decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
+      decidim/proposals/creation_enabled_event: Creación de propuesta habilitada
+      decidim/proposals/endorsing_enabled_event: Aprobación de propuesta habilitada
+      decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
+      decidim/proposals/proposal_endorsed_event: Adherido/a
+      decidim/proposals/proposal_mentioned_event: Propuesta mencionada
+      decidim/proposals/publish_proposal_event: Propuesta publicada
+      decidim/proposals/rejected_proposal_event: Propuesta rechazada
+      decidim/proposals/voting_enabled_event: Votación de propuestas habilitada
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Propuesta
+        other: Propuestas
+      decidim/proposals/proposal_endorsement:
+        one: Adhesión
+        other: Adhesiones
+      decidim/proposals/proposal_note:
+        one: Nota
+        other: Notas
+      decidim/proposals/proposal_vote:
+        one: Voto
+        other: Votos
   decidim:
     components:
       proposals:
@@ -65,7 +96,7 @@ es:
         endorsing_enabled:
           email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La reivindicación de propuestas ha comenzado para %{participatory_space_title}
+          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
@@ -115,16 +146,10 @@ es:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propuestas
-        proposal:
-          creation_date: 'Creación: %{date}'
-          view_proposal: Ver propuesta
     participatory_spaces:
       highlighted_proposals:
         proposals: Propuestas
         see_all_proposals: Ver todas las propuestas
-      proposal:
-        creation_date: 'Creación: %{date}'
-        view_proposal: Ver propuesta
     proposals:
       actions:
         answer: Respuesta
@@ -221,6 +246,7 @@ es:
             category: Categoría
             comments: Comentarios
             created_at: Creado el
+            endorsements: Adhesión
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
@@ -258,7 +284,7 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          back: Atrás
+          back: Volver
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
@@ -270,6 +296,7 @@ es:
         endorsement_identities_cabin:
           endorse: Adherirse
         endorsements_card_row:
+          comments: Comentarios
           endorse: Adherirse
         filters:
           accepted: Aceptadas
@@ -279,6 +306,7 @@ es:
           category_prompt: Selecciona una categoría
           citizens: Ciudadanía
           evaluating: En evaluación
+          except_rejected: Todos excepto rechazados
           official: Oficial
           origin: Origen
           rejected: Rechazadas
@@ -291,10 +319,6 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        identities_listing:
-          see_all: Ver todo
-          see_less: Ver menos
-          title: Lista de adhesiones
         index:
           new_proposal: Nueva propuesta
           see_all_withdrawn: Ver todas las propuestas retiradas
@@ -323,6 +347,10 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
+          endorsements_list: Lista de adhesiones
+          hidden_endorsers_count:
+            one: y 1 persona más
+            other: y %{count} personas más
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -355,14 +383,14 @@ es:
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser aceptado, las propuestas deben llegar a %{limit} apoyos
+            description: Para ser validadas, las propuestas deben llegar a %{limit} apoyos
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
             votes: Votos
         wizard_aside:
-          back: Atrás
+          back: Volver
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
@@ -382,9 +410,9 @@ es:
         success: Borrador de propuesta actualizado con éxito.
     resource_links:
       copied_from_component:
-        proposal_proposals: Propuestas relacionadas
+        proposal_proposal: Propuestas relacionadas
       included_projects:
-        project_results: 'Resultados que aparecen en este proyecto:'
+        project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_projects: 'Propuesta formulada en estos proyectos:'
-        proposal_results: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta formulada en estos proyectos:'
+        proposal_result: 'Propuesta formulada en estos resultados:'

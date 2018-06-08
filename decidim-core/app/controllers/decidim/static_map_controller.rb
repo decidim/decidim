@@ -2,8 +2,6 @@
 
 module Decidim
   class StaticMapController < Decidim::ApplicationController
-    skip_authorization_check
-
     def show
       send_data StaticMapGenerator.new(resource).data, type: "image/jpeg", disposition: "inline"
     end

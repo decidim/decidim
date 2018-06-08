@@ -3,18 +3,16 @@
 module Decidim
   module Initiatives
     # Exposes the initiative vote resource so users can vote initiatives.
-    class InitiativeVotesController < Decidim::ApplicationController
+    class InitiativeVotesController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
 
       before_action :authenticate_user!
 
-      helper Decidim::ActionAuthorizationHelper
       helper InitiativeHelper
-      include Decidim::Initiatives::ActionAuthorization
 
       # POST /initiatives/:initiative_id/initiative_vote
       def create
-        authorize! :vote, current_initiative
+        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: params[:group_id]
         VoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload
@@ -31,25 +29,13 @@ module Decidim
 
       # DELETE /initiatives/:initiative_id/initiative_vote
       def destroy
-        authorize! :unvote, current_initiative
+        enforce_permission_to :unvote, :initiative, initiative: current_initiative, group_id: params[:group_id]
         UnvoteInitiative.call(current_initiative, current_user, params[:group_id]) do
           on(:ok) do
             current_initiative.reload
             render :update_buttons_and_counters
           end
         end
-      end
-
-      private
-
-      def ability_context
-        {
-          current_settings: try(:current_settings),
-          component_settings: try(:component_settings),
-          current_organization: try(:current_organization),
-          current_component: try(:current_component),
-          params: try(:params)
-        }
       end
     end
   end

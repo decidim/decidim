@@ -71,14 +71,14 @@ __Decidim::Initiatives.first_notification_percentage__ and __Decidim::Initiative
 
 Author, members of the promoter committee and followers will receive it.
 
-## Exporting online votes
+## Exporting online signatures
 
-When the supporting method is set to any or face to face it may be necessary to implement
-a mechanism to validate that do not exist duplicated supports. To do so the engine provides
-a functionality that allows exporting the online votes to validate them against physical
-votes.
+When the signature method is set to any or face to face it may be necessary to implement
+a mechanism to validate that there are no duplicated signatures. To do so the engine provides
+a functionality that allows exporting the online signatures to validate them against physical
+signatures.
 
-The votes are exported as a hash string in order to preserve the identity of the voter.
+The signatures are exported as a hash string in order to preserve the identity of the signer together with her privacy.
 Each hash is composed with the following criteria:
 
 * Algorithm used: SHA1

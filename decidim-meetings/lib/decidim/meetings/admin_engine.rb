@@ -19,9 +19,11 @@ module Decidim
               get :export
             end
           end
+          resources :agenda, except: [:index, :destroy]
           resources :attachment_collections
           resources :attachments
           resources :copies, controller: "meeting_copies", only: [:new, :create]
+          resources :minutes, except: [:show, :index]
         end
         root to: "meetings#index"
       end

@@ -17,6 +17,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :introductory_video_url, String
         attribute :introductory_image, String
+        attribute :remove_introductory_image
         attribute :decidim_highlighted_scope_id, Integer
         attribute :start_voting_date, Date
         attribute :end_voting_date, Date

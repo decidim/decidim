@@ -8,6 +8,11 @@ fi:
         description: Kuvaus
         proposal_ids: Liittyvät esitykset
         title: Otsikko
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: projekti
+        other: projektit
   decidim:
     budgets:
       actions:
@@ -99,6 +104,7 @@ fi:
             one: 1 kannatus
             other: "%{count} kannatusta"
           remove: Poista
+          view: näkymä
         project_budget_button:
           add: Lisää
           added: Lisätty
@@ -131,7 +137,7 @@ fi:
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
-        project_proposals: 'Tähän projektiin liittyvät ehdotukset:'
+        project_proposal: 'Tähän projektiin liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
   total_budget: Koko budjetti

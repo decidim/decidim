@@ -39,8 +39,6 @@ module Decidim
         template "app/controllers/decidim/component/admin/application_controller.rb.erb", "#{app_folder}/controllers/decidim/#{component_name}/admin/application_controller.rb"
         template "app/helpers/decidim/component/application_helper.rb.erb", "#{app_folder}/helpers/decidim/#{component_name}/application_helper.rb"
         template "app/models/decidim/component/application_record.rb.erb", "#{app_folder}/models/decidim/#{component_name}/application_record.rb"
-        template "app/models/decidim/component/abilities/admin/admin_ability.rb.erb", "#{app_folder}/models/decidim/#{component_name}/abilities/admin/admin_ability.rb"
-        template "app/models/decidim/component/abilities/current_user_ability.rb.erb", "#{app_folder}/models/decidim/#{component_name}/abilities/current_user_ability.rb"
 
         bin_folder = "#{component_folder}/bin"
         template "bin/rails.erb", "#{bin_folder}/rails"

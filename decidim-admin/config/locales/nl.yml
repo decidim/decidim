@@ -64,6 +64,7 @@ nl:
         omnipresent_banner_url: URL
         reference_prefix: Referentievoorvoegsel
         show_statistics: Toon statistieken
+        tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         welcome_text: Welkomsttekst
         youtube_handler: YouTube gebruikersnaam
@@ -79,6 +80,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       static_page:
+        changed_notably: Er zijn merkbare veranderingen geweest.
         content: Inhoud
         organization: Organisatie
         slug: URL slug
@@ -210,6 +212,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
           success: Bijlage is succesvol bijgewerkt.
+      autocomplete:
+        no_results: geen resultaten gevonden
+        search_prompt: Typ minimaal drie tekens om te zoeken
       categories:
         create:
           error: Er is een fout opgetreden bij het maken van deze categorie.
@@ -571,8 +576,11 @@ nl:
         destroy:
           success: Pagina succesvol vernietigd
         edit:
+          changed_notably_help: Indien ingeschakeld, zullen gebruikers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
+        index:
+          last_notable_change: Laatste opvallende verandering
         new:
           create: creëren
           title: Nieuwe pagina

@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing all the attachments for a participatory
       # assembly.
       #
-      class AssemblyAttachmentsController < Decidim::Admin::ApplicationController
+      class AssemblyAttachmentsController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasAttachments
 

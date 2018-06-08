@@ -6,10 +6,17 @@ en:
         additional_info: Sortition information
         decidim_category_id: Categories of the set of proposals in which you want to apply the draw
         decidim_proposals_component_id: Proposals set
-        dice: Result of die roll (roll a 6-sided die (or look for another random way to generate a number from 1 to 6) and enter here, as opposed to witness the resulting number, this contributes to the quality and guarantees of the randomness of the result
+        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
         title: Title
         witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -24,6 +31,10 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New sortition added to %{participatory_space_title}
           notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -77,7 +88,7 @@ en:
             selected_proposals: Proposals selected for draw
           update:
             error: There was an error updating the sortition.
-            success: Sortition successfully update
+            success: Sortition successfully updated
       admin_log:
         sortition:
           create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
@@ -107,8 +118,6 @@ en:
           label: 'Order sortitions by:'
           random: Random
           recent: Recent
-        proposal:
-          view_proposal: View proposal
         results_count:
           count:
             one: selected proposal
@@ -132,10 +141,11 @@ en:
           time_seed: "(2) Time seed"
           witnesses: Witnesses
         sortition:
+          random_seed: Random seed
           selected_proposals:
-            one: 1 proposal selected
-            other: "%{count} proposals selected"
-          view_sortition: View sortition
+            one: proposal selected
+            other: proposals selected
+          view: View
         sortition_author:
           deleted: Deleted user
         sortition_cancel_author:
@@ -144,7 +154,3 @@ en:
           count:
             one: 1 sortition
             other: "%{count} sortitions"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

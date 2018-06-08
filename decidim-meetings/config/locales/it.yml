@@ -1,6 +1,10 @@
 it:
   activemodel:
     attributes:
+      agenda:
+        description: Descrizione
+        duration: Durata
+        title: Titolo
       close_meeting:
         attendees_count: Numero di partecipanti
         attending_organizations: Elenco delle organizzazioni partecipanti
@@ -16,10 +20,42 @@ it:
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        private_meeting: Incontro privato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
         title: Titolo
+        transparent: Trasparente
+      minutes:
+        audio_url: URL audio
+        description: Descrizione
+        video_url: URL del video
+        visible: È visibile
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
+              too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
+    models:
+      decidim/meetings/close_meeting_event: Riunione chiusa
+      decidim/meetings/create_meeting_event: Incontro
+      decidim/meetings/meeting_registrations_enabled_event: Registrazioni abilitate
+      decidim/meetings/meeting_registrations_over_percentage_event: Iscrizioni oltre il limite
+      decidim/meetings/upcoming_meeting_event: Prossimo incontro
+      decidim/meetings/update_meeting_event: Riunione aggiornata
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Incontro
+        other: incontri
+      decidim/meetings/minutes:
+        one: Minuti
+        other: Minuti
+      decidim/meetings/registration:
+        one: Registrazione
+        other: iscrizioni
   decidim:
     admin:
       meeting_copies:
@@ -77,17 +113,49 @@ it:
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
     meetings:
       actions:
+        agenda: ordine del giorno
         attachment_collections: collezioni
         attachments: Allegati
         close: Chiuso
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
+        minutes: Minuti
         new: Nuovo
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Aggiungi bambino oggetto agenda
+            agenda_item: Oggetto dell'ordine del giorno
+            agenda_item_children: Oggetto del calendario Childs
+            down: Giù
+            remove: Rimuovere
+            up: Su
+          agenda_item_child:
+            agenda_item_child: Articolo Agenda Bambino
+            down: Giù
+            remove: Rimuovere
+            up: Su
+          create:
+            invalid: C'è stato un problema nel creare questo programma
+            success: Agenda creata con successo
+          edit:
+            title: Modifica agenda
+            update: Aggiornare
+          form:
+            add_agenda_item: Aggiungi l'oggetto agenda
+            agenda_items: Elementi dell'ordine del giorno
+            end_date: Data di fine
+            start_date: Data d'inizio
+          new:
+            create: Creare
+            title: Nuova agenda
+          update:
+            invalid: C'è stato un problema nell'aggiornare questo programma
+            success: Agenda aggiornata con successo
         exports:
           registrations: Iscrizioni
         invite_join_meeting_mailer:
@@ -106,6 +174,9 @@ it:
           edit:
             close: Chiudi
             title: Chiusura meeting
+        meeting_copies:
+          form:
+            select_organizer: Seleziona l'organizzatore
         meetings:
           close:
             invalid: C'è stato un problema durante la chiusura di questo meeting.
@@ -117,6 +188,8 @@ it:
             success: OK, il meeting è stato cancellato.
           edit:
             update: Modifica
+          form:
+            select_organizer: Seleziona l'organizzatore
           index:
             title: Riunioni
           new:
@@ -135,6 +208,18 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
+        minutes:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questi minuti
+            success: Minuti creati con successo
+          edit:
+            update: Aggiornare
+          new:
+            create: Creare
+            title: Crea minuti
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo minuto
+            success: Minuti aggiornati con successo
         models:
           meeting:
             name: Reunione
@@ -159,6 +244,12 @@ it:
           delete: "%{user_name} ha eliminato la riunione %{resource_name} nello spazio %{space_name}"
           export_registrations: "%{user_name} esportate le registrazioni della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato la riunione %{resource_name} sullo spazio %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+        minutes:
+          create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -166,6 +257,8 @@ it:
         registration_mailer:
           confirmation:
             subject: La tua registrazione alla riunione è stata confermata
+      meeting:
+        not_allowed: Non sei autorizzato a visualizzare questo incontro
       meetings:
         filters:
           category: Categoria
@@ -181,6 +274,9 @@ it:
           unfold: Espandi
         index:
           view_meeting: Visualizza meeting
+        meeting_minutes:
+          meeting_minutes: Riunione dei verbali
+          related_information: Informazioni correlate
         meetings:
           no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
@@ -198,6 +294,7 @@ it:
           remaining_slots:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
+          view: vista
       models:
         meeting:
           fields:
@@ -218,6 +315,9 @@ it:
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
+      types:
+        private_meeting: Incontro privato
+        transparent: Trasparente
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -228,13 +328,15 @@ it:
         past_meetings: Incontri passati
         see_all_meetings: Vedi tutte le riunioni
         upcoming_meetings: Prossimi incontri
+      upcoming_meeting_for_card:
+        upcoming_meeting: Prossimo incontro
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Risultati correlati:'
-        result_meetings: 'Meeting correlati:'
+        meeting_result: 'Risultati correlati:'
+        result_meeting: 'Meeting correlati:'
       proposals_from_meeting:
-        meeting_proposals: 'Proposte correlate:'
-        proposal_meetings: 'Meeting correlati alle proposte:'
+        meeting_proposal: 'Proposte correlate:'
+        proposal_meeting: 'Meeting correlati:'
   devise:
     mailer:
       join_meeting:

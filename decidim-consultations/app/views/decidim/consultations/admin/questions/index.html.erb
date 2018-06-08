@@ -4,7 +4,7 @@
       <%= t "decidim.admin.titles.questions" %>
       <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.question.name", scope: "decidim.admin")),
                   new_consultation_question_path(current_consultation),
-                  class: "button tiny button--title" if can? :create, Decidim::Consultations::Question %>
+                  class: "button tiny button--title" if allowed_to? :create, :question %>
     </h2>
   </div>
   <div class="card-section">
@@ -22,11 +22,11 @@
           <% @questions.each do |question| %>
             <tr>
               <td>
-                <% if can? :update, question %>
+                <% if allowed_to? :update, :question, question: question %>
                   <%= link_to decidim_sanitize(translated_attribute(question.title)),
                               edit_question_path(question) %>
                   <br />
-                <% elsif can? :preview, question %>
+                <% elsif allowed_to? :preview, :question, question: question %>
                   <%= link_to translated_attribute(question.title),
                               decidim_consultations.question_path(question),
                               target: "_blank" %>
@@ -50,14 +50,14 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, question %>
+                <% if allowed_to? :update, :question, question: question %>
                   <%= icon_link_to "pencil",
                                    edit_question_path(question),
                                    t("actions.configure", scope: "decidim.admin"),
                                    class: "action-icon--edit" %>
                 <% end %>
 
-                <% if can? :preview, question %>
+                <% if allowed_to? :preview, :question, question: question %>
                   <%= icon_link_to "eye",
                                    decidim_consultations.question_path(question),
                                    t("actions.preview", scope: "decidim.admin"),

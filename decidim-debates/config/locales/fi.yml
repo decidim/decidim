@@ -11,6 +11,15 @@ fi:
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
+    models:
+      decidim/debates/create_debate_event: Keskustelu
+      decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
+      decidim/debates/creation_enabled_event: Keskustelut käytössä
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Keskustelu
+        other: keskustelut
   decidim:
     components:
       debates:
@@ -66,9 +75,6 @@ fi:
           invalid: Luotaessa keskustelua tapahtui virhe.
           success: Keskustelu luotu onnistuneesti.
         debate:
-          comments:
-            one: Kommentti
-            other: Kommenttia
           participate: Osallistu
         filters:
           all: Kaikki
@@ -94,9 +100,6 @@ fi:
           close_window: Sulje ikkuna
           share: Jaa
           share_link: Jaa linkki
-        show:
-          comments: Kommentit
-          report: Raportti
       models:
         debate:
           fields:

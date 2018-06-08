@@ -75,14 +75,6 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_participatory_processes_manifest.js)
       end
 
-      initializer "decidim_participatory_processes.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::ParticipatoryProcesses::Abilities::Admin::AdminAbility"
-          ]
-        end
-      end
-
       initializer "decidim_participatory_processes.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
@@ -90,14 +82,14 @@ module Decidim
                     icon_name: "target",
                     position: 2,
                     active: :inclusive,
-                    if: can?(:read, Decidim::ParticipatoryProcess)
+                    if: allowed_to?(:enter, :space_area, space_name: :processes)
 
           menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
                     decidim_admin_participatory_processes.participatory_process_groups_path,
                     icon_name: "layers",
                     position: 3,
                     active: :inclusive,
-                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
+                    if: allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
     end

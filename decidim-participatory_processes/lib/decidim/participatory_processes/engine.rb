@@ -43,13 +43,9 @@ module Decidim
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
 
-      initializer "decidim_participatory_processes.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += [
-            "Decidim::ParticipatoryProcesses::Abilities::EveryoneAbility",
-            "Decidim::ParticipatoryProcesses::Abilities::AdminAbility"
-          ]
-        end
+      initializer "decidim_participatory_processes.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_participatory_processes.menu" do

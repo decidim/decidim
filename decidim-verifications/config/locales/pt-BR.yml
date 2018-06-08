@@ -51,6 +51,7 @@ pt-BR:
           success: Você foi autorizado com sucesso.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
             dummy_authorization_handler: Verifique contra o manipulador de autorização de exemplo
             dummy_authorization_workflow: Verifique o exemplo de fluxo de trabalho de autorização
             id_documents: Seja verificado ao fazer o upload do documento de identidade

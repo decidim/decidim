@@ -101,7 +101,8 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
-$border: 1px solid $medium-gray !default;
+$border-width: 1px !default;
+$border: $border-width solid $medium-gray !default;
 
 @include add-foundation-colors;
 
@@ -833,7 +834,7 @@ $titlebar-icon-spacing: .25rem;
 // -----------
 
 $has-tip-cursor: pointer;
-$has-tip-font-weight: $global-weight-bold;
+$has-tip-font-weight: $global-weight-normal;
 $has-tip-border-bottom: 0;
 $tooltip-background-color: $black;
 $tooltip-color: $white;

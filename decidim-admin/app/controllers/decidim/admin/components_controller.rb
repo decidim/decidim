@@ -9,13 +9,13 @@ module Decidim
       helper_method :manifest, :current_participatory_space
 
       def index
-        authorize! :read, Component
+        enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests
         @components = current_participatory_space.components
       end
 
       def new
-        authorize! :create, Component
+        enforce_permission_to :create, :component
 
         @component = Component.new(
           name: default_name(manifest),
@@ -28,7 +28,7 @@ module Decidim
 
       def create
         @form = form(ComponentForm).from_params(params)
-        authorize! :create, Component
+        enforce_permission_to :create, :component
 
         CreateComponent.call(manifest, @form, current_participatory_space) do
           on(:ok) do
@@ -45,7 +45,7 @@ module Decidim
 
       def edit
         @component = query_scope.find(params[:id])
-        authorize! :update, @component
+        enforce_permission_to :update, :component, component: @component
 
         @form = form(ComponentForm).from_model(@component)
       end
@@ -53,7 +53,7 @@ module Decidim
       def update
         @component = query_scope.find(params[:id])
         @form = form(ComponentForm).from_params(params)
-        authorize! :update, @component
+        enforce_permission_to :update, :component, component: @component
 
         UpdateComponent.call(@form, @component) do
           on(:ok) do |settings_changed, previous_settings, current_settings|
@@ -72,7 +72,7 @@ module Decidim
 
       def destroy
         @component = query_scope.find(params[:id])
-        authorize! :destroy, @component
+        enforce_permission_to :destroy, :component, component: @component
 
         DestroyComponent.call(@component, current_user) do
           on(:ok) do
@@ -89,7 +89,7 @@ module Decidim
 
       def publish
         @component = query_scope.find(params[:id])
-        authorize! :update, @component
+        enforce_permission_to :publish, :component, component: @component
 
         PublishComponent.call(@component, current_user) do
           on(:ok) do
@@ -101,7 +101,7 @@ module Decidim
 
       def unpublish
         @component = query_scope.find(params[:id])
-        authorize! :update, @component
+        enforce_permission_to :unpublish, :component, component: @component
 
         UnpublishComponent.call(@component, current_user) do
           on(:ok) do

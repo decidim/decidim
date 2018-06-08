@@ -34,6 +34,7 @@ eu:
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
+        private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Argitaratu at
         purpose_of_action: Ekintza xedea
@@ -42,15 +43,36 @@ eu:
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         slug: URL laburra
+        special_features: Ezaugarri bereziak
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Prozesu partizipatiboen multzoak
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Urtebetetze
+        birthplace: sorlekua
+        ceased_date: Data amaitua
+        designation_date: Deuseztapen data
+        designation_mode: Izendapen modua
+        full_name: Izen osoa
+        gender: Generoa
+        position: Kargua
       assembly_user_role:
         email: Emaila
         name: izena
         role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Batzar
+        other: Batzar
+      decidim/assembly_member:
+        one: Batzar kidea
+        other: Batzar kideak
+      decidim/assembly_user_role:
+        one: Batzar erabiltzaileen rola
+        other: Batzar erabiltzailearen rolak
   decidim:
     admin:
       assemblies:
@@ -83,6 +105,23 @@ eu:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Kopiatu batzarra
+      assembly_members:
+        create:
+          error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
+          success: Batzar hau arrakastaz sortu da.
+        destroy:
+          success: Kidea izan da behar bezala suntsitu muntaia honetarako.
+        edit:
+          title: Eguneratu muntaia kidea.
+          update: eguneratzearen
+        index:
+          assembly_members_title: Batzar kideak
+        new:
+          create: Sortu
+          title: Batzar berria kide.
+        update:
+          error: Errore bat gertatu da kidea bistaratzeko muntaia honetarako.
+          success: Batzar hau behar bezala eguneratu da.
       assembly_publications:
         create:
           error: Errorea gertatu da batzar hau bikoiztean.
@@ -111,6 +150,7 @@ eu:
         assemblies: Biltzarrak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
+          assembly_members: Bazkideek
           attachment_collections: Bilduma
           attachment_files: Fitxategiak
           attachments: Eranskinak
@@ -128,6 +168,18 @@ eu:
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
           name: Batzarra
+        assembly_member:
+          fields:
+            ceased_date: Data amaitua
+            designation_date: Deuseztapen data
+            full_name: izena
+            position: Kargua
+          name: kidea
+          positions:
+            other: Beste
+            president: Lehendakaria
+            secretary: idazkari
+            vice_president: Lehendakariordea
         assembly_user_role:
           fields:
             email: Emaila
@@ -146,6 +198,10 @@ eu:
         publish: "%{user_name} %{resource_name} muntaia argitaratu du"
         unpublish: "%{user_name} %{resource_name} muntaia argitaratu gabe"
         update: "%{user_name} %{resource_name} muntaia eguneratu du"
+      assembly_member:
+        create: "%{user_name} sortutako %{resource_name} kidea ere %{space_name} muntaia"
+        delete: "%{user_name} kendu %{resource_name} kideetako %{space_name} muntaia"
+        update: "%{user_name} eguneratu %{resource_name} kide %{space_name} muntaia"
       assembly_user_role:
         create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
         delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
@@ -154,6 +210,8 @@ eu:
       admin:
         assemblies:
           form:
+            duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            included_at_help: Hautatu muntaia hau Decidim-era gehitu denean. Ez du derrigorrez sorkuntzako data izan behar.
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
@@ -162,6 +220,23 @@ eu:
         assembly_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        assembly_members:
+          form:
+            existing_user: Erabiltzaile existentea
+            non_user: Erabiltzailea ez
+            select_a_position: Aukeratu posizio bat
+            select_user: Aukeratu erabiltzaile bat
+            user_type: Erabiltzaile mota
+          index:
+            filter:
+              all: guztiak
+              ceased: utzi zion
+              not_ceased: Ez da gelditu
+            filter_by: Iragazi arabera
+            search: Search
+      assembly_members:
+        index:
+          members: Bazkideek
       assembly_types:
         commission: Batzordeak
         consultative_advisory: Aholku / Aholku
@@ -181,6 +256,9 @@ eu:
           highlighted_assemblies:
             active_assemblies: Batzar aktiboak
             see_all_assemblies: Ikusi muntaia guztiak
+        user_profile:
+          member_of:
+            member_of: Kidea
       show:
         area: Area
         assembly_type: Muntatze-mota
@@ -224,6 +302,11 @@ eu:
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
         votes_count: Euskarriak
+    assembly_members:
+      assembly_member:
+        designated_on: Izendatuta
+      index:
+        title: Bazkideek
     log:
       value_types:
         assembly_presenter:
@@ -248,6 +331,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
       assembly_header:
+        assembly_member_menu_item: Bazkideek
         assembly_menu_item: Biltzarra
         unfold: Zabaldu
       assembly_widgets:

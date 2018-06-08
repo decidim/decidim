@@ -5,17 +5,18 @@
         <%= link_to proposal, target: "_blank" do %>
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
-        <div class="card__author author-data author-data--small">
-          <%= render partial: "decidim/shared/author_reference", locals: { author: present(proposal).author } %>
-        </div>
+        <%= cell "decidim/author", present(proposal).author, context: {extra_classes: ["author-data--small"]} %>
+
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
         </div>
         <%= resource_reference(proposal, class: "tech-info--text-left") %>
       </div>
-      <%= render partial: "decidim/proposals/proposals/proposal_badge", locals: { proposal: proposal } %>
+
+      <%== cell("decidim/proposals/proposal_m", proposal).badge %>
+
       <p><%= truncate(proposal.body, length: 100) %></p>
-      <%= render partial: "decidim/shared/tags", locals: { resource: proposal, tags_class_extra: "tags--proposal" } %>
+      <%= cell "decidim/tags", proposal, context: {extra_classes: ["tags--proposal"]} %>
     </div>
   </article>
 </div>

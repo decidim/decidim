@@ -18,13 +18,13 @@
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
                 data-tabs>
-                <li class="tabs-title">
+                <li class="tabs-title is-active">
                   <a href="#patternTypography" aria-selected="true">Tipografía</a>
                 </li>
                 <li class="tabs-title">
                   <a href="#patternButtons">Botones</a>
                 </li>
-                <li class="tabs-title is-active">
+                <li class="tabs-title">
                   <a href="#patternIcons">Iconos</a>
                 </li>
                 <li class="tabs-title">
@@ -52,13 +52,13 @@
             <div class="main-container__content">
               <div class="tabs-content vertical"
                 data-tabs-content="pattern-library-tabs">
-                <div class="tabs-panel" id="patternTypography">
+                <div class="tabs-panel is-active" id="patternTypography">
                   <%= render partial: page_path("library") + "/library-typography" %>
                 </div>
                 <div class="tabs-panel" id="patternButtons">
                   <%= render partial: page_path("library") + "/library-buttons" %>
                 </div>
-                <div class="tabs-panel is-active" id="patternIcons">
+                <div class="tabs-panel" id="patternIcons">
                   <%= render partial: page_path("library") + "/library-icons" %>
                 </div>
                 <div class="tabs-panel" id="patternCards">

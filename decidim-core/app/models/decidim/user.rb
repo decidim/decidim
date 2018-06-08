@@ -7,16 +7,18 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     include Nicknamizable
+    include Resourceable
     include Decidim::Followable
     include Decidim::Loggable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
 
-    devise :invitable, :database_authenticatable, :registerable, :confirmable,
+    devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
-                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email]
+                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
+                          confirmation_keys: [:decidim_organization_id, :email]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
@@ -25,11 +27,13 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
+    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname, presence: true, unless: -> { deleted? || managed? }
+    validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
+    validates :tos_agreement, acceptance: true, if: :user_invited?
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
@@ -44,6 +48,10 @@ module Decidim
 
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
+
+    def user_invited?
+      invitation_token_changed? && invitation_accepted_at_changed?
+    end
 
     # Public: Allows customizing the invitation instruction email content when
     # inviting a user.
@@ -89,6 +97,28 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    # Public: Returns a collection with all the entities this user is following.
+    #
+    # This can't be done as with a `has_many :following, through: :following_follows`
+    # since it's a polymorphic relation and Rails doesn't know how to load it. With
+    # this implementation we only query the database once for each kind of following.
+    #
+    # Returns an Array of Decidim::Followable
+    def following
+      @following ||= begin
+                       followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
+                       grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
+                         all[type] ||= []
+                         all[type] << following_id
+                         all
+                       end
+
+                       grouped_followings.flat_map do |type, ids|
+                         type.constantize.where(id: ids)
+                       end
+                     end
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end
@@ -105,6 +135,12 @@ module Decidim
         email: warden_conditions[:email],
         decidim_organization_id: organization.id
       )
+    end
+
+    def tos_accepted?
+      return true if managed
+      return false if accepted_tos_version.nil?
+      accepted_tos_version >= organization.tos_version
     end
 
     protected

@@ -5,10 +5,17 @@ fi:
         additional_info: Lajitustiedot
         decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
         decidim_proposals_component_id: Ehdotukset asetettu
-        dice: Muotin rullan tulos (kierrä 6-puolinen kuolema (tai etsi toinen satunnaisesti tapa luoda numero 1-6) ja tulkaa tänne, sen sijaan, että todistat tuloksena olevan numeron, tämä edistää laadun ja takuiden satunnaisuuden lopputulos
+        dice: Tulos rullasta. Suorita 6-puolinen kuolema tai etsi toinen satunnaisesti tapa luoda numero 1-6, ja kirjoita tähän tuloksena oleva luku osan todistajien edessä. Tämä edesauttaa tuloksen satunnaisuuden laatua ja takeita
         target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
         title: otsikko
         witnesses: todistajat
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -23,6 +30,10 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
           email_subject: 'Uusi lajittelu lisättiin %{participatory_space_title}: ään'
           notification_title: 'Versio <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
@@ -76,7 +87,7 @@ fi:
             selected_proposals: Piirtämiseen valitut ehdotukset
           update:
             error: Virhe tapahtuman päivittämisessä.
-            success: Lajittelu onnistui päivittämään
+            success: Lajittelu onnistui
       admin_log:
         sortition:
           create: "%{user_name} loi %{resource_name} lajittelun %{space_name}"
@@ -106,8 +117,6 @@ fi:
           label: 'Tilaa järjestykset:'
           random: satunnainen
           recent: viimeaikainen
-        proposal:
-          view_proposal: Näytä ehdotus
         results_count:
           count:
             one: valittu ehdotus
@@ -127,10 +136,11 @@ fi:
           time_seed: "(2) Aikasementti"
           witnesses: todistajat
         sortition:
+          random_seed: Satunnainen siemen
           selected_proposals:
             one: 1 ehdotus valittu
-            other: "%{count} valitut ehdotukset"
-          view_sortition: Näytä lajittelu
+            other: '%{count} valitut ehdotukset'
+          view: näkymä
         sortition_author:
           deleted: Poistettu käyttäjä
         sortition_cancel_author:
@@ -139,7 +149,3 @@ fi:
           count:
             one: 1 lajittelu
             other: "%{count} lajittelut"
-  pages:
-    home:
-      statistics:
-        sortitions_count: Sortitions

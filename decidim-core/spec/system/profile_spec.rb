@@ -12,16 +12,26 @@ describe "Profile", type: :system do
   context "when navigating privately" do
     before do
       login_as user, scope: :user
-    end
 
-    it "shows the profile page when clicking on the menu" do
       visit decidim.root_path
 
       within_user_menu do
         find("a", text: "profile").click
       end
+    end
 
-      expect(page).to have_title(user.nickname)
+    it "shows the profile page when clicking on the menu" do
+      within "main.wrapper" do
+        expect(page).to have_content(user.nickname)
+      end
+    end
+
+    it "adds a link to edit the profile" do
+      within "main.wrapper" do
+        click_link "Edit profile"
+      end
+
+      expect(page).to have_current_path(decidim.account_path)
     end
   end
 
@@ -31,7 +41,7 @@ describe "Profile", type: :system do
     end
 
     it "shows user name in the header, its nickname and a contact link" do
-      expect(page).to have_selector("h1", text: user.name)
+      expect(page).to have_selector("h5", text: user.name)
       expect(page).to have_content(user.nickname)
       expect(page).to have_link("Contact")
     end
@@ -55,6 +65,56 @@ describe "Profile", type: :system do
 
       it "shows officialization status" do
         expect(page).to have_content("Major of Barcelona")
+      end
+    end
+
+    context "when displaying followers and following" do
+      let(:other_user) { create(:user, organization: user.organization) }
+      let(:user_to_follow) { create(:user, organization: user.organization) }
+
+      before do
+        create(:follow, user: user, followable: other_user)
+        create(:follow, user: user, followable: user_to_follow)
+        create(:follow, user: other_user, followable: user)
+        visit decidim.profile_path(user.nickname)
+      end
+
+      it "shows the number of followers and following" do
+        expect(page).to have_link("Followers 1")
+        expect(page).to have_link("Follows 2")
+      end
+
+      it "lists the followers" do
+        click_link "Followers"
+
+        expect(page).to have_content(other_user.name)
+      end
+
+      it "lists the followings" do
+        click_link "Follows"
+
+        expect(page).to have_content(other_user.name)
+        expect(page).to have_content(user_to_follow.name)
+      end
+    end
+  end
+
+  describe "view hooks" do
+    before do
+      allow(Decidim.view_hooks)
+        .to receive(:render)
+        .with(a_kind_of(Symbol), a_kind_of(ActionView::Base))
+        .and_return("Rendered from #{view_hook} view hook")
+
+      visit decidim.profile_path(user.nickname)
+    end
+
+    context "with user_profile_bottom view hook" do
+      let(:view_hook) { :user_profile_bottom }
+
+      it "renders the view hook" do
+        expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(ActionView::Base))
+        expect(page).to have_content("Rendered from user_profile_bottom view hook")
       end
     end
   end

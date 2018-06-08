@@ -33,8 +33,22 @@
         <%= form.datetime_field :end_time %>
       </div>
     </div>
-  </div>
 
+    <div class="row column">
+      <% prompt_options = { url: decidim_admin.users_organization_url, text: t(".select_organizer") } %>
+      <%= form.autocomplete_select(:organizer_id, form.object.organizer.presence, { multiple: false }, prompt_options) do |user|
+        { value: user.id, label: "#{user.name} (@#{user.nickname})" }
+      end %>
+    </div>
+
+    <div class="row column" id="private_meeting">
+      <%= form.check_box :private_meeting %>
+    </div>
+
+    <div class="row column" id="transparent">
+      <%= form.check_box :transparent %>
+    </div>
+  </div>
 </div>
 
 <%= render "decidim/meetings/admin/meetings/services", form: form %>

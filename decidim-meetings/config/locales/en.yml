@@ -2,6 +2,10 @@
 en:
   activemodel:
     attributes:
+      agenda:
+        description: Description
+        duration: Duration
+        title: Title
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -17,10 +21,42 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
+        transparent: Transparent
+      minutes:
+        audio_url: Audio url
+        description: Description
+        video_url: Video url
+        visible: Is visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+    models:
+      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+      decidim/meetings/upcoming_meeting_event: Upcoming meeting
+      decidim/meetings/update_meeting_event: Meeting updated
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Meeting
+        other: Meetings
+      decidim/meetings/minutes:
+        one: Minutes
+        other: Minutes
+      decidim/meetings/registration:
+        one: Registration
+        other: Registrations
   decidim:
     admin:
       meeting_copies:
@@ -78,17 +114,49 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     meetings:
       actions:
+        agenda: Agenda
         attachment_collections: Collections
         attachments: Attachments
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
+        minutes: Minutes
         new: New
         preview: Preview
         registrations: Registrations
         title: Actions
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Add agenda item child
+            agenda_item: Agenda Item
+            agenda_item_children: Agenda Item Childs
+            down: Down
+            remove: Remove
+            up: Up
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Down
+            remove: Remove
+            up: Up
+          create:
+            invalid: There's been a problem creating this agenda
+            success: Agenda successfully created
+          edit:
+            title: Edit agenda
+            update: Update
+          form:
+            add_agenda_item: Add agenda item
+            agenda_items: Agenda items
+            end_date: End date
+            start_date: Start date
+          new:
+            create: Create
+            title: New agenda
+          update:
+            invalid: There's been a problem updating this agenda
+            success: Agenda successfully updated
         exports:
           registrations: Registrations
         invite_join_meeting_mailer:
@@ -107,6 +175,9 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There's been a problem closing this meeting
@@ -118,6 +189,8 @@ en:
             success: Meeting successfully deleted
           edit:
             update: Update
+          form:
+            select_organizer: Select the organizer
           index:
             title: Meetings
           new:
@@ -136,6 +209,18 @@ en:
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated
+        minutes:
+          create:
+            invalid: There's been a problem creating this minutes
+            success: Minutes successfully created
+          edit:
+            update: Update
+          new:
+            create: Create
+            title: Create minutes
+          update:
+            invalid: There's been a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
             name: Meeting
@@ -161,6 +246,12 @@ en:
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          value_types:
+            organizer_presenter:
+              not_found: 'The organizer was not found on the database (ID: %{id})'
+        minutes:
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -168,6 +259,8 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
+      meeting:
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
           category: Category
@@ -183,6 +276,9 @@ en:
           unfold: Unfold
         index:
           view_meeting: View meeting
+        meeting_minutes:
+          meeting_minutes: Meeting Minutes
+          related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
@@ -201,6 +297,7 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+          view: View
       models:
         meeting:
           fields:
@@ -221,6 +318,9 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+      types:
+        private_meeting: Private meeting
+        transparent: Transparent
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -231,13 +331,15 @@ en:
         past_meetings: Past meetings
         see_all_meetings: See all meetings
         upcoming_meetings: Upcoming meetings
+      upcoming_meeting_for_card:
+        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Related results:'
-        result_meetings: 'Related meetings:'
+        meeting_result: 'Related results:'
+        result_meeting: 'Related meetings:'
       proposals_from_meeting:
-        meeting_proposals: 'Related proposals:'
-        proposal_meetings: 'Related meetings:'
+        meeting_proposal: 'Related proposals:'
+        proposal_meeting: 'Related meetings:'
   devise:
     mailer:
       join_meeting:

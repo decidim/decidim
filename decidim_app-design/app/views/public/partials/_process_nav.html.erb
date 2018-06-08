@@ -26,6 +26,12 @@
         <span>Propostes</span>
       </div>
     <% end %>
+    <% if @activepage == "initiatives" %>
+      <div class="process-nav__link">
+        <%= icon "initiatives" %>
+        <span>Initiatives</span>
+      </div>
+    <% end %>
     <% if @activepage == "debates" %>
       <div class="process-nav__link">
         <%= icon "debates" %>
@@ -36,6 +42,18 @@
       <div class="process-nav__link">
         <%= icon "actions" %>
         <span>Resultats</span>
+      </div>
+    <% end %>
+    <% if @activepage == "assemblies" %>
+      <div class="process-nav__link">
+        <%= icon "assemblies" %>
+        <span>Assemblees</span>
+      </div>
+    <% end %>
+    <% if @activepage == "blog" %>
+      <div class="process-nav__link">
+        <%= icon "blog" %>
+        <span>Blog</span>
       </div>
     <% end %>
   </button>
@@ -51,7 +69,7 @@
       </li>
       <li class="<% if @activepage == "meetings" %>is-active
                  <% end %>">
-        <%= link_to page_path("meetings"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
+        <%= link_to page_path("meetings/meetings"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
 
           <%= icon "meetings" %>
           <span>Trobades</span>
@@ -62,6 +80,13 @@
         <%= link_to page_path("proposals/proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
           <%= icon "proposals" %>
           <span>Propostes</span>
+        <% end %>
+      </li>
+      <li class="<% if @activepage == "initiatives" %>is-active
+                 <% end %>">
+        <%= link_to page_path("initiatives/initiatives"), class: "process-nav__link #{'is-active' if @activepage == 'initiatives'}" do %>
+          <%= icon "initiatives" %>
+          <span>Iniciatives</span>
         <% end %>
       </li>
       <li class="<% if @activepage == "debates" %>is-active
@@ -77,6 +102,20 @@
         <%= link_to page_path("results"), class: "process-nav__link #{'is-active' if @activepage == 'results'}" do %>
           <%= icon "actions" %>
           <span>Resultados</span>
+        <% end %>
+      </li>
+      <li class="<% if @activepage == "assemblies" %>is-active
+                 <% end %>">
+        <%= link_to page_path("assemblies/assemblies"), class: "process-nav__link #{'is-active' if @activepage == 'assemblies'}" do %>
+          <%= icon "assemblies" %>
+          <span>Assemblees</span>
+        <% end %>
+      </li>
+      <li class="<% if @activepage == "blog" %>is-active
+                 <% end %>">
+        <%= link_to page_path("blog"), class: "process-nav__link #{'is-active' if @activepage == 'blog'}" do %>
+          <%= icon "blog" %>
+          <span>Blog</span>
         <% end %>
       </li>
     </ul>

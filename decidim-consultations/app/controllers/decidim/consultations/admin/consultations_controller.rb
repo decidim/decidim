@@ -9,19 +9,19 @@ module Decidim
 
         # GET /admin/consultations
         def index
-          authorize! :index, Decidim::Consultation
+          enforce_permission_to :read, :consultation
           @consultations = collection
         end
 
         # GET /admin/consultations/new
         def new
-          authorize! :new, Consultation
+          enforce_permission_to :create, :consultation
           @form = consultation_form.instance
         end
 
         # POST /admin/consultations
         def create
-          authorize! :create, Consultation
+          enforce_permission_to :create, :consultation
           @form = consultation_form.from_params(params)
 
           CreateConsultation.call(@form) do
@@ -39,14 +39,14 @@ module Decidim
 
         # GET /admin/consultations/:slug/edit
         def edit
-          authorize! :edit, current_consultation
+          enforce_permission_to :update, :consultation, consultation: current_consultation
           @form = consultation_form.from_model(current_consultation)
           render layout: "decidim/admin/consultation"
         end
 
         # PUT /admin/initiatives/:id
         def update
-          authorize! :update, current_consultation
+          enforce_permission_to :update, :consultation, consultation: current_consultation
 
           @form = consultation_form
                   .from_params(params.except(:slug), consultation_id: current_consultation.id)
@@ -65,7 +65,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, current_consultation
+          enforce_permission_to :destroy, :consultation, consultation: current_consultation
           current_consultation.destroy!
 
           flash[:notice] = I18n.t("consultations.destroy.success", scope: "decidim.admin")
@@ -85,10 +85,6 @@ module Decidim
 
         def collection
           @collection ||= OrganizationConsultations.new(current_user.organization).query
-        end
-
-        def ability_context
-          super.merge(current_consultation: current_consultation)
         end
 
         def consultation_form

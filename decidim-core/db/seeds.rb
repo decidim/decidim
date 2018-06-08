@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 if !Rails.env.production? || ENV["SEED"]
+  print "Creating seeds for decidim-core...\n" unless Rails.env.test?
+
   require "decidim/faker/localized"
 
   seeds_root = File.join(__dir__, "seeds")
@@ -21,37 +23,40 @@ if !Rails.env.production? || ENV["SEED"]
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
-    available_authorizations: Decidim.authorization_workflows.map(&:name)
+    available_authorizations: Decidim.authorization_workflows.map(&:name),
+    tos_version: Time.current
   )
 
-  province = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("province"),
-    plural: Decidim::Faker::Localized.literal("provinces"),
-    organization: organization
-  )
-
-  municipality = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("municipality"),
-    plural: Decidim::Faker::Localized.literal("municipalities"),
-    organization: organization
-  )
-
-  3.times do
-    parent = Decidim::Scope.create!(
-      name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-      code: Faker::Address.unique.country_code,
-      scope_type: province,
+  if organization.top_scopes.none?
+    province = Decidim::ScopeType.create!(
+      name: Decidim::Faker::Localized.literal("province"),
+      plural: Decidim::Faker::Localized.literal("provinces"),
       organization: organization
     )
 
-    5.times do
-      Decidim::Scope.create!(
-        name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
-        code: parent.code + "-" + Faker::Address.unique.state_abbr,
-        scope_type: municipality,
-        organization: organization,
-        parent: parent
+    municipality = Decidim::ScopeType.create!(
+      name: Decidim::Faker::Localized.literal("municipality"),
+      plural: Decidim::Faker::Localized.literal("municipalities"),
+      organization: organization
+    )
+
+    3.times do
+      parent = Decidim::Scope.create!(
+        name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
+        code: Faker::Address.unique.country_code,
+        scope_type: province,
+        organization: organization
       )
+
+      5.times do
+        Decidim::Scope.create!(
+          name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
+          code: parent.code + "-" + Faker::Address.unique.state_abbr,
+          scope_type: municipality,
+          organization: organization,
+          parent: parent
+        )
+      end
     end
   end
 
@@ -96,7 +101,8 @@ if !Rails.env.production? || ENV["SEED"]
     admin: true,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2)
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
@@ -111,7 +117,8 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2)
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
 
   Decidim::Messaging::Conversation.start!(

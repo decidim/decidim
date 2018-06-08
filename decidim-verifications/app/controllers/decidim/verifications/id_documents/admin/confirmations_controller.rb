@@ -13,13 +13,13 @@ module Decidim
           before_action :load_pending_authorization
 
           def new
-            authorize! :update, @pending_authorization
+            enforce_permission_to :update, :authorization, authorization: @pending_authorization
 
             @form = InformationForm.new
           end
 
           def create
-            authorize! :update, @pending_authorization
+            enforce_permission_to :update, :authorization, authorization: @pending_authorization
 
             @form = InformationForm.from_params(params)
 

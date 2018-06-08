@@ -1,7 +1,7 @@
 <article class="message">
   <div class="message__header">
     <div class="card__author author-data author-data--small">
-      <%= render "decidim/shared/author_reference", author: present(message.sender) %>
+      <%= cell "decidim/author", present(message.sender), context: {extra_classes: ["author-data--small"]} %>
 
       <time datetime="<%= message.created_at.utc %>">
         <%= message.friendly_created_at %>

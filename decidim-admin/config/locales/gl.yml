@@ -64,6 +64,7 @@ gl:
         omnipresent_banner_url: URL
         reference_prefix: Prefijo de referencia
         show_statistics: Amosar estatísticas
+        tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
         welcome_text: Texto de benvida
         youtube_handler: Xestor de YouTube
@@ -79,6 +80,7 @@ gl:
         organization: Organización
         plural: Plural
       static_page:
+        changed_notably: Houbo cambios notables.
         content: Contido
         organization: Organización
         slug: URL slug
@@ -210,6 +212,9 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este anexo.
           success: Adxunto actualizado correctamente.
+      autocomplete:
+        no_results: Non se atoparon resultados
+        search_prompt: Escriba polo menos tres caracteres para buscar
       categories:
         create:
           error: Houbo un erro ao crear esta categoría.
@@ -571,8 +576,11 @@ gl:
         destroy:
           success: Páxina destruída con éxito
         edit:
+          changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
+        index:
+          last_notable_change: Último cambio notable
         new:
           create: Crear
           title: Nova páxina

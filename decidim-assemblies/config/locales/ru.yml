@@ -2,118 +2,326 @@ ru:
   activemodel:
     attributes:
       assembly:
+        area_id: Участок
+        assembly_type: Вид собрания
+        assembly_type_other: Другой вид собрания
         banner_image: Изображение баннера
-        copy_categories: Скопировать категории
+        closing_date: Дата закрытия
+        closing_date_reason: Причина даты закрытия
+        composition: Состав
+        copy_categories: Скопировать разряды
+        copy_components: Копировать составляющие
         copy_features: Копировать составляющие
+        created_by: 'Автор:'
+        created_by_other: Создано кем-то еще
+        creation_date: Дата создания
+        decidim_area_id: Участок
+        decidim_scope_id: Охват
         description: Описание
-        developer_group: Группа зачинателей
+        developer_group: Рабочая группа по продвижению
         domain: Домен
+        duration: Длительность
+        facebook: Фейсбук
+        github: ГитХаб
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местность
+        included_at: Включено в
+        instagram: Инстаграм
+        internal_organisation: Внутренняя организация
+        is_transparent: Прозрачное
+        local_area: Местный участок
         meta_scope: Метаданные охвата
+        participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
+        private_space: Частное пространство
         promoted: Рекламируется
+        published_at: 'Обнародовано:'
+        purpose_of_action: Цель действия
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
-        slug: Сокращенный URL-адрес
+        show_statistics: Показывать статистику
+        slug: Сокращенный веб-адрес
+        special_features: Особенности
         subtitle: Подзаголовок
         target: Цель
         title: Название
+        twitter: Твиттер
+        youtube: ЮТуб
+      assembly_member:
+        birthday: День рождения
+        birthplace: Место рождения
+        ceased_date: Дата прекращения полномочий
+        designation_date: Дата предоставления полномочий
+        designation_mode: Вид полномочий
+        full_name: Полное имя
+        gender: Пол
+        position: Должность
+      assembly_user_role:
+        email: Эл. адрес
+        name: Имя
+        role: Роль
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Собрание
+        few: Собрания
+        many: Собраний
+        other: Собраний
+      decidim/assembly_member:
+        one: Член президиума собрания
+        few: Члена президиума собрания
+        many: Членов президиума собрания
+        other: Членов президиума собрания
+      decidim/assembly_user_role:
+        one: Роль участника собрания
+        few: Роли участников собрания
+        many: Ролей участников собрания
+        other: Ролей участников собрания
   decidim:
     admin:
       assemblies:
         create:
-          error: При добавлении нового собрания произошла ошибка.
+          error: При попытке добавить новое собрание произошла ошибка.
           success: Собрание успешно добавлено.
         destroy:
           success: Собрание успешно удалено.
         edit:
           update: Обновить
         form:
-          title: Общая информация
+          title: Общие сведения
         index:
-          not_published: Не опубликовано
-          published: Опубликовано
+          not_published: Не обнародовано
+          private: Частное
+          public: Обнародованные
+          published: Обнародовано
         new:
           create: Добавить
-          title: Новое собрание
+          title: Добавить собрание
         update:
-          error: При обновлении этого собрания произошла ошибка.
+          error: При попытке обновить это собрание произошла ошибка.
           success: Собрание успешно обновлено.
       assemblies_copies:
         create:
-          error: При создании копии этого собрания произошла ошибка.
+          error: При попытке создать копию этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
       assembly_copies:
         new:
           copy: Копировать
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию собрания
+      assembly_members:
+        create:
+          error: При попытке добавить члена президиума этого собрания произошла ошибка.
+          success: Член президиума этого собрания успешно добавлен.
+        destroy:
+          success: Член президиума этого собрания успешно удален.
+        edit:
+          title: Обновить члена президиума собрания.
+          update: Обновить
+        index:
+          assembly_members_title: Члены президиума собрания
+        new:
+          create: Добавить
+          title: Добавить члена президиума собрания.
+        update:
+          error: При попытке обновить члена президиума этого собрания произошла ошибка.
+          success: Член президиума этого собрания успешно обновлен.
       assembly_publications:
         create:
-          error: При публикации этого собрания произошла ошибка.
-          success: Собрание успешно опубликовано.
+          error: При обнародовании этого собрания произошла ошибка.
+          success: Собрание успешно обнародовано.
         destroy:
-          error: При отмене публикации этого собрания произошла ошибка.
-          success: Публикация собрания успешно отменена.
+          error: При отмене обнародования этого собрания произошла ошибка.
+          success: Обнародование собрания успешно отменено.
+      assembly_user_roles:
+        create:
+          error: При попытке добавить участника этого собрания произошла ошибка.
+          success: Успешно добавлен участник этого собрания.
+        destroy:
+          success: Успешно удален участник этого собрания.
+        edit:
+          title: Обновить участника собрания.
+          update: Обновить
+        index:
+          assembly_admins_title: Участники собрания
+        new:
+          create: Добавить
+          title: Добавить участника собрания.
+        update:
+          error: При попытке обновить члена президиума этого собрания произошла ошибка.
+          success: Участник этого собрания успешно обновлен.
       menu:
         assemblies: Собрания
         assemblies_submenu:
-          attachments: Вложения
-          categories: Категории
-          info: Информация
+          assembly_admins: Участники собрания
+          assembly_members: Члены президиума
+          attachment_collections: Папки
+          attachment_files: Прикрепленные файлы
+          attachments: Прикрепленные файлы
+          categories: Разряды
+          components: Составляющие
+          info: Сведения
           moderations: Действия по модерации
+          private_users: Частные участники
       models:
         assembly:
           fields:
             created_at: 'Добавлено:'
+            private: Частное
             promoted: Рекомендуемые
-            published: Опубликовано
+            published: Обнародовано
             title: Название
           name: Собрание
+        assembly_member:
+          fields:
+            ceased_date: Дата прекращения полномочий
+            designation_date: Дата предоставления полномочий
+            full_name: Имя
+            position: Должность
+          name: Член президиума
+          positions:
+            other: Другая
+            president: Председатель
+            secretary: Секретарь
+            vice_president: Заместитель председателя
+        assembly_user_role:
+          fields:
+            email: Эл. адрес
+            name: Имя
+            role: Роль
+          name: Участник собрания
+          roles:
+            admin: Администратор
+            collaborator: Сотрудник
+            moderator: Модератор
       titles:
         assemblies: Собрания
+    admin_log:
+      assembly:
+        create: "%{user_name} добавил собрание %{resource_name}"
+        publish: "%{user_name} обнародовал собрание %{resource_name}"
+        unpublish: "%{user_name} отменил обнародование собрания %{resource_name}"
+        update: "%{user_name} обновил собрание %{resource_name}"
+      assembly_member:
+        create: "%{user_name} добавил члена президиума %{resource_name} на собрание %{space_name}"
+        delete: "%{user_name} удалил члена президиума %{resource_name} на собрание %{space_name}"
+        update: "%{user_name} обновил члена президиума %{resource_name} на собрание %{space_name}"
+      assembly_user_role:
+        create: "%{user_name} пригласил члена президиума %{resource_name} на собрание %{space_name}"
+        delete: "%{user_name} удалил участника %{resource_name} собрания %{space_name}"
+        update: "%{user_name} изменил роль %{resource_name} на собрании %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+            duration_help: Если длительность этого собрания ограничена, выберите дату окончания. В противном случае оно будет отображаться как бессрочное.
+            included_at_help: Выберите дату, когда это собрание было добавлено ​​в Десидим. Она не обязательно должна совпадать с датой создания.
+            select_a_created_by: Укажите, кем создано
+            select_an_area: Выберите участок
+            select_an_assembly_type: Выберите вид собрания
+            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+            social_handlers: Социальные сети
         assembly_copies:
           form:
-            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+        assembly_members:
+          form:
+            existing_user: Существующий участник
+            non_user: Не участник
+            select_a_position: Выберите должность
+            select_user: Выберите участника
+            user_type: Вид участника
+          index:
+            filter:
+              all: Все
+              ceased: Срок полномочий истек
+              not_ceased: Срок полномочий не истек
+            filter_by: 'Отобрать по признаку:'
+            search: Поиск
+      assembly_members:
+        index:
+          members: Члены президиума
+      assembly_types:
+        commission: Комиссия
+        consultative_advisory: Совещательное / Консультативное
+        executive: Исполнительное
+        government: Правительственное
+        others: Другое
+        participatory: Соучастное
+        working_group: Рабочая группа
+      created_by:
+        city_council: Городской Совет
+        others: Другие
+        public: Граждане
       index:
         title: Собрания
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Начатые собрания
+            active_assemblies: Действующие собрания
             see_all_assemblies: Просмотреть все собрания
+        user_profile:
+          member_of:
+            member_of: 'Входит в состав:'
       show:
-        developer_group: Группа зачинателей
-        local_area: Местность
+        area: Участок
+        assembly_type: Вид собрания
+        children: Собрания
+        closing_date: Дата закрытия
+        composition: Состав
+        created_by: 'Автор:'
+        creation_date: Дата создания
+        developer_group: Рабочая группа по продвижению
+        duration: Длительность
+        included_at: Включено в
+        indefinite_duration: Бессрочное
+        internal_organisation: Внутренняя организация
+        is_transparent:
+          'false': непрозрачное
+          'true': прозрачное
+        local_area: Местный участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
+        private_space: Это частное собрание
+        purpose_of_action: Цель действия
+        read_less: Читать меньше
+        read_more: Читать подробнее
+        related_participatory_processes: Сопутствующие движения соучастия
         scope: Охват
+        social_networks: Социальные сети
         target: Цель
       statistics:
-        answers_count: Ответы
-        assemblies_count: Собрания
-        comments_count: Комментарии
+        answers_count: Ответов
+        assemblies_count: Собраний
+        comments_count: Комментариев
+        debates_count: Обсуждений
+        endorsements_count: Выражений поддержки
         headline: Деятельность
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        projects_count: Проекты
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
+        meetings_count: Встреч
+        orders_count: Голосов
+        pages_count: Страниц
+        projects_count: Проектов
+        proposals_count: Предложений
+        results_count: Итогов
+        surveys_count: Опросов
+        users_count: Участников
+        votes_count: Голосов
+    assembly_members:
+      assembly_member:
+        designated_on: 'Полномочия предоставлены:'
+      index:
+        title: Члены президиума
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Собрание не найдено в базе данных (ID: %{id})'
     menu:
       assemblies: Собрания
+  errors:
+    messages:
+      cannot_be_blank: не может быть пустым
   layouts:
     decidim:
       assemblies:
@@ -128,9 +336,10 @@ ru:
             many: "%{count} собраний"
             other: "%{count} собраний"
         promoted_assembly:
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_header:
+        assembly_member_menu_item: Члены президиума
         assembly_menu_item: Собрание
         unfold: Развернуть
       assembly_widgets:

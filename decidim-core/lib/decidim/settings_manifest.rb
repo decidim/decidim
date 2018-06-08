@@ -55,10 +55,10 @@ module Decidim
         manifest.attributes.each do |name, attribute|
           if attribute.translated?
             translatable_attribute name, attribute.type_class, default: attribute.default_value
-            validates name, translatable_presence: true
+            validates name, translatable_presence: true if attribute.required
           else
             attribute name, attribute.type_class, default: attribute.default_value
-            validates name, presence: true
+            validates name, presence: true if attribute.required
           end
         end
       end
@@ -85,6 +85,7 @@ module Decidim
       attribute :default
       attribute :translated, Boolean, default: false
       attribute :editor, Boolean, default: false
+      attribute :required, Boolean, default: true
 
       validates :type, inclusion: { in: TYPES.keys }
 

@@ -1,12 +1,12 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
-      <% if can? :update, current_participatory_space %>
+      <% if allowed_to? :update, :assembly, assembly: current_participatory_space %>
         <li <% if is_active_link?(decidim_admin_assemblies.edit_assembly_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.edit_assembly_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if can? :read, Decidim::Component %>
+      <% if allowed_to? :read, :component %>
         <li <% if is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.components_path(current_participatory_space) %>
           <ul>
@@ -25,21 +25,21 @@
           </ul>
         </li>
       <% end %>
-      <% if can? :read, Decidim::Category %>
+      <% if allowed_to? :read, :category %>
         <li <% if is_active_link?(decidim_admin_assemblies.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.categories_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if can?(:read, Decidim::AttachmentCollection) || can?(:read, Decidim::Attachment) %>
+      <% if allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment) %>
         <li>
           <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.assemblies_submenu") %></span>
           <ul>
-            <% if can? :read, Decidim::AttachmentCollection %>
+            <% if allowed_to? :read, :attachment_collection %>
               <li <% if is_active_link?(decidim_admin_assemblies.assembly_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
                 <%= aria_selected_link_to t("attachment_collections", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_attachment_collections_path(current_participatory_space) %>
               </li>
             <% end %>
-            <% if can? :read, Decidim::Attachment %>
+            <% if allowed_to? :read, :attachment %>
               <li <% if is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
                 <%= aria_selected_link_to t("attachment_files", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_attachments_path(current_participatory_space) %>
               </li>
@@ -47,17 +47,22 @@
           </ul>
         </li>
       <% end %>
-      <% if can? :read, Decidim::AssemblyUserRole %>
+      <% if allowed_to? :read, :assembly_member %>
+        <li <% if is_active_link?(decidim_admin_assemblies.assembly_members_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_members_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :assembly_user_role %>
         <li <% if is_active_link?(decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if can? :read, Decidim::ParticipatorySpacePrivateUser %>
+      <% if allowed_to? :read, :space_private_user %>
         <li <% if is_active_link?(decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("private_users", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if can? :read, Decidim::Moderation %>
+      <% if allowed_to? :read, :moderation %>
         <li <% if is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.moderations_path(current_participatory_space) %>
         </li>
@@ -69,8 +74,11 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= translated_attribute(current_participatory_space.title) %>
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_assemblies.assembly_path(current_participatory_space), target: "_blank" %>
     </div>
   </div>
-  <%= yield %>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
 <% end %>

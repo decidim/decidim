@@ -51,6 +51,7 @@ sv:
           success: Du har godkänts.
         first_login:
           actions:
+            another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
             dummy_authorization_handler: Verifiera mot exemplet behörighetshanteraren
             dummy_authorization_workflow: Verifiera mot arbetsflödet för godkännande av exempel
             id_documents: Få verifierad genom att ladda upp ditt identitetsdokument

@@ -1,18 +1,21 @@
 fi:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentti
+      decidim/comments/comment_created_event: Kommentti
+      decidim/comments/reply_created_event: Kommentti vastaus
+      decidim/comments/user_mentioned_event: Mainita
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentti
+        other: Kommentit
+      decidim/comments/comment_vote:
+        one: Äänestys
+        other: ääntä
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" on kommentoinut. Voit lukea kommentin tällä sivulla:'
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seurannan edellisestä linkistä.
-            email_subject: Uusi kommentti henkilöltä %{author_name} kohteeseen %{resource_title}
-            notification_title: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: Kohdetta "%{resource_title}" on kommentoitu
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen edellisestä linkistä.
-            email_subject: '%{author_name} on vastannut kommenttiisi kohteessa <a href="%{resource_url}">%{resource_title}</a>'
-            notification_title: '%{author_name} on vastannut kommenttiisi kohteessa <a href="%{resource_path}">%{resource_title}</a>'
+      comments: Kommentit
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.

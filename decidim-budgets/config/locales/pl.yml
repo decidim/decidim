@@ -8,6 +8,13 @@ pl:
         description: Opis
         proposal_ids: Proponowane propozycje
         title: Tytuł
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        few: Projektowanie
+        many: Projektowanie
+        other: Projektowanie
   decidim:
     budgets:
       actions:
@@ -72,6 +79,12 @@ pl:
             title: Ukończono budżet budżetowy
           description: Jakie projekty myślisz, powinniśmy przeznaczyć budżet? Przyznaj co najmniej %{minimum_budget} projekty, które chcesz i głosuj zgodnie z Twoimi preferencjami, aby określić budżet.
           title: Ty decydujesz budżet
+        count:
+          projects_count:
+            one: 1 projekt
+            few: "%{count} projektów"
+            many: "%{count} projektowanie"
+            other: "%{count} projektów"
         filters:
           category: Kategoria
           category_prompt: Wybierz kategorię
@@ -85,10 +98,21 @@ pl:
           vote: Głosować
         order_selected_projects:
           remove: Usunąć
+          selected_projects:
+            one: Wybrany projekt
+            few: Wybranych projektów
+            many: wybrane projekty
+            other: Wybranych projektów
           view: Widok
         project:
           add: Dodaj
+          count:
+            one: 1
+            few: "%{count} obsługuje"
+            many: "%{count} obsługuje"
+            other: "%{count} obsługuje"
           remove: Usunąć
+          view: Widok
         project_budget_button:
           add: Dodaj
           added: W dodatku
@@ -121,7 +145,7 @@ pl:
         success: Twój głos został pomyślnie zakończony
     resource_links:
       included_proposals:
-        project_proposals: 'Propozycje zawarte w tym projekcie:'
+        project_proposal: 'Propozycje zawarte w tym projekcie:'
   index:
     confirmed_orders_count: Liczba głosów
   total_budget: Cały budżet

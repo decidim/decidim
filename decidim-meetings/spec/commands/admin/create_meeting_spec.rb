@@ -17,6 +17,10 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
+    let(:organizer) { create :user, organization: organization }
+    let(:private_meeting) { false }
+    let(:transparent) { true }
+    let(:transparent_type) { "transparent" }
     let(:services) do
       [
         {
@@ -46,6 +50,9 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
+        organizer: organizer,
+        private_meeting: private_meeting,
+        transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: current_user,
         current_component: current_component
@@ -75,6 +82,11 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the organizer" do
+        subject.call
+        expect(meeting.organizer).to eq organizer
       end
 
       it "sets the component" do

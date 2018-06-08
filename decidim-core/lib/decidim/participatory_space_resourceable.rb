@@ -26,6 +26,8 @@ module Decidim
       # An association with all the links that are originated from this model.
       has_many :participatory_space_resource_links_from, as: :from, class_name: "Decidim::ParticipatorySpaceLink"
 
+      delegate :resource_manifest, to: :class
+
       # Finds all the linked resources to or from this model for a given resource
       # name and link name.
       #
@@ -74,6 +76,15 @@ module Decidim
             )
           end
         end
+      end
+    end
+
+    class_methods do
+      # Finds the resource manifest for the model.
+      #
+      # Returns a Decidim::ResourceManifest
+      def resource_manifest
+        Decidim.find_resource_manifest(self)
       end
     end
   end

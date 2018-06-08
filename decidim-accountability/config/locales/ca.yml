@@ -22,6 +22,13 @@ ca:
       timeline_entry:
         description: Descripció
         entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta inclosa en un resultat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultats
   decidim:
     accountability:
       actions:
@@ -203,6 +210,6 @@ ca:
         see_all_results: Veure tots els resultats
     resource_links:
       included_projects:
-        result_projects: Projectes inclosos en aquest resultat
+        result_project: Projectes inclosos en aquest resultat
       included_proposals:
-        result_proposals: Propostes incloses en aquest resultat
+        result_proposal: Propostes incloses en aquest resultat

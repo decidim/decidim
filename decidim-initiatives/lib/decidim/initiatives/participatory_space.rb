@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
+  participatory_space.stylesheet = "decidim/initiatives/initiatives"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Initiatives::Engine
     context.layout = "layouts/decidim/initiative"
@@ -15,7 +17,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     Decidim::Initiative.where(organization: organization)
   end
 
+  participatory_space.register_resource(:initiative) do |resource|
+    resource.model_class_name = "Decidim::Initiative"
+    resource.card = "decidim/initiatives/initiative"
+  end
+
   participatory_space.model_class_name = "Decidim::Initiative"
+  participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -38,20 +46,20 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       end
     end
 
-    7.times do
+    Decidim::Initiative.states.keys.each do |state|
       Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
       Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
       initiative = Decidim::Initiative.create!(
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),
-        scoped_type: Decidim::InitiativesTypeScope.reorder("RANDOM()").first,
-        state: "published",
+        scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
+        state: state,
         signature_type: "online",
         signature_start_time: DateTime.current - 7.days,
         signature_end_time:  DateTime.current + 7.days,
         published_at: DateTime.current - 7.days,
-        author: Decidim::User.reorder("RANDOM()").first,
+        author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       )
 

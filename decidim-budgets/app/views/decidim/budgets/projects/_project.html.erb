@@ -6,7 +6,7 @@
           <%= translated_attribute project.title %>
         </h5>
       <% end %>
-      <%= render partial: "decidim/shared/tags", locals: { resource: project, tags_class_extra: "tags--project" } %>
+      <%= cell "decidim/tags", project, context: {extra_classes: ["tags--project"]} %>
     </div>
   </div>
   <% if current_user.present? %>
@@ -15,7 +15,7 @@
         <span class="card--list__data__number budget-list__number">
           <%= budget_to_currency(project.budget) %>
         </span>
-        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out?, class: "button tiny budget--list__action success" do %>
+        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button tiny budget--list__action success" do %>
           <%= icon("check", class: "icon--small", aria_label: t(".remove"), role: "img") %>
         <% end %>
         <% if current_settings.show_votes? %>
@@ -29,7 +29,7 @@
         <span class="card--list__data__number budget-list__number">
           <%= budget_to_currency(project.budget) %>
         </span>
-        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out?, class: "button tiny hollow budget--list__action" do %>
+        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button tiny hollow budget--list__action" do %>
           <%= icon("check", class: "icon--small", aria_label: t(".add"), role: "img") %>
         <% end %>
         <% if current_settings.show_votes? %>

@@ -30,6 +30,10 @@ module Decidim
   #   rendered = Decidim::ContentProcessor.render(content)
   #   puts rendered
   module ContentProcessor
+    extend ActionView::Helpers::SanitizeHelper
+    extend ActionView::Helpers::TagHelper
+    extend ActionView::Helpers::TextHelper
+
     # Class that represents the result of processing a text
     #
     # @!attribute rewrite
@@ -61,9 +65,23 @@ module Decidim
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
     def self.render(content)
-      Decidim.content_processors.reduce(content) do |result, type|
-        renderer_klass(type).constantize.new(result).render
-      end
+      simple_format(
+        Decidim.content_processors.reduce(content) do |result, type|
+          renderer_klass(type).constantize.new(result).render
+        end
+      )
+    end
+
+    # This method overwrites the views `sanitize` method. This is required to
+    # ensure the content does not include any weird HTML that could harm the end
+    # user.
+    #
+    # @return [String] sanitized content.
+    def self.sanitize(text, options = {})
+      Rails::Html::WhiteListSanitizer.new.sanitize(
+        text,
+        { scrubber: Decidim::UserInputScrubber.new }.merge(options)
+      ).try(:html_safe)
     end
 
     # Guess the class name of the parser for a processor

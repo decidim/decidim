@@ -12,13 +12,13 @@ module Decidim
         before_action :load_authorization
 
         def new
-          authorize! :create, @authorization
+          enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = UploadForm.new
         end
 
         def create
-          authorize! :create, @authorization
+          enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = UploadForm.from_params(params.merge(user: current_user))
 
@@ -36,13 +36,13 @@ module Decidim
         end
 
         def edit
-          authorize! :update, @authorization
+          enforce_permission_to :update, :authorization, authorization: @authorization
 
           @form = UploadForm.from_model(@authorization)
         end
 
         def update
-          authorize! :update, @authorization
+          enforce_permission_to :update, :authorization, authorization: @authorization
 
           @form = UploadForm.from_params(
             params.merge(

@@ -8,6 +8,7 @@ ca:
         end_voting_date: Data de finalització
         introductory_image: Imatge introductòria
         introductory_video_url: URL de vídeo introductori
+        questions: Preguntes
         slug: Nom curt d'URL
         start_voting_date: Data d'inici
         subtitle: Subtítol
@@ -35,6 +36,20 @@ ca:
       vote:
         decidim_consultations_response_id:
           not_found: La resposta no s'ha trobat.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Consulta
+        other: Consultes
+      decidim/consultations/question:
+        one: Pregunta
+        other: Preguntes
+      decidim/consultations/response:
+        one: Resposta
+        other: Respostes
+      decidim/consultations/vote:
+        one: Vot
+        other: Vots
   decidim:
     admin:
       actions:
@@ -182,15 +197,12 @@ ca:
         filter: Filtre
         filter_by: Filtra per
         unfold: Desplegar
-      finished:
-        active_consultations: Consultes actives
-        past_consultations: Consultes passades
       highlighted_questions:
-        title: Consultes de %{scope_name}
+        title: Preguntes de %{scope_name}
       index:
         title: Consultes
       question:
-        take_part: Formar part
+        take_part: Participar
         view_results: Veure resultats
         votes_out_of:
           one: vot d'un total de
@@ -199,11 +211,25 @@ ca:
         create:
           error: Hi ha hagut errors en votar la pregunta
       regular_questions:
-        title: Altres consultes
+        title: Preguntes per a aquesta consulta
       show:
-        see_finished_consultations: Veure consultes prèvies
+        badge_name:
+          finished: Acabada
+          open: Oberta
+          open_votes: Obre els vots
+          published_results: Resultats publicats
+        footer_button_text:
+          debate: Debat
+          view: Veure
+          view_results: Veure resultats
+          vote: Votació
+        unspecified: Sense especificar
     menu:
       consultations: Consultes
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultes
     questions:
       results:
         title: Resultats
@@ -222,7 +248,7 @@ ca:
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
-        contextual_help: Seleccioneu una opció. Tingueu en compte que una vegada que heu confirmat, no es pot canviar el vostre suport.
+        contextual_help: Selecciona una opció.
         title: 'Consulta: suport a la pregunta'
       vote_modal_confirm:
         change: Canvia
@@ -242,7 +268,3 @@ ca:
         unfold: Desplegar
       question_header:
         back_to_consultation: Veure totes les consultes
-  pages:
-    home:
-      statistics:
-        consultations_count: Consultes

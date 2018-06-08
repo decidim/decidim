@@ -25,8 +25,12 @@ module Decidim
         build_initiative_vote
         return broadcast(:invalid) unless vote.valid?
 
+        percentage_before = @initiative.percentage
         vote.save!
         send_notification
+        percentage_after = @initiative.reload.percentage
+
+        notify_percentage_change(percentage_before, percentage_after)
 
         broadcast(:ok, vote)
       end
@@ -50,6 +54,24 @@ module Decidim
           event_class: Decidim::Initiatives::EndorseInitiativeEvent,
           resource: @initiative,
           recipient_ids: @initiative.author.followers.pluck(:id)
+        )
+      end
+
+      def notify_percentage_change(before, after)
+        percentage = [25, 50, 75, 100].find do |milestone|
+          before < milestone && after >= milestone
+        end
+
+        return unless percentage
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.initiatives.milestone_completed",
+          event_class: Decidim::Initiatives::MilestoneCompletedEvent,
+          resource: @initiative,
+          recipient_ids: @initiative.followers.pluck(:id),
+          extra: {
+            percentage: percentage
+          }
         )
       end
     end

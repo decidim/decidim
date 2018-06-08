@@ -13,13 +13,14 @@ module Decidim
       helper_method :debates, :debate, :paginated_debates, :report_form
 
       def new
-        authorize! :create, Debate
+        enforce_permission_to :create, :debate
 
         @form = form(DebateForm).instance
       end
 
       def create
-        authorize! :create, Debate
+        enforce_permission_to :create, :debate
+
         @form = form(DebateForm).from_params(params, current_component: current_component)
 
         CreateDebate.call(@form) do

@@ -1,9 +1,10 @@
 /* Variables */
 
-$card-bg: $white;
+$card-bg: $white !default;
 $card-secondary-bg: $light-gray-dark;
 $card-border: $border;
 $card-border-radius: $global-radius;
+$card-border-top-width: 8px !default;
 $card-shadow: 0 2px 7px rgba(black, .1);
 $card-id: $medium-gray;
 
@@ -30,7 +31,7 @@ $datetime-bg: $primary;
   overflow: hidden;
 
   @include modifiers(border-top-color, (muted: rgba($muted, .3))){
-    border-top-width: 8px;
+    border-top-width: $card-border-top-width;
   }
 
   &:hover{
@@ -55,14 +56,6 @@ $datetime-bg: $primary;
     padding: $card-padding;
     padding-bottom: $card-padding / 2;
   }
-}
-
-.card__content--multiple{
-  @extend .card__content;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .card__content--center{
@@ -93,6 +86,7 @@ $datetime-bg: $primary;
 
 .card__button{
   margin-bottom: 0;
+  cursor: pointer;
 }
 
 .card__type{
@@ -145,10 +139,24 @@ $datetime-bg: $primary;
   }
 }
 
+.card__text--separated-mid-dot{
+  @include inline-separator(' · ');
+}
+
 .card__image{
   width: 100%;
   max-height: 10rem;
+  min-height: 5rem;
   object-fit: cover;
+
+  &.card__image--smaller{
+    max-height: 5rem;
+  }
+
+  &.card__image--larger{
+    max-height: 20rem;
+    min-height: 10rem;
+  }
 }
 
 /* Card datetime */
@@ -274,6 +282,10 @@ $datetime-bg: $primary;
   .card-data__item--centerblock{
     margin: 0 auto;
   }
+
+  &.card-data__item--expand{
+    line-height: $global-lineheight;
+  }
 }
 
 .card-data__item__number{
@@ -283,6 +295,19 @@ $datetime-bg: $primary;
   font-size: rem-calc(20);
   color: $body-font-color;
   margin-bottom: .2rem;
+}
+
+.card-data__item--multiple{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include flexgap(1rem);
+
+  > div{
+    text-align: left;
+    display: block;
+  }
 }
 
 /* Card popularity */
@@ -706,9 +731,39 @@ $datetime-bg: $primary;
   font-size: $small-font-size;
   font-weight: bold;
   position: absolute;
-  background-color: $card-bg;
-  margin-top: -$global-margin * .75;
+  background-color: transparent;
+  text-shadow:
+    -1px -1px 0 $card-bg,
+    1px -1px 0 $card-bg,
+    -1px 1px 0 $card-bg,
+    1px 1px 0 $card-bg;
+  margin-top: ($global-margin * .6) * -1;
   margin-left: $card-padding-small;
+  z-index: 0;
+
+  &::before{
+    content: " ";
+    height: $border-width;
+    display: inline-block;
+    background: $card-bg;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    top: $global-margin * .5;
+  }
+
+  .card.success &,
+  .card.muted &,
+  .card.warning &,
+  .card.alert &{
+    margin-top: ($global-margin * .95) * -1;
+
+    &::before{
+      height: $card-border-top-width;
+      top: $global-margin * .45;
+    }
+  }
 
   .icon{
     // Reduces some icon space
@@ -827,40 +882,29 @@ $datetime-bg: $primary;
     .card-data__item{
       color: $body-font-color;
       text-transform: none;
-
-      strong{
-        display: block;
-        text-transform: uppercase;
-        font-size: rem-calc(16);
-
-        &:not(:first-child){
-          margin-top: $global-margin;
-        }
-      }
-
-      span{
-        color: $muted;
-        font-size: 90%;
-      }
+      font-size: rem-calc(16);
+      text-align: left;
+      padding: $card-padding-small;
 
       @include modifiers(color);
 
-      &:first-child{
-        flex: 0;
-        background-color: $card-secondary-bg;
+      @include breakpoint(medium){
+        padding: $card-padding;
       }
-    }
-  }
 
-  &.card--widget__list{
-    @extend .card--list;
-
-    .card--list__item{
-      padding-left: $global-padding;
-
-      > :first-child{
+      &:first-child{
         flex-grow: 0;
-        flex-shrink: 0;
+        flex-basis: 12%;
+        background-color: $card-secondary-bg;
+        position: relative;
+
+        > div{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          @include absolute-center;
+        }
       }
     }
   }

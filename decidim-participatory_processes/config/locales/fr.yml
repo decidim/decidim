@@ -44,6 +44,20 @@ fr:
         email: Email
         name: Nom
         role: Rôle
+    models:
+      decidim/participatory_process_step_activated_event: Étape activée
+      decidim/participatory_process_step_changed_event: Étape modifiée
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Processus participatif
+        other: Processus participatifs
+      decidim/participatory_process_group:
+        one: Groupe de processus participatif
+        other: Groupes de processus participatifs
+      decidim/participatory_process_step:
+        one: Étape
+        other: Pas
   decidim:
     admin:
       actions:
@@ -69,6 +83,10 @@ fr:
           components: Fonctionnalités
           info: Information
           moderations: Modérations
+
+          moderation:
+            upstream: A priori
+            downstream: A posteriori
           private_users: Utilisateurs
           process_admins: Administrateurs de la concertation
           steps: Etapes
