@@ -33,7 +33,7 @@ ca:
             invalid: Hi ha hagut un problema creant aquest projecte
             success: Projecte creat correctament
           destroy:
-            success: Projecte eliminat correctament
+            success: El projecte s'ha eliminat correctament
           edit:
             title: Editar projecte
             update: Actualitzar

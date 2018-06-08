@@ -10,7 +10,7 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Внести пропозицію як
+        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -41,10 +41,10 @@ uk:
         many: Пропозицій
         other: Пропозицій
       decidim/proposals/proposal_endorsement:
-        one: Підтримав
-        few: Підтримало
-        many: Підтримали
-        other: Підтримали
+        one: Прояв підтримки
+        few: Прояви підтримки
+        many: Проявів підтримки
+        other: Проявів підтримки
       decidim/proposals/proposal_note:
         one: Примітка
         few: Примітки
@@ -68,7 +68,7 @@ uk:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
-            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
+            can_accumulate_supports_beyond_threshold: Можна накопичувати прояви підтримки більше порогового значення
             comments_enabled: Коментарі увімкнено
             geocoding_enabled: Геокодування увімкнено
             new_proposal_help_text: Підказки зі внесення нової пропозиції
@@ -77,10 +77,10 @@ uk:
             proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
             proposal_limit: Гранична кількість пропозицій від одного учасника
-            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Внести"
+            proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
-            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Опублікувати"
+            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
           step:
@@ -194,7 +194,7 @@ uk:
             invalid: При спробі відповісти на цю пропозицію сталася помилка
             success: Успішно дано відповідь на пропозицію
           create:
-            invalid: При спробі внести цю пропозицію сталася помилка
+            invalid: При спробі створити цю пропозицію сталася помилка
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -208,7 +208,7 @@ uk:
             update: Оновити
           new:
             create: Внести
-            title: Внести пропозицію
+            title: Створити пропозицію
           update_category:
             invalid: 'Ці пропозиції вже відносились до розряду %{category}: %{proposals}.'
             select_a_category: Будь ласка, оберіть розряд
@@ -242,18 +242,18 @@ uk:
         rejected: Відхилено
         withdrawn: Відкликана
       create:
-        error: При збереженні цієї пропозиції сталися помилки.
+        error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
       destroy_draft:
-        error: При видаленні чернетки цієї пропозиції сталися помилки.
-        success: Чернетку пропозиції успішно знищено.
+        error: При спробі видалити чернетку цієї пропозиції сталися помилки.
+        success: Чернетку пропозиції успішно видалено.
       models:
         proposal:
           fields:
             category: Розряд
             comments: Коментарі
             created_at: 'Створено:'
-            endorsements: Підтримали
+            endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
@@ -275,10 +275,10 @@ uk:
           endorse: Підтримати
       proposal_votes:
         create:
-          error: При голосуванні пропозиції сталися помилки.
+          error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
-          mine_is_different: Моя пропозиція відрізняється
+          mine_is_different: Моя пропозиція інша
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
@@ -329,7 +329,7 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
-          new_proposal: Внести пропозицію
+          new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
         linked_proposals:
@@ -378,7 +378,7 @@ uk:
           withdraw_proposal: Зняти пропозицію
         tags:
           changed_from: "(перенесено з <u>%{previous_category}</u> адміністратором)"
-          filed_as: Віднесено до розряду
+          filed_as: Відмічено як
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос
@@ -420,10 +420,10 @@ uk:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.
       update:
-        error: При збереженні цієї пропозиції сталися помилки.
+        error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
       update_draft:
-        error: При збереженні чернетки цієї пропозиції сталися помилки.
+        error: При спробі збереження чернетки цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно оновлено.
     resource_links:
       copied_from_component:

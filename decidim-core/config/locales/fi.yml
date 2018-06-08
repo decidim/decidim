@@ -10,8 +10,8 @@ fi:
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Lyhyt, ainutkertainen tunniste
-        password: Salasanasi
-        password_confirmation: Vahvista salasanasi
+        password: Salasana
+        password_confirmation: Vahvista salasana
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
@@ -52,6 +52,11 @@ fi:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Tiedostoa ei ole olemassa
+        invalid_token: Varattu token on virheellinen.
+        no_token: Ei merkintää
+        notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -177,6 +182,13 @@ fi:
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+    data_portability:
+      export:
+        ready: Valmis
+      show:
+        download_data: Lataa tiedot
+        download_data_description: Tiedosto, johon kaikki tiliin liittyvät tiedot lähetetään <strong>%{user_email}</strong>
+        request_data: Pyydä tietoja
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ fi:
           email_subject: "%{nickname} päivitti profiilinsa"
           notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
     export_mailer:
+      data_portability_export:
+        click_button: Napsauta seuraavaa painiketta, jos haluat ladata tietosi. <br/> Tiedosto on käytettävissä %{date}.
+        download: ladata
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
@@ -304,6 +319,18 @@ fi:
       errors:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
+    invitations:
+      create:
+        error: Ongelmia ongelmia haettaessa ystäviäsi
+        error_empty_form: Anna joitain sähköpostiosoitteita
+        success: Olemme lähettäneet kutsuja ystävillesi!
+      index:
+        customize_message: Muokkaa kutsuviesti
+        friend_email: 'Ystävä #%{index} sähköposti'
+        invitations_subtitle: Kerro ystävillesi tästä sivustosta
+        invitations_title: Luuletko, että enemmän ääniä pitäisi kuulla %{organization_name}?
+        invite: kutsu
+        visit_your_profile: Käy profiilissasi
     log:
       base_presenter:
         create: "%{user_name} luotu %{resource_name}"
@@ -559,6 +586,7 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Tilisi ei ole luotu, ennen kuin käytät yllä olevaa linkkiä ja määrität lempinimen ja salasanasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application}."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
@@ -567,6 +595,10 @@ fi:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
+      invite_friend:
+        accept_invitation: 'Voit hyväksyä kutsun seuraavalla linkillä:'
+        friend_custom_text: 'He jättivät tämän viestin sinulle:'
+        subject: Sinut on kutsuttu %{organization}
       invite_private_user:
         subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +648,7 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
+        invite_friends: Kutsua ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -624,6 +657,7 @@ fi:
         account: Käyttäjätili
         authorizations: Varmennukset
         delete_my_account: Poista tilini
+        my_data: Omat tiedot
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
         user_groups: Organisaatiot

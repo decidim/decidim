@@ -33,7 +33,7 @@ pt:
             invalid: Tem havido um problema ao criar este projeto
             success: Projeto criado com sucesso
           destroy:
-            success: Projeto destruído com sucesso
+            success: Projeto excluído com sucesso
           edit:
             title: Editar projeto
             update: Actualizar

@@ -20,7 +20,7 @@ describe "UserTosAcceptance", type: :system do
       visit decidim.root_path
     end
 
-    context "when a user starts a session, has to accept review them" do
+    context "when a user starts a session, has to accept and review them" do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page))
         expect(page).to have_content translated(tos_page.title)
@@ -69,24 +69,26 @@ describe "UserTosAcceptance", type: :system do
         it "shows an option to accept the TOS" do
           within "#tos-refuse-modal" do
             expect(page).to have_button("Accept terms and continue")
+            expect(page).to have_tag("form", action: decidim.accept_tos_path)
           end
         end
 
         it "shows an option to download the users data" do
           within "#tos-refuse-modal" do
-            expect(page).to have_link("download your data")
+            expect(page).to have_link("download your data", href: decidim.data_portability_path)
           end
         end
 
         it "shows an option to logout" do
           within "#tos-refuse-modal" do
             expect(page).to have_button("I'll review it later")
+            expect(page).to have_tag("form", action: decidim.destroy_user_session_path)
           end
         end
 
         it "shows an option delete the account" do
           within "#tos-refuse-modal" do
-            expect(page).to have_link("delete your account")
+            expect(page).to have_link("delete your account", href: decidim.delete_account_path)
           end
         end
       end

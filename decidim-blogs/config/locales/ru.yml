@@ -2,8 +2,78 @@ ru:
   activemodel:
     models:
       decidim/blogs/create_post_event: Создать пост в блоге
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Пост
+        few: Поста
+        many: Постов
+        other: Постов
   decidim:
     blogs:
       actions:
         confirm_destroy: Вы действительно хотите удалить этот проект?
+        destroy: Удалить
+        edit: Редактировать
         new: Добавить
+        title: Действия
+      admin:
+        models:
+          components:
+            body: Основной текст
+          post:
+            name: Пост
+        posts:
+          create:
+            invalid: При попытке добавить этот пост произошла ошибка
+            success: Пост успешно создан
+          destroy:
+            success: Пост успешно удален
+          edit:
+            save: Обновить
+          index:
+            title: Посты
+          new:
+            create: Создать
+            title: Создать пост
+          update:
+            invalid: При попытке сохранить пост произошли ошибки.
+            success: Пост успешно сохранен
+      models:
+        post:
+          fields:
+            author: Автор
+            body: Основной текст
+            created_at: 'Создано:'
+            title: заголовок
+      posts:
+        show:
+          view: Посмотреть
+        sidebar_blog:
+          comments: комментарии
+          most_commented_posts: Наиболее комментируемые посты
+      read_more: Читать подробнее
+    components:
+      blogs:
+        name: Блог
+        settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии отключены
+    events:
+      blogs:
+        post_created:
+          email_intro: В "%{participatory_space_title}", за которым вы следите, обнародован пост "%{resource_title}".
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} обнародован новый пост
+          notification_title: В %{participatory_space_title} был обнародован пост <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          posts_count: Постов
+    participatory_processes:
+      statistics:
+        posts_count: Постов

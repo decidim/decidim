@@ -5,12 +5,12 @@ fi:
         banner_image: Bannerikuva
         decidim_highlighted_scope_id: Korostettu soveltamisala
         description: Kuvaus
-        end_voting_date: Päättymispäivä
+        end_voting_date: Äänestys päättyy
         introductory_image: Alustava kuva
         introductory_video_url: Alkuperäisen videon URL-osoite
         questions: kysymykset
         slug: URL-linkki
-        start_voting_date: Aloituspäivämäärä
+        start_voting_date: Äänestys alkaa
         subtitle: alaotsikko
         title: otsikko
       question:
@@ -74,7 +74,7 @@ fi:
           error: Virhe aiheutti uuden kuulemisen.
           success: Kuuleminen onnistui.
         destroy:
-          success: Kuuleminen onnistui.
+          success: Kuuleminen poistettiin onnistuneesti.
         edit:
           update: Päivittää
         form:
@@ -135,7 +135,7 @@ fi:
           error: Uuden kysymyksen luomisessa tapahtui virhe.
           success: Kysely onnistui.
         destroy:
-          success: Kysely onnistui hävittämään.
+          success: Kysely poistettiin onnistuneesti.
         edit:
           update: Päivittää
         form:
@@ -155,7 +155,7 @@ fi:
           success: Vastaus onnistuneesti luotu.
         destroy:
           error: Vastetta poistettaessa tapahtui virhe.
-          success: Vastaus onnistuneesti tuhoutui.
+          success: Vastaus poistettiin onnistuneesti.
         edit:
           update: Päivittää
         form:
@@ -172,7 +172,7 @@ fi:
         responses: Vastaukset
     consultations:
       consultation:
-        start_voting_date: Äänestys
+        start_voting_date: Äänestys alkaa
         view_results: Näytä tulokset
       consultation_card:
         view_results: Näytä tulokset
@@ -239,7 +239,7 @@ fi:
         assistants_count_title: avustajat
         comments_count_title: Kommentit
         meetings_count_title: kokoukset
-        supports_count_title: kiinnikkeistä
+        supports_count_title: tukee
       technical_info:
         technical_data: Tekniset tiedot
       vote_button:
@@ -262,7 +262,7 @@ fi:
           attachments: Liitteet
           categories: Luokat
       consultation_voting_data:
-        start_voting_date: Äänestys
+        start_voting_date: Äänestys alkaa
       question_components:
         question_menu_item: Kysymys
         unfold: avautua

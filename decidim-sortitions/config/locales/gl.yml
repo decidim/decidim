@@ -42,7 +42,7 @@ gl:
         actions:
           destroy: Cancelar o sorteo
           edit: Editar
-          new: Novo
+          new: Engadir novo
           show: Detalles de clasificación
         models:
           sortition:

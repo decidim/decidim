@@ -8,7 +8,7 @@ eu:
         scope_id: esparrua
         signature_end_time: Sinadura bildumaren epea amaituta
         signature_start_time: Sinadura bildumaren aldiaren hasiera
-        signature_type: Sinadura mota
+        signature_type: Sinadura bilketa mota
         signature_type_values:
           any: mistoa
           offline: Aurrez aurre
@@ -30,7 +30,7 @@ eu:
         title: Izenburua
       organization_data:
         address: Helbidea
-        id_document: CIF
+        id_document: ID dokumentua
         name: Izen osoa
   activerecord:
     models:
@@ -110,7 +110,7 @@ eu:
             filter_by: Iragazi arabera
             preview: Aurreikusi
             print: Inprimatu
-            search: Busca
+            search: Search
           show:
             print: Inprimatu
           update:
@@ -125,7 +125,7 @@ eu:
           edit:
             back: Back
             confirm_destroy: Ziur zaude?
-            destroy: Deuseztatu
+            destroy: ezabatu
             title: Editatu ekimen motako esparrua
             update: eguneratzearen
           new:
@@ -143,7 +143,7 @@ eu:
             success: Ekimen mota behar bezala ezabatu da
           edit:
             confirm_destroy: Ziur zaude?
-            destroy: Deuseztatu
+            destroy: ezabatu
             update: eguneratzearen
           form:
             title: Informazio orokorra
@@ -154,7 +154,7 @@ eu:
             title: Ekimen mota berria
           update:
             error: akats bat gertatu da
-            success: Emandako ekimena ondo eguneratu da
+            success: Ekimen mota ondo eguneratu da
       admin_log:
         initiative:
           publish: "%{user_name} %{resource_name} ekimena argitaratu du"
@@ -171,7 +171,7 @@ eu:
       committee_requests:
         new:
           continue: Jarraitu
-          help_text: Ekimen honen sustatzaile batzordearen kide izateko eskaera egin behar duzu
+          help_text: Ekimen honen sustatzaile batzordeko kidea bihurtu nahi duzu
         spawn:
           success: Zure eskaera ekimenaren egilea da.
       create_initiative:
@@ -190,9 +190,9 @@ eu:
           more_information: "(Informazio gehiago)"
         finish_help:
           access_reminder: Gogoratu beti izango duzula zure ekimenak sartzeko erabiltzailearen menuan.
-          help_for_organizations: Elkarte bat bazara, Promozio Batzordeak betetzen dituzten erakunde guztien kudeaketa-batzordearen minutuak kargatu beharko dituzu
+          help_for_organizations: Elkarte bat bazara, Promozio Batzordea osatzen duten erakunde guztien kudeaketa-batzordearen minutuak kargatu beharko dituzu
           help_in_person_signatures: Seinaleak pertsonan biltzeko edo linean konbinatuta hautatu baduzu, beharrezko informazioa kargatu beharko duzu.
-          help_text: Gogoan izan ekimena behar bezala prozesatzeko administrazio-panelean sartzeko, erabiltzailearen menua aurkituko duzu, eskatutako informazioa kargatu eta prozedura bidaltzeko.
+          help_text: Gogoan izan ekimena behar bezala prozesatu ahal izateko, erabiltzaile-menua aurkituko duzuen administrazio-panelean sartzeko, beharrezkoa den informazioa kargatzeko eta prozesura bidaltzeko.
           initiatives_page_link: Informazio hau guztia bilatu dezakezu %{link} ekimenei buruzko informazioa emateko.
           page: orri
         previous_form:
@@ -211,7 +211,7 @@ eu:
           select_initiative_type_help: Herritarren ekimenak herritarrek esku hartu ahal izateko bitartekoak dira, Udalak Udalaren jurisdikzioaren esparruan dauden interes orokorren defentsarako ekintzak burutzeko. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
           continue: Jarraitu
-          invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonak gonbidatzeko esteka
+          invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
         show_similar_initiatives:
           back: Back
           compare_help: Honako ekimen hauetako bat zurea bezalako antzeko baldin baduzu, onartzen duzu. Zure proposamenak aukera gehiago izango ditu.
@@ -274,7 +274,7 @@ eu:
           any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
         signature_identities:
-          select_identity: Hautatu erabiltzailearen identitatea
+          select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
@@ -302,7 +302,7 @@ eu:
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
         progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
         progress_report_for: 'Berrekin ekimenari buruz: %{title}'
-        promotal_committee_help: Gogoratu gutxienez %{member_count} pertsona gonbidatu behar dituzula batzorde sustatzaileari. Birbidali hurrengo estekara gonbidapena sustatzeko batzordera gonbidatzeko
+        promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
         status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
         status_change_for: '%{title} ekimena bere egoera aldatu du'
         technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
@@ -329,7 +329,7 @@ eu:
         fill_data: Sortu
         finish: Amaitu
         previous_form: start
-        promotal_committee: Promotal batzordea
+        promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
       initiative_header:

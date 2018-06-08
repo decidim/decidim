@@ -11,7 +11,7 @@ ca:
         name: El teu nom
         nickname: El teu identificador curt i únic
         password: Contrasenya
-        password_confirmation: Confirma la teva contrasenya
+        password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
         user_group_document_number: Número de document acreditatiu
@@ -52,6 +52,11 @@ ca:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: El fitxer no existeix
+        invalid_token: El símbol proporcionat no és vàlid.
+        no_token: No s'ha proporcionat cap testimoni
+        notice: Les vostres dades estan en curs. Rebràs un correu electrònic quan estigui complet.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
         confirm:
@@ -177,6 +182,13 @@ ca:
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
+    data_portability:
+      export:
+        ready: Preparat
+      show:
+        download_data: Baixeu-vos les dades
+        download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
+        request_data: Sol·liciteu dades
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ ca:
           email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
+      data_portability_export:
+        click_button: Feu clic al botó següent per descarregar les vostres dades. <br/> tindreu disponible el fitxer fins a %{date}.
+        download: descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
       subject: L'exportació "%{name}" està a punt
@@ -304,6 +319,18 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    invitations:
+      create:
+        error: Hi va haver alguns problemes mentre convidava els vostres amics
+        error_empty_form: Introduïu algunes adreces de correu electrònic
+        success: Hem enviat les invitacions als teus amics.
+      index:
+        customize_message: Personalitzeu el missatge d'invitació
+        friend_email: 'Correu electrònic de l''amic #%{index}'
+        invitations_subtitle: Feu saber als vostres amics sobre aquest lloc
+        invitations_title: Creus que cal escoltar més veus en %{organization_name}?
+        invite: Convidar
+        visit_your_profile: Visiteu el vostre perfil
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -559,6 +586,7 @@ ca:
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_friend: "%{invited_by} t'ha convidat a %{application}."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
@@ -567,6 +595,10 @@ ca:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
+      invite_friend:
+        accept_invitation: 'Podeu acceptar la invitació a través del següent enllaç:'
+        friend_custom_text: 'Us han deixat aquest missatge:'
+        subject: Has estat convidat a %{organization}
       invite_private_user:
         subject: Has estat convidat a un procés participatiu privat a %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +648,7 @@ ca:
       user_menu:
         admin_dashboard: Tauler d'administració
         conversations: Converses
+        invite_friends: Convidar amics
         notifications: Notificacions
         profile: El meu compte
         public_profile: El meu perfil públic
@@ -624,6 +657,7 @@ ca:
         account: Compte
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
+        my_data: Les meves dades
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions

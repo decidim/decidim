@@ -44,7 +44,7 @@ pl:
         actions:
           destroy: Anuluj sortowanie
           edit: Edytować
-          new: Nowy
+          new: Dodaj nowe
           show: Szczegóły dotyczące podziału
         models:
           sortition:

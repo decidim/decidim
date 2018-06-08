@@ -35,8 +35,12 @@ module Decidim
         model.component.participatory_space
       end
 
+      def current_component
+        model.component
+      end
+
       def component_name
-        translated_attribute current_component.name
+        translated_attribute model.component.name
       end
 
       def component_type_name

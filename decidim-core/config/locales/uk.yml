@@ -56,6 +56,11 @@ uk:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Файл не існує
+        invalid_token: Вказаний токен недійсний.
+        no_token: Не надано жодного токену
+        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       delete:
         alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
         confirm:
@@ -65,13 +70,13 @@ uk:
           title: Видалити мій обліковий запис
         explanation: Будь ласка, введіть причину, з якої ви хочете видалити свій обліковий запис (необов'язково).
       destroy:
-        error: При видаленні вашого облікового запису сталася помилка.
+        error: При спробі видалити ваш обліковий запис сталася помилка.
         success: Ваш обліковий запис успішно видалено.
       show:
         change_password: Змінити пароль
         update_account: Оновити обліковий запис
       update:
-        error: При оновленні вашого облікового запису сталася помилка.
+        error: При спробі оновити ваш обліковий запис сталася помилка.
         success: Вашу обліковку успішно оновлено.
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
@@ -187,6 +192,13 @@ uk:
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
+    data_portability:
+      export:
+        ready: Готово
+      show:
+        download_data: Завантажити дані
+        download_data_description: Файл із усіма відомостями, пов'язаними з обліковим записом, буде відправлений на <strong>%{user_email}</strong>
+        request_data: Подати запит на дані
     devise:
       omniauth_registrations:
         create:
@@ -277,6 +289,9 @@ uk:
           email_subject: "%{nickname} оновив свій профіль"
           notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
+      data_portability_export:
+        click_button: Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.
+        download: Завантажити
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
       subject: Ваш збережений файл "%{name}" готовий
@@ -314,6 +329,18 @@ uk:
       errors:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
+    invitations:
+      create:
+        error: При спробі запросити друзів сталися помилки
+        error_empty_form: Будь ласка, введіть кілька адрес електронної пошти
+        success: Ми надіслали запрошення вашим друзям!
+      index:
+        customize_message: Налаштуйте повідомлення про запрошення
+        friend_email: 'Друг #%{index} Електронна пошта'
+        invitations_subtitle: Нехай ваші друзі дізнаються про цей сайт
+        invitations_title: Як ви гадаєте, чи більше голосів мають бути почутими в %{organization_name}?
+        invite: Запросити
+        visit_your_profile: Відвідайте свій профіль
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -386,7 +413,7 @@ uk:
         newsletter_notifications: Я хочу отримувати розсилання
         update_notifications_settings: Зберегти зміни
       update:
-        error: При оновленні налаштувань сповіщень сталася помилка.
+        error: При спробі оновити налаштування сповіщень сталася помилка.
         success: Ваші налаштування сповіщень успішно оновлено.
     own_user_groups:
       index:
@@ -412,23 +439,23 @@ uk:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
         statistics:
-          answers_count: Пройдено опитувань
-          assemblies_count: Збори
-          comments_count: Коментарі
+          answers_count: Пройдених опитувань
+          assemblies_count: Зборів
+          comments_count: Коментарів
           debates_count: Обговорення
-          endorsements_count: Підтримали
+          endorsements_count: Проявів підтримки
           headline: Поточний стан %{organization}
-          meetings_count: Зустрічі
-          orders_count: Голоси
-          pages_count: Сторінки
-          processes_count: Рухи
-          projects_count: Задуми
+          meetings_count: Зустрічей
+          orders_count: Голосів
+          pages_count: Сторінок
+          processes_count: Рухів
+          projects_count: Задумів
           proposals_accepted: Прийняті пропозиції
-          proposals_count: Пропозиції
+          proposals_count: Пропозицій
           results_count: Підсумків
-          surveys_count: Опитування
-          users_count: Учасники
-          votes_count: Голоси
+          surveys_count: Опитувань
+          users_count: Учасників
+          votes_count: Голосів
         sub_hero:
           register: Зареєструватися
       index:
@@ -568,6 +595,7 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        invited_you_as_friend: "%{invited_by} запросив вас до %{application}."
         invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
@@ -576,6 +604,10 @@ uk:
         subject: Вас запросили керувати %{organization}
       invite_collaborator:
         subject: Вас запросили співпрацювати на %{organization}
+      invite_friend:
+        accept_invitation: 'Ви можете прийняти запрошення за посиланням нижче:'
+        friend_custom_text: 'Вам надіслали таке повідомлення:'
+        subject: Вас запросили до %{organization}
       invite_private_user:
         subject: Вас запрошено до приватного руху співучасті від %{organization}
       organization_admin_invitation_instructions:
@@ -625,6 +657,7 @@ uk:
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
         conversations: Бесіди
+        invite_friends: Запросити друзів
         notifications: Сповіщення
         profile: Мій обліковий запис
         public_profile: Мій загальнодоступний профіль
@@ -633,6 +666,7 @@ uk:
         account: Обліковий запис
         authorizations: Підтвердження особи
         delete_my_account: Видалити мій обліковий запис
+        my_data: Мої дані
         notifications_settings: Налаштування сповіщень
         title: Налаштування учасника
         user_groups: Організації

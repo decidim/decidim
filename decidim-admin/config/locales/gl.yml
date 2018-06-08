@@ -10,7 +10,7 @@ gl:
         organization: Organización
         plural: Plural
       attachment:
-        attachment_collection_id: Colección
+        attachment_collection_id: Cartafol
         description: Descrición
         file: Arquivo
         title: Título
@@ -96,7 +96,7 @@ gl:
       decidim/participatory_process:
         banner_image: Imaxe do banner
         description: Descrición
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Dominio
         end_date: Data de finalización
         hashtag: Etiqueta
@@ -132,7 +132,7 @@ gl:
         organization_name: Nome da Organización
         organization_url: URL da organización
         redirect_uri: Redirixir URI
-        site: Sitio
+        site: Sitio web
   date:
     formats:
       datepicker: "%m / %d / %Y"
@@ -524,7 +524,7 @@ gl:
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
-          omnipresent_banner_appearance_title: Editar omnipresente
+          omnipresent_banner_appearance_title: Editar o banner omnipresente
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.

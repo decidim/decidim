@@ -47,7 +47,7 @@ ru:
           email_intro: Опрос %{resource_title} в %{participatory_space_title} был закрыт.
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} завершился опрос
-          notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> завершен.
+          notification_title: Опрос <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> окончен.
         survey_opened:
           email_intro: 'В %{participatory_space_title} начался опрос %{resource_title}. Вы можете принять в нем участие на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -87,7 +87,7 @@ ru:
             statement: Высказывание
             up: Вверх
           update:
-            invalid: При сохранении опроса произошли ошибки.
+            invalid: При попытке сохранить опрос произошли ошибки.
             success: Опрос успешно сохранен.
       question_types:
         long_answer: Длинный ответ
@@ -111,9 +111,9 @@ ru:
             body: Вы уже ответили на этот опрос.
             title: Опрос пройден
           survey_closed:
-            body: Опрос завершен и его уже нельзя проходить.
-            title: Опрос завершен
+            body: Опрос окончен и его уже нельзя проходить.
+            title: Опрос окончен
           survey_for_private_users:
             body: Опрос доступен только для частных участников
-            title: Опрос завершен
+            title: Опрос окончен
           tos_agreement: Участвуя в этом опросе, вы принимаете его "Условия использования"

@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
+      include Decidim::DataPortability
 
       fingerprint fields: [:title, :body]
 
@@ -184,6 +185,14 @@ module Decidim
               )
             SQL
         Arel.sql(query)
+      end
+
+      def self.export_serializer
+        Decidim::Proposals::ProposalSerializer
+      end
+
+      def self.data_portability_images(user)
+        user_collection(user).map { |p| p.attachments.collect(&:file_url) }
       end
 
       private

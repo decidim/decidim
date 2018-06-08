@@ -47,7 +47,7 @@ module Decidim
         end
 
         def user
-          @user ||= Decidim::User.find_or_create_by(
+          @user ||= Decidim::User.find_or_initialize_by(
             organization: form.current_organization,
             email: form.email.downcase
           )

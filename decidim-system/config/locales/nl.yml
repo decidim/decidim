@@ -3,7 +3,7 @@ nl:
     system:
       actions:
         confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
-        destroy: Vernietigen
+        destroy: Verwijder
         edit: Bewerk
         new: nieuwe
         save: Opslaan
@@ -13,7 +13,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe admin.
           success: Admin is succesvol gemaakt
         destroy:
-          success: Admin succesvol vernietigd
+          success: Admin is succesvol verwijderd
         edit:
           title: Beheer admin
           update: Bijwerken
