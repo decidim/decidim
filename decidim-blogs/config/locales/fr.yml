@@ -11,7 +11,7 @@ fr:
     blogs:
       actions:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
-        destroy: Effacer
+        destroy: Supprimer
         edit: Modifier
         new: Nouveau
         title: Actions
