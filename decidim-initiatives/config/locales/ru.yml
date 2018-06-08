@@ -3,20 +3,64 @@ ru:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        description: Описание
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
+        signature_type: Вид сбора подписей
+        signature_type_values:
+          any: Смешанный
+          offline: Лицом к лицу
+          online: Онлайн
+        title: Заголовок
       initiative_author:
+        address: Адрес
+        city: Город
         id_document: ИНН/СНИЛС
+        name: Имя и фамилия
+        phone_number: Номер телефона
+        post_code: Почтовый индекс
+        province: Область
+      initiatives_committee_member:
+        user: Член рабочей группы
+      initiatives_type:
+        banner_image: Изображение баннера
+        description: Описание
+        title: Название
       organization_data:
+        address: Адрес
         id_document: Документ, удостоверяющий личность
+        name: Полное имя
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Почин
+        few: Почина
+        many: Починов
+        other: Починов
+      decidim/initiative_comittee:
+        one: Рабочая группа
+        few: Рабочих группы
+        many: Рабочих групп
+        other: Рабочих групп
+      decidim/initiative_vote:
+        one: Подпись
+        few: Подписи
+        many: Подписей
+        other: Подписей
   decidim:
     admin:
+      menu:
+        initiatives: Почины
+        initiatives_types: Виды починов
       models:
         initiatives:
           fields:
+            created_at: 'Создано:'
+            state: Cостояние
             supports_count: Выражений поддержки
+            title: Почины
         initiatives_type_scope:
           fields:
             scope: Охват
@@ -24,6 +68,7 @@ ru:
           name: Охват вида почина
         initiatives_types:
           fields:
+            created_at: 'Создано:'
             title: Виды починов
           name: Вид почина
       titles:
@@ -71,6 +116,7 @@ ru:
             filter_by: 'Отобрать по признаку:'
             preview: Предпросмотр
             print: Распечатать
+            search: Поиск
           show:
             print: Распечатать
           update:
@@ -221,27 +267,91 @@ ru:
         filters_small_view:
           close_modal: Закрыть окно
           filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
         index_header:
           new_initiative: Добавить почин
+        orders:
+          label: 'Упорядочить инициативы по:'
+          most_commented: Самые комментируемые
+          most_voted: С наибольшим количеством подписей
+          random: Произвольно
+          recent: Самые последние
         result:
+          initiative_accepted_reason: Этот почин был принят, потому что
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
         show:
+          any_vote_method: Эта гражданская инициатива собирает поддержку в онлайне, а также лицом к лицу.
           offline_method: Этот гражданский почин собирает выражения поддержки только на личных встречах.
+        signature_identities:
+          select_identity: Выберите псевдоним участника
+        signatures_count:
+          one: " подпись"
+          few: " подписи"
+          many: " подписей"
+          other: " подписей"
         statistics:
           assistants_count_title: Помощников
           comments_count_title: Комментариев
           meetings_count_title: Встреч
           supports_count_title: Подписей
+        supports:
+          title: Список подписей
         vote_cabin:
+          already_voted: Уже подписали
           supports_required: "Требуется %{total_supports} подписей"
+          vote: Подписать
+          votes_blocked: Подписание отключено
+        votes_count:
+          count:
+            one: ПОДПИСЬ
+            few: ПОДПИСИ
+            many: ПОДПИСЕЙ
+            other: ПОДПИСЕЙ
       initiatives_mailer:
+        creation_subject: Ваш гражданский почин '%{title}' был создан
+        initiative_link:
+          check_initiative_details: Вы можете посмотреть сведения о почине
+          here: здесь
+        more_information: Вот дополнительные сведения о процессе создания почина.
         progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
+        progress_report_for: 'Кратко о почине: %{title}'
+        promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
+        status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
+        status_change_for: Состояние почина %{title} изменилось
+        technical_validation_body_for: Почин %{title} запросил техническую проверку.
+        technical_validation_for: Почин %{title} запросил техническую проверку.
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Действующие почины
+            see_all_initiatives: Просмотреть все инициативы
+      states:
+        accepted: Принятые
+        expired: Истекшие
+    menu:
+      initiatives: Почины
   layouts:
     decidim:
       admin:
         initiative:
+          attachments: Прикрепленные файлы
+          committee_members: Члены рабочей группы
           components: Составляющие
+          information: Сведения
+      initiative_creation_header:
+        fill_data: Создать
+        finish: Закончить
+        previous_form: Начать
+        promotal_committee: Рабочая группа по продвижению
+        select_initiative_type: Выбрать
+        show_similar_initiatives: Сравнить
+      initiative_header:
+        initiative_menu_item: Почин
+        unfold: Развернуть
+      initiatives:
+        initiative:
+          check: Проверьте это
+          check_and_support: Проверьте это и подпишите
+        no_initiatives_yet:
+          no_initiatives_yet: Еще нет ни одного почина!
