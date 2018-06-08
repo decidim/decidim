@@ -45,6 +45,10 @@ module Decidim
       def can_join?
         model.can_be_joined_by?(current_user)
       end
+
+      def show_footer_actions?
+        options[:show_footer_actions]
+      end
     end
   end
 end
