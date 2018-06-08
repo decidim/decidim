@@ -234,7 +234,7 @@ fr:
       results:
         title: Résultats
       show:
-        read_more: Lire la suite
+        read_more: Voir la suite
       statistics:
         assistants_count_title: Assistants
         comments_count_title: commentaires
