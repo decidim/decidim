@@ -124,13 +124,15 @@ module Decidim
       end
 
       def request_accept
-        @collaborative_draft.access_requestors.delete requester_user
-        Decidim::Coauthorship.create(
-          coauthorable: @collaborative_draft,
-          author: requester_user,
-          decidim_user_group_id: nil
-        )
-        flash[:notice] = t("accepted_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+        AcceptAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user) do
+          on(:ok) do |_collaborative_draft|
+            flash[:notice] = t("accepted_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("accepted_request.invalid", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+          end
+        end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 

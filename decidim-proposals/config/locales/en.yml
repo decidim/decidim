@@ -99,16 +99,26 @@ en:
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} accepted access to contribute to %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} has been rejected access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} rejected access to contribute to %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: You have been accepted as a contributor of %{resource_title}.
+          notification_title: You have been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requester_rejected:
           email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
@@ -310,7 +320,9 @@ en:
           random: Random
           recent: Recent
         requests:
-          accepted_request: "@%{user} has been added as a collaborator successfully"
+          accepted_request:
+            error: "@%{user} could not be accepted as a collaborator, try again later."
+            success: "@%{user} has been accepted as a collaborator successfully"
           access_requested:
             error: Your request could not be completed, try again later.
             success: Your request to collaborate has been sent successfully
