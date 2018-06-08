@@ -39,6 +39,8 @@ module Decidim
             body: "This is the collaborative draft body",
             address: address,
             has_address: has_address,
+            latitude: latitude,
+            longitude: longitude,
             attachment: attachment_params,
             user_group_id: user_group.try(:id)
           }
