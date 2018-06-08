@@ -50,7 +50,7 @@ fr:
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
-      read_more: Lire la suite
+      read_more: Voir la suite
     components:
       blogs:
         name: Actualités
