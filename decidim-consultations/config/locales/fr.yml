@@ -178,9 +178,9 @@ fr:
         view_results: Voir les résultats
       consultations:
         orders:
-          label: 'Trier les consultations par:'
+          label: 'Trier les consultations par :'
           random: au hasard
-          recent: Le plus récent
+          recent: Les plus récentes
       count:
         title:
           one: "%{count} consultation"
@@ -237,8 +237,8 @@ fr:
         read_more: Voir la suite
       statistics:
         assistants_count_title: Assistants
-        comments_count_title: commentaires
-        meetings_count_title: Réunions
+        comments_count_title: Commentaires
+        meetings_count_title: Rencontres
         supports_count_title: Les soutiens
       technical_info:
         technical_data: Données techniques
