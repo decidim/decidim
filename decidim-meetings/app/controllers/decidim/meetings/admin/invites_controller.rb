@@ -11,7 +11,10 @@ module Decidim
         def index
           enforce_permission_to :read_invites, :meeting, meeting: meeting
 
-          @invites = meeting.invites.page(params[:page]).per(15)
+          @query = params[:q]
+          @status = params[:status]
+
+          @invites = Decidim::Meetings::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
         end
 
         def new

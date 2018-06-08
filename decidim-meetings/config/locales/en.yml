@@ -168,8 +168,15 @@ en:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
           index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
+            search: Search
           new:
             explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
             invite: Invite
