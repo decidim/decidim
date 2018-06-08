@@ -516,7 +516,7 @@ fr:
         close_modal: Fermer modal
         filter: Filtre
         filter_by: Filtrer par
-        unfold: Se dérouler
+        unfold: Dérouler
     shared:
       action_authorization_modal:
         expired:
