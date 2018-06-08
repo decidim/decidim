@@ -124,19 +124,26 @@ module Decidim
       end
 
       def request_accept
-        @collaborative_draft.access_requestors.delete requested_user
+        @collaborative_draft.access_requestors.delete requester_user
         Decidim::Coauthorship.create(
           coauthorable: @collaborative_draft,
-          author: requested_user,
+          author: requester_user,
           decidim_user_group_id: nil
         )
-        flash[:notice] = t("accepted_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requested_user.nickname)
+        flash[:notice] = t("accepted_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
       def request_reject
-        @collaborative_draft.access_requestors.delete requested_user
-        flash[:notice] = t("rejected_request", scope: "decidim.proposals.collaborative_drafts.requests", user: requested_user.nickname)
+        RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user) do
+          on(:ok) do |_collaborative_draft|
+            flash[:notice] = t("rejected_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("rejected_request.invalid", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+          end
+        end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
@@ -164,7 +171,7 @@ module Decidim
         }
       end
 
-      def requested_user
+      def requester_user
         Decidim::User.find params[:user_id]
       end
     end

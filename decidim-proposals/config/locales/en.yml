@@ -99,11 +99,21 @@ en:
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
-        collaborative_draft_access_requested:
-          email_intro: '%{requester_name} requested access as a contributor. You can accept or reject the request from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} has been rejected access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} rejected access to contribute to %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_access_requester_rejected:
+          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: You have been rejected as a contributor of %{resource_title}.
+          notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -308,7 +318,9 @@ en:
             accept_request: Accept
             reject_request: Reject
             title: Collaboration requests
-          rejected_request: "@%{user} has been rejected as a collaborator"
+          rejected_request:
+            error: "@%{user} could not be rejected as a collaborator, try again later."
+            success: "@%{user} has been rejected as a collaborator successfully"
         show:
           edit: Edit collaborative draft
           hidden_authors_count:
