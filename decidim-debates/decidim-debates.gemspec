@@ -18,11 +18,13 @@ Gem::Specification.new do |s|
   s.description = "A debates component for decidim's participatory spaces."
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-comments", Decidim::Debates.version
-  s.add_dependency "decidim-core", Decidim::Debates.version
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
+  s.add_dependency "decidim-comments", compatible_constraint
+  s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "searchlight", "~> 4.1"
 
-  s.add_development_dependency "decidim-admin", Decidim::Debates.version
-  s.add_development_dependency "decidim-dev", Decidim::Debates.version
+  s.add_development_dependency "decidim-admin", compatible_constraint
+  s.add_development_dependency "decidim-dev", compatible_constraint
 end

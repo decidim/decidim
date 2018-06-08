@@ -19,9 +19,11 @@ Gem::Specification.new do |s|
   s.description = "Pluggable comments system for some components."
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::Comments.version
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
+  s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "jquery-rails", "~> 4.0"
 
-  s.add_development_dependency "decidim-admin", Decidim::Comments.version
-  s.add_development_dependency "decidim-dev", Decidim::Comments.version
+  s.add_development_dependency "decidim-admin", compatible_constraint
+  s.add_development_dependency "decidim-dev", compatible_constraint
 end
