@@ -8,7 +8,7 @@ module Decidim
       # Public: Initializes the command.
       #
       # collaborative_draft     - A Decidim::Proposals::CollaborativeDraft object.
-      # current_user - The current user.
+      # current_user - The current user and requester user
       def initialize(collaborative_draft, current_user)
         @collaborative_draft = collaborative_draft
         @current_user = current_user

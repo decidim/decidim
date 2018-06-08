@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe RequestAccessToCollaborativeDraft do
-
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
       let(:collaborative_draft) { create(:collaborative_draft, state, component: component, authors: [author1, author2]) }
@@ -45,10 +44,8 @@ module Decidim
         end
 
         context "when the collaborative draft is closed" do
-          let(:state) {:closed}
-          before do
-            # collaborative_draft.update(state: "closed")
-          end
+          let(:state) { :closed }
+
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -60,11 +57,9 @@ module Decidim
           end
         end
 
-        context "when the collaborative draft is closed " do
-          let(:state) {:published}
-          before do
-            # collaborative_draft.update(state: "published", published_at: Time.current)
-          end
+        context "when the collaborative draft is published" do
+          let(:state) { :published }
+
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -75,9 +70,6 @@ module Decidim
             end.not_to change(collaborative_draft.access_requestors, :count)
           end
         end
-
-
-
       end
     end
   end

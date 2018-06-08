@@ -9,6 +9,7 @@ module Decidim
       #
       # collaborative_draft     - A Decidim::Proposals::CollaborativeDraft object.
       # current_user - The current user.
+      # requester_user - The user that requested to collaborate.
       def initialize(collaborative_draft, current_user, requester_user)
         @collaborative_draft = collaborative_draft
         @current_user = current_user

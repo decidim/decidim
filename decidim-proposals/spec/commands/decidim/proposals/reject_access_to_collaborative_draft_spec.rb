@@ -71,7 +71,7 @@ module Decidim
           end
         end
 
-        context "when the collaborative draft is closed " do
+        context "when the collaborative draft is published" do
           let(:state) { :published }
 
           it "broadcasts invalid" do
