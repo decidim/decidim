@@ -7,6 +7,7 @@
 **Changed**:
 
 **Fixed**:
+
 - **decidim-proposals**: Do not index non published Proposals. [\#3618](https://github.com/decidim/decidim/pull/3618)
 
 **Removed**:
