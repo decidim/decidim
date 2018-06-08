@@ -38,7 +38,7 @@ module Decidim
 
           context "when it IS published" do
             before do
-              proposal.update_attributes published_at: DateTime.current
+              proposal.update published_at: DateTime.current
             end
 
             it "inserts a SearchableResource after Proposal is published" do
