@@ -3,7 +3,7 @@ fr:
     system:
       actions:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cela?
-        destroy: Effacer
+        destroy: Supprimer
         edit: Modifier
         new: Nouvelle
         save: Sauvegarder
@@ -13,7 +13,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
           success: Admin créé avec succès
         destroy:
-          success: Admin supprimé avec succès
+          success: Administrateur supprimé avec succès
         edit:
           title: Modifier l'administrateur
           update: Mettre à jour
