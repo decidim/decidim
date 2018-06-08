@@ -13,7 +13,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
-        created_by_other: Créé par d'autres
+        created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application locale
         decidim_scope_id: Périmètre d'application
@@ -25,12 +25,12 @@ fr:
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        included_at: Inclus le
+        included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
         local_area: Zone d'application locale
-        meta_scope: Métadonnée de la zone d’application
+        meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
@@ -211,7 +211,7 @@ fr:
         assemblies:
           form:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajouté à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
