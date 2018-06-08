@@ -196,7 +196,7 @@ fr:
         close_modal: Fermer la fenêtre
         filter: Filtre
         filter_by: Filtrer par
-        unfold: Se dérouler
+        unfold: Dérouler
       highlighted_questions:
         title: Questions de %{scope_name}
       index:
@@ -265,6 +265,6 @@ fr:
         start_voting_date: Le vote commence
       question_components:
         question_menu_item: La question
-        unfold: Se dérouler
+        unfold: Dérouler
       question_header:
         back_to_consultation: Voir toutes les consultations
