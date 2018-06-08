@@ -89,20 +89,20 @@ module Decidim
     describe "with index_on_create" do
       subject { SearchResourceFieldsMapper.new({}) }
 
-      context "by default" do
+      context "with defaults" do
         it "does index the resource" do
-          expect(subject.index_on_create?(nil)).to be_truthy
+          expect(subject).to be_index_on_create(nil)
         end
       end
 
       context "when setting a boolean" do
         it "DOES index the resource if true is setted" do
           subject.set_index_condition(:create, true)
-          expect(subject.index_on_create?(nil)).to be_truthy
+          expect(subject).to be_index_on_create(nil)
         end
         it "does NOT index the resource if false is setted" do
           subject.set_index_condition(:create, false)
-          expect(subject.index_on_create?(nil)).to be_falsy
+          expect(subject).not_to be_index_on_create(nil)
         end
       end
     end
@@ -110,20 +110,20 @@ module Decidim
     describe "with index_on_update" do
       subject { SearchResourceFieldsMapper.new({}) }
 
-      context "by default" do
+      context "with defaults" do
         it "does index the resource" do
-          expect(subject.index_on_update?(nil)).to be_truthy
+          expect(subject).to be_index_on_update(nil)
         end
       end
 
       context "when setting a boolean" do
         it "DOES index the resource if true is setted" do
           subject.set_index_condition(:update, true)
-          expect(subject.index_on_update?(nil)).to be_truthy
+          expect(subject).to be_index_on_update(nil)
         end
         it "does NOT index the resource if false is setted" do
           subject.set_index_condition(:update, false)
-          expect(subject.index_on_update?(nil)).to be_falsy
+          expect(subject).not_to be_index_on_update(nil)
         end
       end
     end

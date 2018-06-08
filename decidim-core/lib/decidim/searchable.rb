@@ -24,7 +24,7 @@ module Decidim
       #
       def try_add_to_index_as_search_resource
         return unless self.class.search_resource_fields_mapper.index_on_create?(self)
-        self.add_to_index_as_search_resource
+        add_to_index_as_search_resource
       end
 
       # Forces the model to be indexed for the first time.
@@ -41,7 +41,7 @@ module Decidim
         return unless self.class.search_resource_fields_mapper.index_on_update?(self)
 
         if searchable_resources.empty?
-          self.add_to_index_as_search_resource
+          add_to_index_as_search_resource
         else
           fields = self.class.search_resource_fields_mapper.mapped(self)
           searchable_resources.each do |sr|
@@ -92,10 +92,10 @@ module Decidim
       # - index_on_create: Whether to index, or not, the current searchabe when it is created. Defaults to true.
       # - index_on_update: Whether to index, or not, the current searchabe when it is updated. Defaults to true.
       #
-      def searchable_fields(declared_fields, conditions={})
+      def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
         Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
-        conditions= {index_on_create: true, index_on_update: true}.merge(conditions)
+        conditions = { index_on_create: true, index_on_update: true }.merge(conditions)
         if conditions[:index_on_create]
           after_create :try_add_to_index_as_search_resource
           @search_resource_indexable_fields.set_index_condition(:create, conditions[:index_on_create])
