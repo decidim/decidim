@@ -29,7 +29,7 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'application locale
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
@@ -55,7 +55,7 @@ fr:
         ceased_date: Date de radiation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
-        full_name: Nom complet
+        full_name: Nom et prénom
         gender: Genre
         position: Statut
       assembly_user_role:
@@ -139,7 +139,7 @@ fr:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
         index:
-          assembly_admins_title: Utilisateurs de l'agora
+          assembly_admins_title: Administrateurs de l'agora
         new:
           create: Créer
           title: Nouvel utilisateur de l'agora.
@@ -149,7 +149,7 @@ fr:
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'agora
+          assembly_admins: Administrateurs de l'agora
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -172,7 +172,7 @@ fr:
           fields:
             ceased_date: Date de radiation
             designation_date: Date de désignation
-            full_name: Nom
+            full_name: Nom et prénom
             position: Statut
           name: Membre
           positions:
@@ -275,14 +275,14 @@ fr:
         is_transparent:
           'false': non-visible
           'true': visible
-        local_area: Zone d'application locale
+        local_area: Espace d'organisation
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
-        read_less: Voire moins
-        read_more: Voire la suite
-        related_participatory_processes: Processus participatifs associés
+        read_less: Voir moins
+        read_more: Voir la suite
+        related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
         target: Pour qui ?
