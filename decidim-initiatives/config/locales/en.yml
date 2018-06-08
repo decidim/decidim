@@ -71,6 +71,11 @@ en:
         initiatives_types: Initiative types
     events:
       initiatives:
+        initiative_extended:
+          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative signatures end date extended!
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
