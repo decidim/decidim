@@ -80,7 +80,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle agora.
           success: Agora créée avec succès.
         destroy:
-          success: L'assembly a été supprimé avec succès.
+          success: L'agora a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -110,7 +110,7 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
           success: Membre créé avec succès pour cette agora.
         destroy:
-          success: Membre supprimé avec succès pour cet assembly.
+          success: Membre supprimé avec succès pour cet agora.
         edit:
           title: Mettre à jour le membre de l'agora.
           update: Mettre à jour
@@ -132,9 +132,9 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
-          success: Utilisateur ajouté avec succès à cet assembly.
+          success: Utilisateur ajouté avec succès à cette agora.
         destroy:
-          success: Utilisateur supprimé avec succès de cet assembly.
+          success: Utilisateur supprimé avec succès de cette agora.
         edit:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
@@ -204,22 +204,22 @@ fr:
         update: "%{user_name} a mis à jour le %{resource_name} membre de l'agora %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
-        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
-        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assemblée %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora %{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'agora %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            duration_help: Si la durée de cette agora est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
+            included_at_help: Sélectionnez la date à laquelle cette agora a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
-            select_an_assembly_type: Sélectionnez un type d'assemblée
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            select_an_assembly_type: Sélectionnez un type d'agora
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -250,19 +250,19 @@ fr:
         others: Autres
         public: Public
       index:
-        title: Assemblées
+        title: Agora
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            see_all_assemblies: Voir toutes les assemblées
+            active_assemblies: Agora actives
+            see_all_assemblies: Voir toutes les agoras
         user_profile:
           member_of:
             member_of: Membre de
       show:
         area: Zone d'application
-        assembly_type: Type d'assemblée
-        children: Assemblées
+        assembly_type: Type d'agora
+        children: Agora
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
