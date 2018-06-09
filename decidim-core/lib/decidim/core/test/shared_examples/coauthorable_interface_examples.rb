@@ -19,8 +19,8 @@ shared_examples_for "coauthorable interface" do
       let(:query) { "{ author { name } }" }
 
       before do
-        coauthoship= model.coauthorships.first
-        coauthoship.update!(user_group: user_group)
+        coauthorship = model.coauthorships.first
+        coauthorship.update!(user_group: user_group)
       end
 
       it "includes the user's ID" do
