@@ -15,10 +15,10 @@ fr:
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application locale
+        decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Groupe de promoteur
+        developer_group: Groupe initiateur
         domain: Domaine
         duration: Durée
         facebook: Facebook
@@ -29,7 +29,7 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Espace d'organisation
+        local_area: Zone d'application locale
         meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
@@ -275,7 +275,7 @@ fr:
         is_transparent:
           'false': non-visible
           'true': visible
-        local_area: Espace d'organisation
+        local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une assemblée privée
