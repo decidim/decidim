@@ -267,7 +267,7 @@ fr:
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
-        developer_group: Groupe de promoteur
+        developer_group: Groupe initiateur
         duration: Durée
         included_at: Inclus à
         indefinite_duration: Indéfini
@@ -278,7 +278,7 @@ fr:
         local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Ceci est une assemblée privée
+        private_space: Ceci est une agora privée
         purpose_of_action: But de l'action
         read_less: Voir moins
         read_more: Voir la suite
@@ -288,7 +288,7 @@ fr:
         target: Pour qui ?
       statistics:
         answers_count: Réponses
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Recommandations
@@ -310,9 +310,9 @@ fr:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
-      assemblies: Assemblées
+      assemblies: Agora
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -322,17 +322,17 @@ fr:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblées mises en avant
+          promoted_assemblies: Agora mises en avant
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblée"
-            other: "%{count} assemblées"
+            one: "%{count} agora"
+            other: "%{count} agora"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: L'agora
         unfold: Dérouler
       assembly_widgets:
         show:
