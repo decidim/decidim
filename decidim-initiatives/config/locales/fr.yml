@@ -3,12 +3,12 @@ fr:
     attributes:
       initiative:
         decidim_user_group_id: Auteur
-        description: La description
+        description: Description
         offline_votes: Supports en face à face
-        scope_id: Portée
+        scope_id: Périmètre d'application
         signature_end_time: Fin de la période de collecte des signatures
         signature_start_time: Début de la période de collecte des signatures
-        signature_type: Type de collection de signature
+        signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
           offline: Face à face
