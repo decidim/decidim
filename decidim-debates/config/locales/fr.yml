@@ -37,7 +37,7 @@ fr:
     debates:
       actions:
         confirm_destroy: Êtes-vous certain ?
-        destroy: Effacer
+        destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
         title: Actions
