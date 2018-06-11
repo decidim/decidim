@@ -99,5 +99,19 @@ module Decidim::Meetings
         expect(subject.meeting_duration).to eq(120)
       end
     end
+
+    describe "#resource_visible?" do
+      context "when Meeting is private non transparent" do
+        before { subject.update(private_meeting: true, transparent: false) }
+
+        it { is_expected.not_to be_resource_visible }
+      end
+
+      context "when Meeting is private but transparent" do
+        before { subject.update(private_meeting: true, transparent: true) }
+
+        it { is_expected.to be_resource_visible }
+      end
+    end
   end
 end

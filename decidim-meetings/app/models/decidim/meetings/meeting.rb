@@ -40,13 +40,15 @@ module Decidim
                                     or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
 
-      searchable_fields(
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: [:description, :address],
-        datetime: :start_time
-      )
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: [:description, :address],
+                          datetime: :start_time
+                        },
+                        index_on_create: ->(meeting) { meeting.visible? },
+                        index_on_update: ->(meeting) { meeting.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
@@ -127,6 +129,10 @@ module Decidim
       # Return the duration of the meeting in minutes
       def meeting_duration
         @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
+      end
+
+      def resource_visible?
+        !private_meeting? || transparent?
       end
     end
   end
