@@ -13,7 +13,7 @@ it:
           error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
           success: L'utente Admin è stato creato.
         destroy:
-          success: L'utente Admin è stato eliminato
+          success: Amministratore eliminato con successo
         edit:
           title: Modifica Admin
           update: Aggiorna

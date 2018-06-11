@@ -18,7 +18,7 @@ nl:
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         domain: Domein
         duration: Looptijd
         facebook: Facebook
@@ -80,7 +80,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
         destroy:
-          success: Bijeenkomst is succesvol vernietigd.
+          success: Vergadering is succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -110,7 +110,7 @@ nl:
           error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
           success: Lid is met succes voor deze assembly gemaakt.
         destroy:
-          success: Lid succesvol vernietigd voor deze assembly.
+          success: Lid is met succes verwijderd voor deze assembly.
         edit:
           title: Update assembly-lid.
           update: Bijwerken
@@ -132,9 +132,9 @@ nl:
       assembly_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
-          success: Gebruiker is succesvol gemaakt voor deze vergadering.
+          success: Gebruiker is succesvol toegevoegd aan deze assembly.
         destroy:
-          success: Gebruiker met succes vernietigd voor dit event.
+          success: Gebruiker is met succes van deze assembly verwijderd.
         edit:
           title: Update event gebruiker.
           update: Bijwerken
@@ -158,7 +158,7 @@ nl:
           components: Onderdelen
           info: info
           moderations: Moderaties
-          private_users: Privégebruikers
+          private_users: Particuliere gebruikers
       models:
         assembly:
           fields:
@@ -267,7 +267,7 @@ nl:
         composition: Samenstelling
         created_by: Aangemaakt door
         creation_date: Gemaakt op
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         duration: Looptijd
         included_at: Inbegrepen bij
         indefinite_duration: onbepaald

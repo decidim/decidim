@@ -10,7 +10,7 @@ fi:
         organization: organisaatio
         plural: monikko
       attachment:
-        attachment_collection_id: Kokoelma
+        attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
         title: Otsikko
@@ -96,7 +96,7 @@ fi:
       decidim/participatory_process:
         banner_image: Bannerikuva
         description: Kuvaus
-        developer_group: Kehitysryhmä
+        developer_group: Promoottoriryhmä
         domain: Toimintaympäristö
         end_date: Lopetusaika
         hashtag: Hashtag
@@ -132,7 +132,7 @@ fi:
         organization_name: Organisaation nimi
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjata URI
-        site: paikka
+        site: Verkkosivusto
   date:
     formats:
       datepicker: "%d. %m. %Y"

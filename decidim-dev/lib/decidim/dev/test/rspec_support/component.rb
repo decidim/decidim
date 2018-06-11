@@ -47,11 +47,29 @@ module Decidim
       include Followable
       include Traceable
       include Publicable
+      include Decidim::DataPortability
+      include Searchable
+
+      searchable_fields(
+        scope_id: { scope: :id },
+        participatory_space: { component: :participatory_space },
+        A: [:title],
+        D: [:address],
+        datetime: :published_at
+      )
 
       component_manifest_name "dummy"
 
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      def self.user_collection(user)
+        where(decidim_author_id: user.id)
+      end
+
+      def self.export_serializer
+        DummySerializer
       end
     end
   end

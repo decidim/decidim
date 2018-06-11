@@ -3,7 +3,7 @@ ca:
     system:
       actions:
         confirm_destroy: Segur que ho vols eliminar?
-        destroy: Eliminar
+        destroy: Suprimeix
         edit: Editar
         new: Nou
         save: Desar
@@ -13,7 +13,7 @@ ca:
           error: S'ha produït un error en crear un nou administrador.
           success: Administrador creat correctament
         destroy:
-          success: L'administrador s'ha eliminat correctament
+          success: S'ha eliminat correctament l'administrador
         edit:
           title: Editar administrador
           update: Actualitzar

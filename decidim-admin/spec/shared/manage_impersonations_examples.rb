@@ -3,7 +3,7 @@
 shared_examples "manage impersonations examples" do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let(:organization) { create(:organization, :with_tos, available_authorizations: available_authorizations) }
   let(:available_authorizations) { ["dummy_authorization_handler"] }
   let(:document_number) { "123456789X" }
 
@@ -243,6 +243,7 @@ shared_examples "manage impersonations examples" do
       within "form.new_user" do
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
+        check :user_tos_agreement
         find("*[type=submit]").click
       end
 

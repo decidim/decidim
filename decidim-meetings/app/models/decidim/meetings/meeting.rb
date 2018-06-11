@@ -14,12 +14,14 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
@@ -37,6 +39,16 @@ module Decidim
                                       .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
                                     or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
+
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: [:description, :address],
+                          datetime: :start_time
+                        },
+                        index_on_create: ->(meeting) { meeting.visible? },
+                        index_on_update: ->(meeting) { meeting.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
@@ -112,6 +124,15 @@ module Decidim
       def current_user_can_visit_meeting?(current_user)
         (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
           !private_meeting? || (private_meeting? && transparent?)
+      end
+
+      # Return the duration of the meeting in minutes
+      def meeting_duration
+        @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
+      end
+
+      def resource_visible?
+        !private_meeting? || transparent?
       end
     end
   end

@@ -35,7 +35,7 @@ pt-BR:
             create: Criar
             title: Criar post
           update:
-            invalid: Houve erros ao salvar a postagem.
+            invalid: Falha ao salvar o post.
             success: Post salvo com sucesso
       models:
         post:
@@ -50,14 +50,14 @@ pt-BR:
         sidebar_blog:
           comments: comentários
           most_commented_posts: Posts mais comentados
-      read_more: Leia mais
+      read_more: Saiba mais
     components:
       blogs:
         name: Blog
         settings:
           global:
             announcement: Anúncio
-            comments_enabled: Comentários habilitados
+            comments_enabled: Comentários ativados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

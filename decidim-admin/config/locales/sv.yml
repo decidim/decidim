@@ -10,7 +10,7 @@ sv:
         organization: Organisation
         plural: Flertal
       attachment:
-        attachment_collection_id: Samling
+        attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
         title: Titel
@@ -96,7 +96,7 @@ sv:
       decidim/participatory_process:
         banner_image: Bannerbild
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
@@ -132,7 +132,7 @@ sv:
         organization_name: Organisations namn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
-        site: Webbplats
+        site: Hemsida
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -524,7 +524,7 @@ sv:
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
-          omnipresent_banner_appearance_title: Ändra allmänt
+          omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.

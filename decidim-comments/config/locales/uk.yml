@@ -22,7 +22,7 @@ uk:
       comments: Коментарі
       votes:
         create:
-          error: При голосуванні коментаря сталися помилки.
+          error: При голосуванні щодо коментаря сталися помилки.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
@@ -52,7 +52,7 @@ uk:
           description: Чи цей вміст неприпустимий?
           details: Додаткові коментарі
           reasons:
-            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
+            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
             offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
             spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
           title: Поскаржитись на ускладнення
@@ -74,13 +74,13 @@ uk:
         comment_by_followed_user:
           email_intro: "%{author_name} залишив коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
-          email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
-          notification_title: Надійшов новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} прокоментували. Ви можете прочитати коментар на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
-          notification_title: Надійшов новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>
         reply_created:
           email_intro: "%{author_name} відповів на ваш коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
           email_outro: Ви отримали це сповіщення, оскільки на ваш коментар відповіли.

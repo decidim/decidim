@@ -7,9 +7,9 @@ module Decidim
     class RegistrationsController < ::Devise::RegistrationsController
       include FormFactory
       include Decidim::DeviseControllers
+      include NeedsTosAccepted
 
       before_action :configure_permitted_parameters
-      helper_method :terms_and_conditions_page
 
       invisible_captcha
 
@@ -41,12 +41,6 @@ module Decidim
             render :new
           end
         end
-      end
-
-      private
-
-      def terms_and_conditions_page
-        @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
       end
 
       protected

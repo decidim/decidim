@@ -18,7 +18,7 @@ sv:
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
@@ -80,7 +80,7 @@ sv:
           error: Det uppstod ett fel vid att skapa en ny enhet.
           success: Församlingen skapades framgångsrikt.
         destroy:
-          success: Församlingen förstördes framgångsrikt.
+          success: Sammansättning raderas framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -110,7 +110,7 @@ sv:
           error: Det gick inte att lägga till en medlem för den här enheten.
           success: Medlem skapades framgångsrikt för denna församling.
         destroy:
-          success: Medlemen förstördes framgångsrikt för denna församling.
+          success: Medlemmen har tagits bort framgångsrikt för denna sammansättning.
         edit:
           title: Uppdatera monteringsmedlem.
           update: Uppdatering
@@ -132,9 +132,9 @@ sv:
       assembly_user_roles:
         create:
           error: Det gick inte att lägga till en användare för den här enheten.
-          success: Användaren skapades framgångsrikt för den här enheten.
+          success: Användaren har tillagts med framgång till den här enheten.
         destroy:
-          success: Användaren förstördes framgångsrikt för denna montering.
+          success: Användaren avlägsnades framgångsrikt från den här enheten.
         edit:
           title: Uppdatera monteringsanvändaren.
           update: Uppdatera
@@ -267,7 +267,7 @@ sv:
         composition: Sammansättning
         created_by: Skapad av
         creation_date: Skapat datum
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         duration: Varaktighet
         included_at: Ingår på
         indefinite_duration: Obestämd

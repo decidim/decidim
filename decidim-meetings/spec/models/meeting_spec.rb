@@ -17,6 +17,11 @@ module Decidim::Meetings
     include_examples "has category"
     include_examples "has reference"
 
+    it "has an association with one agenda" do
+      subject.agenda = build(:agenda)
+      expect(subject.agenda).to be_present
+    end
+
     context "without a title" do
       let(:meeting) { build :meeting, title: nil }
 
@@ -84,6 +89,29 @@ module Decidim::Meetings
         let(:meeting) { build :meeting, registrations_enabled: true }
 
         it { is_expected.to eq true }
+      end
+    end
+
+    describe "#meeting_duration" do
+      let(:start_time) { 1.day.from_now }
+      let!(:meeting) { build(:meeting, start_time: start_time, end_time: start_time.advance(hours: 2)) }
+
+      it "return the duration of the meeting in minutes" do
+        expect(subject.meeting_duration).to eq(120)
+      end
+    end
+
+    describe "#resource_visible?" do
+      context "when Meeting is private non transparent" do
+        before { subject.update(private_meeting: true, transparent: false) }
+
+        it { is_expected.not_to be_resource_visible }
+      end
+
+      context "when Meeting is private but transparent" do
+        before { subject.update(private_meeting: true, transparent: true) }
+
+        it { is_expected.to be_resource_visible }
       end
     end
   end

@@ -70,6 +70,13 @@ FactoryBot.define do
     highlighted_content_banner_enabled false
     enable_omnipresent_banner false
     tos_version { Time.current }
+
+    trait :with_tos do
+      after(:create) do |organization|
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+        create(:static_page, :tos, organization: organization) if tos_page.nil?
+      end
+    end
   end
 
   factory :user, class: "Decidim::User" do
@@ -84,6 +91,13 @@ FactoryBot.define do
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
     about { Faker::Lorem.paragraph(2) }
+
+    after(:create) do |user|
+      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: user.organization)
+      create(:static_page, :tos, organization: user.organization) if tos_page.nil?
+      user.accepted_tos_version = user.organization.tos_version
+      user.save
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -190,6 +204,10 @@ FactoryBot.define do
     trait :default do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
+
+    trait :tos do
+      slug { "terms-and-conditions" }
+    end
   end
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
@@ -275,6 +293,7 @@ FactoryBot.define do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
+    scope { create(:scope, organization: component.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
@@ -287,10 +306,8 @@ FactoryBot.define do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
-    # rubocop:disable RSpec/EmptyLineAfterSubject
-    # Bug in rubocop-rspec
     subject { Decidim::Faker::Localized.sentence(3) }
-    # rubocop:enable RSpec/EmptyLineAfterSubject
+
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
 
     trait :sent do
@@ -396,5 +413,17 @@ FactoryBot.define do
     expires_in { 1.month.from_now }
     created_at { Time.zone.now }
     scopes { "public" }
+  end
+
+  factory :searchable_resource, class: "Decidim::SearchableResource" do
+    resource { build(:dummy_resource) }
+    resource_id { resource.id }
+    resource_type { resource.class.name }
+    organization { resource.component.organization }
+    decidim_participatory_space { resource.component.participatory_space }
+    locale { I18n.locale }
+    scope { resource.scope }
+    content_a { Faker::Lorem.sentence }
+    datetime { DateTime.current }
   end
 end
