@@ -4,7 +4,7 @@ fr:
       initiative:
         decidim_user_group_id: Auteur
         description: Description
-        offline_votes: Supports en face à face
+        offline_votes: Soutiens en présentiel
         scope_id: Périmètre d'application
         signature_end_time: Fin de la période de collecte des signatures
         signature_start_time: Début de la période de collecte des signatures
@@ -26,7 +26,7 @@ fr:
         user: membre du comité
       initiatives_type:
         banner_image: Image d'en-tête
-        description: La description
+        description: Description
         title: Titre
       organization_data:
         address: Adresse
@@ -73,28 +73,28 @@ fr:
         initiative_extended:
           email_intro: La date de fin du recueil des signatures pour la pétition %{resource_title} a été prolongée !
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin des signatures de l'initiative est prolongée!
-          notification_title: La date de fin des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_subject: La date de fin du recueil des signatures pour la pétition est prolongée !
+          notification_title: La date de fin de recueil des signatures pour la pétition <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
-          email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de signatures!
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Nouvelle étape franchie!
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
+          email_intro: La pétition %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     initiatives:
       admin:
         committee_requests:
           index:
             approve: Approuver
-            confirm_revoke: Êtes-vous sûr?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au comité de promotion
-            no_members_yet: Il n'y a pas de membres dans le comité de promotion
+            confirm_revoke: Êtes-vous certain ?
+            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au comité de soutien
+            no_members_yet: Il n'y a pas de membres dans le comité de soutien
             revoke: Révoquer
-            title: les membres du comité
+            title: Membres du comité de soutien
         initiatives:
           edit:
-            accept: Accepte l'initiative
-            confirm: Êtes-vous sûr?
-            discard: Jeter l'initiative
+            accept: Signer la pétition
+            confirm: Êtes-vous certain ?
+            discard: Rejeter la pétition
             export_votes: Soutien à l'exportation
             reject: Rejeter l'initiative
             send_to_technical_validation: Envoyer à la validation technique
