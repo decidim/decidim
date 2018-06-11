@@ -9,7 +9,7 @@ fr:
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
         questions: Questions
-        slug: URL slug
+        slug: Identifiant d'URL
         start_voting_date: Le vote commence le
         subtitle: Sous-titre
         title: Titre
@@ -27,7 +27,7 @@ fr:
         question_context: Contexte
         reference: Référence
         scope: Zone municipale
-        slug: URL slug
+        slug: Identifiant d'URL
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
@@ -58,10 +58,10 @@ fr:
       consultation_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette consultation.
-          success: Consultation publiée avec succès.
+          success: La consultation a été publiée avec succès.
         destroy:
           error: Il y a eu une erreur lors de la dépublication de cette consultation.
-          success: Consultation dépubliée avec succès.
+          success: La consultation a été dépubliée avec succès.
       consultation_results_publications:
         create:
           error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
@@ -72,14 +72,14 @@ fr:
       consultations:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle consultation.
-          success: Consultation créée avec succès.
+          success: La consultation a été créée avec succès.
         destroy:
-          success: Consultation supprimée avec succès.
+          success: La consultation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
-          slug_help: 'Les URL slugs sont utilisées pour générer les URL qui pointent vers cette consultation. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
-          title: informations générales
+          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette consultation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
+          title: Informations générales
         index:
           not_published: Non publié
           published: Publié
@@ -92,18 +92,18 @@ fr:
       menu:
         consultations: Consultations
         consultations_submenu:
-          info: Information
-          questions: Des questions
+          info: Informations
+          questions: Questions
         questions_submenu:
-          components: Composants
+          components: Fonctionnalités
           consultation: Consultation
-          info: Information
+          info: Informations
           responses: Réponses
       models:
         consultation:
           fields:
-            created_at: Créé à
-            published: Publié
+            created_at: Créée à
+            published: Publiée
             title: Titre
           name:
             one: Consultation
