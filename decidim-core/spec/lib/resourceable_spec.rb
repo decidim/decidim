@@ -129,5 +129,33 @@ module Decidim
         expect(subject.linked_classes_for(proposals_component_1)).to eq ["Decidim::Meetings::Meeting"]
       end
     end
+
+    describe "#visible" do
+      subject { resource }
+
+      context "when all hierarchy is visible" do
+        before { subject.update(published_at: DateTime.current) }
+
+        it { is_expected.to be_visible }
+      end
+
+      context "when ParticipatorySpace is private" do
+        before { subject.component.participatory_space.update(private_space: true) }
+
+        it { is_expected.not_to be_visible }
+      end
+
+      context "when component is NOT published" do
+        before { subject.component.update(published_at: nil) }
+
+        it { is_expected.not_to be_visible }
+      end
+
+      context "when resource is NOT visible" do
+        before { subject.update(published_at: nil) }
+
+        it { is_expected.not_to be_visible }
+      end
+    end
   end
 end
