@@ -30,7 +30,9 @@ Gem::Specification.new do |s|
   s.executables = ["decidim"]
   s.require_paths = ["lib"]
 
-  s.add_dependency "decidim-core", Decidim::Generators.version
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
+  s.add_dependency "decidim-core", compatible_constraint
 
   s.add_development_dependency "bundler", "~> 1.12"
 end

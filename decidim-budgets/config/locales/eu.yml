@@ -33,7 +33,7 @@ eu:
             invalid: Arazo bat izan da proiektu hau sortzean
             success: Proiektua ongi sortu da
           destroy:
-            success: Proiektua ongi ezabatu da
+            success: Proiektua behar bezala ezabatu da
           edit:
             title: Editatu proiektua
             update: Eguneratu

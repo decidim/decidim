@@ -10,7 +10,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       attachment:
-        attachment_collection_id: Collectie
+        attachment_collection_id: Map
         description: Beschrijving
         file: Bestand
         title: Titel
@@ -96,7 +96,7 @@ nl:
       decidim/participatory_process:
         banner_image: Banner afbeelding
         description: Beschrijving
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
@@ -132,7 +132,7 @@ nl:
         organization_name: Naam organisatie
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
-        site: plaats
+        site: Website
   date:
     formats:
       datepicker: "%m/%d/%Y"
@@ -524,7 +524,7 @@ nl:
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
-          omnipresent_banner_appearance_title: Header bewerken
+          omnipresent_banner_appearance_title: Bewerk de alomtegenwoordige banner
       participatory_space_private_users:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.

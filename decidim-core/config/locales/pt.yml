@@ -10,8 +10,8 @@ pt:
         email: O seu email
         name: O seu nome
         nickname: Seu identificador curto e exclusivo
-        password: Nova senha
-        password_confirmation: Confirme a sua nova senha
+        password: Senha
+        password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
@@ -52,6 +52,11 @@ pt:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Arquivo não existe
+        invalid_token: O token fornecido é inválido.
+        no_token: Nenhum token fornecido
+        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
@@ -177,6 +182,13 @@ pt:
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação
+    data_portability:
+      export:
+        ready: pronto
+      show:
+        download_data: Baixe os dados
+        download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
+        request_data: Solicitar dados
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ pt:
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
+        download: Baixar
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
@@ -304,6 +319,18 @@ pt:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    invitations:
+      create:
+        error: Houve alguns problemas ao convidar seus amigos
+        error_empty_form: Por favor insira alguns endereços de email
+        success: Nós enviamos os convites para seus amigos!
+      index:
+        customize_message: Personalizar a mensagem de convite
+        friend_email: 'E-mail do amigo nº%{index}'
+        invitations_subtitle: Deixe seus amigos saberem sobre este site
+        invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
+        invite: Convite
+        visit_your_profile: Visite seu perfil
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -559,6 +586,7 @@ pt:
           Se você não quiser aceitar o convite, ignore este e-mail.<br />
           Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_friend: "%{invited_by} convidou você para %{application}."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
@@ -567,6 +595,10 @@ pt:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
+      invite_friend:
+        accept_invitation: 'Você pode aceitar o convite através do link abaixo:'
+        friend_custom_text: 'Eles deixaram esta mensagem para você:'
+        subject: Você foi convidado para %{organization}
       invite_private_user:
         subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
@@ -616,6 +648,7 @@ pt:
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
+        invite_friends: Convide amigos
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público
@@ -624,6 +657,7 @@ pt:
         account: Conta
         authorizations: Autorizações
         delete_my_account: Deletar minha conta
+        my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
         user_groups: Organizações

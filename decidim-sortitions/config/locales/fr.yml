@@ -42,7 +42,7 @@ fr:
         actions:
           destroy: Annuler le tirage au sort
           edit: Éditer
-          new: Nouveau
+          new: Ajouter un nouveau
           show: Détails du tirage au sort
         models:
           sortition:
@@ -110,7 +110,7 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Déplier
+          unfold: Dérouler
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:

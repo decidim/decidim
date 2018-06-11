@@ -69,7 +69,7 @@ ru:
       actions:
         activate: Начать
         configure: Настроить
-        confirm_destroy: Подтвердить удаление
+        confirm_destroy: Подтвердите удаление
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
@@ -132,7 +132,7 @@ ru:
           title: Создать копию движения соучастия
       participatory_process_groups:
         destroy:
-          success: Группа движения соучастия успешно удалена.
+          success: Группа движений соучастия успешно удалена.
         edit:
           title: Редактировать группу движений
           update: Обновить
@@ -140,7 +140,7 @@ ru:
           create: Создать
           title: Создать группу движений
         update:
-          error: При обновлении этой группы движения соучастия произошла ошибка.
+          error: При попытке обновить эту группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно обновлена.
       participatory_process_publications:
         create:
@@ -155,7 +155,7 @@ ru:
           success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
         create:
-          error: При создании нового шага движения соучастия произошла ошибка.
+          error: При попытке создать новый шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно создан.
         default_title: Введение
         destroy:
@@ -174,11 +174,11 @@ ru:
         ordering:
           error: При перестановке шагов этого движения соучастия произошла ошибка.
         update:
-          error: При обновлении этого шага движения соучастия произошла ошибка.
+          error: При попытке обновить этот шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         create:
-          error: При добавлении участника в это движение соучастия произошла ошибка.
+          error: При попытке добавить участника в это движение соучастия произошла ошибка.
           success: В это движение соучастия успешно добавлен участник.
         destroy:
           success: Успешно удален участник этого движения соучастия.
@@ -191,11 +191,11 @@ ru:
           create: Создать
           title: Добавить участника движения соучастия.
         update:
-          error: При обновлении участника этого движения соучастия произошла ошибка.
+          error: При попытке обновить участника этого движения соучастия произошла ошибка.
           success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
         create:
-          error: При создании нового движения соучастия произошла ошибка.
+          error: При попытке создать новое движение соучастия произошла ошибка.
           success: Движение соучастия было успешно создано. Теперь настройте его шаги.
         destroy:
           success: Движение соучастия успешно удалено.
@@ -212,15 +212,15 @@ ru:
           create: Создать
           title: Добавить движение соучастия
         update:
-          error: При обновлении этого движения соучастия произошла ошибка.
+          error: При попытке обновить это движение соучастия произошла ошибка.
           success: Движение соучастия успешно обновлено.
       participatory_processes_copies:
         create:
-          error: При создании копии этого движения соучастия произошла ошибка.
+          error: При попытке создать копию этого движения соучастия произошла ошибка.
           success: Движение соучастия успешно продублировано.
       participatory_processes_group:
         create:
-          error: При создании новой группы движения соучастия произошла ошибка.
+          error: При попытке создать новую группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно создана.
       titles:
         participatory_process_groups: Группы движений соучастия
@@ -305,27 +305,27 @@ ru:
         target: Кто участвует
         unspecified: Не указано
       statistics:
-        answers_count: Ответы
-        comments_count: Комментарии
-        debates_count: Обсуждения
-        endorsements_count: Поддержали
+        answers_count: Ответов
+        comments_count: Комментариев
+        debates_count: Обсуждений
+        endorsements_count: Выражений поддержки
         headline: Деятельность
-        meetings_count: Встречи
-        orders_count: Голоса
-        pages_count: Страницы
-        processes_count: Движения
-        projects_count: Проекты
-        proposals_count: Предложения
-        results_count: Итоги
-        surveys_count: Опросы
-        users_count: Участники
-        votes_count: Голоса
+        meetings_count: Встреч
+        orders_count: Голосов
+        pages_count: Страниц
+        processes_count: Движений
+        projects_count: Проектов
+        proposals_count: Предложений
+        results_count: Итогов
+        surveys_count: Опросов
+        users_count: Участников
+        votes_count: Голосов
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
-          processes_count: 'Движения:'
+          processes_count: 'Движений:'
       participatory_process_widgets:
         show:
           active_step: Действующий шаг
@@ -344,7 +344,7 @@ ru:
           take_part: Принять участие
         promoted_process:
           active_step: 'Текущий шаг:'
-          more_info: Узнать больше
+          more_info: Дополнительные сведения
           take_part: Принять участие
       process_header:
         process_menu_item: Движение

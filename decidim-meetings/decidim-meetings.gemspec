@@ -20,17 +20,19 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.0.9"
-  s.add_dependency "decidim-core", Decidim::Meetings.version
+  s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "httparty", "~> 0.16.0"
   s.add_dependency "icalendar", "~> 2.4"
   s.add_dependency "jquery-tmpl-rails", "~> 1.1"
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "searchlight", "~> 4.1"
 
-  s.add_development_dependency "decidim-admin", Decidim::Meetings.version
-  s.add_development_dependency "decidim-assemblies", Decidim::Meetings.version
-  s.add_development_dependency "decidim-dev", Decidim::Meetings.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Meetings.version
+  s.add_development_dependency "decidim-admin", compatible_constraint
+  s.add_development_dependency "decidim-assemblies", compatible_constraint
+  s.add_development_dependency "decidim-dev", compatible_constraint
+  s.add_development_dependency "decidim-participatory_processes", compatible_constraint
 end

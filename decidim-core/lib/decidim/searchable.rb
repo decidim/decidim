@@ -18,11 +18,16 @@ module Decidim
 
     included do
       has_many :searchable_resources, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
-      after_create :add_to_index_as_search_resource
-      after_update :update_index_for_search_resource
+      # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
 
-      # Public: after_create callback to index the model as a SearchableResource.
+      # Public: after_create callback to index the model as a SearchableResource, if configured so.
       #
+      def try_add_to_index_as_search_resource
+        return unless self.class.search_resource_fields_mapper.index_on_create?(self)
+        add_to_index_as_search_resource
+      end
+
+      # Forces the model to be indexed for the first time.
       def add_to_index_as_search_resource
         fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
@@ -32,10 +37,18 @@ module Decidim
 
       # Public: after_update callback to update index information of the model.
       #
-      def update_index_for_search_resource
-        fields = self.class.search_resource_fields_mapper.mapped(self)
-        searchable_resources.each do |sr|
-          sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
+      def try_update_index_for_search_resource
+        if self.class.search_resource_fields_mapper.index_on_update?(self)
+          if searchable_resources.empty?
+            add_to_index_as_search_resource
+          else
+            fields = self.class.search_resource_fields_mapper.mapped(self)
+            searchable_resources.each do |sr|
+              sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
+            end
+          end
+        elsif searchable_resources.any?
+          searchable_resources.clear
         end
       end
 
@@ -66,8 +79,8 @@ module Decidim
         @search_resource_indexable_fields
       end
 
-      # Declares the searchable fields for this instance.
-      # Must be a Hash that follow the following format:
+      # Declares the searchable fields for this instance and, optionally, some conditions.
+      # `declared_fields` must be a Hash that follow the following format:
       # {
       #   scope_id: { scope: :id },
       #   participatory_space: { feature: :participatory_space },
@@ -76,9 +89,23 @@ module Decidim
       #   C: :somehow_relevant_field,
       #   D: [:description, :address]
       # }
-      def searchable_fields(declared_fields)
+      #
+      # `conditions` must be a Hash that only accepts a boolean or a Proc that will be evaluated on runtime and returns a boolean for the following keys:
+      # - index_on_create: Whether to index, or not, the current searchabe when it is created. Defaults to true.
+      # - index_on_update: Whether to index, or not, the current searchabe when it is updated. Defaults to true.
+      #
+      def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
         Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
+        conditions = { index_on_create: true, index_on_update: true }.merge(conditions)
+        if conditions[:index_on_create]
+          after_create :try_add_to_index_as_search_resource
+          @search_resource_indexable_fields.set_index_condition(:create, conditions[:index_on_create])
+        end
+        if conditions[:index_on_update]
+          after_update :try_update_index_for_search_resource
+          @search_resource_indexable_fields.set_index_condition(:update, conditions[:index_on_update])
+        end
       end
     end
   end

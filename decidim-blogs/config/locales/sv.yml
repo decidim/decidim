@@ -57,10 +57,10 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverad
+            comments_enabled: Kommentarer aktiverade
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer Blockerad
+            comments_blocked: Kommentarer blockerad
     events:
       blogs:
         post_created:

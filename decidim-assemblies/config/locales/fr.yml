@@ -13,24 +13,24 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
-        created_by_other: Créé par d'autres
+        created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application locale
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         domain: Domaine
         duration: Durée
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        included_at: Inclus le
+        included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'application locale
-        meta_scope: Métadonnée de la zone d’application
+        local_area: Espace d'organisation
+        meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
@@ -55,7 +55,7 @@ fr:
         ceased_date: Date de radiation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
-        full_name: Nom complet
+        full_name: Nom et prénom
         gender: Genre
         position: Statut
       assembly_user_role:
@@ -80,7 +80,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle agora.
           success: Agora créée avec succès.
         destroy:
-          success: Agora supprimée avec succès.
+          success: L'assembly a été supprimé avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -110,7 +110,7 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
           success: Membre créé avec succès pour cette agora.
         destroy:
-          success: Membre supprimé avec succès pour cette agora.
+          success: Membre supprimé avec succès pour cet assembly.
         edit:
           title: Mettre à jour le membre de l'agora.
           update: Mettre à jour
@@ -132,14 +132,14 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
-          success: Utilisateur créé avec succès pour cette agora.
+          success: Utilisateur ajouté avec succès à cet assembly.
         destroy:
-          success: Utilisateur supprimé avec succès pour cette agora.
+          success: Utilisateur supprimé avec succès de cet assembly.
         edit:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
         index:
-          assembly_admins_title: Utilisateurs de l'agora
+          assembly_admins_title: Administrateurs de l'agora
         new:
           create: Créer
           title: Nouvel utilisateur de l'agora.
@@ -149,7 +149,7 @@ fr:
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'agora
+          assembly_admins: Administrateurs de l'agora
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -172,7 +172,7 @@ fr:
           fields:
             ceased_date: Date de radiation
             designation_date: Date de désignation
-            full_name: Nom
+            full_name: Nom et prénom
             position: Statut
           name: Membre
           positions:
@@ -211,7 +211,7 @@ fr:
         assemblies:
           form:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajouté à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
@@ -267,7 +267,7 @@ fr:
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
-        developer_group: Organisateur
+        developer_group: Groupe de promoteur
         duration: Durée
         included_at: Inclus à
         indefinite_duration: Indéfini
@@ -275,14 +275,14 @@ fr:
         is_transparent:
           'false': non-visible
           'true': visible
-        local_area: Zone d'application locale
+        local_area: Espace d'organisation
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
-        read_less: Voire moins
-        read_more: Voire la suite
-        related_participatory_processes: Processus participatifs associés
+        read_less: Voir moins
+        read_more: Voir la suite
+        related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
         target: Pour qui ?
@@ -333,7 +333,7 @@ fr:
       assembly_header:
         assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblée
-        unfold: Déplier
+        unfold: Dérouler
       assembly_widgets:
         show:
           take_part: Participer
