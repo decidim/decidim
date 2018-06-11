@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.participatory_process_groups" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_group.name", scope: "decidim.admin")), ["new", "participatory_process_group"], class: "button tiny button--title new" if allowed_to? :create, :process_group %>
+      <%= link_to t("actions.new_process_group", scope: "decidim.admin"), ["new", "participatory_process_group"], class: "button tiny button--title new" if allowed_to? :create, :process_group %>
     </h2>
   </div>
   <div class="card-section">

@@ -68,7 +68,10 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
-        new: New process
+        new_process: New process
+        new_process_group: New process group
+        new_process_step: New step
+        new_process_user: New process user
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation

@@ -144,6 +144,7 @@ en:
         browse: Browse
         export: Export
         manage: Manage
+        new_assembly: New assembly
         permissions: Permissions
         reject: Reject
         verify: Verify
