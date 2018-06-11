@@ -28,6 +28,19 @@ module Decidim
       def editable_by?(user)
         authored_by?(user)
       end
+
+      def open?
+        state == "open"
+      end
+
+      def closed?
+        state == "closed"
+      end
+
+      def published?
+        state == "published"
+      end
+
     end
   end
 end

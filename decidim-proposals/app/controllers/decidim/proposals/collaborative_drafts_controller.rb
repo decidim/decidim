@@ -14,7 +14,7 @@ module Decidim
 
       helper_method :geocoded_collaborative_draft
       before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :request_access, :request_accept, :request_reject]
+      before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :request_access, :request_accept, :request_reject, :close, :publish]
 
       def index
         @collaborative_drafts = search
@@ -149,6 +149,31 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
+      def close
+        CloseCollaborativeDraft.call(@collaborative_draft, current_user) do
+          on(:ok) do |_collaborative_draft|
+            flash[:notice] = t("close.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("close.error", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+          end
+        end
+        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
+      end
+
+      def publish
+        PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
+          on(:ok) do |_collaborative_draft|
+            flash[:notice] = t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("publish.error", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+          end
+        end
+        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
+      end
       private
 
       def retrieve_collaborative_draft

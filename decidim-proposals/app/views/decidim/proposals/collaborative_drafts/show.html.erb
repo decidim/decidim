@@ -13,17 +13,18 @@
 
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% console %>
 
     <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
       <div class="card text-center" id="collaborative_draft_publish">
-          <div class="card__content">
-            <%= button_to t("publish", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc" %>
-
-            <small>
-              <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
-            </small>
-          </div>
+        <div class="card__content">
+          <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :publish %>
+          <small>
+            <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
+            <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :close %>
+          </small>
         </div>
+      </div>
     <% end %>
 
     <div class="card text-center">

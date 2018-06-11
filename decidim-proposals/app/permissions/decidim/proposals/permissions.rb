@@ -119,7 +119,7 @@ module Decidim
         when :edit
           can_edit_collaborative_draft?
         when :publish
-          can_edit_collaborative_draft?
+          can_publish_collaborative_draft?
         when :request_access
           can_request_access_collaborative_draft?
         end
@@ -134,10 +134,15 @@ module Decidim
       end
 
       def can_edit_collaborative_draft?
-        toggle_allow(collaborative_draft && collaborative_draft.editable_by?(user))
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user))
+      end
+
+      def can_publish_collaborative_draft?
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user))
       end
 
       def can_request_access_collaborative_draft?
+        return toggle_allow(false) unless collaborative_draft.open?
         return toggle_allow(false) if collaborative_draft.editable_by?(user)
         return toggle_allow(false) if collaborative_draft.access_requestors.include? user
         toggle_allow(collaborative_draft && !collaborative_draft.editable_by?(user))
