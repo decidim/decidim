@@ -70,6 +70,11 @@ ca:
         initiatives_types: Tipus d'iniciatives
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La data de finalització de la signatura de la iniciativa %{resource_title} s'ha ampliat.
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha estès la data de finalització de la signatura d'iniciatives.
+          notification_title: S'ha ampliat la data de finalització de la signatura de la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         milestone_completed:
           email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
