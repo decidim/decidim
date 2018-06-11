@@ -15,7 +15,7 @@ fr:
         title: Titre
       question:
         banner_image: Image de la bannière
-        decidim_scope_id: Zone municipale
+        decidim_scope_id: Périmètre municipal
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
