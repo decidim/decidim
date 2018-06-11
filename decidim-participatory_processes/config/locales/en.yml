@@ -68,7 +68,7 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
-        new: New
+        new: New process
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
@@ -77,7 +77,7 @@ en:
         participatory_process_groups: Process groups
         participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: Collections
+          attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
           categories: Categories

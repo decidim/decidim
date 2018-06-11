@@ -152,7 +152,7 @@ en:
         assemblies_submenu:
           assembly_admins: Assembly users
           assembly_members: Members
-          attachment_collections: Collections
+          attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
           categories: Categories

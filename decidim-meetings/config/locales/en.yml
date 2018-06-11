@@ -115,14 +115,14 @@ en:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Collections
+        attachment_collections: Folders
         attachments: Attachments
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
         minutes: Minutes
-        new: New
+        new: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
