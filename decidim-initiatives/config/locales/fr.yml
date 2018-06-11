@@ -94,7 +94,7 @@ fr:
           edit:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
-            discard: Rejeter la pétition
+            discard: Dépublier la pétition
             export_votes: Exporter la liste des soutiens
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
@@ -108,7 +108,7 @@ fr:
               accepted: Accepté
               all: Tout
               created: Créé
-              discarded: Rejeté
+              discarded: Dépublié
               published: Publié
               rejected: Rejeté
               validating: Validation technique
@@ -153,23 +153,23 @@ fr:
           form:
             title: Information générale
           initiative_type_scopes:
-            title: Scopes pour le type d'initiative
+            title: Périmètre d'application pour ce type de pétition
           new:
             create: Créer
-            title: Nouveau type d'initiative
+            title: Nouveau type de pétition
           update:
-            error: Une erreur est survenue
-            success: Le type d'initiative a été mis à jour avec succès
+            error: Une erreur s'est produite
+            success: Le type de pétition a été mis à jour avec succès
       admin_log:
         initiative:
-          publish: "%{user_name} a publié l'initiative %{resource_name}"
-          send_to_technical_validation: "%{user_name} a envoyé l'initiative %{resource_name} à la validation technique"
-          unpublish: "%{user_name} a rejeté l'initiative %{resource_name}"
+          publish: "%{user_name} a publié la pétition %{resource_name}"
+          send_to_technical_validation: "%{user_name} a envoyé la pétition %{resource_name} à la validation technique"
+          unpublish: "%{user_name} a dépublié la pétition %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
         accepted: Accepté
         created: Créé
-        discarded: Mis au rebut
+        discarded: Dépublié
         published: Publié
         rejected: Rejeté
         validating: Validation technique
