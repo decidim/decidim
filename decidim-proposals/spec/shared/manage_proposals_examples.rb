@@ -50,7 +50,7 @@ shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            click_link "New"
+            click_link "New proposal"
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -85,7 +85,7 @@ shared_examples "manage proposals" do
           let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do
-            click_link "New"
+            click_link "New proposal"
 
             within "form" do
               expect(page).to have_no_content(/Scope/i)
@@ -93,7 +93,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -118,7 +118,7 @@ shared_examples "manage proposals" do
             let!(:child_scope) { create :scope, parent: scope }
 
             it "can be related to a scope" do
-              click_link "New"
+              click_link "New proposal"
 
               within "form" do
                 expect(page).to have_content(/Scope/i)
@@ -126,7 +126,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to a process scope child" do
-              click_link "New"
+              click_link "New proposal"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -155,7 +155,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              click_link "New"
+              click_link "New proposal"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -185,7 +185,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal with attachments" do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
