@@ -31,7 +31,7 @@ fr:
       decidim/proposals/proposal_endorsed_event: Proposition approuvée
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
-      decidim/proposals/rejected_proposal_event: Proposition rejetée
+      decidim/proposals/rejected_proposal_event: Proposition non retenue
       decidim/proposals/voting_enabled_event: Vote de proposition activé
   activerecord:
     models:
@@ -127,10 +127,10 @@ fr:
           email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
-          email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire le commentaire ici :'
+          email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
-          email_subject: Une proposition que vous suivez a été rejetée
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          email_subject: Une proposition que vous suivez n'a pas été retenue
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -305,7 +305,7 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          except_rejected: Tous sauf rejeté
+          except_rejected: Tout sauf les propositions non retenues
           official: Propositions officielles
           origin: Auteurs
           rejected: Non retenue
@@ -317,7 +317,7 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Déplier
+          unfold: Dérouler
         index:
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
