@@ -24,18 +24,18 @@ fr:
         origin_url: URL d'origine
         participatory_scope: Champ d'application participatif
         promoter_group: Groupe de promoteur
-        question_context: Le contexte
+        question_context: Contexte
         reference: Référence
         scope: Zone municipale
         slug: URL slug
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
-        what_is_decided: Ce qui est décidé
+        what_is_decided: Ce qui a été décidé
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Réponse non trouvée.
+          not_found: Réponse introuvable.
   activerecord:
     models:
       decidim/consultations:
@@ -43,7 +43,7 @@ fr:
         other: Consultations
       decidim/consultations/question:
         one: Question
-        other: Des questions
+        other: Questions
       decidim/consultations/response:
         one: Réponse
         other: Réponses
@@ -54,21 +54,21 @@ fr:
     admin:
       actions:
         publish_results: Publier les résultats
-        unpublish_results: Annuler la publication des résultats
+        unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette consultation.
           success: Consultation publiée avec succès.
         destroy:
-          error: Il y a eu une erreur de non publication de cette consultation.
-          success: Consultation non publiée avec succès.
+          error: Il y a eu une erreur lors de la dépublication de cette consultation.
+          success: Consultation dépubliée avec succès.
       consultation_results_publications:
         create:
           error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
-          success: Résultats de la consultation publiés avec succès.
+          success: Les résultats de la consultation ont été publiés avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
-          success: Résultats de la consultation non publiés avec succès.
+          error: Une erreur s'est produite lors de la dépublication des résultats de cette consultation.
+          success: Les résultats de la consultation ont été dépubliés avec succès.
       consultations:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle consultation.
