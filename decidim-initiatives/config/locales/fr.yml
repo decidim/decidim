@@ -70,6 +70,11 @@ fr:
         initiatives_types: Types d'initiative
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin des signatures pour l'initiative %{resource_title} a été prolongée!
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: La date de fin des signatures de l'initiative est prolongée!
+          notification_title: La date de fin des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de signatures!
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
