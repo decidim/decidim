@@ -3,23 +3,23 @@ fr:
     attributes:
       consultation:
         banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Portée en surbrillance
+        decidim_highlighted_scope_id: Périmètre mis en valeur
         description: Description
-        end_voting_date: Le vote prend fin
+        end_voting_date: Le vote prend fin le
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
-        questions: Des questions
+        questions: Questions
         slug: URL slug
-        start_voting_date: Le vote commence
+        start_voting_date: Le vote commence le
         subtitle: Sous-titre
         title: Titre
       question:
         banner_image: Image de la bannière
         decidim_scope_id: Zone municipale
         hashtag: Hashtag
-        hero_image: Image de la maison
+        hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Portée
+        origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
         participatory_scope: Champ d'application participatif
