@@ -110,15 +110,15 @@ fr:
             other: Consultations
         question:
           fields:
-            created_at: Créé à
-            published: Publié
+            created_at: Créée à
+            published: Publiée
             title: Titre
           name:
             one: Question
-            other: Des questions
+            other: Questions
         response:
           fields:
-            created_at: Créé à
+            created_at: Créée à
             title: Titre
           name:
             one: Réponse
@@ -129,7 +129,7 @@ fr:
           success: Question publiée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette question.
-          success: Question non publiée avec succès.
+          success: Question dépubliée avec succès.
       questions:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle question.
@@ -139,10 +139,10 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          title: informations générales
+          title: Informations générales
         index:
-          not_published: Non publié
-          published: Publié
+          not_published: Non publiées
+          published: Publiées
         new:
           create: Créer
           title: Nouvelle question
