@@ -95,20 +95,20 @@ fr:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
             discard: Rejeter la pétition
-            export_votes: Soutien à l'exportation
-            reject: Rejeter l'initiative
+            export_votes: Exporter la liste des soutiens
+            reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
-            success: L'initiative a été envoyée à la validation technique
+            success: La pétition a été envoyée à la validation technique
             update: Mettre à jour
           form:
-            title: informations générales
+            title: Information générale
           index:
-            actions_title: action
+            actions_title: Action
             filter:
               accepted: Accepté
               all: Tout
               created: Créé
-              discarded: Mis au rebut
+              discarded: Rejeté
               published: Publié
               rejected: Rejeté
               validating: Validation technique
@@ -120,38 +120,38 @@ fr:
             print: Impression
           update:
             error: Une erreur est survenue
-            success: L'initiative citoyenne a été mise à jour avec succès
+            success: La pétition citoyenne a été mise à jour avec succès
         initiatives_type_scopes:
           create:
-            error: Une erreur est survenue
-            success: Une nouvelle portée pour le type d'initiative donné a été créée
+            error: Une erreur s'est produite
+            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
           destroy:
-            success: La portée a été supprimée avec succès
+            success: La périmètre d'application a été supprimé avec succès
           edit:
-            back: Arrière
-            confirm_destroy: Êtes-vous sûr?
+            back: Retour
+            confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier la portée du type d'initiative
+            title: Modifier le périmètre d'application du type d'initiative
             update: Mettre à jour
           new:
-            back: Arrière
+            back: Retour
             create: Créer
-            title: Créer une portée de type d'initiative
+            title: Créer un type de périmètre d'application pour les pétitions
           update:
-            error: Une erreur est survenue
-            success: La portée a été mise à jour avec succès
+            error: Une erreur s'est produite
+            success: Le périmètre d'application a été mis à jour avec succès
         initiatives_types:
           create:
-            error: Une erreur est survenue
+            error: Une erreur s'est produite
             success: Un nouveau type d'initiative a été créé avec succès
           destroy:
             success: Le type d'initiative a été supprimé avec succès
           edit:
-            confirm_destroy: Êtes-vous sûr?
+            confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
             update: Mettre à jour
           form:
-            title: informations générales
+            title: Information générale
           initiative_type_scopes:
             title: Scopes pour le type d'initiative
           new:
