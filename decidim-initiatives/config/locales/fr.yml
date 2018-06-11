@@ -176,12 +176,12 @@ fr:
       committee_requests:
         new:
           continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du comité promoteur de cette initiative
+          help_text: Vous êtes sur le point de demander à devenir membre du comité de soutien de cette pétition
         spawn:
-          success: Votre demande a été envoyée à l'auteur de l'initiative.
+          success: Votre demande a été envoyée à l'auteur de la pétition.
       create_initiative:
         fill_data:
-          back: Arrière
+          back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Réviser le contenu de votre initiative. Votre titre est-il facile à comprendre? L'objectif de votre initiative est-il clair?</li> <li>Vous devez choisir le type de signature. En personne, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative? District de la ville?</li> </ul>"
           initiative_type: Type d'initiative
