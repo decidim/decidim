@@ -131,4 +131,4 @@ fr:
           email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
-          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
