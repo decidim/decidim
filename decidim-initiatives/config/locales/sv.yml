@@ -70,6 +70,11 @@ sv:
         initiatives_types: Initiativtyper
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Signaturens slutdatum för initiativet %{resource_title} har förlängts!
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Initiativa signaturer slutdatum förlängt!
+          notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
         milestone_completed:
           email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
