@@ -70,6 +70,11 @@ es:
         initiatives_types: Tipos de Iniciativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
+          email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: '¡Fecha de finalización de firmas de iniciativa extendida!'
+          notification_title: La fecha de finalización de las firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
