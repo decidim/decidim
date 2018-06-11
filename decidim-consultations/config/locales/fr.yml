@@ -152,14 +152,14 @@ fr:
       responses:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
-          success: Réponse créée avec succès
+          success: Réponse créée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de la réponse.
           success: Réponse supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
-          title: informations générales
+          title: Informations générales
         new:
           create: Créer
           title: Nouvelle réponse
@@ -168,30 +168,30 @@ fr:
           success: Réponse mise à jour avec succès.
       titles:
         consultations: Consultations
-        questions: Des questions
+        questions: Questions
         responses: Réponses
     consultations:
       consultation:
-        start_voting_date: Le vote commence
+        start_voting_date: Le vote commence le
         view_results: Voir les résultats
       consultation_card:
         view_results: Voir les résultats
       consultations:
         orders:
           label: 'Trier les consultations par :'
-          random: au hasard
+          random: Au hasard
           recent: Les plus récentes
       count:
         title:
           one: "%{count} consultation"
           other: "%{count} consultations"
       filters:
-        active: actif
-        all: Tout
-        finished: Fini
-        search: Chercher
-        state: Etat
-        upcoming: Prochain
+        active: Actifs
+        all: Tous
+        finished: Terminées
+        search: Rechercher
+        state: État
+        upcoming: À venir
       filters_small_view:
         close_modal: Fermer la fenêtre
         filter: Filtre
