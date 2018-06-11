@@ -58,7 +58,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal", :slow do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
