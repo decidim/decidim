@@ -22,8 +22,8 @@ module Decidim
             name: "User",
             nickname: "nickname",
             email: email,
-            password: "password1234",
-            password_confirmation: "password1234",
+            password: "rPYWYKQJrXm97b4ytswc",
+            password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
             newsletter: "0"
           }
