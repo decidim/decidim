@@ -346,7 +346,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
-          endorsements_list: Liste des promoteurs
+          endorsements_list: Liste des recommandations
           hidden_endorsers_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
@@ -406,12 +406,12 @@ fr:
         success: Proposition mise à jour avec succès.
       update_draft:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
-        success: Le projet de proposition a été mis à jour
+        success: Le brouillon de proposition a été mis à jour.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
       included_projects:
-        project_result: 'Résultats apparaissant dans ce projet :'
+        project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
-        proposal_result: 'Proposition figurant dans ces résultats :'
+        proposal_result: 'Proposition figurant dans ces réalisations :'
