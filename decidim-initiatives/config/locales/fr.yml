@@ -293,10 +293,10 @@ fr:
         supports:
           title: Liste des signatures
         vote_cabin:
-          already_voted: Déjà signé
+          already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"
-          vote: Signe
-          votes_blocked: Signature désactivée
+          vote: Signer
+          votes_blocked: Signatures désactivées
         votes_count:
           count:
             one: SIGNATURE
@@ -304,14 +304,14 @@ fr:
       initiatives_mailer:
         creation_subject: Votre initiative citoyenne '%{title}' a été créée
         initiative_link:
-          check_initiative_details: Vous pouvez voir les détails de l'initiative
+          check_initiative_details: Vous pouvez accéder aux détails de l'initiative
           here: ici
         more_information: Vous trouverez ici plus d'informations sur le processus de création d'une initiative.
-        progress_report_body_for: L'initiative %{title} a atteint les %{percentage}% de supports requis.
-        progress_report_for: 'Reprendre l''initiative: %{title}'
-        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au comité des promoteurs. Envoyez le lien suivant pour inviter les gens au comité de promotion
-        status_change_body_for: 'L''initiative %{title} a changé son état à: %{state}'
-        status_change_for: L'initiative %{title} a changé d'état
+        progress_report_body_for: L'initiative %{title} a atteint %{percentage}% des soutiens requis.
+        progress_report_for: 'Résumé de l''initiative : %{title}'
+        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au comité organisateur. Envoyez le lien suivant pour les inviter
+        status_change_body_for: 'L''initiative %{title} a changé son statut pour : %{state}'
+        status_change_for: L'initiative %{title} a changé de statut
         technical_validation_body_for: L'initiative %{title} a demandé sa validation technique.
         technical_validation_for: L'initiative %{title} a demandé sa validation technique.
       pages:
@@ -320,31 +320,31 @@ fr:
             active_initiatives: Initiatives actives
             see_all_initiatives: Voir toutes les initiatives
       states:
-        accepted: Accepté
-        expired: Expiré
+        accepted: Acceptées
+        expired: Expirées
     menu:
       initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Pièces jointes
-          committee_members: les membres du comité
-          components: Composants
-          information: Information
+          attachments: Documents liés
+          committee_members: Membres du comité organisateur
+          components: Fonctionnalités
+          information: Informations
       initiative_creation_header:
         fill_data: Créer
-        finish: terminer
+        finish: Fin
         previous_form: Début
-        promotal_committee: Comité de promoteur
-        select_initiative_type: Choisir
+        promotal_committee: Comité organisateur
+        select_initiative_type: Sélectionner
         show_similar_initiatives: Comparer
       initiative_header:
         initiative_menu_item: Initiative
         unfold: Dérouler
       initiatives:
         initiative:
-          check: Vérifiez-le
-          check_and_support: Regardez-le et signez
+          check: Découvrez l'initiative
+          check_and_support: Découvrez l'initiative et signez-la
         no_initiatives_yet:
-          no_initiatives_yet: Aucune initiative pour le moment!
+          no_initiatives_yet: Aucune initiative pour le moment !
