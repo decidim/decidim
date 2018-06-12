@@ -45,6 +45,8 @@ es:
         other: Firmas
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nuevo tipo de iniciativa
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
