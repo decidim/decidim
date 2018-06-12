@@ -23,7 +23,7 @@ fr:
         post_code: Code postal
         province: Région
       initiatives_committee_member:
-        user: Membre du comité de soutien
+        user: Membre du Comité de soutien
       initiatives_type:
         banner_image: Image d'en-tête
         description: Description
