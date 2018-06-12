@@ -73,6 +73,10 @@ pl:
         destroy: Kasować
         duplicate: Duplikat
         edit: Edytuj
+        new_process: Nowy proces
+        new_process_group: Nowa grupa procesów
+        new_process_step: Nowy krok
+        new_process_user_role: Nowy użytkownik procesu
         preview: Podgląd
         publish: Opublikować
         resend_invitation: Wyślij ponownie zaproszenie
@@ -81,6 +85,7 @@ pl:
         participatory_process_groups: Grupy procesowe
         participatory_processes: Procesy
         participatory_processes_submenu:
+          attachment_collections: Lornetka składana
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
