@@ -151,7 +151,6 @@ gl:
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
-          attachment_collections: Coleccións
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
