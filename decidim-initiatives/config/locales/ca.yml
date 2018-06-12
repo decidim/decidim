@@ -45,6 +45,8 @@ ca:
         other: Firmes
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nou tipus d'iniciativa
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
