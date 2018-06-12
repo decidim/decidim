@@ -674,6 +674,16 @@ ru:
         see_more: Читать подробнее
   locale:
     name: Русский
+  password_validator:
+    domain_included_in_password: слишком похож на это доменное имя
+    email_included_in_password: слишком похож на ваш адрес электронной почты
+    fallback: не действует
+    name_included_in_password: слишком похож на Ваше имя
+    not_enough_unique_characters: не содержит достаточно уникальных символов
+    password_not_allowed: не допускается
+    password_too_common: слишком распространен
+    password_too_long: слишком длинный
+    password_too_short: слишком короткий
   social_share_button:
     delicious: Delicious
     douban: Douban

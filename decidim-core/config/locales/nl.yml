@@ -665,6 +665,16 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
+  password_validator:
+    domain_included_in_password: lijkt te veel op deze domeinnaam
+    email_included_in_password: lijkt te veel op uw e-mail
+    fallback: is niet geldig
+    name_included_in_password: lijkt te veel op jouw naam
+    not_enough_unique_characters: heeft niet genoeg unieke tekens
+    password_not_allowed: is niet toegestaan
+    password_too_common: is te gebruikelijk
+    password_too_long: is te lang
+    password_too_short: is te kort
   social_share_button:
     delicious: Heerlijk
     douban: Douban

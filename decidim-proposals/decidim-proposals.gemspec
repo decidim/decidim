@@ -20,18 +20,20 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.0.9"
-  s.add_dependency "decidim-comments", Decidim::Proposals.version
-  s.add_dependency "decidim-core", Decidim::Proposals.version
+  s.add_dependency "decidim-comments", compatible_constraint
+  s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "ransack", "~> 1.8"
   s.add_dependency "social-share-button", "~> 1.0"
 
-  s.add_development_dependency "decidim-admin", Decidim::Proposals.version
-  s.add_development_dependency "decidim-assemblies", Decidim::Proposals.version
-  s.add_development_dependency "decidim-budgets", Decidim::Proposals.version
-  s.add_development_dependency "decidim-dev", Decidim::Proposals.version
-  s.add_development_dependency "decidim-meetings", Decidim::Proposals.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Proposals.version
+  s.add_development_dependency "decidim-admin", compatible_constraint
+  s.add_development_dependency "decidim-assemblies", compatible_constraint
+  s.add_development_dependency "decidim-budgets", compatible_constraint
+  s.add_development_dependency "decidim-dev", compatible_constraint
+  s.add_development_dependency "decidim-meetings", compatible_constraint
+  s.add_development_dependency "decidim-participatory_processes", compatible_constraint
 end

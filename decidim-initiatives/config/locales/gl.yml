@@ -70,6 +70,11 @@ gl:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: A data de finalización das sinaturas para a iniciativa %{resource_title} estendeuse!
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Data de finalización da sinatura de iniciativas estendida!
+          notification_title: A data de finalización das sinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
         milestone_completed:
           email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.

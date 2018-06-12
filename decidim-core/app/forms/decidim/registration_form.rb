@@ -22,7 +22,8 @@ module Decidim
     validates :name, presence: true
     validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
-    validates :password, presence: true, confirmation: true, length: { in: Decidim::User.password_length }
+    validates :password, confirmation: true
+    validates :password, password: { name: :name, email: :email, username: :nickname }
     validates :password_confirmation, presence: true
     validates :tos_agreement, allow_nil: false, acceptance: true
 

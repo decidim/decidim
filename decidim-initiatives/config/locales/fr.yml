@@ -3,30 +3,30 @@ fr:
     attributes:
       initiative:
         decidim_user_group_id: Auteur
-        description: La description
-        offline_votes: Supports en face à face
-        scope_id: Portée
+        description: Description
+        offline_votes: Soutiens en présentiel
+        scope_id: Périmètre d'application
         signature_end_time: Fin de la période de collecte des signatures
         signature_start_time: Début de la période de collecte des signatures
-        signature_type: Type de collection de signature
+        signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
-          offline: Face à face
+          offline: En présentiel
           online: En ligne
         title: Titre
       initiative_author:
         address: Adresse
         city: Ville
-        id_document: DNI / NIE
-        name: Nom et surnom
+        id_document: Carte d'identité ou titre de séjour
+        name: Nom et prénom
         phone_number: Numéro de téléphone
         post_code: Code postal
-        province: Province
+        province: Région
       initiatives_committee_member:
         user: membre du comité
       initiatives_type:
-        banner_image: Image de la bannière
-        description: La description
+        banner_image: Image d'en-tête
+        description: Description
         title: Titre
       organization_data:
         address: Adresse
@@ -35,8 +35,8 @@ fr:
   activerecord:
     models:
       decidim/initiative:
-        one: Initatif
-        other: Initiatives
+        one: Pétition
+        other: Pétitions
       decidim/initiative_comittee:
         one: Comité
         other: Comités
@@ -46,64 +46,69 @@ fr:
   decidim:
     admin:
       menu:
-        initiatives: Initiatives
-        initiatives_types: Types d'initiative
+        initiatives: Pétitions
+        initiatives_types: Types de pétition
       models:
         initiatives:
           fields:
             created_at: Créé à
             state: Etat
-            supports_count: Les soutiens
-            title: Initiatives
+            supports_count: Soutiens
+            title: Pétitions
         initiatives_type_scope:
           fields:
-            scope: Portée
-            supports_required: Supports requis
-          name: Type d'initiative
+            scope: Périmètre d'application
+            supports_required: Soutiens requis
+          name: Type de pétition
         initiatives_types:
           fields:
             created_at: Créé à
-            title: Types d'initiative
-          name: Type d'initiative
+            title: Types de pétition
+          name: Type de pétition
       titles:
-        initiatives: Initiatives
-        initiatives_types: Types d'initiative
+        initiatives: Pétitions
+        initiatives_types: Types de pétition
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour la pétition %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour la pétition est prolongée !
+          notification_title: La date de fin de recueil des signatures pour la pétition <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
-          email_intro: L'initiative %{resource_title} a atteint le %{percentage}% de signatures!
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Nouvelle étape franchie!
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
+          email_intro: La pétition %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     initiatives:
       admin:
         committee_requests:
           index:
             approve: Approuver
-            confirm_revoke: Êtes-vous sûr?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au comité de promotion
-            no_members_yet: Il n'y a pas de membres dans le comité de promotion
+            confirm_revoke: Êtes-vous certain ?
+            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au comité de soutien
+            no_members_yet: Il n'y a pas de membres dans le comité de soutien
             revoke: Révoquer
-            title: les membres du comité
+            title: Membres du comité de soutien
         initiatives:
           edit:
-            accept: Accepte l'initiative
-            confirm: Êtes-vous sûr?
-            discard: Jeter l'initiative
-            export_votes: Soutien à l'exportation
-            reject: Rejeter l'initiative
+            accept: Signer la pétition
+            confirm: Êtes-vous certain ?
+            discard: Dépublier la pétition
+            export_votes: Exporter la liste des soutiens
+            reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
-            success: L'initiative a été envoyée à la validation technique
+            success: La pétition a été envoyée à la validation technique
             update: Mettre à jour
           form:
-            title: informations générales
+            title: Information générale
           index:
-            actions_title: action
+            actions_title: Action
             filter:
               accepted: Accepté
               all: Tout
               created: Créé
-              discarded: Mis au rebut
+              discarded: Dépublié
               published: Publié
               rejected: Rejeté
               validating: Validation technique
@@ -115,68 +120,68 @@ fr:
             print: Impression
           update:
             error: Une erreur est survenue
-            success: L'initiative citoyenne a été mise à jour avec succès
+            success: La pétition citoyenne a été mise à jour avec succès
         initiatives_type_scopes:
           create:
-            error: Une erreur est survenue
-            success: Une nouvelle portée pour le type d'initiative donné a été créée
+            error: Une erreur s'est produite
+            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
           destroy:
-            success: La portée a été supprimée avec succès
+            success: La périmètre d'application a été supprimé avec succès
           edit:
-            back: Arrière
-            confirm_destroy: Êtes-vous sûr?
+            back: Retour
+            confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier la portée du type d'initiative
+            title: Modifier le périmètre d'application du type d'initiative
             update: Mettre à jour
           new:
-            back: Arrière
+            back: Retour
             create: Créer
-            title: Créer une portée de type d'initiative
+            title: Créer un type de périmètre d'application pour les pétitions
           update:
-            error: Une erreur est survenue
-            success: La portée a été mise à jour avec succès
+            error: Une erreur s'est produite
+            success: Le périmètre d'application a été mis à jour avec succès
         initiatives_types:
           create:
-            error: Une erreur est survenue
+            error: Une erreur s'est produite
             success: Un nouveau type d'initiative a été créé avec succès
           destroy:
             success: Le type d'initiative a été supprimé avec succès
           edit:
-            confirm_destroy: Êtes-vous sûr?
+            confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
             update: Mettre à jour
           form:
-            title: informations générales
+            title: Information générale
           initiative_type_scopes:
-            title: Scopes pour le type d'initiative
+            title: Périmètre d'application pour ce type de pétition
           new:
             create: Créer
-            title: Nouveau type d'initiative
+            title: Nouveau type de pétition
           update:
-            error: Une erreur est survenue
-            success: Le type d'initiative a été mis à jour avec succès
+            error: Une erreur s'est produite
+            success: Le type de pétition a été mis à jour avec succès
       admin_log:
         initiative:
-          publish: "%{user_name} a publié l'initiative %{resource_name}"
-          send_to_technical_validation: "%{user_name} a envoyé l'initiative %{resource_name} à la validation technique"
-          unpublish: "%{user_name} a rejeté l'initiative %{resource_name}"
+          publish: "%{user_name} a publié la pétition %{resource_name}"
+          send_to_technical_validation: "%{user_name} a envoyé la pétition %{resource_name} à la validation technique"
+          unpublish: "%{user_name} a dépublié la pétition %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
       admin_states:
         accepted: Accepté
         created: Créé
-        discarded: Mis au rebut
+        discarded: Dépublié
         published: Publié
         rejected: Rejeté
         validating: Validation technique
       committee_requests:
         new:
           continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du comité promoteur de cette initiative
+          help_text: Vous êtes sur le point de demander à devenir membre du comité de soutien de cette pétition
         spawn:
-          success: Votre demande a été envoyée à l'auteur de l'initiative.
+          success: Votre demande a été envoyée à l'auteur de la pétition.
       create_initiative:
         fill_data:
-          back: Arrière
+          back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Réviser le contenu de votre initiative. Votre titre est-il facile à comprendre? L'objectif de votre initiative est-il clair?</li> <li>Vous devez choisir le type de signature. En personne, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative? District de la ville?</li> </ul>"
           initiative_type: Type d'initiative
@@ -258,15 +263,15 @@ fr:
           close_modal: Fermer la fenêtre
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Dérouler
         index_header:
           new_initiative: Nouvelle initiative
         orders:
-          label: 'Trier les initiatives par:'
-          most_commented: Le plus commenté
-          most_voted: Le plus signé
+          label: 'Trier les initiatives par :'
+          most_commented: Les plus commentées
+          most_voted: Les plus soutenues
           random: au hasard
-          recent: Le plus récent
+          recent: Les plus récentes
         result:
           initiative_accepted_reason: Cette initiative a été acceptée parce que
           initiative_rejected_reason: Cette initiative a été rejetée en raison de son manque de soutien.
@@ -280,8 +285,8 @@ fr:
           other: " signatures"
         statistics:
           assistants_count_title: Assistants
-          comments_count_title: commentaires
-          meetings_count_title: Réunions
+          comments_count_title: Commentaires
+          meetings_count_title: Rencontres
           supports_count_title: Signatures
         supports:
           title: Liste des signatures
@@ -334,7 +339,7 @@ fr:
         show_similar_initiatives: Comparer
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Se dérouler
+        unfold: Dérouler
       initiatives:
         initiative:
           check: Vérifiez-le

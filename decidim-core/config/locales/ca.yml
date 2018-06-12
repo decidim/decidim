@@ -665,6 +665,16 @@ ca:
         see_more: Veure més
   locale:
     name: Català
+  password_validator:
+    domain_included_in_password: és massa semblant a aquest nom de domini
+    email_included_in_password: és massa similar al vostre correu electrònic
+    fallback: no és vàlid
+    name_included_in_password: és massa semblant al vostre nom
+    not_enough_unique_characters: no té prou caràcters únics
+    password_not_allowed: no està permès
+    password_too_common: és massa comú
+    password_too_long: és massa llarg
+    password_too_short: és massa curt
   social_share_button:
     delicious: Delicious
     douban: Douban
