@@ -42,7 +42,7 @@ sv:
         actions:
           destroy: Avbryt sorteringen
           edit: Redigera
-          new: Lägg till ny
+          new: Ny sortering
           show: Sorteringsuppgifter
         models:
           sortition:
