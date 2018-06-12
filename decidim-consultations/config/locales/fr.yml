@@ -22,7 +22,7 @@ fr:
         origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
-        participatory_scope: Champ d'application participatif
+        participatory_scope: Périmètre de participation
         promoter_group: Groupe initiateur
         question_context: Contexte
         reference: Référence
@@ -31,7 +31,7 @@ fr:
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
-        what_is_decided: Ce qui a été décidé
+        what_is_decided: Ce qui doit être décidé
     errors:
       vote:
         decidim_consultations_response_id:
@@ -105,7 +105,7 @@ fr:
       models:
         consultation:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             published: Publiée
             title: Titre
           name:
@@ -113,7 +113,7 @@ fr:
             other: Consultations
         question:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             published: Publiée
             title: Titre
           name:
@@ -121,7 +121,7 @@ fr:
             other: Questions
         response:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             title: Titre
           name:
             one: Réponse
