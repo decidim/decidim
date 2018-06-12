@@ -40,6 +40,10 @@ module Decidim
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 
+      def creation_date_status
+        l(model.published_at.to_date, format: :decidim_short)
+      end
+
       def endorsements_count_status
         return endorsements_count unless has_link_to_resource?
 
