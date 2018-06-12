@@ -9,7 +9,7 @@ fr:
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
         questions: Questions
-        slug: Identifiant d'URL
+        slug: Identifiant
         start_voting_date: Le vote commence le
         subtitle: Sous-titre
         title: Titre
@@ -27,7 +27,7 @@ fr:
         question_context: Contexte
         reference: Référence
         scope: Périmètre municipal
-        slug: Identifiant d'URL
+        slug: Identifiant
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
