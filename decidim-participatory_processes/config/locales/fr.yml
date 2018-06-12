@@ -8,7 +8,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Groupe de promoteur
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -53,24 +53,24 @@ fr:
         one: Processus participatif
         other: Processus participatifs
       decidim/participatory_process_group:
-        one: Groupe de processus participatif
+        one: Groupe de processus participatifs
         other: Groupes de processus participatifs
       decidim/participatory_process_step:
         one: Étape
-        other: Pas
+        other: Étapes
   decidim:
     admin:
       actions:
         activate: Activer
         configure: Configurer
-        confirm_destroy: Confirmation de la suppression
+        confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         new_process: Nouveau processus
         new_process_group: Nouveau groupe de processus
         new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur de processus
+        new_process_user_role: Nouvel utilisateur du processus
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -129,7 +129,7 @@ fr:
           title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
-          success: Groupe de processus participatif supprimé avec succès.
+          success: Groupe de processus participatifs supprimé avec succès.
         edit:
           title: Modifier le groupe de processus
           update: Mettre à jour
@@ -291,7 +291,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Groupe de promoteur
+        developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
@@ -322,7 +322,7 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
-          processes_count: 'Processus'
+          processes_count: 'Processus :'
       participatory_process_widgets:
         show:
           active_step: Etape active
