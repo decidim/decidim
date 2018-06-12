@@ -45,15 +45,7 @@
 
           </div>
         </div>
-        <div class="card text-center">
-          <div class="card__content">
-            <button class="button secondary hollow expanded button--icon button--sc success">
-              <%= icon "bell" %>
-              <span>Siguiendo</span>
-            </button>
-            <small>Recibe una notificación cuando haya novedades en esta propuesta</small>
-          </div>
-        </div>
+        <%= partial "followme", { following: true } %>
         <%= partial "share" %>
         <div class="text-center">
           <small>Referencia: BCN-2016-01-173</small>
