@@ -81,6 +81,8 @@ pl:
         other: Zbierz role użytkowników
   decidim:
     admin:
+      actions:
+        new_assembly: Nowy montaż
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
@@ -157,7 +159,6 @@ pl:
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
-          attachment_collections: Kolekcje
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
