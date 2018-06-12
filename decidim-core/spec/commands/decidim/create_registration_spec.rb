@@ -12,7 +12,7 @@ module Decidim
         let(:name) { "Username" }
         let(:nickname) { "nickname" }
         let(:email) { "user@example.org" }
-        let(:password) { "password1234" }
+        let(:password) { "Y1fERVzL2F" }
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
         let(:newsletter) { "1" }

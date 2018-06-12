@@ -149,6 +149,7 @@ ignore_unused:
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
+  - password_validator.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
