@@ -13,7 +13,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouveau poste
         title: Actions
       admin:
         models:
