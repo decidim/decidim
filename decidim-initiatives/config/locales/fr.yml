@@ -45,6 +45,8 @@ fr:
         other: Signatures
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Pétitions
         initiatives_types: Types de pétition
