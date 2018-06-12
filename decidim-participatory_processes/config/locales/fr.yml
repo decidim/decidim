@@ -93,7 +93,7 @@ fr:
         participatory_process:
           fields:
             created_at: Créé le
-            private: Privé
+            private: Statut
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -201,10 +201,10 @@ fr:
         form:
           title: Informations générales
         index:
-          not_published: Non publié
-          private: Privé
-          public: Publique
-          published: Publié
+          not_published: Non publiés
+          private: Privés
+          public: Publics
+          published: Publiés
         new:
           create: Créer
           title: Nouveau processus participatif
@@ -218,9 +218,9 @@ fr:
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
-          success: Groupe de processus participatif créé avec succès.
+          success: Groupe de processus participatifs créé avec succès.
       titles:
-        participatory_process_groups: Groupes de processus
+        participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
