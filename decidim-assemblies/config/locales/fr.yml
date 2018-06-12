@@ -13,9 +13,9 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
         created_by: Créé par
-        created_by_other: Créé par d'autres
+        created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application locale
+        decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
@@ -25,12 +25,12 @@ fr:
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        included_at: Inclus le
+        included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
         local_area: Zone d'application locale
-        meta_scope: Métadonnée de la zone d’application
+        meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
@@ -55,7 +55,7 @@ fr:
         ceased_date: Date de radiation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
-        full_name: Nom complet
+        full_name: Nom et prénom
         gender: Genre
         position: Statut
       assembly_user_role:
@@ -139,7 +139,7 @@ fr:
           title: Mettre à jour l'utilisateur de l'agora.
           update: Mettre à jour
         index:
-          assembly_admins_title: Utilisateurs de l'agora
+          assembly_admins_title: Administrateurs de l'agora
         new:
           create: Créer
           title: Nouvel utilisateur de l'agora.
@@ -149,7 +149,7 @@ fr:
       menu:
         assemblies: Agora
         assemblies_submenu:
-          assembly_admins: Utilisateurs de l'agora
+          assembly_admins: Administrateurs de l'agora
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -172,7 +172,7 @@ fr:
           fields:
             ceased_date: Date de radiation
             designation_date: Date de désignation
-            full_name: Nom
+            full_name: Nom et prénom
             position: Statut
           name: Membre
           positions:
@@ -204,22 +204,22 @@ fr:
         update: "%{user_name} a mis à jour le %{resource_name} membre de l'agora %{space_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
-        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
-        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assemblée %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora %{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'agora %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajouté à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            duration_help: Si la durée de cette agora est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
+            included_at_help: Sélectionnez la date à laquelle cette agora a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
-            select_an_assembly_type: Sélectionnez un type d'assemblée
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            select_an_assembly_type: Sélectionnez un type d'agora
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -250,19 +250,19 @@ fr:
         others: Autres
         public: Public
       index:
-        title: Assemblées
+        title: Agora
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            see_all_assemblies: Voir toutes les assemblées
+            active_assemblies: Agora actives
+            see_all_assemblies: Voir toutes les agoras
         user_profile:
           member_of:
             member_of: Membre de
       show:
         area: Zone d'application
-        assembly_type: Type d'assemblée
-        children: Assemblées
+        assembly_type: Type d'agora
+        children: Agora
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
@@ -278,17 +278,17 @@ fr:
         local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Ceci est une assemblée privée
+        private_space: Ceci est une agora privée
         purpose_of_action: But de l'action
-        read_less: Voire moins
-        read_more: Voire la suite
-        related_participatory_processes: Processus participatifs associés
+        read_less: Voir moins
+        read_more: Voir la suite
+        related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
         target: Pour qui ?
       statistics:
         answers_count: Réponses
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Recommandations
@@ -310,9 +310,9 @@ fr:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
-      assemblies: Assemblées
+      assemblies: Agora
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -322,18 +322,18 @@ fr:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblées mises en avant
+          promoted_assemblies: Agora mises en avant
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblée"
-            other: "%{count} assemblées"
+            one: "%{count} agora"
+            other: "%{count} agora"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
-        unfold: Déplier
+        assembly_menu_item: L'agora
+        unfold: Dérouler
       assembly_widgets:
         show:
           take_part: Participer
