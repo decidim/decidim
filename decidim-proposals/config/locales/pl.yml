@@ -90,8 +90,8 @@ pl:
             endorsements_blocked: Zatwierdzenia zostały zablokowane
             endorsements_enabled: Adnotacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
-            votes_blocked: Głosy zablokowane
-            votes_enabled: Głosowanie włączone
+            votes_blocked: Głosowanie zablokowane
+            votes_enabled: Włączone głosowanie
             votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
     events:
       proposals:
@@ -161,7 +161,7 @@ pl:
       actions:
         answer: Odpowiedź
         import: Importuj z innego komponentu
-        new: Nowy
+        new: Nowa propozycja
         private_notes: Prywatne notatki
         title: działania
       admin:
