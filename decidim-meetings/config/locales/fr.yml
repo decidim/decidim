@@ -128,9 +128,9 @@ fr:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Ajouter un élément d'agenda
-            agenda_item: Objet
-            agenda_item_children: Point de l'ordre du jour Childs
+            add_agenda_item_child: Ajouter un point d'ordre du jour
+            agenda_item: Point d'ordre du jour
+            agenda_item_children: Points de l'ordre du jour
             down: Vers le bas
             remove: Retirer
             up: Up
