@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::NewslettersOptInJob do
   subject { described_class }
 
-  let(:user) { create(:user, :confirmed, newsletter_notifications: false, newsletter_token: token) }
+  let(:user) { create(:user, :confirmed, newsletter_notifications_at: nil, newsletter_token: token) }
   let(:token) { SecureRandom.base58(24) }
 
   describe "queue" do

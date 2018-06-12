@@ -11,5 +11,10 @@ module Decidim
 
     validates :email_on_notification, presence: true
     validates :newsletter_notifications, presence: true
+
+    def newsletter_notifications_at
+      return nil unless newsletter_notifications?
+      Time.zone.now
+    end
   end
 end

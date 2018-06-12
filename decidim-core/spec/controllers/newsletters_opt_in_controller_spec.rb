@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create :organization }
-    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications: false, newsletter_token: token) }
+    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
 
     before do
@@ -22,8 +22,8 @@ module Decidim
       context "when user uses a valid URL" do
         it "updates user newsletter settings" do
           get :update, params: { token: token }
-          expect(user.newsletter_notifications).to be true
-          expect(user.newsletter_opt_in_at?).to be true
+          expect(user.reload.newsletter_notifications_at).not_to be_nil
+          expect(user.reload.newsletter_token).to eq("")
           expect(response).to redirect_to("/")
           expect(flash[:notice]).to include("Newsletter settings updated successfully")
         end

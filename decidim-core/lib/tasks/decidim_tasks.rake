@@ -91,7 +91,7 @@ namespace :decidim do
     input = $stdin.gets.chomp
     if input.casecmp("y").zero?
       puts %(  Continue...)
-      Decidim::User.where(newsletter_notifications: true).find_each(&:newsletter_opt_in_notify)
+      Decidim::User.where("newsletter_notifications_at < ?", Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
     else
       puts %(  Execution cancelled...)
     end

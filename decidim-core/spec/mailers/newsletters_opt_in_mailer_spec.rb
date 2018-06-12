@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe NewslettersOptInMailer, type: :mailer do
-    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications: false, newsletter_token: token) }
+    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
     let(:organization) { create(:organization) }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }

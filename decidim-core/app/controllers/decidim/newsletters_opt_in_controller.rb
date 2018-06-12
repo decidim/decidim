@@ -10,7 +10,6 @@ module Decidim
     def update
       enforce_permission_to :update, :user, current_user: current_user
 
-      current_user.assign_attributes(newsletter_notifications: true)
       current_user.newsletter_opt_in_validate
       if current_user.save
         flash[:notice] = t(".success")
