@@ -67,6 +67,10 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        new_process: Nouveau processus
+        new_process_group: Nouveau groupe de processus
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel utilisateur de processus
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -75,6 +79,7 @@ fr:
         participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
+          attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
