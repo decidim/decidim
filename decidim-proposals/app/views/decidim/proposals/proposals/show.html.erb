@@ -14,10 +14,14 @@
     <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
-    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_settings.votes_weight_enabled? || current_user %>
       <div class="card">
         <div class="card__content">
-          <% if current_settings.votes_enabled? %>
+          <% if current_settings.votes_weight_enabled? %>
+            <div class= "flex-center">
+              <%= render partial: "vote_weight_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            </div>
+          <% elsif current_settings.votes_enabled? %>
             <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>

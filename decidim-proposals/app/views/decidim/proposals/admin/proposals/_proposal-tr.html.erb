@@ -1,63 +1,63 @@
 <tr data-id="<%= proposal.id %>">
+<td>
+  <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br />
+</td>
+<td>
+  <%= proposal.id %><br />
+</td>
+<td>
+  <%= proposal.title %><br />
+</td>
+<td>
+  <% if proposal.category %>
+    <%= translated_attribute proposal.category.name %>
+  <% end %>
+</td>
+<% if current_participatory_space.scopes_enabled? %>
   <td>
-    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br />
-  </td>
-  <td>
-    <%= proposal.id %><br />
-  </td>
-  <td>
-    <%= proposal.title %><br />
-  </td>
-  <td>
-    <% if proposal.category %>
-      <%= translated_attribute proposal.category.name %>
+    <% if proposal.scope %>
+      <%= translated_attribute proposal.scope.name %>
+    <% else %>
+      <%= t("decidim.scopes.global") %>
     <% end %>
   </td>
-  <% if current_participatory_space.scopes_enabled? %>
-    <td>
-      <% if proposal.scope %>
-        <%= translated_attribute proposal.scope.name %>
-      <% else %>
-        <%= t("decidim.scopes.global") %>
-      <% end %>
-    </td>
-  <% end %>
+<% end %>
+<td>
+  <strong class="<%= proposal_state_css_class proposal.state %>">
+    <%= humanize_proposal_state proposal.state %>
+  </strong>
+</td>
+
+<% if current_settings.votes_enabled? || current_settings.votes_weight_enabled?  %>
   <td>
-    <strong class="<%= proposal_state_css_class proposal.state %>">
-      <%= humanize_proposal_state proposal.state %>
-    </strong>
+    <%= proposal.proposal_votes_count %>
   </td>
+<% end %>
 
-  <% if current_settings.votes_enabled? %>
-    <td>
-      <%= proposal.proposal_votes_count %>
-    </td>
-  <% end %>
+<% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
+  <td>
+    <%= proposal.comments.count %>
+  </td>
+<% end %>
 
-  <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
-    <td>
-      <%= proposal.comments.count %>
-    </td>
-  <% end %>
+<% if allowed_to? :create, :proposal_note %>
+  <td>
+    <%= proposal.proposal_notes_count %>
+  </td>
+<% end %>
 
+<td>
+  <%= l proposal.created_at, format: :decidim_short %>
+</td>
+
+<td class="table-list__actions">
   <% if allowed_to? :create, :proposal_note %>
-    <td>
-      <%= proposal.proposal_notes_count %>
-    </td>
+    <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
   <% end %>
 
-  <td>
-    <%= l proposal.created_at, format: :decidim_short %>
-  </td>
-
-  <td class="table-list__actions">
-    <% if allowed_to? :create, :proposal_note %>
-      <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
-    <% end %>
-
-    <% if allowed_to? :create, :proposal_answer %>
-     <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>
-   <% end %>
-   <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
-  </td>
+  <% if allowed_to? :create, :proposal_answer %>
+   <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>
+ <% end %>
+ <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+</td>
 </tr>

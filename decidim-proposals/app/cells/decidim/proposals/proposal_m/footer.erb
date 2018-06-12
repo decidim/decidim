@@ -13,6 +13,12 @@
             small: true
           ) %>
         <% end %>
+        <% if current_settings.votes_weight_enabled? %>
+          <div class="card__support__data"></div>
+          <div>
+            <%= render partial: "decidim/proposals/proposals/vote_weight_button.html", locals: { proposal: model, from_proposals_list: true } %>
+          </div>
+        <% elsif current_settings.votes_enabled? %>
         <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
       <% else %>
         <div class="card__support__data"></div>

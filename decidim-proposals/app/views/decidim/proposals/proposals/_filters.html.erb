@@ -24,7 +24,7 @@
     <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, legend_title: t(".related_to") %>
   <% end %>
 
-  <% if current_user && current_settings.votes_enabled? %>
+  <% if current_user && (current_settings.votes_enabled? || current_settings.votes_weight_enabled?) %>
     <%= form.collection_check_boxes :activity, [["voted", t(".voted")]], :first, :last, legend_title: t(".activity") %>
   <% end %>
 
