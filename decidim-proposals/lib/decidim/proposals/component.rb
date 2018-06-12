@@ -81,6 +81,7 @@ Decidim.register_component(:proposals) do |component|
   component.exports :proposals do |exports|
     exports.collection do |component_instance|
       Decidim::Proposals::Proposal
+        .published
         .where(component: component_instance)
         .includes(:category, component: { participatory_space: :organization })
     end
