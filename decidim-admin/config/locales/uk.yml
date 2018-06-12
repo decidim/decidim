@@ -178,23 +178,10 @@ uk:
           error: При спробі оновити цю дільницю сталася помилка.
           success: Дільницю успішно оновлено
       attachment_collections:
-        create:
-          error: При спробі створити нову теку сталася помилка.
-          success: Теку успішно створено.
-        destroy:
-          success: Теку успішно видалено.
         edit:
-          title: Редагувати теку
           update: Оновити
-        index:
-          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
-          attachment_collections_title: Тека вкладень
         new:
           create: Додати
-          title: Створити теку
-        update:
-          error: При спробі оновити цю теку сталася помилка.
-          success: Теку успішно оновлено.
       attachments:
         create:
           error: При спробі додати новий вкладений файл сталася помилка.
@@ -353,13 +340,10 @@ uk:
             plural: Множина
         attachment:
           fields:
-            collection: Тека
             content_type: Різновид
             file_size: Розмір
             title: Назва
           name: Вкладений файл
-        attachment_collection:
-          name: Тека
         category:
           name: Розряд
         impersonation_log:
