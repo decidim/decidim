@@ -151,7 +151,6 @@ fi:
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
           assembly_members: Jäsenet
-          attachment_collections: kokoelmat
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
