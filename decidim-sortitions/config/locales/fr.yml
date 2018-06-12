@@ -42,7 +42,7 @@ fr:
         actions:
           destroy: Annuler le tirage au sort
           edit: Éditer
-          new: Nouvelle tri
+          new: Nouveau tirage au sort
           show: Détails du tirage au sort
         models:
           sortition:
