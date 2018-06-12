@@ -217,7 +217,7 @@ fr:
           success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatifs.
           success: Groupe de processus participatifs créé avec succès.
       titles:
         participatory_process_groups: Groupes de processus participatifs
@@ -249,7 +249,7 @@ fr:
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
           notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Les dates de l''étape %{resource_title} de%{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
+          email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
@@ -261,22 +261,22 @@ fr:
         title: Groupes de processus
     participatory_process_steps:
       index:
-        process_steps: Etapes du processus
-        title: Etapes du processus participatif
+        process_steps: Étapes du processus
+        title: Étapes du processus participatif
     participatory_processes:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations du processus.
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       index:
         title: Processus participatifs
       order_by_processes:
         active: Actifs
-        all: Tout
+        all: Tous
         past: Passés
         upcoming: À venir
       pages:
@@ -313,7 +313,7 @@ fr:
         processes_count: Processus participatifs
         projects_count: Projets
         proposals_count: Propositions
-        results_count: Résultats
+        results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
         votes_count: Soutiens
@@ -325,7 +325,7 @@ fr:
           processes_count: 'Processus :'
       participatory_process_widgets:
         show:
-          active_step: Etape active
+          active_step: Étape active
           take_part: Participer
       participatory_processes:
         index:
