@@ -76,13 +76,13 @@ es:
   decidim:
     admin:
       actions:
-        new_assembly: Nuevo ensamblaje
+        new_assembly: Nueva asamblea
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
         destroy:
-          success: Asamblea eliminada con éxito
+          success: Asamblea eliminada con éxito.
         edit:
           update: Actualizar
         form:
@@ -112,7 +112,7 @@ es:
           error: Se produjo un error al agregar un miembro para esta asamblea.
           success: Miembro creado con éxito para esta asamblea.
         destroy:
-          success: Miembro eliminado con éxito para este ensamblaje.
+          success: Miembro eliminado con éxito en esta asamblea.
         edit:
           title: Actualizar miembro de la asamblea.
           update: Actualizar
@@ -134,9 +134,9 @@ es:
       assembly_user_roles:
         create:
           error: Se ha producido un error al agregar un usuario para esta asamblea.
-          success: Usuario agregado exitosamente a este ensamblaje.
+          success: Usuario agregado conéxito a esta asamblea.
         destroy:
-          success: Usuario eliminado con éxito de este ensamblaje.
+          success: Usuario eliminado con éxito de esta asamblea.
         edit:
           title: Actualizar el usuario de la asamblea.
           update: Actualizar
