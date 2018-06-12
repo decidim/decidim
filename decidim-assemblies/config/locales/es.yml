@@ -75,6 +75,8 @@ es:
         other: Roles de usuario de la asamblea
   decidim:
     admin:
+      actions:
+        new_assembly: Nuevo ensamblaje
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
@@ -151,7 +153,7 @@ es:
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
           assembly_members: Miembros
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
