@@ -326,7 +326,7 @@ es:
         success: '¡Hemos enviado las invitaciones a tus amigos!'
       index:
         customize_message: Personaliza el mensaje de invitación
-        friend_email: 'Correo electrónico amigo #%{index}'
+        friend_email: 'Correo del amigo #%{index}'
         invitations_subtitle: Haz saber a tus amigos sobre este sitio.
         invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
         invite: Invitación
