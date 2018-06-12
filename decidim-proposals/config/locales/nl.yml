@@ -83,7 +83,7 @@ nl:
             endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             votes_blocked: Stemmen geblokkeerd
-            votes_enabled: Stemmen actief
+            votes_enabled: Stemmen ingeschakeld
             votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
@@ -153,7 +153,7 @@ nl:
       actions:
         answer: Antwoord
         import: Importeren vanuit een ander onderdeel
-        new: nieuwe
+        new: Nieuw voorstel
         private_notes: Privé-opmerkingen
         title: Acties
       admin:
