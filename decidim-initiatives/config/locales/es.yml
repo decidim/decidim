@@ -74,7 +74,7 @@ es:
       initiatives:
         initiative_extended:
           email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
-          email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
           notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
@@ -309,7 +309,7 @@ es:
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
         progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
         progress_report_for: 'Currículum sobre la iniciativa: %{title}'
-        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la comisión promotora. Reenvia el siguiente enlace para invitarlas.
+        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
@@ -336,7 +336,7 @@ es:
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
-        promotal_committee: Comité promotor
+        promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
       initiative_header:
