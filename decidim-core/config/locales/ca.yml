@@ -667,9 +667,9 @@ ca:
     name: Català
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
-    email_included_in_password: és massa similar al vostre correu electrònic
+    email_included_in_password: és massa similar al teu correu electrònic
     fallback: no és vàlid
-    name_included_in_password: és massa semblant al vostre nom
+    name_included_in_password: és massa semblant al teu nom
     not_enough_unique_characters: no té prou caràcters únics
     password_not_allowed: no està permès
     password_too_common: és massa comú
