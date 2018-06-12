@@ -45,6 +45,8 @@ nl:
         other: handtekeningen
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nieuw initiatiefstype
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypen
