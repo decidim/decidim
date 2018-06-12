@@ -75,6 +75,8 @@ fi:
         other: Asennuksen käyttäjäroolit
   decidim:
     admin:
+      actions:
+        new_assembly: Uusi kokoonpano
       assemblies:
         create:
           error: Virhe luotaessa uutta kehitysryhmää.
@@ -151,6 +153,7 @@ fi:
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
           assembly_members: Jäsenet
+          attachment_collections: kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
