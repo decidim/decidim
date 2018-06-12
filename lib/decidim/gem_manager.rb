@@ -114,8 +114,6 @@ module Decidim
       end
 
       def all_dirs(include_root: true)
-        root = File.expand_path(File.join("..", ".."), __dir__)
-
         glob = "#{root}/#{include_root ? "{decidim-*,.}" : "decidim-*"}/"
 
         Dir.glob(glob)
@@ -123,6 +121,10 @@ module Decidim
       end
 
       private
+
+      def root
+        File.expand_path(File.join("..", ".."), __dir__)
+      end
 
       def semver_friendly_version
         version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
