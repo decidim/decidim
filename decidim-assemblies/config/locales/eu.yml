@@ -75,6 +75,8 @@ eu:
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
+      actions:
+        new_assembly: Batzar berria
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
@@ -151,6 +153,7 @@ eu:
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
           assembly_members: Bazkideek
+          attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
