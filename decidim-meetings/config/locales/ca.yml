@@ -114,14 +114,14 @@ ca:
     meetings:
       actions:
         agenda: Ordre del dia
-        attachment_collections: Col·leccions
+        attachment_collections: Carpetes
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
         minutes: Acta
-        new: Nova
+        new: Nova reunió
         preview: Previsualitzar
         registrations: Inscripcions
         title: Accions
