@@ -143,6 +143,7 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
+        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -180,15 +181,15 @@ fr:
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
-          success: Dossier créé avec succès.
+          success: Le dossier a été créé avec succès.
         destroy:
           success: Dossier détruit avec succès.
         edit:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Ce dossier ne peut pas être supprimé car celui-ci est en cours d'utilisation.
-          attachment_collections_title: Dossier de pièces jointes
+          attachment_collection_used: Ce dossier ne peut pas être supprimé car il est en cours d'utilisation.
+          attachment_collections_title: Dossiers de pièces jointes
         new:
           create: Créer
           title: Nouveau dossier
