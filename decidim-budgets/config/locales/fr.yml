@@ -127,7 +127,7 @@ fr:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
-            votes_enabled: Vote activé
+            votes_enabled: Votes activés
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
