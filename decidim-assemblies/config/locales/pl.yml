@@ -159,6 +159,7 @@ pl:
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
+          attachment_collections: Lornetka składana
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
