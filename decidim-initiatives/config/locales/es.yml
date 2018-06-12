@@ -75,8 +75,8 @@ es:
         initiative_extended:
           email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: '¡Fecha de finalización de firmas de iniciativa extendida!'
-          notification_title: La fecha de finalización de las firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
+          email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
+          notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -178,7 +178,7 @@ es:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Está a punto de solicitar convertirse en miembro del comité promotor de esta iniciativa
+          help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
         spawn:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
       create_initiative:
@@ -197,7 +197,7 @@ es:
           more_information: "(Más información)"
         finish_help:
           access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
-          help_for_organizations: Si es una asociación, tendrá que cargar las minutas del consejo de administración de todas las organizaciones que forman la Comisión Promotora.
+          help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
           help_text: Recuerde que para procesar adecuadamente la iniciativa debe acceder al panel de administración donde encontrará el menú de usuario, cargar la información requerida y enviarla para su procesamiento.
           initiatives_page_link: Puedes buscar toda esta información en el %{link} dedicado a informar sobre iniciativas.
