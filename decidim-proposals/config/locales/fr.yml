@@ -14,7 +14,7 @@ fr:
       proposal_answer:
         answer: Répondre
       proposals_copy:
-        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée à la fonctionnalité actuelle et que cette action ne peut pas être inversée.
+        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
     errors:
       models:
@@ -71,7 +71,7 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Assistant d'offre de proposition "Complete" étape texte d'aide
+            proposal_wizard_step_3_help_text: Texte d'aide de l'assistant de proposition pour l'étape "Compléter"
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
@@ -82,8 +82,8 @@ fr:
             endorsements_blocked: Empêcher les utilisateurs de recommander une proposition
             endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            votes_blocked: Vote bloqué
-            votes_enabled: Vote activé
+            votes_blocked: Soutiens désactivés
+            votes_enabled: Soutiens activés
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
       proposals:
@@ -91,7 +91,7 @@ fr:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant mettre en avant <a href="%{resource_path}">nouvelles propositions</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant soutenir de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -147,7 +147,7 @@ fr:
           proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
-        proposals: Les propositions
+        proposals: Propositions
         see_all_proposals: Voir toutes les propositions
     proposals:
       actions:
@@ -179,7 +179,7 @@ fr:
           form:
             note: Remarque
             submit: Soumettre
-          leave_your_note: Laissez votre note
+          leave_your_note: Laisser une remarque
           title: Notes privées
         proposals:
           answer:
@@ -245,7 +245,7 @@ fr:
             category: Catégorie
             comments: Commentaires
             created_at: Créé le
-            endorsements: Les avenants
+            endorsements: Recommandations
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -295,7 +295,7 @@ fr:
         endorsement_identities_cabin:
           endorse: Recommander
         endorsements_card_row:
-          comments: commentaires
+          comments: Commentaires
           endorse: Recommander
         filters:
           accepted: Retenue
@@ -395,7 +395,7 @@ fr:
           see_steps: voir les étapes
           step_1: Créez votre proposition
           step_2: Comparer
-          step_3: Achevée
+          step_3: Compléter
           step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:
