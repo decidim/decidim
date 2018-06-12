@@ -114,14 +114,14 @@ es:
     meetings:
       actions:
         agenda: Orden del día
-        attachment_collections: Colecciones
+        attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
         minutes: Acta
-        new: Nuevo
+        new: Nueva reunión
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
