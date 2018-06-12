@@ -263,7 +263,7 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Recommandé
+          already_endorsed: Recommandée
           endorse: Recommander
       proposal_votes:
         create:
@@ -271,7 +271,7 @@ fr:
       proposals:
         compare:
           mine_is_different: Ma proposition est différente
-          no_similars_found: Bien joué! Aucune proposition similaire n'a été trouvée
+          no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -289,27 +289,27 @@ fr:
           title: Modifier la proposition
         edit_draft:
           discard: Supprimer ce brouillon
-          discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet de proposition?
+          discard_confirmation: Êtes-vous sûr de vouloir supprimer ce brouillon de proposition ?
           send: Aperçu
-          title: Modifier le projet de proposition
+          title: Modifier le brouillon de proposition
         endorsement_identities_cabin:
           endorse: Recommander
         endorsements_card_row:
           comments: Commentaires
           endorse: Recommander
         filters:
-          accepted: Retenue
+          accepted: Retenues
           activity: Activité
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          except_rejected: Tout sauf les propositions non retenues
+          except_rejected: Toutes sauf les propositions non retenues
           official: Propositions officielles
           origin: Auteurs
-          rejected: Non retenue
-          related_to: Liée à
+          rejected: Non retenues
+          related_to: Liées à
           search: Rechercher
           state: État
           voted: Ne montrer que les propositions que j'ai soutenues
@@ -330,7 +330,7 @@ fr:
           send: Continuer
           title: Créez votre proposition
         orders:
-          label: 'Classement des propositions par:'
+          label: 'Classement des propositions par :'
           most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
@@ -342,7 +342,7 @@ fr:
           publish: Publier
           title: Publiez votre proposition
         proposal:
-          creation_date: 'Création: %{date}'
+          creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
@@ -352,16 +352,16 @@ fr:
             other: et %{count} autres personnes
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
-          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
           report: Signaler
-          sign_in: se connecter
+          sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
-          sign_up: s'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          sign_up: S'inscrire
+          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune recommandation, vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
-          changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
+          changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà soutenue
@@ -378,12 +378,12 @@ fr:
           need_more_votes: Besoin de plus de soutiens
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition peut rassembler plus de %{limit} soutiens
+            description: Chaque proposition doit rassembler plus de %{limit} soutiens
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le soutien est soumis aux règles suivantes:'
+          title: 'Le soutien est soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
