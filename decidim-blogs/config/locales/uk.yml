@@ -15,6 +15,7 @@ uk:
         confirm_destroy: Ви дійсно бажаєте видалити цей задум?
         destroy: Видалити
         edit: Редагувати
+        new: Створити новий допис
         title: Дії
       admin:
         models:
