@@ -67,6 +67,10 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
+        new_process: Prozesu berria
+        new_process_group: Prozesu talde berria
+        new_process_step: Urrats berria
+        new_process_user_role: Prozesu berria erabiltzailea
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
@@ -75,6 +79,7 @@ eu:
         participatory_process_groups: Prozesu-multzoak
         participatory_processes: Prozesuak
         participatory_processes_submenu:
+          attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
