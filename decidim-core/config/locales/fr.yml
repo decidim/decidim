@@ -11,7 +11,7 @@ fr:
         name: Votre nom
         nickname: Votre pseudonyme
         password: Mot de passe
-        password_confirmation: Confirmer votre mot de passe
+        password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
@@ -53,10 +53,10 @@ fr:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Fichier ne existe pas
+        file_no_exists: Le fichier n'existe pas
         invalid_token: Le jeton fourni est invalide.
         no_token: Aucun jeton fourni
-        notice: Vos données sont actuellement en cours. Vous recevrez un email quand il sera complet.
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
         confirm:
@@ -188,7 +188,7 @@ fr:
       show:
         download_data: Télécharger les données
         download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
-        request_data: Demande de données
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -280,7 +280,7 @@ fr:
           notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Vous aurez le fichier disponible jusqu'à %{date}.
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'à %{date}.
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -321,13 +321,13 @@ fr:
       remove_this_file: Supprimer ce fichier
     invitations:
       create:
-        error: Il y a eu quelques problèmes en invitant vos amis
-        error_empty_form: S'il vous plaît entrer quelques adresses e-mail
-        success: Nous avons envoyé les invitations à vos amis!
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir quelques adresses email
+        success: Nous avons envoyé les invitations à vos amis !
       index:
-        customize_message: Personnaliser le message d'invitation
-        friend_email: 'Ami #%{index} email'
-        invitations_subtitle: Informez vos amis de ce site
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
         invitations_title: Pensez-vous que plus de voix devraient être entendues dans %{organization_name}?
         invite: Inviter
         visit_your_profile: Visitez votre profil
