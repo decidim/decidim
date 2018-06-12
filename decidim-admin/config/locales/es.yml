@@ -183,7 +183,7 @@ es:
           error: Hubo un error al crear una nueva carpeta.
           success: Carpeta creada con éxito.
         destroy:
-          success: Carpeta destruida con éxito.
+          success: Carpeta borrada con éxito.
         edit:
           title: Editar carpeta
           update: Actualizar
