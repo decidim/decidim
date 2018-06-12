@@ -90,8 +90,6 @@ uk:
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
-            votes_blocked: Голосування вимкнене
-            votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
     events:
       proposals:
@@ -161,7 +159,6 @@ uk:
       actions:
         answer: Відповісти
         import: Запозичити з іншої складової
-        new: Внести
         private_notes: Приватні примітки
         title: Дії
       admin:
