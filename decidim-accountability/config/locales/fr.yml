@@ -196,7 +196,7 @@ fr:
       accountability:
         proposal_linked:
           email_intro: 'La proposition "%{proposal_title}" a été incluse dans un résultat. Vous pouvez le voir sur cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{proposal_title}
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans le résultat <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
