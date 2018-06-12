@@ -14,9 +14,19 @@
         <p>This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you’ll be able to make changes to this draft.</p>
       </div>
     </div>
+    <div class="row column view-header">
+      <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
+      <!-- locals.text: the number has to match with the hidden ones -->
+      <!-- locals.size: classname. small shows only 3 items -->
+      <!-- locals.classText: classname. default text-small. append to span -->
+      <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: "" } do %>
+      <% 9.times do %>
+      <%= partial "author_data", { nick: false } %>
+      <% end %>
+      <% end %>
+    </div>
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <%= partial "followme" %>
         <div class="card text-center">
           <div class="card__content">
             <div>
@@ -56,17 +66,6 @@
         <%= partial "share" %>
       </div>
       <div class="columns mediumlarge-8 mediumlarge-pull-4">
-        <div class="row column view-header">
-          <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
-          <!-- locals.text: the number has to match with the hidden ones -->
-          <!-- locals.size: classname. small shows only 3 items -->
-          <!-- locals.classText: classname. default text-small. append to span -->
-          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: "" } do %>
-            <% 9.times do %>
-              <%= partial "author_data", { nick: false } %>
-            <% end %>
-          <% end %>
-        </div>
         <div class="section">
           <span class="success label light proposal-status">Abierto</span>
           <p>
