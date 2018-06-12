@@ -184,7 +184,7 @@ fr:
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
-            success: La réponse à la proposition a publiée avec succès
+            success: La réponse à la proposition a été publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
@@ -232,7 +232,7 @@ fr:
         evaluating: En cours d'évaluation
         not_answered: En attente de réponse
         rejected: Non retenue
-        withdrawn: Retiré
+        withdrawn: Retirée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -244,7 +244,7 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créé le
+            created_at: Créée le
             endorsements: Recommandations
             id: ID
             notes: Remarques
