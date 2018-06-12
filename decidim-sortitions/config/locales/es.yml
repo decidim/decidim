@@ -42,7 +42,7 @@ es:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new: Añadir nuevo
+          new: Nueva clasificación
           show: Detalles de la clasificación
         models:
           sortition:
