@@ -280,7 +280,7 @@ es:
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Haga clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
         download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
