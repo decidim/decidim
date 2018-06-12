@@ -203,24 +203,24 @@ fr:
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les pétitions.
           page: page
         previous_form:
-          back: Arrière
+          back: Retour
           continue: Continuer
-          help: En quoi consiste l'initiative? Notez le titre et la description. Nous recommandons un titre court et concis et une description axée sur la solution proposée.
+          help: En quoi consiste la pétition ? Saisissez son titre et sa description. Nous recommandons un titre court et synthétique et une description axée sur la solution proposée.
           more_information: "(Plus d'information)"
         promotal_committee:
-          back: Arrière
-          individual_help_text: Les initiatives citoyennes nécessitent une commission de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          back: Retour
+          individual_help_text: Les initiatives citoyennes nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette pétition. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'information)"
         select_initiative_type:
-          back: Arrière
+          back: Retour
           more_information: "(Plus d'information)"
           select: Choisir
-          select_initiative_type_help: Les initiatives citoyennes sont un moyen par lequel la citoyenneté peut intervenir pour que le conseil municipal puisse entreprendre des actions en défense de l'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer?
+          select_initiative_type_help: Les initiatives citoyennes sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
-          invite_to_committee_help: Lien pour inviter les personnes qui feront partie du comité des promoteurs
+          invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
         show_similar_initiatives:
-          back: Arrière
+          back: Retour
           compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura plus de possibilités de se faire.
           continue: Mon initiative est différente
           more_information: "(Plus d'information)"
