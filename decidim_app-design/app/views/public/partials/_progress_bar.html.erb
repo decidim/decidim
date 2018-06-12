@@ -18,6 +18,6 @@
     <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>);"></div>
   </div>
   <div class="progress__bar__subtitle">
-    Proposta molt popular <%= partial "help" %>
+    Proposta <%= (percent.to_f > 66) ? "molt" : (percent.to_f < 33) ? "poc" : "" %> popular <%= partial "help" %>
   </div>
 </div>
