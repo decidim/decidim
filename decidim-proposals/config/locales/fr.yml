@@ -130,7 +130,7 @@ fr:
           email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
           email_subject: Une proposition que vous suivez n'a pas été retenue
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -305,7 +305,7 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          except_rejected: Tous sauf rejeté
+          except_rejected: Tout sauf les propositions non retenues
           official: Propositions officielles
           origin: Auteurs
           rejected: Non retenue

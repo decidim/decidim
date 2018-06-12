@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       agenda:
-        description: La description
+        description: Description
         duration: Durée
         title: Titre
       close_meeting:
@@ -10,7 +10,7 @@ fr:
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
         closing_report: Compte rendu
         contributions_count: Nombre de contributions
-        proposal_ids: Propositions soumises lors de la rencontre
+        proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
@@ -37,7 +37,7 @@ fr:
           attributes:
             base:
               too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minute
-              too_many_minutes_child: La durée de l'élément childs dépasse l'élément de l'ordre du jour "%{parent_title}" la durée du parent de %{count} minute
+              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minute
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -93,19 +93,19 @@ fr:
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
-          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de l'espace participatif de la rencontre.
-          email_subject: Les places occupées par la rencontre "%{resource_title}" dépassent %{percentage}%
+          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
+          email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre sont occupées à plus de %{percentage}%.
         meeting_updated:
-          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registrations_enabled:
-          email_intro: 'La rencontre "%{resource_title}" a ouvert les inscriptions. Vous pouvez vous inscrire sur sa page:'
+          email_intro: 'Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes. Vous pouvez vous inscrire sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" a ouvert les inscriptions.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a ouvert les inscriptions.
+          email_subject: Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes.
+          notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
         upcoming_meeting:
           email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.

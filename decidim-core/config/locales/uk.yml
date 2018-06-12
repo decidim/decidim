@@ -674,6 +674,16 @@ uk:
         see_more: Читати далі
   locale:
     name: Українська
+  password_validator:
+    domain_included_in_password: занадто схожий на це доменне ім'я
+    email_included_in_password: занадто схожий на вашу електронну пошту
+    fallback: не дійсний
+    name_included_in_password: занадто схожий на ваше ім'я
+    not_enough_unique_characters: не містить достатньої кількості унікальних символів
+    password_not_allowed: неприпустимий
+    password_too_common: занадто поширений
+    password_too_long: занадто довгий
+    password_too_short: занадто короткий
   social_share_button:
     delicious: Delicious
     douban: Douban

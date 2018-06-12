@@ -665,6 +665,16 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
+  password_validator:
+    domain_included_in_password: es muy similar a este nombre de dominio
+    email_included_in_password: es muy similar a tu correo electrónico
+    fallback: no es válido
+    name_included_in_password: es muy similar a tu nombre
+    not_enough_unique_characters: no tiene suficientes caracteres únicos
+    password_not_allowed: No se permite
+    password_too_common: es muy común
+    password_too_long: es demasiado largo
+    password_too_short: es demasiado corto
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -76,6 +76,11 @@ pl:
         initiatives_types: Rodzaje inicjatyw
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Data zakończenia podpisów inicjatywy %{resource_title} została przedłużona!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Data zakończenia podpisów inicjatywa!
+          notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
           email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
