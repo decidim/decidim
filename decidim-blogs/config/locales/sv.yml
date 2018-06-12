@@ -13,7 +13,7 @@ sv:
         confirm_destroy: Är du säker på att du vill radera det här inlägget?
         destroy: Radera
         edit: Redigera
-        new: Ny
+        new: Nytt brev
         title: Handlingar
       admin:
         models:
