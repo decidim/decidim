@@ -67,7 +67,6 @@ it:
         destroy: Elimina
         duplicate: Duplica
         edit: Modifica
-        new: Nuovo
         preview: Anteprima
         publish: Pubblica
         resend_invitation: Manda di nuovo l'invito
@@ -76,7 +75,6 @@ it:
         participatory_process_groups: Gruppo di processi
         participatory_processes: Processi
         participatory_processes_submenu:
-          attachment_collections: collezioni
           attachment_files: File
           attachments: Allegati
           categories: Categorie
