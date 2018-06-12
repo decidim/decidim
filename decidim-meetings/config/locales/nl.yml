@@ -114,14 +114,14 @@ nl:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: collecties
+        attachment_collections: folders
         attachments: Bijlagen
         close: Sluit
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
         minutes: Notulen
-        new: nieuwe
+        new: Nieuwe ontmoeting
         preview: Voorbeeld
         registrations: registraties
         title: Acties
