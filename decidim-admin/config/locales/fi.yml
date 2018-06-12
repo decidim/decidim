@@ -143,6 +143,7 @@ fi:
         browse: Selaa
         export: Vie
         manage: Hallitse
+        new: Uusi %{name}
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
@@ -179,22 +180,22 @@ fi:
           success: Alue päivitettiin onnistuneesti
       attachment_collections:
         create:
-          error: Virhe uuden kokoelman luomisessa.
-          success: Kokoelma on luotu onnistuneesti.
+          error: Uuden kansion luomisessa tapahtui virhe.
+          success: Kansio luotu onnistuneesti.
         destroy:
-          success: Kokoelma on tuhottu onnistuneesti.
+          success: Kansio tuhoutui onnistuneesti.
         edit:
-          title: Muokkaa kokoelmia
+          title: Muokkaa kansiota
           update: Päivittää
         index:
-          attachment_collection_used: Tätä kokoelmaa ei voida poistaa, koska se on käytössä.
+          attachment_collection_used: Tätä kansiota ei voi poistaa, koska se on käytössä.
           attachment_collections_title: Liitetiedostot
         new:
           create: Luoda
-          title: Uusi kokoelma
+          title: Uusi kansio
         update:
-          error: Tämän kokoelman päivittämisessä tapahtui virhe.
-          success: Kokoelma on päivitetty onnistuneesti.
+          error: Tämän kansion päivittämisessä tapahtui virhe.
+          success: Kansio on päivitetty onnistuneesti.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
@@ -353,13 +354,13 @@ fi:
             plural: monikko
         attachment:
           fields:
-            collection: Kokoelma
+            collection: Kansio
             content_type: Tyyppi
             file_size: Koko
             title: Otsikko
           name: Liite
         attachment_collection:
-          name: Kokoelma
+          name: Kansio
         category:
           name: Aihepiiri
         impersonation_log:
