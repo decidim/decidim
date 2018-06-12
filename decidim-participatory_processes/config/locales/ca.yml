@@ -67,7 +67,6 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        new: Nou/va
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -76,7 +75,6 @@ ca:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
         participatory_processes_submenu:
-          attachment_collections: Col·leccions
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
