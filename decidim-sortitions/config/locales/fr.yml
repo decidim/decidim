@@ -147,5 +147,6 @@ fr:
           deleted: Utilisateur supprimé
         sortitions_count:
           count:
+            zero: "%{count} tirage au sort"
             one: 1 tirage au sort
-            other: "%{count} tirage(s) au sort"
+            other: "%{count} tirages au sort"

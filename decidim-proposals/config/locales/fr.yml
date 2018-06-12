@@ -256,6 +256,7 @@ fr:
             category: Catégorie
             comments: Commentaires
             created_at: Créé le
+            endorsements: Recommandations
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
