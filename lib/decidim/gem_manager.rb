@@ -152,7 +152,7 @@ module Decidim
     end
 
     def name
-      folder_name.match?("decidim") ? folder_name : "decidim"
+      self.class.plugins.map { |name| File.expand_path(name) }.include?(@dir) ? folder_name : "decidim"
     end
 
     def version
