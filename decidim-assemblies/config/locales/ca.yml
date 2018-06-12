@@ -75,6 +75,8 @@ ca:
         other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
+      actions:
+        new_assembly: Nou muntatge
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -151,6 +153,7 @@ ca:
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
           assembly_members: Membres
+          attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
