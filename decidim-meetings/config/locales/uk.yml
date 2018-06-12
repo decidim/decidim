@@ -120,12 +120,14 @@ uk:
     meetings:
       actions:
         agenda: Порядок денний
+        attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
         minutes: Протокол
+        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
