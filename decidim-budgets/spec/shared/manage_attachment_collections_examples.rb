@@ -5,7 +5,7 @@ shared_examples "manage projects attachment collections" do
 
   before do
     within find("tr", text: translated(project.title)) do
-      click_link "Collections"
+      click_link "Folders"
     end
   end
 

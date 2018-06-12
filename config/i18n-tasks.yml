@@ -129,6 +129,7 @@ ignore_unused:
   - decidim.debates.admin_log.*
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
+  - decidim.budgets.admin.models.project.name
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
@@ -146,6 +147,8 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.models.*.name
+  - decidim.admin.models.*.name.*
   - password_validator.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

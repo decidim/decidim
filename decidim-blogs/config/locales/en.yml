@@ -14,7 +14,7 @@ en:
         confirm_destroy: Are you sure you want to delete this post?
         destroy: Delete
         edit: Edit
-        new: New
+        new: New post
         title: Actions
       admin:
         models:
