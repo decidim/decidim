@@ -114,10 +114,14 @@ module Decidim
       end
 
       def all_dirs(include_root: true)
-        glob = "#{root}/#{include_root ? "{decidim-*,.}" : "decidim-*"}/"
+        dirs = plugins
+        dirs << "./" if include_root
 
-        Dir.glob(glob)
-           .each { |dir| yield(dir) }
+        dirs.each { |dir| yield(dir) }
+      end
+
+      def plugins
+        Dir.glob("#{root}/decidim-*/")
       end
 
       private
