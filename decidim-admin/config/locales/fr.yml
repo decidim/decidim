@@ -167,7 +167,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          success: La zone d'application a bien été détruite.
+          success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -201,7 +201,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau document lié.
           success: Document lié créé avec succès.
         destroy:
-          success: Document lié détruit avec succès.
+          success: Document lié supprimé avec succès.
         edit:
           title: Modifier le document lié
           update: Mettre à jour
@@ -373,14 +373,14 @@ fr:
             user: Utilisateur
         newsletter:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             name: Titre
           name: Application OAuth
         participatory_space_private_user:
@@ -395,7 +395,7 @@ fr:
             plural: Pluriel
         static_page:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             title: Titre
         user:
           fields:
@@ -481,7 +481,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
-          created_at: Créé le
+          created_at: Créée le
           filter:
             all: Tout
             not_officialized: Non validé
