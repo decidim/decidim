@@ -21,32 +21,32 @@ fr:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Doit être recollé
+              needs_to_be_reattached: Doit être retéléchargé
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/creation_enabled_event: Création de proposition activée
-      decidim/proposals/endorsing_enabled_event: Approbation de proposition activée
+      decidim/proposals/endorsing_enabled_event: Recommandation de proposition activée
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
-      decidim/proposals/proposal_endorsed_event: Proposition approuvée
+      decidim/proposals/proposal_endorsed_event: Proposition recommandée
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/rejected_proposal_event: Proposition non retenue
-      decidim/proposals/voting_enabled_event: Vote de proposition activé
+      decidim/proposals/voting_enabled_event: Soutien de propositions activé
   activerecord:
     models:
       decidim/proposals/proposal:
         one: Proposition
-        other: Les propositions
+        other: Propositions
       decidim/proposals/proposal_endorsement:
-        one: Approbation
-        other: Les avenants
+        one: Recommandation
+        other: Recommandations
       decidim/proposals/proposal_note:
         one: Remarque
         other: Remarques
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Soutien
+        other: Soutiens
   decidim:
     components:
       proposals:
