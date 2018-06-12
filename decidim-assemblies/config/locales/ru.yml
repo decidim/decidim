@@ -81,6 +81,8 @@ ru:
         other: Ролей участников собрания
   decidim:
     admin:
+      actions:
+        new_assembly: Добавить собрание
       assemblies:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
@@ -157,6 +159,7 @@ ru:
         assemblies_submenu:
           assembly_admins: Участники собрания
           assembly_members: Члены президиума
+          attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
           categories: Разряды
