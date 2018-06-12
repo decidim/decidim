@@ -13,7 +13,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän viestin?
         destroy: Poistaa
         edit: Muokata
-        new: Uusi
+        new: Uusi viesti
         title: Toimet
       admin:
         models:
