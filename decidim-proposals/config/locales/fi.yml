@@ -82,8 +82,8 @@ fi:
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
-            votes_blocked: Äänet ovat tukossa
-            votes_enabled: Äänet käytössä
+            votes_blocked: Äänestäminen on estetty
+            votes_enabled: Äänestys on käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tarkistamalla tämä piilottaa äänimäärän)
     events:
       proposals:
@@ -153,7 +153,7 @@ fi:
       actions:
         answer: Vastaa
         import: Tuo toisesta komponentista
-        new: Uusi
+        new: Uusi ehdotus
         private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
