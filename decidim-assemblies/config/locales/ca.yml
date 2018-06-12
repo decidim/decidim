@@ -76,13 +76,13 @@ ca:
   decidim:
     admin:
       actions:
-        new_assembly: Nou muntatge
+        new_assembly: Nova assemblea
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
         destroy:
-          success: L'ensamblat s'ha eliminat correctament.
+          success: L'assemblea s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -112,7 +112,7 @@ ca:
           error: S'ha produït un error en afegir un membre per a aquest assemblea.
           success: Membre creat amb èxit per a aquesta assemblea.
         destroy:
-          success: Membre eliminat amb èxit per a aquest ensamblat.
+          success: Membre eliminat amb èxit per a aquesta assemblea.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
@@ -134,9 +134,9 @@ ca:
       assembly_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
-          success: L'usuari s'ha afegit correctament a aquest ensamblat.
+          success: L'usuari s'ha afegit correctament a aquesta assemblea.
         destroy:
-          success: L'usuari s'ha eliminat correctament d'aquest ensamblat.
+          success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
         edit:
           title: Actualitza l'usuari de l'assemblea.
           update: Actualitza
