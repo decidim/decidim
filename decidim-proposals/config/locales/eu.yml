@@ -82,8 +82,8 @@ eu:
             endorsements_blocked: Onarpen blokeatuak
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
-            votes_blocked: Botoiak blokeatuta
-            votes_enabled: Botoiak gaituta
+            votes_blocked: Botoak blokeatuta
+            votes_enabled: Botoak gaituta
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     events:
       proposals:
@@ -153,7 +153,7 @@ eu:
       actions:
         answer: Erantzuna
         import: Inportatu beste osagai batetik
-        new: Berria
+        new: Proposamen berria
         private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
