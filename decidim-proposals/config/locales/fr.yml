@@ -82,8 +82,8 @@ fr:
             endorsements_blocked: Empêcher les utilisateurs de recommander une proposition
             endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            votes_blocked: Soutiens bloqués
-            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
+            votes_blocked: Vote bloqué
+            votes_enabled: Vote activé
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
       proposals:
@@ -153,7 +153,7 @@ fr:
       actions:
         answer: Répondre
         import: Importer depuis une autre fonctionnalité
-        new: Nouvelle
+        new: Nouvelle proposition
         private_notes: Notes privées
         title: Actions
       admin:
