@@ -82,8 +82,8 @@ ca:
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Activar resposta oficial a propostes
-            votes_blocked: Suports bloquejats
-            votes_enabled: Suports habilitats
+            votes_blocked: Votació bloquejada
+            votes_enabled: S'ha habilitat la votació
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
@@ -153,7 +153,7 @@ ca:
       actions:
         answer: Respondre
         import: Importa des d'un altre component
-        new: Nova
+        new: Nova proposta
         private_notes: Notes privades
         title: Accions
       admin:
