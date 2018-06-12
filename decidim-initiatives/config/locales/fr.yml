@@ -133,7 +133,7 @@ fr:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier le périmètre d'application du type d'initiative
+            title: Modifier le périmètre d'application du type de pétiton
             update: Mettre à jour
           new:
             back: Retour
@@ -145,9 +145,9 @@ fr:
         initiatives_types:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau type d'initiative a été créé avec succès
+            success: Un nouveau type de pétition a été créé avec succès
           destroy:
-            success: Le type d'initiative a été supprimé avec succès
+            success: Le type de pétition a été supprimé avec succès
           edit:
             confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
@@ -167,7 +167,7 @@ fr:
           publish: "%{user_name} a publié la pétition %{resource_name}"
           send_to_technical_validation: "%{user_name} a envoyé la pétition %{resource_name} à la validation technique"
           unpublish: "%{user_name} a dépublié la pétition %{resource_name}"
-          update: "%{user_name} a mis à jour l'initiative %{resource_name}"
+          update: "%{user_name} a mis à jour la pétition %{resource_name}"
       admin_states:
         accepted: Accepté
         created: Créé
@@ -185,22 +185,22 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Réviser le contenu de votre initiative. Votre titre est-il facile à comprendre? L'objectif de votre initiative est-il clair?</li> <li>Vous devez choisir le type de signature. En personne, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative? District de la ville?</li> </ul>"
-          initiative_type: Type d'initiative
+          fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de la pétition ? Ville, arrondissement, quartier ?</li> </ul>"
+          initiative_type: Type de pétition
           more_information: "(Plus d'information)"
           select_scope: Sélectionnez une portée
         finish:
-          back: Arrière
-          back_to_initiatives: Retour aux initiatives
-          callout_text: Toutes nos félicitations! Votre initiative citoyenne a été créée avec succès.
-          go_to_my_initiatives: Aller à mes initiatives
+          back: Retour
+          back_to_initiatives: Retour aux pétitions
+          callout_text: Bravo ! Votre initiative citoyenne a été créée avec succès.
+          go_to_my_initiatives: Aller à mes pétitions
           more_information: "(Plus d'information)"
         finish_help:
-          access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
-          help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui forment la Commission de promotion
-          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en personne ou combinées avec en ligne, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour traiter correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
-          initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à informer sur les initiatives.
+          access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos pétitions via le menu utilisateur.
+          help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
+          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée avec en ligne, vous devrez télécharger les informations requises.
+          help_text: N'oubliez pas que pour valider correctement la pétition, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
+          initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les pétitions.
           page: page
         previous_form:
           back: Arrière
