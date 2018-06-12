@@ -151,7 +151,6 @@ nl:
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
           assembly_members: leden
-          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
