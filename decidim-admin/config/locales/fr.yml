@@ -23,7 +23,7 @@ fr:
         parent_id: Parent
       component:
         name: Titre
-        published_at: Publié à
+        published_at: Publiée à
         weight: Rang d'affichage
       id: ID
       newsletter:
@@ -64,7 +64,7 @@ fr:
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
         show_statistics: Montrer les statistiques
-        tos_version: Conditions d'utilisation
+        tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
@@ -96,7 +96,7 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Groupe de promoteur
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -117,7 +117,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Concertations
+        participatory_processes: Processus participatifs
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
@@ -183,7 +183,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
           success: Le dossier a été créé avec succès.
         destroy:
-          success: Dossier détruit avec succès.
+          success: Dossier supprimé avec succès.
         edit:
           title: Modifier le dossier
           update: Mettre à jour
@@ -525,7 +525,7 @@ fr:
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier une bannière omniprésente
+          omnipresent_banner_appearance_title: Modifier la bannière permanente
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -577,7 +577,7 @@ fr:
         destroy:
           success: La page a été détruite avec succès
         edit:
-          changed_notably_help: Si cette case est cochée, les utilisateurs seront avisés d'accepter les nouvelles modalités et conditions.
+          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         index:
