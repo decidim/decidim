@@ -61,6 +61,14 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
 
+      # Returns a collection scoped by user.
+      # Overrides this method in DataPortability to support Coauthorable.
+      def self.user_collection(user)
+        joins(:coauthorships)
+          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where("decidim_coauthorships.decidim_author_id = ?", user.id)
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
