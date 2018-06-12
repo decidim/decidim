@@ -23,7 +23,7 @@ fr:
         post_code: Code postal
         province: Région
       initiatives_committee_member:
-        user: Membre du Comité de soutien
+        user: Membre du Comité de promotion
       initiatives_type:
         banner_image: Image d'en-tête
         description: Description
@@ -88,10 +88,10 @@ fr:
           index:
             approve: Approuver
             confirm_revoke: Êtes-vous certain ?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au comité de soutien
-            no_members_yet: Il n'y a pas de membres dans le comité de soutien
+            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
+            no_members_yet: Il n'y a pas encore de membres dans le comité de promotion
             revoke: Révoquer
-            title: Membres du comité de soutien
+            title: Membres du comité de promotion
         initiatives:
           edit:
             accept: Signer la pétition
@@ -110,7 +110,7 @@ fr:
               accepted: Accepté
               all: Tout
               created: Créé
-              discarded: Dépublié
+              discarded: Retiré
               published: Publié
               rejected: Rejeté
               validating: Validation technique
@@ -126,14 +126,14 @@ fr:
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
+            success: Un nouveau périmètre d'application pour cette pétition a été créé
           destroy:
             success: La périmètre d'application a été supprimé avec succès
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier le périmètre d'application du type de pétiton
+            title: Modifier le périmètre d'application de ce type de pétiton
             update: Mettre à jour
           new:
             back: Retour
@@ -171,14 +171,14 @@ fr:
       admin_states:
         accepted: Accepté
         created: Créé
-        discarded: Dépublié
+        discarded: Retiré
         published: Publié
         rejected: Rejeté
         validating: Validation technique
       committee_requests:
         new:
           continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du Comité de soutien de cette pétition
+          help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette pétition
         spawn:
           success: Votre demande a été envoyée à l'auteur de la pétition.
       create_initiative:
@@ -198,7 +198,7 @@ fr:
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos pétitions via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
-          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée avec en ligne, vous devrez télécharger les informations requises.
+          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
           help_text: N'oubliez pas que pour valider correctement la pétition, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les pétitions.
           page: page
@@ -215,7 +215,7 @@ fr:
           back: Retour
           more_information: "(Plus d'information)"
           select: Choisir
-          select_initiative_type_help: Les pétitions citoyennes sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
+          select_initiative_type_help: Les pétitions citoyennes sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle pétition voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
@@ -234,9 +234,9 @@ fr:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a recommandé la pétition suivante; vous pouvez y contribuer si vous le souhaitez :"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Pétition recommandée par %{author_nickname}
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été recommandée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été recommandée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: Initiatives
+        title: Pétitions
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
