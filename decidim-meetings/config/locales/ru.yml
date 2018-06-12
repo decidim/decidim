@@ -120,14 +120,12 @@ ru:
     meetings:
       actions:
         agenda: Повестка дня
-        attachment_collections: Папки
         attachments: Прикрепленные файлы
         close: Закрыть
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
         minutes: Протокол
-        new: Добавить
         preview: Предпросмотр
         registrations: Регистрации
         title: Действия
