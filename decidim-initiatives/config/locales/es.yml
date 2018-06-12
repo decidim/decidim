@@ -218,7 +218,7 @@ es:
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
-          invite_to_committee_help: Enlace para invitar a personas que formarán parte del comité promotor.
+          invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
         show_similar_initiatives:
           back: Volver
           compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
@@ -309,7 +309,7 @@ es:
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
         progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
         progress_report_for: 'Currículum sobre la iniciativa: %{title}'
-        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas al comité de promotores. Reenvia el siguiente enlace para invitarlas.
+        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la comisión promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
