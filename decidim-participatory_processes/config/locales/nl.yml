@@ -67,7 +67,6 @@ nl:
         destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
-        new: Nieuw
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -76,7 +75,6 @@ nl:
         participatory_process_groups: Thema groep
         participatory_processes: Thema's
         participatory_processes_submenu:
-          attachment_collections: Verzamelingen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
