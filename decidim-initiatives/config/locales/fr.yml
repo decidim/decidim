@@ -23,7 +23,7 @@ fr:
         post_code: Code postal
         province: Région
       initiatives_committee_member:
-        user: membre du comité
+        user: Membre du comité de soutien
       initiatives_type:
         banner_image: Image d'en-tête
         description: Description
@@ -46,7 +46,7 @@ fr:
   decidim:
     admin:
       actions:
-        new_initiative_type: Nouveau type d'initiative
+        new_initiative_type: Nouveau type de pétition
       menu:
         initiatives: Pétitions
         initiatives_types: Types de pétition
