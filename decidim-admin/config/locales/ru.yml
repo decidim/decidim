@@ -178,23 +178,10 @@ ru:
           error: При попытке обновить этот участок произошла ошибка.
           success: Участок успешно обновлен
       attachment_collections:
-        create:
-          error: При попытке создать новую папку произошла ошибка.
-          success: Папка успешно создана.
-        destroy:
-          success: Папка успешно удалена.
         edit:
-          title: Изменить папку
           update: Обновить
-        index:
-          attachment_collection_used: Эту папку нельзя удалить, так как она используется.
-          attachment_collections_title: Папки прикрепленных файлов
         new:
           create: Создать
-          title: Создать папку
-        update:
-          error: При попытке обновить эту папку произошла ошибка.
-          success: Папка успешно обновлена.
       attachments:
         create:
           error: При попытке создать новый прикрепленный файл произошла ошибка.
@@ -353,13 +340,10 @@ ru:
             plural: Множественное число
         attachment:
           fields:
-            collection: Папка
             content_type: Вид
             file_size: Размер
             title: Название
           name: Прикрепленный файл
-        attachment_collection:
-          name: Папка
         category:
           name: Разряд
         impersonation_log:
