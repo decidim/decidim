@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       agenda:
-        description: La description
+        description: Description
         duration: Durée
         title: Titre
       close_meeting:
@@ -10,7 +10,7 @@ fr:
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
         closing_report: Compte rendu
         contributions_count: Nombre de contributions
-        proposal_ids: Propositions soumises lors de la rencontre
+        proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
