@@ -249,13 +249,13 @@ fr:
             other: et %{count} autres personnes
         count:
           title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
+            one: "%{count} pétition"
+            other: "%{count} pétitions"
         filters:
           any: Tout
           author: Auteur
           closed: Fermées
-          myself: Mes initiatives
+          myself: Mes pétitions
           open: Ouvrir
           search: Rechercher
           state: État
@@ -267,19 +267,19 @@ fr:
           filter_by: Filtrer par
           unfold: Dérouler
         index_header:
-          new_initiative: Nouvelle initiative
+          new_initiative: Nouvelle pétition
         orders:
-          label: 'Trier les initiatives par :'
+          label: 'Trier les pétitions par :'
           most_commented: Les plus commentées
           most_voted: Les plus soutenues
-          random: au hasard
+          random: Au hasard
           recent: Les plus récentes
         result:
-          initiative_accepted_reason: Cette initiative a été acceptée parce que
-          initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
+          initiative_accepted_reason: Cette pétition a été acceptée parce que
+          initiative_rejected_reason: Cette pétition a été rejetée en raison du manque de soutien.
         show:
-          any_vote_method: Cette initiative citoyenne recueille le soutien en ligne et physique.
-          offline_method: Cette initiative citoyenne ne recueille que des soutiens physiques.
+          any_vote_method: Cette pétition citoyenne recueille le soutien en ligne et en présentiel.
+          offline_method: Cette pétition citoyenne ne recueille que des soutiens en présentiel.
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
@@ -302,14 +302,14 @@ fr:
             one: SIGNATURE
             other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Votre initiative citoyenne '%{title}' a été créée
+        creation_subject: Votre pétition citoyenne '%{title}' a été créée
         initiative_link:
-          check_initiative_details: Vous pouvez accéder aux détails de l'initiative
+          check_initiative_details: Vous pouvez accéder aux détails de la pétition
           here: ici
-        more_information: Vous trouverez ici plus d'informations sur le processus de création d'une initiative.
-        progress_report_body_for: L'initiative %{title} a atteint %{percentage}% des soutiens requis.
-        progress_report_for: 'Résumé de l''initiative : %{title}'
-        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au comité organisateur. Envoyez le lien suivant pour les inviter
+        more_information: Vous trouverez ici plus d'informations sur le processus de création d'une pétition.
+        progress_report_body_for: La pétition %{title} a atteint %{percentage}% des soutiens requis.
+        progress_report_for: 'Résumé de la pétition : %{title}'
+        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au Comité de promotion. Envoyez le lien suivant pour les inviter
         status_change_body_for: 'L''initiative %{title} a changé son statut pour : %{state}'
         status_change_for: L'initiative %{title} a changé de statut
         technical_validation_body_for: L'initiative %{title} a demandé sa validation technique.
