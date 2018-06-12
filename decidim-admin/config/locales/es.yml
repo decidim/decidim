@@ -180,7 +180,7 @@ es:
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Hubo un error al crear una nueva carpeta.
+          error: Se ha producido un error al crear una nueva carpeta.
           success: Carpeta creada con éxito.
         destroy:
           success: Carpeta borrada con éxito.
@@ -194,7 +194,7 @@ es:
           create: Crear
           title: Nueva carpeta
         update:
-          error: Hubo un error al actualizar esta carpeta.
+          error: Se ha producido un error al actualizar esta carpeta.
           success: Carpeta actualizada con éxito.
       attachments:
         create:
