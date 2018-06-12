@@ -45,6 +45,8 @@ sv:
         other: signaturer
   decidim:
     admin:
+      actions:
+        new_initiative_type: Ny initiativtyp
       menu:
         initiatives: initiativ
         initiatives_types: Initiativtyper
