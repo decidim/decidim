@@ -67,7 +67,6 @@ pt:
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
-        new: Novo
         preview: Visualização
         publish: Publicar
         resend_invitation: Reenviar convite
@@ -76,7 +75,6 @@ pt:
         participatory_process_groups: Grupos de processo
         participatory_processes: Processos
         participatory_processes_submenu:
-          attachment_collections: Coleções
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
