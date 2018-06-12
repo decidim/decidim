@@ -18,10 +18,12 @@ uk:
   decidim:
     budgets:
       actions:
+        attachment_collections: Теки
         attachments: Вкладені файли
         confirm_destroy: Ви дійсно бажаєте видалити цей задум?
         destroy: Видалити
         edit: Редагувати
+        new: Додати новий задум
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -43,6 +45,7 @@ uk:
             title: Задуми
           new:
             create: Додати
+            title: Додати новий задум
           update:
             invalid: При спробі оновити цей задум сталася помилка
             success: Задум успішно оновлено
@@ -132,6 +135,7 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
+            votes_enabled: Голосування увімкнене
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка
