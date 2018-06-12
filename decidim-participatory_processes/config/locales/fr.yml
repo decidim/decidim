@@ -101,13 +101,13 @@ fr:
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupes de processus
+          name: Groupe de processus
         participatory_process_step:
           fields:
             end_date: Date de fin
             start_date: Date de début
             title: Titre
-          name: Etape du processus participatif
+          name: Étape du processus participatif
         participatory_process_user_role:
           fields:
             email: Email
@@ -124,7 +124,7 @@ fr:
             invitation_sent_at: Invitation envoyée à
       participatory_process_copies:
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
@@ -149,11 +149,11 @@ fr:
       participatory_process_step_activations:
         create:
           error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
-          success: Etape du processus participatif activée avec succès.
+          success: Étape du processus participatif activée avec succès.
       participatory_process_steps:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
-          success: Etape de processus participatif créée avec succès.
+          success: Étape du processus participatif créée avec succès.
         default_title: Introduction
         destroy:
           error:
@@ -164,7 +164,7 @@ fr:
           title: Modifier l'étape du processus participatif
           update: Mettre à jour
         index:
-          steps_title: Etapes
+          steps_title: Étapes
         new:
           create: Créer
           title: Nouvelle étape du processus participatif
@@ -172,7 +172,7 @@ fr:
           error: Une erreur s'est produite lors de la réorganisation des étapes du processus participatif.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape du processus participatif.
-          success: Etape du processus participatif mise à jour avec succès.
+          success: Étape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
