@@ -73,7 +73,6 @@ ru:
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
-        new: Добавить
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
@@ -82,7 +81,6 @@ ru:
         participatory_process_groups: Группы движений
         participatory_processes: Движения
         participatory_processes_submenu:
-          attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
           categories: Разряды
