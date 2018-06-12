@@ -28,9 +28,6 @@
               <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
             </ul>
           </li>
-          <li><%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %></li>
-          <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
-          <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
           <li>
             <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
             <ul>
@@ -47,6 +44,22 @@
             <ul>
               <li><%= link_to "Propuesta: wizard paso 2", page_path("proposals/proposals-wizard-step-2") %></li>
               <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %>
+            <ul>
+              <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+              <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
+            </ul>
+          </li>
+        </ul>
+        <h2 class="section-heading">Amendments</h2>
+        <ul>
+          <li>
+            <%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %>
+            <ul>
+              <li></li>
             </ul>
           </li>
         </ul>
