@@ -75,6 +75,8 @@ gl:
         other: Asignar roles de usuario
   decidim:
     admin:
+      actions:
+        new_assembly: Nova montaxe
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
@@ -151,6 +153,7 @@ gl:
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
+          attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
