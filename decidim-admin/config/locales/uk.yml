@@ -143,6 +143,7 @@ uk:
         browse: Переглянути
         export: Зберегти у вигляді файлу
         manage: Керувати
+        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
@@ -178,6 +179,9 @@ uk:
           error: При спробі оновити цю дільницю сталася помилка.
           success: Дільницю успішно оновлено
       attachment_collections:
+        create:
+          error: При спробі створити нову теку сталася помилка.
+          success: Теку успішно створено.
         edit:
           update: Оновити
         new:
