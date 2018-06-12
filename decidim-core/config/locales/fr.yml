@@ -53,7 +53,7 @@ fr:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Le fichier n'existe pas
+        file_no_exists: Fichier ne existe pas
         invalid_token: Le jeton fourni est invalide.
         no_token: Aucun jeton fourni
         notice: Vos données sont actuellement en cours. Vous recevrez un email quand il sera complet.
