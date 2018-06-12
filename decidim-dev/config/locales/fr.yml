@@ -2,8 +2,8 @@ fr:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Créé le
-        field: Mon champ
+        created_at: Créée le
+        field: Champ
         start_date: Date de début
         title: Titre
         updated_at: Mis à jour à
@@ -11,18 +11,18 @@ fr:
     dummy:
       admin:
         exports:
-          dummies: Nuls
+          dummies: Référence de test
     pages:
       home:
         statistics:
-          bar: Machin
-          dummies_count_high: Dummies haute
-          dummies_count_medium: Dummies moyen
+          bar: Seuil
+          dummies_count_high: Référence de test haute
+          dummies_count_medium: Référence de test moyenne
           foo: Truc
     participatory_processes:
       statistics:
-        dummies_count_high: Super nuls
-        dummies_count_medium: Moyennement nuls
+        dummies_count_high: Référence de test haute
+        dummies_count_medium: Référence de test moyenne
     resource_links:
       test_link:
-        dummy_resource_dummy: Référence factice concernée
+        dummy_resource_dummy: Référence de test concernée
