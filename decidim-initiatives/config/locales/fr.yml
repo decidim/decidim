@@ -178,7 +178,7 @@ fr:
       committee_requests:
         new:
           continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du comité de soutien de cette pétition
+          help_text: Vous êtes sur le point de demander à devenir membre du Comité de soutien de cette pétition
         spawn:
           success: Votre demande a été envoyée à l'auteur de la pétition.
       create_initiative:
@@ -192,7 +192,7 @@ fr:
         finish:
           back: Retour
           back_to_initiatives: Retour aux pétitions
-          callout_text: Bravo ! Votre initiative citoyenne a été créée avec succès.
+          callout_text: Bravo ! Votre pétition citoyenne a été créée avec succès.
           go_to_my_initiatives: Aller à mes pétitions
           more_information: "(Plus d'information)"
         finish_help:
@@ -209,7 +209,7 @@ fr:
           more_information: "(Plus d'information)"
         promotal_committee:
           back: Retour
-          individual_help_text: Les initiatives citoyennes nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette pétition. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Les pétitions citoyennes nécessitent un Comité de promotion composée d'au moins trois personnes (attestateurs). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette pétition. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'information)"
         select_initiative_type:
           back: Retour
@@ -221,19 +221,19 @@ fr:
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
         show_similar_initiatives:
           back: Retour
-          compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura plus de possibilités de se faire.
-          continue: Mon initiative est différente
+          compare_help: Si l'une des pétitions suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura ainsi plus de possibilités de se réaliser.
+          continue: Ma pétition est différente
           more_information: "(Plus d'information)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle initiative, vérifiez-la et contribuez:"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Nouvelle initiative de %{author_nickname}
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle pétition, lisez -la et contribuez :"
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle pétition de %{author_nickname}
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a recommandé l'initiative suivante, peut-être que vous voulez contribuer à la conversation:"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Initiative recommandée par %{author_nickname}
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a recommandé la pétition suivante; vous pouvez y contribuer si vous le souhaitez :"
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Pétition recommandée par %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été endossée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
