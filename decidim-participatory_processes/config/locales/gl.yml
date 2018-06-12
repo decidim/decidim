@@ -67,7 +67,6 @@ gl:
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
-        new: Novo
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
@@ -76,7 +75,6 @@ gl:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
-          attachment_collections: Coleccións
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
