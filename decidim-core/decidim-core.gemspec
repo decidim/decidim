@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geocoder", "~> 1.4"
   s.add_dependency "invisible_captcha", "~> 0.10.0"
   s.add_dependency "jquery-rails", "~> 4.3"
+  s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
   s.add_dependency "mini_magick", "~> 4.8"
   s.add_dependency "nobspw", "~> 0.4.0"

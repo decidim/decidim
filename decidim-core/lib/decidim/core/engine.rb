@@ -41,6 +41,7 @@ require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
+require "kaminari"
 
 require "decidim/api"
 
