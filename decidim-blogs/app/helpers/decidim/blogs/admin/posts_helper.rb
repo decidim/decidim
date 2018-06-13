@@ -6,8 +6,7 @@ module Decidim
       # Custom helpers used in posts views
       module PostsHelper
         include Decidim::ApplicationHelper
-        # include Decidim::TranslationsHelper
-        # include Decidim::ResourceHelper
+        include SanitizeHelper
 
         # Public: truncates the post body
         #

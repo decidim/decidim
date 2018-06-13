@@ -5,8 +5,10 @@ module Decidim
     # Mailer for initiatives engine.
     class InitiativesMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
 
       add_template_helper Decidim::TranslatableAttributes
+      add_template_helper Decidim::SanitizeHelper
 
       # Notifies initiative creation
       def notify_creation(initiative)
