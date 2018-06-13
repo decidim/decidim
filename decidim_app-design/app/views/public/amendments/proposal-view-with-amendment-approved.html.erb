@@ -9,20 +9,18 @@
 <main>
   <div class="wrapper">
     <%= partial "process_header" %>
+
+    <div class="row column">
+      <div class="callout success mb-sm">
+        <p>This amendment for the proposal <a><strong>Donec facilisis tortor ut augue</strong></a> was approved on <strong>11/10/2018</strong>.</p>
+      </div>
+    </div>
     <div class="row column view-header">
       <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
       <%= partial "author_data", { extra: true } %>
     </div>
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="card text-center">
-          <div class="card__content">
-            <button class="button secondary hollow expanded button--icon button--sc">
-              <span>Enmendar propuesta</span>
-            </button>
-            <small>Mejora esta propuesta modificando su título o descripción</small>
-          </div>
-        </div>
         <div class="card">
           <div class="card__content">
             <%= partial "progress_bar", { vertical: true } %>
