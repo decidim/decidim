@@ -12,7 +12,7 @@
             <%= cell "decidim/author", present(post.author), from: post %>
           </div>
         </div>
-        <%= sanitize post_description(post) %>
+        <%= decidim_sanitize post_description(post) %>
       </div>
     </article>
   <% end %>
