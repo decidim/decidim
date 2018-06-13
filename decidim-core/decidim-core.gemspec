@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geocoder", "~> 1.4"
   s.add_dependency "invisible_captcha", "~> 0.10.0"
   s.add_dependency "jquery-rails", "~> 4.3"
+  s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
   s.add_dependency "mini_magick", "~> 4.8"
   s.add_dependency "nobspw", "~> 0.4.0"
@@ -47,7 +48,7 @@ Gem::Specification.new do |s|
   s.add_dependency "pg", ">= 0.18", "< 2"
   s.add_dependency "pg_search", "~> 2.1", ">= 2.1.0"
   s.add_dependency "premailer-rails", "~> 1.9"
-  s.add_dependency "rack-attack", "~> 5.2.0"
+  s.add_dependency "rack-attack", "~> 5.2"
   s.add_dependency "rails", ">= 5.2", "< 6.0.x"
   s.add_dependency "rails-i18n", "~> 5.0"
   s.add_dependency "rectify", "~> 0.11.0"
