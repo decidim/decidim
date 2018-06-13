@@ -18,15 +18,11 @@
         large-3 large-push-9">
         <div class="card extra">
           <div class="card__content">
-
-            
-
+            <%= partial "progress_bar", { vertical: true } %>
             <button class="button expanded button--sc" disabled>Apoyar</button>
-
             <p class="mt-s mb-none">
               <%= link_to raw("Entra en tu cuenta</a> o <a href='/user-register'>regístrate"), page_path("user/user-login") %> para apoyar.
             </p>
-
           </div>
         </div>
         <%= partial "followme" %>
