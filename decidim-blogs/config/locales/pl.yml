@@ -15,7 +15,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć ten wpis?
         destroy: Kasować
         edit: Edytować
-        new: Nowy
+        new: Nowy post
         title: działania
       admin:
         models:

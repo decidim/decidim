@@ -13,7 +13,7 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo post?
         destroy: Elimina
         edit: modificare
-        new: Nuovo
+        new: Nuovo post
         title: Azioni
       admin:
         models:

@@ -75,6 +75,8 @@ pt:
         other: Funções de usuário de montagem
   decidim:
     admin:
+      actions:
+        new_assembly: Nova montagem
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
@@ -151,7 +153,7 @@ pt:
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
           assembly_members: Membros
-          attachment_collections: Coleções
+          attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias

@@ -53,10 +53,10 @@ ca:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: El fitxer no existeix
+        file_no_exists: L'arxiu no existeix
         invalid_token: El símbol proporcionat no és vàlid.
         no_token: No s'ha proporcionat cap testimoni
-        notice: Les vostres dades estan en curs. Rebràs un correu electrònic quan estigui complet.
+        notice: Les teves dades estan en curs. Rebràs un correu electrònic quan estigui complet.
       delete:
         alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
         confirm:
@@ -186,9 +186,9 @@ ca:
       export:
         ready: Preparat
       show:
-        download_data: Baixeu-vos les dades
+        download_data: Baixa't les dades
         download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
-        request_data: Sol·liciteu dades
+        request_data: Sol·licita dades
     devise:
       omniauth_registrations:
         create:
@@ -280,8 +280,8 @@ ca:
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
-        click_button: Feu clic al botó següent per descarregar les vostres dades. <br/> tindreu disponible el fitxer fins a %{date}.
-        download: descarregar
+        click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
+        download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
       subject: L'exportació "%{name}" està a punt
@@ -321,16 +321,16 @@ ca:
       remove_this_file: Eliminar aquest arxiu
     invitations:
       create:
-        error: Hi va haver alguns problemes mentre convidava els vostres amics
-        error_empty_form: Introduïu algunes adreces de correu electrònic
-        success: Hem enviat les invitacions als teus amics.
+        error: Hi ha hagut alguns problemes mentre es convidava els teus amics
+        error_empty_form: Introdueix algunes adreces de correu electrònic
+        success: Hem enviat les invitacions als teus amics!
       index:
-        customize_message: Personalitzeu el missatge d'invitació
+        customize_message: Personalitza el missatge d'invitació
         friend_email: 'Correu electrònic de l''amic #%{index}'
-        invitations_subtitle: Feu saber als vostres amics sobre aquest lloc
+        invitations_subtitle: Fes saber als teus amics sobre aquest lloc web
         invitations_title: Creus que cal escoltar més veus en %{organization_name}?
         invite: Convidar
-        visit_your_profile: Visiteu el vostre perfil
+        visit_your_profile: Visiteu el teu perfil
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -596,8 +596,8 @@ ca:
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
       invite_friend:
-        accept_invitation: 'Podeu acceptar la invitació a través del següent enllaç:'
-        friend_custom_text: 'Us han deixat aquest missatge:'
+        accept_invitation: 'Pots acceptar la invitació a través del següent enllaç:'
+        friend_custom_text: 'T''han deixat aquest missatge:'
         subject: Has estat convidat a %{organization}
       invite_private_user:
         subject: Has estat convidat a un procés participatiu privat a %{organization}
@@ -667,9 +667,9 @@ ca:
     name: Català
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
-    email_included_in_password: és massa similar al vostre correu electrònic
+    email_included_in_password: és massa similar al teu correu electrònic
     fallback: no és vàlid
-    name_included_in_password: és massa semblant al vostre nom
+    name_included_in_password: és massa semblant al teu nom
     not_enough_unique_characters: no té prou caràcters únics
     password_not_allowed: no està permès
     password_too_common: és massa comú

@@ -9,7 +9,7 @@ fr:
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
         questions: Questions
-        slug: Identifiant d'URL
+        slug: Identifiant
         start_voting_date: Le vote commence le
         subtitle: Sous-titre
         title: Titre
@@ -22,16 +22,16 @@ fr:
         origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
-        participatory_scope: Champ d'application participatif
-        promoter_group: Groupe initiateur
+        participatory_scope: Objectif
+        promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
         scope: Périmètre municipal
-        slug: Identifiant d'URL
+        slug: Identifiant
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
-        what_is_decided: Ce qui a été décidé
+        what_is_decided: Ce qui doit être décidé
     errors:
       vote:
         decidim_consultations_response_id:
@@ -53,6 +53,9 @@ fr:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle consultation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
       consultation_publications:
@@ -102,7 +105,7 @@ fr:
       models:
         consultation:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             published: Publiée
             title: Titre
           name:
@@ -110,7 +113,7 @@ fr:
             other: Consultations
         question:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             published: Publiée
             title: Titre
           name:
@@ -118,7 +121,7 @@ fr:
             other: Questions
         response:
           fields:
-            created_at: Créée à
+            created_at: Créée le
             title: Titre
           name:
             one: Réponse

@@ -13,7 +13,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouvel article
         title: Actions
       admin:
         models:
@@ -60,7 +60,7 @@ fr:
             comments_enabled: Commentaires activés
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Commentaires désactivés
     events:
       blogs:
         post_created:

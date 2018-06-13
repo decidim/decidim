@@ -75,6 +75,8 @@ fr:
         other: Fonctions du membre dans l'agora
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle agora
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle agora.

@@ -53,7 +53,7 @@ sv:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Filnr finns
+        file_no_exists: Fil existerar inte
         invalid_token: Den angivna token är ogiltig.
         no_token: Ingen token tillhandahålls
         notice: Dina uppgifter är pågående. Du får ett mail när det är klart.

@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include PaginateHelper
+      include SanitizeHelper
       include Decidim::Blogs::PostsHelper
       include Decidim::Comments::CommentsHelper
     end

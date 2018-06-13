@@ -45,6 +45,8 @@ eu:
         other: sinadurak
   decidim:
     admin:
+      actions:
+        new_initiative_type: Ekimen mota berria
       menu:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak

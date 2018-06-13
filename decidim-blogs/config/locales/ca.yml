@@ -13,7 +13,7 @@ ca:
         confirm_destroy: Estàs segur que vols eliminar aquesta publicació?
         destroy: Suprimeix
         edit: Edita
-        new: Nou
+        new: Nova publicació
         title: Accions
       admin:
         models:
