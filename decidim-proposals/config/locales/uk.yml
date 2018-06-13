@@ -278,7 +278,7 @@ uk:
           error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
-          mine_is_different: Моя пропозиція відрізняється
+          mine_is_different: Моя пропозиція інша
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:

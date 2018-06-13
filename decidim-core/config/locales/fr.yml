@@ -425,21 +425,21 @@ fr:
         title: Plus d'informations
       terms_and_conditions:
         accept:
-          error: Une erreur s'est produite lors de l'acceptation des termes et conditions.
-          success: Génial! Vous avez accepté les termes et conditions.
+          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
+          success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: Je suis d'accord avec les termes
-          legend: Accepter les termes et conditions d'utilisation
+          agreement: Je suis d'accord avec les conditions
+          legend: Accepter les conditions d'utilisation
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme, vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
-          modal_btn_continue: Accepter les termes et continuer
-          modal_btn_exit: Je l'examinerai plus tard
-          modal_button: Refuser les termes
-          modal_title: Refusez-vous vraiment les termes et conditions mis à jour?
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les conditions et continuer
+          modal_btn_exit: Je le ferai plus tard
+          modal_button: Refuser les conditions
+          modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: Veuillez prendre un moment pour examiner les mises à jour de nos conditions d'utilisation. Sinon, vous ne pourrez pas utiliser la plate-forme.
-          title: 'Obligatoire: consultez les mises à jour de nos conditions d''utilisation'
+          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
+          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -479,17 +479,17 @@ fr:
     search:
       filter:
         all: Tout
-        component: Composant
-      results_found_for_term: '%{count} Résultats pour la recherche: "%{term}"'
-      term_input_placeholder: Chercher
+        component: Fonctionnalité
+      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
+      term_input_placeholder: Rechercher
     searches:
       filters:
-        search: Chercher
+        search: Rechercher
       filters_small_view:
-        close_modal: Fermer modal
-        filter: Filtre
+        close_modal: Fermer la fenêtre de dialogue
+        filter: Filtrer
         filter_by: Filtrer par
-        unfold: Se dérouler
+        unfold: Dérouler
     shared:
       action_authorization_modal:
         expired:
@@ -523,10 +523,10 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-        offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
         report: Signaler
-        spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
+        spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
@@ -557,7 +557,7 @@ fr:
         hello: Bonjour %{email},
         ignore: |-
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
-          Votre compte ne sera pas créé avant d'avoir accédé au lien ci-dessus et d'avoir défini votre pseudo et votre mot de passe.
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -586,8 +586,8 @@ fr:
       long_words: contient des mots qui sont trop longs
       must_start_with_caps: doit commencer avec des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      too_many_marks: utilise trop de marques
-      too_much_caps: utilise trop de bouchons
+      too_many_marks: utilise trop de signes
+      too_much_caps: utilise trop de majuscules
       too_short: est trop court
   forms:
     required: Champs obligatoires

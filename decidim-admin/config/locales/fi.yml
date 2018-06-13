@@ -182,7 +182,7 @@ fi:
           error: Virhe uuden kokoelman luomisessa.
           success: Kokoelma on luotu onnistuneesti.
         destroy:
-          success: Kokoelma on tuhottu onnistuneesti.
+          success: Kokoelma poistettu.
         edit:
           title: Muokkaa kokoelmia
           update: Päivittää
