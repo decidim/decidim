@@ -7,6 +7,7 @@
 This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,
 and also everything related to it (controllers, views, etc.). If you have customised some
 controller or added a new module you need to rename `feature` to `component`.
+## [Unreleased](https://github.com/decidim/decidim/tree/0.12-stable)
 
 **Added**:
 
@@ -270,6 +271,7 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 
 **Fixed**:
 
+- **decidim-assemblies**: Fix private assemblies showing more than once for private users. [\#3638](https://github.com/decidim/decidim/pull/3638)
 - **decidim-proposals**: Do not index non published Proposals. [\#3618](https://github.com/decidim/decidim/pull/3618)
 - **decidim-proposals**: Fix link to endorsements behaviour, now it does not link when there are no endorsements. [\#3531](https://github.com/decidim/decidim/pull/3531)
 - **decidim-meetings**: Fix meetings M card cell so that it works outside the component [\#3612](https://github.com/decidim/decidim/pull/3612)
