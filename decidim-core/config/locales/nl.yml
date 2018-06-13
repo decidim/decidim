@@ -53,7 +53,7 @@ nl:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Bestandsnr bestaat
+        file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.

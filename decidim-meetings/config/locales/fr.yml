@@ -121,41 +121,41 @@ fr:
         destroy: Supprimer
         edit: Modifier
         minutes: Compte-rendu
-        new: Nouvelle
+        new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Ajouter un élément d'agenda
-            agenda_item: Objet
-            agenda_item_children: Point de l'ordre du jour Childs
-            down: Vers le bas
+            add_agenda_item_child: Ajouter un point d'ordre du jour
+            agenda_item: Point d'ordre du jour
+            agenda_item_children: Points de l'ordre du jour
+            down: Descendre
             remove: Retirer
-            up: Up
+            up: Vers le haut
           agenda_item_child:
             agenda_item_child: Point de l'ordre du jour
             down: Vers le bas
             remove: Retirer
-            up: Up
+            up: Vers le haut
           create:
-            invalid: Un problème est survenu lors de la création de cet agenda
-            success: Agenda créé avec succès
+            invalid: Un problème est survenu lors de la création de cet ordre du jour
+            success: Ordre du jour créé avec succès
           edit:
-            title: Modifier l'agenda
+            title: Modifier l'ordre du jour
             update: Mettre à jour
           form:
-            add_agenda_item: Ajouter un élément de l'agenda
-            agenda_items: Articles de l'ordre
+            add_agenda_item: Ajouter un point d'ordre du jour
+            agenda_items: Points de l'ordre du jour
             end_date: Date de fin
             start_date: Date de début
           new:
             create: Créer
-            title: Nouvel agenda
+            title: Nouvel ordre du jour
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce programme
-            success: Agenda mis à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
+            success: Ordre du jour mis à jour avec succès
         exports:
           registrations: Inscriptions
         invite_join_meeting_mailer:
@@ -232,7 +232,7 @@ fr:
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
-            reserved_slots_help: Laissez-le à 0 si vous n'avez pas de créneaux réservés
+            reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
@@ -294,7 +294,7 @@ fr:
           remaining_slots:
             one: Il reste 1 place
             other: "Il reste %{count} places"
-          view: Vue
+          view: Voir
       models:
         meeting:
           fields:

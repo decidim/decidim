@@ -75,6 +75,8 @@ nl:
         other: Assemblage van gebruikersrollen
   decidim:
     admin:
+      actions:
+        new_assembly: Nieuwe vergadering
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
@@ -151,7 +153,7 @@ nl:
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
           assembly_members: leden
-          attachment_collections: Verzamelingen
+          attachment_collections: folders
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën

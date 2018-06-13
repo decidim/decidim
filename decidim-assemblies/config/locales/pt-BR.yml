@@ -75,6 +75,8 @@ pt-BR:
         other: Funções do usuário da Assembleia
   decidim:
     admin:
+      actions:
+        new_assembly: Nova montagem
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.
@@ -151,7 +153,7 @@ pt-BR:
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
           assembly_members: Membros
-          attachment_collections: Coleções
+          attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias

@@ -51,6 +51,8 @@ pl:
         other: Podpisy
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nowy typ inicjatywy
       menu:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw

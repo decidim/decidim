@@ -67,7 +67,10 @@ sv:
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
-        new: Ny
+        new_process: Ny process
+        new_process_group: Ny processgrupp
+        new_process_step: Nytt steg
+        new_process_user_role: Ny processanvändare
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
@@ -76,7 +79,7 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: Samlingar
+          attachment_collections: mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier

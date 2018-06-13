@@ -143,6 +143,7 @@ gl:
         browse: Buscar
         export: Exportar
         manage: Xestionar
+        new: Novo %{name}
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
@@ -179,22 +180,22 @@ gl:
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Produciuse un erro ao crear unha nova colección.
-          success: Colección creada con éxito.
+          error: Produciuse un erro ao crear un cartafol novo.
+          success: Cartafol creada con éxito.
         destroy:
-          success: A colección foi destruída con éxito.
+          success: A carpeta foi destruída con éxito.
         edit:
-          title: Editar colección
+          title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Esta colección non se pode eliminar porque está en uso.
-          attachment_collections_title: Coleccións anexas
+          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
+          attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
-          title: Nova colección
+          title: Nova carpeta
         update:
-          error: Houbo un erro ao actualizar esta colección.
-          success: A colección actualizouse con éxito.
+          error: Produciuse un erro ao actualizar esta carpeta.
+          success: A carpeta actualizouse con éxito.
       attachments:
         create:
           error: Produciuse un erro ao crear un anexo novo.
@@ -353,13 +354,13 @@ gl:
             plural: Plural
         attachment:
           fields:
-            collection: Colección
+            collection: Cartafol
             content_type: Tipo
             file_size: Tamaño
             title: Título
           name: Anexo
         attachment_collection:
-          name: Colección
+          name: Cartafol
         category:
           name: Categoría
         impersonation_log:

@@ -82,8 +82,8 @@ sv:
             endorsements_blocked: Anmärkningar blockerade
             endorsements_enabled: Anmärkningar aktiverade
             proposal_answering_enabled: Förslagsvarning aktiverat
-            votes_blocked: Röster blockerade
-            votes_enabled: Röster aktiverade
+            votes_blocked: Röstning blockerad
+            votes_enabled: Röstning aktiverad
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
@@ -153,7 +153,7 @@ sv:
       actions:
         answer: Svara
         import: Importera från en annan komponent
-        new: Ny
+        new: Nytt förslag
         private_notes: Privata anteckningar
         title: Handlingar
       admin:
