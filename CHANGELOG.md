@@ -11,6 +11,7 @@
 - **decidim-generators**: Dummy applications not being correctly generated for external plugins. [\#3470](https://github.com/decidim/decidim/pull/3470)
 - **decidim-generators**: Dummy applications not being correctly generated for final applications. [\#3527](https://github.com/decidim/decidim/pull/3527)
 - **decidim-core**: Data picker form inputs having no bottom margin. [\#3463](https://github.com/decidim/decidim/pull/3463)
+- **decidim-core**: Adds a missing migration to properly rename features to components [\#3656](https://github.com/decidim/decidim/pull/3656)
 
 ## [0.11.1](https://github.com/decidim/decidim/tree/v0.11.1)
 
