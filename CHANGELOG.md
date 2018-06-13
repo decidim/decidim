@@ -10,7 +10,6 @@
 **Changed**:
 
 - **decidim-core**: Introduce coauthorable concern and coauthorship model. [\#3310](https://github.com/decidim/decidim/pull/3310)
-- **decidim-core**: Force user_group.name uniqueness in user_group test factory. (https://github.com/decidim/decidim/pull/3290)
 - **decidim-core**: New user profile design [\#3415](https://github.com/decidim/decidim/pull/3290)
 - **decidim-core**: Force user_group.name uniqueness in user_group test factory. [\#3290](https://github.com/decidim/decidim/pull/3290)
 - **decidim-admin**: Admins no longer need to introduce raw json to define options for an authorization workflow. [\#3300](https://github.com/decidim/decidim/pull/3300)
