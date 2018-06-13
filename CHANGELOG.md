@@ -167,6 +167,12 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-proposals**: Fix link to endorsements behaviour, now it does not link when there are no endorsements. [\#3531](https://github.com/decidim/decidim/pull/3531)
 - **decidim-meetings**: Fix meetings M card cell so that it works outside the component [\#3612](https://github.com/decidim/decidim/pull/3612)
 - **decidim-proposals**: Fix proposals M card cell so that it works outside the component [\#3612](https://github.com/decidim/decidim/pull/3612)
+- **decidim-core**: Adds a missing migration to properly rename features to components [\#3658](https://github.com/decidim/decidim/pull/3658)
+- **decidim-core**: Search results should be paginated so that server does not hang when search term is too wide. [\#3658](https://github.com/decidim/decidim/pull/3658)
+- **decidim-blogs**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-core**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 
 **Removed**:
 
