@@ -1,13 +1,12 @@
 // @Component
 .collapsible-list{
   &.is-filtered{
-    > div:nth-of-type(1n+8){
-      display: none;
-    }
-
-    &.small{
-      > div:nth-of-type(1n+4){
-        display: none;
+    @for $i from 1 through 12{
+      &.show-#{$i}{
+        .collapse:nth-of-type(n+#{$i + 1}),
+        > div:nth-of-type(n+#{$i + 1}){
+          display: none;
+        }
       }
     }
 

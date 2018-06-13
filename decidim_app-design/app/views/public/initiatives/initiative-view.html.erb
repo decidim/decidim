@@ -72,11 +72,13 @@
           <div class="section">
             <h2 class="section-heading">Llista d'adhesions</h2>
 
-            <!-- Hide from the 8th element on -->
-            <%= render layout: "public/components/collapsible-list" do %>
-              <% 12.times do %>
-                <%= partial "author_data", nick: false %>
-              <% end %>
+            <!-- locals.text: the number has to match with the hidden ones -->
+            <!-- locals.size: classname. small shows only 8 items -->
+            <!-- locals.classText: classname. default text-small. append to span -->
+            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: 8, classText: "" } do %>
+            <% 12.times do %>
+            <%= partial "author_data", { nick: false } %>
+            <% end %>
             <% end %>
 
         </div>
