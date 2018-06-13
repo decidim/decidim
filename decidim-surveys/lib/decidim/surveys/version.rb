@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-surveys version.
   module Surveys
     def self.version
-      "0.11.1"
+      "0.11.2"
     end
   end
 end

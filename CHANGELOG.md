@@ -8,6 +8,14 @@
 
 **Fixed**:
 
+## [0.11.2](https://github.com/decidim/decidim/tree/v0.11.2)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
 - **decidim-generators**: Dummy applications not being correctly generated for external plugins. [\#3470](https://github.com/decidim/decidim/pull/3470)
 - **decidim-generators**: Dummy applications not being correctly generated for final applications. [\#3527](https://github.com/decidim/decidim/pull/3527)
 - **decidim-core**: Data picker form inputs having no bottom margin. [\#3463](https://github.com/decidim/decidim/pull/3463)
