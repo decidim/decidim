@@ -5,7 +5,7 @@ module Decidim
   #
   # Coauthorable shares nearly the same object interface as Authorable but with some differences.
   # - `authored_by?(user)` is exactly the same
-  # - `normalized_authors` is pluralized
+  # - `normalized_author` is now `identities`.
   #
   # All coauthors, including the initial author, will share the same permissions.
   module Coauthorable
@@ -16,7 +16,11 @@ module Decidim
       has_many :authors, through: :coauthorships, class_name: "Decidim::User"
       has_many :user_groups, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
 
-      scope :from_author, ->(author) { joins(:coauthorships).where("decidim_coauthorships.decidim_author_id": author.id) }
+      # retrieves models from all identities of the user.
+      scope :from_all_user_identities, ->(user) { joins(:coauthorships).where("decidim_coauthorships.decidim_author_id": user.id) }
+      # retrieves models from the given User, ignoring the UserGroups it belongs to.
+      scope :from_author, ->(author) { joins(:coauthorships).where("decidim_coauthorships.decidim_author_id": author.id).where("decidim_coauthorships.decidim_user_group_id": nil) }
+      # retrieves models from the given UserGroup.
       scope :from_user_group, ->(user_group) { joins(:coauthorships).where("decidim_coauthorships.decidim_user_group_id": user_group.id) }
 
       # Checks whether the user is author of the given proposal, either directly
