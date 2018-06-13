@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags({
-  description: sanitize(translated_attribute(sortition.additional_info)),
+  description: decidim_sanitize(translated_attribute(sortition.additional_info)),
   title: translated_attribute(sortition.title),
   url: sortition_url(sortition.to_param)
 }) %>
@@ -31,7 +31,7 @@
 
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%= sanitize translated_attribute sortition.additional_info %>
+      <%= decidim_sanitize translated_attribute sortition.additional_info %>
     </div>
   </div>
 </div>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class=section>
-    <%= sanitize translated_attribute sortition.cancel_reason %>
+    <%= decidim_sanitize translated_attribute sortition.cancel_reason %>
   </div>
 </div>
 <% end %>
@@ -57,7 +57,7 @@
     <h2 class="title-action__title section-heading"><%= t ".witnesses" %></h2>
   </div>
   <div class="section">
-    <%= sanitize translated_attribute sortition.witnesses %>
+    <%= decidim_sanitize translated_attribute sortition.witnesses %>
   </div>
 </div>
 

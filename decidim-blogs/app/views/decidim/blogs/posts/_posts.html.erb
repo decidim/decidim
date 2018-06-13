@@ -12,7 +12,7 @@
             <%= render partial: "author_data", locals: { post: post } %>
           </div>
         </div>
-        <%= sanitize post_description(post) %>
+        <%= decidim_sanitize post_description(post) %>
       </div>
     </article>
   <% end %>
