@@ -4,7 +4,12 @@
     <% if include_filter %>
       <span class="order-by__tabs">
         <% %w(past active upcoming all).each do |filter_name| %>
-          <%= link_to t(".#{filter_name}"), { filter: filter_name }, remote: true, class: "order-by__tab #{'is-active' if filter == filter_name }" %>
+          <%= link_to(
+            t(".#{filter_name}") + " (#{process_count_by_filter[filter_name]})",
+            { filter: filter_name },
+            remote: true,
+            class: "order-by__tab #{'is-active' if filter == filter_name }"
+          ) %>
         <% end %>
       </span>
     <% end %>

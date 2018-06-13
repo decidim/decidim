@@ -17,6 +17,7 @@ module Decidim
       helper ParticipatoryProcessHelper
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
+      helper_method :process_count_by_filter
 
       def index
         redirect_to "/404" if published_processes.none?
@@ -51,8 +52,8 @@ module Decidim
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
-      def filtered_participatory_processes(filter = default_filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, current_user)
+      def filtered_participatory_processes(filter_name = filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter_name, current_user)
       end
 
       def participatory_processes
@@ -63,8 +64,12 @@ module Decidim
         @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
+      def filtered_participatory_process_groups(filter_name = filter)
+        OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter_name)
+      end
+
       def participatory_process_groups
-        @participatory_process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
+        @participatory_process_groups ||= filtered_participatory_process_groups(filter)
       end
 
       def stats
@@ -77,6 +82,14 @@ module Decidim
 
       def default_filter
         "active"
+      end
+
+      def process_count_by_filter
+        @process_count_by_filter ||= %w(past active upcoming all).inject({}) do |collection_by_filter, filter_name|
+          processes = filtered_participatory_processes(filter_name)
+          groups = filtered_participatory_process_groups(filter_name)
+          collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)
+        end
       end
     end
   end

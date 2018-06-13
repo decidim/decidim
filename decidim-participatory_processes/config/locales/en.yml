@@ -275,11 +275,6 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       index:
         title: Participatory processes
-      order_by_processes:
-        active: Active
-        all: All
-        past: Past
-        upcoming: Upcoming
       pages:
         home:
           highlighted_processes:
@@ -291,6 +286,11 @@ en:
       participatory_processes:
         index:
           loading: Loading results...
+        order_by_processes:
+          active: Active
+          all: All
+          past: Past
+          upcoming: Upcoming
       show:
         developer_group: Promoter group
         end_date: End date
