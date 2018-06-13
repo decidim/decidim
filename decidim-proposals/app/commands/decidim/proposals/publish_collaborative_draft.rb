@@ -42,9 +42,7 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          {
-            state: "published"
-          }
+          state: "published"
         )
       end
 

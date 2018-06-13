@@ -100,14 +100,14 @@ en:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} has closed to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} accepted access to contribute to %{resource_title}."
+          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} has been rejected access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are an author of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} rejected access to contribute to %{resource_title}."
+          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
@@ -125,12 +125,12 @@ en:
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_closed:
-          email_intro: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> closed the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> closed the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} closed the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>closed</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_published:
-          email_intro: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> published the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> published the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} published the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>published</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
@@ -282,23 +282,23 @@ en:
         withdrawn: Withdrawn
       collaborative_drafts:
         collaborative_draft:
-          view_collaborative_draft: View Collaborative Draft
           close:
             error: There's been errors closing the collaborative draft.
-            success: Collaborative draft closed successfully.
             irreversible_action_modal:
+              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
               cancel: Cancel
               ok: Close the collaborative draft
               title: The following action is irreversible
-              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
+            success: Collaborative draft closed successfully.
           publish:
+            error: There's been errors when publishing the collaborative draft.
             irreversible_action_modal:
+              body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
               cancel: Cancel
               ok: Publish as a Proposal
               title: The following action is irreversible
-              body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
-            error: There's been errors when publishing the collaborative draft.
             success: Collaborative draft published successfully.
+          view_collaborative_draft: View Collaborative Draft
         compare:
           mine_is_different: My collaborative draft is different
           no_similars_found: Well done! No similar collaborative drafts found
@@ -360,6 +360,7 @@ en:
             error: "@%{user} could not be rejected as a collaborator, try again later."
             success: "@%{user} has been rejected as a collaborator successfully"
         show:
+          close: close the draft
           edit: Edit collaborative draft
           hidden_authors_count:
             one: and 1 more person
@@ -367,7 +368,6 @@ en:
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           of_versions: "(of %{number})"
           publish: Publish
-          close: close the draft
           publish_info: Publish this version of the draft or
           request_access: Request access
           requested_access: Access requested

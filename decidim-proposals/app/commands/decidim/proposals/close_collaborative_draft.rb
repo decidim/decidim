@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if @collaborative_draft.closed?
+        return broadcast(:invalid) if @collaborative_draft.published?
         return broadcast(:invalid) unless @collaborative_draft.authors.exists? @current_user.id
 
         transaction do
@@ -41,9 +42,7 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          {
-            state: "closed"
-          }
+          state: "closed"
         )
       end
 

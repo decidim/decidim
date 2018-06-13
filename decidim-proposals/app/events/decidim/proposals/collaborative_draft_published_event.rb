@@ -3,13 +3,12 @@
 module Decidim
   module Proposals
     class CollaborativeDraftPublishedEvent < Decidim::Events::SimpleEvent
+      include Decidim::Events::AuthorEvent
       i18n_attributes :author_nickname, :author_name, :author_path
 
       delegate :nickname, :name, to: :author, prefix: true
 
-      def nickname
-        author_nickname
-      end
+      delegate :nickname, to: :author, prefix: true
 
       def author_path
         author.profile_path

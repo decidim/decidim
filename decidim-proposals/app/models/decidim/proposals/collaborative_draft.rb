@@ -40,7 +40,6 @@ module Decidim
       def published?
         state == "published"
       end
-
     end
   end
 end
