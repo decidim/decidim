@@ -28,7 +28,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def authored_by?(user)
-        coauthorships.where(author: user).or(coauthorships.where(user_group: user.user_groups)).exists?
+        coauthorships.where(author: user).exists?
       end
 
       # Returns the identities for the authors, whether they are user groups or users.
@@ -38,12 +38,12 @@ module Decidim
         coauthorships.order(:created_at).collect(&:identity)
       end
 
-      # Syntactic sugar to access first coauthor
+      # Syntactic sugar to access first coauthor Author
       def creator_author
         authors.first
       end
 
-      # Syntactic sugar to access first coauthor
+      # Syntactic sugar to access first coauthor UserGroup
       def creator_user_group
         user_groups.first
       end
