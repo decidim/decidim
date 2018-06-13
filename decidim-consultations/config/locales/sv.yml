@@ -53,6 +53,9 @@ sv:
   decidim:
     admin:
       actions:
+        new_consultation: Nytt samråd
+        new_question: Ny fråga
+        new_response: Nytt svar
         publish_results: Publicera resultat
         unpublish_results: Uppdatera resultaten
       consultation_publications:

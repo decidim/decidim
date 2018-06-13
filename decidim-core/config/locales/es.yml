@@ -11,7 +11,7 @@ es:
         name: Tu nombre
         nickname: Su identificador, corto y único
         password: Contraseña
-        password_confirmation: Confirmar la contraseña
+        password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         user_group_document_number: Número de documento acreditativo
@@ -53,10 +53,10 @@ es:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Archivo no existe
+        file_no_exists: El archivo no existe
         invalid_token: El token proporcionado no es válido.
         no_token: No se proporciona token
-        notice: Sus datos están actualmente en progreso. Recibirás un correo electrónico cuando esté completo.
+        notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
@@ -280,7 +280,7 @@ es:
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Haga clic en el siguiente botón para descargar sus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
         download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -322,12 +322,12 @@ es:
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
-        error_empty_form: Por favor ingrese algunas direcciones de correo electrónico
+        error_empty_form: Por favor introduce algunas direcciones de correo electrónico.
         success: '¡Hemos enviado las invitaciones a tus amigos!'
       index:
         customize_message: Personaliza el mensaje de invitación
-        friend_email: 'Correo electrónico amigo #%{index}'
-        invitations_subtitle: Hazles saber a tus amigos sobre este sitio
+        friend_email: 'Correo del amigo #%{index}'
+        invitations_subtitle: Haz saber a tus amigos sobre este sitio.
         invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
         invite: Invitación
         visit_your_profile: Visita tu perfil
@@ -586,7 +586,7 @@ es:
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
           Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_friend: "%{invited_by} ha invitado a %{application}."
+        invited_you_as_friend: "%{invited_by} te ha invitado a %{application}."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
@@ -596,7 +596,7 @@ es:
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
       invite_friend:
-        accept_invitation: 'Puede aceptar la invitación a través del siguiente enlace:'
+        accept_invitation: 'Puedes aceptar la invitación a través del siguiente enlace:'
         friend_custom_text: 'Dejaron este mensaje para ti:'
         subject: Has sido invitado a %{organization}
       invite_private_user:
@@ -666,15 +666,15 @@ es:
   locale:
     name: Castellano
   password_validator:
-    domain_included_in_password: es muy similar a este nombre de dominio
-    email_included_in_password: es muy similar a tu correo electrónico
-    fallback: no es válido
-    name_included_in_password: es muy similar a tu nombre
-    not_enough_unique_characters: no tiene suficientes caracteres únicos
+    domain_included_in_password: Es muy similar a este nombre de dominio
+    email_included_in_password: Es muy similar a tu correo electrónico
+    fallback: No es válido
+    name_included_in_password: Es muy similar a tu nombre
+    not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
-    password_too_common: es muy común
-    password_too_long: es demasiado largo
-    password_too_short: es demasiado corto
+    password_too_common: Es demasiado común
+    password_too_long: Es demasiado largo
+    password_too_short: Es demasiado corto
   social_share_button:
     delicious: Delicious
     douban: Douban

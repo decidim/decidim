@@ -120,14 +120,14 @@ pl:
     meetings:
       actions:
         agenda: Program
-        attachment_collections: Kolekcje
+        attachment_collections: Lornetka składana
         attachments: Załączniki
         close: Zamknij
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
         minutes: Minuty
-        new: Nowe
+        new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
         title: Działania

@@ -45,6 +45,8 @@ fi:
         other: allekirjoitukset
   decidim:
     admin:
+      actions:
+        new_initiative_type: Uusi aloite tyyppi
       menu:
         initiatives: aloitteita
         initiatives_types: Aloitustyypit

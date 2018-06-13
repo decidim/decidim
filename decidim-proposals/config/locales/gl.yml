@@ -82,8 +82,8 @@ gl:
             endorsements_blocked: Aprobacións bloqueadas
             endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
-            votes_blocked: Votos bloqueados
-            votes_enabled: Votos habilitados
+            votes_blocked: Voto bloqueado
+            votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
     events:
       proposals:
@@ -153,7 +153,7 @@ gl:
       actions:
         answer: Resposta
         import: Importar dende outro compoñente
-        new: Novo
+        new: Nova proposta
         private_notes: Notas privadas
         title: Accións
       admin:

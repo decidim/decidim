@@ -45,6 +45,8 @@ es:
         other: Firmas
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nuevo tipo de iniciativa
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -72,9 +74,9 @@ es:
       initiatives:
         initiative_extended:
           email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
-          email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: '¡Fecha de finalización de firmas de iniciativa extendida!'
-          notification_title: La fecha de finalización de las firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
+          email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
+          notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
           email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -176,7 +178,7 @@ es:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Está a punto de solicitar convertirse en miembro del comité promotor de esta iniciativa
+          help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
         spawn:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
       create_initiative:
@@ -195,9 +197,9 @@ es:
           more_information: "(Más información)"
         finish_help:
           access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
-          help_for_organizations: Si es una asociación, tendrá que cargar las minutas del consejo de administración de todas las organizaciones que forman la Comisión Promotora.
+          help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
-          help_text: Recuerde que para procesar adecuadamente la iniciativa debe acceder al panel de administración donde encontrará el menú de usuario, cargar la información requerida y enviarla para su procesamiento.
+          help_text: Recuerda que para procesar correctamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información solicitada y enviarla para su tramitación.
           initiatives_page_link: Puedes buscar toda esta información en el %{link} dedicado a informar sobre iniciativas.
           page: página
         previous_form:
@@ -216,7 +218,7 @@ es:
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
-          invite_to_committee_help: Enlace para invitar a personas que serán parte del comité promotor
+          invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
         show_similar_initiatives:
           back: Volver
           compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
@@ -279,7 +281,7 @@ es:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
           offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
         signature_identities:
-          select_identity: Seleccionar identificador de usuario
+          select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -307,7 +309,7 @@ es:
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
         progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
         progress_report_for: 'Currículum sobre la iniciativa: %{title}'
-        promotal_committee_help: Recuerde que debe invitar al menos a %{member_count} personas al comité de promotores. Reenviar el siguiente enlace para invitar a personas al comité promotor
+        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
@@ -334,7 +336,7 @@ es:
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
-        promotal_committee: Comité promotor
+        promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
       initiative_header:

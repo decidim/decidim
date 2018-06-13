@@ -16,12 +16,12 @@ fi:
   decidim:
     budgets:
       actions:
-        attachment_collections: kokoelmat
+        attachment_collections: kansiot
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi
+        new: Uusi projekti
         preview: Esikatsele
         title: Toiminnot
       admin:
@@ -43,7 +43,7 @@ fi:
             title: Projektit
           new:
             create: Luo
-            title: Uusi tulos
+            title: Uusi projekti
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
             success: Projekti päivitetty onnistuneesti
@@ -127,7 +127,7 @@ fi:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
-            votes_enabled: Äänet käytössä
+            votes_enabled: Äänestys on käytössä
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe
