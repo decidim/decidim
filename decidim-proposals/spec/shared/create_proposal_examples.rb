@@ -83,9 +83,10 @@ shared_examples "create a proposal" do |with_author|
           it "sets the author" do
             command.call
             proposal = Decidim::Proposals::Proposal.last
+            creator = proposal.creator
 
-            expect(proposal.creator_author).to eq(author)
-            expect(proposal.creator_user_group).to eq(nil)
+            expect(creator.author).to eq(author)
+            expect(creator.user_group).to eq(nil)
           end
 
           context "with a proposal limit" do
@@ -105,9 +106,10 @@ shared_examples "create a proposal" do |with_author|
           it "sets the user group" do
             command.call
             proposal = Decidim::Proposals::Proposal.last
+            creator = proposal.creator
 
-            expect(proposal.creator_author).to eq(author)
-            expect(proposal.creator_user_group).to eq(user_group)
+            expect(creator.author).to eq(author)
+            expect(creator.user_group).to eq(user_group)
           end
 
           context "with a proposal limit" do

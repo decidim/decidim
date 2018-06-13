@@ -38,17 +38,18 @@ module Decidim
         coauthorships.order(:created_at).collect(&:identity)
       end
 
+      # Syntactic sugar to access first coauthor as a Coauthorship.
+      def creator
+        coauthorships.first
+      end
+
       # Syntactic sugar to access first coauthor Author
       def creator_author
         authors.first
       end
 
-      # Syntactic sugar to access first coauthor UserGroup
-      def creator_user_group
-        user_groups.first
-      end
-
       # Syntactic sugar to access first identity whether it is a User or a UserGroup.
+      # @return The User od UserGroup that created this Coauthorable.
       def creator_identity
         coauthorships.order(:created_at).first&.identity
       end

@@ -5,7 +5,7 @@ require "rspec/core/rake_task"
 require "decidim/dev"
 
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = "--format doc --format RspecJunitFormatter -o ~/rspec/rspec.xml" if ENV["CI"]
+  t.rspec_opts = "--format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml" if ENV["CI"]
 end
 task default: [:spec]
 
