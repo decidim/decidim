@@ -1,5 +1,13 @@
 # Change Log
 
+## [Unreleased](https://github.com/decidim/decidim/tree/0.12-stable)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
 ## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
 
 **Upgrade notes (authorizations)**:
@@ -159,9 +167,6 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-comments**: Fix comment creation events raising errors when being delivered [\#3580](https://github.com/decidim/decidim/pull/3580)
 - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#3605](https://github.com/decidim/decidim/pull/3605)
 - **decidim-meetings**: Do not let users join a meeting from the Search page, as the button fails [\#3612](https://github.com/decidim/decidim/pull/3612)
-
-**Fixed**:
-
 - **decidim-assemblies**: Fix private assemblies showing more than once for private users. [\#3638](https://github.com/decidim/decidim/pull/3638)
 - **decidim-proposals**: Do not index non published Proposals. [\#3618](https://github.com/decidim/decidim/pull/3618)
 - **decidim-proposals**: Fix link to endorsements behaviour, now it does not link when there are no endorsements. [\#3531](https://github.com/decidim/decidim/pull/3531)
