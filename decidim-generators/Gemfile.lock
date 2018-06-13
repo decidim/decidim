@@ -85,7 +85,7 @@ PATH
       pg (>= 0.18, < 2)
       pg_search (~> 2.1, >= 2.1.0)
       premailer-rails (~> 1.9)
-      rack-attack (~> 5.2.0)
+      rack-attack (~> 5.2)
       rails (>= 5.2, < 6.0.x)
       rails-i18n (~> 5.0)
       rectify (~> 0.11.0)
