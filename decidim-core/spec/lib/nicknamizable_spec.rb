@@ -18,6 +18,21 @@ module Decidim
     end
 
     describe "#nicknamize" do
+      context "when a scope is provided" do
+        it "resolves conflicts with nicknames outside the scope" do
+          another_user = create(:user, nickname: "ana_pastor")
+          another_org_id = another_user.decidim_organization_id
+
+          expect(subject.nicknamize("ana_pastor", decidim_organization_id: another_org_id + 1)).to eq("ana_pastor")
+        end
+      end
+
+      it "resolves conflicts with current nicknames" do
+        create(:user, nickname: "ana_pastor")
+
+        expect(subject.nicknamize("ana_pastor")).to eq("ana_pastor_2")
+      end
+
       it "copies non-duplicated usernames following slugization rules" do
         expect(subject.nicknamize("peter")).to eq("peter")
       end
