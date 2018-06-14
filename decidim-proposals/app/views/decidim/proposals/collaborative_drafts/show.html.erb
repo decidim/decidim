@@ -51,7 +51,7 @@
           <%= button_to t(".request_access"), request_access_collaborative_draft_path(@collaborative_draft), class: "button expanded button--sc mt-s" %>
         <% end %>
 
-        <% if @collaborative_draft.access_requestors.include? current_user %>
+        <% if @collaborative_draft.requesters.include? current_user %>
           <button type="button" class="button secondary light expanded button--sc mt-s">
             <%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %>
           </button>
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <%= render partial: "collaboration_requests" %>
+    <%= render partial: "collaborator_requests" %>
 
     <%= resource_reference(@collaborative_draft) %>
 

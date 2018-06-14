@@ -25,7 +25,7 @@ module Decidim
         return broadcast(:invalid) unless @collaborative_draft.authors.exists? @current_user.id
 
         transaction do
-          @collaborative_draft.access_requestors.each do |requester_user|
+          @collaborative_draft.requester.each do |requester_user|
             RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user)
           end
 

@@ -123,7 +123,7 @@ module Decidim
 
       def request_accept
         AcceptAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user) do
-          on(:ok) do |_collaborative_draft|
+          on(:ok) do
             flash[:notice] = t("accepted_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
           end
 
@@ -136,7 +136,7 @@ module Decidim
 
       def request_reject
         RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user) do
-          on(:ok) do |_collaborative_draft|
+          on(:ok) do
             flash[:notice] = t("rejected_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
           end
 
@@ -149,7 +149,7 @@ module Decidim
 
       def close
         CloseCollaborativeDraft.call(@collaborative_draft, current_user) do
-          on(:ok) do |_collaborative_draft|
+          on(:ok) do
             flash[:notice] = t("close.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
           end
 
@@ -198,7 +198,7 @@ module Decidim
       end
 
       def requester_user
-        Decidim::User.find params[:user_id]
+        Decidim::User.find params[:requester_id]
       end
     end
   end

@@ -28,7 +28,7 @@ module Decidim
           it "removes the requester from requestors of the collaborative draft" do
             expect do
               command.call
-            end.to change(collaborative_draft.access_requestors, :count).by(-1)
+            end.to change(collaborative_draft.requesters, :count).by(-1)
           end
 
           it "notifies the requester and authors of the collaborative draft that access to requester has been rejected" do
@@ -67,7 +67,7 @@ module Decidim
           it "doesn't reject the request for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
 
@@ -81,7 +81,7 @@ module Decidim
           it "doesn't reject the request for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
 
@@ -95,7 +95,7 @@ module Decidim
           it "doesn't reject the request for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
 
@@ -109,13 +109,13 @@ module Decidim
           it "doesn't reject the request for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
 
         context "when the requester is not as a requestor" do
           before do
-            collaborative_draft.access_requestors.delete requester
+            collaborative_draft.requesters.delete requester
           end
 
           let(:requester) { create(:user, :confirmed, organization: component.organization) }
@@ -127,7 +127,7 @@ module Decidim
           it "doesn't reject the request for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
       end

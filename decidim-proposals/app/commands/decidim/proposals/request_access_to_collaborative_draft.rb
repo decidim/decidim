@@ -23,7 +23,8 @@ module Decidim
       def call
         return broadcast(:invalid) if @current_user.nil?
         return broadcast(:invalid) if @collaborative_draft.state != "open"
-        @collaborative_draft.access_requestors << @current_user
+
+        @collaborative_draft.collaborator_requests.create!(user: @current_user)
         notify_collaborative_draft_authors
         broadcast(:ok, @collaborative_draft)
       end

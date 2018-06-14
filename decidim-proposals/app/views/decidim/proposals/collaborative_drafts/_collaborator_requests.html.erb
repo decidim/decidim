@@ -1,0 +1,22 @@
+<% if @collaborative_draft.requesters.presence && allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+  <div class="card extra">
+    <div class="definition-data__item">
+      <span class="definition-data__title">
+        <%= t("title", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests") %>
+      </span>
+    </div>
+    <% @collaborative_draft.requesters.each do |requester| %>
+      <div class="definition-data__item expanded" id="request_<%= requester.id %>">
+        <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
+
+        <div>
+          <%= button_to accept_request_btn_lbl, request_accept_collaborative_draft_path(@collaborative_draft, requester_id: requester.id), class: "button hollow secondary small" %>
+
+          <%= button_to request_reject_collaborative_draft_path(@collaborative_draft, requester_id: requester.id), title: reject_request_btn_lbl do %>
+            <%= icon "x", class: "icon--small muted ml-xs" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

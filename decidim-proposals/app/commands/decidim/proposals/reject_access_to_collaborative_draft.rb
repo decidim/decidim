@@ -25,9 +25,11 @@ module Decidim
       def call
         return broadcast(:invalid) if @current_user.nil?
         return broadcast(:invalid) if @requester_user.nil?
-        return broadcast(:invalid) unless @collaborative_draft.access_requestors.exists? @requester_user.id
-        return broadcast(:invalid) if @collaborative_draft.state != "open"
-        @collaborative_draft.access_requestors.delete @requester_user
+        return broadcast(:invalid) unless @collaborative_draft.requesters.exists? @requester_user.id
+        return broadcast(:invalid) unless @collaborative_draft.open?
+
+        @collaborative_draft.requesters.delete @requester_user
+
         notify_collaborative_draft_requester
         notify_collaborative_draft_authors
         broadcast(:ok, @collaborative_draft)

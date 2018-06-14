@@ -23,7 +23,7 @@ module Decidim
           it "creates a new request for the collaborative draft" do
             expect do
               command.call
-            end.to change(collaborative_draft.access_requestors, :count).by(1)
+            end.to change(collaborative_draft.requesters, :count).by(1)
           end
 
           it "notifies all authors of the collaborative_draft that access has been requested" do
@@ -53,7 +53,7 @@ module Decidim
           it "doesn't create a new requestor for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
 
@@ -67,7 +67,7 @@ module Decidim
           it "doesn't create a new requestor for the collaborative draft" do
             expect do
               command.call
-            end.not_to change(collaborative_draft.access_requestors, :count)
+            end.not_to change(collaborative_draft.requesters, :count)
           end
         end
       end

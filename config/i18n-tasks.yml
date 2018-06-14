@@ -149,6 +149,8 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*
+  - decidim.proposals.collaborative_drafts.show.close
+  - decidim.proposals.collaborative_drafts.show.publish
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
