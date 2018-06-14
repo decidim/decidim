@@ -27,12 +27,6 @@ module Decidim
         end
       end
 
-      it "resolves conflicts with current nicknames" do
-        create(:user, nickname: "ana_pastor")
-
-        expect(subject.nicknamize("ana_pastor")).to eq("ana_pastor_2")
-      end
-
       it "copies non-duplicated usernames following slugization rules" do
         expect(subject.nicknamize("peter")).to eq("peter")
       end
