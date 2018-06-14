@@ -50,7 +50,7 @@ module Decidim
       def button_continue
         label = t("ok", scope: "decidim.proposals.collaborative_drafts.collaborative_draft.#{action}.irreversible_action_modal")
         path = resource_path + "/#{action}"
-        css = "button button--nomargin small"
+        css = "button expanded"
         button_to label, path, class: css
       end
 
