@@ -20,12 +20,14 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-comments", Decidim::Budgets.version
-  s.add_dependency "decidim-core", Decidim::Budgets.version
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
+  s.add_dependency "decidim-comments", compatible_constraint
+  s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "searchlight", "~> 4.1"
 
-  s.add_development_dependency "decidim-admin", Decidim::Budgets.version
-  s.add_development_dependency "decidim-dev", Decidim::Budgets.version
-  s.add_development_dependency "decidim-proposals", Decidim::Budgets.version
+  s.add_development_dependency "decidim-admin", compatible_constraint
+  s.add_development_dependency "decidim-dev", compatible_constraint
+  s.add_development_dependency "decidim-proposals", compatible_constraint
 end

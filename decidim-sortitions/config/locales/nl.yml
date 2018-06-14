@@ -42,7 +42,7 @@ nl:
         actions:
           destroy: Annuleer de loting
           edit: Bewerk
-          new: Voeg nieuw toe
+          new: Nieuwe sortering
           show: Details van de loting
         models:
           sortition:

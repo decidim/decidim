@@ -16,7 +16,9 @@ Gem::Specification.new do |s|
   s.summary = "A decidim <%= component_name %> module"
   s.description = "<%= component_description %>."
 
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::<%= component_module_name %>.version
+  s.add_dependency "decidim-core", compatible_constraint
 end

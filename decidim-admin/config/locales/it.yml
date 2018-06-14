@@ -143,6 +143,7 @@ it:
         browse: Naviga
         export: Esporta
         manage: Gestisci
+        new: Nuovo %{name}
         permissions: Permessi
         reject: Rifiutare
         verify: Verifica
@@ -179,22 +180,22 @@ it:
           success: Area aggiornata con successo
       attachment_collections:
         create:
-          error: Si è verificato un errore durante la creazione di una nuova raccolta.
-          success: Raccolta creata con successo
+          error: Si è verificato un errore durante la creazione di una nuova cartella.
+          success: Cartella creata con successo.
         destroy:
-          success: Collezione distrutta con successo.
+          success: Cartella distrutta con successo.
         edit:
-          title: Modifica raccolta
+          title: Modifica cartella
           update: Aggiornare
         index:
-          attachment_collection_used: Questa raccolta non può essere rimossa perché è in uso.
-          attachment_collections_title: Collezioni di allegati
+          attachment_collection_used: Questa cartella non può essere rimossa perché è in uso.
+          attachment_collections_title: Cartelle dell'allegato
         new:
           create: Creare
-          title: Nuova collezione
+          title: Nuova cartella
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questa raccolta.
-          success: Raccolta aggiornata con successo.
+          error: Si è verificato un errore durante l'aggiornamento di questa cartella.
+          success: Cartella aggiornata correttamente.
       attachments:
         create:
           error: Si è verificato un errore creando il nuovo allegato.
@@ -353,13 +354,13 @@ it:
             plural: Plurale
         attachment:
           fields:
-            collection: Collezione
+            collection: Cartella
             content_type: Tipo
             file_size: Dimensione
             title: Titolo
           name: Allegato
         attachment_collection:
-          name: Collezione
+          name: Cartella
         category:
           name: Categorie
         impersonation_log:

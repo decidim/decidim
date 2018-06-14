@@ -11,21 +11,21 @@ fr:
         one: Commentaire
         other: Commentaires
       decidim/comments/comment_vote:
-        one: Vote
-        other: Votes
+        one: Soutien
+        other: Soutiens
   decidim:
     comments:
       comments: Commentaires
       votes:
         create:
-          error: Une erreur s'est produite lors du soutien du commentaire.
+          error: Une erreur s'est produite lors du soutien de ce commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
         form:
           body:
             label: Commentaire
-            placeholder: Que pensez-vous de cela?
+            placeholder: Que pensez-vous de cela ?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Publier
           user_group_id:
@@ -33,7 +33,7 @@ fr:
         opinion:
           neutral: Neutre
         remaining_characters: "%{count} caractères restants"
-        remaining_characters_1: "%{count} caractères restants"
+        remaining_characters_1: "%{count} caractère restant"
         title: Ajoutez votre commentaire
       comment:
         alignment:
@@ -74,7 +74,7 @@ fr:
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page:"
-          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner depuis le lien précédant.
+          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
           email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
         reply_created:

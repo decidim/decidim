@@ -27,24 +27,26 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "decidim-accountability", Decidim.version
-  s.add_dependency "decidim-admin", Decidim.version
-  s.add_dependency "decidim-api", Decidim.version
-  s.add_dependency "decidim-assemblies", Decidim.version
-  s.add_dependency "decidim-blogs", Decidim.version
-  s.add_dependency "decidim-budgets", Decidim.version
-  s.add_dependency "decidim-comments", Decidim.version
-  s.add_dependency "decidim-core", Decidim.version
-  s.add_dependency "decidim-debates", Decidim.version
-  s.add_dependency "decidim-generators", Decidim.version
-  s.add_dependency "decidim-meetings", Decidim.version
-  s.add_dependency "decidim-pages", Decidim.version
-  s.add_dependency "decidim-participatory_processes", Decidim.version
-  s.add_dependency "decidim-proposals", Decidim.version
-  s.add_dependency "decidim-sortitions", Decidim.version
-  s.add_dependency "decidim-surveys", Decidim.version
-  s.add_dependency "decidim-system", Decidim.version
-  s.add_dependency "decidim-verifications", Decidim.version
+  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
+
+  s.add_dependency "decidim-accountability", compatible_constraint
+  s.add_dependency "decidim-admin", compatible_constraint
+  s.add_dependency "decidim-api", compatible_constraint
+  s.add_dependency "decidim-assemblies", compatible_constraint
+  s.add_dependency "decidim-blogs", compatible_constraint
+  s.add_dependency "decidim-budgets", compatible_constraint
+  s.add_dependency "decidim-comments", compatible_constraint
+  s.add_dependency "decidim-core", compatible_constraint
+  s.add_dependency "decidim-debates", compatible_constraint
+  s.add_dependency "decidim-generators", compatible_constraint
+  s.add_dependency "decidim-meetings", compatible_constraint
+  s.add_dependency "decidim-pages", compatible_constraint
+  s.add_dependency "decidim-participatory_processes", compatible_constraint
+  s.add_dependency "decidim-proposals", compatible_constraint
+  s.add_dependency "decidim-sortitions", compatible_constraint
+  s.add_dependency "decidim-surveys", compatible_constraint
+  s.add_dependency "decidim-system", compatible_constraint
+  s.add_dependency "decidim-verifications", compatible_constraint
 
   s.add_development_dependency "bundler", "~> 1.12"
   s.add_development_dependency "rake", "~> 12.0"

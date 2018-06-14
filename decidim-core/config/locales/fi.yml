@@ -53,7 +53,7 @@ fi:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Tiedostoa ei ole olemassa
+        file_no_exists: Tiedostoa ei ole
         invalid_token: Varattu token on virheellinen.
         no_token: Ei merkintää
         notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
@@ -665,6 +665,16 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+  password_validator:
+    domain_included_in_password: on liian samankaltainen kuin tämä verkkotunnus
+    email_included_in_password: on liian samankaltainen kuin sähköpostisi
+    fallback: ei ole voimassa
+    name_included_in_password: on liian samankaltainen kuin nimesi
+    not_enough_unique_characters: ei ole tarpeeksi ainutlaatuisia merkkejä
+    password_not_allowed: ei ole sallittu
+    password_too_common: on liian yleistä
+    password_too_long: on liian pitkä
+    password_too_short: on liian lyhyt
   social_share_button:
     delicious: Delicious
     douban: Douban

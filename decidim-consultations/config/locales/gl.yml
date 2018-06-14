@@ -53,6 +53,9 @@ gl:
   decidim:
     admin:
       actions:
+        new_consultation: Nova consulta
+        new_question: Nova pregunta
+        new_response: Nova resposta
         publish_results: Publicar resultados
         unpublish_results: Non publicar resultados
       consultation_publications:

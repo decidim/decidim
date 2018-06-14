@@ -8,6 +8,11 @@ module Decidim
 
         return permission_action if assembly && !assembly.is_a?(Decidim::Assembly)
 
+        if read_admin_dashboard_action?
+          user_can_read_admin_dashboard?
+          return permission_action
+        end
+
         if permission_action.scope == :public
           public_list_assemblies_action?
           public_read_assembly_action?
@@ -22,11 +27,6 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
-
-        if read_admin_dashboard_action?
-          user_can_read_admin_dashboard?
-          return permission_action
-        end
 
         user_can_read_assembly_list?
         user_can_read_current_assembly?

@@ -21,34 +21,65 @@ module Decidim
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
-        it "inserts a SearchableResource after Proposal creation" do
-          organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
-            expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
+        context "when on create" do
+          it "does not index a SearchableResource after Proposal creation" do
+            searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+            expect(searchables).to be_empty
           end
         end
 
-        it "updates the associated SearchableResource after Proposal update" do
-          searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
-          created_at = searchable.created_at
-          updated_title = "Brand new title"
-          proposal.update(title: updated_title)
+        context "when on update" do
+          context "when it is NOT published" do
+            it "does not index a SearchableResource when Proposal changes but is not published" do
+              searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+              expect(searchables).to be_empty
+            end
+          end
 
-          proposal.save!
+          context "when it IS published" do
+            before do
+              proposal.update published_at: DateTime.current
+            end
 
-          organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
-            expect(searchable.content_a).to eq updated_title
-            expect(searchable.updated_at).to be > created_at
+            it "inserts a SearchableResource after Proposal is published" do
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
+              end
+            end
+
+            it "updates the associated SearchableResource after published Proposal update" do
+              searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
+              created_at = searchable.created_at
+              updated_title = "Brand new title"
+              proposal.update(title: updated_title)
+
+              proposal.save!
+
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                expect(searchable.content_a).to eq updated_title
+                expect(searchable.updated_at).to be > created_at
+              end
+            end
+
+            it "removes tha associated SearchableResource after unpublishing a published Proposal on update" do
+              proposal.update(published_at: nil)
+
+              searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+              expect(searchables).to be_empty
+            end
           end
         end
 
-        it "destroys the associated SearchableResource after Proposal destroy" do
-          proposal.destroy
+        context "when on destroy" do
+          it "destroys the associated SearchableResource after Proposal destroy" do
+            proposal.destroy
 
-          searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+            searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
 
-          expect(searchables.any?).to be false
+            expect(searchables.any?).to be false
+          end
         end
       end
     end
@@ -63,6 +94,11 @@ module Decidim
             title: Decidim::Faker.name,
             body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
           )
+        end
+
+        before do
+          proposal.update(published_at: DateTime.current)
+          proposal2.update(published_at: DateTime.current)
         end
 
         it "returns Proposal results" do

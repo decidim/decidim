@@ -13,7 +13,7 @@ eu:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
         destroy: ezabatu
         edit: Editatu
-        new: New
+        new: Post berria
         title: Ekintzak
       admin:
         models:

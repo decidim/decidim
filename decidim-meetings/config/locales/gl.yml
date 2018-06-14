@@ -114,14 +114,14 @@ gl:
     meetings:
       actions:
         agenda: Axenda
-        attachment_collections: Coleccións
+        attachment_collections: Carpetas
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
         minutes: Minutos
-        new: Novo
+        new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións

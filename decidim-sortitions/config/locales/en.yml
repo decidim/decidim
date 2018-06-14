@@ -43,7 +43,7 @@ en:
         actions:
           destroy: Cancel the sortition
           edit: Edit
-          new: Add new
+          new: New sortition
           show: Sortition details
         models:
           sortition:

@@ -73,7 +73,10 @@ ru:
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
-        new: Добавить
+        new_process: Добавить новое движение
+        new_process_group: Создать группу движений
+        new_process_step: Новый шаг
+        new_process_user_role: Добавить участника движения
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение

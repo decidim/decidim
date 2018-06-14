@@ -143,6 +143,7 @@ es:
         browse: Explorar
         export: Exportar
         manage: Gestionar
+        new: Nuevo %{name}
         permissions: Permisos
         reject: Rechazar
         verify: Verificar
@@ -179,22 +180,22 @@ es:
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Hubo un error al crear una nueva colección.
-          success: Colección creada correctamente.
+          error: Se ha producido un error al crear una nueva carpeta.
+          success: Carpeta creada con éxito.
         destroy:
-          success: Colección destruida correctamente.
+          success: Carpeta borrada con éxito.
         edit:
-          title: Editar colección
+          title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collection_used: Esta colección no se puede eliminar porque está en uso.
-          attachment_collections_title: Colecciones de archivos adjuntos
+          attachment_collection_used: Esta carpeta no se puede eliminar porque está en uso.
+          attachment_collections_title: Carpetas de archivos adjuntos
         new:
           create: Crear
-          title: Nueva colección
+          title: Nueva carpeta
         update:
-          error: Hubo un error al actualizar esta colección.
-          success: Colección actualizada correctamente.
+          error: Se ha producido un error al actualizar esta carpeta.
+          success: Carpeta actualizada con éxito.
       attachments:
         create:
           error: Se ha producido un error al crear un nuevo archivo adjunto.
@@ -353,13 +354,13 @@ es:
             plural: Plural
         attachment:
           fields:
-            collection: Colección
+            collection: Carpeta
             content_type: Tipo
             file_size: Tamaño
             title: Título
           name: Archivo adjunto
         attachment_collection:
-          name: Colección
+          name: Carpeta
         category:
           name: Categoría
         impersonation_log:

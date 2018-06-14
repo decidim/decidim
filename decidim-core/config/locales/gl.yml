@@ -665,6 +665,16 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
+  password_validator:
+    domain_included_in_password: é moi similar a este nome de dominio
+    email_included_in_password: é demasiado semellante ao teu correo electrónico
+    fallback: non é válido
+    name_included_in_password: é moi similar ao teu nome
+    not_enough_unique_characters: non ten suficientes caracteres únicos
+    password_not_allowed: non está permitido
+    password_too_common: é moi común
+    password_too_long: é demasiado longo
+    password_too_short: é demasiado curto
   social_share_button:
     delicious: Delicioso
     douban: Douban

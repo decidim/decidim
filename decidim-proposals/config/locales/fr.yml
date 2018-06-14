@@ -14,39 +14,39 @@ fr:
       proposal_answer:
         answer: Répondre
       proposals_copy:
-        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée à la fonctionnalité actuelle et que cette action ne peut pas être inversée.
+        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Doit être recollé
+              needs_to_be_reattached: Doit être retéléchargé
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/creation_enabled_event: Création de proposition activée
-      decidim/proposals/endorsing_enabled_event: Approbation de proposition activée
+      decidim/proposals/endorsing_enabled_event: Recommandation de proposition activée
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
-      decidim/proposals/proposal_endorsed_event: Proposition approuvée
+      decidim/proposals/proposal_endorsed_event: Proposition recommandée
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
-      decidim/proposals/rejected_proposal_event: Proposition rejetée
-      decidim/proposals/voting_enabled_event: Vote de proposition activé
+      decidim/proposals/rejected_proposal_event: Proposition non retenue
+      decidim/proposals/voting_enabled_event: Soutien de propositions activé
   activerecord:
     models:
       decidim/proposals/proposal:
         one: Proposition
-        other: Les propositions
+        other: Propositions
       decidim/proposals/proposal_endorsement:
-        one: Approbation
-        other: Les avenants
+        one: Recommandation
+        other: Recommandations
       decidim/proposals/proposal_note:
         one: Remarque
         other: Remarques
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Soutien
+        other: Soutiens
   decidim:
     components:
       proposals:
@@ -71,7 +71,7 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Assistant d'offre de proposition "Complete" étape texte d'aide
+            proposal_wizard_step_3_help_text: Texte d'aide de l'assistant de proposition pour l'étape "Compléter"
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
@@ -82,8 +82,8 @@ fr:
             endorsements_blocked: Empêcher les utilisateurs de recommander une proposition
             endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            votes_blocked: Soutiens bloqués
-            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
+            votes_blocked: Soutiens désactivés
+            votes_enabled: Soutiens activés
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
       proposals:
@@ -91,7 +91,7 @@ fr:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant mettre en avant <a href="%{resource_path}">nouvelles propositions</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant soutenir de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -127,10 +127,10 @@ fr:
           email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
-          email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire le commentaire ici :'
+          email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
-          email_subject: Une proposition que vous suivez a été rejetée
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          email_subject: Une proposition que vous suivez n'a pas été retenue
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -147,13 +147,13 @@ fr:
           proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
-        proposals: Les propositions
+        proposals: Propositions
         see_all_proposals: Voir toutes les propositions
     proposals:
       actions:
         answer: Répondre
         import: Importer depuis une autre fonctionnalité
-        new: Nouvelle
+        new: Nouvelle proposition
         private_notes: Notes privées
         title: Actions
       admin:
@@ -179,12 +179,12 @@ fr:
           form:
             note: Remarque
             submit: Soumettre
-          leave_your_note: Laissez votre note
+          leave_your_note: Laisser une remarque
           title: Notes privées
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
-            success: La réponse à la proposition a publiée avec succès
+            success: La réponse à la proposition a été publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
@@ -232,7 +232,7 @@ fr:
         evaluating: En cours d'évaluation
         not_answered: En attente de réponse
         rejected: Non retenue
-        withdrawn: Retiré
+        withdrawn: Retirée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -244,8 +244,8 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créé le
-            endorsements: Les avenants
+            created_at: Créée le
+            endorsements: Recommandations
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -263,7 +263,7 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Recommandé
+          already_endorsed: Recommandée
           endorse: Recommander
       proposal_votes:
         create:
@@ -271,7 +271,7 @@ fr:
       proposals:
         compare:
           mine_is_different: Ma proposition est différente
-          no_similars_found: Bien joué! Aucune proposition similaire n'a été trouvée
+          no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -289,27 +289,27 @@ fr:
           title: Modifier la proposition
         edit_draft:
           discard: Supprimer ce brouillon
-          discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet de proposition?
+          discard_confirmation: Êtes-vous sûr de vouloir supprimer ce brouillon de proposition ?
           send: Aperçu
-          title: Modifier le projet de proposition
+          title: Modifier le brouillon de proposition
         endorsement_identities_cabin:
           endorse: Recommander
         endorsements_card_row:
-          comments: commentaires
+          comments: Commentaires
           endorse: Recommander
         filters:
-          accepted: Retenue
+          accepted: Retenues
           activity: Activité
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          except_rejected: Tous sauf rejeté
+          except_rejected: Toutes sauf les propositions non retenues
           official: Propositions officielles
           origin: Auteurs
-          rejected: Non retenue
-          related_to: Liée à
+          rejected: Non retenues
+          related_to: Liées à
           search: Rechercher
           state: État
           voted: Ne montrer que les propositions que j'ai soutenues
@@ -317,7 +317,7 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Déplier
+          unfold: Dérouler
         index:
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
@@ -330,7 +330,7 @@ fr:
           send: Continuer
           title: Créez votre proposition
         orders:
-          label: 'Classement des propositions par:'
+          label: 'Classement des propositions par :'
           most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
@@ -342,26 +342,26 @@ fr:
           publish: Publier
           title: Publiez votre proposition
         proposal:
-          creation_date: 'Création: %{date}'
+          creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
-          endorsements_list: Liste des promoteurs
+          endorsements_list: Liste des recommandations
           hidden_endorsers_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
-          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
           report: Signaler
-          sign_in: se connecter
+          sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
-          sign_up: s'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          sign_up: S'inscrire
+          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune recommandation, vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
-          changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
+          changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà soutenue
@@ -378,12 +378,12 @@ fr:
           need_more_votes: Besoin de plus de soutiens
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition peut rassembler plus de %{limit} soutiens
+            description: Chaque proposition doit rassembler plus de %{limit} soutiens
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le soutien est soumis aux règles suivantes:'
+          title: 'Le soutien est soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
@@ -395,7 +395,7 @@ fr:
           see_steps: voir les étapes
           step_1: Créez votre proposition
           step_2: Comparer
-          step_3: Achevée
+          step_3: Compléter
           step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:
@@ -406,12 +406,12 @@ fr:
         success: Proposition mise à jour avec succès.
       update_draft:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
-        success: Le projet de proposition a été mis à jour
+        success: Le brouillon de proposition a été mis à jour.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
       included_projects:
-        project_result: 'Résultats apparaissant dans ce projet :'
+        project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
-        proposal_result: 'Proposition figurant dans ces résultats :'
+        proposal_result: 'Proposition figurant dans ces réalisations :'
