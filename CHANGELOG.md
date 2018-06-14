@@ -25,6 +25,9 @@
 - **decidim-core**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
 - **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
 - **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3655](https://github.com/decidim/decidim/pull/3655)
+- **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3666)
+- **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3666)
+- **decidim-core**: Fix comments count failing in AuthorCell [\#3668](https://github.com/decidim/decidim/pull/3668)
 
 **Removed**:
 
