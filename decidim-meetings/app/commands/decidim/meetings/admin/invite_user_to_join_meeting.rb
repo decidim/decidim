@@ -60,12 +60,18 @@ module Decidim
         def invite_user
           if user.persisted?
             create_invitation!
-            InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
+
+            # The user has already been invited to sign up to another
+            # meeting or resource and has not yet accepted the invitation
+            if user.invited_to_sign_up?
+              invite_user_to_sign_up
+            else
+              InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
+            end
           else
             user.name = form.name
             user.nickname = User.nicknamize(user.name)
-            user.skip_reconfirmation!
-            user.invite!(invited_by, invitation_instructions: "join_meeting", meeting: meeting)
+            invite_user_to_sign_up
             create_invitation!
           end
         end
@@ -75,6 +81,11 @@ module Decidim
             organization: form.current_organization,
             email: form.email.downcase
           )
+        end
+
+        def invite_user_to_sign_up
+          user.skip_reconfirmation!
+          user.invite!(invited_by, invitation_instructions: "join_meeting", meeting: meeting)
         end
       end
     end

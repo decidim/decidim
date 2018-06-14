@@ -64,6 +64,37 @@ shared_examples "manage invites" do
             expect(page).to have_css(".button", text: "GOING")
           end
         end
+
+        it "the invited user sign up into the application and declines the invitation" do
+          visit_meeting_invites_page
+
+          perform_enqueued_jobs do
+            fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
+          end
+
+          within "#meeting-invites table" do
+            expect(page).to have_content("Foo")
+            expect(page).to have_content("foo@example.org")
+          end
+
+          logout :user
+
+          visit last_email_first_link
+
+          within "form.new_user" do
+            fill_in :user_nickname, with: "caballo_loco"
+            fill_in :user_password, with: "123456"
+            fill_in :user_password_confirmation, with: "123456"
+            check :user_tos_agreement
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content "declined the invitation successfully"
+
+          within ".card.extra" do
+            expect(page).to have_css(".button", text: "JOIN MEETING")
+          end
+        end
       end
 
       context "when inviting a registered user" do
@@ -81,12 +112,33 @@ shared_examples "manage invites" do
             expect(page).to have_content(registered_user.email)
           end
 
-          relogin_as user
+          relogin_as registered_user
 
           visit last_email_link
 
           within ".card.extra" do
             expect(page).to have_css(".button", text: "GOING")
+          end
+        end
+
+        it "the invited user declines the invitation" do
+          visit_meeting_invites_page
+
+          perform_enqueued_jobs do
+            fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
+          end
+
+          within "#meeting-invites table" do
+            expect(page).to have_content(registered_user.name)
+            expect(page).to have_content(registered_user.email)
+          end
+
+          relogin_as registered_user
+
+          visit last_email_first_link
+
+          within ".card.extra" do
+            expect(page).to have_css(".button", text: "JOIN MEETING")
           end
         end
       end

@@ -21,6 +21,7 @@ module Decidim
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create
+              get :decline_invitation
             end
           end
           resource :meeting_widget, only: :show, path: "embed"

@@ -161,7 +161,8 @@ en:
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can accept it through the link below."
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
             join: Join meeting '%{meeting_title}'
         invites:
           create:
@@ -339,6 +340,9 @@ en:
         create:
           invalid: There's been a problem joining this meeting.
           success: You have joined the meeting successfully.
+        decline_invitation:
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.

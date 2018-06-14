@@ -106,6 +106,8 @@ FactoryBot.define do
     meeting
     user
     sent_at { Time.current - 1.day }
+    accepted_at nil
+    rejected_at nil
 
     trait :accepted do
       accepted_at { Time.current }

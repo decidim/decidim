@@ -24,6 +24,15 @@ module Decidim
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end
+
+      def accept!
+        update!(accepted_at: Time.current, rejected_at: nil)
+      end
+
+      def reject!
+        update!(rejected_at: Time.current, accepted_at: nil)
+      end
+      alias decline! reject!
     end
   end
 end

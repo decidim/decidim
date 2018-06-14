@@ -582,6 +582,7 @@ en:
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
