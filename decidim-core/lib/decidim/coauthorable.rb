@@ -12,9 +12,9 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :coauthorships, as: :coauthorable, class_name: "Decidim::Coauthorship", dependent: :destroy
-      has_many :authors, through: :coauthorships, class_name: "Decidim::User"
-      has_many :user_groups, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
+      has_many :coauthorships, -> { order(:created_at) }, as: :coauthorable, class_name: "Decidim::Coauthorship", dependent: :destroy
+      has_many :authors, -> { order(:created_at) }, through: :coauthorships, class_name: "Decidim::User"
+      has_many :user_groups, -> { order(:created_at) }, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
 
       # retrieves models from all identities of the user.
       scope :from_all_user_identities, ->(user) { joins(:coauthorships).where("decidim_coauthorships.decidim_author_id": user.id) }

@@ -53,7 +53,7 @@ shared_examples_for "coauthorable" do
       context "when there are many user_groups" do
         before do
           coauthorable.coauthorships.clear
-          other_user_groups.reverse.each do |ug|
+          other_user_groups.each do |ug|
             Decidim::Coauthorship.create(author: ug.memberships.first.user, user_group: ug, coauthorable: coauthorable)
           end
         end
