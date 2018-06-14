@@ -24,7 +24,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if form.invalid? || already_invited?
 
           invite_user
 
@@ -34,6 +34,14 @@ module Decidim
         private
 
         attr_reader :form, :invited_by, :meeting
+
+        def already_invited?
+          return false unless user.persisted?
+          return false unless meeting.invites.where(user: user).exists?
+
+          form.errors.add(:email, :already_invited)
+          true
+        end
 
         def create_invitation!
           log_info = {

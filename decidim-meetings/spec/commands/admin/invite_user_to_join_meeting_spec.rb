@@ -112,5 +112,15 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when the user has already been invited" do
+      before do
+        meeting.invites << build(:invite, meeting: meeting, user: build(:user, email: email, organization: organization))
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
   end
 end

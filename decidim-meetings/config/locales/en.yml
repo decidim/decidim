@@ -39,6 +39,10 @@ en:
             base:
               too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
               too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
