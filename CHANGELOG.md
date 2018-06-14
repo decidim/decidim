@@ -5,6 +5,7 @@
 **Added**:
 
 - **decidim-core**: GDPR: Add Right of data portability. [\#3489](https://github.com/decidim/decidim/pull/3489)
+- **decidim-meetings**: Allow users to accept or reject invitations to meetings, and allow admins to see their status. [\#3632](https://github.com/decidim/decidim/pull/3632)
 - **decidim-initiatives**: Notify the followers when an initiative's signatures end date has been extended [\#3621](https://github.com/decidim/decidim/pull/3621)
 
 **Changed**:
