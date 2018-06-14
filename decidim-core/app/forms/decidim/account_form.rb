@@ -22,7 +22,7 @@ module Decidim
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :password, confirmation: true
-    validates :password, length: { in: Decidim::User.password_length, allow_blank: true }
+    validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 

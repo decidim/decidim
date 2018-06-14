@@ -675,6 +675,16 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: język angielski
+  password_validator:
+    domain_included_in_password: jest zbyt podobny do tej nazwy domeny
+    email_included_in_password: jest zbyt podobny do twojego adresu e-mail
+    fallback: nie jest poprawny
+    name_included_in_password: jest zbyt podobny do twojego imienia
+    not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
+    password_not_allowed: nie jest dozwolone
+    password_too_common: jest zbyt powszechne
+    password_too_long: jest zbyt długi
+    password_too_short: jest za krótki
   social_share_button:
     delicious: Pyszne
     douban: Douban

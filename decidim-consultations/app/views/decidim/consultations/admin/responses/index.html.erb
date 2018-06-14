@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.responses" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.response.name", scope: "decidim.admin")),
+      <%= link_to t("actions.new_response", scope: "decidim.admin"),
                   new_response_path(current_question),
                   class: "button tiny button--title" if allowed_to? :create, :response %>
     </h2>

@@ -67,7 +67,10 @@ fi:
         destroy: Poistaa
         duplicate: Kopioi
         edit: Muokkaa
-        new: Uusi
+        new_process: Uusi prosessi
+        new_process_group: Uusi prosessiryhmä
+        new_process_step: Uusi askel
+        new_process_user_role: Uusi prosessikäyttäjä
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
@@ -76,7 +79,7 @@ fi:
         participatory_process_groups: Prosessiryhmät
         participatory_processes: Prosessit
         participatory_processes_submenu:
-          attachment_collections: kokoelmat
+          attachment_collections: kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit

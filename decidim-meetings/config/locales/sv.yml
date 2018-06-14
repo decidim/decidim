@@ -114,14 +114,14 @@ sv:
     meetings:
       actions:
         agenda: Dagordning
-        attachment_collections: Samlingar
+        attachment_collections: mappar
         attachments: Bifogade filer
         close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
         minutes: Minuter
-        new: Ny
+        new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
         title: Handlingar

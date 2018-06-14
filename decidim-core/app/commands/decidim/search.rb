@@ -10,6 +10,8 @@ module Decidim
     # Public: Initializes the command.
     #
     # @param term: The term to search for.
+    # @param organization: The Organization to which the results are constrained.
+    # @param filters: (optional) A Hash of SearchableResource attributes to filter for.
     def initialize(term, organization, filters = {})
       @term = term
       @organization = organization

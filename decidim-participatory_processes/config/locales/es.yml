@@ -63,11 +63,14 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirmar eliminación
+        confirm_destroy: Confirma la supresión.
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new: Nuevo/a
+        new_process: Nuevo proceso
+        new_process_group: Nuevo grupo de procesos
+        new_process_step: Nueva fase
+        new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -76,7 +79,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
@@ -156,7 +159,7 @@ es:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
-          success: Paso de proceso participativo eliminado con éxito.
+          success: Fase de proceso participativo eliminada con éxito.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar
@@ -173,7 +176,7 @@ es:
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
-          success: El usuario agregó con éxito a este proceso participativo.
+          success: Usuario añadido con éxito a este proceso participativo.
         destroy:
           success: Usuario eliminado con éxito de este proceso participativo.
         edit:

@@ -51,6 +51,8 @@ ru:
         other: Подписей
   decidim:
     admin:
+      actions:
+        new_initiative_type: Добавить вид почина
       menu:
         initiatives: Почины
         initiatives_types: Виды починов
@@ -76,6 +78,11 @@ ru:
         initiatives_types: Виды починов
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Срок сбора подписей в поддержку почина %{resource_title} продлен!
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Срок сбора подписей в поддержку почина продлен!
+          notification_title: Срок сбора подписей в поддержку почина <a href="%{resource_path}">%{resource_title}</a> продлен.
         milestone_completed:
           email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.

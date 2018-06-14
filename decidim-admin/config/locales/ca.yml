@@ -143,6 +143,7 @@ ca:
         browse: Explorar
         export: Exporta
         manage: Gestionar
+        new: Nou %{name}
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
@@ -179,22 +180,22 @@ ca:
           success: Àrea actualitzada correctament
       attachment_collections:
         create:
-          error: S'ha produït un error en crear la col·lecció.
-          success: Col·lecció creada correctament.
+          error: S'ha produït un error en crear una nova carpeta.
+          success: S'ha creat la carpeta amb èxit.
         destroy:
-          success: Col·lecció destruïda correctament.
+          success: S'ha eliminat la carpeta amb èxit.
         edit:
-          title: Editar col·lecció
+          title: Edita la carpeta
           update: Actualitzar
         index:
-          attachment_collection_used: Aquesta col·lecció no es pot eliminar perquè està en ús.
-          attachment_collections_title: Col·leccions d'adjunts
+          attachment_collection_used: Aquesta carpeta no es pot eliminar perquè està en ús.
+          attachment_collections_title: Carpetes de fitxers adjunts
         new:
           create: Crear
-          title: Nova col·lecció
+          title: Carpeta nova
         update:
-          error: S'ha produït un error en actualitzar aquesta col·lecció.
-          success: Col·lecció actualitzada correctament.
+          error: S'ha produït un error en actualitzar aquesta carpeta.
+          success: S'ha actualitzat la carpeta amb èxit.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -353,13 +354,13 @@ ca:
             plural: Plural
         attachment:
           fields:
-            collection: Col·lecció
+            collection: Carpeta
             content_type: Tipus
             file_size: Mida
             title: Títol
           name: Arxiu adjunt
         attachment_collection:
-          name: Col·lecció
+          name: Carpeta
         category:
           name: Categoria
         impersonation_log:
@@ -524,7 +525,7 @@ ca:
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
-          omnipresent_banner_appearance_title: Edita l'estendard omnipresent
+          omnipresent_banner_appearance_title: Edita pancarta omnipresent
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.

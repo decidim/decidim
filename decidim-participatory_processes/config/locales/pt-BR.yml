@@ -67,7 +67,10 @@ pt-BR:
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
-        new: Novo
+        new_process: Novo processo
+        new_process_group: Novo grupo de processos
+        new_process_step: Novo passo
+        new_process_user_role: Novo usuário do processo
         preview: Visualização
         publish: Publicar
         resend_invitation: Reenviar convite
@@ -76,7 +79,7 @@ pt-BR:
         participatory_process_groups: Grupos de processo
         participatory_processes: Processos
         participatory_processes_submenu:
-          attachment_collections: Coleções
+          attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias

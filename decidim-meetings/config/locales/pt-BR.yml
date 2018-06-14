@@ -114,14 +114,14 @@ pt-BR:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Coleções
+        attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
         destroy: Excluir
         edit: Editar
         minutes: Minutos
-        new: Novo
+        new: Nova reunião
         preview: Visualização
         registrations: Inscrições
         title: Ações

@@ -12,7 +12,7 @@ shared_context "when inviting process users" do
 
     visit decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_process)
     within ".container" do
-      click_link "New"
+      click_link "New process user"
     end
 
     fill_in "Name", with: "Alice Liddel"

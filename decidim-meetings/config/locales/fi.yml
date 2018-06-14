@@ -114,14 +114,14 @@ fi:
     meetings:
       actions:
         agenda: esityslista
-        attachment_collections: kokoelmat
+        attachment_collections: kansiot
         attachments: Liitteet
         close: Sulje
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
         minutes: Minuutit
-        new: Uusi
+        new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot

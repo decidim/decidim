@@ -12,7 +12,7 @@
       <%= cell "decidim/author", present(post.author), from: post %>
     </div>
     <div class="section">
-      <p><%= sanitize translated_attribute post.body %></p>
+      <p><%= decidim_sanitize translated_attribute post.body %></p>
     </div>
   </div>
   <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">

@@ -50,6 +50,14 @@ describe Decidim::Assemblies::Permissions do
   end
 
   context "when the action is for the public part" do
+    context "when reading the admin dashboard" do
+      let(:action) do
+        { scope: :admin, action: :read, subject: :admin_dashboard }
+      end
+
+      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    end
+
     context "when reading a assembly" do
       let(:action) do
         { scope: :public, action: :read, subject: :assembly }
@@ -145,7 +153,7 @@ describe Decidim::Assemblies::Permissions do
     it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
   end
 
-  context "when reading the admin dashboard" do
+  context "when reading the admin dashboard from the admin part" do
     let(:action) do
       { scope: :admin, action: :read, subject: :admin_dashboard }
     end

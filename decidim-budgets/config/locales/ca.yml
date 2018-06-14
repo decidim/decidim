@@ -16,12 +16,12 @@ ca:
   decidim:
     budgets:
       actions:
-        attachment_collections: Col·leccions
+        attachment_collections: Carpetes
         attachments: Adjunts
         confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
-        new: Nou
+        new: Nou projecte
         preview: Previsualitzar
         title: Accions
       admin:
@@ -43,7 +43,7 @@ ca:
             title: Projectes
           new:
             create: Crear
-            title: Nou resultat
+            title: Nou projecte
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
@@ -127,7 +127,7 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             show_votes: Mostra els suports
-            votes_enabled: Suports habilitats
+            votes_enabled: S'ha habilitat la votació
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

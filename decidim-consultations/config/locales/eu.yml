@@ -53,6 +53,9 @@ eu:
   decidim:
     admin:
       actions:
+        new_consultation: Kontsulta berria
+        new_question: Galdera berria
+        new_response: Erantzun berria
         publish_results: Argitaratu emaitzak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:
