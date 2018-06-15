@@ -23,7 +23,7 @@
   $(function(){
     $.post({
       url: '<%= decidim_api.root_path %>',
-      data: JSON.stringify({ "query": "{ userMetric { result { count data } } }" }),
+      data: JSON.stringify({ "query": "{ userMetric { count data { confirmed_at } } }" }),
       contentType: 'application/json'
     }).done(function(response) {
       $(".home-graphiql").html('userMetric:' + JSON.stringify(response.data.userMetric))

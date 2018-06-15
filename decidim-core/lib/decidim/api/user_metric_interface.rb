@@ -4,9 +4,11 @@ module Decidim
   module Core
     UserMetricInterface = GraphQL::InterfaceType.define do
       name "UserMetricInterface"
-      description "UserMetricInterface"
+      description "UserMetric definition"
 
-      field :result, DataVizzType, "The current decidim's version of this deployment."
+      field :count, !types.Int, "Total users"
+
+      field :data, !types[UserMetricObjectType], "Data for each user"
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end

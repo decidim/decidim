@@ -67,8 +67,8 @@ module Decidim
       end
 
       type.field :userMetric, Core::UserMetricType, "Decidim's UserMetric data." do
-        resolve lambda { |_obj, _args, _ctx|
-          Decidim::User.confirmed.not_managed
+        resolve lambda { |_obj, _args, ctx|
+          ctx[:current_organization]
         }
       end
     end

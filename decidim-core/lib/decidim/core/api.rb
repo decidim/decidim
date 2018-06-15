@@ -9,7 +9,7 @@ module Decidim
     autoload :CategorizableInterface, "decidim/api/categorizable_interface"
     autoload :ScopableInterface, "decidim/api/scopable_interface"
     autoload :AttachableInterface, "decidim/api/attachable_interface"
-    autoload :DataVizzInterface, "decidim/api/data_vizz_interface"
     autoload :UserMetricInterface, "decidim/api/user_metric_interface"
+    autoload :UserMetricObjectInterface, "decidim/api/user_metric_object_interface"
   end
 end

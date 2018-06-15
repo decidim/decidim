@@ -3,11 +3,27 @@
 module Decidim
   module Core
     UserMetricType = GraphQL::ObjectType.define do
-      name "UserMetric"
-      description "User Metric Type"
+      interfaces [-> { UserMetricInterface }]
 
-      field :result, DataVizzType, "The current decidim's version of this deployment." do
-        resolve ->(obj, _args, _ctx) { obj.collect(&:confirmed_at) }
+      name "UserMetric"
+      description "UserMetric data"
+
+      field :count, !types.Int, "Total users" do
+        resolve ->(organization, _args, _ctx) {
+          UserMetricTypeHelper.base_scope(organization).count
+        }
+      end
+
+      field :data, !types[UserMetricObjectType], "Data for each user" do
+        resolve ->(organization, _args, _ctx) {
+          UserMetricTypeHelper.base_scope(organization)
+        }
+      end
+    end
+
+    module UserMetricTypeHelper
+      def self.base_scope(organization)
+        Decidim::User.where(organization: organization).confirmed.not_managed
       end
     end
   end

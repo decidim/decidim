@@ -46,5 +46,9 @@ module Decidim
     def following_count
       __getobj__.following_follows.count
     end
+
+    def confirmed_at_date
+      __getobj__.confirmed_at.strftime("%Y-%m-%d")
+    end
   end
 end
