@@ -4,7 +4,7 @@
 <div class="row mb-sm">
   <% 3.times do %>
   <div class="column medium-4">
-    <%= partial "linechart", url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
+    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
   </div>
   <% end %>
 </div>
@@ -12,14 +12,14 @@
   <% 3.times do %>
   <div class="column medium-4">
     <div class="column medium-6">
-      <%= partial "linechart", small: true, url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
+      <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
     </div>
     <div class="column medium-6">
-      <%= partial "linechart", small: true, url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
+      <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
     </div>
   </div>
   <% end %>
 </div>
 <div class="row column text-center">
-  <a href="#">Ver estadísticas del sitio</a>
+  <%= link_to "Ver estadísticas del sitio", page_path("stats") %>
 </div>

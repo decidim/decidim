@@ -5,7 +5,7 @@
 // = require d3
 
 $(() => {
-  const linechart = (opts = {}) => {
+  const areachart = (opts = {}) => {
     // parse opts
     let data = opts.data
     let title = opts.title
@@ -52,24 +52,25 @@ $(() => {
       .attr("class", "line")
       .attr("d", valueline);
 
-    // add the title
+    // add the title group
     let g = svg.append("g")
       .attr("text-anchor", "start")
       .attr("transform", `translate(${titlePadding},${titlePadding})`)
 
     g.append("text")
       .attr("x", 0)
-      .attr("y", titlePadding)
+      .attr("y", 0)
       .attr("class", "title")
       .text(title)
 
     g.append("text")
       .attr("x", 0)
-      .attr("y", titlePadding * 3)
+      .attr("y", titlePadding * 2)
       .attr("class", "sum")
       .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
   }
 
+  // OPTIONAL: Helper function to preprocess the data
   const parseData = (data) => {
     // format the data
     data.forEach((d) => {
@@ -81,10 +82,10 @@ $(() => {
     return data.sort((x, y) => d3.descending(x.key, y.key))
   }
 
-  $(".linechart").each((i, container) => {
+  $(".areachart").each((i, container) => {
     // get the data
     d3.json(container.dataset.url).then((data) => {
-      linechart({
+      areachart({
         container: `#${container.id}`,
         title: container.dataset.title,
         data: parseData(data)

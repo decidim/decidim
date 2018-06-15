@@ -1,0 +1,23 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "debates"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <div class="wrapper">
+    <h1 class="section-heading">This site by the numbers</h1>
+    <div class="row expanded">
+      <div class="column medium-6">
+        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+      </div>
+      <div class="column medium-6">
+        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
