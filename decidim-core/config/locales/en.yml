@@ -225,8 +225,19 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
+            close_modal: Close modal
             uncheck: Keep uncheck
-          notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
+          notice: |-
+            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            Please consider again ticking the newsletter checkbox below.<br>
+            It is very important for us that you can receive occasional emails
+            to make important announcements, you can always change this on your
+            notifications settings page.</p>
+            <p>If you don't tick the box you might be missing relevant information
+            about new participatory opportunities within the platform.<br>
+            If you still want to avoid receiving newsletters, we perfectly
+            understand your decision.</p>
+            <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
           or: Or

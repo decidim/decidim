@@ -1,15 +1,15 @@
 <div class="reveal" id="sign-up-newsletter-modal" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t(".title") %></h3>
-    <button class="close-button" data-close aria-label="Close modal"
+    <button class="close-button" data-close aria-label="<%= t(".buttons.close_modal") %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
   <div class="row">
-    <div class="columns medium-10 medium-centered">
-      <p><%= t(".notice") %></p>
+    <div>
+      <%= t(".notice").html_safe %>
     </div>
     <div class="columns medium-10 medium-centered">
       <div class="row">
