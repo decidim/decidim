@@ -10,10 +10,14 @@ $(() => {
     let data = opts.data
     let title = opts.title
     let container = d3.select(opts.container)
+    let axis = opts.axis
 
     // set the dimensions and margins of the graph
-    let width = Number(container.node().getBoundingClientRect().width)
-    let height = width / (4 / 3)
+    let margin = (axis)
+      ? {top: 20, right: 20, bottom: 30, left: 50}
+      : {top: 0, right: 0, bottom: 0, left: 0}
+    let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
+    let height = (width / (4 / 3)) - margin.top - margin.bottom
     let titlePadding = width / 10
 
     // set the ranges
@@ -32,13 +36,15 @@ $(() => {
       .y((d) => y(d.value));
 
     let svg = container.append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
       .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // scale the range of the data
     x.domain(d3.extent(data, (d) => d.key));
-    y.domain(d3.extent(data, (d) => d.value));
+    y.domain([0, d3.max(data, (d) => d.value)]);
+    // y.domain(d3.extent(data, (d) => d.value));
 
     // add the area
     svg.append("path")
@@ -68,6 +74,15 @@ $(() => {
       .attr("y", titlePadding * 2)
       .attr("class", "sum")
       .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
+
+    if (axis) {
+      svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x));
+
+      svg.append("g")
+        .call(d3.axisLeft(y))
+    }
   }
 
   // OPTIONAL: Helper function to preprocess the data
@@ -88,7 +103,8 @@ $(() => {
       areachart({
         container: `#${container.id}`,
         title: container.dataset.title,
-        data: parseData(data)
+        data: parseData(data),
+        axis: (container.dataset.axis === "true") || false
       })
     })
   })

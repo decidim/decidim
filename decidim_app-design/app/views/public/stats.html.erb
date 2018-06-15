@@ -11,10 +11,14 @@
     <h1 class="section-heading">This site by the numbers</h1>
     <div class="row expanded">
       <div class="column medium-6">
-        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+        <h3 class="heading3">Participantes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", axis: true %>
       </div>
       <div class="column medium-6">
-        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+        <h3 class="heading3">Participantes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", axis: true %>
       </div>
     </div>
   </div>
