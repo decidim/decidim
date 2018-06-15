@@ -1,17 +1,22 @@
-<div class="row column text-center">
+<div class="row column text-center mb-sm">
   <h2 class="heading2">decidim en cifras</h2>
 </div>
-<div class="row">
+<div class="row mb-sm">
   <% 3.times do %>
   <div class="column medium-4">
-    <% partial "linechart" %>
+    <%= partial "linechart", url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
   </div>
   <% end %>
 </div>
-<div class="row">
-  <% 6.times do %>
-  <div class="column medium-2">
-    <% partial "linechart" %>
+<div class="row collapse">
+  <% 3.times do %>
+  <div class="column medium-4">
+    <div class="column medium-6">
+      <%= partial "linechart", small: true, url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
+    </div>
+    <div class="column medium-6">
+      <%= partial "linechart", small: true, url: "/linechart-" + SecureRandom.random_number(3).to_s + ".json" %>
+    </div>
   </div>
   <% end %>
 </div>

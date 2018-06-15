@@ -11,6 +11,10 @@
       <h1>Decidim Barcelona</h1>
       <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
       <div class="section" style="columns:2">
+        <h2 class="section-heading">Vistas principales</h2>
+        <ul>
+          <li><%= link_to "Home", page_path("home") %></li>
+        </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
@@ -165,7 +169,6 @@
       <div class="section" style="columns:2">
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
-          <li><%= link_to "Home", page_path("home") %></li>
           <li><%= link_to "Listado de procesos", page_path("processes") %></li>
           <li><%= link_to "Más información", page_path("more-information") %></li>
         </ul>

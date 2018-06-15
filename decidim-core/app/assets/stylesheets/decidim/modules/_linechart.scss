@@ -1,0 +1,32 @@
+.linechart{
+  svg{
+    background-color: rgba($primary, .1);
+  }
+
+  .title{
+    fill: $muted;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .area{
+    fill: rgba($primary, .5);
+  }
+
+  .line{
+    fill: none;
+    stroke: rgba($primary, .75);
+    stroke-width: 2px;
+  }
+
+  .sum{
+    font-weight: 600;
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 2;
+  }
+
+  &.small{
+    .sum{
+      font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h3'), 'font-size'));
+    }
+  }
+}
