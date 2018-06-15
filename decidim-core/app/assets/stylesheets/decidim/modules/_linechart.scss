@@ -21,7 +21,7 @@
 
   .sum{
     font-weight: 600;
-    font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 2;
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 1.5;
   }
 
   &.small{
