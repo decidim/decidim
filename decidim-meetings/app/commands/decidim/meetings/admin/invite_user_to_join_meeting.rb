@@ -78,7 +78,7 @@ module Decidim
             end
           else
             user.name = form.name
-            user.nickname = User.nicknamize(user.name)
+            user.nickname = User.nicknamize(user.name, organization: user.organization)
             invite_user_to_sign_up
             create_invitation!
           end
