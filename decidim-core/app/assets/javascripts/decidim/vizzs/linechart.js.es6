@@ -58,23 +58,6 @@ $(() => {
       .attr("class", "line")
       .attr("d", valueline);
 
-    // add the title group
-    let g = svg.append("g")
-      .attr("text-anchor", "start")
-      .attr("transform", `translate(${titlePadding},${titlePadding})`)
-
-    g.append("text")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("class", "title")
-      .text(title)
-
-    g.append("text")
-      .attr("x", 0)
-      .attr("y", titlePadding * 2)
-      .attr("class", "sum")
-      .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
-
     if (axis) {
       svg.append("g")
         .attr("transform", `translate(0,${height})`)
@@ -82,6 +65,23 @@ $(() => {
 
       svg.append("g")
         .call(d3.axisLeft(y))
+    } else {
+      // add the title group
+      let g = svg.append("g")
+        .attr("text-anchor", "start")
+        .attr("transform", `translate(${titlePadding},${titlePadding})`)
+
+      g.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("class", "title")
+        .text(title)
+
+      g.append("text")
+        .attr("x", 0)
+        .attr("y", titlePadding * 2)
+        .attr("class", "sum")
+        .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
     }
   }
 
