@@ -120,7 +120,8 @@ Decidim.register_component(:proposals) do |component|
       published_at: Time.current,
       participatory_space: participatory_space,
       settings: {
-        vote_limit: 0
+        vote_limit: 0,
+        collaborative_drafts_enabled: true
       },
       step_settings: step_settings
     )
