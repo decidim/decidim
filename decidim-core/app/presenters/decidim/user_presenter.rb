@@ -48,7 +48,7 @@ module Decidim
     end
 
     def confirmed_at_date
-      __getobj__.confirmed_at.strftime("%Y-%m-%d")
+      __getobj__.confirmed_at.try(:strftime, "%Y-%m-%d")
     end
   end
 end

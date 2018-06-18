@@ -7,6 +7,8 @@ require "cells/rails"
 require "cells-erb"
 require "cell/partial"
 
+require "decidim/proposals/query_extensions"
+
 module Decidim
   module Proposals
     # This is the engine that runs on the public interface of `decidim-proposals`.
@@ -122,6 +124,12 @@ module Decidim
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
+      end
+
+      initializer "decidim_proposals.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
+        end
       end
     end
   end
