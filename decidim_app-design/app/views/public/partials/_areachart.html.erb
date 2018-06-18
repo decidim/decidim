@@ -1,5 +1,5 @@
 <div id="areachart-<%= SecureRandom.random_number(9999) %>"
-  class="areachart<%= " small" if (small ||= false) || (axis ||= false) %>"
+  class="areachart <%= classes ||= "" %><%= " small" if axis ||= false %>"
   data-url="<%= url ||= "" %>"
   data-title="<%= title ||= "" %>"
   data-axis="<%= axis ||= false %>"

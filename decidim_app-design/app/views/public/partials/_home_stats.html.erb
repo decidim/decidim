@@ -12,10 +12,10 @@
   <% 3.times do %>
   <div class="column medium-4">
     <div class="column medium-6">
-      <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+      <%= partial "areachart", classes: "small", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
     </div>
     <div class="column medium-6">
-      <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+      <%= partial "areachart", classes: "small", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
     </div>
   </div>
   <% end %>

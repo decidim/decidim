@@ -25,12 +25,12 @@
 <br />
 <div class="row column">
   <h4>Versión simple con letra pequeña (poco espacio)</h4>
-  <code>partial "areachart", url: "/areachart-0.json", small: true</code>
+  <code>partial "areachart", url: "/areachart-0.json", classes: true</code>
 </div>
 <div class="row">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "small", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -48,13 +48,13 @@
 </div>
 <br />
 <div class="row column">
-  <h4>Versión con ejes y letra pequeña (poco espacio)</h4>
-  <code>partial "areachart", small: true, axis: true, url: "/areachart-0.json"</code>
+  <h4>Versión con ejes y letra pequeña (axis: <code>true</code> activa la letra pequeña)</h4>
+  <code>partial "areachart", axis: true, url: "/areachart-0.json"</code>
 </div>
 <div class="row">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart",axis: true, small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", axis: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
