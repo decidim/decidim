@@ -172,11 +172,11 @@ es-PY:
         settings:
           global:
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute_1: Atributo ficticio 1
+            dummy_global_attribute_2: Atributo ficticio 2
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_1: Atributo de paso ficticio 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacto
     core:
