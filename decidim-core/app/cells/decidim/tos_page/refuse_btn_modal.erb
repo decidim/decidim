@@ -20,21 +20,17 @@
         <%= t("refuse.modal_body", scope: "decidim.pages.terms_and_conditions", data_portability_path: decidim.data_portability_path, delete_path: decidim.delete_account_path) %>
       </p>
     </div>
+  </div>
 
-    <div class="columns medium-10 medium-centered">
-      <div class="row">
-        <div class="columns medium-6">
-          <%= button_to decidim.destroy_user_session_path, method: :delete, class: "clear button secondary expanded" do %>
-            <%= t("refuse.modal_btn_exit", scope: "decidim.pages.terms_and_conditions") %>
-          <% end %>
-        </div>
+  <div class="row">
+    <div class="column flex-center">
+      <%= button_to decidim.destroy_user_session_path, method: :delete, class: "clear button secondary expanded" do %>
+        <%= t("refuse.modal_btn_exit", scope: "decidim.pages.terms_and_conditions") %>
+      <% end %>
 
-        <div class="columns medium-6">
-          <%= button_to decidim.accept_tos_path, method: :put, class: "button expanded" do %>
-            <%= t("refuse.modal_btn_continue", scope: "decidim.pages.terms_and_conditions") %>
-          <% end %>
-        </div>
-      </div>
+      <%= button_to decidim.accept_tos_path, method: :put, class: "button expanded" do %>
+        <%= t("refuse.modal_btn_continue", scope: "decidim.pages.terms_and_conditions") %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -11,15 +11,17 @@
     <div>
       <%= t(".notice").html_safe %>
     </div>
-    <div class="columns medium-10 medium-centered">
-      <div class="row">
-        <div class="columns medium-6">
-          <button type="buton" class="check-newsletter clear button secondary expanded" data-check=false><%= t(".buttons.uncheck") %></button>
-        </div>
-        <div class="columns medium-6">
-          <button type="buton" class="check-newsletter button expanded" data-check=true><%= t(".buttons.check") %></button>
-        </div>
-      </div>
+  </div>
+
+  <div class="row">
+    <div class="column flex-center">
+      <button type="buton" class="check-newsletter clear button secondary expanded" data-check=false>
+        <%= t(".buttons.uncheck") %>
+      </button>
+
+      <button type="buton" class="check-newsletter button expanded" data-check=true>
+        <%= t(".buttons.check") %>
+      </button>
     </div>
   </div>
 </div>
