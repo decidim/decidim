@@ -16,8 +16,16 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
-      has_many :collaborator_requests, class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest", foreign_key: :decidim_proposals_collaborative_draft_id, dependent: :destroy
-      has_many :requesters, through: :collaborator_requests, source: :user, class_name: "Decidim::User", foreign_key: :decidim_user_id
+      has_many :collaborator_requests,
+               class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",
+               foreign_key: :decidim_proposals_collaborative_draft_id,
+               dependent: :destroy
+
+      has_many :requesters,
+               through: :collaborator_requests,
+               source: :user,
+               class_name: "Decidim::User",
+               foreign_key: :decidim_user_id
 
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }
