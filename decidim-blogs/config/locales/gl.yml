@@ -13,7 +13,7 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta publicación?
         destroy: Eliminar
         edit: Editar
-        new: Novo
+        new: Nova publicación
         title: Accións
       admin:
         models:

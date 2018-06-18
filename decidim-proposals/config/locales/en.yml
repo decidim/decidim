@@ -94,8 +94,8 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
-            votes_blocked: Votes blocked
-            votes_enabled: Votes enabled
+            votes_blocked: Voting blocked
+            votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
@@ -200,7 +200,7 @@ en:
       actions:
         answer: Answer
         import: Import from another component
-        new: New
+        new: New proposal
         private_notes: Private notes
         title: Actions
       admin:

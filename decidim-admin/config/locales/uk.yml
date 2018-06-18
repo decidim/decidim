@@ -143,6 +143,7 @@ uk:
         browse: Переглянути
         export: Зберегти у вигляді файлу
         manage: Керувати
+        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
@@ -188,10 +189,10 @@ uk:
           update: Оновити
         index:
           attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
-          attachment_collections_title: Тека вкладень
+          attachment_collections_title: Теки вкладень
         new:
           create: Додати
-          title: Створити теку
+          title: Додати теку
         update:
           error: При спробі оновити цю теку сталася помилка.
           success: Теку успішно оновлено.

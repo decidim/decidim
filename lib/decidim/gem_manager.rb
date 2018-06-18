@@ -114,16 +114,21 @@ module Decidim
       end
 
       def all_dirs(include_root: true)
-        root = File.expand_path(File.join("..", ".."), __dir__)
+        dirs = plugins
+        dirs << "./" if include_root
 
-        glob = "#{root}/#{include_root ? "{decidim-*,.}" : "decidim-*"}"
+        dirs.each { |dir| yield(dir) }
+      end
 
-        Dir.glob(glob)
-           .select { |f| File.directory?(f) }
-           .each { |dir| yield(dir) }
+      def plugins
+        Dir.glob("#{root}/decidim-*/")
       end
 
       private
+
+      def root
+        File.expand_path(File.join("..", ".."), __dir__)
+      end
 
       def semver_friendly_version
         version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
@@ -147,7 +152,7 @@ module Decidim
     end
 
     def name
-      folder_name.match?("decidim") ? folder_name : "decidim"
+      self.class.plugins.map { |name| File.expand_path(name) }.include?(@dir) ? folder_name : "decidim"
     end
 
     def version

@@ -21,9 +21,9 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when creating an initiative type" do
-    it "Deletes the initiative type" do
+    it "creates the initiative type" do
       visit decidim_admin_initiatives.initiatives_types_path
-      click_link "New"
+      click_link "New initiative type"
 
       fill_in_i18n(
         :initiatives_type_title,

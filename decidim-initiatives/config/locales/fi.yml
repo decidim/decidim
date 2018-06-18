@@ -45,6 +45,8 @@ fi:
         other: allekirjoitukset
   decidim:
     admin:
+      actions:
+        new_initiative_type: Uusi aloite tyyppi
       menu:
         initiatives: aloitteita
         initiatives_types: Aloitustyypit
@@ -70,6 +72,11 @@ fi:
         initiatives_types: Aloitustyypit
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Aloitteen %{resource_title} allekirjoitusten päättymispäivä on pidennetty!
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Aloitteiden allekirjoitukset lopetuspäivää pidennetty!
+          notification_title: Allekirjoituksen päättymispäivä <a href="%{resource_path}">%{resource_title}</a> -aloitteen osalta on pidennetty.
         milestone_completed:
           email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.

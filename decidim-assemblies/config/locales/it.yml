@@ -75,6 +75,8 @@ it:
         other: Assemblare i ruoli utente
   decidim:
     admin:
+      actions:
+        new_assembly: Nuovo assemblaggio
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.
@@ -151,7 +153,7 @@ it:
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
           assembly_members: Utenti
-          attachment_collections: collezioni
+          attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie

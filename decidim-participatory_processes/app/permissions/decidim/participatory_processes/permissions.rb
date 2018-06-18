@@ -9,6 +9,11 @@ module Decidim
 
         return permission_action if process && !process.is_a?(Decidim::ParticipatoryProcess)
 
+        if read_admin_dashboard_action?
+          user_can_read_admin_dashboard?
+          return permission_action
+        end
+
         if permission_action.scope == :public
           public_list_processes_action?
           public_list_process_groups_action?
@@ -26,11 +31,6 @@ module Decidim
         return permission_action unless permission_action.scope == :admin
 
         valid_process_group_action?
-
-        if read_admin_dashboard_action?
-          user_can_read_admin_dashboard?
-          return permission_action
-        end
 
         user_can_read_process_list?
         user_can_read_current_process?

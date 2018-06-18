@@ -13,7 +13,7 @@ pt:
         confirm_destroy: Tem certeza de que deseja excluir esta postagem?
         destroy: Excluir
         edit: Editar
-        new: Novo
+        new: Nova postagem
         title: Ações
       admin:
         models:

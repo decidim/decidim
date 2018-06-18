@@ -53,7 +53,7 @@ sv:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Filnr finns
+        file_no_exists: Fil existerar inte
         invalid_token: Den angivna token är ogiltig.
         no_token: Ingen token tillhandahålls
         notice: Dina uppgifter är pågående. Du får ett mail när det är klart.
@@ -665,6 +665,16 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
+  password_validator:
+    domain_included_in_password: är för lik detta domännamn
+    email_included_in_password: är för lik din email
+    fallback: är inte giltigt
+    name_included_in_password: är för lik ditt namn
+    not_enough_unique_characters: har inte tillräckligt med unika tecken
+    password_not_allowed: är ej tillåtet
+    password_too_common: är för vanligt
+    password_too_long: är för lång
+    password_too_short: är för kort
   social_share_button:
     delicious: Delicious
     douban: Douban

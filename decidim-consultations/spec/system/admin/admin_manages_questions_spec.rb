@@ -10,7 +10,7 @@ describe "Admin manages questions", type: :system do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
-      click_link("New")
+      click_link("New question")
 
       within ".new_question" do
         fill_in_i18n_editor(
@@ -65,7 +65,7 @@ describe "Admin manages questions", type: :system do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_consultations.consultation_questions_path(consultation)
-      click_link("New")
+      click_link("New question")
 
       within ".new_question" do
         fill_in :question_slug, with: "slug"

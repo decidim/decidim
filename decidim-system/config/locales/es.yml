@@ -13,7 +13,7 @@ es:
           error: Se ha producido un error al crear un nuevo administrador.
           success: Administrador creado correctamente
         destroy:
-          success: Admin eliminado con éxito
+          success: Administrador eliminado con éxito
         edit:
           title: Editar administrador
           update: Actualizar

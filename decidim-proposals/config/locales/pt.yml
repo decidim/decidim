@@ -82,8 +82,8 @@ pt:
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
-            votes_blocked: Votos bloqueados
-            votes_enabled: Votos ativados
+            votes_blocked: Votação bloqueada
+            votes_enabled: Votação habilitada
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
       proposals:
@@ -153,7 +153,7 @@ pt:
       actions:
         answer: Responda
         import: Importar de outro componente
-        new: Novo
+        new: Nova proposta
         private_notes: Notas privadas
         title: Ações
       admin:

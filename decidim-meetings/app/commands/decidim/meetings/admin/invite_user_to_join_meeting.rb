@@ -40,7 +40,7 @@ module Decidim
             InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
           else
             user.name = form.name
-            user.nickname = User.nicknamize(user.name)
+            user.nickname = User.nicknamize(user.name, organization: user.organization)
             user.skip_reconfirmation!
             user.invite!(invited_by, invitation_instructions: "join_meeting", meeting: meeting)
           end

@@ -73,7 +73,10 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
-        new: Додати
+        new_process: Додати рух
+        new_process_group: Створити сукупність рухів
+        new_process_step: Додати крок
+        new_process_user_role: Додати учасника руху
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
