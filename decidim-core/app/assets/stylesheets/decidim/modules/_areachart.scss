@@ -1,4 +1,5 @@
-.areachart{
+.areachart {
+  //common
   svg{
     background-color: rgba($primary, .1);
     overflow: visible;
@@ -37,6 +38,30 @@
     font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 1.5;
   }
 
+  // color-dependent
+  $map: $foundation-palette;
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      svg{
+        background-color: rgba($value, .1);
+      }
+
+      .area{
+        fill: lighten($value, 25%);
+      }
+
+      .line{
+        stroke: $value;
+      }
+
+      .circle{
+        fill: $value;
+      }
+    }
+  }
+
+  // variations
   &.small{
     .sum{
       font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h3'), 'font-size'));
