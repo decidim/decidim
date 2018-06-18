@@ -17,6 +17,10 @@
           <div class="columns medium-4 large-3">
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
+                data-deep-link="true"
+                data-update-history="true"
+                data-deep-link-smudge="true"
+                data-deep-link-smudge-delay="500"
                 data-tabs>
                 <li class="tabs-title is-active">
                   <a href="#patternTypography" aria-selected="true">Tipografía</a>
@@ -44,6 +48,9 @@
                 </li>
                 <li class="tabs-title">
                   <a href="#patternPaginator">Paginador</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternCharts">Gráficas</a>
                 </li>
               </ul>
             </div>
@@ -78,6 +85,9 @@
                 </div>
                 <div class="tabs-panel" id="patternPaginator">
                   <%= render partial: page_path("library") + "/library-paginator" %>
+                </div>
+                <div class="tabs-panel" id="patternCharts">
+                  <%= render partial: page_path("library") + "/library-charts" %>
                 </div>
               </div>
             </div>

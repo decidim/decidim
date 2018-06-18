@@ -15,9 +15,10 @@ $(() => {
 
     // set the dimensions and margins of the graph
     let margin = {top: 0, right: 0, bottom: 0, left: 0}
+
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
     let height = (width / ratio) - margin.top - margin.bottom
-    let titlePadding = width / 10
+    let titlePadding = d3.min([width / 10, 32])
 
     // set the ranges
     let x = d3.scaleTime().range([0, width]);
@@ -116,7 +117,7 @@ $(() => {
 
       g.append("text")
         .attr("x", 0)
-        .attr("y", titlePadding * 2)
+        .attr("dy", titlePadding * 2)
         .attr("class", "sum")
         .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
     }

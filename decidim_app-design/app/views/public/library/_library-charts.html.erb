@@ -1,0 +1,107 @@
+<div class="callout warning">
+  Por propósitos de visualización el parámetro url apunta a un <a href="/areachart-0.json" target="_blank">json</a> con datos falsos almacenado en la carpeta <code>public</code>.
+  Dicha url deberá ser sustituida por un endpoint que devuelva los datos correctos
+</div>
+<h2 class="section-heading">Gráfica de area</h2>
+<div class="row column">
+  <h4>Versión simple</h4>
+  <code>partial "areachart", url: "/areachart-0.json"</code>
+</div>
+<div class="row">
+  <div class="column medium-6">
+    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+  </div>
+</div>
+<br />
+<div class="row column">
+  <h4>Versión simple con título dentro</h4>
+  <code>partial "areachart", url: "/areachart-0.json", title: "Lorem"</code>
+</div>
+<div class="row">
+  <div class="column medium-6">
+    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: "lorem" %>
+  </div>
+</div>
+<br />
+<div class="row column">
+  <h4>Versión simple con letra pequeña (poco espacio)</h4>
+  <code>partial "areachart", url: "/areachart-0.json", small: true</code>
+</div>
+<div class="row">
+  <% 4.times do %>
+  <div class="column medium-3">
+    <%= partial "areachart", small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
+<br />
+<div class="row column">
+  <h4>Versión con ejes</h4>
+  <code>partial "areachart", url: "/areachart-0.json", axis: true</code>
+</div>
+<div class="row">
+  <% 2.times do %>
+  <div class="column medium-6">
+    <%= partial "areachart", axis: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
+<br />
+<div class="row column">
+  <h4>Versión con ejes y letra pequeña (poco espacio)</h4>
+  <code>partial "areachart", small: true, axis: true, url: "/areachart-0.json"</code>
+</div>
+<div class="row">
+  <% 4.times do %>
+  <div class="column medium-3">
+    <%= partial "areachart",axis: true, small: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
+<br />
+<div class="row column">
+  <h4>Versión con diferentes ratios</h4>
+  <div class="callout warning">
+    El <code>aspect ratio</code> es un string de la forma <strong>Integer</strong>:<strong>Integer</strong>
+  </div>
+  <h4>16:9</h4>
+  <code>partial "areachart", ratio: "16:9", url: "/areachart-0.json"</code>
+</div>
+<div class="row">
+  <% 2.times do %>
+  <div class="column medium-6">
+    <%= partial "areachart", ratio: "16:9", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
+<br />
+<div class="row column">
+  <h4>11:4</h4>
+  <code>partial "areachart", ratio: "11:4", url: "/areachart-0.json"</code>
+</div>
+<div class="row">
+  <div class="column">
+    <%= partial "areachart", ratio: "11:4", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+</div>
+<br />
+<div class="row column">
+  <pre>Los gráficos se adaptan automáticamente al contenedor, por ejemplo, dos columnas</pre>
+</div>
+<div class="row">
+  <% 2.times do %>
+  <div class="column medium-6">
+    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
+<div class="row column">
+  <pre>... o tres columnas</pre>
+</div>
+<div class="row">
+  <% 3.times do %>
+  <div class="column medium-4">
+    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+  </div>
+  <% end %>
+</div>
