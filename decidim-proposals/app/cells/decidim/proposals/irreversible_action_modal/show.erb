@@ -12,24 +12,16 @@
   </div>
 
   <div class="row">
-    <div class="columns">
+    <div>
       <p>
         <%= modal_body %>
       </p>
     </div>
+  </div>
 
-    <div class="columns medium-10 medium-centered">
-      <div class="row">
-        <div class="columns medium-6">
-          <button class="clear button secondary expanded" type="button">
-            <%= close_label %>
-          </button>
-        </div>
+  <div class="row">
+    <%= button_cancel %>
 
-        <div class="columns medium-6">
-          <%= button_continue %>
-        </div>
-      </div>
-    </div>
+    <%= button_continue %>
   </div>
 </div>

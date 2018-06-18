@@ -51,11 +51,19 @@ module Decidim
         label = t("ok", scope: "decidim.proposals.collaborative_drafts.collaborative_draft.#{action}.irreversible_action_modal")
         path = resource_path + "/#{action}"
         css = "button expanded"
-        button_to label, path, class: css
+        button_to label, path, class: css, form_class: "columns medium-6"
       end
 
       def close_label
         t("cancel", scope: "decidim.proposals.collaborative_drafts.collaborative_draft.#{action}.irreversible_action_modal")
+      end
+
+      def button_cancel
+        content_tag :div, class: "columns medium-6" do
+          button_tag type: "button", class: "clear button secondary expanded", "data-close": "" do
+            close_label
+          end
+        end
       end
 
       def resource_path
