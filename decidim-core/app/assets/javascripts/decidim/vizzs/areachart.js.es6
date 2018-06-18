@@ -5,6 +5,7 @@
 // = require d3
 
 $(() => {
+  // lib
   const areachart = (opts = {}) => {
     // parse opts
     let data = opts.data
@@ -134,8 +135,8 @@ $(() => {
     // order by date
     return data.sort((x, y) => d3.ascending(x.key, y.key))
   }
-
-  $(".areachart").each((i, container) => {
+  // Render only if in DOM
+  const renderChart = () => $(".areachart:visible").each((i, container) => {
     // get the data
     d3.json(container.dataset.url).then((data) => {
       areachart({
@@ -147,4 +148,11 @@ $(() => {
       })
     })
   })
+
+  // init
+  renderChart()
+  // only for pattern-library
+  $(document).on("change.zf.tabs", () => {
+    renderChart()
+  });
 });
