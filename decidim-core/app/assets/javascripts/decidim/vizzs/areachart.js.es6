@@ -13,9 +13,7 @@ $(() => {
     let axis = opts.axis
 
     // set the dimensions and margins of the graph
-    let margin = (axis)
-      ? {top: 20, right: 20, bottom: 30, left: 20}
-      : {top: 0, right: 0, bottom: 0, left: 0}
+    let margin = {top: 0, right: 0, bottom: 0, left: 0}
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
     let height = (width / (4 / 3)) - margin.top - margin.bottom
     let titlePadding = width / 10
@@ -43,7 +41,7 @@ $(() => {
 
     // scale the range of the data
     x.domain(d3.extent(data, (d) => d.key));
-    y.domain(d3.extent(data, (d) => d.value)).nice();
+    y.domain([0, d3.max(data, (d) => d.value)]);
 
     // add the area
     svg.append("path")
@@ -55,29 +53,28 @@ $(() => {
     svg.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
+      .attr("d", valueline)
 
     if (axis) {
       let xAxis = d3.axisBottom(x)
         .ticks(d3.timeMonth.every(6))
         .tickFormat(d3.timeFormat("%b %y"))
         .tickSize(-height)
-
       let yAxis = d3.axisLeft(y)
-        .ticks(4)
+        .ticks(5)
+        .tickSize(8)
 
       let _xAxis = (g) => {
-        g.call(xAxis);
-        g.select(".domain").remove();
+        g.call(xAxis)
+        g.select(".domain").remove()
         g.selectAll(".tick line").attr("class", "dashed")
+        g.selectAll(".tick text").attr("y", 6)
       }
-
       let _yAxis = (g) => {
-        g.call(yAxis);
-        g.select(".domain").remove();
-
-        let tickText = g.selectAll(".tick text")
-        tickText.attr("text-anchor", "start").attr("x", -1 * tickText.attr("x"))
+        g.call(yAxis)
+        g.select(".domain").remove()
+        g.select(".tick:first-of-type").remove()
+        g.selectAll(".tick text").attr("text-anchor", "start").attr("x", 6)
       }
 
       // custom X-Axis
@@ -88,6 +85,22 @@ $(() => {
       // custom Y-Axis
       svg.append("g")
         .call(_yAxis)
+
+      // last circle (current value)
+      let g = svg.append("g")
+        .data([data])
+        .attr("transform", (d) => `translate(${x(d[d.length - 1].key)},${y(d[d.length - 1].value)})`)
+
+      g.append("circle")
+        .attr("class", "circle")
+        .attr("r", 8)
+
+      g.append("text")
+        .attr("class", "sum")
+        .attr("text-anchor", "end")
+        .attr("dx", -8 * 2)
+        .text((d) => d[d.length - 1].value.toLocaleString())
+
     } else {
       // add the title group
       let g = svg.append("g")
@@ -117,7 +130,7 @@ $(() => {
     });
 
     // order by date
-    return data.sort((x, y) => d3.descending(x.key, y.key))
+    return data.sort((x, y) => d3.ascending(x.key, y.key))
   }
 
   $(".areachart").each((i, container) => {

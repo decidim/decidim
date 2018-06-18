@@ -1,6 +1,7 @@
 .areachart{
   svg{
     background-color: rgba($primary, .1);
+    overflow: visible;
   }
 
   .title{
@@ -10,13 +11,17 @@
   }
 
   .area{
-    fill: rgba($primary, .5);
+    fill: lighten($primary, 25%);
   }
 
   .line{
     fill: none;
-    stroke: rgba($primary, .75);
+    stroke: $primary;
     stroke-width: 4px;
+  }
+
+  .circle{
+    fill: $primary;
   }
 
   .tick{
