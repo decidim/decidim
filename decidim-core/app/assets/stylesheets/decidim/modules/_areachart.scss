@@ -16,7 +16,15 @@
   .line{
     fill: none;
     stroke: rgba($primary, .75);
-    stroke-width: 2px;
+    stroke-width: 4px;
+  }
+
+  .tick{
+    opacity: .5;
+
+    .dashed{
+      stroke-dasharray: 1, 3;
+    }
   }
 
   .sum{
