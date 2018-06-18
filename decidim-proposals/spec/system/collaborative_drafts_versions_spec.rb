@@ -105,4 +105,23 @@ describe "Explore versions", versioning: true, type: :system do
       end
     end
   end
+
+    context "when visiting the collaborative draft details" do
+      before do
+        Decidim.traceability.update!(
+          collaborative_draft,
+          author,
+          title: "Edited title another time"
+        )
+        visit collaborative_draft_path
+      end
+
+      it "shows number of versions" do
+        expect(page).to have_css(".versions_status", text: collaborative_draft.versions.count)
+      end
+
+      it "shows number of authors" do
+        expect(page).to have_css(".authors_status", text: collaborative_draft.versions.group_by(&:whodunnit).size)
+      end
+    end
 end

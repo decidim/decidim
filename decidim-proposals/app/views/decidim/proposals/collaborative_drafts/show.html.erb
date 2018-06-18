@@ -60,13 +60,13 @@
 
       <div class="card__status">
         <ul class="card-data">
-          <li class="card-data__item">
+          <li class="card-data__item authors_status">
             <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
-              <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.authors.count}" %>
+              <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.versions.group_by(&:whodunnit).size}" %>
             <% end %>
           </li>
 
-          <li class="card-data__item">
+          <li class="card-data__item versions_status">
             <%= link_to collaborative_draft_versions_path(@collaborative_draft) do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.contributions") do %>
                 <%= icon("pencil", class: "icon--small") + " " + "#{@collaborative_draft.versions.count}" %>
