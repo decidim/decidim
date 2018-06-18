@@ -11,11 +11,12 @@ $(() => {
     let title = opts.title
     let container = d3.select(opts.container)
     let axis = opts.axis
+    let ratio = opts.ratio
 
     // set the dimensions and margins of the graph
     let margin = {top: 0, right: 0, bottom: 0, left: 0}
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
-    let height = (width / (4 / 3)) - margin.top - margin.bottom
+    let height = (width / ratio) - margin.top - margin.bottom
     let titlePadding = width / 10
 
     // set the ranges
@@ -140,7 +141,8 @@ $(() => {
         container: `#${container.id}`,
         title: container.dataset.title,
         data: parseData(data),
-        axis: (container.dataset.axis === "true") || false
+        axis: (container.dataset.axis === "true") || false,
+        ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3)
       })
     })
   })
