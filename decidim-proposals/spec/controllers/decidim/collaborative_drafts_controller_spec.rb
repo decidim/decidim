@@ -7,7 +7,7 @@ module Decidim
     describe CollaborativeDraftsController, type: :controller do
       routes { Decidim::Proposals::Engine.routes }
 
-      let(:component) { create(:proposal_component, :with_creation_enabled) }
+      let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
       let(:params) { { component_id: component.id } }
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
@@ -194,6 +194,16 @@ module Decidim
           expect(collaborative_draft.requesters.count).to eq 1
 
           expect(response).to have_http_status(:found)
+        end
+      end
+
+      context "with collaborative drafts disabled" do
+        let(:component) { create(:proposal_component) }
+
+        describe "GET index" do
+          it "renders not found page" do
+            expect { get :index }.to raise_error(ActionController::RoutingError)
+          end
         end
       end
     end

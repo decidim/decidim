@@ -134,6 +134,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_collaborative_drafts_enabled do
+      settings do
+        {
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do

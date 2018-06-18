@@ -13,6 +13,7 @@ module Decidim
       include Paginable
 
       helper_method :geocoded_collaborative_draft
+      before_action :collaborative_drafts_enabled?
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :request_access, :request_accept, :request_reject, :close, :publish]
 
@@ -174,6 +175,10 @@ module Decidim
       end
 
       private
+
+      def collaborative_drafts_enabled?
+        raise ActionController::RoutingError, "Not Found" unless component_settings.collaborative_drafts_enabled?
+      end
 
       def retrieve_collaborative_draft
         @collaborative_draft = CollaborativeDraft.where(component: current_component).find(params[:id])

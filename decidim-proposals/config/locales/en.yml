@@ -73,6 +73,7 @@ en:
             announcement: Announcement
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
+            collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text

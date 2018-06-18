@@ -13,6 +13,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,
+           :with_collaborative_drafts_enabled,
            manifest: manifest,
            participatory_space: participatory_process)
   end
@@ -245,6 +246,20 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       it "shows a button to edit" do
         expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
       end
+    end
+  end
+
+  context "with collaborative drafts disabled" do
+    let(:component) { create(:proposal_component, manifest: manifest, participatory_space: participatory_process) }
+
+    before do
+      visit_component
+      click_link "Access collaborative drafts"
+    end
+
+    it "doesn't show the Collaborative drafts acces button" do
+      expect(page).to have_no_content("Access collaborative drafts")
+      # expect(page).not_to have_selector("#admin")
     end
   end
 end
