@@ -17,7 +17,13 @@ module Decidim
           }
         end
 
-        type.field :acceptedProposalMetric, Proposals::AcceptedProposalMetricType, "Decidim's ProposalMetric data." do
+        type.field :acceptedProposalMetric, Proposals::AcceptedProposalMetricType, "Decidim's AcceptedProposalMetric data." do
+          resolve lambda { |_obj, _args, ctx|
+            ctx[:current_organization]
+          }
+        end
+
+        type.field :votesMetric, Proposals::VotesMetricType, "Decidim's VotesMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }

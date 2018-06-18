@@ -14,6 +14,10 @@
     <div class="row">
       <div class="columns small-centered mediumlarge-10 large-8">
         <div class="home-graphiql">
+          <div id="user-metric"></div>
+          <div id="proposal-metric"></div>
+          <div id="accepted-proposal-metric"></div>
+          <div id="votes-metric"></div>
         </div>
       </div>
     </div>
@@ -21,13 +25,40 @@
 
 <%= javascript_tag do %>
   $(function(){
-    $.post({
+    $.post({ // USERS
       url: '<%= decidim_api.root_path %>',
       data: JSON.stringify({ "query": "{ userMetric { count data { confirmed_at } } }" }),
       contentType: 'application/json'
     }).done(function(response) {
-      $(".home-graphiql").html('userMetric:' + JSON.stringify(response.data.userMetric))
+      $("#user-metric").html('userMetric:' + JSON.stringify(response.data.userMetric))
       console.log('userMetric:', response.data.userMetric);
+    });
+
+    $.post({ // PROPOSALS
+      url: '<%= decidim_api.root_path %>',
+      data: JSON.stringify({ "query": "{ proposalMetric { count data { published_at state } } }" }),
+      contentType: 'application/json'
+    }).done(function(response) {
+      $("#proposal-metric").html('proposalMetric:' + JSON.stringify(response.data.proposalMetric))
+      console.log('proposalMetric:', response.data.proposalMetric);
+    });
+
+    $.post({ // ACCEPTED PROPOSALS
+      url: '<%= decidim_api.root_path %>',
+      data: JSON.stringify({ "query": "{ acceptedProposalMetric { count data { published_at state } } }" }),
+      contentType: 'application/json'
+    }).done(function(response) {
+      $("#accepted-proposal-metric").html('acceptedProposalMetric:' + JSON.stringify(response.data.acceptedProposalMetric))
+      console.log('acceptedProposalMetric:', response.data.acceptedProposalMetric);
+    });
+
+    $.post({ // VOTES
+      url: '<%= decidim_api.root_path %>',
+      data: JSON.stringify({ "query": "{ votesMetric { count data { created_at } } }" }),
+      contentType: 'application/json'
+    }).done(function(response) {
+      $("#votes-metric").html('votesMetric:' + JSON.stringify(response.data.votesMetric))
+      console.log('votesMetric:', response.data.votesMetric);
     });
   })
 
