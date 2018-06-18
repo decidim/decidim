@@ -36,6 +36,7 @@ module Decidim
       end
 
       def statuses
+        return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] unless has_link_to_resource?
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
