@@ -29,5 +29,4 @@ Decidim::Proposals::Proposal.class_eval do
   has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
   has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
   has_many :neutral_votes, -> { where(weight: 0) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
-
 end
