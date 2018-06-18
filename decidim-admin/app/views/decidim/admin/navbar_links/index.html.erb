@@ -29,10 +29,10 @@
                 <%= link_to navbar_link.link, navbar_link.link, target: :blank %>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, navbar_link %>
+                <% if allowed_to? :update, :navbar_link %>
                   <%= icon_link_to "pencil", ['edit', navbar_link], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
-                <% if can? :destroy, navbar_link %>
+                <% if allowed_to? :destroy, :navbar_link %>
                   <%= icon_link_to "circle-x", navbar_link, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
