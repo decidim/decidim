@@ -20,6 +20,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   let(:requester_id) { requester.id }
   let(:requester_presenter) { Decidim::UserPresenter.new(requester) }
   let(:requester_path) { requester_presenter.profile_path }
+  let(:requester_nickname) { requester_presenter.nickname }
   let(:extra) { { requester_id: requester_id } }
 
   context "when the notification is for coauthor users" do

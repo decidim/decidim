@@ -4,14 +4,21 @@ require "spec_helper"
 
 describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
   controller Decidim::Proposals::CollaborativeDraftsController
-  subject { cell("decidim/proposals/collaborative_draft", collaborative_draft, context: context).call(:show) }
 
-  let(:component) { create(:proposal_component) }
+  subject { my_cell.call(:show) }
+
+  let(:my_cell) { cell("decidim/proposals/collaborative_draft", collaborative_draft, context: context) }
+
+  let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
   let(:author) { create(:user, :confirmed, organization: component.organization) }
   let!(:collaborative_draft) { create(:collaborative_draft, component: component) }
   let(:authors) { create_list(:user, 5, organization: component.organization) }
   let(:collaborative_draft_va) { create(:collaborative_draft, component: component, authors: authors) }
   let(:context) {}
+
+  before do
+    allow(controller).to receive(:current_user).and_return(author)
+  end
 
   context "when rendering a collaborative_draft" do
     it "renders the card" do
