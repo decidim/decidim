@@ -46,7 +46,7 @@ module Decidim
         before do
           sign_in user, scope: :user
         end
-        let(:component) { create(:proposal_component, :with_creation_enabled) }
+        let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
 
         describe "GET new" do
           it "renders the empty form" do
@@ -107,7 +107,7 @@ module Decidim
         end
 
         context "when creation is not enabled" do
-          let(:component) { create(:proposal_component) }
+          let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
 
           it "redirects" do
             post :create, params: params
