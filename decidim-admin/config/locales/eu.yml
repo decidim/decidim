@@ -143,6 +143,7 @@ eu:
         browse: Arakatu
         export: Esportatu
         manage: Kudeatu
+        new: '%{name}berria'
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
@@ -179,22 +180,22 @@ eu:
           success: Area ondo eguneratu da
       attachment_collections:
         create:
-          error: Errore bat gertatu da bilduma berria sortzean.
-          success: Bilduma sortu da.
+          error: Errore bat gertatu da karpeta berria sortzean.
+          success: Karpeta sortu da behar bezala.
         destroy:
-          success: Bilduma suntsitu egin da.
+          success: Karpeta ondo suntsitu da.
         edit:
-          title: Editatu bilduma
+          title: Editatu karpeta
           update: eguneratzearen
         index:
-          attachment_collection_used: Bilduma hau ezin da ezabatu erabiltzen ari delako.
-          attachment_collections_title: Eranskinen bildumak
+          attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
+          attachment_collections_title: Eranskinen karpetak
         new:
           create: Sortu
-          title: Bilduma berria
+          title: Karpeta berria
         update:
-          error: Errore bat gertatu da bilduma hau eguneratzean.
-          success: Bilduma eguneratu da.
+          error: Errore bat gertatu da karpeta hau eguneratzean.
+          success: Karpeta eguneratu da behar bezala.
       attachments:
         create:
           error: Errorea gertatu da fitxategi erantsi bat sortzean.
@@ -353,13 +354,13 @@ eu:
             plural: plural
         attachment:
           fields:
-            collection: Bilduma
+            collection: karpeta
             content_type: Mota
             file_size: Tamaina
             title: Titulua
           name: Fitxategi erantsia
         attachment_collection:
-          name: Bilduma
+          name: karpeta
         category:
           name: Kategoria
         impersonation_log:

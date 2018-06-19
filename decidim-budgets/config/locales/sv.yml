@@ -16,12 +16,12 @@ sv:
   decidim:
     budgets:
       actions:
-        attachment_collections: Samlingar
+        attachment_collections: mappar
         attachments: Bifogade filer
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
         edit: Redigera
-        new: Ny
+        new: Nytt projekt
         preview: Förhandsvisa
         title: Handlingar
       admin:
@@ -43,7 +43,7 @@ sv:
             title: Projekt
           new:
             create: Skapa
-            title: Nytt resultat
+            title: Nytt projekt
           update:
             invalid: Det har varit ett problem att uppdatera projektet
             success: Projektet har blivit uppdaterat
@@ -127,7 +127,7 @@ sv:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
-            votes_enabled: Röster aktiverade
+            votes_enabled: Röstning aktiverad
     orders:
       checkout:
         error: Ett fel uppstod när du behandlade din röst

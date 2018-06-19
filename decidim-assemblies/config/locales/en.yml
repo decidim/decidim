@@ -76,6 +76,8 @@ en:
         other: Assembly user roles
   decidim:
     admin:
+      actions:
+        new_assembly: New assembly
       assemblies:
         create:
           error: There was an error creating a new assembly.
@@ -152,7 +154,7 @@ en:
         assemblies_submenu:
           assembly_admins: Assembly users
           assembly_members: Members
-          attachment_collections: Collections
+          attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
           categories: Categories

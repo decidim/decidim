@@ -45,6 +45,8 @@ pt-BR:
         other: Assinaturas
   decidim:
     admin:
+      actions:
+        new_initiative_type: Novo tipo de iniciativa
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -70,6 +72,11 @@ pt-BR:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: A data final das assinaturas da iniciativa %{resource_title} foi estendida!
+          email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Assinatura da iniciativa data final estendida!
+          notification_title: A data final das assinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi ampliada.
         milestone_completed:
           email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.

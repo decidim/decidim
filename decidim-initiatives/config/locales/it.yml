@@ -45,6 +45,8 @@ it:
         other: firme
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nuovo tipo di iniziativa
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -70,6 +72,11 @@ it:
         initiatives_types: Tipi di iniziativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La data di fine delle firme per l'iniziativa %{resource_title} è stata estesa!
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Data di fine delle firme dell'iniziativa estesa!
+          notification_title: La data di fine delle firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
         milestone_completed:
           email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.

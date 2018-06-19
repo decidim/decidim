@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("participatory_process_steps.index.steps_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :process_step %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(current_participatory_process), class: "button tiny button--title" %>
+        <%= link_to t("actions.new_process_step", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process), class: "button tiny button--title" %>
       <% end %>
     </h2>
   </div>

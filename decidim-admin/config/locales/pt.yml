@@ -143,6 +143,7 @@ pt:
         browse: Explorar
         export: Exportar
         manage: Gerir
+        new: Novo %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
@@ -179,22 +180,22 @@ pt:
           success: Área atualizada com sucesso
       attachment_collections:
         create:
-          error: Ocorreu um erro ao criar uma nova coleção.
-          success: Coleção criada com sucesso.
+          error: Houve um erro ao criar uma nova pasta.
+          success: Pasta criada com sucesso.
         destroy:
-          success: Coleção destruída com sucesso.
+          success: Pasta destruída com sucesso.
         edit:
-          title: Editar coleção
+          title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta coleção não pode ser removida porque está em uso.
-          attachment_collections_title: Coleções de anexos
+          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
+          attachment_collections_title: Pastas de anexos
         new:
           create: Crio
-          title: Nova coleção
+          title: Nova pasta
         update:
-          error: Ocorreu um erro ao atualizar essa coleção.
-          success: Coleção atualizada com sucesso.
+          error: Houve um erro ao atualizar esta pasta.
+          success: Pasta atualizada com sucesso.
       attachments:
         create:
           error: Ocorreu um erro ao criar um novo anexo.
@@ -353,13 +354,13 @@ pt:
             plural: Plural
         attachment:
           fields:
-            collection: Coleção
+            collection: Pasta
             content_type: Tipo
             file_size: Tamanho
             title: Título
           name: Anexo
         attachment_collection:
-          name: Coleção
+          name: Pasta
         category:
           name: Categoria
         impersonation_log:

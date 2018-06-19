@@ -54,7 +54,7 @@ en:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: File no exists
+        file_no_exists: File does not exist
         invalid_token: The provided token is invalid.
         no_token: No token provided
         notice: Your data is currently in progress. You'll receive an email when it's complete.

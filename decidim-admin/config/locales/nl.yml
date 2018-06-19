@@ -143,6 +143,7 @@ nl:
         browse: Browsen
         export: Exporteren
         manage: Beheer
+        new: Nieuwe %{name}
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
@@ -179,22 +180,22 @@ nl:
           success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe collectie.
-          success: Collectie succesvol gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe map.
+          success: Map is succesvol gemaakt.
         destroy:
-          success: Verzameling succesvol vernietigd.
+          success: Map met succes vernietigd.
         edit:
-          title: Bewerk collectie
+          title: Bewerk map
           update: Bijwerken
         index:
-          attachment_collection_used: Deze collectie kan niet worden verwijderd omdat deze in gebruik is.
-          attachment_collections_title: Bijgevoegde collecties
+          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
+          attachment_collections_title: Bijlagemappen
         new:
           create: creëren
-          title: Nieuwe Collectie
+          title: Nieuwe map
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze collectie.
-          success: Collectie succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze map.
+          success: Map succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -353,13 +354,13 @@ nl:
             plural: Meervoud
         attachment:
           fields:
-            collection: Collectie
+            collection: Map
             content_type: Type
             file_size: Grootte
             title: Titel
           name: Bijlage
         attachment_collection:
-          name: Collectie
+          name: Map
         category:
           name: Categorie
         impersonation_log:

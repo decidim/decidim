@@ -143,6 +143,7 @@ ru:
         browse: Просмотреть
         export: Сохранить в виде файла
         manage: Управлять
+        new: Добавить %{name}
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
@@ -184,14 +185,14 @@ ru:
         destroy:
           success: Папка успешно удалена.
         edit:
-          title: Изменить папку
+          title: Редактировать папку
           update: Обновить
         index:
           attachment_collection_used: Эту папку нельзя удалить, так как она используется.
-          attachment_collections_title: Папки прикрепленных файлов
+          attachment_collections_title: Папки вложений
         new:
           create: Создать
-          title: Создать папку
+          title: Новая папка
         update:
           error: При попытке обновить эту папку произошла ошибка.
           success: Папка успешно обновлена.

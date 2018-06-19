@@ -114,14 +114,14 @@ it:
     meetings:
       actions:
         agenda: ordine del giorno
-        attachment_collections: collezioni
+        attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
         minutes: Minuti
-        new: Nuovo
+        new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni

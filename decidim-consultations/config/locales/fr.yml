@@ -3,39 +3,39 @@ fr:
     attributes:
       consultation:
         banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Portée en surbrillance
+        decidim_highlighted_scope_id: Périmètre mis en valeur
         description: Description
-        end_voting_date: Le vote prend fin
+        end_voting_date: Le vote prend fin le
         introductory_image: Image d'introduction
         introductory_video_url: URL de la vidéo d'introduction
-        questions: Des questions
-        slug: URL slug
-        start_voting_date: Le vote commence
+        questions: Questions
+        slug: Identifiant
+        start_voting_date: Le vote commence le
         subtitle: Sous-titre
         title: Titre
       question:
         banner_image: Image de la bannière
-        decidim_scope_id: Zone municipale
+        decidim_scope_id: Périmètre municipal
         hashtag: Hashtag
-        hero_image: Image de la maison
+        hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Portée
+        origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
-        participatory_scope: Champ d'application participatif
-        promoter_group: Groupe de promoteur
-        question_context: Le contexte
+        participatory_scope: Objectif
+        promoter_group: Organisateur
+        question_context: Contexte
         reference: Référence
-        scope: Zone municipale
-        slug: URL slug
+        scope: Périmètre municipal
+        slug: Identifiant
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
-        what_is_decided: Ce qui est décidé
+        what_is_decided: Ce qui doit être décidé
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Réponse non trouvée.
+          not_found: Réponse introuvable.
   activerecord:
     models:
       decidim/consultations:
@@ -43,7 +43,7 @@ fr:
         other: Consultations
       decidim/consultations/question:
         one: Question
-        other: Des questions
+        other: Questions
       decidim/consultations/response:
         one: Réponse
         other: Réponses
@@ -53,33 +53,36 @@ fr:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle consultation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publier les résultats
-        unpublish_results: Annuler la publication des résultats
+        unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette consultation.
-          success: Consultation publiée avec succès.
+          success: La consultation a été publiée avec succès.
         destroy:
-          error: Il y a eu une erreur de non publication de cette consultation.
-          success: Consultation non publiée avec succès.
+          error: Il y a eu une erreur lors de la dépublication de cette consultation.
+          success: La consultation a été dépubliée avec succès.
       consultation_results_publications:
         create:
           error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
-          success: Résultats de la consultation publiés avec succès.
+          success: Les résultats de la consultation ont été publiés avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
-          success: Résultats de la consultation non publiés avec succès.
+          error: Une erreur s'est produite lors de la dépublication des résultats de cette consultation.
+          success: Les résultats de la consultation ont été dépubliés avec succès.
       consultations:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle consultation.
-          success: Consultation créée avec succès.
+          success: La consultation a été créée avec succès.
         destroy:
-          success: Consultation supprimée avec succès.
+          success: La consultation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
-          slug_help: 'Les URL slugs sont utilisées pour générer les URL qui pointent vers cette consultation. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
-          title: informations générales
+          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette consultation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
+          title: Informations générales
         index:
           not_published: Non publié
           published: Publié
@@ -92,33 +95,33 @@ fr:
       menu:
         consultations: Consultations
         consultations_submenu:
-          info: Information
-          questions: Des questions
+          info: Informations
+          questions: Questions
         questions_submenu:
-          components: Composants
+          components: Fonctionnalités
           consultation: Consultation
-          info: Information
+          info: Informations
           responses: Réponses
       models:
         consultation:
           fields:
-            created_at: Créé à
-            published: Publié
+            created_at: Créée le
+            published: Publiée
             title: Titre
           name:
             one: Consultation
             other: Consultations
         question:
           fields:
-            created_at: Créé à
-            published: Publié
+            created_at: Créée le
+            published: Publiée
             title: Titre
           name:
             one: Question
-            other: Des questions
+            other: Questions
         response:
           fields:
-            created_at: Créé à
+            created_at: Créée le
             title: Titre
           name:
             one: Réponse
@@ -129,7 +132,7 @@ fr:
           success: Question publiée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette question.
-          success: Question non publiée avec succès.
+          success: Question dépubliée avec succès.
       questions:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle question.
@@ -139,10 +142,10 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          title: informations générales
+          title: Informations générales
         index:
-          not_published: Non publié
-          published: Publié
+          not_published: Non publiées
+          published: Publiées
         new:
           create: Créer
           title: Nouvelle question
@@ -152,14 +155,14 @@ fr:
       responses:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
-          success: Réponse créée avec succès
+          success: Réponse créée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de la réponse.
           success: Réponse supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
-          title: informations générales
+          title: Informations générales
         new:
           create: Créer
           title: Nouvelle réponse
@@ -168,30 +171,30 @@ fr:
           success: Réponse mise à jour avec succès.
       titles:
         consultations: Consultations
-        questions: Des questions
+        questions: Questions
         responses: Réponses
     consultations:
       consultation:
-        start_voting_date: Le vote commence
+        start_voting_date: Le vote commence le
         view_results: Voir les résultats
       consultation_card:
         view_results: Voir les résultats
       consultations:
         orders:
           label: 'Trier les consultations par :'
-          random: au hasard
+          random: Au hasard
           recent: Les plus récentes
       count:
         title:
           one: "%{count} consultation"
           other: "%{count} consultations"
       filters:
-        active: actif
-        all: Tout
-        finished: Fini
-        search: Chercher
-        state: Etat
-        upcoming: Prochain
+        active: Actifs
+        all: Tous
+        finished: Terminées
+        search: Rechercher
+        state: État
+        upcoming: À venir
       filters_small_view:
         close_modal: Fermer la fenêtre
         filter: Filtre
@@ -202,27 +205,27 @@ fr:
       index:
         title: Consultations
       question:
-        take_part: Prendre part
+        take_part: Participer
         view_results: Voir les résultats
         votes_out_of:
-          one: voter sur
+          one: vote sur
           other: votes sur
       question_votes:
         create:
-          error: Il y a eu des erreurs lors du vote de la question
+          error: Il y a eu des erreurs lors du vote sur la question
       regular_questions:
         title: Questions pour cette consultation
       show:
         badge_name:
-          finished: Fini
+          finished: Terminées
           open: Ouvrir
           open_votes: Votes ouverts
           published_results: Résultats publiés
         footer_button_text:
           debate: Débat
-          view: Vue
+          view: Voir
           view_results: Voir les résultats
-          vote: Vote
+          vote: Voter
         unspecified: Non précisé
     menu:
       consultations: Consultations
@@ -234,35 +237,35 @@ fr:
       results:
         title: Résultats
       show:
-        read_more: Voir la suite
+        read_more: En voir plus
       statistics:
         assistants_count_title: Assistants
         comments_count_title: Commentaires
         meetings_count_title: Rencontres
-        supports_count_title: Les soutiens
+        supports_count_title: Soutiens
       technical_info:
         technical_data: Données techniques
       vote_button:
         already_voted: Déjà voté
-        already_voted_hover: Révoquer le support
+        already_voted_hover: Retirer le soutien
         starting_from: À partir de %{date}
-        vote: Vote
+        vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
         title: 'Consultation: soutien aux questions'
       vote_modal_confirm:
-        change: Changement
+        change: Modifier
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
-        title: 'Consultation: confirmer le soutien'
+        title: 'Consultation : confirmer le soutien'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Pièces jointes
+          attachments: Documents liés
           categories: Catégories
       consultation_voting_data:
-        start_voting_date: Le vote commence
+        start_voting_date: Le vote commence le
       question_components:
         question_menu_item: La question
         unfold: Dérouler
