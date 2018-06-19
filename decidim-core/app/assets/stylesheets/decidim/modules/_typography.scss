@@ -125,6 +125,15 @@ hr{
   }
 }
 
+// text status-color
+$map: $foundation-palette;
+
+@each $key, $value in $map{
+  .text-#{$key}{
+    color: $value;
+  }
+}
+
 .text-large{
   font-size: 130%;
 }
