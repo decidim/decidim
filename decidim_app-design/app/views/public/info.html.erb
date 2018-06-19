@@ -9,13 +9,6 @@
 <main class="wrapper">
   <%= partial "process_header_home" %>
   <div class="row column">
-    <div class="row column">
-      <div class="callout secondary">
-        <p>
-          Los presupuestos participativos ya están abiertos. <a href="#">¡Consúltalos y vota!</a>
-        </p>
-      </div>
-    </div>
     <div class="row">
       <div class="columns medium-7 mediumlarge-8">
         <div class="section">
@@ -85,14 +78,6 @@
     <div class="row">
       <div class="columns large-8">
         <div class="section">
-          <h4 class="section-heading">Citas destacadas</h4>
-          <%= partial "meetings_highlights" %>
-        </div>
-        <div class="section">
-          <h4 class="section-heading">Propuestas destacadas</h4>
-          <%= partial "proposals_highlights" %>
-        </div>
-        <div class="section">
           <h4 class="section-heading">Documentos relacionados</h4>
           <div class="card card--list">
             <div class="card--list__item">
@@ -154,17 +139,12 @@
             </div>
           </div>
         </div>
-        <div class="section">
-          <h4 class="section-heading">Vídeo</h4>
-          <div class='embed-container'>
-            <iframe src='http://www.youtube.com/embed/QILiHiTD3uc'
-              allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="section">
-          <h4 class="section-heading">Fotos del proceso</h4>
-          <%= partial "gallery" %>
-        </div>
+      </div>
+    </div>
+    <div class="row column">
+      <div class="section">
+        <h4 class="section-heading">Actividad</h4>
+        <%= partial "process_stats" %>
       </div>
     </div>
   </div>
