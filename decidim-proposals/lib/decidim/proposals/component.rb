@@ -11,6 +11,8 @@ Decidim.register_component(:proposals) do |component|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
+  component.data_portable_entities = ["Decidim::Proposals::Proposal"]
+
   component.actions = %w(endorse vote create withdraw)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
@@ -81,6 +83,7 @@ Decidim.register_component(:proposals) do |component|
   component.exports :proposals do |exports|
     exports.collection do |component_instance|
       Decidim::Proposals::Proposal
+        .published
         .where(component: component_instance)
         .includes(:category, component: { participatory_space: :organization })
     end

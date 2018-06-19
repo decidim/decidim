@@ -82,8 +82,8 @@ gl:
             endorsements_blocked: Aprobacións bloqueadas
             endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
-            votes_blocked: Votos bloqueados
-            votes_enabled: Votos habilitados
+            votes_blocked: Voto bloqueado
+            votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
     events:
       proposals:
@@ -91,7 +91,7 @@ gl:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: As propostas agora están dispoñibles en %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">novas propostas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Agora podes presentar <a href="%{resource_path}">novas propostas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Podes aprobar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -153,7 +153,7 @@ gl:
       actions:
         answer: Resposta
         import: Importar dende outro compoñente
-        new: Novo
+        new: Nova proposta
         private_notes: Notas privadas
         title: Accións
       admin:
@@ -238,7 +238,7 @@ gl:
         success: Proposta creada con éxito. Gardado como borrador.
       destroy_draft:
         error: Produciuse un erro ao eliminar o borrador da proposta.
-        success: O borrador da proposta foi destruído con éxito.
+        success: O borrador da proposta eliminouse con éxito.
       models:
         proposal:
           fields:

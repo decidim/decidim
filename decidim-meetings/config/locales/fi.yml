@@ -1,6 +1,10 @@
 fi:
   activemodel:
     attributes:
+      agenda:
+        description: Kuvaus
+        duration: Kesto
+        title: otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -27,6 +31,13 @@ fi:
         description: Kuvaus
         video_url: Video url
         visible: Se on näkyvissä
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
+              too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
     models:
       decidim/meetings/close_meeting_event: Kokous päättyi
       decidim/meetings/create_meeting_event: Tapaaminen
@@ -102,18 +113,49 @@ fi:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     meetings:
       actions:
-        attachment_collections: kokoelmat
+        agenda: esityslista
+        attachment_collections: kansiot
         attachments: Liitteet
         close: Sulje
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
         minutes: Minuutit
-        new: Uusi
+        new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lisää esityslistan lapsi
+            agenda_item: Esityslistan kohta
+            agenda_item_children: Agenda Item Childs
+            down: Alas
+            remove: Poistaa
+            up: ylös
+          agenda_item_child:
+            agenda_item_child: Agenda Item Child
+            down: Alas
+            remove: Poistaa
+            up: ylös
+          create:
+            invalid: Ongelmana on luoda tämä ohjelma
+            success: Esityslista on luotu
+          edit:
+            title: Muokkaa esityslistaa
+            update: Päivittää
+          form:
+            add_agenda_item: Lisää esityslistan kohde
+            agenda_items: Esityslistan kohdat
+            end_date: Päättymispäivä
+            start_date: Aloituspäivämäärä
+          new:
+            create: Luoda
+            title: Uusi esityslista
+          update:
+            invalid: Ongelmana on päivittää tämä esityslista
+            success: Esityslista on päivitetty
         exports:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ fi:
           unfold: Avaa
         index:
           view_meeting: Näytä tapaaminen
+        meeting_minutes:
+          meeting_minutes: Kokouspöytäkirjat
+          related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
           upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
@@ -243,11 +288,9 @@ fi:
           contributions: Kontribuutioiden määrä
           going: Osallistumassa
           join: Liity tapahtumaan
-          meeting_minutes: Kokouspöytäkirjat
           meeting_report: Tapaamisraportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuneet organisaatiot
-          related_information: Liittyviä tietoja
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"

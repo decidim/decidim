@@ -5,7 +5,7 @@ gl:
         additional_info: Información de sorteo
         decidim_category_id: Categorías do conxunto de propostas nas que desexa aplicar o sorteo
         decidim_proposals_component_id: Propostas establecidas
-        dice: Resultado do rolo (rolar un dado de 6 caras (ou buscar outro xeito aleatorio de xerar un número do 1 ao 6) e introducir aquí, en vez de testemuñar o número resultante, isto contribúe á calidade e garantías da aleatoriedad o resultado
+        dice: Resultado da rolda. Move unha morea de 6 caras ou busque outra forma aleatoria de xerar un número do 1 ao 6 e insira aquí o número resultante diante dalgunhas testemuñas. Isto contribúe á calidade e garantías da aleatoriedade do resultado
         target_items: Número de propostas que se seleccionarán (indica a cantidade de propostas que desexa seleccionar trazando o grupo de propostas que escolleu previamente)
         title: Título
         witnesses: Testemuñas
@@ -42,7 +42,7 @@ gl:
         actions:
           destroy: Cancelar o sorteo
           edit: Editar
-          new: Novo
+          new: Nova xeración
           show: Detalles de clasificación
         models:
           sortition:

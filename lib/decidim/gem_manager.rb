@@ -68,23 +68,11 @@ module Decidim
 
     class << self
       def capture(cmd, env: {})
-        output, status = Open3.capture2e(env, cmd)
-
-        abort unless continue?(status.success?)
-
-        [output, status]
+        Open3.capture2e(env, cmd)
       end
 
       def run(cmd, out: STDOUT)
-        status = system(cmd, out: out)
-
-        abort unless continue?(status == true)
-
-        status
-      end
-
-      def continue?(status)
-        status || ENV["FAIL_FAST"] == "false"
+        system(cmd, out: out)
       end
 
       def test_participatory_space
@@ -109,7 +97,9 @@ module Decidim
 
       def run_all(command, out: STDOUT, include_root: true)
         all_dirs(include_root: include_root) do |dir|
-          new(dir).run(command, out: out)
+          status = new(dir).run(command, out: out)
+
+          break unless status || ENV["FAIL_FAST"] == "false"
         end
       end
 
@@ -124,16 +114,21 @@ module Decidim
       end
 
       def all_dirs(include_root: true)
-        root = File.expand_path(File.join("..", ".."), __dir__)
+        dirs = plugins
+        dirs << "./" if include_root
 
-        glob = "#{root}/#{include_root ? "{decidim-*,.}" : "decidim-*"}"
+        dirs.each { |dir| yield(dir) }
+      end
 
-        Dir.glob(glob)
-           .select { |f| File.directory?(f) }
-           .each { |dir| yield(dir) }
+      def plugins
+        Dir.glob("#{root}/decidim-*/")
       end
 
       private
+
+      def root
+        File.expand_path(File.join("..", ".."), __dir__)
+      end
 
       def semver_friendly_version
         version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev")
@@ -157,7 +152,7 @@ module Decidim
     end
 
     def name
-      folder_name.match?("decidim") ? folder_name : "decidim"
+      self.class.plugins.map { |name| File.expand_path(name) }.include?(@dir) ? folder_name : "decidim"
     end
 
     def version

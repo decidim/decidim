@@ -16,12 +16,12 @@ gl:
   decidim:
     budgets:
       actions:
-        attachment_collections: Coleccións
+        attachment_collections: Carpetas
         attachments: Anexos
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
-        new: Novo
+        new: Novo proxecto
         preview: Vista previa
         title: Accións
       admin:
@@ -33,7 +33,7 @@ gl:
             invalid: Produciuse un problema ao crear este proxecto
             success: O proxecto foi creado con éxito
           destroy:
-            success: Proxecto destruído con éxito
+            success: Proxecto eliminado con éxito
           edit:
             title: Editar proxecto
             update: Actualización
@@ -43,7 +43,7 @@ gl:
             title: Proxectos
           new:
             create: Crear
-            title: Novo resultado
+            title: Novo proxecto
           update:
             invalid: Produciuse un problema ao actualizar este proxecto
             success: Proxecto actualizado correctamente
@@ -127,7 +127,7 @@ gl:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votos habilitados
+            votes_enabled: Votación habilitada
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto

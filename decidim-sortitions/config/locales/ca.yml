@@ -5,7 +5,7 @@ ca:
         additional_info: Informació sobre el sorteig
         decidim_category_id: Categories del conjunt de propostes en què voleu aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
-        dice: Resultat de la tirada de daus (tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6) i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
+        dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6 i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
@@ -42,7 +42,7 @@ ca:
         actions:
           destroy: Cancel·la el sorteig
           edit: Edita
-          new: Nou
+          new: Nou sorteig
           show: Detalls del sorteig
         models:
           sortition:

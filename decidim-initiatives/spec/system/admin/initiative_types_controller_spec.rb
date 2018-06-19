@@ -21,9 +21,9 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when creating an initiative type" do
-    it "Deletes the initiative type" do
+    it "creates the initiative type" do
       visit decidim_admin_initiatives.initiatives_types_path
-      click_link "New"
+      click_link "New initiative type"
 
       fill_in_i18n(
         :initiatives_type_title,
@@ -62,7 +62,7 @@ describe "InitiativeTypesController", type: :system do
       click_button "Update"
 
       within ".callout-wrapper" do
-        expect(page).to have_content("The given initiative has been successfully updated")
+        expect(page).to have_content("The initiative type has been successfully updated")
       end
     end
   end
@@ -73,7 +73,7 @@ describe "InitiativeTypesController", type: :system do
     it "Deletes the initiative type" do
       visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
 
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       within ".callout-wrapper" do
         expect(page).to have_content("The initiative type has been successfully removed")

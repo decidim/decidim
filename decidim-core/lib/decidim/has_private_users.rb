@@ -15,7 +15,7 @@ module Decidim
       scope :visible_for, lambda { |user|
                             joins("LEFT JOIN decidim_participatory_space_private_users ON
                             decidim_participatory_space_private_users.privatable_to_id = #{table_name}.id")
-                              .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ? ", true, user, false)
+                              .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ? ", true, user, false).distinct
                           }
 
       def self.public_spaces

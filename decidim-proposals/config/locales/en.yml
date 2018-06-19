@@ -83,8 +83,8 @@ en:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
-            votes_blocked: Votes blocked
-            votes_enabled: Votes enabled
+            votes_blocked: Voting blocked
+            votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
@@ -92,7 +92,7 @@ en:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -154,7 +154,7 @@ en:
       actions:
         answer: Answer
         import: Import from another component
-        new: New
+        new: New proposal
         private_notes: Private notes
         title: Actions
       admin:
@@ -239,7 +239,7 @@ en:
         success: Proposal created successfully. Saved as a Draft.
       destroy_draft:
         error: There's been errors deleting the proposal draft.
-        success: Proposal draft was successfully destroyed.
+        success: Proposal draft was successfully deleted.
       models:
         proposal:
           fields:

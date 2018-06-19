@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       assembly:
-        area_id: Ділянка
+        area_id: Дільниця
         assembly_type: Різновид зборів
         assembly_type_other: Інший різновид зборів
         banner_image: Банерне зображення
@@ -12,13 +12,13 @@ uk:
         copy_categories: Скопіювати розряди
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
-        decidim_area_id: Ділянка
+        decidim_area_id: Дільниця
         decidim_scope_id: Обсяг
         description: Опис
-        developer_group: Група зачинальників
+        developer_group: Робочий гурт з просування
         domain: Домен
         duration: Тривалість
         facebook: Фейсбук
@@ -29,7 +29,7 @@ uk:
         instagram: Інстаграм
         internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Обсяг співучасті
@@ -81,9 +81,11 @@ uk:
         other: Ролей учасників зборів
   decidim:
     admin:
+      actions:
+        new_assembly: Додати збори
       assemblies:
         create:
-          error: При додаванні нових зборів сталася помилка.
+          error: При спробі додати нові збори сталася помилка.
           success: Збори успішно додано.
         destroy:
           success: Збори успішно видалено.
@@ -93,18 +95,18 @@ uk:
           title: Загальні відомості
         index:
           not_published: Не оприлюднено
-          private: Приховані
-          public: Публічні
+          private: Приватні
+          public: Оприлюдені
           published: Оприлюднено
         new:
           create: Додати
-          title: Нові збори
+          title: Додати збори
         update:
-          error: При оновленні цих зборів сталася помилка.
+          error: При спробі оновити ці збори сталася помилка.
           success: Збори успішно оновлено.
       assemblies_copies:
         create:
-          error: При створенні копії цих зборів сталася помилка.
+          error: При спробі створити копію цих зборів сталася помилка.
           success: Успішно створено копію зборів.
       assembly_copies:
         new:
@@ -124,7 +126,7 @@ uk:
           assembly_members_title: Члени президії зборів
         new:
           create: Додати
-          title: Новий член президії зборів.
+          title: Додати члена президії зборів.
         update:
           error: При спробі оновити члена президії цих зборів сталася помилка.
           success: Члена президії цих зборів успішно оновлено.
@@ -148,7 +150,7 @@ uk:
           assembly_admins_title: Учасники зборів
         new:
           create: Створити
-          title: Новий учасник зборів.
+          title: Додати учасника зборів.
         update:
           error: При спробі оновити учасника цих зборів сталася помилка.
           success: Учасника цих зборів успішно оновлено.
@@ -157,19 +159,19 @@ uk:
         assemblies_submenu:
           assembly_admins: Учасники зборів
           assembly_members: Члени президії
-          attachment_collections: Збірки
-          attachment_files: Файли
+          attachment_collections: Теки
+          attachment_files: Вкладені файли
           attachments: Вкладені файли
           categories: Розряди
           components: Складові
           info: Відомості
           moderations: Дії з модерації
-          private_users: Приховані учасники
+          private_users: Приватні учасники
       models:
         assembly:
           fields:
             created_at: 'Додано:'
-            private: Приховані
+            private: Приватні
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
@@ -182,7 +184,7 @@ uk:
             position: Посада
           name: Член президії
           positions:
-            other: Інше
+            other: Інша
             president: Головуючий
             secretary: Секретар
             vice_president: Заступник головуючого
@@ -194,7 +196,7 @@ uk:
           name: Учасник зборів
           roles:
             admin: Адміністратор
-            collaborator: Співавтор
+            collaborator: Співробітник
             moderator: Модератор
       titles:
         assemblies: Збори
@@ -216,10 +218,10 @@ uk:
       admin:
         assemblies:
           form:
-            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку ця дата відображатиметься як невизначена.
+            duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку вони будуть показуватися як безстрокові.
             included_at_help: Оберіть дату, коли ці збори були додані до Десідім. Вона не обов'язково має бути тою самою ж, що і дата створення.
-            select_a_created_by: Оберіть, ким створені
-            select_an_area: Оберіть ділянку
+            select_a_created_by: Вкажіть, ким створені
+            select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
@@ -244,13 +246,13 @@ uk:
         index:
           members: Члени президії
       assembly_types:
-        commission: Комісія
+        commission: Робочий гурт
         consultative_advisory: Дорадчі / Консультативні
         executive: Виконавчі
         government: Урядові
         others: Інші
         participatory: Співучасні
-        working_group: Робоча група
+        working_group: Робочий гурт
       created_by:
         city_council: Міська рада
         others: Інші
@@ -260,28 +262,28 @@ uk:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Започаті збори
+            active_assemblies: Діючі збори
             see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
             member_of: 'Входить у склад:'
       show:
-        area: Ділянка
+        area: Дільниця
         assembly_type: Різновид зборів
         children: Збори
         closing_date: Дата закриття
         composition: Склад
-        created_by: 'Створив:'
+        created_by: 'Автор:'
         creation_date: Дата створення
-        developer_group: Група зачинальників
+        developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
-        indefinite_duration: Невизначена
+        indefinite_duration: Безстрокова
         internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Місцева ділянка
+        local_area: Місцева дільниця
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
@@ -293,21 +295,21 @@ uk:
         social_networks: Соціальні мережі
         target: Мета
       statistics:
-        answers_count: Відповіді
-        assemblies_count: Збори
-        comments_count: Коментарі
-        debates_count: Обговорення
-        endorsements_count: Підтримали
+        answers_count: Відповідей
+        assemblies_count: Зборів
+        comments_count: Коментарів
+        debates_count: Обговорень
+        endorsements_count: Проявів підтримки
         headline: Діяльність
-        meetings_count: Зустрічі
-        orders_count: Голоси
-        pages_count: Сторінки
-        projects_count: Задуми
-        proposals_count: Пропозиції
-        results_count: Підсумки
-        surveys_count: Опитування
-        users_count: Учасники
-        votes_count: Голоси
+        meetings_count: Зустрічей
+        orders_count: Голосів
+        pages_count: Сторінок
+        projects_count: Задумів
+        proposals_count: Пропозицій
+        results_count: Підсумків
+        surveys_count: Опитувань
+        users_count: Учасників
+        votes_count: Голосів
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'
@@ -336,7 +338,7 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Дізнатися більше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_header:
         assembly_member_menu_item: Члени президії

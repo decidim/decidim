@@ -6,12 +6,12 @@ en:
         banner_image: Banner image
         decidim_highlighted_scope_id: Highlighted scope
         description: Description
-        end_voting_date: End date
+        end_voting_date: Voting ends
         introductory_image: Introductory image
         introductory_video_url: Introductory video URL
         questions: Questions
         slug: URL slug
-        start_voting_date: Start date
+        start_voting_date: Voting begins
         subtitle: Subtitle
         title: Title
       question:
@@ -54,6 +54,9 @@ en:
   decidim:
     admin:
       actions:
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
         publish_results: Publish results
         unpublish_results: Unpublish results
       consultation_publications:
@@ -75,7 +78,7 @@ en:
           error: There was an error creating a new consultation.
           success: Consultation successfully created.
         destroy:
-          success: Consultation successfully destroyed.
+          success: Consultation successfully deleted.
         edit:
           update: Update
         form:
@@ -136,7 +139,7 @@ en:
           error: There was an error creating a new question.
           success: Question successfully created.
         destroy:
-          success: Question successfully destroyed.
+          success: Question successfully deleted.
         edit:
           update: Update
         form:
@@ -156,7 +159,7 @@ en:
           success: Response successfully created.
         destroy:
           error: There was an error when removing the response.
-          success: Response successfully destroyed.
+          success: Response successfully deleted.
         edit:
           update: Update
         form:
@@ -173,7 +176,7 @@ en:
         responses: Responses
     consultations:
       consultation:
-        start_voting_date: Voting from
+        start_voting_date: Voting begins
         view_results: View results
       consultation_card:
         view_results: View results
@@ -240,7 +243,7 @@ en:
         assistants_count_title: Assistants
         comments_count_title: Comments
         meetings_count_title: Meetings
-        supports_count_title: Adhesions
+        supports_count_title: Supports
       technical_info:
         technical_data: Technical data
       vote_button:
@@ -263,7 +266,7 @@ en:
           attachments: Attachments
           categories: Categories
       consultation_voting_data:
-        start_voting_date: Voting from
+        start_voting_date: Voting begins
       question_components:
         question_menu_item: The question
         unfold: Unfold

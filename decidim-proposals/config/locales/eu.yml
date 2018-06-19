@@ -82,8 +82,8 @@ eu:
             endorsements_blocked: Onarpen blokeatuak
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
-            votes_blocked: Botoiak blokeatuta
-            votes_enabled: Botoiak gaituta
+            votes_blocked: Botoak blokeatuta
+            votes_enabled: Botoak gaituta
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     events:
       proposals:
@@ -91,7 +91,7 @@ eu:
           email_intro: 'Orain %{participatory_space_title}proposamen berriak sor ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamenak orain eskuragarri %{participatory_space_title}
-          notification_title: Orain <a href="%{resource_path}">proposamen berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Orain jarri ahal Aurrera <a href="%{resource_path}">proposamen berriak</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: '%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -153,7 +153,7 @@ eu:
       actions:
         answer: Erantzuna
         import: Inportatu beste osagai batetik
-        new: Berria
+        new: Proposamen berria
         private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
@@ -238,7 +238,7 @@ eu:
         success: Onartutako proposamena. Zirriborro gisa gorde da.
       destroy_draft:
         error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
-        success: Proposamenaren zirriborroa behar bezala suntsitu zen.
+        success: Proposamenaren zirriborroa zuzen ezabatu da.
       models:
         proposal:
           fields:

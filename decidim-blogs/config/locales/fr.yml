@@ -11,9 +11,9 @@ fr:
     blogs:
       actions:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
-        destroy: Effacer
+        destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouvel article
         title: Actions
       admin:
         models:
@@ -50,7 +50,7 @@ fr:
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
-      read_more: Lire la suite
+      read_more: Voir la suite
     components:
       blogs:
         name: Actualités
@@ -60,14 +60,14 @@ fr:
             comments_enabled: Commentaires activés
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Commentaires désactivés
     events:
       blogs:
         post_created:
           email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: Le message <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
     pages:
       home:
         statistics:

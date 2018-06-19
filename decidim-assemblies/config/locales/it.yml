@@ -18,7 +18,7 @@ it:
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
-        developer_group: Gruppo sviluppatori
+        developer_group: Gruppo promotore
         domain: Dominio
         duration: Durata
         facebook: Facebook
@@ -75,12 +75,14 @@ it:
         other: Assemblare i ruoli utente
   decidim:
     admin:
+      actions:
+        new_assembly: Nuovo assemblaggio
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.
           success: L'assemblaggio è stato creato con successo.
         destroy:
-          success: Assemblea distrutta con successo.
+          success: Assemblea cancellata con successo.
         edit:
           update: Aggiorna
         form:
@@ -110,7 +112,7 @@ it:
           error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
           success: Membro creato con successo per questo assembly.
         destroy:
-          success: Membro distrutto con successo per questo assemblaggio.
+          success: Membro cancellato con successo per questo assembly.
         edit:
           title: Aggiorna membro dell'assembly.
           update: Aggiornare
@@ -132,9 +134,9 @@ it:
       assembly_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo assembly.
-          success: Utente creato con successo per questo assembly.
+          success: Utente aggiunto correttamente a questo assembly.
         destroy:
-          success: Utente distrutto correttamente per questo assembly.
+          success: Utente rimosso con successo da questo assembly.
         edit:
           title: Aggiorna utente dell'assieme.
           update: Aggiornare
@@ -151,7 +153,7 @@ it:
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
           assembly_members: Utenti
-          attachment_collections: collezioni
+          attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie

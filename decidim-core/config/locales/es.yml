@@ -52,6 +52,11 @@ es:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: El archivo no existe
+        invalid_token: El token proporcionado no es válido.
+        no_token: No se proporciona token
+        notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
@@ -177,6 +182,13 @@ es:
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
+    data_portability:
+      export:
+        ready: Listo
+      show:
+        download_data: Descargar los datos
+        download_data_description: Un archivo con toda la información asociada con la cuenta se enviará a <strong>%{user_email}</strong>
+        request_data: Solicitar datos
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ es:
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
@@ -304,6 +319,18 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    invitations:
+      create:
+        error: Hubo algunos problemas al invitar a tus amigos
+        error_empty_form: Por favor introduce algunas direcciones de correo electrónico.
+        success: '¡Hemos enviado las invitaciones a tus amigos!'
+      index:
+        customize_message: Personaliza el mensaje de invitación
+        friend_email: 'Correo del amigo #%{index}'
+        invitations_subtitle: Haz saber a tus amigos sobre este sitio.
+        invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
+        invite: Invitación
+        visit_your_profile: Visita tu perfil
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -423,6 +450,23 @@ es:
           register: Regístrate
       index:
         title: Más información
+      terms_and_conditions:
+        accept:
+          error: Ha habido un error al aceptar los Términos y Condiciones.
+          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
+        form:
+          agreement: Estoy de acuerdo con estos términos
+          legend: Aceptar los Términos y Condiciones de uso
+        refuse:
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_btn_continue: Aceptar los términos y continuar
+          modal_btn_exit: Lo revisaré más tarde
+          modal_button: Rechazar los términos
+          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
+        required_review:
+          alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
+          body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
+          title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
     profile:
@@ -459,6 +503,20 @@ es:
         title: Seleccione %{field}
       prompt: Seleccione un ámbito
       scopes: Ámbitos
+    search:
+      filter:
+        all: Todo
+        component: Componente
+      results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
+      term_input_placeholder: Buscar
+    searches:
+      filters:
+        search: Buscar
+      filters_small_view:
+        close_modal: Cerrar modal
+        filter: Filtrar
+        filter_by: Filtrar por
+        unfold: Desplegar
     shared:
       action_authorization_modal:
         expired:
@@ -515,18 +573,20 @@ es:
   devise:
     invitations:
       edit:
-        header: Escribe tu contraseña
+        header: Termina de crear tu cuenta
         nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
+        subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
         hello: Hola %{email},
         ignore: |-
-          Si no quieres aceptar la invitación ignora este correo.<br />
-          Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
+          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
+          Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_friend: "%{invited_by} te ha invitado a %{application}."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
@@ -535,6 +595,10 @@ es:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
+      invite_friend:
+        accept_invitation: 'Puedes aceptar la invitación a través del siguiente enlace:'
+        friend_custom_text: 'Dejaron este mensaje para ti:'
+        subject: Has sido invitado a %{organization}
       invite_private_user:
         subject: Has sido invitado a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
@@ -548,17 +612,15 @@ es:
       public: Tu información pública
   errors:
     messages:
-      content_type_whitelist_error: El tipo de archivo no es válido
+      content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      invalid_manifest: Manifiesto inválido
-      invalid_participatory_process: Proceso participativo inválido
-      long_words: Contiene palabras que son demasiado largas
-      must_start_with_caps: Debe comenzar con mayúsculas
+      long_words: contiene palabras que son demasiado largas
+      must_start_with_caps: debe comenzar con mayúsculas
       nesting_too_deep: no puede estar dentro de una subcategoría
-      too_many_marks: Está utilizando demasiados símbolos de interrogación o exclamación
-      too_much_caps: Está usando demasiadas mayúsculas
-      too_short: Es demasiado corto
+      too_many_marks: hay demasiados signos de puntuación
+      too_much_caps: hay demasiadas mayúsculas
+      too_short: es demasiado corto
   forms:
     required: Obligatorio
   invisible_captcha:
@@ -586,6 +648,7 @@ es:
       user_menu:
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
+        invite_friends: Invitar a amigos
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
@@ -594,6 +657,7 @@ es:
         account: Cuenta
         authorizations: Autorizaciones
         delete_my_account: Eliminar mi cuenta
+        my_data: Mis datos
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
@@ -601,6 +665,16 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
+  password_validator:
+    domain_included_in_password: Es muy similar a este nombre de dominio
+    email_included_in_password: Es muy similar a tu correo electrónico
+    fallback: No es válido
+    name_included_in_password: Es muy similar a tu nombre
+    not_enough_unique_characters: No tiene suficientes caracteres únicos
+    password_not_allowed: No se permite
+    password_too_common: Es demasiado común
+    password_too_long: Es demasiado largo
+    password_too_short: Es demasiado corto
   social_share_button:
     delicious: Delicious
     douban: Douban

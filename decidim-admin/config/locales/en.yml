@@ -11,7 +11,7 @@ en:
         organization: Organization
         plural: Plural
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Folder
         description: Description
         file: File
         title: Title
@@ -97,7 +97,7 @@ en:
       decidim/participatory_process:
         banner_image: Banner image
         description: Description
-        developer_group: Developer group
+        developer_group: Promoter group
         domain: Domain
         end_date: End date
         hashtag: Hashtag
@@ -133,7 +133,7 @@ en:
         organization_name: Organization name
         organization_url: Organization URL
         redirect_uri: Redirect URI
-        site: Site
+        site: Website
   date:
     formats:
       datepicker: "%m/%d/%Y"
@@ -144,6 +144,7 @@ en:
         browse: Browse
         export: Export
         manage: Manage
+        new: New %{name}
         permissions: Permissions
         reject: Reject
         verify: Verify
@@ -180,22 +181,22 @@ en:
           success: Area updated successfully
       attachment_collections:
         create:
-          error: There was an error creating a new collection.
-          success: Collection created successfully.
+          error: There was an error creating a new folder.
+          success: Folder created successfully.
         destroy:
-          success: Collection destroyed successfully.
+          success: Folder destroyed successfully.
         edit:
-          title: Edit collection
+          title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This collection cannot be removed because it is in use.
-          attachment_collections_title: Attachment collections
+          attachment_collection_used: This folder cannot be removed because it is in use.
+          attachment_collections_title: Attachment folders
         new:
           create: Create
-          title: New collection
+          title: New folder
         update:
-          error: There was an error when updating this collection.
-          success: Collection updated successfully.
+          error: There was an error when updating this folder.
+          success: Folder updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -354,13 +355,13 @@ en:
             plural: Plural
         attachment:
           fields:
-            collection: Collection
+            collection: Folder
             content_type: Type
             file_size: Size
             title: Title
           name: Attachment
         attachment_collection:
-          name: Collection
+          name: Folder
         category:
           name: Category
         impersonation_log:
@@ -525,7 +526,7 @@ en:
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent
+          omnipresent_banner_appearance_title: Edit omnipresent banner
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.

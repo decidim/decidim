@@ -5,12 +5,12 @@ gl:
         banner_image: Imaxe do banner
         decidim_highlighted_scope_id: Alcance destacado
         description: Descrición
-        end_voting_date: Data de finalización
+        end_voting_date: A votación remata
         introductory_image: Imaxe introdutoria
         introductory_video_url: URL de video introdutorio
         questions: Preguntas
         slug: URL slug
-        start_voting_date: Data de inicio
+        start_voting_date: Comeza a votación
         subtitle: Subtítulo
         title: Título
       question:
@@ -53,6 +53,9 @@ gl:
   decidim:
     admin:
       actions:
+        new_consultation: Nova consulta
+        new_question: Nova pregunta
+        new_response: Nova resposta
         publish_results: Publicar resultados
         unpublish_results: Non publicar resultados
       consultation_publications:
@@ -74,7 +77,7 @@ gl:
           error: Produciuse un erro ao crear unha nova consulta.
           success: Consulta creada con éxito.
         destroy:
-          success: Consulta destruída con éxito.
+          success: Consulta eliminada con éxito.
         edit:
           update: Actualización
         form:
@@ -135,7 +138,7 @@ gl:
           error: Produciuse un erro ao crear unha nova pregunta.
           success: Pregunta creada con éxito.
         destroy:
-          success: Pregunta destruída con éxito.
+          success: A pregunta eliminouse correctamente.
         edit:
           update: Actualización
         form:
@@ -155,7 +158,7 @@ gl:
           success: A resposta foi creada con éxito.
         destroy:
           error: Produciuse un erro ao eliminar a resposta.
-          success: A resposta foi destruída con éxito.
+          success: A resposta eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -172,7 +175,7 @@ gl:
         responses: Respostas
     consultations:
       consultation:
-        start_voting_date: Votación desde
+        start_voting_date: Comeza a votación
         view_results: Ver resultados
       consultation_card:
         view_results: Ver resultados
@@ -239,7 +242,7 @@ gl:
         assistants_count_title: Asistentes
         comments_count_title: Comentarios
         meetings_count_title: Reunións
-        supports_count_title: Adhesións
+        supports_count_title: Soporta
       technical_info:
         technical_data: Datos técnicos
       vote_button:
@@ -262,7 +265,7 @@ gl:
           attachments: Anexos
           categories: Categorías
       consultation_voting_data:
-        start_voting_date: Votación desde
+        start_voting_date: Comeza a votación
       question_components:
         question_menu_item: A pregunta
         unfold: Despregar

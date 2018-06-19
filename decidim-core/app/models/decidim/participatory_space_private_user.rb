@@ -3,10 +3,20 @@
 module Decidim
   # This class gives a given User access to a given private ParticipatorySpacePrivateUser
   class ParticipatorySpacePrivateUser < ApplicationRecord
+    include Decidim::DataPortability
+
     belongs_to :user, class_name: "Decidim::User", foreign_key: :decidim_user_id
     belongs_to :privatable_to, polymorphic: true
 
     validate :user_and_participatory_space_same_organization
+
+    def self.user_collection(user)
+      where(decidim_user_id: user.id)
+    end
+
+    def self.export_serializer
+      Decidim::DataPortabilitySerializers::DataPortabilityParticipatorySpacePrivateUserSerializer
+    end
 
     private
 

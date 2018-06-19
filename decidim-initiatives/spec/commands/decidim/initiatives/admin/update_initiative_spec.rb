@@ -9,7 +9,37 @@ module Decidim
         let(:form_klass) { Decidim::Initiatives::Admin::InitiativeForm }
 
         context "when valid data" do
-          it_behaves_like "update an initiative"
+          it_behaves_like "update an initiative" do
+            context "when the user is an admin" do
+              let(:current_user) { create(:user, :admin, organization: initiative.organization) }
+
+              it "notifies the followers" do
+                follower = create(:user, organization: organization)
+                create(:follow, followable: initiative, user: follower)
+
+                expect(Decidim::EventsManager)
+                  .to receive(:publish)
+                  .with(
+                    event: "decidim.events.initiatives.initiative_extended",
+                    event_class: Decidim::Initiatives::ExtendInitiativeEvent,
+                    resource: initiative,
+                    recipient_ids: [follower.id]
+                  )
+
+                command.call
+              end
+
+              context "when the signature end time is not modified" do
+                let(:signature_end_time) { initiative.signature_end_time }
+
+                it "doesn't notify the followers" do
+                  expect(Decidim::EventsManager).not_to receive(:publish)
+
+                  command.call
+                end
+              end
+            end
+          end
         end
 
         context "when validation failure" do

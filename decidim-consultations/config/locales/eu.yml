@@ -5,12 +5,12 @@ eu:
         banner_image: Banner irudia
         decidim_highlighted_scope_id: Nabarmendutako esparrua
         description: deskribapena
-        end_voting_date: Amaiera data
+        end_voting_date: Botoaren bukaerak
         introductory_image: Sarrera-irudia
         introductory_video_url: Sarrera bideoaren URLa
         questions: Galderak
         slug: URL slug
-        start_voting_date: Hasiera data
+        start_voting_date: Botoa hasten da
         subtitle: azpititulua
         title: Izenburua
       question:
@@ -53,6 +53,9 @@ eu:
   decidim:
     admin:
       actions:
+        new_consultation: Kontsulta berria
+        new_question: Galdera berria
+        new_response: Erantzun berria
         publish_results: Argitaratu emaitzak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:
@@ -74,7 +77,7 @@ eu:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
         destroy:
-          success: Aholkuak behar bezala suntsitu dira.
+          success: Kontsulta ezabatu da.
         edit:
           update: eguneratzearen
         form:
@@ -135,7 +138,7 @@ eu:
           error: Errore bat gertatu da galdera berri bat sortzean.
           success: Galdera zuzen sortu da.
         destroy:
-          success: Galdera behar bezala suntsitu da.
+          success: Galdera ezabatu da.
         edit:
           update: eguneratzearen
         form:
@@ -155,7 +158,7 @@ eu:
           success: Erantzun arrakastaz sortu da.
         destroy:
           error: Errore bat gertatu da erantzuna kentzean.
-          success: Erantzun arrakastaz suntsitu.
+          success: Erantzun ezabatu da.
         edit:
           update: eguneratzearen
         form:
@@ -172,7 +175,7 @@ eu:
         responses: Erantzunak
     consultations:
       consultation:
-        start_voting_date: Voting from
+        start_voting_date: Botoa hasten da
         view_results: Ikusi emaitzak
       consultation_card:
         view_results: Ikusi emaitzak
@@ -239,7 +242,7 @@ eu:
         assistants_count_title: laguntzaileak
         comments_count_title: Oharrak
         meetings_count_title: Bilerak
-        supports_count_title: atxikimendu
+        supports_count_title: euskarri
       technical_info:
         technical_data: Datu teknikoak
       vote_button:
@@ -262,7 +265,7 @@ eu:
           attachments: eranskinak
           categories: Kategoriak
       consultation_voting_data:
-        start_voting_date: Voting from
+        start_voting_date: Botoa hasten da
       question_components:
         question_menu_item: Galdera
         unfold: Zabaldu

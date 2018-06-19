@@ -16,7 +16,7 @@ describe "InitiativeTypeScopesController", type: :system do
 
   context "when creating a new initiative type scope" do
     it "Creates a new initiative type scope" do
-      click_link "New"
+      click_link "New Initiative type scope"
       scope_pick select_data_picker(:initiatives_type_scope_decidim_scopes_id), scope
       fill_in :initiatives_type_scope_supports_required, with: 1000
       click_button "Create"
@@ -52,7 +52,7 @@ describe "InitiativeTypeScopesController", type: :system do
 
     it "removes the initiative type scope" do
       click_link "Configure"
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
       within ".callout-wrapper" do
         expect(page).to have_content("The scope has been successfully removed")
       end

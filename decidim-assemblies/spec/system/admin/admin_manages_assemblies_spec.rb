@@ -13,7 +13,7 @@ describe "Admin manages assemblies", type: :system do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New"
+      click_link "New assembly"
     end
 
     it "creates a new assembly" do
@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
     end
 
     it "deletes an assembly" do
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 

@@ -8,7 +8,7 @@ it:
         copy_components: Copia componenti
         copy_steps: Copia i passi
         description: Descrizione
-        developer_group: Gruppo sviluppatori
+        developer_group: Gruppo promotore
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
@@ -63,11 +63,14 @@ it:
       actions:
         activate: Attiva
         configure: Configura
-        confirm_destroy: Conferma eliminazione
+        confirm_destroy: Conferma cancellazione
         destroy: Elimina
         duplicate: Duplica
         edit: Modifica
-        new: Nuovo
+        new_process: Nuovo processo
+        new_process_group: Nuovo gruppo di processi
+        new_process_step: Nuovo passo
+        new_process_user_role: Nuovo utente del processo
         preview: Anteprima
         publish: Pubblica
         resend_invitation: Manda di nuovo l'invito
@@ -76,7 +79,7 @@ it:
         participatory_process_groups: Gruppo di processi
         participatory_processes: Processi
         participatory_processes_submenu:
-          attachment_collections: collezioni
+          attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie
@@ -126,7 +129,7 @@ it:
           title: Duplicare il processo partecipativo
       participatory_process_groups:
         destroy:
-          success: Il gruppo di processi partecipativi è stato distrutto con successo.
+          success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
           update: Modifica
@@ -156,7 +159,7 @@ it:
           error:
             active_step: Non è possibile cancellare questa fase poiché è attiva.
             last_step: Non è possibile cancellare l'ultima fase di un processo.
-          success: OK, il processo partecipativo è stato eliminato.
+          success: Passo del processo partecipativo cancellato con successo.
         edit:
           title: Modifica una fase del processo partecipativo.
           update: Modifica
@@ -173,9 +176,9 @@ it:
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
-          success: OK, è stato creato l'utente per questo processo partecipativo.
+          success: Utente aggiunto con successo a questo processo partecipativo.
         destroy:
-          success: L'utente per questo processo processo partecipativo è stato eliminato.
+          success: Utente rimosso con successo da questo processo partecipativo.
         edit:
           title: Aggiornamento utente di un processo partecipativo.
           update: Modifica
@@ -192,7 +195,7 @@ it:
           error: Si è verificato un errore durante la creazione del processo partecipativo.
           success: Il processo partecipativo è stato creato con successo. Configura ora i suoi passaggi.
         destroy:
-          success: OK, il processo partecipativo è stato eliminato.
+          success: Processo partecipativo cancellato con successo.
         edit:
           update: Modifica
         form:

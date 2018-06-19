@@ -63,11 +63,14 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: N'estàs segur?
-        destroy: Eliminar
+        confirm_destroy: Confirma eliminació
+        destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        new: Nou/va
+        new_process: Nou procés
+        new_process_group: Nou grup de processos
+        new_process_step: Nova fase
+        new_process_user_role: Nou usuari del procés
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -76,7 +79,7 @@ ca:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
         participatory_processes_submenu:
-          attachment_collections: Col·leccions
+          attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
@@ -110,7 +113,7 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari del procés
+          name: Usuari de procés participatiu
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -126,7 +129,7 @@ ca:
           title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
-          success: Grup eliminat correctament.
+          success: El grup de processos participatius s'ha suprimit correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
@@ -156,7 +159,7 @@ ca:
           error:
             active_step: No es pot eliminar la fase activa.
             last_step: No es pot eliminar l'última fase d'un procés.
-          success: La fase de procés participatiu s'ha eliminat correctament.
+          success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar
@@ -173,9 +176,9 @@ ca:
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: Usuari creat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
         destroy:
-          success: Usuari eliminat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
         edit:
           title: Editar usuari de procés participatiu.
           update: Actualitzar

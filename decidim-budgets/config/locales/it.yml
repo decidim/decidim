@@ -16,12 +16,12 @@ it:
   decidim:
     budgets:
       actions:
-        attachment_collections: collezioni
+        attachment_collections: Cartelle
         attachments: Allegati
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
         edit: Modifica
-        new: Nuovo
+        new: Nuovo progetto
         preview: Anteprima
         title: Azioni
       admin:
@@ -33,7 +33,7 @@ it:
             invalid: C'è stato un problema durante la creazione di questo progetto.
             success: OK, progetto creato.
           destroy:
-            success: OK, progetto eliminato.
+            success: Progetto eliminato con successo
           edit:
             title: Modifica il progetto
             update: Aggiorna
@@ -43,7 +43,7 @@ it:
             title: Progetti
           new:
             create: Crea
-            title: Nuovo risultato
+            title: Nuovo progetto
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
             success: OK, progetto aggiornato.
@@ -127,7 +127,7 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             show_votes: Mostra voti
-            votes_enabled: Voti abilitati
+            votes_enabled: Voto abilitato
     orders:
       checkout:
         error: C'è stato un errore durante l'acquisizione del voto.

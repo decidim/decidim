@@ -83,7 +83,7 @@ nl:
             endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             votes_blocked: Stemmen geblokkeerd
-            votes_enabled: Stemmen actief
+            votes_enabled: Stemmen ingeschakeld
             votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
@@ -91,7 +91,7 @@ nl:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: U kunt nu <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Je kan voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
@@ -153,7 +153,7 @@ nl:
       actions:
         answer: Antwoord
         import: Importeren vanuit een ander onderdeel
-        new: nieuwe
+        new: Nieuw voorstel
         private_notes: Privé-opmerkingen
         title: Acties
       admin:
@@ -238,7 +238,7 @@ nl:
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
       destroy_draft:
         error: Er zijn fouten opgetreden bij het verwijderen van het concept.
-        success: Voorstel concept is succesvol vernietigd.
+        success: Voorstel concept is succesvol verwijderd.
       models:
         proposal:
           fields:

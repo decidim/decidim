@@ -13,7 +13,7 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Périmètre
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
@@ -53,21 +53,24 @@ fr:
         one: Processus participatif
         other: Processus participatifs
       decidim/participatory_process_group:
-        one: Groupe de processus participatif
+        one: Groupe de processus participatifs
         other: Groupes de processus participatifs
       decidim/participatory_process_step:
         one: Étape
-        other: Pas
+        other: Étapes
   decidim:
     admin:
       actions:
         activate: Activer
         configure: Configurer
-        confirm_destroy: Confirmer la suppression
+        confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new: Nouveau
+        new_process: Nouveau processus
+        new_process_group: Nouveau groupe de processus
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel utilisateur du processus
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -90,7 +93,7 @@ fr:
         participatory_process:
           fields:
             created_at: Créé le
-            private: Privé
+            private: Statut
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -98,19 +101,19 @@ fr:
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupes de processus
+          name: Groupe de processus
         participatory_process_step:
           fields:
             end_date: Date de fin
             start_date: Date de début
             title: Titre
-          name: Etape du processus participatif
+          name: Étape du processus participatif
         participatory_process_user_role:
           fields:
             email: Email
             name: Nom
             role: Rôle
-          name: Rôle utilisateur du processus participatif
+          name: Utilisateur du processus participatif
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -121,12 +124,12 @@ fr:
             invitation_sent_at: Invitation envoyée à
       participatory_process_copies:
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
-          success: Le groupe de processus participatif a été détruit avec succès.
+          success: Groupe de processus participatifs supprimé avec succès.
         edit:
           title: Modifier le groupe de processus
           update: Mettre à jour
@@ -146,11 +149,11 @@ fr:
       participatory_process_step_activations:
         create:
           error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
-          success: Etape du processus participatif activée avec succès.
+          success: Étape du processus participatif activée avec succès.
       participatory_process_steps:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
-          success: Etape de processus participatif créée avec succès.
+          success: Étape du processus participatif créée avec succès.
         default_title: Introduction
         destroy:
           error:
@@ -161,7 +164,7 @@ fr:
           title: Modifier l'étape du processus participatif
           update: Mettre à jour
         index:
-          steps_title: Etapes
+          steps_title: Étapes
         new:
           create: Créer
           title: Nouvelle étape du processus participatif
@@ -169,13 +172,13 @@ fr:
           error: Une erreur s'est produite lors de la réorganisation des étapes du processus participatif.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape du processus participatif.
-          success: Etape du processus participatif mise à jour avec succès.
+          success: Étape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
-          success: Utilisateur créé avec succès pour ce processus participatif.
+          success: Utilisateur ajouté avec succès à ce processus participatif.
         destroy:
-          success: L'utilisateur a été supprimé avec succès pour ce processus participatif.
+          success: Utilisateur supprimé avec succès de ce processus participatif.
         edit:
           title: Mettre à jour l'utilisateur du processus participatif.
           update: Mettre à jour
@@ -198,10 +201,10 @@ fr:
         form:
           title: Informations générales
         index:
-          not_published: Non publié
-          private: Privé
-          public: Publique
-          published: Publié
+          not_published: Non publiés
+          private: Privés
+          public: Publics
+          published: Publiés
         new:
           create: Créer
           title: Nouveau processus participatif
@@ -214,10 +217,10 @@ fr:
           success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
-          success: Groupe de processus participatif créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatifs.
+          success: Groupe de processus participatifs créé avec succès.
       titles:
-        participatory_process_groups: Groupes de processus
+        participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
@@ -246,7 +249,7 @@ fr:
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
           notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Les dates de l''étape %{resource_title} de%{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
+          email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
@@ -258,22 +261,22 @@ fr:
         title: Groupes de processus
     participatory_process_steps:
       index:
-        process_steps: Etapes du processus
-        title: Etapes du processus participatif
+        process_steps: Étapes du processus
+        title: Étapes du processus participatif
     participatory_processes:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations du processus.
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       index:
         title: Processus participatifs
       order_by_processes:
         active: Actifs
-        all: Tout
+        all: Tous
         past: Passés
         upcoming: À venir
       pages:
@@ -310,7 +313,7 @@ fr:
         processes_count: Processus participatifs
         projects_count: Projets
         proposals_count: Propositions
-        results_count: Résultats
+        results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
         votes_count: Soutiens
@@ -319,10 +322,10 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
-          processes_count: 'Processus'
+          processes_count: 'Processus :'
       participatory_process_widgets:
         show:
-          active_step: Etape active
+          active_step: Étape active
           take_part: Participer
       participatory_processes:
         index:
@@ -340,7 +343,7 @@ fr:
           take_part: Participer
       process_header:
         process_menu_item: Présentation
-        unfold: Déplier
+        unfold: Dérouler
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes

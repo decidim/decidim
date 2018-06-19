@@ -4,6 +4,7 @@
 <% end %>
 <li><%= link_to t(".notifications"), decidim.profile_notifications_path(current_user.nickname) %></li>
 <li><%= link_to t(".conversations"), decidim.conversations_path %></li>
+<li><%= link_to t(".invite_friends"), decidim.account_invitations_path %></li>
 <% if allowed_to? :read, :admin_dashboard %>
   <li><%= link_to t(".admin_dashboard"), decidim_admin.root_path %></li>
 <% end %>

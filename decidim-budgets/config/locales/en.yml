@@ -17,12 +17,12 @@ en:
   decidim:
     budgets:
       actions:
-        attachment_collections: Collections
+        attachment_collections: Folders
         attachments: Attachments
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
-        new: New
+        new: New project
         preview: Preview
         title: Actions
       admin:
@@ -34,7 +34,7 @@ en:
             invalid: There's been a problem creating this project
             success: Project successfully created
           destroy:
-            success: Project successfully destroyed
+            success: Project successfully deleted
           edit:
             title: Edit project
             update: Update
@@ -44,7 +44,7 @@ en:
             title: Projects
           new:
             create: Create
-            title: New result
+            title: New project
           update:
             invalid: There's been a problem updating this project
             success: Project successfully updated
@@ -128,7 +128,7 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             show_votes: Show votes
-            votes_enabled: Votes enabled
+            votes_enabled: Voting enabled
     orders:
       checkout:
         error: An error ocurred while processing your vote

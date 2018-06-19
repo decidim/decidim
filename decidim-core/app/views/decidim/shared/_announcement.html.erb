@@ -1,6 +1,1 @@
-<div class="row column">
-  <% callout_class ||= "secondary" %>
-  <%= content_tag :div, class: "callout announcement mb-sm #{callout_class}" do %>
-    <%= decidim_sanitize translated_attribute announcement %>
-  <% end %>
-</div>
+<%= cell("decidim/announcement", local_assigns) %>

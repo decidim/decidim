@@ -8,6 +8,8 @@ Decidim.register_component(:debates) do |component|
   component.icon = "decidim/debates/icon.svg"
   component.permissions_class_name = "Decidim::Debates::Permissions"
 
+  component.data_portable_entities = ["Decidim::Debates::Debate"]
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end

@@ -5,7 +5,7 @@ fi:
         additional_info: Lajitustiedot
         decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
         decidim_proposals_component_id: Ehdotukset asetettu
-        dice: Muotin rullan tulos (kierrä 6-puolinen kuolema (tai etsi toinen satunnaisesti tapa luoda numero 1-6) ja tulkaa tänne, sen sijaan, että todistat tuloksena olevan numeron, tämä edistää laadun ja takuiden satunnaisuuden lopputulos
+        dice: Tulos rullasta. Suorita 6-puolinen kuolema tai etsi toinen satunnaisesti tapa luoda numero 1-6, ja kirjoita tähän tuloksena oleva luku osan todistajien edessä. Tämä edesauttaa tuloksen satunnaisuuden laatua ja takeita
         target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
         title: otsikko
         witnesses: todistajat
@@ -42,7 +42,7 @@ fi:
         actions:
           destroy: Peruuta järjestely
           edit: Muokata
-          new: Uusi
+          new: Uusi lajittelu
           show: Järjestelytiedot
         models:
           sortition:
@@ -87,7 +87,7 @@ fi:
             selected_proposals: Piirtämiseen valitut ehdotukset
           update:
             error: Virhe tapahtuman päivittämisessä.
-            success: Lajittelu onnistui päivittämään
+            success: Lajittelu onnistui
       admin_log:
         sortition:
           create: "%{user_name} loi %{resource_name} lajittelun %{space_name}"

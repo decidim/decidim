@@ -18,7 +18,7 @@ pl:
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         domain: Domena
         duration: Trwanie
         facebook: Facebook
@@ -81,12 +81,14 @@ pl:
         other: Zbierz role użytkowników
   decidim:
     admin:
+      actions:
+        new_assembly: Nowy montaż
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
           success: Zgromadzenie zostało utworzone.
         destroy:
-          success: Zgromadzenie zostało zniszczone.
+          success: Zgromadzenie zostało pomyślnie usunięte.
         edit:
           update: Aktualizuj
         form:
@@ -116,7 +118,7 @@ pl:
           error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
           success: Członek utworzony pomyślnie dla tego zespołu.
         destroy:
-          success: Członek został pomyślnie zniszczony dla tego zespołu.
+          success: Członek usunięty pomyślnie dla tego zespołu.
         edit:
           title: Zaktualizuj element złożenia.
           update: Aktualizacja
@@ -138,9 +140,9 @@ pl:
       assembly_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
-          success: Użytkownik został pomyślnie utworzony dla tego zespołu.
+          success: Użytkownik został pomyślnie dodany do tego zespołu.
         destroy:
-          success: Użytkownik został pomyślnie zniszczony dla tego zespołu.
+          success: Użytkownik usunięty pomyślnie z tego zestawu.
         edit:
           title: Zaktualizuj użytkownika złożenia.
           update: Aktualizacja
@@ -157,14 +159,14 @@ pl:
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
-          attachment_collections: Kolekcje
+          attachment_collections: Lornetka składana
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           components: składniki
           info: Informacje
           moderations: Modernizacje
-          private_users: Użytkownicy prywatni
+          private_users: Prywatni użytkownicy
       models:
         assembly:
           fields:
@@ -273,7 +275,7 @@ pl:
         composition: Kompozycja
         created_by: Stworzone przez
         creation_date: Data utworzenia
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         duration: Trwanie
         included_at: Zawarte w
         indefinite_duration: Nieokreślony

@@ -22,9 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transaction do
-          create_comment
-        end
+        create_comment
 
         broadcast(:ok, comment)
       end

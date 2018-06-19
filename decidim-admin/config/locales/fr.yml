@@ -23,7 +23,7 @@ fr:
         parent_id: Parent
       component:
         name: Titre
-        published_at: Publié à
+        published_at: Publiée à
         weight: Rang d'affichage
       id: ID
       newsletter:
@@ -64,7 +64,7 @@ fr:
         omnipresent_banner_url: URL
         reference_prefix: Préfixe de référence
         show_statistics: Montrer les statistiques
-        tos_version: Conditions d'utilisation
+        tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
@@ -117,7 +117,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Concertations
+        participatory_processes: Processus participatifs
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
@@ -132,7 +132,7 @@ fr:
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
-        site: Site
+        site: Site Internet
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -143,6 +143,7 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
+        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -166,7 +167,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          success: La zone d'application a bien été détruite.
+          success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -180,15 +181,15 @@ fr:
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
-          success: Dossier créé avec succès.
+          success: Le dossier a été créé avec succès.
         destroy:
-          success: Dossier détruit avec succès.
+          success: Dossier supprimé avec succès.
         edit:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Ce dossier ne peut pas être supprimé car celui-ci est en cours d'utilisation.
-          attachment_collections_title: Dossier de pièces jointes
+          attachment_collection_used: Ce dossier ne peut pas être supprimé car il est en cours d'utilisation.
+          attachment_collections_title: Dossiers de pièces jointes
         new:
           create: Créer
           title: Nouveau dossier
@@ -200,7 +201,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau document lié.
           success: Document lié créé avec succès.
         destroy:
-          success: Document lié détruit avec succès.
+          success: Document lié supprimé avec succès.
         edit:
           title: Modifier le document lié
           update: Mettre à jour
@@ -310,7 +311,7 @@ fr:
         new:
           impersonate: Représenter
           impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
-          impersonate_existing_user: Représenter l'identité "%{name}"
+          impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
       logs:
         logs_list:
@@ -372,14 +373,14 @@ fr:
             user: Utilisateur
         newsletter:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             name: Titre
           name: Application OAuth
         participatory_space_private_user:
@@ -394,7 +395,7 @@ fr:
             plural: Pluriel
         static_page:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             title: Titre
         user:
           fields:
@@ -480,7 +481,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
-          created_at: Créé le
+          created_at: Créée le
           filter:
             all: Tout
             not_officialized: Non validé
@@ -518,13 +519,13 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          cta_button_path_help: '''Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''''accueil. Utilisez ici des chemins partiels et non des URL complets. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''''accueil entre le texte de bienvenue et la description. Exemple: %{url}'''
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton d'appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
+          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier la bannière d'actualités
+          omnipresent_banner_appearance_title: Modifier la bannière permanente
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -576,7 +577,7 @@ fr:
         destroy:
           success: La page a été détruite avec succès
         edit:
-          changed_notably_help: Si cette case est cochée, les utilisateurs seront avisés d'accepter les nouvelles modalités et conditions.
+          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         index:

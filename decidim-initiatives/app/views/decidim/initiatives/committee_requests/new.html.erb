@@ -18,7 +18,7 @@
 <div class="row">
   <div class="columns large-12">
     <div class="section">
-      <%= sanitize translated_attribute(current_initiative.description) %>
+      <%= decidim_sanitize translated_attribute(current_initiative.description) %>
     </div>
 
     <div class="section">
@@ -33,4 +33,3 @@
     </div>
   </div>
 </div>
-<%= stylesheet_link_tag "decidim/initiatives/application" %>

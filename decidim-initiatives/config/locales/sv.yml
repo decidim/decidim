@@ -8,7 +8,7 @@ sv:
         scope_id: Omfattning
         signature_end_time: Slutet på signaturuppsamlingsperioden
         signature_start_time: Början av signaturuppsamlingsperioden
-        signature_type: Signaturtyp
+        signature_type: Signaturuppsamlingstyp
         signature_type_values:
           any: Blandad
           offline: Ansikte mot ansikte
@@ -30,7 +30,7 @@ sv:
         title: Titel
       organization_data:
         address: Adress
-        id_document: CIF
+        id_document: ID-dokument
         name: Fullständigt namn
   activerecord:
     models:
@@ -45,6 +45,8 @@ sv:
         other: signaturer
   decidim:
     admin:
+      actions:
+        new_initiative_type: Ny initiativtyp
       menu:
         initiatives: initiativ
         initiatives_types: Initiativtyper
@@ -70,6 +72,11 @@ sv:
         initiatives_types: Initiativtyper
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Signaturens slutdatum för initiativet %{resource_title} har förlängts!
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Initiativa signaturer slutdatum förlängt!
+          notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
         milestone_completed:
           email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
@@ -110,7 +117,7 @@ sv:
             filter_by: Filtrera efter
             preview: Förhandsvisning
             print: Skriva ut
-            search: busca
+            search: Sök
           show:
             print: Skriva ut
           update:
@@ -125,7 +132,7 @@ sv:
           edit:
             back: Tillbaka
             confirm_destroy: Är du säker?
-            destroy: Förstöra
+            destroy: Radera
             title: Redigera typ av initiativtyp
             update: Uppdatering
           new:
@@ -143,7 +150,7 @@ sv:
             success: Initiativtypen har tagits bort
           edit:
             confirm_destroy: Är du säker?
-            destroy: Förstöra
+            destroy: Radera
             update: Uppdatering
           form:
             title: Allmän information
@@ -154,7 +161,7 @@ sv:
             title: Ny initiativtyp
           update:
             error: Ett fel har uppstått
-            success: Det givna initiativet har blivit uppdaterat
+            success: Initiativtypen har blivit uppdaterad
       admin_log:
         initiative:
           publish: "%{user_name} publicerade %{resource_name} -initiativet"
@@ -171,7 +178,7 @@ sv:
       committee_requests:
         new:
           continue: Fortsätta
-          help_text: Du är på väg att begära att vara medlem i promotorutskottet för detta initiativ
+          help_text: Du är på väg att begära att bli medlem av promotorutskottet för detta initiativ
         spawn:
           success: Din förfrågan har skickats till initiativtagaren.
       create_initiative:
@@ -190,9 +197,9 @@ sv:
           more_information: "(Mer information)"
         finish_help:
           access_reminder: Kom ihåg att du alltid kommer att kunna komma åt dina initiativ via användarmenyn.
-          help_for_organizations: Om du är en förening måste du ladda upp protokollen från styrelsen för alla organisationer som överensstämmer med den främjande kommissionen
+          help_for_organizations: Om du är en förening måste du ladda upp protokollen från styrelsen för alla organisationer som bildar den främjande kommissionen
           help_in_person_signatures: Om du har valt att samla signaturerna personligen eller i kombination med online måste du ladda upp den information som krävs.
-          help_text: Kom ihåg att för att korrekt bearbeta initiativet måste du komma åt administratörspanelen där du hittar användarmenyn, ladda upp den information som krävs och skicka den till proceduren.
+          help_text: Kom ihåg att för att korrekt bearbeta initiativet måste du komma åt administratörspanelen där du hittar användarmenyn, ladda upp den information som krävs och skicka den för bearbetning.
           initiatives_page_link: Du kan slå upp all denna information på %{link} för att informera om initiativ.
           page: sida
         previous_form:
@@ -211,7 +218,7 @@ sv:
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
           continue: Fortsätta
-          invite_to_committee_help: Länk till bjuda in personer som kommer att vara en del av promotionsutskottet
+          invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
         show_similar_initiatives:
           back: Tillbaka
           compare_help: Om något av följande initiativ liknar din, uppmanar vi dig att stödja det. Ditt förslag kommer att ha fler möjligheter att få gjort.
@@ -274,7 +281,7 @@ sv:
           any_vote_method: Detta medborgarinitiativ samlar in online-support och ansikte mot ansikte.
           offline_method: Detta medborgarinitiativ samlar bara ansikte mot ansikte stöd.
         signature_identities:
-          select_identity: Välj användaridentitet
+          select_identity: Välj användaridentifierare
         signatures_count:
           one: " signatur"
           other: " signaturer"
@@ -302,7 +309,7 @@ sv:
         more_information: Här har du mer information om initiativskapande processen.
         progress_report_body_for: Initiativet %{title} har nått %{percentage}% av de nödvändiga stöden.
         progress_report_for: 'Fortsätt om initiativet: %{title}'
-        promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotionsutskottet. Vidarebefordra följande länk för att bjuda in personer till promotionsutskottet
+        promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotorutskottet. Vidarebefordra följande länk för att bjuda in personer till promotorkommittén
         status_change_body_for: 'Initiativet %{title} har ändrat sitt tillstånd till: %{state}'
         status_change_for: Initiativet %{title} har ändrat sitt tillstånd
         technical_validation_body_for: Initiativet %{title} har begärt sin tekniska validering.
@@ -329,7 +336,7 @@ sv:
         fill_data: Skapa
         finish: Avsluta
         previous_form: Start
-        promotal_committee: Promotionskommitté
+        promotal_committee: Promotörskommitté
         select_initiative_type: Välja
         show_similar_initiatives: Jämföra
       initiative_header:

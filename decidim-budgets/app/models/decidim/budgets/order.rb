@@ -6,6 +6,7 @@ module Decidim
     # user and component and contains a collection of projects
     class Order < Budgets::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::DataPortability
 
       component_manifest_name "budgets"
 
@@ -58,6 +59,14 @@ module Decidim
       def maximum_budget
         return 0 unless component
         component.settings.total_budget.to_f
+      end
+
+      def self.user_collection(user)
+        where(decidim_user_id: user.id)
+      end
+
+      def self.export_serializer
+        Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
       end
 
       private

@@ -10,7 +10,7 @@ sv:
         organization: Organisation
         plural: Flertal
       attachment:
-        attachment_collection_id: Samling
+        attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
         title: Titel
@@ -96,7 +96,7 @@ sv:
       decidim/participatory_process:
         banner_image: Bannerbild
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
@@ -132,7 +132,7 @@ sv:
         organization_name: Organisations namn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
-        site: Webbplats
+        site: Hemsida
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -143,6 +143,7 @@ sv:
         browse: Bläddra
         export: Exportera
         manage: Hantera
+        new: Ny %{name}
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
@@ -179,22 +180,22 @@ sv:
           success: Området uppdateras framgångsrikt
       attachment_collections:
         create:
-          error: Det uppstod ett fel vid att skapa en ny samling.
-          success: Samlingen skapades framgångsrikt.
+          error: Det uppstod ett fel vid att skapa en ny mapp.
+          success: Mapp skapad framgångsrikt.
         destroy:
-          success: Samlingen förstördes framgångsrikt.
+          success: Mappen förstördes framgångsrikt.
         edit:
-          title: Redigera samling
+          title: Redigera mapp
           update: Uppdatera
         index:
-          attachment_collection_used: Denna samling kan inte tas bort eftersom den är i bruk.
+          attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
           attachment_collections_title: Bilagor
         new:
           create: Skapa
-          title: Ny samling
+          title: Ny mapp
         update:
-          error: Det uppstod ett fel vid uppdateringen av denna samling.
-          success: Samlingen uppdaterades framgångsrikt.
+          error: Det uppstod ett fel vid uppdateringen av den här mappen.
+          success: Mapp uppdaterad framgångsrikt.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
@@ -353,13 +354,13 @@ sv:
             plural: Flertal
         attachment:
           fields:
-            collection: Samling
+            collection: Mapp
             content_type: Typ
             file_size: Storlek
             title: Titel
           name: Bifogad fil
         attachment_collection:
-          name: Samling
+          name: Mapp
         category:
           name: Kategori
         impersonation_log:
@@ -524,7 +525,7 @@ sv:
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
-          omnipresent_banner_appearance_title: Ändra allmänt
+          omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.

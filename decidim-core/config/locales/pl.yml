@@ -10,8 +10,8 @@ pl:
         email: Twój email
         name: Twoje imię
         nickname: Twój krótki, niepowtarzalny identyfikator
-        password: Nowe hasło
-        password_confirmation: Potwierdź swoje nowe hasło
+        password: Hasło
+        password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
         remove_avatar: Usuń awatar
         user_group_document_number: Numer dokumentu organizacji
@@ -56,6 +56,11 @@ pl:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Plik nie istnieje
+        invalid_token: Podany token jest nieprawidłowy.
+        no_token: Nie podano tokena
+        notice: Twoje dane są obecnie w toku. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już logować z jego pomocą.
         confirm:
@@ -187,6 +192,13 @@ pl:
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
+    data_portability:
+      export:
+        ready: Gotowy
+      show:
+        download_data: Pobierz dane
+        download_data_description: Plik zawierający wszystkie informacje powiązane z kontem zostanie wysłany na <strong>%{user_email}</strong>
+        request_data: Poproś o dane
     devise:
       omniauth_registrations:
         create:
@@ -277,6 +289,9 @@ pl:
           email_subject: "%{nickname} zaktualizował (a) swój profil"
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
+      data_portability_export:
+        click_button: Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.
+        download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
       subject: Twój eksport "%{name}" jest gotowy
@@ -314,6 +329,18 @@ pl:
       errors:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
+    invitations:
+      create:
+        error: Podczas zapraszania znajomych pojawiły się pewne problemy
+        error_empty_form: Wprowadź adresy e-mail
+        success: Wysłaliśmy zaproszenia do Twoich znajomych!
+      index:
+        customize_message: Dostosuj wiadomość z zaproszeniem
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Powiadom znajomych o tej stronie
+        invitations_title: Czy uważasz, że więcej głosów powinno być słyszanych w %{organization_name}?
+        invite: Zapraszam
+        visit_your_profile: Odwiedź swój profil
     log:
       base_presenter:
         create: "%{user_name} stworzony %{resource_name}"
@@ -433,6 +460,23 @@ pl:
           register: Zarejestrować
       index:
         title: Więcej informacji
+      terms_and_conditions:
+        accept:
+          error: Wystąpił błąd podczas akceptowania warunków.
+          success: Wspaniały! Zaakceptowałeś warunki i zasady.
+        form:
+          agreement: Zgadzam się na te warunki
+          legend: Zgadzam się z warunkami użytkowania
+        refuse:
+          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać dane</a> i / lub <a href="%{delete_path}">usunąć konto</a>.
+          modal_btn_continue: Zaakceptuj warunki i kontynuuj
+          modal_btn_exit: Sprawdzę to później
+          modal_button: Odrzuć warunki
+          modal_title: Czy rzeczywiście odmawiasz zaktualizowanego regulaminu?
+        required_review:
+          alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z usługi. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z usługi'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -469,6 +513,20 @@ pl:
         title: Wybierz %{field}
       prompt: Wybierz zakres
       scopes: Zakresy
+    search:
+      filter:
+        all: Wszystko
+        component: Składnik
+      results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
+      term_input_placeholder: Szukaj
+    searches:
+      filters:
+        search: Szukaj
+      filters_small_view:
+        close_modal: Zamknij modalne
+        filter: Filtr
+        filter_by: Filtruj według
+        unfold: Rozwijać się
     shared:
       action_authorization_modal:
         expired:
@@ -525,17 +583,20 @@ pl:
   devise:
     invitations:
       edit:
-        header: Ustaw swoje hasło
+        header: Zakończ tworzenie konta
         nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisać
+        subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
     mailer:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
         hello: Witaj %{email},
         ignore: |-
-          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
+          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
+          Twoje konto nie zostanie utworzone, dopóki nie uzyskasz dostępu do powyższego linku i nie ustawisz nicka ani hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+        invited_you_as_friend: "%{invited_by} zaprosił cię na %{application}."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku.
@@ -544,6 +605,10 @@ pl:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy w %{organization}
+      invite_friend:
+        accept_invitation: 'Możesz zaakceptować zaproszenie, klikając poniższy link:'
+        friend_custom_text: 'Zostawili tę wiadomość dla Ciebie:'
+        subject: Zostałeś zaproszony do %{organization}
       invite_private_user:
         subject: Zostałeś zaproszony do prywatnego udziału w procesie %{organization}
       organization_admin_invitation_instructions:
@@ -557,17 +622,15 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      content_type_whitelist_error: Typ pliku jest nieprawidłowy
+      content_type_whitelist_error: typ pliku jest nieprawidłowy
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
-      invalid_manifest: Nieprawidłowy manifest
-      invalid_participatory_process: Nieprawidłowy proces uczestnictwa
-      long_words: Zawiera słowa, które są zbyt długie
-      must_start_with_caps: Musi zacząć od czapek
+      long_words: zawiera słowa, które są zbyt długie
+      must_start_with_caps: musi zaczynać się od czapek
       nesting_too_deep: Nie może być wewnątrz podkategorii
-      too_many_marks: Używa zbyt wielu znaków
-      too_much_caps: Używasz zbyt dużych czapek
-      too_short: Jest za krótki
+      too_many_marks: używa zbyt wielu znaków
+      too_much_caps: używa za dużo kapsli
+      too_short: jest za krótki
   forms:
     required: wymagany
   invisible_captcha:
@@ -595,6 +658,7 @@ pl:
       user_menu:
         admin_dashboard: Panel administracyjny
         conversations: Rozmowy
+        invite_friends: Zaprosić przyjaciół
         notifications: Powiadomienia
         profile: Moje konto
         public_profile: Mój profil publiczny
@@ -603,6 +667,7 @@ pl:
         account: Konto
         authorizations: Zezwolenia
         delete_my_account: Usuń moje konto
+        my_data: Moje dane
         notifications_settings: Ustawienia powiadomień
         title: Ustawienia użytkownika
         user_groups: Organizacje
@@ -610,6 +675,16 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: język angielski
+  password_validator:
+    domain_included_in_password: jest zbyt podobny do tej nazwy domeny
+    email_included_in_password: jest zbyt podobny do twojego adresu e-mail
+    fallback: nie jest poprawny
+    name_included_in_password: jest zbyt podobny do twojego imienia
+    not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
+    password_not_allowed: nie jest dozwolone
+    password_too_common: jest zbyt powszechne
+    password_too_long: jest zbyt długi
+    password_too_short: jest za krótki
   social_share_button:
     delicious: Pyszne
     douban: Douban

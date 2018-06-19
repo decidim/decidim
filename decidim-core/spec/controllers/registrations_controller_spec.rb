@@ -6,7 +6,7 @@ module Decidim
   describe Decidim::Devise::RegistrationsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, :with_tos) }
 
     before do
       request.env["devise.mapping"] = ::Devise.mappings[:user]
@@ -22,8 +22,8 @@ module Decidim
             name: "User",
             nickname: "nickname",
             email: email,
-            password: "password1234",
-            password_confirmation: "password1234",
+            password: "rPYWYKQJrXm97b4ytswc",
+            password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
             newsletter: "0"
           }

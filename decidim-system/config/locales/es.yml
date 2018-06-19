@@ -3,7 +3,7 @@ es:
     system:
       actions:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
-        destroy: Eliminar
+        destroy: Borrar
         edit: Editar
         new: Nuevo
         save: Guardar
@@ -13,7 +13,7 @@ es:
           error: Se ha producido un error al crear un nuevo administrador.
           success: Administrador creado correctamente
         destroy:
-          success: El administrador se ha eliminado correctamente.
+          success: Administrador eliminado con éxito
         edit:
           title: Editar administrador
           update: Actualizar

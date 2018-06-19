@@ -5,7 +5,7 @@ nl:
         additional_info: Informatie over de loting
         decidim_category_id: Categorieën van de set voorstellen waarin u de trekking wilt toepassen
         decidim_proposals_component_id: Voorstellen geplaatst
-        dice: Resultaat van de worp (rol een 6-zijdige dobbelsteen (of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren) en voer hier in, in tegenstelling tot het getuige zijn van het resulterende aantal, dit draagt ​​bij aan de kwaliteit en garanties van de willekeur van het resultaat
+        dice: Resultaat van de worp. Rol een 6-zijdige dobbelsteen uit, of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren, en voer hier het resulterende getal in voor sommige getuigen. Dit draagt ​​bij aan de kwaliteit en garanties van de willekeurigheid van het resultaat
         target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat je wil selecteren door groepsvoorstellen te selecteren die je eerder hebt gekozen)
         title: Titel
         witnesses: getuigen
@@ -42,7 +42,7 @@ nl:
         actions:
           destroy: Annuleer de loting
           edit: Bewerk
-          new: Nieuw
+          new: Nieuwe sortering
           show: Details van de loting
         models:
           sortition:

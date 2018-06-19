@@ -64,6 +64,36 @@ FactoryBot.define do
     user
   end
 
+  factory :agenda, class: "Decidim::Meetings::Agenda" do
+    meeting
+    title { Decidim::Faker::Localized.sentence(3) }
+    visible { true }
+
+    trait :with_agenda_items do
+      after(:create) do |agenda, _evaluator|
+        create_list(:agenda_item, 2, :with_children, agenda: agenda)
+      end
+    end
+  end
+
+  factory :agenda_item, class: "Decidim::Meetings::AgendaItem" do
+    agenda
+    title { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    duration { 15 }
+    position { 0 }
+
+    trait :with_parent do
+      parent { create(:agenda_item, agenda: agenda) }
+    end
+
+    trait :with_children do
+      after(:create) do |agenda_item, evaluator|
+        create_list(:agenda_item, 2, parent: agenda_item, agenda: evaluator.agenda)
+      end
+    end
+  end
+
   factory :minutes, class: "Decidim::Meetings::Minutes" do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     video_url { Faker::Internet.url }

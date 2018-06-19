@@ -10,7 +10,7 @@ fr:
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
-        password: Votre mot de passe
+        password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
@@ -52,6 +52,11 @@ fr:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
         confirm:
@@ -177,6 +182,13 @@ fr:
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ fr:
           email_subject: "%{nickname} a mis à jour son profil"
           notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'à %{date}.
+        download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
       subject: Votre export "%{name}" est prêt
@@ -304,6 +319,18 @@ fr:
       errors:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir quelques adresses email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} a créé %{resource_name}"
@@ -423,6 +450,23 @@ fr:
           register: S'inscrire
       index:
         title: Plus d'informations
+      terms_and_conditions:
+        accept:
+          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
+          success: Génial ! Vous avez accepté les conditions d'utilisations.
+        form:
+          agreement: Je suis d'accord avec les conditions
+          legend: Accepter les conditions d'utilisation
+        refuse:
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les conditions et continuer
+          modal_btn_exit: Je le ferai plus tard
+          modal_button: Refuser les conditions
+          modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
+          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -459,6 +503,20 @@ fr:
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètres d'application
+    search:
+      filter:
+        all: Tout
+        component: Fonctionnalité
+      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
+      term_input_placeholder: Rechercher
+    searches:
+      filters:
+        search: Rechercher
+      filters_small_view:
+        close_modal: Fermer la fenêtre de dialogue
+        filter: Filtrer
+        filter_by: Filtrer par
+        unfold: Dérouler
     shared:
       action_authorization_modal:
         expired:
@@ -492,10 +550,10 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-        offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
         report: Signaler
-        spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
+        spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
@@ -515,17 +573,20 @@ fr:
   devise:
     invitations:
       edit:
-        header: Définir votre mot de passe
+        header: Terminer la création de votre compte
         nickname_help: Votre identifiant unique dans %{organization}.
         submit_button: Sauvegarder
+        subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudo et votre mot de passe.
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
+        invited_you_as_friend: "%{invited_by} vous a invité à %{application}."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant que utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Quelqu'un vous a invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
@@ -534,6 +595,10 @@ fr:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
+      invite_friend:
+        accept_invitation: 'Vous pouvez accepter l''invitation via le lien ci-dessous :'
+        friend_custom_text: 'Ils ont laissé ce message pour vous :'
+        subject: Vous avez été invité à %{organization}
       invite_private_user:
         subject: Vous avez été invité à un processus participatif privé sur %{organization}
       organization_admin_invitation_instructions:
@@ -547,17 +612,15 @@ fr:
       public: Votre information publique
   errors:
     messages:
-      content_type_whitelist_error: Le type de fichier n'est pas valide
+      content_type_whitelist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
-      invalid_manifest: Manifeste invalide
-      invalid_participatory_process: Processus participatif invalide
-      long_words: Contient des mots trop longs
-      must_start_with_caps: Doit commencer par des majuscules
+      long_words: contient des mots qui sont trop longs
+      must_start_with_caps: doit commencer avec des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      too_many_marks: Utilise trop de signes de ponctuations
-      too_much_caps: Utilise trop de majuscule
-      too_short: Est trop court
+      too_many_marks: utilise trop de signes
+      too_much_caps: utilise trop de majuscules
+      too_short: est trop court
   forms:
     required: Champs obligatoires
   invisible_captcha:
@@ -585,6 +648,7 @@ fr:
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
+        invite_friends: Inviter des amis
         notifications: Notifications
         profile: Mon compte
         public_profile: Mon profil public
@@ -593,6 +657,7 @@ fr:
         account: Compte
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
+        my_data: Mes données
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
         user_groups: Organisations
@@ -600,6 +665,16 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
+  password_validator:
+    domain_included_in_password: est trop similaire à ce nom de domaine
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban

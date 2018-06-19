@@ -56,6 +56,7 @@
                   <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
                   <%= icon_link_to "people", edit_meeting_registrations_path(meeting), t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                   <%= icon_link_to "clock", meeting.minutes.present? ? edit_meeting_minute_path(meeting, meeting.minutes) : new_meeting_minute_path(meeting), t("actions.minutes", scope: "decidim.meetings"), class: "action-icon--minutes" %>
+                  <%= icon_link_to "calendar", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
                 <% end %>
 
                 <% if allowed_to? :close, :meeting, meeting: meeting %>

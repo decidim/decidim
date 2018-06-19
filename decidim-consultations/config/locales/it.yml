@@ -5,12 +5,12 @@ it:
         banner_image: Immagine banner
         decidim_highlighted_scope_id: Ambito evidenziato
         description: Descrizione
-        end_voting_date: Data di fine
+        end_voting_date: La votazione finisce
         introductory_image: Immagine introduttiva
         introductory_video_url: URL video introduttivo
         questions: Domande
         slug: Slug URL
-        start_voting_date: Data d'inizio
+        start_voting_date: Inizia la votazione
         subtitle: Sottotitolo
         title: Titolo
       question:
@@ -53,6 +53,9 @@ it:
   decidim:
     admin:
       actions:
+        new_consultation: Nuova consultazione
+        new_question: Nuova domanda
+        new_response: Nuova risposta
         publish_results: Pubblica risultati
         unpublish_results: Annulla pubblicazione dei risultati
       consultation_publications:
@@ -74,7 +77,7 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova consultazione.
           success: Consultazione creata con successo.
         destroy:
-          success: Consultazione distrutta con successo.
+          success: Consultazione cancellata con successo.
         edit:
           update: Aggiornare
         form:
@@ -135,7 +138,7 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova domanda.
           success: Domanda creata con successo.
         destroy:
-          success: Domanda distrutta con successo.
+          success: Domanda eliminata con successo.
         edit:
           update: Aggiornare
         form:
@@ -155,7 +158,7 @@ it:
           success: Risposta creata con successo.
         destroy:
           error: Si è verificato un errore durante la rimozione della risposta.
-          success: Risposta distrutta con successo.
+          success: Risposta cancellata con successo.
         edit:
           update: Aggiornare
         form:
@@ -172,7 +175,7 @@ it:
         responses: risposte
     consultations:
       consultation:
-        start_voting_date: Voto da
+        start_voting_date: Inizia la votazione
         view_results: Vedi i risultati
       consultation_card:
         view_results: Vedi i risultati
@@ -239,7 +242,7 @@ it:
         assistants_count_title: assistenti
         comments_count_title: Commenti
         meetings_count_title: incontri
-        supports_count_title: adesioni
+        supports_count_title: supporti
       technical_info:
         technical_data: Dati tecnici
       vote_button:
@@ -262,7 +265,7 @@ it:
           attachments: allegati
           categories: categorie
       consultation_voting_data:
-        start_voting_date: Voto da
+        start_voting_date: Inizia la votazione
       question_components:
         question_menu_item: La domanda
         unfold: spiegare

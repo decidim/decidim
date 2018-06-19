@@ -10,8 +10,8 @@ it:
         email: La tua email
         name: Il tuo nome
         nickname: Il tuo identificatore breve e univoco
-        password: Nuova password
-        password_confirmation: Conferma la nuova password
+        password: Parola d'ordine
+        password_confirmation: Conferma la tua password
         personal_url: URL personale
         remove_avatar: Rimuovi avatar
         user_group_document_number: Numero del documento dell'organizzazione
@@ -52,6 +52,11 @@ it:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Il file non esiste
+        invalid_token: Il token fornito non è valido.
+        no_token: Nessun token fornito
+        notice: I tuoi dati sono attualmente in corso. Riceverai un'email quando è completa.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
@@ -177,6 +182,13 @@ it:
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
+    data_portability:
+      export:
+        ready: Pronto
+      show:
+        download_data: Scarica i dati
+        download_data_description: Un file con tutte le informazioni associate all'account verrà inviato a <strong>%{user_email}</strong>
+        request_data: Richiedi dati
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ it:
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
+      data_portability_export:
+        click_button: Fare clic sul pulsante successivo per scaricare i dati. <br/> Avrai il file disponibile fino al %{date}.
+        download: Scaricare
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
@@ -304,6 +319,18 @@ it:
       errors:
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
+    invitations:
+      create:
+        error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
+        error_empty_form: Si prega di inserire alcuni indirizzi e-mail
+        success: Abbiamo inviato gli inviti ai tuoi amici!
+      index:
+        customize_message: Personalizza il messaggio di invito
+        friend_email: 'Email amico numero%{index}'
+        invitations_subtitle: Fai sapere ai tuoi amici di questo sito
+        invitations_title: Pensi che più voci dovrebbero essere ascoltate in %{organization_name}?
+        invite: Invitare
+        visit_your_profile: Visita il tuo profilo
     log:
       base_presenter:
         create: "%{user_name} creato %{resource_name}"
@@ -423,6 +450,23 @@ it:
           register: Registrati
       index:
         title: Informazione
+      terms_and_conditions:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
+          success: Grande! Hai accettato i termini e le condizioni.
+        form:
+          agreement: Sono d'accordo con questi termini
+          legend: Accetta i termini e le condizioni d'uso
+        refuse:
+          modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
+          modal_btn_continue: Accetta i termini e continua
+          modal_btn_exit: Lo esaminerò più tardi
+          modal_button: Rifiuta i termini
+          modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
+        required_review:
+          alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
+          body: Si prega di prendere un momento per rivedere gli aggiornamenti ai nostri Termini di servizio. Altrimenti non sarai in grado di utilizzare la piattaforma.
+          title: 'Obbligatorio: controlla gli aggiornamenti dei nostri termini di servizio'
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
@@ -459,6 +503,20 @@ it:
         title: Seleziona %{field}
       prompt: Seleziona un ambito
       scopes: Scopes
+    search:
+      filter:
+        all: Tutti
+        component: Componente
+      results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
+      term_input_placeholder: Ricerca
+    searches:
+      filters:
+        search: Ricerca
+      filters_small_view:
+        close_modal: Chiudi modale
+        filter: Filtro
+        filter_by: Filtra per
+        unfold: spiegare
     shared:
       action_authorization_modal:
         expired:
@@ -515,17 +573,20 @@ it:
   devise:
     invitations:
       edit:
-        header: Imposta la password
+        header: Completa la creazione del tuo account
         nickname_help: Il tuo identificativo univoco in %{organization}.
         submit_button: Salva
+        subtitle: Se accetti l'invito, imposta il tuo nickname e password.
     mailer:
       invitation_instructions:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
         hello: Ciao %{email},
         ignore: |-
-          Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
+          Se non desideri accettare l'invito, ignora questa email.<br />
+          Il tuo account non verrà creato fino a quando non accedi al link qui sopra e imposti il ​​tuo nickname e password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
+        invited_you_as_friend: "%{invited_by} ha invitato a %{application}."
         invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
@@ -534,6 +595,10 @@ it:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
       invite_collaborator:
         subject: Sei stato invitato a collaborare nella %{organization}
+      invite_friend:
+        accept_invitation: 'Puoi accettare l''invito tramite il link sottostante:'
+        friend_custom_text: 'Hanno lasciato questo messaggio per te:'
+        subject: Sei stato invitato a %{organization}
       invite_private_user:
         subject: Sei stato invitato a un processo partecipativo privato su %{organization}
       organization_admin_invitation_instructions:
@@ -547,17 +612,15 @@ it:
       public: Le tue informazioni pubbliche.
   errors:
     messages:
-      content_type_whitelist_error: Il tipo di file non è valido.
+      content_type_whitelist_error: il tipo di file non è valido
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
-      invalid_manifest: Manifesto non valido
-      invalid_participatory_process: Processo partecipativo non valido
-      long_words: Contiene parole troppo lunghe
-      must_start_with_caps: Deve iniziare in maiuscola
+      long_words: contiene parole troppo lunghe
+      must_start_with_caps: deve iniziare con i cappucci
       nesting_too_deep: Non può stare all'interno di una subcategoria
-      too_many_marks: Sta utilizzando troppi segni di punteggiatura
-      too_much_caps: Sta utilizzando troppe maiuscole
-      too_short: Il contenuto è troppo breve
+      too_many_marks: sta usando troppi marchi
+      too_much_caps: sta usando troppi cappucci
+      too_short: è troppo corto
   forms:
     required: Richiesto
   invisible_captcha:
@@ -585,6 +648,7 @@ it:
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
         conversations: conversazioni
+        invite_friends: Invita gli amici
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo pubblico
@@ -593,6 +657,7 @@ it:
         account: Account
         authorizations: Authorizzazioni
         delete_my_account: Cancella il mio account
+        my_data: I miei dati
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: Organizzazioni
@@ -600,6 +665,16 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
+  password_validator:
+    domain_included_in_password: è troppo simile a questo nome di dominio
+    email_included_in_password: è troppo simile alla tua email
+    fallback: non è valido
+    name_included_in_password: è troppo simile al tuo nome
+    not_enough_unique_characters: non ha abbastanza caratteri unici
+    password_not_allowed: non è permesso
+    password_too_common: è troppo comune
+    password_too_long: è troppo lungo
+    password_too_short: è troppo corto
   social_share_button:
     delicious: Delicious
     douban: Douban

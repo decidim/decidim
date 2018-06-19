@@ -5,7 +5,7 @@ it:
         additional_info: Informazioni di ordinamento
         decidim_category_id: Categorie dell'insieme di proposte in cui si desidera applicare l'estrazione
         decidim_proposals_component_id: Proposte impostate
-        dice: Risultato del tiro di dado (tira un dado a 6 facce (o cerca un altro modo casuale per generare un numero da 1 a 6) e inserisci qui, a differenza del numero risultante, questo contribuisce alla qualità e alle garanzie della casualità di il risultato
+        dice: Risultato del tiro di dado. Tira un dado a 6 facce, o cerca un altro modo casuale per generare un numero da 1 a 6, e inserisci qui il numero risultante davanti ad alcuni testimoni. Ciò contribuisce alla qualità e alle garanzie della casualità del risultato
         target_items: Numero di proposte da selezionare (indica il numero di proposte che si desidera selezionare tracciando lotti del gruppo di proposte che si è scelto in precedenza)
         title: Titolo
         witnesses: Testimoni
@@ -42,7 +42,7 @@ it:
         actions:
           destroy: Annulla la sortizione
           edit: modificare
-          new: Nuovo
+          new: Nuova sortizione
           show: Dettagli di ordinamento
         models:
           sortition:
@@ -87,7 +87,7 @@ it:
             selected_proposals: Proposte selezionate per l'estrazione
           update:
             error: Si è verificato un errore durante l'aggiornamento della sortizione.
-            success: Sortition aggiornamento con successo
+            success: Sortition aggiornato con successo
       admin_log:
         sortition:
           create: "%{user_name} ha creato la sortizione %{resource_name} in %{space_name}"

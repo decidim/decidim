@@ -16,12 +16,12 @@ nl:
   decidim:
     budgets:
       actions:
-        attachment_collections: collecties
+        attachment_collections: folders
         attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        new: nieuwe
+        new: Nieuw project
         preview: Voorbeeld
         title: Acties
       admin:
@@ -33,7 +33,7 @@ nl:
             invalid: Er is een probleem opgetreden met het creëren van dit project
             success: Voorstel succesvol aangemaakt
           destroy:
-            success: Project succesvol vernietigd
+            success: Project succesvol verwijderd
           edit:
             title: Bewerk project
             update: Bijwerken
@@ -43,7 +43,7 @@ nl:
             title: Projecten
           new:
             create: Creëren
-            title: Nieuw resultaat
+            title: Nieuw project
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit project
             success: Project succesvol bijgewerkt

@@ -55,7 +55,7 @@
       <br />
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= sanitize translated_attribute(current_initiative.description) %>
+        <%= decidim_sanitize translated_attribute(current_initiative.description) %>
         <%= render partial: "tags", locals: { resource: current_initiative } %>
       </div>
 
@@ -70,5 +70,4 @@
 
 <%= comments_for current_initiative if current_initiative.published? %>
 <%= javascript_include_tag "decidim/initiatives/social_share" %>
-<%= stylesheet_link_tag "decidim/initiatives/application" %>
 <%= stylesheet_link_tag "decidim/initiatives/social_share" %>

@@ -18,7 +18,7 @@ eu:
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         domain: Domeinua
         duration: Iraupena
         facebook: Facebook
@@ -75,6 +75,8 @@ eu:
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
+      actions:
+        new_assembly: Batzar berria
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
@@ -110,7 +112,7 @@ eu:
           error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
           success: Batzar hau arrakastaz sortu da.
         destroy:
-          success: Kidea izan da behar bezala suntsitu muntaia honetarako.
+          success: Kidea muntaia honekin batera ezabatu da.
         edit:
           title: Eguneratu muntaia kidea.
           update: eguneratzearen
@@ -132,9 +134,9 @@ eu:
       assembly_user_roles:
         create:
           error: Errore bat gertatu da muntaketa honen erabiltzaile bat gehitzean.
-          success: Sortu den erabiltzaileak behar bezala sortu du.
+          success: Erabiltzaileak muntaiarekin arrakastaz gehitu du.
         destroy:
-          success: Erabiltzailea behar bezala suntsitu da muntaia honetarako.
+          success: Erabiltzailea behar bezala kendu da muntaia honetatik.
         edit:
           title: Eguneratu muntaia erabiltzailea.
           update: eguneratzearen
@@ -151,7 +153,7 @@ eu:
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
           assembly_members: Bazkideek
-          attachment_collections: Bilduma
+          attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
@@ -267,7 +269,7 @@ eu:
         composition: Konposizio
         created_by: Sortuta
         creation_date: Data sortu da
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
         indefinite_duration: mugagabeak

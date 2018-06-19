@@ -13,7 +13,7 @@ pt:
         confirm_destroy: Tem certeza de que deseja excluir esta postagem?
         destroy: Excluir
         edit: Editar
-        new: Novo
+        new: Nova postagem
         title: Ações
       admin:
         models:
@@ -57,7 +57,7 @@ pt:
         settings:
           global:
             announcement: Anúncio
-            comments_enabled: Comentários habilitados
+            comments_enabled: Comentários ativados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

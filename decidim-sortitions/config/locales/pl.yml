@@ -5,7 +5,7 @@ pl:
         additional_info: Informacje o sortowaniu
         decidim_category_id: Kategorie zestawu propozycji, w których chcesz zastosować losowanie
         decidim_proposals_component_id: Ustalono wnioski
-        dice: Wynik rzutu kostką (rzuć kostką 6-stronną (lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6) i wprowadź tutaj, w przeciwieństwie do obserwowania uzyskanej liczby, przyczynia się to do jakości i gwarancji losowości wynik
+        dice: Wynik rzutu kostką. Rzuć kostką 6-stronną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź wynikową liczbę przed niektórymi świadkami. Przyczynia się to do jakości i gwarancji losowości wyniku
         target_items: Liczba wniosków, które należy wybrać (wskazuje liczbę wniosków, które chcesz wybrać, losując wybraną wcześniej grupę propozycji)
         title: Tytuł
         witnesses: Świadkowie
@@ -44,7 +44,7 @@ pl:
         actions:
           destroy: Anuluj sortowanie
           edit: Edytować
-          new: Nowy
+          new: Nowe sortowanie
           show: Szczegóły dotyczące podziału
         models:
           sortition:

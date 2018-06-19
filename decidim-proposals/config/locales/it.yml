@@ -82,8 +82,8 @@ it:
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
-            votes_blocked: Voti bloccati
-            votes_enabled: Voti abilitati
+            votes_blocked: Votazione bloccata
+            votes_enabled: Voto abilitato
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
     events:
       proposals:
@@ -91,7 +91,7 @@ it:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ora puoi proporre <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -153,7 +153,7 @@ it:
       actions:
         answer: Risposta
         import: Importa da un altro componente
-        new: Nuovo
+        new: Nuova proposta
         private_notes: Note private
         title: Azioni
       admin:
@@ -238,7 +238,7 @@ it:
         success: Proposta creata con successo. Salvato come bozza.
       destroy_draft:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
-        success: La bozza della proposta è stata distrutta con successo.
+        success: La bozza della proposta è stata cancellata con successo.
       models:
         proposal:
           fields:

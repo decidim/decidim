@@ -8,7 +8,7 @@ sv:
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
@@ -63,11 +63,14 @@ sv:
       actions:
         activate: Aktivera
         configure: Konfigurera
-        confirm_destroy: Bekräfta förstör
-        destroy: Förstöra
+        confirm_destroy: Bekräfta radering
+        destroy: Radera
         duplicate: Duplicera
         edit: Redigera
-        new: Ny
+        new_process: Ny process
+        new_process_group: Ny processgrupp
+        new_process_step: Nytt steg
+        new_process_user_role: Ny processanvändare
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
@@ -76,7 +79,7 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: Samlingar
+          attachment_collections: mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
@@ -126,7 +129,7 @@ sv:
           title: Duplikera deltagande process
       participatory_process_groups:
         destroy:
-          success: Deltagande processgrupp förstördes framgångsrikt.
+          success: Deltagande processgrupp raderas framgångsrikt.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
@@ -156,7 +159,7 @@ sv:
           error:
             active_step: Det aktiva steget kan inte raderas.
             last_step: Det går inte att ta bort det sista steget i en process.
-          success: Deltagande processsteg förstördes framgångsrikt.
+          success: Deltagande processsteg raderas framgångsrikt.
         edit:
           title: Redigera deltagande processsteg
           update: Uppdatera
@@ -173,9 +176,9 @@ sv:
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en användare för den här deltagande processen.
-          success: Användaren skapades framgångsrikt för denna deltagande process.
+          success: Användaren har lyckats med den här deltagande processen.
         destroy:
-          success: Användaren förstördes framgångsrikt för denna deltagande process.
+          success: Användaren avlägsnades framgångsrikt från den här deltagande processen.
         edit:
           title: Uppdatera deltagande processanvändare.
           update: Uppdatera
@@ -192,7 +195,7 @@ sv:
           error: Det uppstod ett fel vid att skapa en ny deltagande process.
           success: Deltagande processen skapades framgångsrikt. Konfigurera nu sina steg.
         destroy:
-          success: Deltagande processen förstördes framgångsrikt.
+          success: Deltagande processen raderas framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -288,7 +291,7 @@ sv:
         index:
           loading: Laddar resultat...
       show:
-        developer_group: Utvecklargrupp
+        developer_group: Promotorgrupp
         end_date: Slutdatum
         local_area: Organisationsområde
         participatory_scope: Vad bestäms

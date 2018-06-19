@@ -10,8 +10,8 @@ pt-BR:
         email: O seu email
         name: Seu nome
         nickname: Seu identificador curto e exclusivo
-        password: Nova senha
-        password_confirmation: Confirme a sua nova senha
+        password: Senha
+        password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
@@ -52,6 +52,11 @@ pt-BR:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Arquivo não existe
+        invalid_token: O token fornecido é inválido.
+        no_token: Nenhum token fornecido
+        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
@@ -177,6 +182,13 @@ pt-BR:
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação
+    data_portability:
+      export:
+        ready: pronto
+      show:
+        download_data: Baixe os dados
+        download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
+        request_data: Solicitar dados
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ pt-BR:
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
+        download: Baixar
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
@@ -304,6 +319,18 @@ pt-BR:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    invitations:
+      create:
+        error: Houve alguns problemas ao convidar seus amigos
+        error_empty_form: Por favor insira alguns endereços de email
+        success: Nós enviamos os convites para seus amigos!
+      index:
+        customize_message: Personalizar a mensagem de convite
+        friend_email: 'E-mail do amigo nº%{index}'
+        invitations_subtitle: Deixe seus amigos saberem sobre este site
+        invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
+        invite: Convite
+        visit_your_profile: Visite seu perfil
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -423,6 +450,23 @@ pt-BR:
           register: Registrar-se
       index:
         title: Mais informações
+      terms_and_conditions:
+        accept:
+          error: Houve um erro ao aceitar os termos e condições.
+          success: Ótimo! Você aceitou os termos e condições.
+        form:
+          agreement: Eu concordo com estes termos
+          legend: Concorde com os termos e condições de uso
+        refuse:
+          modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
+          modal_btn_continue: Aceite os termos e continue
+          modal_btn_exit: Vou revisá-lo mais tarde
+          modal_button: Recuse os termos
+          modal_title: Você realmente recusa os Termos e Condições atualizados?
+        required_review:
+          alert: Atualizamos nossos Termos de Serviço, revise-os.
+          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
+          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
@@ -459,6 +503,20 @@ pt-BR:
         title: Selecione %{field}
       prompt: Selecione um escopo
       scopes: Escopos
+    search:
+      filter:
+        all: Todos
+        component: Componente
+      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
+      term_input_placeholder: Pesquisa
+    searches:
+      filters:
+        search: Pesquisa
+      filters_small_view:
+        close_modal: Fechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
     shared:
       action_authorization_modal:
         expired:
@@ -515,17 +573,20 @@ pt-BR:
   devise:
     invitations:
       edit:
-        header: Coloque sua senha
+        header: Termine de criar sua conta
         nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
+        subtitle: Se você aceitar o convite, defina seu apelido e senha.
     mailer:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
         hello: Olá %{email},
         ignore: |-
-          Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
+          Se você não quiser aceitar o convite, ignore este e-mail.<br />
+          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_friend: "%{invited_by} convidou você para %{application}."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
@@ -534,6 +595,10 @@ pt-BR:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
+      invite_friend:
+        accept_invitation: 'Você pode aceitar o convite através do link abaixo:'
+        friend_custom_text: 'Eles deixaram esta mensagem para você:'
+        subject: Você foi convidado para %{organization}
       invite_private_user:
         subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
@@ -547,17 +612,15 @@ pt-BR:
       public: Sua informação pública.
   errors:
     messages:
-      content_type_whitelist_error: O tipo de arquivo não é válido
+      content_type_whitelist_error: o tipo de arquivo não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      invalid_manifest: Manifesto inválido
-      invalid_participatory_process: Processo participativo inválido
-      long_words: Contém palavras que são muito longas
-      must_start_with_caps: Deve começar com maiúscula
+      long_words: contém palavras que são muito longas
+      must_start_with_caps: deve começar com bonés
       nesting_too_deep: não pode estar dentro de uma subcategoria
-      too_many_marks: Está usando muitas marcas
-      too_much_caps: Está usando demasiados limites
-      too_short: É muito curto
+      too_many_marks: está usando muitas marcas
+      too_much_caps: está usando bonés demais
+      too_short: é muito curto
   forms:
     required: Requeridos
   invisible_captcha:
@@ -585,6 +648,7 @@ pt-BR:
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
+        invite_friends: Convide amigos
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público
@@ -593,6 +657,7 @@ pt-BR:
         account: Conta
         authorizations: Autorizações
         delete_my_account: Deletar minha conta
+        my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
         user_groups: Organizações
@@ -600,6 +665,16 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
+  password_validator:
+    domain_included_in_password: é muito semelhante a este nome de domínio
+    email_included_in_password: é muito parecido com o seu email
+    fallback: não é válido
+    name_included_in_password: é muito parecido com o seu nome
+    not_enough_unique_characters: não tem caracteres únicos suficientes
+    password_not_allowed: não é permitido
+    password_too_common: é muito comum
+    password_too_long: é muito longo
+    password_too_short: é muito curto
   social_share_button:
     delicious: Delicioso
     douban: Douban

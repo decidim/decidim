@@ -13,7 +13,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän viestin?
         destroy: Poistaa
         edit: Muokata
-        new: Uusi
+        new: Uusi viesti
         title: Toimet
       admin:
         models:
@@ -57,7 +57,7 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentit käytössä
+            comments_enabled: Kommentit ovat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty

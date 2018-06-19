@@ -26,7 +26,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New"
+      click_link "New process"
     end
 
     it "creates a new participatory process" do
@@ -108,7 +108,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
 
     it "deletes a participatory_process" do
       click_link translated(participatory_process2.title)
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 

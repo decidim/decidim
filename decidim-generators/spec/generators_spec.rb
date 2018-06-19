@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "simplecov" if ENV["SIMPLECOV"]
+require "spec_helper"
 require "decidim/gem_manager"
 
 module Decidim
@@ -45,11 +46,12 @@ module Decidim
     after(:all) do
       Decidim::GemManager.run_all(
         "gem uninstall %name -v %version --executables --force",
+        include_root: false,
         out: File::NULL
       )
 
       Decidim::GemManager.new(repo_root).run(
-        "rm decidim-*.gem",
+        "gem uninstall %name -v %version --executables --force && rm decidim-*.gem",
         out: File::NULL
       )
     end

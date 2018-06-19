@@ -84,7 +84,7 @@ describe "Organization admins", type: :system do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          accept_confirm { click_link "Destroy" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_no_content(other_admin.name)

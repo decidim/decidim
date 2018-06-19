@@ -3,7 +3,7 @@ fi:
     system:
       actions:
         confirm_destroy: Haluatko varmasti poistaa tämän?
-        destroy: Poista
+        destroy: Poistaa
         edit: Muokkaa
         new: Uusi
         save: Tallenna
@@ -13,7 +13,7 @@ fi:
           error: Uuden hallinnoijan luonnissa tapahtui virhe.
           success: Hallinnoija luotu onnistuneesti
         destroy:
-          success: Hallinnoija poistettu onnistuneesti
+          success: Järjestelmänvalvoja on poistettu
         edit:
           title: Muokkaa hallinnoijaa
           update: Päivitä

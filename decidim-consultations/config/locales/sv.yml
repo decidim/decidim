@@ -5,12 +5,12 @@ sv:
         banner_image: Banner image
         decidim_highlighted_scope_id: Markerat omfattning
         description: Beskrivning
-        end_voting_date: Slutdatum
+        end_voting_date: Röstningen slutar
         introductory_image: Inledande bild
         introductory_video_url: Inledande videoadress
         questions: frågor
         slug: URL slug
-        start_voting_date: Start datum
+        start_voting_date: Röstningen börjar
         subtitle: Texta
         title: Titel
       question:
@@ -53,6 +53,9 @@ sv:
   decidim:
     admin:
       actions:
+        new_consultation: Nytt samråd
+        new_question: Ny fråga
+        new_response: Nytt svar
         publish_results: Publicera resultat
         unpublish_results: Uppdatera resultaten
       consultation_publications:
@@ -74,7 +77,7 @@ sv:
           error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
         destroy:
-          success: Samråd har framgångsrikt förstörts.
+          success: Samråd har tagits bort.
         edit:
           update: Uppdatering
         form:
@@ -135,7 +138,7 @@ sv:
           error: Ett fel uppstod med att skapa en ny fråga.
           success: Fråga med framgång skapad.
         destroy:
-          success: Frågan lyckades förstörs.
+          success: Fråga med framgång raderad.
         edit:
           update: Uppdatering
         form:
@@ -155,7 +158,7 @@ sv:
           success: Svar skapat.
         destroy:
           error: Ett fel uppstod när svaret togs bort.
-          success: Svaret förstöras framgångsrikt.
+          success: Svaret har tagits bort.
         edit:
           update: Uppdatering
         form:
@@ -172,7 +175,7 @@ sv:
         responses: Svar
     consultations:
       consultation:
-        start_voting_date: Röstning från
+        start_voting_date: Röstningen börjar
         view_results: Se Resultat
       consultation_card:
         view_results: Se Resultat
@@ -239,7 +242,7 @@ sv:
         assistants_count_title: assistenter
         comments_count_title: kommentarer
         meetings_count_title: möten
-        supports_count_title: sammanväxningar
+        supports_count_title: stöder
       technical_info:
         technical_data: Teknisk data
       vote_button:
@@ -262,7 +265,7 @@ sv:
           attachments: bilagor
           categories: kategorier
       consultation_voting_data:
-        start_voting_date: Röstning från
+        start_voting_date: Röstningen börjar
       question_components:
         question_menu_item: Frågan
         unfold: Veckla ut

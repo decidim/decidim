@@ -5,12 +5,12 @@ pl:
         banner_image: Obraz baneru
         decidim_highlighted_scope_id: Wyróżniony zakres
         description: Opis
-        end_voting_date: Data końcowa
+        end_voting_date: Głosowanie się kończy
         introductory_image: Obraz wprowadzający
         introductory_video_url: Wprowadzający adres URL filmu
         questions: pytania
         slug: Strumień URL
-        start_voting_date: Data rozpoczęcia
+        start_voting_date: Rozpocznie się głosowanie
         subtitle: Podtytuł
         title: Tytuł
       question:
@@ -61,6 +61,9 @@ pl:
   decidim:
     admin:
       actions:
+        new_consultation: Nowa konsultacja
+        new_question: Nowe pytanie
+        new_response: Nowa odpowiedź
         publish_results: Opublikuj wyniki
         unpublish_results: Cofnij publikację wyników
       consultation_publications:
@@ -82,7 +85,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacje zostały pomyślnie utworzone.
         destroy:
-          success: Konsultacja została skutecznie zniszczona.
+          success: Konsultacja została pomyślnie usunięta.
         edit:
           update: Aktualizacja
         form:
@@ -149,7 +152,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowego pytania.
           success: Pytanie zostało pomyślnie utworzone.
         destroy:
-          success: Pytanie skutecznie zniszczone.
+          success: Pytanie zostało pomyślnie usunięte.
         edit:
           update: Aktualizacja
         form:
@@ -169,7 +172,7 @@ pl:
           success: Odpowiedź została pomyślnie utworzona.
         destroy:
           error: Wystąpił błąd podczas usuwania odpowiedzi.
-          success: Odpowiedź została pomyślnie zniszczona.
+          success: Odpowiedź została pomyślnie usunięta.
         edit:
           update: Aktualizacja
         form:
@@ -186,7 +189,7 @@ pl:
         responses: Odpowiedzi
     consultations:
       consultation:
-        start_voting_date: Głosowanie od
+        start_voting_date: Rozpocznie się głosowanie
         view_results: Pokaż wyniki
       consultation_card:
         view_results: Pokaż wyniki
@@ -257,7 +260,7 @@ pl:
         assistants_count_title: Asystenci
         comments_count_title: Komentarze
         meetings_count_title: Spotkania
-        supports_count_title: Adhesions
+        supports_count_title: Obsługuje
       technical_info:
         technical_data: Dane techniczne
       vote_button:
@@ -280,7 +283,7 @@ pl:
           attachments: Załączniki
           categories: Kategorie
       consultation_voting_data:
-        start_voting_date: Głosowanie od
+        start_voting_date: Rozpocznie się głosowanie
       question_components:
         question_menu_item: Pytanie
         unfold: Rozwijać się

@@ -1,0 +1,30 @@
+es-PY:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Página
+        other: Páginas
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} actualizó la página %{resource_name} en %{space_name}"
+    components:
+      pages:
+        name: Página
+        settings:
+          global:
+            announcement: Aviso
+          step:
+            announcement: Aviso
+    pages:
+      admin:
+        models:
+          components:
+            body: Cuerpo
+        pages:
+          edit:
+            save: Actualizar
+            title: Editar página
+          update:
+            invalid: Ha habido errores al guardar la página.
+            success: Página guardada correctamente.

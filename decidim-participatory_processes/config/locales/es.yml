@@ -63,11 +63,14 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: '¿Estás seguro?'
-        destroy: Eliminar
+        confirm_destroy: Confirma la supresión.
+        destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new: Nuevo/a
+        new_process: Nuevo proceso
+        new_process_group: Nuevo grupo de procesos
+        new_process_step: Nueva fase
+        new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -76,7 +79,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
@@ -110,7 +113,7 @@ es:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario del proceso
+          name: Usuario de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -126,7 +129,7 @@ es:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
-          success: Grupo destruido correctamente.
+          success: El grupo de proceso participativo se eliminó con éxito.
         edit:
           title: Editar grupo de procesos
           update: Actualizar
@@ -156,7 +159,7 @@ es:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
-          success: La fase de proceso participativo se ha eliminado correctamente.
+          success: Fase de proceso participativo eliminada con éxito.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar
@@ -173,9 +176,9 @@ es:
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
-          success: Usuario creado con éxito para este proceso participativo.
+          success: Usuario añadido con éxito a este proceso participativo.
         destroy:
-          success: Usuario eliminado con éxito para este proceso participativo.
+          success: Usuario eliminado con éxito de este proceso participativo.
         edit:
           title: Editar usuario del proceso
           update: Actualizar
@@ -192,7 +195,7 @@ es:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: El proceso participativo se ha eliminado correctamente.
+          success: Proceso participativo eliminado con éxito.
         edit:
           update: Actualizar
         form:

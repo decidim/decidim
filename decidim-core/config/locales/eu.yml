@@ -11,7 +11,7 @@ eu:
         name: Zure izena
         nickname: Zure identifikatzaile labur eta berezia
         password: Pasahitza
-        password_confirmation: Baieztatu zure pasahitz berria
+        password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
         user_group_document_number: Egiaztagiri-zenbakia
@@ -52,6 +52,11 @@ eu:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Fitxategia ez dago
+        invalid_token: Ordezkatutako tokia baliogabea da.
+        no_token: No token emandako
+        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
         confirm:
@@ -177,6 +182,13 @@ eu:
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
+    data_portability:
+      export:
+        ready: prest
+      show:
+        download_data: Deskargatu datuak
+        download_data_description: Kontuarekin lotutako informazio guztia duen fitxategia <strong>%{user_email}</strong>bidaliko da
+        request_data: Eskaera datuak
     devise:
       omniauth_registrations:
         create:
@@ -267,6 +279,9 @@ eu:
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
+      data_portability_export:
+        click_button: Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.
+        download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
@@ -304,6 +319,18 @@ eu:
       errors:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
+    invitations:
+      create:
+        error: Arazo batzuk egon dira zure lagunak gonbidatuz
+        error_empty_form: Sartu helbide elektroniko batzuk
+        success: Gonbidatu ditugu zure lagunei!
+      index:
+        customize_message: Pertsonalizatu gonbidapen mezua
+        friend_email: 'Lagunaren #%{index} posta elektronikoa'
+        invitations_subtitle: Eman zure lagunek gune honi buruz
+        invitations_title: Uste duzu gehiago ahotsak behar entzun %{organization_name}?
+        invite: gonbidatu
+        visit_your_profile: Bisitatu zure profila
     log:
       base_presenter:
         create: "%{user_name} sortu %{resource_name}"
@@ -423,6 +450,23 @@ eu:
           register: Erregistroa
       index:
         title: Argibide gehiago
+      terms_and_conditions:
+        accept:
+          error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
+          success: Great! Baldintzak eta baldintzak onartu dituzu.
+        form:
+          agreement: Baldintzak ados nago
+          legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
+        refuse:
+          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
+          modal_btn_continue: Baldintzak onartu eta jarraitu
+          modal_btn_exit: Berriro berrikusiko dut geroago
+          modal_button: Ezetsi terminoak
+          modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
+        required_review:
+          alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
+          body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
+          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
@@ -459,6 +503,20 @@ eu:
         title: Hautatu %{field}
       prompt: Aukeratu esparrua
       scopes: esparru
+    search:
+      filter:
+        all: guztiak
+        component: Osagai
+      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
+      term_input_placeholder: Search
+    searches:
+      filters:
+        search: Search
+      filters_small_view:
+        close_modal: Itxi modal
+        filter: Filter
+        filter_by: Iragazi arabera
+        unfold: Zabaldu
     shared:
       action_authorization_modal:
         expired:
@@ -515,17 +573,20 @@ eu:
   devise:
     invitations:
       edit:
-        header: Idatzi zure pasahitza
+        header: Amaitu zure kontua sortzea
         nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
+        subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
     mailer:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
         ignore: |-
-          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+          Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />
+          Zure kontua ez da sortu goiko estekan sartzeko eta zure ezizena eta pasahitza ezartzeko.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
+        invited_you_as_friend: "%{invited_by} gonbidatu nahi duzun %{application}."
         invited_you_as_private_user: "%{invited_by} erabiltzaile gonbidatu zaitu %{application}erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
@@ -534,6 +595,10 @@ eu:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
+      invite_friend:
+        accept_invitation: 'Gonbidapena onartu dezakezu beheko estekan:'
+        friend_custom_text: 'Mezu hau utzi duzu zuretzat:'
+        subject: '%{organization}gonbidatu zaituzte'
       invite_private_user:
         subject: Parte hartzaile prozesu pribatu batera gonbidatu zaituzte %{organization} helbidean
       organization_admin_invitation_instructions:
@@ -547,17 +612,15 @@ eu:
       public: Zure informazio publikoa.
   errors:
     messages:
-      content_type_whitelist_error: fitxategi mota ez da zuzena
+      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
-      invalid_manifest: Manifestua ez da baliozkoa
-      invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
-      long_words: Hitz luzeegiak ditu
-      must_start_with_caps: Letra larriz hasi behar du
+      long_words: luzeegia den hitzak ditu
+      must_start_with_caps: txantiloiak hasi behar dira
       nesting_too_deep: ezin da egon azpikategoria batean
-      too_many_marks: Galdera- eta harridura-ikur gehiegi erabiltzen ari zara
-      too_much_caps: Letra larri gehiegi erabiltzen ari zara
-      too_short: Laburregia da
+      too_many_marks: marka gehiegi erabiltzen ari da
+      too_much_caps: txantiloiak gehiegi erabiltzen ari dira
+      too_short: oso laburra da
   forms:
     required: Nahitaezkoa da
   invisible_captcha:
@@ -585,6 +648,7 @@ eu:
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
+        invite_friends: Lagunak gonbidatu
         notifications: jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
@@ -593,6 +657,7 @@ eu:
         account: Kontua
         authorizations: Baimenak
         delete_my_account: Ezabatu nire kontua
+        my_data: Nire datuak
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
@@ -600,6 +665,16 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
+  password_validator:
+    domain_included_in_password: domeinu izen honen antzekoa da
+    email_included_in_password: zure posta elektronikoaren antzekoa da
+    fallback: ez da baliozkoa
+    name_included_in_password: zure izenaren antzekoa da
+    not_enough_unique_characters: ez da nahikoa karaktere berezirik
+    password_not_allowed: ez da onartzen
+    password_too_common: oso ohikoa da
+    password_too_long: luzeegia da
+    password_too_short: oso laburra da
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -1,6 +1,10 @@
 it:
   activemodel:
     attributes:
+      agenda:
+        description: Descrizione
+        duration: Durata
+        title: Titolo
       close_meeting:
         attendees_count: Numero di partecipanti
         attending_organizations: Elenco delle organizzazioni partecipanti
@@ -27,6 +31,13 @@ it:
         description: Descrizione
         video_url: URL del video
         visible: È visibile
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
+              too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Incontro
@@ -102,18 +113,49 @@ it:
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
     meetings:
       actions:
-        attachment_collections: collezioni
+        agenda: ordine del giorno
+        attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
         confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
         minutes: Minuti
-        new: Nuovo
+        new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Aggiungi bambino oggetto agenda
+            agenda_item: Oggetto dell'ordine del giorno
+            agenda_item_children: Oggetto del calendario Childs
+            down: Giù
+            remove: Rimuovere
+            up: Su
+          agenda_item_child:
+            agenda_item_child: Articolo Agenda Bambino
+            down: Giù
+            remove: Rimuovere
+            up: Su
+          create:
+            invalid: C'è stato un problema nel creare questo programma
+            success: Agenda creata con successo
+          edit:
+            title: Modifica agenda
+            update: Aggiornare
+          form:
+            add_agenda_item: Aggiungi l'oggetto agenda
+            agenda_items: Elementi dell'ordine del giorno
+            end_date: Data di fine
+            start_date: Data d'inizio
+          new:
+            create: Creare
+            title: Nuova agenda
+          update:
+            invalid: C'è stato un problema nell'aggiornare questo programma
+            success: Agenda aggiornata con successo
         exports:
           registrations: Iscrizioni
         invite_join_meeting_mailer:
@@ -232,6 +274,9 @@ it:
           unfold: Espandi
         index:
           view_meeting: Visualizza meeting
+        meeting_minutes:
+          meeting_minutes: Riunione dei verbali
+          related_information: Informazioni correlate
         meetings:
           no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
@@ -243,11 +288,9 @@ it:
           contributions: Conteggio dei contributi
           going: Parteciperò
           join: Partecipa alla riunione
-          meeting_minutes: Riunione dei verbali
           meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
-          related_information: Informazioni correlate
           remaining_slots:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"

@@ -16,12 +16,12 @@ pt:
   decidim:
     budgets:
       actions:
-        attachment_collections: Coleções
+        attachment_collections: Pastas
         attachments: Anexos
         confirm_destroy: Tem certeza de que deseja excluir esse projeto?
         destroy: Excluir
         edit: Editar
-        new: Novo
+        new: Novo projeto
         preview: Visualização
         title: Ações
       admin:
@@ -33,7 +33,7 @@ pt:
             invalid: Tem havido um problema ao criar este projeto
             success: Projeto criado com sucesso
           destroy:
-            success: Projeto destruído com sucesso
+            success: Projeto excluído com sucesso
           edit:
             title: Editar projeto
             update: Actualizar
@@ -43,7 +43,7 @@ pt:
             title: Projetos
           new:
             create: Criar
-            title: Novo resultado
+            title: Novo projeto
           update:
             invalid: Ocorreu um problema ao atualizar este projeto
             success: Projeto atualizado com sucesso
@@ -127,7 +127,7 @@ pt:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votos ativados
+            votes_enabled: Votação habilitada
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto

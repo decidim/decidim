@@ -16,12 +16,12 @@ es:
   decidim:
     budgets:
       actions:
-        attachment_collections: Colecciones
+        attachment_collections: Carpetas
         attachments: Archivos adjuntos
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo
+        new: Nuevo proyecto
         preview: Previsualizar
         title: Acciones
       admin:
@@ -33,7 +33,7 @@ es:
             invalid: Ha habido un problema al crear este proyecto
             success: Proyecto creado con éxito
           destroy:
-            success: Proyecto eliminado exitosamente
+            success: Proyecto eliminado con éxito
           edit:
             title: Editar proyecto
             update: Actualizar
@@ -43,7 +43,7 @@ es:
             title: Proyectos
           new:
             create: Crear
-            title: Nuevo resultado
+            title: Nuevo proyecto
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
@@ -127,7 +127,7 @@ es:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar los votos
-            votes_enabled: Votos habilitados
+            votes_enabled: Votación habilitada
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

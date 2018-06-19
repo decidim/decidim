@@ -7,8 +7,7 @@ shared_examples "manage sortitions" do
     end
 
     before do
-      visit_component_admin
-      click_link "New"
+      click_link "New sortition"
     end
 
     it "Requires a title" do

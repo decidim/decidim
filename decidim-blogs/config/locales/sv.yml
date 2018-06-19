@@ -13,7 +13,7 @@ sv:
         confirm_destroy: Är du säker på att du vill radera det här inlägget?
         destroy: Radera
         edit: Redigera
-        new: Ny
+        new: Nytt brev
         title: Handlingar
       admin:
         models:
@@ -57,10 +57,10 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverad
+            comments_enabled: Kommentarer aktiverade
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer Blockerad
+            comments_blocked: Kommentarer blockerad
     events:
       blogs:
         post_created:
