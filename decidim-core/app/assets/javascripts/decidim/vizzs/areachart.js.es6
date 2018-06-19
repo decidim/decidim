@@ -44,7 +44,7 @@ $(() => {
 
     // scale the range of the data
     x.domain(d3.extent(data, (d) => d.key));
-    y.domain([0, d3.max(data, (d) => d.value)]);
+    y.domain([0, d3.max(data, (d) => d.value)]).nice();
 
     // add the area
     svg.append("path")
