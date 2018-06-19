@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     VotesMetricObjectType = GraphQL::ObjectType.define do
-      interfaces [ -> { VotesMetricObjectInterface } ]
+      interfaces [-> { VotesMetricObjectInterface }]
 
       name "VotesMetricObjectType"
       description "VotesMetric object data"

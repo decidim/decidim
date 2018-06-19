@@ -22,11 +22,10 @@ module Decidim
     end
 
     module AcceptedProposalMetricTypeHelper
-      def self.base_scope(_organization)
-        # TODO: add organization scope
-        Proposal
-          .published.not_hidden
-          .where(state: "accepted")
+      include Decidim::Proposals::BaseProposalMetricTypeHelper
+
+      def self.base_scope(organization)
+        super(organization).accepted
       end
     end
   end

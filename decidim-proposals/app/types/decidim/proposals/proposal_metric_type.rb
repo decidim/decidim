@@ -22,10 +22,10 @@ module Decidim
     end
 
     module ProposalMetricTypeHelper
-      def self.base_scope(_organization)
-        # TODO: add organization scope
-        Proposal
-          .published.except_withdrawn.not_hidden
+      include Decidim::Proposals::BaseProposalMetricTypeHelper
+
+      def self.base_scope(organization)
+        super(organization).except_withdrawn
       end
     end
   end

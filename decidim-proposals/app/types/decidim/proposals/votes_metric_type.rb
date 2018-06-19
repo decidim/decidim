@@ -22,9 +22,10 @@ module Decidim
     end
 
     module VotesMetricTypeHelper
-      def self.base_scope(_organization)
-        # TODO: add organization scope
-        proposals = Proposal.published.except_withdrawn.not_hidden
+      include Decidim::Proposals::BaseProposalMetricTypeHelper
+
+      def self.base_scope(organization)
+        proposals = super(organization).except_withdrawn
         ProposalVote.joins(:proposal).where(proposal: proposals)
       end
     end
