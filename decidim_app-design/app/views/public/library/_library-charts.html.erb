@@ -9,7 +9,7 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
-    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json" %>
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s %>
   </div>
 </div>
 <br />
@@ -19,7 +19,7 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
-    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: "lorem" %>
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: "lorem" %>
   </div>
 </div>
 <br />
@@ -30,7 +30,7 @@
 <div class="row mt-s">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart", classes: "small", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "small", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -42,7 +42,7 @@
 <div class="row mt-s">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", axis: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -54,7 +54,7 @@
 <div class="row mt-s">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart", axis: true, url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -70,7 +70,7 @@
 <div class="row mt-s">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", ratio: "16:9", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", ratio: "16:9", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -81,7 +81,7 @@
 </div>
 <div class="row mt-s">
   <div class="column">
-    <%= partial "areachart", ratio: "11:4", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", ratio: "11:4", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
 </div>
 <br />
@@ -92,7 +92,7 @@
 <div class="row">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -102,7 +102,7 @@
 <div class="row">
   <% 3.times do %>
   <div class="column medium-4">
-    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -113,12 +113,12 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-4">
-    <%= partial "areachart", classes: "secondary", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "secondary", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <div class="column medium-4">
-    <%= partial "areachart", classes: "warning", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "warning", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <div class="column medium-4">
-    <%= partial "areachart", classes: "success", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
 </div>

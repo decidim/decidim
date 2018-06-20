@@ -1,4 +1,5 @@
-[
+/* global DATACHARTS */
+DATACHARTS["areachart-2"] = [
   {
     "key": "2016-02-23T06:46:06-01:00",
     "value": 61

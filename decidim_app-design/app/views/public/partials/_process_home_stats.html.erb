@@ -1,7 +1,7 @@
 <div class="row mb-sm">
   <% 3.times do %>
   <div class="column medium-4">
-    <%= partial "areachart", url: "/areachart-" + SecureRandom.random_number(3).to_s + ".json", title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
