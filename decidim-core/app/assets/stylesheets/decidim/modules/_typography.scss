@@ -126,7 +126,7 @@ hr{
 }
 
 // text status-color
-$map: $foundation-palette;
+$map: map-merge($foundation-palette, (muted: $muted));
 
 @each $key, $value in $map{
   .text-#{$key}{
