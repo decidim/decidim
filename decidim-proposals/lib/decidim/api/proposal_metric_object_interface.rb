@@ -6,6 +6,10 @@ module Decidim
       name "ProposalMetricObjectInterface"
       description "ProposalMetric object definition"
 
+      field :title, !types.String, "Published at date" do
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_string(:title) }
+      end
+
       field :published_at, !types.String, "Published at date" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:published_at) }
       end

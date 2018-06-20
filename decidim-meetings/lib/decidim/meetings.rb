@@ -4,6 +4,7 @@ require "decidim/meetings/admin"
 require "decidim/meetings/engine"
 require "decidim/meetings/admin_engine"
 require "decidim/meetings/component"
+require "decidim/meetings/api"
 
 module Decidim
   # Base module for this engine.

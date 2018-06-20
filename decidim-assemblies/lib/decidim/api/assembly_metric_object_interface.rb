@@ -6,6 +6,10 @@ module Decidim
       name "AssemblyMetricObjectInterface"
       description "AssemblyMetric object definition"
 
+      field :title, !types.String, "Assembly name" do
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_translated(:title) }
+      end
+
       field :created_at, !types.String, "Created at date" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }
       end

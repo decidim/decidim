@@ -10,6 +10,8 @@ module Decidim
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }
       end
 
+      field :proposal, !ProposalMetricObjectType, "Vote proposal"
+
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end

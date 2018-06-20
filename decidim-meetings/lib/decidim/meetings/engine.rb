@@ -8,6 +8,8 @@ require "cells/rails"
 require "cells-erb"
 require "cell/partial"
 
+require "decidim/meetings/query_extensions"
+
 module Decidim
   module Meetings
     # This is the engine that runs on the public interface of `decidim-meetings`.
@@ -96,6 +98,12 @@ module Decidim
       initializer "decidim_meetings.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/views") # for partials
+      end
+
+      initializer "decidim_meetings.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
+        end
       end
     end
   end
