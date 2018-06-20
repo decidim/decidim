@@ -178,6 +178,8 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-core**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 - **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 - **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3683)
+- **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3683)
 
 **Removed**:
 
