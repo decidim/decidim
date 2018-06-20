@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-generators**: Generated application not including bootsnap.
+
 **Removed**:
 
 ## Previous versions
