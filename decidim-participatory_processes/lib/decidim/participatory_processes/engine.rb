@@ -5,6 +5,8 @@ require "active_support/all"
 
 require "decidim/core"
 
+require "decidim/participatory_processes/query_extensions"
+
 module Decidim
   module ParticipatoryProcesses
     # Decidim's Participatory Processes Rails Engine.
@@ -73,6 +75,12 @@ module Decidim
               highlighted_processes: highlighted_processes
             }
           )
+        end
+      end
+
+      initializer "decidim_participatory_processes.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
         end
       end
     end
