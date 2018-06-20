@@ -16,25 +16,21 @@ module Decidim
       include Decidim::ApplicationHelper
 
       def show
-        if proposal.official?
-          cell "decidim/author", present(proposal).author, from: proposal
+        if model.official?
+          cell "decidim/author", present(model).author, from: model
         else
           cell(
             "decidim/collapsible_authors",
-            authors_for(proposal),
+            authors_for(model),
             cell_name: "decidim/author",
             cell_options: { extra_classes: ["author-data--small"] },
             size: :small,
-            from: proposal
+            from: model
           )
         end
       end
 
       private
-
-      def proposal
-        model
-      end
 
       def authors_for(coauthorable)
         coauthorable.identities.map { |identity| present(identity) }
