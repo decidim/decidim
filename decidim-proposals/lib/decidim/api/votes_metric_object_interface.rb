@@ -7,7 +7,7 @@ module Decidim
       description "VotesMetric object definition"
 
       field :created_at, !types.String, "Published at date" do
-        resolve ->(obj, _args, _ctx) { VotePresenter.new(obj).created_at_date }
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }
       end
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }

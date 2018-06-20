@@ -4,6 +4,7 @@ require "decidim/assemblies/admin"
 require "decidim/assemblies/engine"
 require "decidim/assemblies/admin_engine"
 require "decidim/assemblies/participatory_space"
+require "decidim/assemblies/api"
 
 module Decidim
   # Base module for the assemblies engine.

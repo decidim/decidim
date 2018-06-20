@@ -3,10 +3,7 @@
 module Decidim
   module Proposals
     ProposalMetricObjectType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { ProposalMetricObjectInterface },
-        -> { Decidim::Core::CategorizableInterface }
-      ]
+      interfaces [-> { ProposalMetricObjectInterface }]
 
       name "ProposalMetricObject"
       description "ProposalMetric object data"

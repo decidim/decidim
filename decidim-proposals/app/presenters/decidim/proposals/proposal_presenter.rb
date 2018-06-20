@@ -27,14 +27,6 @@ module Decidim
       def display_mention
         link_to title, proposal_path
       end
-
-      def state
-        __getobj__.state.presence || "published"
-      end
-
-      def published_at_date
-        __getobj__.published_at.try(:strftime, "%Y-%m-%d")
-      end
     end
   end
 end

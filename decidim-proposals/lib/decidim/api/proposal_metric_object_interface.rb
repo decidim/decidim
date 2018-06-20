@@ -7,14 +7,16 @@ module Decidim
       description "ProposalMetric object definition"
 
       field :published_at, !types.String, "Published at date" do
-        resolve ->(obj, _args, _ctx) { ProposalPresenter.new(obj).published_at_date }
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:published_at) }
       end
 
       field :state, !types.String, "current state" do
-        resolve ->(obj, _args, _ctx) { ProposalPresenter.new(obj).state }
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_string(:state, default: "published") }
       end
 
-      field :category, !Decidim::Core::CategoryType, "category"
+      field :category, !types.String, "category" do
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj.category).attr_translated(:name) }
+      end
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end

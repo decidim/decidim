@@ -7,7 +7,7 @@ module Decidim
       description "UserMetric object definition"
 
       field :confirmed_at, !types.String, "Confirmed at date" do
-        resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).confirmed_at_date }
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:confirmed_at) }
       end
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
