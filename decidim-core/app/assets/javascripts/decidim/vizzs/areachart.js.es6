@@ -1,5 +1,5 @@
 /* global d3, DATACHARTS */
-/* eslint-disable id-length, no-ternary, no-nested-ternary */
+/* eslint-disable id-length, no-unused-vars, no-ternary, no-nested-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -66,7 +66,7 @@ const renderAreaChart = () => {
 
     if (axis) {
       let xAxis = d3.axisBottom(x)
-        .ticks(d3.timeMonth.every(6))
+        .ticks(d3.timeMonth)
         .tickFormat(d3.timeFormat("%b %y"))
         .tickSize(-height)
       let yAxis = d3.axisLeft(y)

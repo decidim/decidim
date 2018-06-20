@@ -1,11 +1,11 @@
 <div class="callout warning">
-  Por propósitos de visualización el parámetro <em>url</em> apunta a varios <a href="/areachart-0.json" target="_blank">json</a> (<a href="/areachart-1.json" target="_blank">otro</a>, y <a href="/areachart-2.json" target="_blank">otro más</a>) con datos falsos almacenados en la carpeta <code>public</code>.
-  Dichas urls deberán ser sustituidas por el endpoint adecuado.
+  Por propósitos de visualización el parámetro <em>metric</em> apunta a varios objetos <em>javascript</em> con datos falsos almacenados en la carpeta <code>decidim_app-design/app/assets/javascripts/vizzs</code>.
+  Dichas métricas deberán ser editadas en <code>decidim-core/app/assets/javascripts/decidim/vizzs/metrics.js.es6</code>.
 </div>
 <h2 class="section-heading">Gráfica de area</h2>
 <div class="row column">
   <h4>Versión simple</h4>
-  <code>partial "areachart", url: "hostname/api/v1/endpoint"</code>
+  <code>partial "areachart", metric: "metrica"</code>
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
@@ -15,7 +15,7 @@
 <br />
 <div class="row column">
   <h4>Versión simple con título dentro</h4>
-  <code>partial "areachart", url: "hostname/api/v1/endpoint", title: "Lorem"</code>
+  <code>partial "areachart", metric: "metrica", title: "Lorem"</code>
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
@@ -25,7 +25,7 @@
 <br />
 <div class="row column">
   <h4>Versión simple con letra pequeña (poco espacio)</h4>
-  <code>partial "areachart", url: "hostname/api/v1/endpoint", classes: "small"</code>
+  <code>partial "areachart", metric: "metrica", classes: "small"</code>
 </div>
 <div class="row mt-s">
   <% 4.times do %>
@@ -37,7 +37,7 @@
 <br />
 <div class="row column">
   <h4>Versión con ejes</h4>
-  <code>partial "areachart", url: "hostname/api/v1/endpoint", axis: true</code>
+  <code>partial "areachart", metric: "metrica", axis: true</code>
 </div>
 <div class="row mt-s">
   <% 2.times do %>
@@ -49,7 +49,7 @@
 <br />
 <div class="row column">
   <h4>Versión con ejes y letra pequeña (axis: <code>true</code> activa la letra pequeña)</h4>
-  <code>partial "areachart", axis: true, url: "hostname/api/v1/endpoint"</code>
+  <code>partial "areachart", axis: true, metric: "metrica"</code>
 </div>
 <div class="row mt-s">
   <% 4.times do %>
@@ -65,7 +65,7 @@
     El <code>aspect ratio</code> es un string de la forma <strong>Integer</strong>:<strong>Integer</strong>. Por defecto el valor es <em>4:3</em>
   </div>
   <h4>16:9</h4>
-  <code>partial "areachart", ratio: "16:9", url: "hostname/api/v1/endpoint"</code>
+  <code>partial "areachart", ratio: "16:9", metric: "metrica"</code>
 </div>
 <div class="row mt-s">
   <% 2.times do %>
@@ -77,7 +77,7 @@
 <br />
 <div class="row column">
   <h4>11:4</h4>
-  <code>partial "areachart", ratio: "11:4", url: "hostname/api/v1/endpoint"</code>
+  <code>partial "areachart", ratio: "11:4", metric: "metrica"</code>
 </div>
 <div class="row mt-s">
   <div class="column">
