@@ -6,7 +6,6 @@ defaults: &defaults
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
     - image: decidim/decidim@sha256:743a212e757a0c0d4cb85cf99251290864b6d02d1a17aa285d342d0bdcff796b
       environment:
-        BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
         FAIL_FAST: true
