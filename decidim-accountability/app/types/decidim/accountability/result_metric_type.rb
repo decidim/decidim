@@ -7,18 +7,6 @@ module Decidim
 
       name "ResultMetricType"
       description "A result component of a participatory space."
-
-      field :count, !types.Int, "Total results" do
-        resolve ->(organization, _args, _ctx) {
-          ResultMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[ResultMetricObjectType], "Data for each result" do
-        resolve ->(organization, _args, _ctx) {
-          ResultMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module ResultMetricTypeHelper

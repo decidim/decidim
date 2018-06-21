@@ -5,6 +5,11 @@ module Decidim
   # Decorator for users
   #
   class MetricObjectPresenter < SimpleDelegator
+    def attr_int(attr, default: 0)
+      return default unless __getobj__
+      __getobj__[attr] || default
+    end
+
     def attr_string(attr, default: "")
       return default unless __getobj__
       __getobj__[attr].presence || default

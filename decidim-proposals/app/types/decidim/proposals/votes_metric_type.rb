@@ -7,18 +7,6 @@ module Decidim
 
       name "votesMetric"
       description "A votes related to proposals of a participatory space."
-
-      field :count, !types.Int, "Total votes" do
-        resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[VotesMetricObjectType], "Data for each vote" do
-        resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module VotesMetricTypeHelper

@@ -7,22 +7,10 @@ module Decidim
 
       name "CommentMetricType"
       description "A Comment component of a participatory space."
-
-      field :count, !types.Int, "Total comments" do
-        resolve ->(organization, _args, _ctx) {
-          CommentMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[CommentMetricObjectType], "Data for each comment" do
-        resolve ->(organization, _args, _ctx) {
-          CommentMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module CommentMetricTypeHelper
-      def self.base_scope(organization)
+      def self.base_scope(_organization)
         Comment.all
       end
     end

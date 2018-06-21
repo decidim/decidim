@@ -7,18 +7,6 @@ module Decidim
 
       name "AssemblyMetricType"
       description "An assembly component of a participatory space."
-
-      field :count, !types.Int, "Total assemblies" do
-        resolve ->(organization, _args, _ctx) {
-          AssemblyMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[AssemblyMetricObjectType], "Data for each assembly" do
-        resolve ->(organization, _args, _ctx) {
-          AssemblyMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module AssemblyMetricTypeHelper

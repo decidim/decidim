@@ -7,18 +7,6 @@ module Decidim
 
       name "UserMetric"
       description "UserMetric data"
-
-      field :count, !types.Int, "Total users" do
-        resolve ->(organization, _args, _ctx) {
-          UserMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[UserMetricObjectType], "Data for each user" do
-        resolve ->(organization, _args, _ctx) {
-          UserMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module UserMetricTypeHelper

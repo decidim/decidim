@@ -10,6 +10,7 @@ module Decidim
     autoload :ScopableInterface, "decidim/api/scopable_interface"
     autoload :AttachableInterface, "decidim/api/attachable_interface"
     autoload :UserMetricInterface, "decidim/api/user_metric_interface"
+    autoload :MetricObjectType, "decidim/api/metric_object_interface"
     autoload :UserMetricObjectInterface, "decidim/api/user_metric_object_interface"
   end
 end

@@ -10,6 +10,14 @@ module Decidim
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }
       end
 
+      field :start_time, !types.String, "Start time" do
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:start_time) }
+      end
+
+      field :end_time, !types.String, "End time" do
+        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:end_time) }
+      end
+
       field :scope, !types.String, "Meeting scope" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj.scope).attr_translated(:name) }
       end

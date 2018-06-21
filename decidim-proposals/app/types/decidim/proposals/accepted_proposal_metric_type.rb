@@ -7,18 +7,6 @@ module Decidim
 
       name "AcceptedProposalMetricType"
       description "A proposals component of a participatory space."
-
-      field :count, !types.Int, "Total accepted proposals" do
-        resolve ->(organization, _args, _ctx) {
-          AcceptedProposalMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[ProposalMetricObjectType], "Data for each proposal" do
-        resolve ->(organization, _args, _ctx) {
-          AcceptedProposalMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module AcceptedProposalMetricTypeHelper
