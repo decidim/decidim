@@ -3,6 +3,8 @@
 require "searchlight"
 require "kaminari"
 
+require "decidim/accountability/query_extensions"
+
 module Decidim
   module Accountability
     # This is the engine that runs on the public interface of `decidim-accountability`.
@@ -54,6 +56,12 @@ module Decidim
               }
             )
           end
+        end
+      end
+
+      initializer "decidim_accountability.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
         end
       end
     end

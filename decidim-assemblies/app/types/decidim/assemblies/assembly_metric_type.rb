@@ -24,7 +24,7 @@ module Decidim
     module AssemblyMetricTypeHelper
       def self.base_scope(_organization)
         # super(organization).accepted
-        Assembly.all
+        Assembly.includes(:scope, :area).all
       end
     end
   end

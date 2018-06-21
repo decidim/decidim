@@ -9,6 +9,7 @@ module Decidim
         def base_scope(_organization)
           # TODO: add organization scope
           Proposal
+            .includes(:category)
             .published.not_hidden
         end
       end

@@ -24,7 +24,7 @@ module Decidim
     module ParticipatoryProcessMetricTypeHelper
       def self.base_scope(_organization)
         # super(organization).accepted
-        ParticipatoryProcess.all
+        ParticipatoryProcess.includes(:scope).all
       end
     end
   end

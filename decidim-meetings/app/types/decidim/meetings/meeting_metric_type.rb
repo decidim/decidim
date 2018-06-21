@@ -24,7 +24,7 @@ module Decidim
     module MeetingMetricTypeHelper
       def self.base_scope(_organization)
         # super(organization).accepted
-        Meeting.all
+        Meeting.includes(:scope).all
       end
     end
   end
