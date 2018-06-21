@@ -163,15 +163,16 @@ module Decidim
 
       def publish
         PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
-          on(:ok) do |_collaborative_draft|
-            flash[:notice] = t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
           end
 
           on(:invalid) do
             flash.now[:alert] = t("publish.error", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
           end
         end
-        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
       private

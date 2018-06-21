@@ -28,20 +28,24 @@
 
     <div class="card text-center">
       <div class="card__content">
-        <div>
-          <strong class="text-large text-uppercase">
-            <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
-          </strong>
-          <small class="text-medium">
-            <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
-          </small>
-        </div>
+        <% if @collaborative_draft.published? %>
+          <%= cell "decidim/proposals/collaborative_draft_link_to_proposal", @collaborative_draft %>
+        <% else %>
+          <div>
+            <strong class="text-large text-uppercase">
+              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+            </strong>
+            <small class="text-medium">
+              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+            </small>
+          </div>
 
-        <div>
-          <span class="text-medium">
-            <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), collaborative_draft_versions_path(@collaborative_draft) %>
-          </span>
-        </div>
+          <div>
+            <span class="text-medium">
+              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), collaborative_draft_versions_path(@collaborative_draft) %>
+            </span>
+          </div>
+        <% end %>
 
         <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
           <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button--sc mt-s", id: "collaborative_draft_edit" %>

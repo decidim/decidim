@@ -36,6 +36,9 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
+    # A Hash of the names to use to find linked resources.
+    attribute :link_resource_name, Hash, default: {}
+
     validates :model_class_name, :route_name, :name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the

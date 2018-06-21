@@ -11,6 +11,7 @@ module Decidim
       def initialize(collaborative_draft, current_user)
         @collaborative_draft = collaborative_draft
         @current_user = current_user
+        @new_proposal = nil
       end
 
       # Executes the command. Broadcasts these events:
@@ -33,8 +34,10 @@ module Decidim
           send_notification_to_authors
         end
 
-        broadcast(:ok, @collaborative_draft)
+        broadcast(:ok, @new_proposal)
       end
+
+      attr_accessor :new_proposal
 
       private
 
@@ -44,6 +47,44 @@ module Decidim
           @current_user,
           state: "published"
         )
+        create_proposal
+      end
+
+      def create_proposal
+        params = ActionController::Parameters.new(
+          proposal: @collaborative_draft.as_json
+        )
+
+        @form = form(ProposalForm).from_params(params)
+        CreateProposal.call(@form, @current_user) do
+          on(:ok) do |new_proposal|
+            publish_proposal new_proposal
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
+            return broadcast(:invalid)
+          end
+        end
+      end
+
+      def publish_proposal(new_proposal)
+        @new_proposal = new_proposal
+
+        PublishProposal.call(@new_proposal, @current_user) do
+          on(:ok) do
+            link_collaborative_draft_and_proposal
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
+            return broadcast(:invalid)
+          end
+        end
+      end
+
+      def link_collaborative_draft_and_proposal
+        @collaborative_draft.link_resources(@new_proposal, link_resource_name)
       end
 
       def send_notification_to_authors
@@ -59,6 +100,10 @@ module Decidim
             author_id: @current_user.id
           }
         )
+      end
+
+      def link_resource_name
+        Decidim::Proposals::CollaborativeDraft.resource_manifest.link_resource_name[:proposals]
       end
     end
   end
