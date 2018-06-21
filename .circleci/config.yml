@@ -75,7 +75,7 @@ references:
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && rake
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
