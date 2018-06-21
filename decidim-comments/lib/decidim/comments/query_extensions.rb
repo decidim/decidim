@@ -21,6 +21,12 @@ module Decidim
             args[:type].constantize.find(args[:id])
           }
         end
+
+        type.field :commentMetric, Comments::CommentMetricType, "Decidim's CommentMetric data." do
+          resolve lambda { |_obj, _args, ctx|
+            ctx[:current_organization]
+          }
+        end
       end
     end
   end
