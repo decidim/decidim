@@ -60,6 +60,19 @@
 </div>
 <br />
 <div class="row column">
+  <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
+  <code>partial "areachart", metric: "metrica", tip: false</code>
+</div>
+<div class="row mt-s">
+  <div class="column medium-6">
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), tip: false %>
+  </div>
+  <div class="column medium-6">
+    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), axis: true, tip: false %>
+  </div>
+</div>
+<br />
+<div class="row column">
   <h4>Versión con diferentes ratios</h4>
   <div class="callout warning">
     El <code>aspect ratio</code> es un string de la forma <strong>Integer</strong>:<strong>Integer</strong>. Por defecto el valor es <em>4:3</em>

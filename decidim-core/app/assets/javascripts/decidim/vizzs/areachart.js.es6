@@ -80,9 +80,7 @@ const renderAreaChart = () => {
       svg
         .on("mouseover", () => {
           circle.style("display", null)
-          tooltip.transition()
-            .duration(200)
-            .style("opacity", 1)
+          tooltip.style("opacity", 1)
         })
         .on("mouseout", () => {
           circle.style("display", "none")
@@ -102,10 +100,10 @@ const renderAreaChart = () => {
           }
 
           let tooltipContent = `
-          <div class="tooltip-content">
-            ${d3.timeFormat("%e %B %Y")(d.key)}<br />
-            ${d.value.toLocaleString()} propuestas
-          </div>`
+            <div class="tooltip-content">
+              ${d3.timeFormat("%e %B %Y")(d.key)}<br />
+              ${d.value.toLocaleString()} propuestas
+            </div>`
 
           circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
           tooltip.html(tooltipContent)
