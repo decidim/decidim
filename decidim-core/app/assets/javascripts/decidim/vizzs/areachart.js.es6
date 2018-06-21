@@ -1,5 +1,5 @@
 /* global d3, DATACHARTS */
-/* eslint-disable id-length, no-unused-vars, no-ternary, no-nested-ternary */
+/* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -52,17 +52,63 @@ const renderAreaChart = () => {
     x.domain(d3.extent(data, (d) => d.key));
     y.domain([0, d3.max(data, (d) => d.value)]).nice();
 
+    // add the valueline path.
+    let topLine = svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline)
+
     // add the area
     svg.append("path")
       .data([data])
       .attr("class", "area")
-      .attr("d", area);
+      .attr("d", area)
 
-    // add the valueline path.
-    svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline)
+    // tooltip
+    let circle = svg.append("circle")
+      .attr("class", "circle")
+      .attr("r", 6)
+      .style("display", "none")
+
+    let tooltip = d3.select("body").append("div")
+      .attr("class", "chart-tooltip")
+      .style("opacity", 0)
+
+    svg
+      .on("mouseover", () => {
+        circle.style("display", null)
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", 1)
+      })
+      .on("mouseout", () => {
+        circle.style("display", "none")
+        tooltip.style("opacity", 0)
+      })
+      .on("mousemove", function() {
+        let x0 = x.invert(d3.mouse(this)[0])
+        let i = d3.bisector((d) => d.key).left(data, x0, 1)
+        let d0 = data[i - 1]
+        let d1 = data[i]
+        let d = (x0 - d0.key > d1.key - x0) ? d1 : d0
+
+        // svg position relative to document
+        let coords = {
+          x: window.pageXOffset + container.node().getBoundingClientRect().left,
+          y: window.pageYOffset + container.node().getBoundingClientRect().top
+        }
+
+        let tooltipContent = `
+          <div class="tooltip-content">
+            ${d3.timeFormat("%e %B %Y")(d.key)}<br />
+            ${d.value.toLocaleString()} propuestas
+          </div>`
+
+        circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
+        tooltip.html(tooltipContent)
+          .style("left", `${coords.x + x(d.key)}px`)
+          .style("top", `${coords.y + y(d.value)}px`)
+      })
 
     if (axis) {
       let xAxis = d3.axisBottom(x)
