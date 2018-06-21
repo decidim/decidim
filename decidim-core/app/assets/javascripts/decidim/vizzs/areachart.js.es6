@@ -12,8 +12,9 @@ const renderAreaChart = () => {
     let data = opts.data
     let title = opts.title
     let container = d3.select(opts.container)
-    let axis = opts.axis
+    let showAxis = opts.axis
     let ratio = opts.ratio
+    let showTooltip = opts.tip !== "false"
 
     // set the dimensions and margins of the graph
     let margin = {
@@ -64,53 +65,56 @@ const renderAreaChart = () => {
       .attr("class", "area")
       .attr("d", area)
 
-    // tooltip
-    let circle = svg.append("circle")
-      .attr("class", "circle")
-      .attr("r", 6)
-      .style("display", "none")
+    if (showTooltip) {
+      // tooltip
+      let circle = svg.append("circle")
+        .attr("class", "circle")
+        .attr("r", 6)
+        .style("display", "none")
 
-    let tooltip = d3.select("body").append("div")
-      .attr("class", "chart-tooltip")
-      .style("opacity", 0)
+      let tooltip = d3.select("body").append("div")
+        .attr("id", `${container.node().id}-tooltip`)
+        .attr("class", "chart-tooltip")
+        .style("opacity", 0)
 
-    svg
-      .on("mouseover", () => {
-        circle.style("display", null)
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", 1)
-      })
-      .on("mouseout", () => {
-        circle.style("display", "none")
-        tooltip.style("opacity", 0)
-      })
-      .on("mousemove", function() {
-        let x0 = x.invert(d3.mouse(this)[0])
-        let i = d3.bisector((d) => d.key).left(data, x0, 1)
-        let d0 = data[i - 1]
-        let d1 = data[i]
-        let d = (x0 - d0.key > d1.key - x0) ? d1 : d0
+      svg
+        .on("mouseover", () => {
+          circle.style("display", null)
+          tooltip.transition()
+            .duration(200)
+            .style("opacity", 1)
+        })
+        .on("mouseout", () => {
+          circle.style("display", "none")
+          tooltip.style("opacity", 0)
+        })
+        .on("mousemove", function() {
+          let x0 = x.invert(d3.mouse(this)[0])
+          let i = d3.bisector((d) => d.key).left(data, x0, 1)
+          let d0 = data[i - 1]
+          let d1 = data[i]
+          let d = (x0 - d0.key > d1.key - x0) ? d1 : d0
 
-        // svg position relative to document
-        let coords = {
-          x: window.pageXOffset + container.node().getBoundingClientRect().left,
-          y: window.pageYOffset + container.node().getBoundingClientRect().top
-        }
+          // svg position relative to document
+          let coords = {
+            x: window.pageXOffset + container.node().getBoundingClientRect().left,
+            y: window.pageYOffset + container.node().getBoundingClientRect().top
+          }
 
-        let tooltipContent = `
+          let tooltipContent = `
           <div class="tooltip-content">
             ${d3.timeFormat("%e %B %Y")(d.key)}<br />
             ${d.value.toLocaleString()} propuestas
           </div>`
 
-        circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
-        tooltip.html(tooltipContent)
-          .style("left", `${coords.x + x(d.key)}px`)
-          .style("top", `${coords.y + y(d.value)}px`)
-      })
+          circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
+          tooltip.html(tooltipContent)
+            .style("left", `${coords.x + x(d.key)}px`)
+            .style("top", `${coords.y + y(d.value)}px`)
+        })
+    }
 
-    if (axis) {
+    if (showAxis) {
       let xAxis = d3.axisBottom(x)
         .ticks(d3.timeMonth)
         .tickFormat(d3.timeFormat("%b %y"))
@@ -199,7 +203,8 @@ const renderAreaChart = () => {
         title: container.dataset.title,
         data: parseData(data),
         axis: (container.dataset.axis === "true") || false,
-        ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3)
+        ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
+        tip: container.dataset.tip
       })
     }
   })

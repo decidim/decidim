@@ -10,19 +10,19 @@
   <%= partial "process_header_home" %>
   <div class="row">
     <div class="column medium-6">
-      <h3 class="heading3 text-uppercase text-muted">Participantes</h3>
+      <h3 class="heading3 text-uppercase text-muted">Participantes nabo</h3>
       <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
-      <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true %>
+      <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, tip: false %>
       <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
     </div>
-    <!-- <div class="column medium-6">
+    <div class="column medium-6">
       <h3 class="heading3 text-uppercase text-muted">Propuestas</h3>
       <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
-      <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true %>
+      <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, tip: true %>
       <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
-    </div> -->
+    </div>
   </div>
-  <!-- <div class="row">
+  <div class="row">
     <div class="column medium-6">
       <h3 class="heading3 text-uppercase text-muted">Apoyos</h3>
       <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
@@ -63,7 +63,7 @@
       <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
       <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
     </div>
-  </div> -->
+  </div>
 </main>
 
 <%= partial "template_bottom" %>
