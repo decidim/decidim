@@ -7,18 +7,6 @@ module Decidim
 
       name "MeetingMetricType"
       description "A meeting component of a participatory space."
-
-      field :count, !types.Int, "Total meetings" do
-        resolve ->(organization, _args, _ctx) {
-          MeetingMetricTypeHelper.base_scope(organization).count
-        }
-      end
-
-      field :data, !types[MeetingMetricObjectType], "Data for each meeting" do
-        resolve ->(organization, _args, _ctx) {
-          MeetingMetricTypeHelper.base_scope(organization)
-        }
-      end
     end
 
     module MeetingMetricTypeHelper
