@@ -63,6 +63,16 @@ module Decidim
       true
     end
 
+    def creation_date
+      date_at = if proposals_controller?
+                  from_context.published_at
+                else
+                  from_context.created_at
+                end
+
+      l date_at, format: :decidim_short
+    end
+
     def commentable?
       return unless posts_controller?
       true
