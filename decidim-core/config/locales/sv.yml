@@ -402,6 +402,20 @@ sv:
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
+    newsletters_opt_in:
+      unathorized: Tyvärr, den här länken är inte längre tillgänglig
+      update:
+        error: Något fel har hänt
+        success: Nyhetsbrevinställningarna uppdateras framgångsrikt
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Behandlingen av personuppgifter och dess skydd blir allt viktigare för oss alla. Med den nya allmänna databeskrivningsförordningen (GDPR) den 25 maj 2018 har individer bättre kontroll över deras personuppgifter. Av denna anledning behöver vi din "OK" för att fortsätta att skicka relevant information om aktiviteterna på %{organization_name}.
+        body_2: 'Hur kan du ge oss ditt samtycke? Klicka bara på följande knapp:'
+        body_3: Med detta samtycke kan du fortsätta att få information om plattformens tjänster. Om vi ​​tvärtom inte får en positiv bekräftelse från din sida kommer vi sluta skicka dig våra meddelanden. Om du bekräftar att du vill fortsätta informeras, har du alltid möjlighet att avbryta när som helst.
+        button: Ja, jag vill fortsätta att få relevant information
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallå,
+        subject: Vill du fortsätta att få relevant information om?
     notifications:
       no_notifications: Inga notiser ännu.
     notifications_settings:
