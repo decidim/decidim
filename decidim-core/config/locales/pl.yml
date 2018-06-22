@@ -234,8 +234,15 @@ pl:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
+            close_modal: Zamknij modalne
             uncheck: Pozostaw niezaznaczone
-          notice: Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu? Rozważ ponownie zaznaczenie pola wyboru biuletynu poniżej. Bardzo ważne jest dla nas, że możesz odbierać od czasu do czasu e-maile, by tworzyć ważne ogłoszenia. Zawsze możesz to zmienić na stronie ustawień powiadomień. Jeśli nie zaznaczysz tego pola, być może brakuje odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy. Jeśli nadal chcesz uniknąć otrzymywania biuletynów, doskonale rozumiemy Twoją decyzję. Dziękuję za przeczytanie tego!
+          notice: |-
+            <p>Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu?<br>
+            Proszę rozważyć ponownie zaznaczenie pola wyboru biuletynu poniżej.<br>
+            Jest dla nas bardzo ważne, abyś mógł otrzymywać od czasu do czasu e-maile do ważnych ogłoszeń, zawsze możesz to zmienić na stronie ustawień powiadomień.</p>
+            <p>Jeśli nie zaznaczysz tego pola, może brakować odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy.<br>
+            Jeśli nadal nie chcesz otrzymywać biuletynów, doskonale rozumiemy Twoją decyzję.</p>
+            <p>Dziękuję za przeczytanie tego!</p>
           title: Powiadomienia biuletynu
         omniauth_buttons:
           or: Lub
@@ -472,6 +479,7 @@ pl:
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
+          modal_close: Zamknij modalne
           modal_title: Czy rzeczywiście odmawiasz zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
