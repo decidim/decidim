@@ -192,7 +192,8 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member
+          :assembly_member,
+          :space_private_user
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
