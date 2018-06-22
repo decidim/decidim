@@ -259,11 +259,9 @@ module Decidim
       template += @template.text_field(
         @object_name,
         attribute,
-        options.merge(name: nil,
-                      id: "date_field_#{@object_name}_#{attribute}",
-                      data: data)
+        options.merge(id: "#{@object_name}_#{attribute}",
+                      data: data, readonly: true)
       )
-      template += @template.hidden_field(@object_name, attribute, value: iso_value)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
