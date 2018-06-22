@@ -244,11 +244,11 @@ eu:
           fields:
             category: Kategoria
             comments: Oharrak
-            created_at: Sortutako at
             endorsements: Oniritziak
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
+            published_at: Argitaratu at
             scope: Esparrua
             state: Egoera
             title: Titulua
