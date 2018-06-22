@@ -19,11 +19,11 @@ describe "Assembly admin accesses admin sections", type: :system do
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
+      expect(page).to have_content("Collections")
       expect(page).to have_content("Files")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly users")
-      expect(page).to have_content("Private users")
+      expect(page).to have_content("Private Users")
       expect(page).to have_content("Moderations")
     end
   end
