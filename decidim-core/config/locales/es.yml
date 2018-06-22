@@ -402,6 +402,20 @@ es:
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
+    newsletters_opt_in:
+      unathorized: Lo sentimos, este enlace ya no está disponible
+      update:
+        error: Algo malo paso
+        success: Configuración del boletín de noticias actualizada con
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (GDPR) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos su "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
+        body_2: '¿Cómo puede darnos su consentimiento? Simplemente haga clic en el siguiente botón:'
+        body_3: Con este consentimiento, podrá continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de su parte, dejaremos de enviarle nuestros mensajes. Si confirma que desea continuar informado, siempre tendrá la opción de cancelar en cualquier momento.
+        button: Sí, deseo continuar recibiendo información relevante
+        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
+        subject: '¿Quieres seguir recibiendo información relevante?'
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
