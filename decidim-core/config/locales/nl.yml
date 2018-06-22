@@ -402,6 +402,20 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    newsletters_opt_in:
+      unathorized: Sorry, deze link is niet langer beschikbaar
+      update:
+        error: Er gebeurde iets verkeerds
+        success: Nieuwsbriefinstellingen succesvol bijgewerkt
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
+        body_2: 'Hoe kunt u ons uw toestemming geven? Klik gewoon op de volgende knop:'
+        body_3: Met deze toestemming kunt u doorgaan met het ontvangen van informatie over de diensten van het platform. Als we daarentegen geen positieve bevestiging van u ontvangen, zullen wij u niet langer onze berichten toesturen. Als u bevestigt dat u op de hoogte wilt blijven, heeft u altijd de mogelijkheid om op elk gewenst moment te annuleren.
+        button: Ja, ik wil relevante informatie blijven ontvangen
+        greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo,
+        subject: Wilt u relevante informatie blijven ontvangen over?
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
