@@ -224,8 +224,15 @@ fr:
         newsletter_modal:
           buttons:
             check: Vérifiez et continuez
+            close_modal: Fermer modal
             uncheck: Désactiver
-          notice: Hey, êtes-vous sûr de ne pas vouloir recevoir de newsletter ? Nous vous prions de bien réfléchir. Il est très important pour nous que vous puissiez recevoir des emails occasionnels pour les annonces importantes, vous pouvez toujours changer cela sur la page des paramètres de vos notifications. Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme. Si vous souhaitez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision. Merci d'avoir lu ce message !
+          notice: |-
+            <p>Hé, êtes-vous sûr de ne pas vouloir recevoir de newsletter?<br>
+            Veuillez considérer de nouveau en cochant la case à cocher newsletter ci-dessous.<br>
+            Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour faire des annonces importantes, vous pouvez toujours les modifier sur la page des paramètres de vos notifications.</p>
+            <p>Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme.<br>
+            Si vous voulez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
+            <p>Merci d'avoir lu ceci!</p>
           title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
@@ -462,6 +469,7 @@ fr:
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je le ferai plus tard
           modal_button: Refuser les conditions
+          modal_close: Fermer modal
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
