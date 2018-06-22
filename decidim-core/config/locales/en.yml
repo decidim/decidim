@@ -407,6 +407,20 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    newsletters_opt_in:
+      unathorized: Sorry, this link is no longer available
+      update:
+        error: Something wrong happened
+        success: Newsletter settings updated successfully
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_2: 'How can you give us your consent? Just click the following button:'
+        body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to continue informed, you will always have the option to cancel at any time.
+        button: Yes, I want to continue receiving relevant information
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Do you want to keep receiving relevant information about?
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:

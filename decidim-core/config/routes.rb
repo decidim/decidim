@@ -47,6 +47,9 @@ Decidim::Core::Engine.routes.draw do
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
+
+    get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
+
     resource :data_portability, only: [:show], controller: "data_portability" do
       member do
         post :export
