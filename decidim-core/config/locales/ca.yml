@@ -230,8 +230,8 @@ ca:
             <p>Hola, estàs segur que no vols rebre un butlletí?<br>
             Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
             Per a nosaltres és molt important que rebeu correus ocasionals per fer anuncis importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
-            <p>Si no marca la casella, pot ser que falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
-            Si encara voleu evitar rebre butlletins, entenem perfectament la vostra decisió.</p>
+            <p>Si no marques la casella, pot ser que falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
+            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
             <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
