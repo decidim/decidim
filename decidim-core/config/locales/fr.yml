@@ -402,6 +402,20 @@ fr:
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Quelque chose s'est mal passé
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (GDPR) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre "OK" pour continuer à envoyer des informations pertinentes sur les activités du %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement? Cliquez simplement sur le bouton suivant:'
+        body_3: Avec ce consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plate-forme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer nos messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler à tout moment.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes?
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
