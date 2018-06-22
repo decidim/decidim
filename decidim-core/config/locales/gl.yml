@@ -402,6 +402,20 @@ gl:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
         unsubscribe: Anular a suscripción
+    newsletters_opt_in:
+      unathorized: Esta ligazón xa non está dispoñible
+      update:
+        error: Aconteceu algo mal
+        success: Configuracións do boletín informativo actualizáronse con éxito
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
+        body_2: 'Como nos pode dar o seu consentimento? Só tes que premer no seguinte botón:'
+        body_3: Con este consentimento poderás seguir recibindo información sobre os servizos da plataforma. Se, pola contra, non recibimos unha confirmación positiva da súa parte, deixaremos de enviarlle as nosas mensaxes. Se confirma que quere continuar informado, sempre terá a opción de cancelar en calquera momento.
+        button: Si, quero seguir recibindo información relevante
+        greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ola,
+        subject: Queres seguir recibindo información relevante sobre?
     notifications:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:
