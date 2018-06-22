@@ -224,8 +224,15 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
+            close_modal: Chiudi modale
             uncheck: Continua a deselezionare
-          notice: Ehi, sei sicuro di non voler ricevere una newsletter? Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto. Per noi è molto importante che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche. Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma. Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione. Grazie per aver letto questo!
+          notice: |-
+            <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
+            Si prega di considerare di nuovo spuntando la casella di controllo newsletter sotto.<br>
+            È molto importante per noi che tu possa ricevere e-mail occasionali per fare annunci importanti, puoi sempre modificarlo nella pagina delle impostazioni delle notifiche.</p>
+            <p>Se non si spunta la casella, potrebbero mancare informazioni pertinenti sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
+            Se vuoi ancora evitare di ricevere le newsletter, capiamo perfettamente la tua decisione.</p>
+            <p>Grazie per aver letto questo!</p>
           title: Notifiche alla newsletter
         omniauth_buttons:
           or: O
@@ -462,6 +469,7 @@ it:
           modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
           modal_button: Rifiuta i termini
+          modal_close: Chiudi modale
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
