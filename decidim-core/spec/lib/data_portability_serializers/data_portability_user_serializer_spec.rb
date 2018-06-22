@@ -40,7 +40,7 @@ module Decidim
       end
 
       it "includes the newsletter notifications" do
-        expect(serialized).to include(newsletter_notifications: resource.newsletter_notifications)
+        expect(serialized).to include(newsletter_notifications_at: resource.newsletter_notifications_at)
       end
 
       it "includes the email on notification" do

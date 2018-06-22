@@ -82,6 +82,21 @@ namespace :decidim do
     end
   end
 
+  desc "Check and notify users to update her newsletter notifications settings"
+  task check_users_newsletter_opt_in: :environment do
+    print %(
+> This will send an email to all the users that have marked the newsletter by default. This should only be run if you were using Decidim before v0.11
+  If you have any doubts regarding this feature, please check the releases notes for this version  https://github.com/decidim/decidim/releases/tag/v0.12
+  Are you sure you want to do that? [y/N]: )
+    input = $stdin.gets.chomp
+    if input.casecmp("y").zero?
+      puts %(  Continue...)
+      Decidim::User.where("newsletter_notifications_at < ?", Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
+    else
+      puts %(  Execution cancelled...)
+    end
+  end
+
   desc "Deletes the data portability file inside tmp/data-portability folder."
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"

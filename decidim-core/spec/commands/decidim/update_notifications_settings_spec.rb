@@ -10,14 +10,14 @@ module Decidim
     let(:data) do
       {
         email_on_notification: "1",
-        newsletter_notifications: "1"
+        newsletter_notifications_at: Time.zone.now
       }
     end
 
     let(:form) do
       form = double(
         email_on_notification: data[:email_on_notification],
-        newsletter_notifications: data[:newsletter_notifications],
+        newsletter_notifications_at: data[:newsletter_notifications_at],
         valid?: valid
       )
 
@@ -38,7 +38,7 @@ module Decidim
       it "updates the users's notifications settings" do
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.email_on_notification).to be_truthy
-        expect(user.reload.newsletter_notifications).to be_truthy
+        expect(user.reload.newsletter_notifications_at).not_to be_nil
       end
     end
   end

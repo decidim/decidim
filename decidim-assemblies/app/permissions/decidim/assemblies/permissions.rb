@@ -126,7 +126,7 @@ module Decidim
 
       # Any user that can enter the space area can read the admin dashboard.
       def user_can_read_admin_dashboard?
-        toggle_allow(user.admin? || has_manageable_assemblies?)
+        allow! if user.admin? || has_manageable_assemblies?
       end
 
       # Only organization admins can create a assembly
@@ -192,7 +192,8 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member
+          :assembly_member,
+          :space_private_user
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

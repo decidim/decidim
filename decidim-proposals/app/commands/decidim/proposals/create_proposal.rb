@@ -50,13 +50,12 @@ module Decidim
           body: form.body,
           category: form.category,
           scope: form.scope,
-          author: @current_user,
-          decidim_user_group_id: form.user_group_id,
           component: form.component,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
         )
+        proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
       end
 
       def build_attachment
@@ -112,11 +111,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: @current_user, component: form.current_component).except_withdrawn
+        Proposal.from_author(@current_user).where(component: form.current_component).except_withdrawn
       end
 
       def user_group_proposals
-        Proposal.where(user_group: @user_group, component: form.current_component).except_withdrawn
+        Proposal.from_user_group(@user_group).where(component: form.current_component).except_withdrawn
       end
     end
   end

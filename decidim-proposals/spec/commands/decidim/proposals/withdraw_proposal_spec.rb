@@ -12,7 +12,7 @@ module Decidim
       end
 
       describe "when current user IS the author of the proposal" do
-        let(:current_user) { proposal.author }
+        let(:current_user) { proposal.creator_author }
         let(:command) { described_class.new(proposal, current_user) }
 
         context "and the proposal has no supports" do

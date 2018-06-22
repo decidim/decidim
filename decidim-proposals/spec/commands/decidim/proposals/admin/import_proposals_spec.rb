@@ -84,10 +84,9 @@ module Decidim
               command.call
 
               new_proposal = Proposal.where(component: current_component).last
-
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
-              expect(new_proposal.author).to eq(proposal.author)
+              expect(new_proposal.creator_author).to eq(proposal.creator_author)
               expect(new_proposal.category).to eq(proposal.category)
 
               expect(new_proposal.state).to be_nil
