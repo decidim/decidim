@@ -224,8 +224,15 @@ es-PY:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
+            close_modal: Cierre modal
             uncheck: Mantener desmarcado
-          notice: Oye, ¿estás seguro de que no quieres recibir un boletín informativo? Considera volver a marcar la casilla de verificación del boletín de abajo. Es muy importante para nosotros que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes. Siempre puedes cambiar esto en la página de configuración de notificaciones. Si no marca la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma. Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión. ¡Gracias por leer esto!
+          notice: |-
+            <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
+            Por favor, considere volver a marcar la casilla de verificación del boletín de abajo.<br>
+            Es muy importante para nosotros que pueda recibir correos electrónicos ocasionales para hacer anuncios importantes, siempre puede cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Si no marca la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
+            Si aún desea evitar recibir boletines, entendemos perfectamente su decisión.</p>
+            <p>Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -462,6 +469,7 @@ es-PY:
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
+          modal_close: Cierre modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
