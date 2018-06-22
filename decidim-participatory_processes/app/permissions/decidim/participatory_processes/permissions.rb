@@ -153,7 +153,7 @@ module Decidim
 
       # Any user that can enter the space area can read the admin dashboard.
       def user_can_read_admin_dashboard?
-        toggle_allow(user.admin? || has_manageable_processes?)
+        allow! if user.admin? || has_manageable_processes?
       end
 
       # Only organization admins can create a process
