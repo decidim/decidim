@@ -402,6 +402,20 @@ eu:
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
+    newsletters_opt_in:
+      unathorized: Esteka hau jada ez dago erabilgarri
+      update:
+        error: Zerbait gaizki gertatu zen
+        success: Buletinaren ezarpenak behar bezala eguneratu dira
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriaren (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, "OK" behar dugu, %{organization_name}jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
+        body_2: 'Nola eman dezakezun zure baimena? Egin klik botoi honetan:'
+        body_3: Baimen honekin plataformaren zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, ez badugu baieztapen positiboa jasoko, zure mezuak bidaltzen jarraituko dugu. Jakinarazten jarraitu nahi duzula baieztatzen baduzu, edonoiz bertan behera uzteko aukera izango duzu.
+        button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
+        greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Kaixo,
+        subject: Informazio garrantzitsua jasotzen jarraitu nahi al duzu?
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
