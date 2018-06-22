@@ -296,6 +296,7 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
+      it_behaves_like "allows any action on subject", :space_private_user
     end
 
     context "when user is n org admin" do

@@ -31,6 +31,7 @@
 - **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3666)
 - **decidim-core**: Fix comments count failing in AuthorCell [\#3668](https://github.com/decidim/decidim/pull/3668)
 - **decidim-proposals**: Fix proposal date to published_at in: card_m, details, admin and exporter [\#3649](https://github.com/decidim/decidim/pull/3649)
+- **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
 
 **Removed**:
 
