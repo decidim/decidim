@@ -224,8 +224,15 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
+            close_modal: Pechar modal
             uncheck: Mantente desmarcada
-          notice: Ola, estás seguro de que non queres recibir un boletín informativo? Por favor, considere nuevamente marcar a caixa de verificación seguinte. É moi importante para nós que podes recibir correos electrónicos ocasionais para facer anuncios importantes, sempre podes cambiar isto na túa páxina de configuración de notificacións. Se non marca a caixa, falla información relevante sobre novas oportunidades de participación dentro da plataforma. Se aínda queres evitar recibir boletíns, entendemos perfectamente a túa decisión. Grazas por ler isto!
+          notice: |-
+            <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
+            Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
+            É moi importante para nós que podes recibir correos electrónicos ocasionais para facer anuncios importantes, sempre podes cambiar isto na túa páxina de configuración das notificacións.</p>
+            <p>Se non marca a caixa, falla a información relevante sobre novas oportunidades participativas dentro da plataforma.<br>
+            Se aínda queres evitar recibir boletíns, entendemos perfectamente a túa decisión.</p>
+            <p>Grazas por ler isto!</p>
           title: Notificacións de boletín informativo
         omniauth_buttons:
           or: Ou
@@ -462,6 +469,7 @@ gl:
           modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
+          modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
