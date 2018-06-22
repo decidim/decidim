@@ -224,8 +224,15 @@ ca:
         newsletter_modal:
           buttons:
             check: Marca i continua
+            close_modal: Tanca el modal
             uncheck: Deixa desmarcada
-          notice: Hola, estàs segur que no vols rebre un butlletí informatiu? Si us plau, avalua tornar a fer clic a la casella de verificació que apareix a continuació. Per a nosaltres és molt important que rebis correus ocasionals per fer anuncis importants, i sempre pots canviar-ho a la pàgina de configuració de les notificacions. Si no marques la casella, és possible que no rebis informació rellevant sobre noves oportunitats de participació dins de la plataforma. Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió. Gràcies per llegir això!
+          notice: |-
+            <p>Hola, estàs segur que no vols rebre un butlletí?<br>
+            Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
+            Per a nosaltres és molt important que rebeu correus ocasionals per fer anuncis importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
+            <p>Si no marca la casella, pot ser que falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
+            Si encara voleu evitar rebre butlletins, entenem perfectament la vostra decisió.</p>
+            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -462,6 +469,7 @@ ca:
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
+          modal_close: Tanca el modal
           modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
