@@ -224,8 +224,15 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
+            close_modal: Stäng modal
             uncheck: Håll avmarkeringen
-          notice: Hej, är du säker på att du inte vill få ett nyhetsbrev? Tänk på att markera kryssrutan nyhetsbrev nedan. Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra detta på sidan Meddelandeinställningar. Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen. Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt. Tack för att du läste detta!
+          notice: |-
+            <p>Hej, är du säker på att du inte vill få ett nyhetsbrev?<br>
+            Tänk på att markera kryssrutan nyhetsbrev nedan.<br>
+            Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra det på sidan Meddelandeinställningar.</p>
+            <p>Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen.<br>
+            Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt.</p>
+            <p>Tack för att du läste detta!</p>
           title: Nyhetsbrev anmälningar
         omniauth_buttons:
           or: Eller
@@ -462,6 +469,7 @@ sv:
           modal_btn_continue: Acceptera villkor och fortsätt
           modal_btn_exit: Jag ska granska den senare
           modal_button: Avvisa villkoren
+          modal_close: Stäng modal
           modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
