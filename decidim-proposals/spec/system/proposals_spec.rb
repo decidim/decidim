@@ -52,7 +52,7 @@ describe "Proposals", type: :system do
       expect(page).to have_content(proposal.body)
       expect(page).to have_author(proposal.author.name)
       expect(page).to have_content(proposal.reference)
-      expect(page).to have_creation_date(I18n.l(proposal.created_at, format: :decidim_short))
+      expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do

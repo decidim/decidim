@@ -245,11 +245,11 @@ en:
           fields:
             category: Category
             comments: Comments
-            created_at: Created at
             endorsements: Endorsements
             id: ID
             notes: Notes
             official_proposal: Official proposal
+            published_at: Published at
             scope: Scope
             state: State
             title: Title

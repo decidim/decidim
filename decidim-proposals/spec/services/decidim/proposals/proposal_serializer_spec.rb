@@ -58,7 +58,7 @@ module Decidim
         end
 
         it "serializes the date of creation" do
-          expect(serialized).to include(created_at: proposal.created_at)
+          expect(serialized).to include(published_at: proposal.published_at)
         end
 
         it "serializes the url" do
