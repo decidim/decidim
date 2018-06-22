@@ -244,11 +244,11 @@ es-PY:
           fields:
             category: Categoría
             comments: Comentarios
-            created_at: Creado el
             endorsements: Adhesión
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
+            published_at: Publicado en
             scope: Ámbito
             state: Estado
             title: Título
