@@ -224,8 +224,15 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
+            close_modal: Modal sluiten
             uncheck: Blijf uitgeschakeld
-          notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
+          notice: |-
+            <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
+            Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
+            Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen.</p>
+            <p>Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform.<br>
+            Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect.</p>
+            <p>Bedankt voor het lezen van dit!</p>
           title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
@@ -462,6 +469,7 @@ nl:
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden
+          modal_close: Modal sluiten
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
