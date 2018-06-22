@@ -402,6 +402,20 @@ ca:
         success: Has cancel·lat la subscripció amb èxit.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
+    newsletters_opt_in:
+      unathorized: Ho sentim, aquest enllaç ja no està disponible
+      update:
+        error: S'ha produït un error
+        success: Configuració del butlletí de notícies actualitzada amb èxit
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a tots nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un millor control sobre les seves dades personals. Per aquest motiu, necessitem el vostre "D'acord" per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
+        body_2: 'Com ens podeu donar el vostre consentiment? Només cal que feu clic al botó següent:'
+        body_3: Amb aquest consentiment podrà continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la vostra part, deixarem d'enviar-vos els nostres missatges. Si confirma que voleu continuar informant, sempre tindrà l'opció de cancel·lar en qualsevol moment.
+        button: Sí, vull continuar rebent informació rellevant
+        greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
+        subject: Voleu seguir rebent informació rellevant sobre?
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
