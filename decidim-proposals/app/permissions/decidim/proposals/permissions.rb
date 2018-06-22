@@ -67,7 +67,7 @@ module Decidim
       end
 
       def can_withdraw_proposal?
-        toggle_allow(proposal && proposal.author == user)
+        toggle_allow(proposal && proposal.authored_by?(user))
       end
 
       def can_endorse_proposal?

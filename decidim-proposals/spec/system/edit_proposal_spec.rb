@@ -8,7 +8,7 @@ describe "Edit proposals", type: :system do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, author: user, component: component }
+  let!(:proposal) { create :proposal, users: [user], component: component }
 
   before do
     switch_to_host user.organization.host
@@ -74,7 +74,7 @@ describe "Edit proposals", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, author: user, component: component, created_at: 1.hour.ago }
+    let!(:proposal) { create :proposal, users: [user], component: component, created_at: 1.hour.ago }
 
     before do
       login_as another_user, scope: :user
