@@ -412,6 +412,20 @@ pl:
         success: Zyskujesz subskrypcję.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
+    newsletters_opt_in:
+      unathorized: Przepraszamy, ten link nie jest już dostępny
+      update:
+        error: Stało się coś złego
+        success: Ustawienia newslettera zostały pomyślnie zaktualizowane
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
+        body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij następujący przycisk:'
+        body_3: Za tą zgodą będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli, wręcz przeciwnie, nie otrzymamy potwierdzenia z Twojej strony, przestaniemy wysyłać Ci nasze wiadomości. Jeśli potwierdzisz, że chcesz kontynuować informacje, zawsze będziesz mieć możliwość anulowania w dowolnym momencie.
+        button: Tak, chcę nadal otrzymywać odpowiednie informacje
+        greetings: Pozdrowienia,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Cześć,
+        subject: Czy chcesz nadal otrzymywać odpowiednie informacje?
     notifications:
       no_notifications: Nie powiadomienia.
     notifications_settings:
