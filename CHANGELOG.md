@@ -6,6 +6,7 @@
 
 - **decidim-core**: GDPR: Add Right of data portability. [\#3489](https://github.com/decidim/decidim/pull/3489)
 - **decidim-meetings**: Allow users to accept or reject invitations to meetings, and allow admins to see their status. [\#3632](https://github.com/decidim/decidim/pull/3632)
+- **decidim-core**: GDPR: Opt-in for all the users with newsletters [\#3492](https://github.com/decidim/decidim/issues/3492)
 - **decidim-initiatives**: Notify the followers when an initiative's signatures end date has been extended [\#3621](https://github.com/decidim/decidim/pull/3621)
 
 **Changed**:
@@ -30,6 +31,7 @@
 - **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3666)
 - **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3666)
 - **decidim-core**: Fix comments count failing in AuthorCell [\#3668](https://github.com/decidim/decidim/pull/3668)
+- **decidim-proposals**: Fix proposal date to published_at in: card_m, details, admin and exporter [\#3649](https://github.com/decidim/decidim/pull/3649)
 
 **Removed**:
 

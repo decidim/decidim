@@ -56,7 +56,7 @@
             <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
             <fieldset>
               <div class="field">
-                <%= f.check_box :newsletter_notifications, label: t("newsletter", scope: "decidim.devise.registrations.new") %>
+                <%= check_box_tag :"#{resource_name}[newsletter_notifications]", label: t("newsletter", scope: "decidim.devise.registrations.new") %>
               </div>
             </fieldset>
           </div>
