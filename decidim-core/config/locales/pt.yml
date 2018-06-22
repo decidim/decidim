@@ -224,8 +224,15 @@ pt:
         newsletter_modal:
           buttons:
             check: Verifique e continue
+            close_modal: Fechar modal
             uncheck: Manter desmarcado
-          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          notice: |-
+            <p>Tem certeza de que não quer receber uma newsletter?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
+            É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações.</p>
+            <p>Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma.<br>
+            Se você ainda quiser evitar receber boletins informativos, entenderemos perfeitamente sua decisão.</p>
+            <p>Obrigado por ler isto!</p>
           title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
@@ -462,6 +469,7 @@ pt:
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
