@@ -9,14 +9,12 @@ def visit_meeting_invites_page
 end
 
 def fill_in_meeting_registration_invite(name:, email:)
-  click_link "Invite attendee"
-
   within "form.new_meeting_registration_invite" do
     fill_in :meeting_registration_invite_name, with: name
     fill_in :meeting_registration_invite_email, with: email
-  end
 
-  click_button "Invite"
+    click_button "Invite"
+  end
 
   expect(page).to have_content("successfully")
 end
@@ -26,7 +24,12 @@ shared_examples "manage invites" do
     context "when registrations are not enabled" do
       it "cannot invite people to join a meeting" do
         visit_meeting_invites_page
-        expect(page).to have_selector("a.disabled", text: "INVITE ATTENDEE")
+
+        expect(page).to have_content("registrations are disabled")
+
+        within "form.new_meeting_registration_invite" do
+          expect(page).to have_selector("button[disabled]", text: "Invite")
+        end
       end
     end
 
