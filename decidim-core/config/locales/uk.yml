@@ -234,6 +234,7 @@ uk:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
+            close_modal: Закрити віконце
             uncheck: Не ставити галочку
           title: Сповіщення про новини
         omniauth_buttons:
