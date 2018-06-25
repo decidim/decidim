@@ -72,6 +72,7 @@ end
 
 **Fixed**:
 
+- **decidim-budgets**: Normalized authorization and permissions checks with the rest of components. [\#3710](https://github.com/decidim/decidim/pull/3710)
 - **decidim-core**: Search results should be paginated so that server does not hang when search term is too wide. [\#3605](https://github.com/decidim/decidim/pull/3605)
 - **decidim-assemblies**: Fix private assemblies showing more than once for private users. [\#3638](https://github.com/decidim/decidim/pull/3638)
 - **decidim-proposals**: Do not index non published Proposals. [\#3618](https://github.com/decidim/decidim/pull/3618)
@@ -91,6 +92,8 @@ end
 - **decidim-admin**: Let user managers access the public space [\#3720](https://github.com/decidim/decidim/pull/3720)
 
 **Removed**:
+
+- **decidim-core**: Removed redundant `authorize_action!` method. [\#3710](https://github.com/decidim/decidim/pull/3710)
 
 ## Previous versions
 
