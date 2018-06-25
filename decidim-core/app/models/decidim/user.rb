@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_dependency "devise/models/decidim_validatable"
+require_dependency "devise/models/decidim_newsletterable"
 require "valid_email2"
 
 module Decidim
@@ -17,6 +18,7 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
+           :decidim_newsletterable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]

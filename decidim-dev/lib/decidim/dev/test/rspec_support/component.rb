@@ -139,6 +139,7 @@ RSpec.configure do |config|
           t.float :latitude
           t.float :longitude
           t.datetime :published_at
+          t.integer :coauthorships_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.references :decidim_author, index: false

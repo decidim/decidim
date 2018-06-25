@@ -40,6 +40,11 @@ module Decidim
       sign_up_as == "user_group"
     end
 
+    def newsletter_at
+      return nil unless newsletter?
+      Time.zone.now
+    end
+
     private
 
     def email_unique_in_organization

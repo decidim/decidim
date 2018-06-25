@@ -11,7 +11,7 @@ module Decidim
       let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, :admin, organization: organization) }
-      let!(:proposal) { create(:proposal, component: component, author: author) }
+      let!(:proposal) { create(:proposal, component: component, users: [author]) }
       let(:resource) do
         build(:dummy_resource)
       end
