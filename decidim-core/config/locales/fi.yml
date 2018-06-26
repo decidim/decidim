@@ -415,7 +415,7 @@ fi:
         button: Kyllä, haluan jatkaa asiaankuuluvien tietojen saamista
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
-        subject: Haluatko säilyttää asiaa koskevia tietoja?
+        subject: Haluatko saada jatkuvasti tietoja %{organization_name}?
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
