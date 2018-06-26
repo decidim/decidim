@@ -415,7 +415,7 @@ sv:
         button: Ja, jag vill fortsätta att få relevant information
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
-        subject: Vill du fortsätta att få relevant information om?
+        subject: Vill du fortsätta att få relevant information om %{organization_name}?
     notifications:
       no_notifications: Inga notiser ännu.
     notifications_settings:
