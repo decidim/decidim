@@ -57,8 +57,8 @@ module Decidim
           end
         end
 
-        context "when the collaborative draft is closed" do
-          let(:state) { :closed }
+        context "when the collaborative draft is withdrawn" do
+          let(:state) { :withdrawn }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

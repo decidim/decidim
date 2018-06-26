@@ -40,7 +40,7 @@ module Decidim
             post :request_access
             post :request_accept
             post :request_reject
-            post :close
+            post :withdraw
             post :publish
           end
           resources :versions, only: [:show, :index]

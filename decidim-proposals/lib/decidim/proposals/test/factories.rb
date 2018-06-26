@@ -252,8 +252,8 @@ FactoryBot.define do
       state "open"
     end
 
-    trait :closed do
-      state "closed"
+    trait :withdrawn do
+      state "withdrawn"
     end
   end
 end

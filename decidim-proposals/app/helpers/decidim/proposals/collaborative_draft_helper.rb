@@ -11,7 +11,7 @@ module Decidim
           collection = []
           collection << ["all", t("all", scope: scope)]
           collection << ["open", t("open", scope: scope)]
-          collection << ["closed", t("closed", scope: scope)]
+          collection << ["withdrawn", t("withdrawn", scope: scope)]
           collection << ["published", t("published", scope: scope)]
           collection
         end

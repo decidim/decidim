@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe CloseCollaborativeDraft do
+    describe WithdrawCollaborativeDraft do
       describe "call" do
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
@@ -14,8 +14,8 @@ module Decidim
         let(:state) { :open }
         let(:collaborative_draft) { create(:collaborative_draft, component: component, state: state, authors: [current_user, other_author]) }
         let!(:follow) { create :follow, followable: current_user, user: follower }
-        let(:event) { "decidim.events.proposals.collaborative_draft_closed" }
-        let(:event_class) { Decidim::Proposals::CollaborativeDraftClosedEvent }
+        let(:event) { "decidim.events.proposals.collaborative_draft_withdrawn" }
+        let(:event_class) { Decidim::Proposals::CollaborativeDraftWithdrawnEvent }
 
         it "broadcasts ok" do
           expect { described_class.call(collaborative_draft, current_user) }.to broadcast(:ok)
@@ -25,8 +25,8 @@ module Decidim
           expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
         end
 
-        context "when the resource is closed" do
-          let(:state) { :closed }
+        context "when the resource is withdrawn" do
+          let(:state) { :withdrawn }
 
           it "broadcasts invalid" do
             expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
@@ -46,7 +46,7 @@ module Decidim
             described_class.new(collaborative_draft, current_user)
           end
 
-          it "notifies the collaborative draft is closed to coauthors" do
+          it "notifies the collaborative draft is withdrawn to coauthors" do
             recipient_ids = collaborative_draft.authors.pluck(:id) - [current_user.id]
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -59,35 +59,6 @@ module Decidim
                   author_id: current_user.id
                 }
               ).ordered
-            subject.call
-          end
-
-          xit "notifies the collaborative draft is closed to followers" do
-            other_follower = create(:user, organization: organization)
-            create(:follow, followable: component.participatory_space, user: follower)
-            create(:follow, followable: component.participatory_space, user: other_follower)
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: event,
-                event_class: event_class,
-                resource: collaborative_draft,
-                recipient_ids: [follower.id]
-              ).ordered
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: event,
-                event_class: event_class,
-                resource: collaborative_draft,
-                recipient_ids: [other_follower.id],
-                extra: {
-                  participatory_space: true
-                }
-              ).ordered
-
             subject.call
           end
         end

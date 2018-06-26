@@ -28,7 +28,7 @@ module Decidim
                foreign_key: :decidim_user_id
 
       scope :open, -> { where(state: "open") }
-      scope :closed, -> { where(state: "closed") }
+      scope :withdrawn, -> { where(state: "withdrawn") }
       scope :published, -> { where(state: "published") }
 
       # Checks whether the user can edit the given proposal.
@@ -42,8 +42,8 @@ module Decidim
         state == "open"
       end
 
-      def closed?
-        state == "closed"
+      def withdrawn?
+        state == "withdrawn"
       end
 
       def published?

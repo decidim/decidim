@@ -25,8 +25,8 @@ module Decidim
           expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
         end
 
-        context "when the resource is closed" do
-          let(:state) { :closed }
+        context "when the resource is withdrawn" do
+          let(:state) { :withdrawn }
 
           it "broadcasts invalid" do
             expect { described_class.call(collaborative_draft, follower) }.to broadcast(:invalid)
@@ -59,35 +59,6 @@ module Decidim
                   author_id: current_user.id
                 }
               ).ordered
-            subject.call
-          end
-
-          xit "notifies the collaborative draft is closed to followers" do
-            other_follower = create(:user, organization: organization)
-            create(:follow, followable: component.participatory_space, user: follower)
-            create(:follow, followable: component.participatory_space, user: other_follower)
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: event,
-                event_class: event_class,
-                resource: collaborative_draft,
-                recipient_ids: [follower.id]
-              ).ordered
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: event,
-                event_class: event_class,
-                resource: collaborative_draft,
-                recipient_ids: [other_follower.id],
-                extra: {
-                  participatory_space: true
-                }
-              ).ordered
-
             subject.call
           end
         end

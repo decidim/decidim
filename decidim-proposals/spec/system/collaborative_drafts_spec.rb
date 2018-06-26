@@ -25,7 +25,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component: component) }
 
   let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category) }
-  let!(:closed_collaborative_draft) { create(:collaborative_draft, :closed, component: component, category: category2) }
+  let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component: component, category: category2) }
   let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component: component, category: category3) }
 
   context "with collaborative drafts enabled" do
@@ -57,7 +57,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         within ".filters" do
           expect(page).to have_field("All")
           expect(page).to have_field("Open")
-          expect(page).to have_field("Closed")
+          expect(page).to have_field("Withdrawn")
           expect(page).to have_field("Published")
         end
       end

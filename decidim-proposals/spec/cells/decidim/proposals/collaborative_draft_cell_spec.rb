@@ -88,8 +88,8 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       end
     end
 
-    context "with closed state" do
-      let(:collaborative_draft) { create(:collaborative_draft, :closed, component: component) }
+    context "with withdrawn state" do
+      let(:collaborative_draft) { create(:collaborative_draft, :withdrawn, component: component) }
 
       it "renders the card with the .alert class" do
         expect(subject).to have_css(".card.alert")
@@ -97,7 +97,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       it "renders the open state" do
         within ".card__text" do
           expect(subject).to have_css(".alert.card__text--status")
-          expect.to have_content("closed")
+          expect.to have_content("withdrawn")
         end
       end
     end

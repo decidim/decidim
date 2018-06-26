@@ -62,15 +62,15 @@ module Decidim
             end
           end
 
-          context "when filtering closed collaborative_drafts" do
-            let(:state) { "closed" }
+          context "when filtering withdrawn collaborative_drafts" do
+            let(:state) { "withdrawn" }
 
-            it "returns only closed collaborative_drafts" do
+            it "returns only withdrawn collaborative_drafts" do
               create_list(:collaborative_draft, 3, component: component)
-              closed_drafts = create_list(:collaborative_draft, 3, :closed, component: component)
+              withdrawn_drafts = create_list(:collaborative_draft, 3, :withdrawn, component: component)
 
               expect(subject.size).to eq(3)
-              expect(subject).to match_array(closed_drafts)
+              expect(subject).to match_array(withdrawn_drafts)
             end
           end
 

@@ -2,11 +2,11 @@
 
 module Decidim
   module Proposals
-    # This cell renders the button and modal for the publish/close
+    # This cell renders the button and modal for the publish/withdraw
     # actions in the details of a collaborative draft
     # the `cell` should be called with an :action argument, to show relative info:
     # - :publish
-    # - :close
+    # - :withdraw
     class IrreversibleActionModalCell < Decidim::ViewModel
       def show
         return unless action.presence
@@ -23,8 +23,8 @@ module Decidim
         action == :publish
       end
 
-      def close?
-        action == :close
+      def withdraw?
+        action == :withdraw
       end
 
       def modal_id

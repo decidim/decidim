@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class CollaborativeDraftClosedEvent < Decidim::Events::SimpleEvent
+    class CollaborativeDraftWithdrawnEvent < Decidim::Events::SimpleEvent
       i18n_attributes :author_nickname, :author_name, :author_path
 
       delegate :nickname, :name, to: :author, prefix: true

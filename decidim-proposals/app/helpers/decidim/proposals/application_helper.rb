@@ -58,7 +58,7 @@ module Decidim
         case state
         when "open"
           "success"
-        when "closed"
+        when "withdrawn"
           "alert"
         when "published"
           "secondary"

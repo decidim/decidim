@@ -230,7 +230,7 @@ Decidim.register_component(:proposals) do |component|
       state = if n > 3
                 "published"
               elsif n > 2
-                "closed"
+                "withdrawn"
               else
                 "open"
               end

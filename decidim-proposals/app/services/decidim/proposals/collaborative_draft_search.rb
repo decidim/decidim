@@ -25,8 +25,8 @@ module Decidim
         case state
         when "open"
           query.open
-        when "closed"
-          query.closed
+        when "withdrawn"
+          query.withdrawn
         when "published"
           query.published
         else

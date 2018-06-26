@@ -2,11 +2,11 @@
 
 module Decidim
   module Proposals
-    # A command with all the business logic when a user closes a collaborative_draft.
-    class CloseCollaborativeDraft < Rectify::Command
+    # A command with all the business logic when a user withdraws a collaborative_draft.
+    class WithdrawCollaborativeDraft < Rectify::Command
       # Public: Initializes the command.
       #
-      # collaborative_draft     - The collaborative_draft to close.
+      # collaborative_draft     - The collaborative_draft to withdraw.
       # current_user - The current user.
       def initialize(collaborative_draft, current_user)
         @collaborative_draft = collaborative_draft
@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @collaborative_draft.closed?
+        return broadcast(:invalid) if @collaborative_draft.withdrawn?
         return broadcast(:invalid) if @collaborative_draft.published?
         return broadcast(:invalid) unless @collaborative_draft.authors.exists? @current_user.id
 
@@ -29,7 +29,7 @@ module Decidim
             RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user)
           end
 
-          close_collaborative_draft
+          withdraw_collaborative_draft
           send_notification_to_authors
         end
 
@@ -38,11 +38,11 @@ module Decidim
 
       private
 
-      def close_collaborative_draft
+      def withdraw_collaborative_draft
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          state: "closed"
+          state: "withdrawn"
         )
       end
 
@@ -51,8 +51,8 @@ module Decidim
         return if recipient_ids.blank?
 
         Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.collaborative_draft_closed",
-          event_class: Decidim::Proposals::CollaborativeDraftClosedEvent,
+          event: "decidim.events.proposals.collaborative_draft_withdrawn",
+          event_class: Decidim::Proposals::CollaborativeDraftWithdrawnEvent,
           resource: @collaborative_draft,
           recipient_ids: recipient_ids.uniq,
           extra: {

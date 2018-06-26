@@ -125,16 +125,16 @@ en:
           email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-        collaborative_draft_closed:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> closed the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} closed the %{resource_title} collaborative draft."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>closed</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_published:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> published the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} published the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>published</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -283,14 +283,6 @@ en:
         withdrawn: Withdrawn
       collaborative_drafts:
         collaborative_draft:
-          close:
-            error: There's been errors closing the collaborative draft.
-            irreversible_action_modal:
-              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
-              cancel: Cancel
-              ok: Close the collaborative draft
-              title: The following action is irreversible
-            success: Collaborative draft closed successfully.
           publish:
             error: There's been errors when publishing the collaborative draft.
             irreversible_action_modal:
@@ -300,6 +292,14 @@ en:
               title: The following action is irreversible
             success: Collaborative draft published successfully as a proposal.
           view_collaborative_draft: View Collaborative Draft
+          withdraw:
+            error: There's been errors closing the collaborative draft.
+            irreversible_action_modal:
+              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
+              cancel: Cancel
+              ok: Withdraw the collaborative draft
+              title: The following action is irreversible
+            success: Collaborative draft withdrawn successfully.
         compare:
           mine_is_different: My collaborative draft is different
           no_similars_found: Well done! No similar collaborative drafts found
@@ -325,12 +325,12 @@ en:
           all: All
           category: Category
           category_prompt: Category Prompt
-          closed: Closed
           open: Open
           published: Published
           related_to: Related to
           search: Search
           state: State
+          withdrawn: Withdrawn
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -361,7 +361,6 @@ en:
             error: "@%{user} could not be rejected as a collaborator, try again later."
             success: "@%{user} has been rejected as a collaborator successfully"
         show:
-          close: close the draft
           edit: Edit collaborative draft
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. You can see the final finished proposal
@@ -378,10 +377,11 @@ en:
           see_other_versions: see other versions
           version: Version %{number}
           version_history: see version history for this proposal
+          withdraw: withdraw the draft
         states:
-          closed: Closed
           open: Open
           published: Published
+          withdrawn: Withdrawn
         update:
           error: There's been errors when saving the collaborative draft.
           success: Collaborative draft updated successfully.
