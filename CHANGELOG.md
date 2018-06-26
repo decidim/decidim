@@ -10,6 +10,7 @@
 
 **Changed**:
 
+- **decidim-verifications**: Added a current component reference to the action authorizer. Custom ActionAuthorizer classes should receive it in a third argument of the initializer method, as `DefaultActionAuthorizer` does. [\#3708](https://github.com/decidim/decidim/pull/3708)
 - **decidim-core**: Introduce coauthorable concern and coauthorship model. [\#3310](https://github.com/decidim/decidim/pull/3310)
 - **decidim-core**: New user profile design [\#3415](https://github.com/decidim/decidim/pull/3290)
 - **decidim-core**: Force user_group.name uniqueness in user_group test factory. [\#3290](https://github.com/decidim/decidim/pull/3290)
