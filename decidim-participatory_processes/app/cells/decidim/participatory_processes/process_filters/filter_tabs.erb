@@ -1,0 +1,15 @@
+<span class="order-by__tabs ml-s">
+  <% if active > 0 %>
+    <span class="muted mr-xs">Ver</span>
+    <%= link_to raw("<strong>pasados</strong>&nbsp;<span>(" + past.to_s + ")</span>"), filter_link(:past), remote: true, class: "order-by__tab" %>
+    <%= link_to raw("<strong>siguiente</strong>&nbsp;<span>(" + upcoming.to_s + ")</span>"), filter_link(:upcoming), remote: true, class: "order-by__tab" %>
+    <%= link_to raw("<strong>todos</strong>&nbsp;<span>(" + (active + past + upcoming).to_s + ")</span>"), filter_link(:all), remote: true, class: "order-by__tab" %>
+  <% elsif upcoming > 0 %>
+    <span class="muted mr-s ml-s">No hay procesos activos</span>
+    <span class="muted mr-xs">Ver</span>
+    <%= link_to raw("<strong>pasados</strong>&nbsp;<span>(" + past.to_s + ")</span>"), filter_link(:past), remote: true, class: "order-by__tab is-active" %>
+    <%= link_to raw("<strong>todos</strong>&nbsp;<span>(" + (active + past + upcoming).to_s + ")</span>"), filter_link(:all), remote: true, class: "order-by__tab" %>
+  <% else %>
+    <span class="muted mr-s ml-s">No hay procesos activos ni futuros</span>
+  <% end %>
+</span>
