@@ -8,7 +8,7 @@ module Decidim
     process :validate_dimensions
 
     version :profile do
-      process resize_to_fill: [268, 320]
+      process resize_to_fill: [536, 640] # double the size, for retina displays
     end
 
     version :big, from_version: :profile do
