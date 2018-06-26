@@ -239,10 +239,7 @@ FactoryBot.define do
   end
 
   factory :component, class: "Decidim::Component" do
-    transient do
-      organization { create(:organization) }
-    end
-
+    organization { create(:organization) }
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name "dummy"
