@@ -9,7 +9,7 @@ module Decidim
       @organization = user.organization
       @token = token
 
-      mail(to: user.email, subject: I18n.t("decidim.newsletters_opt_in_mailer.notify.subject"))
+      mail(to: user.email, subject: I18n.t("decidim.newsletters_opt_in_mailer.notify.subject", organization_name: @organization.name))
     end
   end
 end
