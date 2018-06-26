@@ -1,0 +1,40 @@
+<% if disabled %>
+  <%= content_tag(
+    :span,
+    t("decidim.proposals.proposals.vote_button.maximum_votes_reached"),
+    class: "button tiny compact #{vote_button_classes(from_proposals_list)} #{type}-weight disabled",
+    remote: true,
+    disabled: true
+  ) do %>
+    <% unless current_settings.votes_hidden? %>
+      <div id="#{type}-votes-count">
+        <%= proposal.has_attribute?("#{type}_votes") ? proposal.read_attribute("#{type}_votes").count : 0 %>
+      </div>
+    <% end %>
+    <%= icon "thumb-#{type}"%>
+  <% end %>
+<% else %>
+  <%= action_authorized_button_to(
+    :vote,
+    proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: weight),
+    class: "button tiny compact #{vote_button_classes(from_proposals_list)} #{type}-weight #{'highlighted' if proposal.weighted_by?(current_user, type)} light",
+    method: Decidim::Proposals::ProposalVote.create_or_delete(proposal, current_user, weight),
+    remote: true, data: {
+      disable: true,
+      "redirect-url": proposal_path(proposal)
+    }
+  ) do %>
+    <% unless current_settings.votes_hidden? %>
+      <div class="#{type}-votes-count">
+        <% if type === 'up' %>
+          <%= proposal.up_votes.count %>
+        <% elsif type ===  'neutral' %>
+          <%= proposal.neutral_votes.count %>
+        <% elsif type ===  'down' %>
+          <%= proposal.down_votes.count %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= icon "thumb-#{type}"%>
+  <% end %>
+<% end %>

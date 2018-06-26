@@ -65,7 +65,7 @@ module Decidim
       #
       # Returns true if enabled, false otherwise.
       def votes_enabled?
-        current_settings.votes_enabled || current_settings.votes_weight_enabled
+        current_settings.votes_enabled
       end
 
       # Public: Checks if voting is blocked in this step.

@@ -1,0 +1,34 @@
+<div class="row collapse buttons__row group_buttons__row">
+  <div class="column collapse small-4">
+    <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
+      proposal: @proposal,
+      from_proposals_list: false,
+      disabled: disabled,
+      type: 'up',
+      weight: 1
+    } %>
+  </div>
+  <div class="column collapse small-4">
+    <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
+      proposal: @proposal,
+      from_proposals_list: false,
+      disabled: disabled,
+      type: 'neutral',
+      weight: 0
+    } %>
+  </div>
+  <div class="column collapse small-4">
+    <%= render partial: "decidim/proposals/proposals/vote_weight/button.html", locals: {
+      proposal: @proposal,
+      from_proposals_list: false,
+      disabled: disabled,
+      type: 'down',
+      weight: -1
+    } %>
+  </div>
+</div>
+<% if info %>
+  <div class="buttons__info">
+    <%= info %>
+  </div>
+<% end %>

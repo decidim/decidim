@@ -2,16 +2,16 @@ var $proposalVoteButton = $('#proposal-<%= proposal.id %>-vote-button');
 
 <% if current_settings.votes_weight_enabled? %>
 
-  var $proposalUpVotesCount = $('#up-votes-count');
-  var $proposalDownVotesCount = $('#down-votes-count');
-  var $proposalNeutralVotesCount = $('#neutral-votes-count');
+  var $proposalUpVotesCount = $proposalVoteButton.find('.up-votes-count');
+  var $proposalDownVotesCount = $proposalVoteButton.find('.down-votes-count');
+  var $proposalNeutralVotesCount = $proposalVoteButton.find('.neutral-votes-count');
 
-  morphdom($proposalVoteButton[0], '<%= j(render partial: 'decidim/proposals/proposals/vote_weight_button', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
+  morphdom($proposalVoteButton[0], '<%= j(render partial: 'decidim/proposals/proposals/vote_weight', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
 
   <% if vote_limit_enabled? %>
     var $remainingVotesCount = $('#remaining-votes-count');
     var $notVotedButtons = $('.card__button.button').not('.voted');
-    var $votesInfo = $('.votes_block').not('.voted').next(".votes-info");
+    var $votesInfo = $('.votes_block').not('.voted').next('.votes-info');
 
     morphdom($remainingVotesCount[0], '<%= j(render partial: 'decidim/proposals/proposals/remaining_votes_count').strip.html_safe %>');
 

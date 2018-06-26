@@ -231,6 +231,7 @@ fr:
             body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de soutiens
+            proposal_votes_weight: Nombre d'évaluations
             proposals: Propositions
       admin_log:
         proposal:
@@ -280,7 +281,7 @@ fr:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
-        vote_weight_button:
+        vote_weight:
           neutral: Neutre
           maximum_votes_reached: Nb max de votes atteint
           no_votes_remaining: Aucun vote restant
@@ -393,6 +394,12 @@ fr:
             other: SOUTIENS
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de soutiens
+        votes_weight:
+          count:
+            one: ÈVALUATION
+            other: ÈVALUATIONS
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus d'évaluations
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition peut rassembler plus de %{limit} soutiens

@@ -18,9 +18,7 @@
       <div class="card">
         <div class="card__content">
           <% if current_settings.votes_weight_enabled? %>
-            <div class= "flex-center">
-              <%= render partial: "vote_weight_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-            </div>
+            <%= render partial: "vote_weight", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% elsif current_settings.votes_enabled? %>
             <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>

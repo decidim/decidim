@@ -226,6 +226,7 @@ en:
             body: Body
             created_at: Creation date
             proposal_votes_count: Votes count
+            proposal_votes_weight: Votes count
             proposals: Proposals
       admin_log:
         proposal:
@@ -275,7 +276,7 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
-        vote_weight_button:
+        vote_weight:
           neutral: Neutral
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
@@ -382,6 +383,12 @@ en:
           vote: Vote
           votes_blocked: Voting disabled
         votes_count:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+        votes_weight:
           count:
             one: VOTE
             other: VOTES

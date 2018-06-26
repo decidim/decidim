@@ -7,17 +7,14 @@
             "decidim/progress_bar",
             progress_bar_progress,
             total: progress_bar_total,
-            units_name: "decidim.proposals.proposals.votes_count.count",
+            units_name: current_settings.votes_weight_enabled? ? "decidim.proposals.proposals.votes_weight.count" : "decidim.proposals.proposals.votes_count.count",
             element_id: "proposal-#{model.id}-votes-count",
             subtitle_text: progress_bar_subtitle_text,
             small: true
           ) %>
         <% end %>
         <% if current_settings.votes_weight_enabled? %>
-          <div class="card__support__data"></div>
-          <div>
-            <%= render partial: "decidim/proposals/proposals/vote_weight_button.html", locals: { proposal: model, from_proposals_list: true } %>
-          </div>
+          <%= render partial: "decidim/proposals/proposals/vote_weight.html", locals: { proposal: model, from_proposals_list: true } %>
         <% elsif current_settings.votes_enabled? %>
         <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
       <% else %>

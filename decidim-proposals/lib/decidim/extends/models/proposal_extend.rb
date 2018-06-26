@@ -14,6 +14,15 @@ module ProposalExtend
     votes.where(author: user,  proposal: self, weight: -1).any?
   end
 
+  def weighted_by?(user,value)
+    case value
+    when 'up' then up_voted_by?(user)
+      when 'neutral' then neutral_voted_by?(user)
+      when 'down' then down_voted_by?(user)
+      else false
+    end
+  end
+
   def users_to_notify_on_proposal_created
     get_all_users_with_role
   end
