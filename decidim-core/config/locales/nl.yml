@@ -415,7 +415,7 @@ nl:
         button: Ja, ik wil relevante informatie blijven ontvangen
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
-        subject: Wilt u relevante informatie blijven ontvangen over?
+        subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
