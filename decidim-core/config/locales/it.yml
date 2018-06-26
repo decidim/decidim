@@ -411,11 +411,11 @@ it:
       notify:
         body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività dello %{organization_name}.
         body_2: 'Come puoi darci il tuo consenso? Basta fare clic sul seguente pulsante:'
-        body_3: Con questo consenso sarai in grado di continuare a ricevere informazioni sui servizi della piattaforma. Se, al contrario, non riceviamo una conferma positiva da parte vostra, smetteremo di inviarti i nostri messaggi. Se confermi di voler continuare a essere informato, avrai sempre la possibilità di annullare in qualsiasi momento.
+        body_3: Con questo consenso sarai in grado di continuare a ricevere informazioni sui servizi della piattaforma. Se, al contrario, non riceviamo una conferma positiva da parte vostra, smetteremo di inviarti i nostri messaggi. Se confermi di voler essere informato, avrai sempre la possibilità di annullare in qualsiasi momento.
         button: Sì, voglio continuare a ricevere informazioni pertinenti
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
-        subject: Vuoi continuare a ricevere informazioni rilevanti su?
+        subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
