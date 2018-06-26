@@ -85,7 +85,7 @@ module Decidim
       end
 
       def process_count_by_filter
-        @process_count_by_filter ||= %w(past active upcoming all).inject({}) do |collection_by_filter, filter_name|
+        @process_count_by_filter ||= %w(past active upcoming).inject({}) do |collection_by_filter, filter_name|
           processes = filtered_participatory_processes(filter_name)
           groups = filtered_participatory_process_groups(filter_name)
           collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)

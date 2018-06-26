@@ -1,17 +1,10 @@
 <div class="row collapse order-by">
+  <% actives = process_count_by_filter["active"] %>
+  <% futures = process_count_by_filter["upcoming"] %>
+  <% pasts = process_count_by_filter["past"] %>
+
   <h2 class="order-by__text section-heading">
-    <%= t("participatory_processes.order_by_processes.processes", scope: "layouts.decidim", count: collection.count) %>
-    <% if include_filter %>
-      <span class="order-by__tabs">
-        <% %w(past active upcoming all).each do |filter_name| %>
-          <%= link_to(
-            t(".#{filter_name}") + " (#{process_count_by_filter[filter_name]})",
-            { filter: filter_name },
-            remote: true,
-            class: "order-by__tab #{'is-active' if filter == filter_name }"
-          ) %>
-        <% end %>
-      </span>
-    <% end %>
+    <%= actives > 0 ? actives.to_s + " activos" : futures > 0 ? futures.to_s + " futuros" : (actives + pasts + futures).to_s + " en total" %>
+    <%= render partial: "order_by_tabs", locals: { actives: actives, pasts: pasts, futures: futures } if include_filter %>
   </h2>
 </div>
