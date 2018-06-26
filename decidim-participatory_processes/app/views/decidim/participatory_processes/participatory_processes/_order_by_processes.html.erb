@@ -5,6 +5,6 @@
 
   <h2 class="order-by__text section-heading">
     <%= actives > 0 ? actives.to_s + " activos" : futures > 0 ? futures.to_s + " futuros" : (actives + pasts + futures).to_s + " en total" %>
-    <%= render partial: "order_by_tabs", locals: { actives: actives, pasts: pasts, futures: futures } if include_filter %>
+    <%= render partial: "order_by_tabs", locals: { actives: actives, pasts: pasts, futures: futures } %>
   </h2>
 </div>
