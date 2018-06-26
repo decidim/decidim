@@ -361,6 +361,7 @@ en:
             error: "@%{user} could not be rejected as a collaborator, try again later."
             success: "@%{user} has been rejected as a collaborator successfully"
         show:
+          back: Back
           edit: Edit collaborative draft
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. You can see the final finished proposal
