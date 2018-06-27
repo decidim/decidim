@@ -18,7 +18,7 @@ module Decidim
     private
 
     def coauthorable?
-      model.kind_of?(Decidim::Coauthorable)
+      model.is_a?(Decidim::Coauthorable)
     end
 
     def resource_path
