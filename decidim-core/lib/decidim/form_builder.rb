@@ -251,8 +251,9 @@ module Decidim
     def date_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "" }
-      data[:startdate] = I18n.localize(value, format: :datepicker) if value.present?
-      iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
+      if value.present? && [Date, DateTime, Time].include?(value.class.name)
+        data[:startdate] = I18n.localize(value, format: :datepicker)
+      end
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
@@ -260,9 +261,9 @@ module Decidim
         @object_name,
         attribute,
         options.merge(id: "#{@object_name}_#{attribute}",
-                      data: data, readonly: true)
+                      data: data)
       )
-      template += error_and_help_text(attribute, options)
+      template += error_and_help_text(attribute, options.merge(help_text: I18n.t('date.formats.default_user_format')))
       template.html_safe
     end
 
