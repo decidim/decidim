@@ -151,7 +151,7 @@ Decidim.register_component(:proposals) do |component|
         answered_at: Time.current,
         published_at: Time.current
       )
-      proposal.add_coauthor(author, user_group: user_group)
+      proposal.add_coauthor(author, user_group: user_group) if n.even?
 
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"

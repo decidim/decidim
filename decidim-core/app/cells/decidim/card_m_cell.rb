@@ -17,6 +17,10 @@ module Decidim
 
     private
 
+    def coauthorable?
+      model.kind_of?(Decidim::Coauthorable)
+    end
+
     def resource_path
       resource_locator(model).path
     end
