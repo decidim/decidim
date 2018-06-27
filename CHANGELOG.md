@@ -181,6 +181,7 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 - **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3683)
 - **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
+- **decidim-admin**: Let user managers access the public space [\#3720](https://github.com/decidim/decidim/pull/3720)
 
 **Removed**:
 
