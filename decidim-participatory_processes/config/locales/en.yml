@@ -286,11 +286,30 @@ en:
       participatory_processes:
         index:
           loading: Loading results...
-        order_by_processes:
-          active: Active
-          all: All
-          past: Past
-          upcoming: Upcoming
+        filters:
+          counters:
+            active:
+              one: 1 active process
+              other: "%{count} active processes"
+            all:
+              one: 1 process
+              other: "%{count} processes"
+            past:
+              one: 1 past process
+              other: "%{count} past processes"
+            upcoming:
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
+          explanations:
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor next planned processes. Here is a list of the past ones.
+          names:
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
       show:
         developer_group: Promoter group
         end_date: End date

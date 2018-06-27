@@ -7,7 +7,7 @@
 <% if model["active"] == 0 && model["upcoming"] == 0 %>
 <div class="row column">
   <div class="callout warning mb-sm">
-    <p>There are no active nor next planned processes. Here is a list of the past ones.</p>
+    <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
   </div>
 </div>
 <% end %>

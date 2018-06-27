@@ -32,17 +32,25 @@ module Decidim
       end
 
       def title
-        model[current_filter].to_s + " #{current_filter}"
+        I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: model[current_filter])
+      end
+
+      def filter_name(filter)
+        I18n.t(filter, scope: "decidim.participatory_processes.participatory_processes.filters.names")
       end
 
       def explanation
         return if model["active"] > 0
-        content_tag(:span, explanation_text, class: "muted mr-s ml-s")
+        content_tag(
+          :span,
+          I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
+          class: "muted mr-s ml-s"
+        )
       end
 
       def explanation_text
         return "no_active" if model["upcoming"] > 0
-        "no_active_or_upcoming"
+        "no_active_nor_upcoming"
       end
     end
   end
