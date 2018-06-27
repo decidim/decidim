@@ -22,7 +22,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if @collaborative_draft.published?
-        return broadcast(:invalid) if @collaborative_draft.closed?
+        return broadcast(:invalid) if @collaborative_draft.withdrawn?
         return broadcast(:invalid) unless @collaborative_draft.authors.exists? @current_user.id
 
         transaction do

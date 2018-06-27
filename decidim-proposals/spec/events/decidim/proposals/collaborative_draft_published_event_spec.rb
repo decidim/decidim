@@ -47,37 +47,4 @@ describe Decidim::Proposals::CollaborativeDraftPublishedEvent do
       end
     end
   end
-
-  context "when the notification is for the collaborative draft followers" do
-    let(:event_name) { "decidim.events.proposals.collaborative_draft_published_followers" }
-
-    it_behaves_like "a simple event"
-
-    describe "email_subject" do
-      xit "is generated correctly" do
-        expect(subject.email_subject).to eq("")
-      end
-    end
-
-    describe "email_intro" do
-      xit "is generated correctly" do
-        expect(subject.email_intro)
-          .to eq("")
-      end
-    end
-
-    describe "email_outro" do
-      xit "is generated correctly" do
-        expect(subject.email_outro)
-          .to eq("")
-      end
-    end
-
-    describe "notification_title" do
-      xit "is generated correctly" do
-        expect(subject.notification_title)
-          .to eq("")
-      end
-    end
-  end
 end
