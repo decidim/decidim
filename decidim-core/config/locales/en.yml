@@ -50,8 +50,8 @@ en:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
-      default_user_format: "dd/mm/yyyy"
       decidim_with_month_name: "%d %B %Y"
+      default_user_format: dd/mm/yyyy
   decidim:
     account:
       data_portability_export:
