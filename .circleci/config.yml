@@ -34,7 +34,7 @@ references:
   install_npm_dependencies: &install_npm_dependencies
     run:
       name: Install npm dependencies
-      command: npm install
+      command: npm install --verbose
   save_ruby_cache: &save_ruby_cache
     save_cache:
       key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
