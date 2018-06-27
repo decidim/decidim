@@ -4,4 +4,10 @@
     <%= render :filter_tabs %>
   </h2>
 </div>
-
+<% if model["active"] == 0 && model["upcoming"] == 0 %>
+<div class="row column">
+  <div class="callout warning mb-sm">
+    <p>There are no active nor next planned processes. Here is a list of the past ones.</p>
+  </div>
+</div>
+<% end %>
