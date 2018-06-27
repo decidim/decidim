@@ -20,10 +20,12 @@ module Decidim
     attr_reader :user, :permission_action, :context
 
     def disallow!
+      permission_action.trace(self.class.name, :disallowed)
       permission_action.disallow!
     end
 
     def allow!
+      permission_action.trace(self.class.name, :allowed)
       permission_action.allow!
     end
 
