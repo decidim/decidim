@@ -5,7 +5,7 @@
         <%= link_to proposal, target: "_blank" do %>
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
-        <%= cell("decidim/proposals/coauthorships", proposal) %>
+        <%= cell("decidim/coauthorships", proposal) %>
 
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
