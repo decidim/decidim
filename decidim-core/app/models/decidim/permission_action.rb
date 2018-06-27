@@ -16,9 +16,10 @@ module Decidim
       @scope = scope
       @subject = subject
       @state = nil
+      @backtrace = []
     end
 
-    attr_reader :action, :scope, :subject
+    attr_reader :action, :scope, :subject, :backtrace
 
     def allow!
       raise PermissionCannotBeDisallowedError, "Allowing a previously disallowed action is not permitted: #{inspect}" if @state == :disallowed
@@ -32,6 +33,10 @@ module Decidim
     def allowed?
       raise PermissionNotSetError, "Permission hasn't been allowed or disallowed yet: #{inspect}" if @state.blank?
       @state == :allowed
+    end
+
+    def trace(class_name, state)
+      @backtrace << [class_name, state]
     end
 
     class PermissionNotSetError < StandardError; end
