@@ -16,7 +16,7 @@ module Decidim
 
     def show
       if model.respond_to?(:official?) && model.official?
-        cell "decidim/author", present(model).author, from: model
+        cell "decidim/author", present(model).author, has_actions: has_actions?, from: model
       else
         cell(
           "decidim/collapsible_authors",
@@ -24,7 +24,8 @@ module Decidim
           cell_name: "decidim/author",
           cell_options: { extra_classes: ["author-data--small"] },
           size: :small,
-          from: model
+          from: model,
+          has_actions: has_actions?
         )
       end
     end
@@ -33,6 +34,11 @@ module Decidim
 
     def authors_for(coauthorable)
       coauthorable.identities.map { |identity| present(identity) }
+    end
+
+    def has_actions?
+      return false if options[:has_actions] == false
+      true
     end
   end
 end
