@@ -135,7 +135,7 @@ module Decidim
       end
 
       def version_file
-        File.expand_path(File.join("..", "..", ".decidim-version"), __dir__)
+        File.join(root, ".decidim-version")
       end
     end
 
