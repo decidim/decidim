@@ -8,7 +8,7 @@ FactoryBot.define do
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    component { build(:component, manifest_name: "debates") }
+    component { create(:component, manifest_name: "debates") }
 
     trait :open_ama do
       start_time { 1.day.ago }

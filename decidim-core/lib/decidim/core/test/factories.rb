@@ -378,7 +378,7 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: organization }
-    component { build :component, participatory_space: participatory_space }
+    component { create :component, participatory_space: participatory_space }
     resource { build(:dummy_resource, component: component) }
     action { "create" }
     extra do
