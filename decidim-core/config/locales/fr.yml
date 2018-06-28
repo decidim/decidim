@@ -329,7 +329,7 @@ fr:
     invitations:
       create:
         error: Il y a eu un problème en invitant vos amis
-        error_empty_form: Veuillez saisir quelques adresses email
+        error_empty_form: Veuillez saisir au moins une adresse email
         success: Nous avons envoyé les invitations à vos amis !
       index:
         customize_message: Personnalisez le message d'invitation
