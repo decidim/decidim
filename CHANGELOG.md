@@ -2,13 +2,19 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.12-stable)
 
-**Added**:
+**Fixed**:
 
-**Changed**:
+## [0.12.1-pre](https://github.com/decidim/decidim/tree/v0.12.1)
 
 **Fixed**:
 
-## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
+- **decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
+- **decidim-assemblies**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
+- **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
+- **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
+- **decidim-admin**: Let user managers access the public space [\#3723](https://github.com/decidim/decidim/pull/3723)
+
+## [0.12.0](https://github.com/decidim/decidim/tree/v0.12.0)
 
 **Upgrade notes (authorizations)**:
 
@@ -66,7 +72,6 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 
 **Added**:
 
-**decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
 - **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3559](https://github.com/decidim/decidim/pull/3559)
 - **decidim-meetings**: Add Agenda and Agenda Item entities to manage meeting agenda. [\#3305](https://github.com/decidim/decidim/pull/3305)
 - **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
@@ -180,8 +185,6 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 - **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
 - **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3683)
-- **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
-- **decidim-admin**: Let user managers access the public space [\#3723](https://github.com/decidim/decidim/pull/3723)
 
 **Removed**:
 
