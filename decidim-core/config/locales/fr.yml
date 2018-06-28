@@ -100,20 +100,20 @@ fr:
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
-        create: "%{user_name} a créé le périmètre %{resource_name}"
-        create_with_parent: "%{user_name} a créé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
-        delete: "%{user_name} a supprimé le périmètre %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
-        update: "%{user_name} a mis à jour le périmètre %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        create: "%{user_name} a créé le périmètre d'application %{resource_name}"
+        create_with_parent: "%{user_name} a créé le périmètre d'application %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        delete: "%{user_name} a supprimé le périmètre d'application %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
+        update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
       user:
-        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle: %{role}"
+        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
-        remove_from_admin: "%{user_name} a retiré le rôle: %{role} de l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
@@ -192,19 +192,19 @@ fr:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse de email
+          email_already_exists: Un autre compte utilise la même adresse email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant court et unique sur %{organization} (ne pas utiliser d'espace).
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
-          username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          nickname_help: Votre identifiant court et unique sur %{organization}  (ne pas utiliser d'espace).
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -215,7 +215,7 @@ fr:
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
-          username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
           are_you_new?: Nouveau sur la plateforme ?
@@ -242,7 +242,7 @@ fr:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez-vous à votre compte en signant sur <strong>%{organization}</strong>
+          connect_your_account_html: Associez votre compte en vous connectant sur <strong>%{organization}</strong>
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -268,7 +268,7 @@ fr:
           notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'La fonctinnalité %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
