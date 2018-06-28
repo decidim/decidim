@@ -224,7 +224,7 @@ fr:
         newsletter_modal:
           buttons:
             check: Vérifiez et continuez
-            close_modal: Fermer modal
+            close_modal: Fermer la fenêtre
             uncheck: Désactiver
           notice: |-
             <p>Hé, êtes-vous sûr de ne pas vouloir recevoir de newsletter?<br>
