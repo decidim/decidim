@@ -284,8 +284,6 @@ en:
       participatory_process_groups:
         none: None
       participatory_processes:
-        index:
-          loading: Loading results...
         filters:
           counters:
             active:
@@ -310,6 +308,8 @@ en:
             past: Past
             upcoming: Upcoming
           see: See
+        index:
+          loading: Loading results...
       show:
         developer_group: Promoter group
         end_date: End date
@@ -350,10 +350,6 @@ en:
       participatory_processes:
         index:
           promoted_processes: Highlighted processes
-        order_by_processes:
-          processes:
-            one: "%{count} process"
-            other: "%{count} processes"
         participatory_process:
           active_step: 'Current step:'
           take_part: Take part
