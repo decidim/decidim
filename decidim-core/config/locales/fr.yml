@@ -358,7 +358,7 @@ fr:
         scope_type_presenter:
           not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
-      expired_session: La session de connexion a expiré.
+      expired_session: La session de représentation d'identité a expiré.
     menu:
       home: Accueil
       more_information: Plus d'information
@@ -397,7 +397,7 @@ fr:
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">page configuration</a>
+        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
         error: Il y a eu une erreur lors de votre désabonnement
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
