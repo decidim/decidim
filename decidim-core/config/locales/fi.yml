@@ -224,8 +224,15 @@ fi:
         newsletter_modal:
           buttons:
             check: Tarkista ja jatka
+            close_modal: Sulje modeemi
             uncheck: Poista valinta
-          notice: Hei, oletko varma et halua vastaanottaa uutiskirjeitä? Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla. Meille on erittäin tärkeää, että saat satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen, voit aina muuttaa ilmoituksesi asetussivulla. Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla. Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi. Kiitos, kun olet lukenut tämän!
+          notice: |-
+            <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
+            Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla.<br>
+            Meille on erittäin tärkeää, että voit vastaanottaa satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen. Voit aina muuttaa ilmoituksesi asetussivulla.</p>
+            <p>Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla.<br>
+            Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi.</p>
+            <p>Kiitos lukemisesta!</p>
           title: Ilmoitusten ilmoitukset
         omniauth_buttons:
           or: Tai
@@ -395,6 +402,20 @@ fi:
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
+    newsletters_opt_in:
+      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä
+      update:
+        error: Jotain vikaa tapahtui
+        success: Uutisten asetukset päivitettiin onnistuneesti
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Henkilötietojen käsittely ja sen suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuojasäännöstön (GDPR) 25.5.2018 henkilöillä on paremmat mahdollisuudet valvoa henkilötietojaan. Tästä syystä tarvitsemme "OK" jatkaaksesi lähettämistä %{organization_name}.
+        body_2: 'Miten voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
+        body_3: Tämän suostumuksen avulla voit edelleen saada tietoja alustan palveluista. Jos päinvastoin emme saa sinulle positiivista vahvistusta, emme lopeta viestiesi lähettämistä. Jos vahvistat, että haluat jatkaa ilmoittamista, sinulla on aina mahdollisuus peruuttaa milloin tahansa.
+        button: Kyllä, haluan jatkaa asiaankuuluvien tietojen saamista
+        greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
+        subject: Haluatko saada jatkuvasti tietoja %{organization_name}?
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -462,6 +483,7 @@ fi:
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastelen sitä myöhemmin
           modal_button: Kieltää ehdot
+          modal_close: Sulje modeemi
           modal_title: Odotatko todella päivitetyt käyttöehdot?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme ja tarkistamme ne.

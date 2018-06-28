@@ -252,7 +252,6 @@ ru:
           fields:
             category: Разряд
             comments: Комментарии
-            created_at: 'Создано:'
             endorsements: Выражения поддержки
             id: Псевдоним
             notes: Примечания

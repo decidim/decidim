@@ -244,11 +244,11 @@ gl:
           fields:
             category: Categoría
             comments: Comentarios
-            created_at: Creado en
             endorsements: Aprobacións
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publicado en
             scope: Alcance
             state: Estado
             title: Título
