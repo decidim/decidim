@@ -44,8 +44,16 @@ module Decidim
       coauthorable.identities.map { |identity| present(identity) }
     end
 
-    def presenter_for_author(model)
-      present(model).author
+    def presenter_for_author(authorable)
+      if official?
+        "#{model.parent}::OfficialAuthorPresenter".constantize.new
+      else
+        if authorable.user_group
+          Decidim::UserGroupPresenter.new(authorable.user_group)
+        else
+          Decidim::UserPresenter.new(authorable.author)
+        end
+      end
     end
 
     def authorable?
