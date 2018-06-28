@@ -21,14 +21,14 @@ module Decidim
       end
 
       def other_filters_with_value
-        @other_filters_with_value ||= other_filters.select do | filter|
-          model[filter] > 0
+        @other_filters_with_value ||= other_filters.select do |filter|
+          model[filter].positive?
         end
       end
 
       def should_show_tabs?
         other_filters_with_value.any?
-          other_filters_with_value != ["all"]
+        other_filters_with_value != ["all"]
       end
 
       def title
@@ -40,7 +40,7 @@ module Decidim
       end
 
       def explanation
-        return if model["active"] > 0
+        return if model["active"].positive?
         content_tag(
           :span,
           I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
@@ -49,7 +49,7 @@ module Decidim
       end
 
       def explanation_text
-        return "no_active" if model["upcoming"] > 0
+        return "no_active" if model["upcoming"].positive?
         "no_active_nor_upcoming"
       end
     end
