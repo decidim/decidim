@@ -411,11 +411,11 @@ ca:
       notify:
         body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a tots nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un millor control sobre les seves dades personals. Per aquest motiu, necessitem el vostre "D'acord" per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
         body_2: 'Com ens podeu donar el vostre consentiment? Només cal que feu clic al botó següent:'
-        body_3: Amb aquest consentiment podrà continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la vostra part, deixarem d'enviar-vos els nostres missatges. Si confirma que vol mantenir-se informat, sempre tindrà l'opció de cancel·lar en qualsevol moment.
+        body_3: Donant consentiment podràs continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la teva part, deixarem d'enviar-te els nostres missatges. Si confirmes que vols mantenir-te informat, sempre tindràs l'opció de cancel·lar en qualsevol moment.
         button: Sí, vull continuar rebent informació rellevant
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
-        subject: Voleu seguir rebent informació rellevant sobre %{organization_name}?
+        subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
