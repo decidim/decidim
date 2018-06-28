@@ -1,6 +1,14 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.13-stable)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+## [0.13.0-pre1](https://github.com/decidim/decidim/tree/v0.13.0-pre1)
 
 **Upgrade notes: avatars**:
 
