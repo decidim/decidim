@@ -4,7 +4,7 @@ fr:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       report:
-        details: Commentaires additionnels
+        details: Commentaires supplémentaires
       user:
         about: A propos de moi
         email: Votre email
@@ -18,8 +18,8 @@ fr:
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
     models:
-      decidim/attachment_created_event: Document joint
-      decidim/component_published_event: Composant actif
+      decidim/attachment_created_event: Document lié
+      decidim/component_published_event: Fonctionnalité active
       decidim/profile_updated_event: Profil mis à jour
   activerecord:
     attributes:
@@ -28,7 +28,7 @@ fr:
         email: Email
         name: Nom d'utilisateur
         password: Mot de passe
-        password_confirmation: Confirmation mot de passe
+        password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
@@ -81,12 +81,12 @@ fr:
         delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
         update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
       component:
-        create: "%{user_name} a ajouté le module %{resource_name} à l'espace %{space_name}"
-        delete: "%{user_name} a supprimé le module %{resource_name} de l'espace %{space_name}"
-        publish: "%{user_name} a publié le module %{resource_name} dans l'espace %{space_name}"
-        unpublish: "%{user_name} a dépublié le module %{resource_name} de l'espace %{space_name}"
+        create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
+        unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
       moderation:
-        hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
         create: "%{user_name} a créé la newsletter %{resource_name}"
@@ -94,9 +94,9 @@ fr:
         deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
         update: "%{user_name} a mis à jour la newsletter %{resource_name}"
       oauth_application:
-        create: "%{user_name} a créé l'application %{resource_name} OAuth"
-        delete: "%{user_name} a supprimé l'application %{resource_name} OAuth"
-        update: "%{user_name} a mis à jour l'application %{resource_name} OAuth"
+        create: "%{user_name} a créé l'application OAuth %{resource_name}"
+        delete: "%{user_name} a supprimé l'application OAuth %{resource_name}"
+        update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
@@ -227,12 +227,12 @@ fr:
             close_modal: Fermer la fenêtre
             uncheck: Désactiver
           notice: |-
-            <p>Hé, êtes-vous sûr de ne pas vouloir recevoir de newsletter?<br>
-            Veuillez considérer de nouveau en cochant la case à cocher newsletter ci-dessous.<br>
-            Il est très important pour nous que vous puissiez recevoir des courriels occasionnels pour faire des annonces importantes, vous pouvez toujours les modifier sur la page des paramètres de vos notifications.</p>
-            <p>Si vous ne cochez pas la case, vous pourriez manquer des informations pertinentes sur les nouvelles opportunités participatives au sein de la plateforme.<br>
-            Si vous voulez toujours éviter de recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
-            <p>Merci d'avoir lu ceci!</p>
+            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
+            Nous vous conseillons vivement de cocher la case ci-dessous permettant de recevoir la newsletter.<br>
+            Il est très important pour nous que vous puissiez recevoir des emails occasionnels qui contiennent des annonces importantes. Vous pourrez toujours vous désinscrire par la suite dans votre compte, dans l'espace "paramètres de vos notifications".</p>
+            <p>Si vous ne cochez pas cette case, vous pourriez manquer les résultats des concertations et l'annonce de l'ouverture de nouveaux espaces de participation au sein de la plateforme.<br>
+            Si vous malgré tout ne pas recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
+            <p>Merci d'avoir lu ce message !</p>
           title: Notifications de newsletter
         omniauth_buttons:
           or: Ou
@@ -405,17 +405,17 @@ fr:
     newsletters_opt_in:
       unathorized: Désolé, ce lien n'est plus disponible
       update:
-        error: Quelque chose s'est mal passé
+        error: Désolé, un problème est survenu
         success: Paramètres de newsletter mis à jour avec succès
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (GDPR) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre "OK" pour continuer à envoyer des informations pertinentes sur les activités du %{organization_name}.
-        body_2: 'Comment pouvez-vous nous donner votre consentement? Cliquez simplement sur le bouton suivant:'
-        body_3: Avec ce consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plate-forme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer nos messages. Si vous confirmez que vous voulez rester informé, vous aurez toujours la possibilité d'annuler à tout moment.
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
         button: Oui, je veux continuer à recevoir des informations pertinentes
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
-        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name}?
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
@@ -483,7 +483,7 @@ fr:
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je le ferai plus tard
           modal_button: Refuser les conditions
-          modal_close: Fermer modal
+          modal_close: Fermer la fenêtre
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
