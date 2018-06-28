@@ -37,8 +37,7 @@ module Decidim
     end
 
     def has_actions?
-      return false if options[:has_actions] == false
-      true
+      options[:has_actions] == true
     end
   end
 end
