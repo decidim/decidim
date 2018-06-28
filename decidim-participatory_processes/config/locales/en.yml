@@ -258,7 +258,9 @@ en:
       processes: Processes
     participatory_process_groups:
       show:
-        group_participatory_processes: Processes for %{group}
+        group_participatory_processes:
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
         title: Participatory process groups
     participatory_process_steps:
       index:
