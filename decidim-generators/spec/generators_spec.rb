@@ -5,7 +5,7 @@ require "spec_helper"
 require "decidim/gem_manager"
 
 module Decidim
-  describe Generators do
+  describe "Generators" do
     let(:env) do |example|
       if ENV["SIMPLECOV"]
         {
