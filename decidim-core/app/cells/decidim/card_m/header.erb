@@ -13,5 +13,5 @@
     </div>
   <% end %>
 
-  <%= cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?) %>
+  <%= render_authorship if has_authors? %>
 </div>
