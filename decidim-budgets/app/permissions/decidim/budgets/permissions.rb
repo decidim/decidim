@@ -14,7 +14,7 @@ module Decidim
 
         case permission_action.action
         when :vote
-          can_vote_project?
+          can_vote_project?(project || order&.projects&.first)
         when :report
           permission_action.allow!
         end
@@ -28,9 +28,12 @@ module Decidim
         @project ||= context.fetch(:project, nil)
       end
 
-      def can_vote_project?
-        is_allowed = project &&
-                     authorized?(:vote)
+      def order
+        @order ||= context.fetch(:order, nil)
+      end
+
+      def can_vote_project?(a_project)
+        is_allowed = a_project && authorized?(:vote)
 
         toggle_allow(is_allowed)
       end
