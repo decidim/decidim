@@ -13,6 +13,5 @@
     </div>
   <% end %>
 
-  <%= render :author if has_author? %>
-  <%= cell("decidim/coauthorships", model, has_actions: has_actions?) if coauthorable? %>
+  <%= cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?) %>
 </div>

@@ -17,10 +17,6 @@ module Decidim
 
     private
 
-    def coauthorable?
-      model.is_a?(Decidim::Coauthorable)
-    end
-
     def resource_path
       resource_locator(model).path
     end
@@ -60,18 +56,6 @@ module Decidim
 
     def decidim
       Decidim::Core::Engine.routes.url_helpers
-    end
-
-    def has_author?
-      model.is_a?(Decidim::Authorable)
-    end
-
-    def author
-      present(model).author
-    end
-
-    def has_authors?
-      model.is_a?(Decidim::Coauthorable)
     end
 
     def hidden_elements_count_i18n_key
