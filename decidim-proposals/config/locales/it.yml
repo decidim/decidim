@@ -244,11 +244,11 @@ it:
           fields:
             category: Categoria
             comments: Commenti
-            created_at: Creato a
             endorsements: Riconoscimenti
             id: ID
             notes: Gli appunti
             official_proposal: Proposta ufficiale
+            published_at: Pubblicato a
             scope: Visibilità
             state: Stato
             title: Titolo

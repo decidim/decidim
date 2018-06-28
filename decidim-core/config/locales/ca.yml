@@ -224,8 +224,15 @@ ca:
         newsletter_modal:
           buttons:
             check: Marca i continua
+            close_modal: Tanca el modal
             uncheck: Deixa desmarcada
-          notice: Hola, estàs segur que no vols rebre un butlletí informatiu? Si us plau, avalua tornar a fer clic a la casella de verificació que apareix a continuació. Per a nosaltres és molt important que rebis correus ocasionals per fer anuncis importants, i sempre pots canviar-ho a la pàgina de configuració de les notificacions. Si no marques la casella, és possible que no rebis informació rellevant sobre noves oportunitats de participació dins de la plataforma. Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió. Gràcies per llegir això!
+          notice: |-
+            <p>Hola, estàs segur que no vols rebre un butlletí?<br>
+            Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
+            Per a nosaltres és molt important que rebeu correus ocasionals per fer anuncis importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
+            <p>Si no marques la casella, pot ser que falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
+            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
+            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -395,6 +402,20 @@ ca:
         success: Has cancel·lat la subscripció amb èxit.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
+    newsletters_opt_in:
+      unathorized: Ho sentim, aquest enllaç ja no està disponible
+      update:
+        error: S'ha produït un error
+        success: Configuració del butlletí de notícies actualitzada amb èxit
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a tots nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un millor control sobre les seves dades personals. Per aquest motiu, necessitem el vostre "D'acord" per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
+        body_2: 'Com ens podeu donar el vostre consentiment? Només cal que feu clic al botó següent:'
+        body_3: Amb aquest consentiment podrà continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la vostra part, deixarem d'enviar-vos els nostres missatges. Si confirma que vol mantenir-se informat, sempre tindrà l'opció de cancel·lar en qualsevol moment.
+        button: Sí, vull continuar rebent informació rellevant
+        greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
+        subject: Voleu seguir rebent informació rellevant sobre %{organization_name}?
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
@@ -462,6 +483,7 @@ ca:
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
+          modal_close: Tanca el modal
           modal_title: Confirmes que no vols acceptar els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.

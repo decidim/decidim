@@ -252,11 +252,11 @@ uk:
           fields:
             category: Розряд
             comments: Коментарі
-            created_at: 'Створено:'
             endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
+            published_at: 'Оприлюднено:'
             scope: Обсяг
             state: Стан
             title: Назва
