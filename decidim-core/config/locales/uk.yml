@@ -419,6 +419,7 @@ uk:
         button: Так, я хочу продовжувати отримувати доречні відомості
         greetings: Вітаємо,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Вітаємо,
+        subject: Бажаєте постійно отримувати доречні відомості про %{organization_name}?
     notifications:
       no_notifications: Ще немає сповіщень.
     notifications_settings:
