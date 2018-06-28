@@ -1,0 +1,16 @@
+.draggable-list{
+  margin: 0;
+  padding: 0;
+
+  li{
+    @include flex;
+    @include flex-align(justify, middle);
+
+    font-weight: $global-weight-bold;
+    border: $border;
+    background-color: $light-gray;
+    padding: $global-padding / 2 $global-padding;
+    margin: $global-margin 0;
+    cursor: grab;
+  }
+}
