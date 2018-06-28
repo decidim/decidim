@@ -71,7 +71,7 @@ describe "Proposals", type: :system do
         it "creates a new proposal", :slow do
           visit complete_proposal_path(component)
 
-          within ".new_proposal" do
+          within ".edit_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
