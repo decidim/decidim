@@ -1,0 +1,70 @@
+<% add_decidim_meta_tags({
+  image_url: current_participatory_space.hero_image.url,
+  description: translated_attribute(current_participatory_space.short_description),
+  url: conference_url(current_participatory_space),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<% if current_participatory_space.private_space? %>
+  <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("conferences.show.private_space", scope: "decidim") } %>
+<% end %>
+
+<div class="row column">
+  <% if current_participatory_space.parent.present? %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= render partial: "decidim/conferences/conferences/nav_breadcumb", locals: { conferences: current_participatory_space.ancestors.to_a } %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <div class="lead">
+          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+        </div>
+        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+
+        <%= decidim_sanitize translated_attribute(current_participatory_space.objectives) %>
+      </div>
+
+      <%= render_hook(:conference_meetings) %>
+
+      <%= attachments_for current_participatory_space %>
+    </div>
+
+    <div class="section columns medium-5 mediumlarge-4 large-3">
+      <div class="card extra">
+        <div class="card__content">
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space } %>
+        </div>
+      </div>
+      <div class="card extra definition-data">
+        <% if current_participatory_space.start_date.presence %>
+          <div class="definition-data__item start_date">
+            <span class="definition-data__title"><%= t("conferences.show.start_date", scope: "decidim") %></span>
+            <%= l current_participatory_space.start_date, format: :datepicker %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.end_date.presence %>
+          <div class="definition-data__item end_date">
+            <span class="definition-data__title"><%= t("conferences.show.end_date", scope: "decidim") %></span>
+            <%= l current_participatory_space.end_date, format: :datepicker %>
+          </div>
+        <% end %>
+      </div>
+      <%= resource_reference(current_participatory_space) %>
+      <%= render partial: "decidim/shared/share_modal" %>
+      <%= embed_modal_for conference_conference_widget_url(current_participatory_space, format: :js) %>
+    </div>
+  </div>
+
+  <% if current_participatory_space.show_statistics? %>
+    <%= render partial: "statistics" %>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+<%= javascript_include_tag "decidim/conferences/conferences" %>
