@@ -10,20 +10,6 @@ module Decidim
       helper_method :authorize_action_path, :action_authorization
     end
 
-    # Public: Authorizes an action of a component given an action name.
-    #
-    # action_name  - The action name to authorize. Actions are set up on the
-    #                component's permissions panel.
-    # redirect_url - Url to be redirected to when the authorization is finished.
-    def authorize_action!(action_name, redirect_url: nil)
-      status = action_authorization(action_name)
-
-      return if status.ok?
-      raise Unauthorized if status.code == :unauthorized
-
-      redirect_to authorize_action_path(action_name, redirect_url: redirect_url)
-    end
-
     # Public: Returns the authorization object for an authorization.
     #
     # action_name - The action to authorize against.

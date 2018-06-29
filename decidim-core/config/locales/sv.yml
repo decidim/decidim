@@ -224,8 +224,15 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
+            close_modal: Stäng modal
             uncheck: Håll avmarkeringen
-          notice: Hej, är du säker på att du inte vill få ett nyhetsbrev? Tänk på att markera kryssrutan nyhetsbrev nedan. Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra detta på sidan Meddelandeinställningar. Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen. Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt. Tack för att du läste detta!
+          notice: |-
+            <p>Hej, är du säker på att du inte vill få ett nyhetsbrev?<br>
+            Tänk på att markera kryssrutan nyhetsbrev nedan.<br>
+            Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra det på sidan Meddelandeinställningar.</p>
+            <p>Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen.<br>
+            Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt.</p>
+            <p>Tack för att du läste detta!</p>
           title: Nyhetsbrev anmälningar
         omniauth_buttons:
           or: Eller
@@ -395,6 +402,20 @@ sv:
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
+    newsletters_opt_in:
+      unathorized: Tyvärr, den här länken är inte längre tillgänglig
+      update:
+        error: Något fel har hänt
+        success: Nyhetsbrevinställningarna uppdateras framgångsrikt
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Behandlingen av personuppgifter och dess skydd blir allt viktigare för oss alla. Med den nya allmänna databeskrivningsförordningen (GDPR) den 25 maj 2018 har individer bättre kontroll över deras personuppgifter. Av denna anledning behöver vi din "OK" för att fortsätta att skicka relevant information om aktiviteterna på %{organization_name}.
+        body_2: 'Hur kan du ge oss ditt samtycke? Klicka bara på följande knapp:'
+        body_3: Med detta samtycke kan du fortsätta att få information om plattformens tjänster. Om vi ​​tvärtom inte får en positiv bekräftelse från din sida kommer vi sluta skicka dig våra meddelanden. Om du bekräftar att du vill fortsätta informeras, har du alltid möjlighet att avbryta när som helst.
+        button: Ja, jag vill fortsätta att få relevant information
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallå,
+        subject: Vill du fortsätta att få relevant information om %{organization_name}?
     notifications:
       no_notifications: Inga notiser ännu.
     notifications_settings:
@@ -462,6 +483,7 @@ sv:
           modal_btn_continue: Acceptera villkor och fortsätt
           modal_btn_exit: Jag ska granska den senare
           modal_button: Avvisa villkoren
+          modal_close: Stäng modal
           modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
