@@ -20,6 +20,8 @@ module Decidim
         attribute :slug, String
         attribute :hashtag, String
         attribute :promoted, Boolean
+        attribute :scopes_enabled, Boolean
+        attribute :scope_id, Integer
         attribute :hero_image
         attribute :remove_hero_image
         attribute :banner_image
@@ -35,6 +37,14 @@ module Decidim
 
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+
+        def map_model(model)
+          self.scope_id = model.decidim_scope_id
+        end
+
+        def scope
+          @scope ||= current_organization.scopes.find_by(id: scope_id)
+        end
 
         private
 

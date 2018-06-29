@@ -29,7 +29,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do |n|
+    2.times do |_n|
       conference = Decidim::Conference.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slogan: Decidim::Faker::Localized.sentence(2),
@@ -50,7 +50,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           Decidim::Faker::Localized.paragraph(3)
         end,
         start_date: Time.current,
-        end_date: 2.months.from_now.at_midnight,
+        end_date: 2.months.from_now.at_midnight
       )
 
       # Create users with specific roles

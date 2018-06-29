@@ -5,18 +5,7 @@
   twitter_handler: current_organization.twitter_handler
 }) %>
 
-<% if current_participatory_space.private_space? %>
-  <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("conferences.show.private_space", scope: "decidim") } %>
-<% end %>
-
 <div class="row column">
-  <% if current_participatory_space.parent.present? %>
-    <div class="row">
-      <div class="small-12 columns">
-        <%= render partial: "decidim/conferences/conferences/nav_breadcumb", locals: { conferences: current_participatory_space.ancestors.to_a } %>
-      </div>
-    </div>
-  <% end %>
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">

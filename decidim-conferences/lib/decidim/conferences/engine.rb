@@ -23,6 +23,7 @@ module Decidim
 
         resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
           # resources :conference_speakers, only: :index, path: "members"
+          resource :conference_widget, only: :show, path: "embed"
         end
 
         scope "/conferences/:conference_slug/f/:component_id" do

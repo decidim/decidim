@@ -7,6 +7,7 @@ class AddConferences < ActiveRecord::Migration[5.2]
       t.jsonb :slogan, null: false
       t.string :slug, null: false
       t.string :hashtag
+      t.string :reference
       t.integer :decidim_organization_id,
                 foreign_key: true,
                 index: { name: "index_decidim_conferences_on_decidim_organization_id" }
@@ -21,6 +22,8 @@ class AddConferences < ActiveRecord::Migration[5.2]
       t.boolean :show_statistics, default: false
       t.datetime :start_date
       t.datetime :end_date
+      t.boolean :scopes_enabled, null: false, default: true
+      t.integer :decidim_scope_id
 
       t.index [:decidim_organization_id, :slug],
               name: "index_unique_conference_slug_and_organization",

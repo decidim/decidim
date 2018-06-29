@@ -31,29 +31,11 @@ module Decidim
 
     # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
-      Decidim::GemManager.run_all(
-        "gem build %name && mv %name-%version.gem ..",
-        include_root: false,
-        out: File::NULL
-      )
-
-      Decidim::GemManager.new(repo_root).run(
-        "gem build %name && gem install *.gem",
-        out: File::NULL
-      )
+      Decidim::GemManager.install_all(out: File::NULL)
     end
 
     after(:all) do
-      Decidim::GemManager.run_all(
-        "gem uninstall %name -v %version --executables --force",
-        include_root: false,
-        out: File::NULL
-      )
-
-      Decidim::GemManager.new(repo_root).run(
-        "gem uninstall %name -v %version --executables --force && rm decidim-*.gem",
-        out: File::NULL
-      )
+      Decidim::GemManager.uninstall_all(out: File::NULL)
     end
     # rubocop:enable RSpec/BeforeAfterAll
 

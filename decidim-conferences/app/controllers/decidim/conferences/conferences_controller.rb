@@ -53,7 +53,6 @@ module Decidim
       def stats
         @stats ||= ConferenceStatsPresenter.new(conference: current_participatory_space)
       end
-
     end
   end
 end

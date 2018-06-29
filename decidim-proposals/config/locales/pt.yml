@@ -244,11 +244,11 @@ pt:
           fields:
             category: Categoria
             comments: Comentários
-            created_at: Criado em
             endorsements: Endossos
             id: identidade
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publicado em
             scope: Âmbito
             state: Estado
             title: Título

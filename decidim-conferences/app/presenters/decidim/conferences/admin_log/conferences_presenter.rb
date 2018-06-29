@@ -29,7 +29,7 @@ module Decidim
             subtitle: :i18n,
             title: :i18n,
             start_date: :date,
-            end_date: :date,
+            end_date: :date
           }
         end
 

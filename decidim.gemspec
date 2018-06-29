@@ -33,10 +33,10 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-admin", compatible_constraint
   s.add_dependency "decidim-api", compatible_constraint
   s.add_dependency "decidim-assemblies", compatible_constraint
-  s.add_dependency "decidim-conferences", compatible_constraint
   s.add_dependency "decidim-blogs", compatible_constraint
   s.add_dependency "decidim-budgets", compatible_constraint
   s.add_dependency "decidim-comments", compatible_constraint
+  s.add_dependency "decidim-conferences", compatible_constraint
   s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "decidim-debates", compatible_constraint
   s.add_dependency "decidim-generators", compatible_constraint

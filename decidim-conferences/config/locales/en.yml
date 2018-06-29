@@ -3,4 +3,102 @@ en:
   activemodel:
     attributes:
       conference:
-        
+  decidim:
+    admin:
+      actions:
+        new_conference: New Conference
+      conference_user_roles:
+        create:
+          error: There was an error adding a user for this conference.
+          success: User added successfully to this conference.
+        destroy:
+          success: User removed successfully from this conference.
+        edit:
+          title: Update conference user.
+          update: Update
+        index:
+          conference_admins_title: conference users
+        new:
+          create: Create
+          title: New conference user.
+        update:
+          error: There was an error updated a user for this conference.
+          success: User updated successfully for this conference.
+      conferences:
+        create:
+          error: There was an error creating a new conference.
+          success: Conference created successfully.
+        edit:
+          update: Update
+        form:
+          title: General Information
+        index:
+          published: Publisehd
+        new:
+          create: Create
+          title: Conference
+        update:
+          error: There was an error when updating this conference.
+          success: Conference updated successfully.
+      menu:
+        conferences: Conferences
+        conferences_submenu:
+          attachment_collections: Attachment Collections
+          attachment_files: Attachment files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          conference_admins: Conference admins
+          info: Info
+          moderations: Moderations
+      models:
+        conference:
+          fields:
+            created_at: Created at
+            published: Published
+            promoted: Promoted
+            title: Title
+        conference_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          name: Assembly User
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
+      titles:
+        conferences: Conferences
+    conferences:
+      admin:
+        conferences:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      index:
+        title: Conferences
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Active conferences
+            see_all_conferences: See all conferences
+      show:
+        end_date: End date
+        start_date: Start date
+    menu:
+      conferences: Conferences
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: The Conference
+        unfold: Unfold
+      conferences:
+        conference:
+          take_part: Take part
+        index:
+          promoted_conferences: Promoted conferences
+        order_by_conferences:
+          conferences: Conferences
+        promoted_conference:
+          more_info: More info
+          take_part: Take part

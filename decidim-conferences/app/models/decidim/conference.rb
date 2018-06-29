@@ -57,7 +57,7 @@ module Decidim
       slug
     end
 
-   def ancestors
+    def ancestors
       self_and_ancestors.where.not(id: id)
     end
   end

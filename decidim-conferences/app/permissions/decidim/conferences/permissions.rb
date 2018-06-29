@@ -190,7 +190,7 @@ module Decidim
           :component_data,
           :moderation,
           :conference,
-          :conference_user_role,
+          :conference_user_role
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -206,7 +206,7 @@ module Decidim
           :component_data,
           :moderation,
           :conference,
-          :conference_user_role,
+          :conference_user_role
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

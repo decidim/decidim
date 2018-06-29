@@ -24,7 +24,6 @@ module Decidim
 
           if conference.persisted?
             add_admins_as_followers(conference)
-            link_participatory_processes(conference)
 
             broadcast(:ok, conference)
           else
@@ -44,17 +43,18 @@ module Decidim
             form.current_user,
             organization: form.current_organization,
             title: form.title,
-            slogan: form.subtitle,
+            slogan: form.slogan,
             slug: form.slug,
             hashtag: form.hashtag,
             description: form.description,
             short_description: form.short_description,
+            objectives: form.objectives,
+            scopes_enabled: form.scopes_enabled,
+            scope: form.scope,
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
-            scopes_enabled: form.scopes_enabled,
-            scope: form.scope,
-            show_statistics: form.show_statistics,
+            show_statistics: form.show_statistics
           )
         end
 
@@ -70,7 +70,6 @@ module Decidim
             Decidim::CreateFollow.new(form, admin).call
           end
         end
-
       end
     end
   end

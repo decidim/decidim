@@ -24,7 +24,6 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           update_conference
-          link_participatory_processes(@conference)
 
           if @conference.valid?
             broadcast(:ok, @conference)
@@ -56,17 +55,18 @@ module Decidim
         def attributes
           {
             title: form.title,
-            slogan: form.subtitle,
+            slogan: form.slogan,
             slug: form.slug,
             hashtag: form.hashtag,
             description: form.description,
             short_description: form.short_description,
+            objectives: form.objectives,
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
-            show_statistics: form.show_statistics,
+            show_statistics: form.show_statistics
           }
         end
       end

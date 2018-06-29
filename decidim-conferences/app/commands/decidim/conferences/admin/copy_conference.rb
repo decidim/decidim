@@ -49,11 +49,12 @@ module Decidim
             hero_image: @conference.hero_image,
             banner_image: @conference.banner_image,
             promoted: @conference.promoted,
+            scopes_enabled: @conference.scopes_enabled,
             scope: @conference.scope,
             objectives: @conference.objectives,
             start_date: @conference.start_date,
             end_date: @conference.end_date
-            )
+          )
         end
 
         def copy_conference_categories

@@ -106,9 +106,11 @@ module Decidim
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "gem \"decidim-conferences\", #{gem_modifier}"
           else
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "# gem \"decidim-conferences\", #{gem_modifier}"
           end
         end
 

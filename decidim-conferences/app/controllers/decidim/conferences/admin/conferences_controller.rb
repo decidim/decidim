@@ -17,7 +17,6 @@ module Decidim
         def new
           enforce_permission_to :create, :conference
           @form = form(ConferenceForm).instance
-          @form.parent_id = params[:parent_id]
         end
 
         def create
@@ -25,9 +24,9 @@ module Decidim
           @form = form(ConferenceForm).from_params(params)
 
           CreateConference.call(@form) do
-            on(:ok) do |conference|
+            on(:ok) do
               flash[:notice] = I18n.t("conferences.create.success", scope: "decidim.admin")
-              redirect_to conferences_path(parent_id: conference.parent_id)
+              redirect_to conferences_path
             end
 
             on(:invalid) do
@@ -88,8 +87,7 @@ module Decidim
         alias current_participatory_space current_conference
 
         def collection
-          parent_id = params[:parent_id].presence
-          @collection ||= OrganizationConferences.new(current_user.organization).query.where(parent_id: parent_id)
+          @collection ||= OrganizationConferences.new(current_user.organization).query
         end
 
         def conference_params
