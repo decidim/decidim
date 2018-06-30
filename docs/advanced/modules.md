@@ -20,7 +20,7 @@ There's a DSL available to describe all this:
 # :my_component is the unique name of the component that will be globally registered.
 Decidim.register_component(:my_component) do |component|
   # The user will be redirected to the component's engine when accessing it through
-  # the public page of a participatory process. A component's engine is isolated
+  # the public page of a participatory space. A component's engine is isolated
   # from the outside so it can deal with its own dependencies without having to
   # know its render path or its parent resources.
   component.engine = MyComponent::Engine
@@ -59,4 +59,4 @@ Decidim.register_component(:my_component) do |component|
 end
 ```
 
-Every model in a component doesn't have to (and should not) know about its parent participatory process, but instead should be scoped to the components.
+Every model in a component doesn't have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
