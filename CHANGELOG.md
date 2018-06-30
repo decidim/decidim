@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim-doc**: Update advanced documentation for modules (use module term instead of component). [\#3749](https://github.com/decidim/decidim/pull/3749)
+
 **Fixed**:
 
 **Removed**:
