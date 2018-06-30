@@ -1,10 +1,12 @@
-# Components
+# Modules
 
-Components are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory processes and can be enabled or disabled by the administrator.
+Modules are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
 
-## How do I create a new component?
+Modules can contain functionalities from different levels, from participatory spaces to components.
 
-Components are just gems with one or more Rails engines included in it. You can use as an example [decidim-pages](https://github.com/decidim/decidim/tree/master/decidim-pages).
+## How do I create a new module?
+
+Modules are just gems with one or more Rails engines included in it. You can use as an example [decidim-pages](https://github.com/decidim/decidim/tree/master/decidim-pages).
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `component.rb`.
 
