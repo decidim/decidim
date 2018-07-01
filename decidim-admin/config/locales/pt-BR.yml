@@ -10,7 +10,7 @@ pt-BR:
         organization: Organização
         plural: Plural
       attachment:
-        attachment_collection_id: Pasta
+        attachment_collection_id: Diretório
         description: Descrição
         file: Arquivo
         title: Título
@@ -132,7 +132,7 @@ pt-BR:
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local na rede Internet
+        site: Página web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -143,7 +143,7 @@ pt-BR:
         browse: Navegar
         export: Exportar
         manage: Gerenciar
-        new: Novo %{name}
+        new: Nova %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
