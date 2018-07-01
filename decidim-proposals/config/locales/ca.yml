@@ -244,11 +244,11 @@ ca:
           fields:
             category: Categoria
             comments: Comentaris
-            created_at: Creat el
             endorsements: Adhesions
             id: ID
             notes: Notes
             official_proposal: Proposta oficial
+            published_at: Publicat a
             scope: Àmbit
             state: Estat
             title: Títol

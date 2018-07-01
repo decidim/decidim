@@ -13,7 +13,7 @@ module Decidim
       let(:mail) { described_class.notify(user, token) }
 
       it "parses the subject" do
-        expect(mail.subject).to eq("Do you want to keep receiving relevant information about?")
+        expect(mail.subject).to eq("Do you want to keep receiving relevant information about #{organization.name}?")
       end
 
       it "parses the body" do

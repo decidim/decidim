@@ -244,11 +244,11 @@ sv:
           fields:
             category: Kategori
             comments: Kommentarer
-            created_at: Skapad vid
             endorsements: påskrifter
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
+            published_at: Publicerad på
             scope: Omfattning
             state: Status
             title: Titel

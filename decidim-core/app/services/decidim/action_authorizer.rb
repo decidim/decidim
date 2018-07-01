@@ -28,7 +28,7 @@ module Decidim
       raise AuthorizationError, "Missing data" unless component && action
 
       status_code, data = if authorization_handler_name
-                            authorization_handler.authorize(authorization, permission_options)
+                            authorization_handler.authorize(authorization, permission_options, component)
                           else
                             [:ok, {}]
                           end
