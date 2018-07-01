@@ -186,7 +186,7 @@ pt-BR:
       export:
         ready: pronto
       show:
-        download_data: Baixe os dados
+        download_data: Baixar os dados
         download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
         request_data: Solicitar dados
     devise:
@@ -336,8 +336,8 @@ pt-BR:
         friend_email: 'E-mail do amigo nº%{index}'
         invitations_subtitle: Deixe seus amigos saberem sobre este site
         invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
-        invite: Convite
-        visit_your_profile: Visite seu perfil
+        invite: Convidar
+        visit_your_profile: Visitar o seu perfil
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -405,7 +405,7 @@ pt-BR:
     newsletters_opt_in:
       unathorized: Desculpe, este link não está mais disponível
       update:
-        error: Aconteceu algo de errado
+        error: Algo deu errado
         success: Configurações de boletim informativo atualizadas com sucesso
     newsletters_opt_in_mailer:
       notify:
