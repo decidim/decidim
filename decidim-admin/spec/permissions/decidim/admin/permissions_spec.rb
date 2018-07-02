@@ -28,6 +28,12 @@ describe Decidim::Admin::Permissions do
       end
 
       it { is_expected.to eq true }
+
+      context "when user is a user manager" do
+        let(:user) { build :user, :user_manager }
+
+        it { is_expected.to eq true }
+      end
     end
 
     it_behaves_like "permission is not set"

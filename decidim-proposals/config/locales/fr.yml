@@ -244,11 +244,11 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créée le
             endorsements: Recommandations
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
+            published_at: Publié à
             scope: Périmètre d'application
             state: Etat
             title: Titre

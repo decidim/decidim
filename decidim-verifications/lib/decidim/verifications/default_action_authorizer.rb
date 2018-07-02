@@ -8,10 +8,12 @@ module Decidim
       #
       # authorization - The existing authorization record to be evaluated. Can be nil.
       # options       - A hash with options related only to the current authorization process.
+      # component     - The component where the authorization is taking place
       #
-      def initialize(authorization, options)
+      def initialize(authorization, options, component)
         @authorization = authorization
         @options = options.deep_dup || {} # options hash is cloned to allow changes applied to it without risks
+        @component = component
       end
 
       #
@@ -63,7 +65,7 @@ module Decidim
 
       protected
 
-      attr_reader :authorization, :options
+      attr_reader :authorization, :options, :component
 
       def unmatched_fields
         @unmatched_fields ||= (options.keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
