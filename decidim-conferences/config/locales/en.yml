@@ -3,10 +3,77 @@ en:
   activemodel:
     attributes:
       conference:
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_features: Copy features
+        decidim_scope_id: Scope
+        description: Description
+        hashtag: Hashtag
+        hero_image: Home image
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        slogan: Slogan
+        title: Title
+      conference_speaker:
+        full_name: Full name
+      conference_user_role:
+        email: Email
+        name: Name
+        role: Role
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conference
+        other: Conferences
+      decidim/conference_speaker:
+        one: Conference speaker
+        other: Conference speakers
+      decidim/conference_user_role:
+        one: Conference user role
+        other: Conference user roles
   decidim:
     admin:
       actions:
         new_conference: New Conference
+      conference_copies:
+        create:
+          error: There was an error when duplicating this conference.
+          success: Conference duplicated successfully.
+      conference_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate conference
+      conference_speakers:
+        create:
+          error: There was an error adding a speaker for this conference.
+          success: Speaker created successfully for this conference.
+        destroy:
+          success: Speaker deleted successfully for this conference.
+        edit:
+          title: Update conference speaker.
+          update: Update
+        index:
+          conference_speakers_title: Conference speakers
+        new:
+          create: Create
+          title: New conference speaker.
+        update:
+          error: There was an error updating the speaker for this conference.
+          success: Speaker updated successfully for this conference.
+      conference_publications:
+        create:
+          error: There was an error publishing this conference.
+          success: Conference published successfully.
+        destroy:
+          error: There was an error unpublishing this conference.
+          success: Conference unpublished successfully.
       conference_user_roles:
         create:
           error: There was an error adding a user for this conference.
@@ -49,6 +116,7 @@ en:
           categories: Categories
           components: Components
           conference_admins: Conference admins
+          conference_speakers: Conference speakers
           info: Info
           moderations: Moderations
       models:
@@ -58,23 +126,52 @@ en:
             published: Published
             promoted: Promoted
             title: Title
+        conference_speaker:
+          fields:
+            affiliation: Affiliation
+            charge: Charge
+            full_name: Full name
+          name: Conference Speaker
         conference_user_role:
           fields:
             email: Email
             name: Name
             role: Role
-          name: Assembly User
+          name: Conference User
           roles:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
       titles:
         conferences: Conferences
+    conference_speakers:
+      index:
+        title: Speakers
     conferences:
       admin:
+        conference_speakers:
+          form:
+            existing_user: Existing user
+            non_user: Non user
+            select_user: Select user
+            user_type: User type
+          index:
+            filter:
+              all: All
+            filter_by: Filter by
+            search: Search
         conferences:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      conference_speaker:
+        affiliation: Affiliation
+        charge: Charge
+        personal_url: Personal Url
+        short_bio: Short bio
+        twitter_handle: Twitter
+      conference_speakers:
+        index:
+          speakers: Speakers
       index:
         title: Conferences
       pages:
@@ -85,12 +182,30 @@ en:
       show:
         end_date: End date
         start_date: Start date
+      statistics:
+        answers_count: Answers
+        conference_count: Conferences
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Votes
+        pages_count: Pages
+        posts_count: Posts
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
     menu:
       conferences: Conferences
   layouts:
     decidim:
       conference_header:
         conference_menu_item: The Conference
+        conference_speaker_menu_item: Speakers
         unfold: Unfold
       conferences:
         conference:

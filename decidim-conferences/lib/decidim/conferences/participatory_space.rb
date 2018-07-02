@@ -114,6 +114,23 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         )
       end
 
+      5.times do
+        Decidim::ConferenceSpeaker.create!(
+          user: conference.organization.users.first,
+          full_name: Faker::Name.name,
+          charge: Decidim::Faker::Localized.word,
+          affiliation: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          twitter_handle: Faker::Twitter.unique.screen_name,
+          personal_url: Faker::Internet.url,
+          conference: conference
+        )
+      end
+
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
       end

@@ -16,6 +16,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_conferences_action?
           public_read_conference_action?
+          public_list_speakers_action?
           public_report_content_action?
           return permission_action
         end
@@ -87,9 +88,9 @@ module Decidim
         toggle_allow(can_manage_conference?)
       end
 
-      def public_list_members_action?
+      def public_list_speakers_action?
         return unless permission_action.action == :list &&
-                      permission_action.subject == :members
+                      permission_action.subject == :speakers
 
         allow!
       end
@@ -190,7 +191,8 @@ module Decidim
           :component_data,
           :moderation,
           :conference,
-          :conference_user_role
+          :conference_user_role,
+          :conference_speaker
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -206,7 +208,8 @@ module Decidim
           :component_data,
           :moderation,
           :conference,
-          :conference_user_role
+          :conference_user_role,
+          :conference_speaker
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

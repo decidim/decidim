@@ -22,7 +22,7 @@ module Decidim
         }, constraints: { conference_id: /[0-9]+/ }
 
         resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
-          # resources :conference_speakers, only: :index, path: "members"
+          resources :conference_speakers, only: :index, path: "speakers"
           resource :conference_widget, only: :show, path: "embed"
         end
 
@@ -56,7 +56,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.conferences", scope: "decidim"),
                     decidim_conferences.conferences_path,
-                    position: 4,
+                    position: 6,
                     if: Decidim::Conference.where(organization: current_organization).published.any?,
                     active: :inclusive
         end

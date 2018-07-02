@@ -30,6 +30,11 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
+    has_many :speakers,
+             foreign_key: "decidim_conference_id",
+             class_name: "Decidim::ConferenceSpeaker",
+             dependent: :destroy
+
     has_many :components, as: :participatory_space, dependent: :destroy
 
     validates :slug, uniqueness: { scope: :organization }
