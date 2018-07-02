@@ -56,6 +56,8 @@ Decidim::Core::Engine.routes.draw do
         get :download_file
       end
     end
+
+    get "/modals/authorization/:authorization_action/f/:component_id", to: "modals#authorization", as: :authorization_modal
   end
 
   resources :profiles, only: [:show], param: :nickname

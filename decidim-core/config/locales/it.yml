@@ -390,6 +390,31 @@ it:
           title: Inizia una conversazione
         update:
           error: Messaggio non inviato. Riprova più tardi
+    modals:
+      authorization:
+        expired:
+          authorize: Rinnova con "%{authorization}"
+          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
+          title: L'autorizzazione è scaduta
+        incomplete:
+          cancel: Annulla
+          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
+          invalid_field: "%{field}"
+          reauthorize: Ri-autorizzare
+          title: Per favore, occorre una nuova autorizzazione
+        missing:
+          authorize: Autorizzare con "%{authorization}"
+          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
+          title: Autorizzazione richiesta
+        pending:
+          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
+          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
+          title: L'autorizzazione è ancora in corso
+        unauthorized:
+          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
+          invalid_field: "%{field} valore %{value} non è valido."
+          ok: Ok
+          title: Non autorizzato
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
@@ -540,30 +565,6 @@ it:
         filter_by: Filtra per
         unfold: spiegare
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Rinnova con "%{authorization}"
-          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
-          title: L'autorizzazione è scaduta
-        incomplete:
-          cancel: Annulla
-          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
-          invalid_field: "%{field}"
-          reauthorize: Ri-autorizzare
-          title: Per favore, occorre una nuova autorizzazione
-        missing:
-          authorize: Autorizzare con "%{authorization}"
-          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
-          title: Autorizzazione richiesta
-        pending:
-          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
-          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
-          title: L'autorizzazione è ancora in corso
-        unauthorized:
-          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
-          invalid_field: "%{field} valore %{value} non è valido."
-          ok: Ok
-          title: Non autorizzato
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina

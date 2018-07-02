@@ -2,18 +2,6 @@
 
 module Decidim
   module ActionAuthorizationHelper
-    # Public: Renders a modal that explains why she can't perform an action,
-    # if that's the case. The modal isn't shown by default, and it's usually
-    # triggered by `action_authorized_link_to` or `action_authorized_button_to`.
-    #
-    # action - The action to authenticate against.
-    #
-    # Returns a String with the modal.
-    def action_authorization_modal(action)
-      render partial: "decidim/shared/action_authorization_modal",
-             locals: { action: action.to_s }
-    end
-
     # Public: Emulates a `link_to` but conditionally renders a popup modal
     # blocking the action in case the user isn't allowed to perform it.
     #
@@ -23,28 +11,7 @@ module Decidim
     #
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
-      if block_given?
-        body = block
-        url = arguments[0]
-        html_options = arguments[1]
-      else
-        body = arguments[0]
-        url = arguments[1]
-        html_options = arguments[2]
-      end
-
-      unless current_user_authorized?(action)
-        html_options ||= {}
-        html_options["onclick"] = "event.preventDefault();"
-        html_options["data-open"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
-        url = ""
-      end
-
-      if block_given?
-        link_to(url, html_options, &body)
-      else
-        link_to(body, url, html_options)
-      end
+      authorized_to(:link, action, arguments, block)
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
@@ -56,34 +23,70 @@ module Decidim
     #
     # Returns a String with the button.
     def action_authorized_button_to(action, *arguments, &block)
-      if block_given?
+      authorized_to(:button, action, arguments, block)
+    end
+
+    # Public: Emulates a `link_to` but conditionally renders a popup modal
+    # blocking the action in case the user isn't logged id.
+    #
+    # *arguments - A regular set of arguments that would be provided to
+    #              `link_to`.
+    #
+    # Returns a String with the link.
+    def logged_link_to(*arguments, &block)
+      authorized_to(:link, nil, arguments, block)
+    end
+
+    # Public: Emulates a `button_to` but conditionally renders a popup modal
+    # blocking the action in case the user isn't logged id.
+    #
+    # *arguments - A regular set of arguments that would be provided to
+    #              `button_to`.
+    #
+    # Returns a String with the button.
+    def logged_button_to(*arguments, &block)
+      authorized_to(:button, nil, arguments, block)
+    end
+
+    private
+
+    def authorized_to(tag, action, arguments, block)
+      if block
         body = block
         url = arguments[0]
-        html_options = arguments[1] || {}
+        html_options = arguments[1]
       else
         body = arguments[0]
         url = arguments[1]
-        html_options = arguments[2] || {}
+        html_options = arguments[2]
       end
 
-      unless current_user_authorized?(action)
-        html_options["data-open"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
+      html_options ||= {}
+
+      if !current_user
+        html_options["data-open"] = "loginModal"
+        url = ""
+      elsif !action_authorized_to(action)
+        html_options["data-open"] = "authorizationModal"
+        html_options["data-open-url"] = modal_path(action)
         url = ""
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
 
-      if block_given?
-        button_to(url, html_options, &body)
+      if block
+        send("#{tag}_to", url, html_options, &body)
       else
-        button_to(body, url, html_options)
+        send("#{tag}_to", body, url, html_options)
       end
     end
 
-    private
+    def action_authorized_to(action)
+      action && ::Decidim::ActionAuthorizer.new(current_user, current_component, action).authorize.ok?
+    end
 
-    def current_user_authorized?(action)
-      current_user && action_authorization(action).ok?
+    def modal_path(action)
+      decidim.authorization_modal_path(authorization_action: action, component_id: current_component.id)
     end
   end
 end

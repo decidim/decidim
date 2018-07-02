@@ -390,6 +390,31 @@ gl:
           title: Comezar unha conversa
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
+    modals:
+      authorization:
+        expired:
+          authorize: Reautorizar con "%{authorization}"
+          explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".
+          title: A autorización caducou
+        incomplete:
+          cancel: Cancelar
+          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Reautoralizar
+        missing:
+          authorize: Autorízase con "%{authorization}"
+          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
+          title: Requírese a autorización
+        pending:
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
+          resume: Verifica o progreso da túa autorización "%{authorization}"
+          title: A autorización aínda está en progreso
+        unauthorized:
+          explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
+          invalid_field: "O %{field} valor %{value} non é válido."
+          ok: Ok
+          title: Non autorizado
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
@@ -540,30 +565,6 @@ gl:
         filter_by: Filtrar por
         unfold: Despregar
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reautorizar con "%{authorization}"
-          explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".
-          title: A autorización caducou
-        incomplete:
-          cancel: Cancelar
-          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Reautoralizar
-        missing:
-          authorize: Autorízase con "%{authorization}"
-          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
-          title: Requírese a autorización
-        pending:
-          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
-          resume: Verifica o progreso da túa autorización "%{authorization}"
-          title: A autorización aínda está en progreso
-        unauthorized:
-          explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "O %{field} valor %{value} non é válido."
-          ok: Ok
-          title: Non autorizado
       embed_modal:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina
