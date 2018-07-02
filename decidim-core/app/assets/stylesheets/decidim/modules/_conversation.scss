@@ -1,0 +1,41 @@
+.conversation{
+  .conversation-header{
+    @extend .p-m;
+
+    border-bottom: $border;
+
+    img{
+      width: rem-calc(66);
+      height: rem-calc(66);
+      border-radius: 50%;
+    }
+  }
+
+  .conversation-chat{
+    @include flex;
+    @include flex-align(left, top);
+    @include flexgap($global-margin);
+
+    @extend .mt-s;
+
+    max-width: 75%;
+
+    > :first-child{
+      flex-shrink: 0;
+    }
+
+    img{
+      width: rem-calc(33px);
+      height: rem-calc(33px);
+      border-radius: 50%;
+    }
+
+    .card{
+      margin-bottom: $global-margin / 2;
+    }
+
+    .card:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+}

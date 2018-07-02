@@ -1,1 +1,36 @@
-LA CONVERSACIÓ
+<div class="conversation">
+  <div class="conversation-header flex--cc absolutes">
+    <div class="left center mr-s">
+      <a href="#conversations" data-tabs-target="conversations">
+        <%= icon "chevron-left", class: "card__link icon--big" %>
+      </a>
+    </div>
+    <%= link_to page_path("user-profile") do %>
+      <%= image_tag "demo-avatar.jpg" %>
+    <% end %>
+    <div class="ml-s">
+      Conversación con <strong><%= Faker::Name.name %></strong>
+      <br />
+      <span class="muted">@<%= Faker::Twitter.screen_name %></span>
+    </div>
+  </div>
+
+  <% 4.times do %>
+  <div class="conversation-chat">
+    <%= link_to page_path("user-profile") do %>
+    <%= image_tag "demo-avatar.jpg" %>
+    <% end %>
+    <div>
+      <% Faker::Number.between(1, 2).times do %>
+      <article class="card">
+        <div class="p-s">
+          <%= Faker::Lorem.sentence(Faker::Number.between(5, 20)) %>
+        </div>
+      </article>
+      <% end %>
+      <span class="text-small"><%= Faker::Date.between(10.days.ago, Date.today).strftime("%-m %b") %></span>
+    </div>
+  </div>
+  <% end %>
+
+</div>
