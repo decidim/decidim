@@ -46,6 +46,16 @@ task :test_component do
   Decidim::GemManager.test_component
 end
 
+desc "Installs all local gem versions globally"
+task :install_all do
+  Decidim::GemManager.install_all
+end
+
+desc "Uninstalls all local gem versions"
+task :uninstall_all do
+  Decidim::GemManager.uninstall_all
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   Decidim::GemManager.run_all("rake release")

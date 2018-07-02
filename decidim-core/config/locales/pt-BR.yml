@@ -224,8 +224,15 @@ pt-BR:
         newsletter_modal:
           buttons:
             check: Verificar e continuar
+            close_modal: Fechar modal
             uncheck: Manter desmarcado
-          notice: Ei, deseja mesmo não receber a newsletter? Por favor, pense mais um pouco no botão abaixo. É muito importante para nós que você receba e-mails sobre avisos importantes, você pode alterar isso na sua página de configurações de notificações quando quiser. Ao não selecionar o botão abaixo, você pode perder informações importantes sobre novas oportunidades e processos participativos na plataforma. Se você quiser continuar não recebendo boletins, compreendemos perfeitamente a sua decisão. Muito obrigado por ler!
+          notice: |-
+            <p>Tem certeza de que não quer receber uma newsletter?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
+            É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações.</p>
+            <p>Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma.<br>
+            Se você ainda quiser evitar receber boletins informativos, entenderemos perfeitamente sua decisão.</p>
+            <p>Obrigado por ler isto!</p>
           title: Notificações de newsletter
         omniauth_buttons:
           or: Ou
@@ -395,6 +402,20 @@ pt-BR:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    newsletters_opt_in:
+      unathorized: Desculpe, este link não está mais disponível
+      update:
+        error: Aconteceu algo de errado
+        success: Configurações de boletim informativo atualizadas com sucesso
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
+        body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
+        body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
+        button: Sim, quero continuar recebendo informações relevantes
+        greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá,
+        subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
     notifications:
       no_notifications: Não há notificações.
     notifications_settings:
@@ -462,6 +483,7 @@ pt-BR:
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
@@ -540,7 +562,7 @@ pt-BR:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
+          ok: Ok
           title: Não autorizado
       embed_modal:
         close_window: Fechar janela

@@ -137,18 +137,32 @@ FactoryBot.define do
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
+    transient do
+      users nil
+      # user_groups correspondence to users is by sorting order
+      user_groups []
+    end
+
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
-    author do
-      create(:user, organization: component.organization) if component
+    after(:build) do |proposal, evaluator|
+      if proposal.component
+        users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
+        users.each_with_index do |user, idx|
+          user_group = evaluator.user_groups[idx]
+          Decidim::Coauthorship.create(author: user, user_group: user_group, coauthorable: proposal)
+        end
+      end
     end
 
     trait :official do
-      author nil
+      after :build do |proposal|
+        proposal.coauthorships.clear
+      end
     end
 
     trait :evaluating do

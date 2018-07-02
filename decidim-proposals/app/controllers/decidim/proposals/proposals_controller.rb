@@ -20,7 +20,6 @@ module Decidim
                      .results
                      .published
                      .not_hidden
-                     .includes(:author)
                      .includes(:category)
                      .includes(:scope)
 
@@ -222,7 +221,7 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.not_hidden.where(component: current_component, author: current_user).find_by(published_at: nil)
+        Proposal.from_all_user_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft

@@ -31,7 +31,7 @@ module Decidim
       delegate :categories, to: :current_component
 
       def map_model(model)
-        self.user_group_id = model.decidim_user_group_id
+        self.user_group_id = model.user_groups.first&.id
         return unless model.categorization
 
         self.category_id = model.categorization.decidim_category_id
