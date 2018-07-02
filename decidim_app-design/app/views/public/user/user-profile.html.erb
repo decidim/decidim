@@ -14,6 +14,7 @@
           <a href="#timeline" aria-selected="true" title="Timeline">Timeline</a>
         </li>
         <li class="tabs-title"><a href="#notifications" title="Notifications">Notifications</a></li>
+        <li class="tabs-title"><a href="#conversations" title="Conversations">Conversations</a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
         <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
       </ul>
@@ -33,6 +34,9 @@
         </div>
         <div class="tabs-panel" id="notifications">
           <%= render partial: page_path("user") + "/notifications" %>
+        </div>
+        <div class="tabs-panel" id="conversations">
+          <%= render partial: page_path("user") + "/conversations" %>
         </div>
         <div class="tabs-panel" id="following">
           <%= render partial: page_path("user") + "/following" %>
