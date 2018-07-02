@@ -18,9 +18,9 @@
           <span class="text-small">Último mensaje: <strong>hace <%= Faker::Number.between(1, 59) %> minutos</strong></span>
         </div>
         <div class="right center mr-s">
-          <%= link_to page_path("user-profile"), class: "user-header__avatar" do %>
+          <a href="#conversation" class="user-header__avatar" data-tabs-target="conversation">
             <%= icon "chevron-right", class: "card__link icon--big" %>
-          <% end %>
+          </a>
         </div>
       </li>
     </ul>
