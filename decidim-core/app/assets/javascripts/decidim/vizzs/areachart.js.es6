@@ -192,14 +192,26 @@ const renderAreaChart = () => {
       return data.sort((x, y) => d3.ascending(x.key, y.key))
     }
 
+    // OPTIONAL: Helper function to accumulates all data values
+    const aggregate = (agg) => agg.map((item, index, array) => {
+      if (index > 0) {
+        item.value += array[index - 1].value
+      }
+      return item
+    })
+
     // MANDATORY: HTML must contain which metric should it display
-    let data = DATACHARTS[container.dataset.metric]
+    let data = DATACHARTS[container.dataset.metric].map((d) => {
+      return { ...d }
+    })
 
     if (data) {
+      let dataModified = aggregate(parseData(data))
+
       areachart({
         container: `#${container.id}`,
         title: container.dataset.title,
-        data: parseData(data),
+        data: dataModified,
         axis: (container.dataset.axis === "true") || false,
         ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
         tip: container.dataset.tip
