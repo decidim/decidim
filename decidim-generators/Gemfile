@@ -13,6 +13,8 @@ gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.8"
 
+gem "sassc", "~>1.11.0"
+
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
 
