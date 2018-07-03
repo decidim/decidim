@@ -17,21 +17,4 @@
     background-color: $light-gray;
     padding: $global-padding / 2 $global-padding;
   }
-
-  [draggable]{
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    -khtml-user-drag: element;
-    -webkit-user-drag: element;
-
-    &.dragging{
-      opacity: .4;
-    }
-
-    &.over{
-      border-top: 2px dashed $medium-gray;
-    }
-  }
 }

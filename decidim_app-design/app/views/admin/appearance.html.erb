@@ -16,11 +16,11 @@
           <div class="card">
             <div class="card-section">
               <p class="mb-m">Bloques activos</p>
-              <ul id="draggable-list-<%= rand(5..30) %>" class="draggable-list">
+              <ul class="draggable-list js-connect js-list-actives">
                 <% 5.times do %>
                 <li draggable="true">
                   <div class="draggable-content">
-                    <%= Faker::Job.field %>
+                    <%= Faker::Beer.style %>
                     <div>
                       <%= link_to page_path("#"), class: "mr-s text-muted" do %>
                       <%= icon "pencil" %>
@@ -38,11 +38,11 @@
           <div class="card">
             <div class="card-section">
               <p class="mb-m">Bloques disponibles</p>
-              <ul id="draggable-list-<%= rand(5..30) %>" class="draggable-list">
+              <ul class="draggable-list js-connect js-list-availables">
                 <% 2.times do %>
                 <li draggable="true">
                   <div class="draggable-content">
-                    <%= Faker::Job.field %>
+                    <%= Faker::Beer.style %>
                     <div>
                       <%= link_to page_path("#"), class: "mr-s text-muted" do %>
                       <%= icon "pencil" %>
