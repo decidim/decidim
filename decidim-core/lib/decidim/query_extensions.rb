@@ -66,7 +66,7 @@ module Decidim
         resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
 
-      type.field :userMetric, Core::UserMetricType, "Decidim's UserMetric data." do
+      type.field :usersMetric, Core::UsersMetricType, "Decidim's UserMetric data." do
         resolve lambda { |_obj, _args, ctx|
           ctx[:current_organization]
         }

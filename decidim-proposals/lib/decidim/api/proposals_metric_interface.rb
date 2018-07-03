@@ -2,25 +2,25 @@
 
 module Decidim
   module Proposals
-    ProposalMetricInterface = GraphQL::InterfaceType.define do
-      name "PorposalMetricInterface"
-      description "ProposalMetric definition"
+    ProposalsMetricInterface = GraphQL::InterfaceType.define do
+      name "PorposalsMetricInterface"
+      description "ProposalsMetric definition"
 
       field :count, !types.Int, "Total proposals" do
         resolve ->(organization, _args, _ctx) {
-          ProposalMetricTypeHelper.base_scope(organization).count
+          ProposalsMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          ProposalMetricTypeHelper.base_scope(organization).group("date_trunc('day', published_at)").count
+          ProposalsMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[ProposalMetricObjectType], "Data for each proposal" do
+      field :data, !types[ProposalsMetricObjectType], "Data for each proposal" do
         resolve ->(organization, _args, _ctx) {
-          ProposalMetricTypeHelper.base_scope(organization)
+          ProposalsMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

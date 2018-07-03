@@ -2,9 +2,9 @@
 
 module Decidim
   module Meetings
-    MeetingMetricObjectInterface = GraphQL::InterfaceType.define do
-      name "MeetingMetricObjectInterface"
-      description "MeetingMetric object definition"
+    MeetingsMetricObjectInterface = GraphQL::InterfaceType.define do
+      name "MeetingsMetricObjectInterface"
+      description "MeetingsMetric object definition"
 
       field :created_at, !types.String, "Created at date" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Assemblies
-    AssemblyMetricObjectInterface = GraphQL::InterfaceType.define do
-      name "AssemblyMetricObjectInterface"
-      description "AssemblyMetric object definition"
+  module ParticipatoryProcesses
+    ParticipatoryProcessesMetricObjectInterface = GraphQL::InterfaceType.define do
+      name "ParticipatoryProcessesMetricObjectInterface"
+      description "ParticipatoryProcessesMetric object definition"
 
-      field :title, !types.String, "Assembly name" do
+      field :title, !types.String, "ParticipatoryProcess title" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_translated(:title) }
       end
 
@@ -14,12 +14,8 @@ module Decidim
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(:created_at) }
       end
 
-      field :scope, !types.String, "Assembly scope" do
+      field :scope, !types.String, "ParticipatoryProcess scope" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj.scope).attr_translated(:name) }
-      end
-
-      field :area, !types.String, "Assembly area" do
-        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj.area).attr_translated(:name) }
       end
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }

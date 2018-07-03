@@ -2,25 +2,25 @@
 
 module Decidim
   module Assemblies
-    AssemblyMetricInterface = GraphQL::InterfaceType.define do
-      name "AssemblyMetricInterface"
-      description "AssemblyMetric definition"
+    AssembliesMetricInterface = GraphQL::InterfaceType.define do
+      name "AssembliesMetricInterface"
+      description "AssembliesMetric definition"
 
       field :count, !types.Int, "Total assemblies" do
         resolve ->(organization, _args, _ctx) {
-          AssemblyMetricTypeHelper.base_scope(organization).count
+          AssembliesMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          AssemblyMetricTypeHelper.base_scope(organization).group("date_trunc('day', published_at)").count
+          AssembliesMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[AssemblyMetricObjectType], "Data for each assembly" do
+      field :data, !types[AssembliesMetricObjectType], "Data for each assembly" do
         resolve ->(organization, _args, _ctx) {
-          AssemblyMetricTypeHelper.base_scope(organization)
+          AssembliesMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

@@ -2,25 +2,25 @@
 
 module Decidim
   module Accountability
-    ResultMetricInterface = GraphQL::InterfaceType.define do
-      name "ResultMetricInterface"
-      description "ResultMetric definition"
+    ResultsMetricInterface = GraphQL::InterfaceType.define do
+      name "ResultsMetricInterface"
+      description "ResultsMetric definition"
 
       field :count, !types.Int, "Total results" do
         resolve ->(organization, _args, _ctx) {
-          ResultMetricTypeHelper.base_scope(organization).count
+          ResultsMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          ResultMetricTypeHelper.base_scope(organization).group("date_trunc('day', created_at)").count
+          ResultsMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[ResultMetricObjectType], "Data for each result" do
+      field :data, !types[ResultsMetricObjectType], "Data for each result" do
         resolve ->(organization, _args, _ctx) {
-          ResultMetricTypeHelper.base_scope(organization)
+          ResultsMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

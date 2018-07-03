@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    autoload :ParticipatoryProcessMetricInterface, "decidim/api/participatory_process_metric_interface"
-    autoload :ParticipatoryProcessMetricObjectInterface, "decidim/api/participatory_process_metric_object_interface"
+    autoload :ParticipatoryProcessesMetricInterface, "decidim/api/participatory_processes_metric_interface"
+    autoload :ParticipatoryProcessesMetricObjectInterface, "decidim/api/participatory_processes_metric_object_interface"
   end
 end

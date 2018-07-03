@@ -12,9 +12,12 @@ module Decidim
     module VotesMetricTypeHelper
       include Decidim::Proposals::BaseProposalMetricTypeHelper
 
-      def self.base_scope(organization)
-        proposals = super(organization).except_withdrawn
-        ProposalVote.joins(:proposal).where(proposal: proposals)
+      def self.base_scope(organization, type = :count)
+        Rails.cache.fetch("votes_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
+          proposals = super(organization).except_withdrawn
+          query = ProposalVote.joins(:proposal).where(proposal: proposals)
+          base_metric_scope(query, :"decidim_proposals_proposal_votes.created_at", type)
+        end
       end
     end
   end

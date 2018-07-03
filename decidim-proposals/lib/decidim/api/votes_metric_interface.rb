@@ -3,24 +3,24 @@
 module Decidim
   module Proposals
     VotesMetricInterface = GraphQL::InterfaceType.define do
-      name "ProposalMetricInterface"
+      name "VotesMetricInterface"
       description "VotesMetric definition"
 
       field :count, !types.Int, "Total votes" do
         resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization).count
+          VotesMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization).group("date_trunc('day', decidim_proposals_proposal_votes.created_at)").count
+          VotesMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
       field :data, !types[VotesMetricObjectType], "Data for each vote" do
         resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization)
+          VotesMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

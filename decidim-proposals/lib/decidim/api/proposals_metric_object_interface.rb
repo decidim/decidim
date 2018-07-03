@@ -2,9 +2,9 @@
 
 module Decidim
   module Proposals
-    ProposalMetricObjectInterface = GraphQL::InterfaceType.define do
-      name "ProposalMetricObjectInterface"
-      description "ProposalMetric object definition"
+    ProposalsMetricObjectInterface = GraphQL::InterfaceType.define do
+      name "ProposalsMetricObjectInterface"
+      description "ProposalsMetric object definition"
 
       field :title, !types.String, "Published at date" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_string(:title) }

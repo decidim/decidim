@@ -2,9 +2,9 @@
 
 module Decidim
   module Accountability
-    ResultMetricObjectInterface = GraphQL::InterfaceType.define do
-      name "ResultMetricObjectInterface"
-      description "ResultMetric object definition"
+    ResultsMetricObjectInterface = GraphQL::InterfaceType.define do
+      name "ResultsMetricObjectInterface"
+      description "ResultsMetric object definition"
 
       field :title, !types.String, "Result title" do
         resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_translated(:title) }

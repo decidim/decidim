@@ -2,25 +2,25 @@
 
 module Decidim
   module Comments
-    CommentMetricInterface = GraphQL::InterfaceType.define do
-      name "CommentMetricInterface"
-      description "CommentMetric definition"
+    CommentsMetricInterface = GraphQL::InterfaceType.define do
+      name "CommentsMetricInterface"
+      description "CommentsMetric definition"
 
       field :count, !types.Int, "Total comments" do
         resolve ->(organization, _args, _ctx) {
-          CommentMetricTypeHelper.base_scope(organization).count
+          CommentsMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          CommentMetricTypeHelper.base_scope(organization).group("date_trunc('day', created_at)").count
+          CommentsMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[CommentMetricObjectType], "Data for each comment" do
+      field :data, !types[CommentsMetricObjectType], "Data for each comment" do
         resolve ->(organization, _args, _ctx) {
-          CommentMetricTypeHelper.base_scope(organization)
+          CommentsMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

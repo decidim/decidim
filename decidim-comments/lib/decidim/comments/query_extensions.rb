@@ -22,7 +22,7 @@ module Decidim
           }
         end
 
-        type.field :commentMetric, Comments::CommentMetricType, "Decidim's CommentMetric data." do
+        type.field :commentsMetric, Comments::CommentsMetricType, "Decidim's CommentMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }

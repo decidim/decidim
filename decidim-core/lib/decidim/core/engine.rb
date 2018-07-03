@@ -92,7 +92,7 @@ module Decidim
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
-        Decidim::Api.add_orphan_type Decidim::Core::UserMetricType
+        Decidim::Api.add_orphan_type Decidim::Core::UsersMetricType
       end
 
       initializer "decidim.i18n_exceptions" do

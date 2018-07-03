@@ -2,25 +2,25 @@
 
 module Decidim
   module Meetings
-    MeetingMetricInterface = GraphQL::InterfaceType.define do
-      name "MeetingMetricInterface"
-      description "MeetingMetric definition"
+    MeetingsMetricInterface = GraphQL::InterfaceType.define do
+      name "MeetingsMetricInterface"
+      description "MeetingsMetric definition"
 
       field :count, !types.Int, "Total meetings" do
         resolve ->(organization, _args, _ctx) {
-          MeetingMetricTypeHelper.base_scope(organization).count
+          MeetingsMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          MeetingMetricTypeHelper.base_scope(organization).group("date_trunc('day', start_time)").count
+          MeetingsMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[MeetingMetricObjectType], "Data for each meeting" do
+      field :data, !types[MeetingsMetricObjectType], "Data for each meeting" do
         resolve ->(organization, _args, _ctx) {
-          MeetingMetricTypeHelper.base_scope(organization)
+          MeetingsMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

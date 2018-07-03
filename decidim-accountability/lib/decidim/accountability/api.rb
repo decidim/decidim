@@ -2,7 +2,7 @@
 
 module Decidim
   module Accountability
-    autoload :ResultMetricInterface, "decidim/api/result_metric_interface"
-    autoload :ResultMetricObjectInterface, "decidim/api/result_metric_object_interface"
+    autoload :ResultsMetricInterface, "decidim/api/results_metric_interface"
+    autoload :ResultsMetricObjectInterface, "decidim/api/results_metric_object_interface"
   end
 end

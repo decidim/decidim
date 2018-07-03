@@ -2,25 +2,25 @@
 
 module Decidim
   module Core
-    UserMetricInterface = GraphQL::InterfaceType.define do
-      name "UserMetricInterface"
-      description "UserMetric definition"
+    UsersMetricInterface = GraphQL::InterfaceType.define do
+      name "UsersMetricInterface"
+      description "UsersMetric definition"
 
       field :count, !types.Int, "Total users" do
         resolve ->(organization, _args, _ctx) {
-          UserMetricTypeHelper.base_scope(organization).count
+          UsersMetricTypeHelper.base_scope(organization, :count)
         }
       end
 
       field :metric, !types[MetricObjectType], "Metric data" do
         resolve ->(organization, _args, _ctx) {
-          UserMetricTypeHelper.base_scope(organization).group("date_trunc('day', confirmed_at)").count
+          UsersMetricTypeHelper.base_scope(organization, :metric)
         }
       end
 
-      field :data, !types[UserMetricObjectType], "Data for each user" do
+      field :data, !types[UsersMetricObjectType], "Data for each user" do
         resolve ->(organization, _args, _ctx) {
-          UserMetricTypeHelper.base_scope(organization)
+          UsersMetricTypeHelper.base_scope(organization, :data)
         }
       end
 

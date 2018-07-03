@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def self.define(type)
-        type.field :participatoryProcessMetric, ParticipatoryProcesses::ParticipatoryProcessMetricType, "Decidim's ParticipatoryProcessMetric data." do
+        type.field :participatoryProcessesMetric, ParticipatoryProcesses::ParticipatoryProcessesMetricType, "Decidim's ParticipatoryProcessMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }

@@ -5,9 +5,12 @@ module Decidim
     module BaseProposalMetricTypeHelper
       extend ActiveSupport::Concern
 
+      included do
+        include Decidim::Core::BaseMetricTypeHelper
+      end
+
       class_methods do
         def base_scope(_organization)
-          # TODO: add organization scope
           Proposal
             .includes(:category)
             .published.not_hidden

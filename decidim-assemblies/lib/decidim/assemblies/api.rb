@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    autoload :AssemblyMetricInterface, "decidim/api/assembly_metric_interface"
-    autoload :AssemblyMetricObjectInterface, "decidim/api/assembly_metric_object_interface"
+    autoload :AssembliesMetricInterface, "decidim/api/assemblies_metric_interface"
+    autoload :AssembliesMetricObjectInterface, "decidim/api/assemblies_metric_object_interface"
   end
 end

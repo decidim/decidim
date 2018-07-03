@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def self.define(type)
-        type.field :assemblyMetric, Assemblies::AssemblyMetricType, "Decidim's AssemblyMetric data." do
+        type.field :assembliesMetric, Assemblies::AssembliesMetricType, "Decidim's AssembliesMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }

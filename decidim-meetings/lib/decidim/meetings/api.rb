@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    autoload :MeetingMetricInterface, "decidim/api/meeting_metric_interface"
-    autoload :MeetingMetricObjectInterface, "decidim/api/meeting_metric_object_interface"
+    autoload :MeetingsMetricInterface, "decidim/api/meetings_metric_interface"
+    autoload :MeetingsMetricObjectInterface, "decidim/api/meetings_metric_object_interface"
   end
 end

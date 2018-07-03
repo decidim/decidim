@@ -11,13 +11,13 @@ module Decidim
       #
       # Returns nothing.
       def self.define(type)
-        type.field :proposalMetric, Proposals::ProposalMetricType, "Decidim's ProposalMetric data." do
+        type.field :proposalsMetric, Proposals::ProposalsMetricType, "Decidim's ProposalsMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }
         end
 
-        type.field :acceptedProposalMetric, Proposals::AcceptedProposalMetricType, "Decidim's AcceptedProposalMetric data." do
+        type.field :acceptedProposalsMetric, Proposals::AcceptedProposalsMetricType, "Decidim's AcceptedProposalsMetric data." do
           resolve lambda { |_obj, _args, ctx|
             ctx[:current_organization]
           }
