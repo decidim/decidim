@@ -66,7 +66,7 @@ module Decidim
       if !current_user
         html_options["data-open"] = "loginModal"
         url = ""
-      elsif !action_authorized_to(action)
+      elsif action && !action_authorized_to(action)
         html_options["data-open"] = "authorizationModal"
         html_options["data-open-url"] = modal_path(action)
         url = ""
@@ -82,7 +82,7 @@ module Decidim
     end
 
     def action_authorized_to(action)
-      action && ::Decidim::ActionAuthorizer.new(current_user, current_component, action).authorize.ok?
+      ::Decidim::ActionAuthorizer.new(current_user, current_component, action).authorize.ok?
     end
 
     def modal_path(action)
