@@ -1,0 +1,74 @@
+.areachart{
+  //common
+  svg{
+    background-color: rgba($primary, .1);
+    overflow: visible;
+  }
+
+  .title{
+    fill: $muted;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .area{
+    fill: lighten($primary, 25%);
+  }
+
+  .line{
+    fill: none;
+    stroke: $primary;
+    stroke-width: 4px;
+  }
+
+  .circle{
+    fill: $primary;
+  }
+
+  .tick{
+    opacity: .5;
+
+    .dashed{
+      stroke-dasharray: 1, 3;
+    }
+  }
+
+  .sum{
+    font-weight: 600;
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 1.5;
+  }
+
+  // color-dependent
+  $map: $foundation-palette;
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      svg{
+        background-color: rgba($value, .1);
+      }
+
+      .area{
+        fill: lighten($value, 25%);
+      }
+
+      .line{
+        stroke: $value;
+      }
+
+      .circle{
+        fill: $value;
+      }
+    }
+  }
+
+  // variations
+  &.small{
+    .sum{
+      font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h3'), 'font-size'));
+
+      @include breakpoint(medium down){
+        font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 1.5;
+      }
+    }
+  }
+}
