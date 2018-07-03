@@ -420,7 +420,7 @@ uk:
         button: Так, я хочу продовжувати отримувати відомості, що мене цікавлять
         greetings: Вітаємо,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Вітаємо,
-        subject: Бажаєте постійно отримувати доречні відомості про %{organization_name}?
+        subject: Бажаєте постійно отримувати відомості, що вас цікавлять, про %{organization_name}?
     notifications:
       no_notifications: Ще немає сповіщень.
     notifications_settings:
@@ -440,7 +440,7 @@ uk:
       home:
         extended:
           debates: Обговорення
-          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в доречні обговорення.
+          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення, що вас цікавлять.
           how_to_participate: Як я можу взяти участь у русі?
           meetings: Зустрічі
           meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
