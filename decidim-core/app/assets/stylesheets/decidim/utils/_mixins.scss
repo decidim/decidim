@@ -88,6 +88,34 @@ $palette: $foundation-palette;
       margin-bottom: 0;
     }
   }
+
+  @else if $dir == row-reverse{
+    & > *{
+      margin: 0 $gap/2;
+    }
+
+    & > :last-child{
+      margin-left: 0;
+    }
+
+    & > :first-child{
+      margin-right: 0;
+    }
+  }
+
+  @else if $dir == column-reverse{
+    & > *{
+      margin: $gap/2 0;
+    }
+
+    & > :last-child{
+      margin-top: 0;
+    }
+
+    & > :first-child{
+      margin-bottom: 0;
+    }
+  }
 }
 
 @mixin ellipsis(){
