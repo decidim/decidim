@@ -20,6 +20,8 @@
         </li>
         <li class="tabs-title"><a href="#notifications" title="Notifications">Notifications</a></li>
         <li class="tabs-title"><a href="#conversations" title="Conversations">Conversations</a></li>
+        <!-- To make it work an invisible tab, do not display here, but in content section -->
+        <li class="tabs-title" style="display:none"><a href="#conversation"></a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
         <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
       </ul>
@@ -40,11 +42,10 @@
         <div class="tabs-panel" id="notifications">
           <%= render partial: page_path("user") + "/notifications" %>
         </div>
-        <%# TODO: RESTAURAR PESTAÑAS %>
-        <!-- <div class="tabs-panel" id="conversations">
-          <%= render partial: page_path("user") + "/conversations" %>
-        </div> -->
         <div class="tabs-panel" id="conversations">
+          <%= render partial: page_path("user") + "/conversations" %>
+        </div>
+        <div class="tabs-panel" id="conversation">
           <%= render partial: page_path("user") + "/conversation" %>
         </div>
         <div class="tabs-panel" id="following">

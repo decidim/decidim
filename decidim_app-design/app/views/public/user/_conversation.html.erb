@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <% chats = Faker::Number.between(3, 6) %>
+  <% chats = Faker::Number.between(2, 5) %>
   <% chats.times do |i| %>
   <div class="conversation-chat<%= ' conversation-chat--offset' if i.odd? %>">
     <%= link_to page_path("user-profile") do %>

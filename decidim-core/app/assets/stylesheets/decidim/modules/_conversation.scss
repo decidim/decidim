@@ -18,7 +18,7 @@
 
     @extend .mt-s;
 
-    max-width: 75%;
+    width: 75%;
 
     &.conversation-chat--offset{
       @include flex-direction(row-reverse);
@@ -49,7 +49,7 @@
   .conversation-reply{
     @extend .mt-s;
 
-    max-width: 75%;
+    width: 75%;
 
     &.conversation-reply--offset{
       margin-left: auto;
