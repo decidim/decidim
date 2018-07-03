@@ -11,7 +11,7 @@ pt-BR:
         name: Seu nome
         nickname: Seu identificador curto e exclusivo
         password: Senha
-        password_confirmation: Confirme sua senha
+        password_confirmation: Confirme a sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
@@ -288,7 +288,7 @@ pt-BR:
     export_mailer:
       data_portability_export:
         click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
-        download: Baixar
+        download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
