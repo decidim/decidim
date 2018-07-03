@@ -1,11 +1,11 @@
-/* global d3, DATACHARTS */
+/* global d3, DATACHARTS, fetchDatacharts */
 /* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
 // = require d3
 
-const renderAreaChart = () => {
+const renderAreaCharts = () => {
   // lib
   const areachart = (opts = {}) => {
     // parse opts
@@ -199,6 +199,11 @@ const renderAreaChart = () => {
       }
       return item
     })
+
+    // If there's no data, fetch it
+    if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
+      fetchDatacharts()
+    }
 
     // MANDATORY: HTML must contain which metric should it display
     let data = DATACHARTS[container.dataset.metric].map((d) => {
