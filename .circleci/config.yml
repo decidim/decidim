@@ -25,7 +25,7 @@ references:
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
-      command: bundle install
+      command: cd decidim-$CIRCLE_JOB && bundle install
   install_npm_dependencies: &install_npm_dependencies
     run:
       name: Install npm dependencies
@@ -83,7 +83,7 @@ jobs:
     steps:
       - checkout
       - *restore_ruby_cache
-      - *install_ruby_dependencies
+      - run: bundle install
       - *install_npm_dependencies
       - *save_ruby_cache
       - *wait_for_db
@@ -101,7 +101,7 @@ jobs:
       - *attach_workspace
       - checkout
       - *restore_ruby_cache
-      - *install_ruby_dependencies
+      - run: bundle install
       - *save_ruby_cache
       - *wait_for_db
       - run:
