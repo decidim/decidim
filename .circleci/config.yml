@@ -125,6 +125,7 @@ jobs:
       - *restore_ruby_cache
       - *install_ruby_dependencies
       - *save_ruby_cache
+      - run: cd decidim-$CIRCLE_JOB && bundle install && cd ..
       - *wait_for_db
       - *run_rspec
       - *install_test_reporter
