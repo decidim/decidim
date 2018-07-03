@@ -120,6 +120,13 @@
             </ul>
           </li>
           <li>
+            <%= link_to "Usuario: login rápido", page_path("user/user-profile-fast-login") %>
+            <ul>
+              <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
+              <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
+            </ul>
+          </li>
+          <li>
             <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
             <ul>
               <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
