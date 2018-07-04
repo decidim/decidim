@@ -157,6 +157,31 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          title: Baimena iraungi da
+        incomplete:
+          cancel: Utzi
+          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
+          invalid_field: "%{field}"
+          reauthorize: Berriz eskuratu baimena
+          title: Mesedez, eskura ezazu berriz baimena
+        missing:
+          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
+          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
+          title: Baimena behar da
+        pending:
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
+          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
+          title: Baimena oraindik ere egiten ari da
+        unauthorized:
+          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
+          invalid_field: "%{field} balio %{value} ez da baliozkoa."
+          ok: Ados
+          title: Ez dago baimenduta
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -390,31 +415,6 @@ eu:
           title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
-    modals:
-      authorization:
-        expired:
-          authorize: Errebokatu "%{authorization}" rekin
-          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
-          title: Baimena iraungi da
-        incomplete:
-          cancel: Utzi
-          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
-          invalid_field: "%{field}"
-          reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
-        missing:
-          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
-          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
-          title: Baimena behar da
-        pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
-          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
-          title: Baimena oraindik ere egiten ari da
-        unauthorized:
-          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
-          invalid_field: "%{field} balio %{value} ez da baliozkoa."
-          ok: Ados
-          title: Ez dago baimenduta
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'

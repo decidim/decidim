@@ -41,7 +41,7 @@ module Decidim
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
           expect(rendered).not_to include("fake_path")
           expect(rendered).to include('data-open="authorizationModal"')
-          expect(rendered).to include("data-open-url=\"/modals/authorization/foo/f/#{component.id}\"")
+          expect(rendered).to include("data-open-url=\"/authorization_modals/foo/f/#{component.id}\"")
           expect(rendered).to include("<a")
         end
       end
@@ -87,7 +87,7 @@ module Decidim
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).not_to include("fake_path")
           expect(rendered).to include('data-open="authorizationModal"')
-          expect(rendered).to include("data-open-url=\"/modals/authorization/foo/f/#{component.id}\"")
+          expect(rendered).to include("data-open-url=\"/authorization_modals/foo/f/#{component.id}\"")
         end
       end
 

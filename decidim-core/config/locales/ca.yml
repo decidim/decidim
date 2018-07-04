@@ -157,6 +157,31 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Torna a autoritzar amb "%{authorization}"
+          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
+          title: L'autorització ha caducat
+        incomplete:
+          cancel: Cancel·lar
+          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          invalid_field: "%{field}"
+          reauthorize: Reautoritzar-se
+          title: Si us plau, reautoritza't
+        missing:
+          authorize: Autoritzar amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
+          title: Es requereix autorització
+        pending:
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
+          title: L'autorització encara està en progrés
+        unauthorized:
+          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
+          invalid_field: "El valor %{field} %{value} no és vàlid."
+          ok: D'acord
+          title: Acció no autoritzada
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -390,32 +415,6 @@ ca:
           title: Comença una conversa
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
-    modals:
-      authorization:
-        expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
-          title: L'autorització ha caducat
-        incomplete:
-          cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
-          invalid_field: "%{field}"
-          reauthorize: Reautoritzar-se
-          title: Si us plau, reautoritza't
-        missing:
-          authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es requereix autorització
-        pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
-          title: L'autorització encara està en progrés
-        unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
-          ok: D'acord
-          title: Acció no autoritzada
-        unfold: Desplegar
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -564,6 +563,7 @@ ca:
         close_modal: Tanca el modal
         filter: Filtre
         filter_by: Filtra per
+        unfold: Desplegar
     shared:
       embed_modal:
         close_window: Tanca la finestra

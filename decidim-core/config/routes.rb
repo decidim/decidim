@@ -57,7 +57,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    get "/modals/authorization/:authorization_action/f/:component_id", to: "modals#authorization", as: :authorization_modal
+    get "/authorization_modals/:authorization_action/f/:component_id", to: "authorization_modals#show", as: :authorization_modal
   end
 
   resources :profiles, only: [:show], param: :nickname

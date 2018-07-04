@@ -157,6 +157,31 @@ pt-BR:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
+        incomplete:
+          cancel: Cancelar
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Por favor reautorize
+        missing:
+          authorize: Autorizar com "%{authorization}"
+          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
+          title: Autorização necessária
+        pending:
+          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
+          resume: Verifique o seu progresso de autorização "%{authorization}"
+          title: A autorização ainda está em progresso
+        unauthorized:
+          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
+          invalid_field: "%{field} valor %{value} não é válido."
+          ok: Ok
+          title: Não autorizado
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -390,31 +415,6 @@ pt-BR:
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
-    modals:
-      authorization:
-        expired:
-          authorize: Reautorize com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
-          title: A autorização expirou
-        incomplete:
-          cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Por favor reautorize
-        missing:
-          authorize: Autorizar com "%{authorization}"
-          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
-          title: Autorização necessária
-        pending:
-          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o seu progresso de autorização "%{authorization}"
-          title: A autorização ainda está em progresso
-        unauthorized:
-          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
-          invalid_field: "%{field} valor %{value} não é válido."
-          ok: Ok
-          title: Não autorizado
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.

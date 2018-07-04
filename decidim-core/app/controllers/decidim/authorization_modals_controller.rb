@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ModalsController < Decidim::ApplicationController
+  class AuthorizationModalsController < Decidim::ApplicationController
     helper_method :status, :authorize_action_path
+    layout false
 
-    def authorization
-      render layout: false
-    end
+    def show; end
 
     private
 

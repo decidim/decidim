@@ -3,7 +3,7 @@ $(() => {
     event.preventDefault();
     const $link = $(event.currentTarget);
     const $modal = $(`#${$link.data("open")}`);
-    $modal.html("");
+    $modal.html("<div class='loading-spinner'></div>");
     $.ajax({
       type: "get",
       url: $link.data("open-url"),
