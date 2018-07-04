@@ -11,6 +11,8 @@ module Decidim
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 
+    default_scope { order(full_name: :asc, created_at: :asc) }
+
     mount_uploader :avatar, Decidim::AvatarUploader
 
     alias participatory_space conference

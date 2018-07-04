@@ -13,12 +13,6 @@ module Decidim
           full_name
         end
       end
-
-      def position
-        return position_other if __getobj__.position == "other"
-
-        I18n.t(__getobj__.position, scope: "decidim.admin.models.conference_speaker.positions", default: "")
-      end
     end
   end
 end

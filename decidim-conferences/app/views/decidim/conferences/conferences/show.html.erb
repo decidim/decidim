@@ -13,7 +13,9 @@
           <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
-
+      </div>
+      <div class="section">
+        <h4 class="section-heading"><%= t("conferences.show.objectives", scope: "decidim") %></h4>
         <%= decidim_sanitize translated_attribute(current_participatory_space.objectives) %>
       </div>
 

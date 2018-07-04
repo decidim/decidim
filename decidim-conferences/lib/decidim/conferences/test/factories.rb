@@ -86,4 +86,19 @@ FactoryBot.define do
              role: :collaborator
     end
   end
+
+  factory :conference_speaker, class: "Decidim::ConferenceSpeaker" do
+    conference { create(:conference) }
+
+    full_name { Faker::Name.name }
+    charge { Decidim::Faker::Localized.word }
+    affiliation { Decidim::Faker::Localized.word }
+    short_bio { Decidim::Faker::Localized.sentence(5) }
+    twitter_handle { Faker::Internet.user_name }
+    personal_url { Faker::Internet.url }
+
+    trait :with_user do
+      user { create(:user, organization: conference.organization) }
+    end
+  end
 end

@@ -17,8 +17,8 @@ en:
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
-        slug: URL slug
         slogan: Slogan
+        slug: URL slug
         title: Title
       conference_speaker:
         full_name: Full name
@@ -42,14 +42,17 @@ en:
       actions:
         new_conference: New Conference
       conference_copies:
-        create:
-          error: There was an error when duplicating this conference.
-          success: Conference duplicated successfully.
-      conference_copies:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate conference
+      conference_publications:
+        create:
+          error: There was an error publishing this conference.
+          success: Conference published successfully.
+        destroy:
+          error: There was an error unpublishing this conference.
+          success: Conference unpublished successfully.
       conference_speakers:
         create:
           error: There was an error adding a speaker for this conference.
@@ -67,13 +70,6 @@ en:
         update:
           error: There was an error updating the speaker for this conference.
           success: Speaker updated successfully for this conference.
-      conference_publications:
-        create:
-          error: There was an error publishing this conference.
-          success: Conference published successfully.
-        destroy:
-          error: There was an error unpublishing this conference.
-          success: Conference unpublished successfully.
       conference_user_roles:
         create:
           error: There was an error adding a user for this conference.
@@ -95,11 +91,14 @@ en:
         create:
           error: There was an error creating a new conference.
           success: Conference created successfully.
+        destroy:
+          success: Conference deleted successfully.
         edit:
           update: Update
         form:
           title: General Information
         index:
+          not_published: Not published
           published: Publisehd
         new:
           create: Create
@@ -107,11 +106,15 @@ en:
         update:
           error: There was an error when updating this conference.
           success: Conference updated successfully.
+      conferences_copies:
+        create:
+          error: There was an error when duplicating this conference.
+          success: Conference duplicated successfully.
       menu:
         conferences: Conferences
         conferences_submenu:
-          attachment_collections: Attachment Collections
-          attachment_files: Attachment files
+          attachment_collections: Folders
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           components: Components
@@ -123,8 +126,8 @@ en:
         conference:
           fields:
             created_at: Created at
-            published: Published
             promoted: Promoted
+            published: Published
             title: Title
         conference_speaker:
           fields:
@@ -149,6 +152,9 @@ en:
         title: Speakers
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_speakers:
           form:
             existing_user: Existing user
@@ -156,19 +162,17 @@ en:
             select_user: Select user
             user_type: User type
           index:
-            filter:
-              all: All
-            filter_by: Filter by
             search: Search
         conferences:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       conference_speaker:
-        affiliation: Affiliation
-        charge: Charge
-        personal_url: Personal Url
-        short_bio: Short bio
-        twitter_handle: Twitter
+        show:
+          affiliation: Affiliation
+          charge: Charge
+          personal_url: Personal Url
+          short_bio: Short bio
+          twitter_handle: Twitter
       conference_speakers:
         index:
           speakers: Speakers
@@ -182,10 +186,11 @@ en:
       show:
         end_date: End date
         start_date: Start date
+        objectives: Objectives
       statistics:
         answers_count: Answers
-        conference_count: Conferences
         comments_count: Comments
+        conference_count: Conferences
         debates_count: Debates
         endorsements_count: Endorsements
         headline: Activity
@@ -199,6 +204,10 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'The conference was not found on the database (ID: %{id})'
     menu:
       conferences: Conferences
   layouts:
@@ -207,13 +216,18 @@ en:
         conference_menu_item: The Conference
         conference_speaker_menu_item: Speakers
         unfold: Unfold
+      conference_widgets:
+        show:
+          take_part: Take part
       conferences:
         conference:
           take_part: Take part
         index:
           promoted_conferences: Promoted conferences
         order_by_conferences:
-          conferences: Conferences
+          conferences:
+            one: "%{count} conference"
+            other: "%{count} conferences"
         promoted_conference:
           more_info: More info
           take_part: Take part

@@ -41,7 +41,7 @@ module Decidim
           @copied_conference = Conference.create!(
             organization: @conference.organization,
             title: form.title,
-            slogan: @conference.subtitle,
+            slogan: @conference.slogan,
             slug: form.slug,
             hashtag: @conference.hashtag,
             description: @conference.description,

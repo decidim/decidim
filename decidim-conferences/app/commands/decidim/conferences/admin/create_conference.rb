@@ -51,6 +51,8 @@ module Decidim
             objectives: form.objectives,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            start_date: form.start_date,
+            end_date: form.end_date,
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,

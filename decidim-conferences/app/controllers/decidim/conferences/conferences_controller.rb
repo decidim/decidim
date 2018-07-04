@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
 
-      helper_method :collection, :promoted_conferences, :conferences, :stats, :conference_participatory_processes
+      helper_method :collection, :promoted_conferences, :conferences, :stats
 
       def index
         redirect_to "/404" if published_conferences.none?
@@ -24,6 +24,7 @@ module Decidim
 
       def show
         check_current_user_can_visit_space
+        # raise
       end
 
       private

@@ -11,7 +11,7 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    ConferencePresenter.new(action_log, view_helpers).present
+      #    `ConferencePresenter`.new(action_log, view_helpers).present
       class ConferencePresenter < Decidim::Log::BasePresenter
         private
 
