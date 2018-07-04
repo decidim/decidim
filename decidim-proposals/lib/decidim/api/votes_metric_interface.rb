@@ -7,20 +7,20 @@ module Decidim
       description "VotesMetric definition"
 
       field :count, !types.Int, "Total votes" do
-        resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          VotesMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization, :metric)
+        resolve ->(_obj, _args, ctx) {
+          VotesMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 
       field :data, !types[VotesMetricObjectType], "Data for each vote" do
-        resolve ->(organization, _args, _ctx) {
-          VotesMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          VotesMetricTypeHelper.base_scope(ctx[:current_organization], :data)
         }
       end
 

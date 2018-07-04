@@ -7,20 +7,20 @@ module Decidim
       description "UsersMetric definition"
 
       field :count, !types.Int, "Total users" do
-        resolve ->(organization, _args, _ctx) {
-          UsersMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          UsersMetricTypeHelper.base_scope(organization, :metric)
+        resolve ->(_obj, _args, ctx) {
+          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 
       field :data, !types[UsersMetricObjectType], "Data for each user" do
-        resolve ->(organization, _args, _ctx) {
-          UsersMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :data)
         }
       end
 

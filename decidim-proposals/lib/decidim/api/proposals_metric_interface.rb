@@ -7,20 +7,20 @@ module Decidim
       description "ProposalsMetric definition"
 
       field :count, !types.Int, "Total proposals" do
-        resolve ->(organization, _args, _ctx) {
-          ProposalsMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          ProposalsMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          ProposalsMetricTypeHelper.base_scope(organization, :metric)
+        resolve ->(_obj, _args, ctx) {
+          ProposalsMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 
       field :data, !types[ProposalsMetricObjectType], "Data for each proposal" do
-        resolve ->(organization, _args, _ctx) {
-          ProposalsMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          ProposalsMetricTypeHelper.base_scope(ctx[:current_organization], :data)
         }
       end
 
