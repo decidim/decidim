@@ -185,8 +185,8 @@ en:
             see_all_conferences: See all conferences
       show:
         end_date: End date
-        start_date: Start date
         objectives: Objectives
+        start_date: Start date
       statistics:
         answers_count: Answers
         comments_count: Comments
