@@ -4,7 +4,7 @@ fr:
       initiative:
         decidim_user_group_id: Auteur
         description: Description
-        offline_votes: Soutiens en présentiel
+        offline_votes: Votes en présentiel
         scope_id: Périmètre d'application
         signature_end_time: Fin de la période de collecte des signatures
         signature_start_time: Début de la période de collecte des signatures
@@ -97,7 +97,7 @@ fr:
             accept: Signer la pétition
             confirm: Êtes-vous certain ?
             discard: Dépublier la pétition
-            export_votes: Exporter la liste des soutiens
+            export_votes: Exporter la liste des votes
             reject: Rejeter la pétition
             send_to_technical_validation: Envoyer à la validation technique
             success: La pétition a été envoyée à la validation technique
@@ -117,7 +117,7 @@ fr:
             filter_by: Filtrer par
             preview: Aperçu
             print: Impression
-            search: Chercher
+            search: Rechercher
           show:
             print: Impression
           update:
