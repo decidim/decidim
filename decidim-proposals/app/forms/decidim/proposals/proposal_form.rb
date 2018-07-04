@@ -11,7 +11,6 @@ module Decidim
       attribute :longitude, Float
       attribute :category_id, Integer
       attribute :scope_id, Integer
-      attribute :user_group_id, Integer
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
 
@@ -26,14 +25,6 @@ module Decidim
 
       delegate :categories, to: :current_component
 
-      def map_model(model)
-        self.user_group_id = model.user_groups.first&.id
-        return unless model.categorization
-
-        self.category_id = model.categorization.decidim_category_id
-      end
-
-      alias component current_component
       # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category

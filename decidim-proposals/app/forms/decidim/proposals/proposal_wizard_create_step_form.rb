@@ -8,6 +8,7 @@ module Decidim
 
       attribute :title, String
       attribute :body, String
+      attribute :user_group_id, Integer
 
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }
@@ -15,6 +16,13 @@ module Decidim
       validate :proposal_length
 
       alias component current_component
+
+      def map_model(model)
+        self.user_group_id = model.user_groups.first&.id
+        return unless model.categorization
+
+        self.category_id = model.categorization.decidim_category_id
+      end
 
       private
 
