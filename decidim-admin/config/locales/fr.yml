@@ -650,11 +650,11 @@ fr:
       admin:
         reportable:
           hide:
-            invalid: Il y a eu un problème au moment de masquer la ressource.
-            success: Ressource masquée avec succès.
+            invalid: Il y a eu un problème au moment de masquer le contenu.
+            success: Contenu masqué avec succès.
           unreport:
-            invalid: Il y a eu un problème lors de l'annulation du signalement de la ressource.
-            success: La ressource n'est plus signalée.
+            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
+            success: Le contenu n'est plus signalé.
       models:
         moderation:
           fields:
