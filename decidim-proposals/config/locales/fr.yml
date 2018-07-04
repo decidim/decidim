@@ -6,7 +6,7 @@ fr:
         answered_at: Répondu à
         body: Corps du texte
         category_id: Catégorie
-        has_address: Renseignez une adresse
+        has_address: Renseigner une adresse
         scope_id: Périmètre d'application
         state: État
         title: Titre
@@ -21,39 +21,39 @@ fr:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Doit être retéléchargé
+              needs_to_be_reattached: Doit être téléchargé de nouveau
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
-      decidim/proposals/creation_enabled_event: Création de proposition activée
-      decidim/proposals/endorsing_enabled_event: Recommandation de proposition activée
+      decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
+      decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
-      decidim/proposals/proposal_endorsed_event: Proposition recommandée
+      decidim/proposals/proposal_endorsed_event: Proposition soutenue
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/rejected_proposal_event: Proposition non retenue
-      decidim/proposals/voting_enabled_event: Soutien de propositions activé
+      decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
       decidim/proposals/proposal:
         one: Proposition
         other: Propositions
       decidim/proposals/proposal_endorsement:
-        one: Recommandation
-        other: Recommandations
+        one: Soutien
+        other: Soutiens
       decidim/proposals/proposal_note:
         one: Remarque
         other: Remarques
       decidim/proposals/proposal_vote:
-        one: Soutien
-        other: Soutiens
+        one: Vote
+        other: Votes
   decidim:
     components:
       proposals:
         actions:
           create: Créer
-          endorse: Recommander
-          vote: Soutenir
+          endorse: Soutenir
+          vote: Voter
           withdraw: Retirer
         name: Propositions
         settings:
@@ -71,7 +71,7 @@ fr:
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide de l'assistant de proposition pour l'étape "Compléter"
+            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de soutiens par utilisateur
@@ -82,7 +82,7 @@ fr:
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            votes_blocked: Soutiens désactivés
+            votes_blocked: Bloquer les votes
             votes_enabled: Soutiens activés
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
@@ -93,7 +93,7 @@ fr:
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant soutenir de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Vous pouvez recommander les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
+          email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: La promotion des différentes propositions a commencé pour %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">recommander les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -105,8 +105,8 @@ fr:
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: "%{endorser_nickname} a recommandé une nouvelle proposition"
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été recommandée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          email_subject: "%{endorser_nickname} a soutenu une nouvelle proposition"
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
@@ -263,8 +263,8 @@ fr:
           select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Recommandée
-          endorse: Recommander
+          already_endorsed: Soutenue
+          endorse: Soutenir
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -293,10 +293,10 @@ fr:
           send: Aperçu
           title: Modifier le brouillon de proposition
         endorsement_identities_cabin:
-          endorse: Recommander
+          endorse: Soutenir
         endorsements_card_row:
           comments: Commentaires
-          endorse: Recommander
+          endorse: Soutenir
         filters:
           accepted: Retenues
           activity: Activité
