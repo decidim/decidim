@@ -294,7 +294,7 @@ fr:
           needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
           not_managed: Non représenté
           promote: Promouvoir
-          search: Chercher
+          search: Rechercher
           status: Statut
           view_logs: Consultez les journaux d'activité
       impersonations:
@@ -493,7 +493,7 @@ fr:
           officialize: Valider
           officialized: Validé
           reofficialize: De nouveau validé
-          search: Chercher
+          search: Rechercher
           status: Statut
           unofficialize: Invalider
         new:
