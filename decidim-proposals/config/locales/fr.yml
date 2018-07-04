@@ -74,7 +74,7 @@ fr:
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
-            vote_limit: Limite de soutiens par utilisateur
+            vote_limit: Limite de votes par utilisateur
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -312,7 +312,7 @@ fr:
           related_to: Liées à
           search: Rechercher
           state: État
-          voted: Ne montrer que les propositions que j'ai soutenues
+          voted: Ne montrer que les propositions pour lesquelles j'ai votées
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -331,7 +331,7 @@ fr:
           title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
-          most_voted: Les plus soutenues
+          most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
         preview:
