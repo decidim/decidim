@@ -219,7 +219,7 @@ fr:
           info_proposal:
             body: Corps du texte
             created_at: Date de création
-            proposal_votes_count: Nombre de soutiens
+            proposal_votes_count: Nombre de votes
             proposals: Propositions
       admin_log:
         proposal:
@@ -237,7 +237,7 @@ fr:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
       destroy_draft:
-        error: Des erreurs sont survenues lors de la suppression du projet de proposition.
+        error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
       models:
         proposal:
@@ -248,11 +248,11 @@ fr:
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
-            published_at: Publié à
+            published_at: Publiée à
             scope: Périmètre d'application
-            state: Etat
+            state: État
             title: Titre
-            votes: Soutiens
+            votes: Votes
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
