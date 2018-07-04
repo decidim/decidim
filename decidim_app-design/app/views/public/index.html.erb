@@ -14,11 +14,13 @@
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
           <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
           <li><%= link_to "Listado de procesos", page_path("processes/processes") %></li>
+          <li><%= link_to "Listado de procesos - único", page_path("processes/processes-single-one") %></li>
           <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>

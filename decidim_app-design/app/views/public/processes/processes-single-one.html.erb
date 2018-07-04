@@ -1,0 +1,55 @@
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "processes"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <section class="section row collapse">
+    <%= partial "order_by_processes" %>
+    <article class="card card--full card--process">
+      <div class="row collapse card--process__row">
+        <div class="column large-6 card--process__column">
+          <div class="card__content">
+            <%= link_to page_path("info"), class: "card__link" do %>
+              <h2 class="card__title">
+                Plan de fomento del turismo en la Barceloneta
+              </h2>
+            <% end %>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris. Sed ullamcorper tellus erat, non
+              ultrices semtincidunt euismod. Fusce rhoncus porttitor velit, eu
+              bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis,
+              facilisis accumsan turpis.</p>
+            <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod.
+              Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce
+              lorem leo, vehicula at nibh quis, facilisis accumsan turpis. Fusce
+              rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem
+              leo, vehicula at nibh quis...</p>
+            <%= link_to page_path("info"), class: "button secondary small hollow" do %>
+              Más información
+            <% end %>
+          </div>
+        </div>
+        <div class="column large-6 card--process__column">
+          <div class="card--full__image"
+            style="background-image:url(<%= image_path "process-demo-banner.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="large-6 large-offset-6 columns">
+                <%= link_to page_path("info"), class: "button expanded button--sc" do %>
+                  Participa
+                  <span class="button__info">Fase actual: Diagnóstico</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>
