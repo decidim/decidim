@@ -538,7 +538,7 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_by: Filtrer par
-        unfold: Dérouler
+        unfold: Voir plus
     shared:
       action_authorization_modal:
         expired:
@@ -549,8 +549,8 @@ fr:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
-          reauthorize: Réautoriser
-          title: Veuillez réautoriser
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
         missing:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
