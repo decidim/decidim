@@ -6,8 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Meetings
     describe MeetingsMetricType, type: :graphql do
-
-      before(:each) do
+      before do
         Rails.cache.clear
       end
 
@@ -29,7 +28,7 @@ module Decidim
 
         it "returns the Meeting's metric data" do
           data = response.with_indifferent_access
-          expect(data[:metric]).to include({"key" => start_time_date.strftime("%Y-%m-%d"), "value" => models.size})
+          expect(data[:metric]).to include("key" => start_time_date.strftime("%Y-%m-%d"), "value" => models.size)
         end
       end
 

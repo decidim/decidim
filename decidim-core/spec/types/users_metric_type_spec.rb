@@ -6,15 +6,14 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe UsersMetricType, type: :graphql do
-
-      before(:each) do
+      before do
         Rails.cache.clear
       end
 
       include_context "with a graphql type"
 
       let(:confirmed_at_date) { Time.zone.now }
-      let!(:current_user) { } # :current_user overwritten to evade creation
+      let!(:current_user) {} # :current_user overwritten to evade creation
       let!(:models) { create_list(:user, 4, confirmed_at: confirmed_at_date, organization: current_organization) }
 
       describe "count" do
@@ -30,7 +29,7 @@ module Decidim
 
         it "returns the User's metric data" do
           data = response.with_indifferent_access
-          expect(data[:metric]).to include({"key" => confirmed_at_date.strftime("%Y-%m-%d"), "value" => models.size})
+          expect(data[:metric]).to include("key" => confirmed_at_date.strftime("%Y-%m-%d"), "value" => models.size)
         end
       end
 
