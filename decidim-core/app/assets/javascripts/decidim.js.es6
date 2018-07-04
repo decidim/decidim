@@ -17,6 +17,7 @@
 // = require decidim/editor
 // = require decidim/input_tags
 // = require decidim/input_mentions
+// = require_tree ./decidim/vizzs
 
 /* globals svg4everybody */
 

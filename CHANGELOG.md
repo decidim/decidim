@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+
 **Changed**:
 
 - **decidim-core**: Allow users to enter date fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
@@ -49,6 +51,9 @@
 - **decidim-core**: Scope nicknames in organizations, so they don't have to be unique in a multi-tenant setup [\#3671](https://github.com/decidim/decidim/pull/3671)
 
 **Fixed**:
+
+- **decidim-generators**: Generated application not including bootsnap.
+- **decidim-generators**: Generated application not including optional gems.
 
 **Removed**:
 
