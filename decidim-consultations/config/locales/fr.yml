@@ -247,7 +247,7 @@ fr:
         technical_data: Données techniques
       vote_button:
         already_voted: Déjà voté
-        already_voted_hover: Retirer le soutien
+        already_voted_hover: Retirer le vote
         starting_from: À partir de %{date}
         vote: Voter
       vote_modal:
