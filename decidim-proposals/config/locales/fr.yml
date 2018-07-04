@@ -289,9 +289,9 @@ fr:
           title: Modifier la proposition
         edit_draft:
           discard: Supprimer ce brouillon
-          discard_confirmation: Êtes-vous sûr de vouloir supprimer ce brouillon de proposition ?
+          discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
-          title: Modifier le brouillon de proposition
+          title: Modifier le brouillon de votre proposition
         endorsement_identities_cabin:
           endorse: Soutenir
         endorsements_card_row:
@@ -317,15 +317,15 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Voir plus
         index:
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: soutien
-            other: soutiens
+            one: vote
+            other: votes
         new:
           send: Continuer
           title: Créez votre proposition
