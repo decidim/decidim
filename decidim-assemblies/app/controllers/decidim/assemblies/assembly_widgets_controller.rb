@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Conferences
-    class ConferenceWidgetsController < Decidim::WidgetsController
+  module Assemblies
+    class AssemblyWidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
 
       private
 
       def model
-        @model ||= Conference.find_by(slug: params[:conference_slug])
+        @model ||= Assembly.find_by(slug: params[:assembly_slug])
       end
 
       def current_participatory_space
@@ -16,7 +16,7 @@ module Decidim
       end
 
       def iframe_url
-        @iframe_url ||= conference_conference_widget_url(model)
+        @iframe_url ||= assembly_assembly_widget_url(model)
       end
     end
   end
