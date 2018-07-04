@@ -24,6 +24,8 @@ module Decidim
 
       def show
         check_current_user_can_visit_space
+        # meeting_component_ids = current_participatory_space.components.where(manifest_name: "meetings").pluck(:id)
+        # @conference_venues ||= Decidim::Meetings::Meeting.where(decidim_component_id: meeting_component_ids).pluck(:address).uniq
         # raise
       end
 
