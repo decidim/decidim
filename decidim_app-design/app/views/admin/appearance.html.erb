@@ -16,15 +16,17 @@
           <div class="card">
             <div class="card-section">
               <p class="mb-m">Bloques activos</p>
-              <ul id="draggable-list-<%= rand(5..30) %>" class="draggable-list">
+              <ul class="draggable-list js-connect js-list-actives">
                 <% 5.times do %>
-                <li>
-                  <%= Faker::Job.field %>
-                  <div>
-                    <%= link_to page_path("#"), class: "mr-s text-muted" do %>
-                    <%= icon "pencil" %>
-                    <% end %>
-                    <%= icon "menu" %>
+                <li draggable="true">
+                  <div class="draggable-content">
+                    <%= Faker::Beer.style %>
+                    <div>
+                      <%= link_to page_path("#"), class: "mr-s text-muted" do %>
+                      <%= icon "pencil" %>
+                      <% end %>
+                      <%= icon "menu" %>
+                    </div>
                   </div>
                 </li>
                 <% end %>
@@ -36,15 +38,17 @@
           <div class="card">
             <div class="card-section">
               <p class="mb-m">Bloques disponibles</p>
-              <ul id="draggable-list-<%= rand(5..30) %>" class="draggable-list">
+              <ul class="draggable-list js-connect js-list-availables">
                 <% 2.times do %>
-                <li>
-                  <%= Faker::Job.field %>
-                  <div>
-                    <%= link_to page_path("#"), class: "mr-s text-muted" do %>
-                    <%= icon "pencil" %>
-                    <% end %>
-                    <%= icon "menu" %>
+                <li draggable="true">
+                  <div class="draggable-content">
+                    <%= Faker::Beer.style %>
+                    <div>
+                      <%= link_to page_path("#"), class: "mr-s text-muted" do %>
+                      <%= icon "pencil" %>
+                      <% end %>
+                      <%= icon "menu" %>
+                    </div>
                   </div>
                 </li>
                 <% end %>

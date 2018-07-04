@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+
 **Changed**:
 
 **Fixed**:
@@ -26,6 +28,8 @@
 - **decidim-proposals**: Fix proposal date to published_at in: card_m, details, admin and exporter [\#3649](https://github.com/decidim/decidim/pull/3649)
 - **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
 - **decidim-admin**: Let user managers access the public space [\#3720](https://github.com/decidim/decidim/pull/3720)
+- **decidim-generators**: Generated application not including bootsnap.
+- **decidim-generators**: Generated application not including optional gems.
 
 **Removed**:
 

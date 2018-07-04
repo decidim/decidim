@@ -1,9 +1,10 @@
-/* eslint-disable no-invalid-this, no-unused-vars */
+/* eslint-disable no-unused-vars */
 
 // Outside of the closure to make it public
-let DATACHARTS = {};
+let DATACHARTS = null;
 
-$(() => {
+const fetchDatacharts = () => {
+
   const metrics = [{
     key: "NAME_TO_BE_IN_THE_HTML-1",
     query: "GRAPHQL_QUERY-1"
@@ -21,4 +22,5 @@ $(() => {
   }))
 
   Promise.all(promises).then(() => DATACHARTS)
-})
+
+}
