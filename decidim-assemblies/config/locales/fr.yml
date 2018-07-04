@@ -3,8 +3,8 @@ fr:
     attributes:
       assembly:
         area_id: Zone d'application
-        assembly_type: Type d'agora
-        assembly_type_other: Autre type d'agora
+        assembly_type: Type d'assemblée
+        assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
         closing_date: Date de clôture
         closing_date_reason: Raison de la date de clôture
@@ -35,8 +35,8 @@ fr:
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Espace privé
-        promoted: Mis en avant
-        published_at: Publié à
+        promoted: Mise en avant
+        published_at: Publiée à
         purpose_of_action: But de l'action
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
@@ -65,91 +65,91 @@ fr:
   activerecord:
     models:
       decidim/assembly:
-        one: Agora
-        other: Agora
+        one: Assemblée
+        other: Assemblées
       decidim/assembly_member:
-        one: Membre de l'agora
-        other: Membres de l'agora
+        one: Membre de l'assemblée
+        other: Membres de l'assemblée
       decidim/assembly_user_role:
-        one: Fonction du membre dans l'agora
-        other: Fonctions du membre dans l'agora
+        one: Fonction du membre dans l'assemblée
+        other: Fonctions du membre dans l'assemblée
   decidim:
     admin:
       actions:
-        new_assembly: Nouvelle agora
+        new_assembly: Nouvel assemblée
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle agora.
-          success: Agora créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
+          success: Assemblée créée avec succès.
         destroy:
-          success: L'agora a été supprimée avec succès.
+          success: L'assemblée a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
           title: Informations générales
         index:
           not_published: Non publié
-          private: Privé
+          private: Privée
           public: Publique
-          published: Publié
+          published: Publiée
         new:
           create: Créer
-          title: Nouvelle agora
+          title: Nouvelle assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette agora.
-          success: Agora mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
+          success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette agora.
-          success: L'agora a été dupliquée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette assemblée.
+          success: L'assemblée a été dupliquée avec succès.
       assembly_copies:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'agora
+          title: Dupliquer l'assemblée
       assembly_members:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
-          success: Membre créé avec succès pour cette agora.
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
+          success: Membre créé avec succès pour cette assemblée.
         destroy:
-          success: Membre supprimé avec succès pour cet agora.
+          success: Membre supprimé avec succès pour cette assemblée.
         edit:
-          title: Mettre à jour le membre de l'agora.
+          title: Mettre à jour le membre de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_members_title: Membres de l'agora
+          assembly_members_title: Membres de l'assemblée
         new:
           create: Créer
-          title: Nouveau membre de l'agora.
+          title: Nouveau membre de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour du membre de cette agora.
-          success: Membre mis à jour avec succès pour cette agora.
+          error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
+          success: Membre mis à jour avec succès pour cette assemblée.
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette agora.
-          success: Agora publiée avec succès.
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
+          success: Assemblée publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication de cette agora.
-          success: Agora dépubliée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
+          success: Assemblée dépubliée avec succès.
       assembly_user_roles:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
-          success: Utilisateur ajouté avec succès à cette agora.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
+          success: Utilisateur ajouté avec succès à cette assemblée.
         destroy:
-          success: Utilisateur supprimé avec succès de cette agora.
+          success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'utilisateur de l'agora.
+          title: Mettre à jour l'utilisateur de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_admins_title: Administrateurs de l'agora
+          assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel utilisateur de l'agora.
+          title: Nouvel utilisateur de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
-          success: Utilisateur mis à jour avec succès pour cette agora.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
+          success: Utilisateur mis à jour avec succès pour cette assemblée.
       menu:
-        assemblies: Agora
+        assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Administrateurs de l'agora
           assembly_members: Membres
