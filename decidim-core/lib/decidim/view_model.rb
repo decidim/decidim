@@ -7,6 +7,7 @@ module Decidim
     include Decidim::ResourceHelper
     include Decidim::ScopesHelper
     include ActionController::Helpers
+    include Decidim::ActionAuthorization
     include Decidim::ActionAuthorizationHelper
     include Decidim::ReplaceButtonsHelper
 

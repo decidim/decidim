@@ -22,7 +22,7 @@ module Decidim
     end
 
     def status
-      @status ||= ::Decidim::ActionAuthorizer.new(current_user, current_component, authorization_action).authorize
+      @status ||= action_authorized_to(authorization_action)
     end
   end
 end

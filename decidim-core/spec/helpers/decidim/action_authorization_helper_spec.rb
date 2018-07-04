@@ -7,13 +7,14 @@ module Decidim
     let!(:component) { create(:component) }
     let(:user) { create(:user) }
     let(:action) { "foo" }
+    let(:status) { double(ok?: authorized) }
     let(:authorized) { true }
 
     before do
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
-      allow(helper).to receive(:action_authorized_to).with(action).and_return(authorized)
-      allow(helper).to receive(:action_authorized_to).with(nil).and_return(authorized)
+      allow(helper).to receive(:action_authorized_to).with(action).and_return(status)
+      allow(helper).to receive(:action_authorized_to).with(nil).and_return(status)
     end
 
     describe "action_authorized_link_to" do
