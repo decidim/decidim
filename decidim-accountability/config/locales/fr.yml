@@ -50,7 +50,7 @@ fr:
             name: Elément de chronologie
         results:
           create:
-            invalid: Un problème est survenu lors de la création de ce résultat
+            invalid: Un problème est survenu lors de la création de cette réalisation
             success: Réalisation créée avec succès
           destroy:
             success: Réalisation supprimée avec succès
@@ -137,8 +137,8 @@ fr:
       results:
         count:
           results_count:
-            one: 1 résultat
-            other: "%{count} résultats"
+            one: 1 réalisation
+            other: "%{count} réalisations"
         filters:
           all: Tous
           scopes: Périmètre d'application
