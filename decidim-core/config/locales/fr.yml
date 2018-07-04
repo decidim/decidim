@@ -299,7 +299,7 @@ fr:
         meeting: Rencontres
         project: Projets
         proposal: Propositions
-        result: Résultats
+        result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
       explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
@@ -318,7 +318,7 @@ fr:
         error: Une erreur s'est produite lors du traitement de votre demande d'abonnement.
       destroy:
         button: Ne plus suivre
-        error: Une erreur s'est produite lors du traitement de votre demande "Ne plus suivre".
+        error: Une erreur s'est produite lors du traitement de votre demande de désabonnement.
     forms:
       current_file: Fichier actuel
       current_image: Image actuelle
@@ -350,13 +350,13 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     menu:
@@ -420,7 +420,7 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
-        email_on_notification: Je souhaite recevoir un email chaque fois que je reçois une notification.
+        email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         update_notifications_settings: Enregistrer les modifications
       update:
@@ -463,7 +463,7 @@ fr:
           projects_count: Projets
           proposals_accepted: Propositions acceptées
           proposals_count: Propositions
-          results_count: Résultats
+          results_count: Réalisations
           surveys_count: Enquêtes
           users_count: Participants
           votes_count: Soutiens
