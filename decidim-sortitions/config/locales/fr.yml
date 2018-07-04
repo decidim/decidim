@@ -104,7 +104,7 @@ fr:
           cancelled: Annulé
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          search: Chercher
+          search: Rechercher
           state: Etat
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
