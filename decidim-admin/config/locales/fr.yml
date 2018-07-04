@@ -117,7 +117,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Processus participatifs
+        participatory_processes: Concertations
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
