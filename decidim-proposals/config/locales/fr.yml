@@ -79,8 +79,8 @@ fr:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
-            endorsements_blocked: Empêcher les utilisateurs de recommander une proposition
-            endorsements_enabled: Autoriser les utilisateurs à recommander une proposition
+            endorsements_blocked: Bloquer les soutiens
+            endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Soutiens désactivés
             votes_enabled: Soutiens activés
@@ -103,7 +103,7 @@ fr:
           email_subject: Une proposition que vous suivez a été acceptée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de recommander une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
+          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a recommandé une nouvelle proposition"
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été recommandée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -244,7 +244,7 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
-            endorsements: Recommandations
+            endorsements: Soutiens
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -257,7 +257,7 @@ fr:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
         create:
-          error: Des erreurs sont survenues au moment de recommander la proposition.
+          error: Des erreurs sont survenues au moment de soutenir la proposition.
         identities:
           done: Terminé
           select_identity: Sélectionnez l'utilisateur
