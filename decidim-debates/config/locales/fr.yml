@@ -81,9 +81,9 @@ fr:
           category: Catégorie
           category_prompt: Choisir une catégorie
           citizens: Citoyens
-          official: Officiel
+          official: Officielle
           origin: Origine
-          search: Chercher
+          search: Rechercher
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtre
