@@ -1,9 +1,14 @@
-/* global renderAreaCharts */
+/* global renderAreaCharts, renderRowCharts */
 $(() => {
+  const render = () => {
+    renderAreaCharts()
+    renderRowCharts()
+  }
+
   // init
-  renderAreaCharts()
+  render()
   // only for pattern-library
   $(document).on("change.zf.tabs", () => {
-    renderAreaCharts()
+    render()
   });
 });
