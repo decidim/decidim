@@ -328,7 +328,7 @@ fr:
             other: votes
         new:
           send: Continuer
-          title: Créez votre proposition
+          title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
           most_voted: Les plus soutenues
@@ -340,7 +340,7 @@ fr:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
-          title: Publiez votre proposition
+          title: Publier la proposition
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
@@ -357,46 +357,46 @@ fr:
           sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: S'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune recommandation, vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçue de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
-          already_voted: Déjà soutenue
-          already_voted_hover: Retirer le soutien
-          maximum_votes_reached: Nombre maximum de soutiens atteint
-          no_votes_remaining: Aucun soutien restant
-          vote: Soutenir
-          votes_blocked: Soutiens désactivés
+          already_voted: Déjà votée
+          already_voted_hover: Retirer le vote
+          maximum_votes_reached: Nombre maximum de votes atteint
+          no_votes_remaining: Aucun vote restant
+          vote: Voter
+          votes_blocked: Votes désactivés
         votes_count:
           count:
-            one: SOUTIEN
-            other: SOUTIENS
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de soutiens
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition doit rassembler plus de %{limit} soutiens
+            description: Chaque proposition doit rassembler plus de %{limit} votes
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
-            description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le soutien est soumis aux règles suivantes :'
+            description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
+          title: 'Le vote est soumis aux règles suivantes :'
           vote_limit:
-            description: Vous pouvez soutenir %{limit} propositions au maximum.
+            description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
-            votes: Soutiens
+            votes: Votes
         wizard_aside:
-          back: Arrière
+          back: Retour
           info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           see_steps: voir les étapes
-          step_1: Créez votre proposition
-          step_2: Comparer
-          step_3: Compléter
-          step_4: Publiez votre proposition
+          step_1: Créer une proposition
+          step_2: Comparer aux autres propositions
+          step_3: Compléter votre proposition
+          step_4: Publier votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
