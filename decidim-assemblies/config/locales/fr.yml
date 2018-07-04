@@ -235,7 +235,7 @@ fr:
               ceased: Validité terminée
               not_ceased: Validité en cours
             filter_by: Filtrer par
-            search: Chercher
+            search: Rechercher
       assembly_members:
         index:
           members: Membres
