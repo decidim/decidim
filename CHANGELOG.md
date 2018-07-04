@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+
 **Changed**:
 
 **Fixed**:
