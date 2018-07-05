@@ -293,11 +293,22 @@ fi:
             all:
               one: 1 prosessi
               other: "%{count} prosesseja"
+            past:
+              one: 1 aikaisempi prosessi
+              other: "%{count} menneitä prosesseja"
+            upcoming:
+              one: 1 tulevaa prosessia
+              other: "%{count} tulevia prosesseja"
+          explanations:
+            no_active: Ei aktiivisia prosesseja
+            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
+            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
           names:
             active: Aktivoi
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
+          see: nähdä
         index:
           loading: Ladataan tulokset...
       show:
