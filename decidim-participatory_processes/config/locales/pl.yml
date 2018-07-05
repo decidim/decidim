@@ -263,7 +263,11 @@ pl:
       processes: Procesy
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesy %{group}
+        group_participatory_processes:
+          one: 1 procesy dla %{group}
+          few: "%{count} procesów dla %{group}"
+          many: "%{count} procesów dla %{group}"
+          other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:
@@ -280,11 +284,6 @@ pl:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Procesy partycypacyjne
-      order_by_processes:
-        active: Aktywne
-        all: Wszystko
-        past: Przeszłe
-        upcoming: Nadchodzące
       pages:
         home:
           highlighted_processes:
@@ -294,6 +293,35 @@ pl:
       participatory_process_groups:
         none: Brak
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktywny proces
+              few: "%{count} aktywnych procesów"
+              many: "%{count} aktywnych procesów"
+              other: "%{count} aktywnych procesów"
+            all:
+              one: 1 proces
+              few: "%{count} procesów"
+              many: "%{count} procesów"
+              other: "%{count} procesów"
+            past:
+              one: 1 przeszły proces
+              few: "%{count} przeszłych procesów"
+              many: "%{count} przeszłych procesów"
+              other: "%{count} przeszłych procesów"
+            upcoming:
+              one: 1 nadchodzący proces
+              few: "%{count} nadchodzących procesów"
+              many: "%{count} nadchodzących procesów"
+              other: "%{count} nadchodzących procesów"
+          explanations:
+            no_active: Brak aktywnych procesów
+          names:
+            active: Aktywne
+            all: Wszystko
+            past: Przeszłe
+            upcoming: Nadchodzące
         index:
           loading: Wyniki wyszukiwania...
       show:
@@ -336,12 +364,6 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
-        order_by_processes:
-          processes:
-            one: "%{count} proces"
-            few: "%{count} procesów"
-            many: "%{count} procesów"
-            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział
