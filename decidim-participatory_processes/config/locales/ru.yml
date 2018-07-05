@@ -263,7 +263,6 @@ ru:
       processes: Движения
     participatory_process_groups:
       show:
-        group_participatory_processes: Движения для %{group}
         title: Группы движений соучастия
     participatory_process_steps:
       index:
@@ -280,11 +279,6 @@ ru:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
       index:
         title: Движения соучастия
-      order_by_processes:
-        active: Действующие
-        all: Все
-        past: Прошедшие
-        upcoming: Предстоящие
       pages:
         home:
           highlighted_processes:
@@ -294,6 +288,12 @@ ru:
       participatory_process_groups:
         none: Нет
       participatory_processes:
+        filters:
+          names:
+            active: Действующие
+            all: Все
+            past: Прошедшие
+            upcoming: Предстоящие
         index:
           loading: Загрузка результатов...
       show:
@@ -336,12 +336,6 @@ ru:
       participatory_processes:
         index:
           promoted_processes: Рекомендуемые движения
-        order_by_processes:
-          processes:
-            one: "%{count} движение"
-            few: "%{count} движения"
-            many: "%{count} движений"
-            other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'
           take_part: Принять участие
