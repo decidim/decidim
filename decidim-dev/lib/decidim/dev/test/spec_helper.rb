@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
 require "rails-controller-testing"
+
+# Removes rails default before/after hooks for screenshots, so that we can use
+# `capybara-screenshot` instead. Needs to be required _before_ rspec/rails,
+# because `rspec-rails` uses these hooks, so we need the monkeypatch to be
+# applied first so that it uses the monkeypatched version.
+require_relative "screenshot_helper_ext"
 require "rspec/rails"
+
 require "rspec/cells"
 require "byebug"
 require "rectify/rspec"
@@ -14,7 +21,6 @@ require "action_view/helpers/sanitize_helper"
 Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
 require_relative "factories"
-require_relative "screenshot_helper_ext"
 
 RSpec.configure do |config|
   config.color = true
