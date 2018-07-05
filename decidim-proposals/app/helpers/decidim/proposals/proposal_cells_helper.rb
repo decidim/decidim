@@ -16,7 +16,7 @@ module Decidim
 
       delegate :title, :state, :answered?, :withdrawn?, to: :model
 
-      def actionable?
+      def has_actions?
         proposals_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
       end
 

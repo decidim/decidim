@@ -242,6 +242,7 @@ describe "Proposals", type: :system do
         expect(page).to have_selector(".card--proposal", count: 2)
         expect(page).to have_selector(".card--proposal", text: lucky_proposal.title)
         expect(page).to have_selector(".card--proposal", text: unlucky_proposal.title)
+        expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
 
