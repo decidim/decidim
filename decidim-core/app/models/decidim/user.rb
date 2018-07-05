@@ -52,6 +52,8 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
+    attr_accessor :newsletter_notifications
+
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
     end
