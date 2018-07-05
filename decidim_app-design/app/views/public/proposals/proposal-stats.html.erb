@@ -12,9 +12,11 @@
     <h2 class="section-heading">Esta propuesta en números</h2>
   </div>
   <div class="row columns">
-    <%= partial "rowchart", metric: "rowchart-0" %>
-    <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+    <%= partial "rowchart", metric: "rowchart-0", ratio: "16:9", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
+  <% 3.times do %>
+  <% end %>
 </main>
 
 <%= partial "template_bottom" %>

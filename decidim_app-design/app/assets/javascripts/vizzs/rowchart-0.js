@@ -43,10 +43,6 @@ DATACHARTS["rowchart-0"] = [
         "value": 14
       },
       {
-        "key": "green",
-        "value": 19
-      },
-      {
         "key": "blue",
         "value": 10
       }
@@ -79,10 +75,6 @@ DATACHARTS["rowchart-0"] = [
       {
         "key": "green",
         "value": 46
-      },
-      {
-        "key": "green",
-        "value": 24
       }
     ]
   },
@@ -92,10 +84,6 @@ DATACHARTS["rowchart-0"] = [
       {
         "key": "blue",
         "value": 37
-      },
-      {
-        "key": "blue",
-        "value": 12
       },
       {
         "key": "green",
@@ -108,14 +96,6 @@ DATACHARTS["rowchart-0"] = [
     "value": [
       {
         "key": "blue",
-        "value": 36
-      },
-      {
-        "key": "blue",
-        "value": 24
-      },
-      {
-        "key": "blue",
         "value": 21
       }
     ]
@@ -123,10 +103,6 @@ DATACHARTS["rowchart-0"] = [
   {
     "key": "Morocco",
     "value": [
-      {
-        "key": "blue",
-        "value": 20
-      },
       {
         "key": "brown",
         "value": 29
@@ -140,14 +116,6 @@ DATACHARTS["rowchart-0"] = [
   {
     "key": "Syria",
     "value": [
-      {
-        "key": "brown",
-        "value": 37
-      },
-      {
-        "key": "brown",
-        "value": 33
-      },
       {
         "key": "brown",
         "value": 10

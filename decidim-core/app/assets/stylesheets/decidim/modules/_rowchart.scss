@@ -1,0 +1,30 @@
+.rowchart{
+  //common
+  svg{
+    // overflow: visible;
+  }
+
+  .background{
+    fill: darken($body-background, 2.5);
+  }
+
+  .title{
+    fill: $muted;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: rem-calc(24);
+  }
+
+  .subtitle{
+    fill: $muted;
+    font-size: rem-calc(14);
+  }
+
+  .tick{
+    opacity: .5;
+
+    .dashed{
+      stroke-dasharray: 3;
+    }
+  }
+}
