@@ -10,6 +10,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Make proposal m-card render its authorship again. [\#3727](https://github.com/decidim/decidim/pull/3727)
 - **decidim-generators**: Generated application not including bootsnap.
 - **decidim-generators**: Generated application not including optional gems.
 - **decidim-core**: Fix follow within search results. [\#3745](https://github.com/decidim/decidim/pull/3745)
