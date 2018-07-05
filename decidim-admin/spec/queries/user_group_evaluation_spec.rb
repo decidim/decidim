@@ -14,7 +14,7 @@ module Decidim::Admin
       let!(:user_groups) { create_list(:user_group, 3, users: [create(:user, organization: organization)]) }
 
       it "returns all the user groups" do
-        expect(subject.query).to match_array(user_groups.to_a)
+        expect(subject.query).to eq user_groups
       end
     end
 

@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
 
   s.add_dependency "capybara", "~> 3.0"
-  s.add_dependency "capybara-screenshot", "~> 1.0"
   s.add_dependency "decidim", compatible_constraint
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
