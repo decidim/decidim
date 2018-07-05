@@ -435,13 +435,13 @@ fr:
       home:
         extended:
           debates: Débats
-          debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
+          debates_explanation: Débattez, discutez et enrichissez les échanges de vos points de vue.
           how_to_participate: Comment participer ?
           meetings: Rencontres
           meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
           more_info: En savoir plus
           proposals: Propositions
-          proposals_explanation: Faites des propositions, soutenez les projets existants et favorisez les changements que vous souhaitez voir.
+          proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
         footer_sub_hero:
           footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
@@ -457,7 +457,7 @@ fr:
           endorsements_count: Recommandations
           headline: État actuel de %{organization}
           meetings_count: Rencontres
-          orders_count: Soutiens
+          orders_count: Votes
           pages_count: Pages
           processes_count: Processus participatifs
           projects_count: Projets
@@ -466,7 +466,7 @@ fr:
           results_count: Réalisations
           surveys_count: Enquêtes
           users_count: Participants
-          votes_count: Soutiens
+          votes_count: Votes
         sub_hero:
           register: S'inscrire
       index:
