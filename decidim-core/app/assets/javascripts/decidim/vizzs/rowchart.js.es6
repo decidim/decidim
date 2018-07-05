@@ -19,7 +19,7 @@ const renderRowCharts = () => {
     let margin = {
       top: 10,
       right: 10,
-      bottom: 10,
+      bottom: 20,
       left: 150
     }
 
@@ -30,10 +30,12 @@ const renderRowCharts = () => {
     const x = d3.scaleLinear().rangeRound([0, width])
     const y0 = d3.scaleBand().rangeRound([height, 0]).paddingInner(0.1)
     const y1 = d3.scaleBand().padding(0.05)
-    const z = d3.scaleOrdinal()
+    // const z = d3.scaleOrdinal()
 
     // set the scales
-    x.domain(d3.extent(data, (d) => d.key)) // TODO: ES NECESARIO CALCULAR EL MÁXIMO DE LOS NUMEROS (PARECIDO A keys)
+    // Explanation: get the inner values foreach object outer values, flat the array, remove duplicates
+    let values = d3.extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))])
+    x.domain(values)
     // group names
     y0.domain(data.map((d) => d.key))
     // Explanation: get the inner keys foreach object outer values, flat the array, remove duplicates
@@ -56,7 +58,7 @@ const renderRowCharts = () => {
       .data((d) => d.value)
       .enter().append("rect")
       .attr("y", (d) => y1(d.key))
-      .attr("width", (d) => y1(d.key))
+      .attr("width", (d) => x(d.value))
       .attr("height", y1.bandwidth())
 
     // axis
@@ -72,6 +74,17 @@ const renderRowCharts = () => {
   }
 
   return $(".rowchart:visible").each((i, container) => {
+
+    // Initialize dataset values
+    const init = (dataset) => {
+      const datasetDefault = {
+        metric: "",
+        title: "",
+        ratio: "",
+        tip: ""
+      }
+      return {...datasetDefault, ...dataset}
+    }
 
     // OPTIONAL: Helper function to preprocess the data
     const parseData = (data) => {
@@ -106,13 +119,15 @@ const renderRowCharts = () => {
     if (data) {
       // let dataModified = aggregate(parseData(data))
 
+      let config = init(container.dataset)
+
       rowchart({
         container: `#${container.id}`,
-        title: container.dataset.title,
+        title: config.title,
         data: data,
         // data: dataModified,
-        ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
-        tip: container.dataset.tip
+        ratio: config.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
+        tip: config.tip
       })
     }
   })

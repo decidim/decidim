@@ -135,3 +135,19 @@
     <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
   </div>
 </div>
+<br />
+<div class="row column">
+  <h4>Datos sin agregar<sup>1</sup> (por defecto <code>agg: true</code>)</h4>
+  <code>partial "areachart", agg: false, url: "..."</code>
+</div>
+<div class="row mt-s">
+  <div class="column medium-6">
+    <%= partial "areachart", agg: false, metric: "areachart-0", title: Faker::Commerce.department(1) %>
+  </div>
+  <div class="column medium-6">
+    <%= partial "areachart", agg: true, metric: "areachart-0", title: Faker::Commerce.department(1) %>
+  </div>
+</div>
+<div class="row column">
+  <small><sup>1</sup>&nbsp;Ambos gráficos están usando el mismo dataset <code>areachart-0</code></small>
+</div>

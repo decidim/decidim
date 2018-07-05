@@ -1,7 +1,9 @@
 <% tip = true unless local_assigns.has_key?(:tip) %>
+<% agg = true unless local_assigns.has_key?(:agg) %>
 <div id="rowchart-<%= SecureRandom.random_number(9999) %>"
   class="rowchart <%= classes ||= "" %>"
   data-metric="<%= metric ||= "" %>"
   data-title="<%= title ||= "" %>"
   data-ratio="<%= ratio ||= "" %>"
+  data-agg="<%= agg %>"
   data-tip="<%= tip %>"></div>

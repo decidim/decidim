@@ -180,6 +180,20 @@ const renderAreaCharts = () => {
 
   return $(".areachart:visible").each((i, container) => {
 
+    // Initialize dataset values
+    const init = (dataset) => {
+
+      const datasetDefault = {
+        metric: "",
+        title: "",
+        axis: "",
+        ratio: "",
+        agg: "",
+        tip: ""
+      }
+      return {...datasetDefault, ...dataset}
+    }
+
     // OPTIONAL: Helper function to preprocess the data
     const parseData = (data) => {
       // format the data
@@ -211,15 +225,16 @@ const renderAreaCharts = () => {
     })
 
     if (data) {
-      let dataModified = aggregate(parseData(data))
+      let config = init(container.dataset)
+      let dataModified = (config.agg === "true") ? aggregate(parseData(data)) : parseData(data)
 
       areachart({
         container: `#${container.id}`,
-        title: container.dataset.title,
+        title: config.title,
         data: dataModified,
-        axis: (container.dataset.axis === "true") || false,
-        ratio: container.dataset.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
-        tip: container.dataset.tip
+        axis: (config.axis === "true") || false,
+        ratio: config.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
+        tip: config.tip
       })
     }
   })
