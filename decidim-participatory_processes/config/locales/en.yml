@@ -303,7 +303,7 @@ en:
           explanations:
             no_active: No active processes
             no_active_nor_upcoming: No active nor upcoming processes
-            no_active_nor_upcoming_callout: There are no active nor next planned processes. Here is a list of the past ones.
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           names:
             active: Active
             all: All
