@@ -296,11 +296,19 @@ fr:
             past:
               one: 1 processus passé
               other: "%{count} processus passés"
+            upcoming:
+              one: 1 processus à venir
+              other: "%{count} processus à venir"
+          explanations:
+            no_active: Aucun processus actif
+            no_active_nor_upcoming: Aucun processus actif ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de processus actifs ni à venir. Voici une liste des passés.
           names:
             active: Actifs
             all: Tous
             past: Passés
             upcoming: À venir
+          see: Voir
         index:
           loading: Chargement des résultats...
       show:
