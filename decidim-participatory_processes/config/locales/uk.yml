@@ -263,7 +263,6 @@ uk:
       processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes: Рухи для %{group}
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
@@ -280,11 +279,6 @@ uk:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Рухи співучасті
-      order_by_processes:
-        active: Діючі
-        all: Усі
-        past: Минулі
-        upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
@@ -294,6 +288,12 @@ uk:
       participatory_process_groups:
         none: Жоден
       participatory_processes:
+        filters:
+          names:
+            active: Діючі
+            all: Усі
+            past: Минулі
+            upcoming: Прийдешні
         index:
           loading: Завантаження підсумків...
       show:
@@ -336,12 +336,6 @@ uk:
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
-        order_by_processes:
-          processes:
-            one: "%{count} рух"
-            few: "%{count} рухи"
-            many: "%{count} рухів"
-            other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
