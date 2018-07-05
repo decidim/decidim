@@ -257,7 +257,9 @@ fr:
       processes: Processus participatifs
     participatory_process_groups:
       show:
-        group_participatory_processes: Processus participatifs pour %{group}
+        group_participatory_processes:
+          one: 1 processus pour %{group}
+          other: "%{count} processus pour %{group}"
         title: Groupes de processus
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ fr:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       index:
         title: Processus participatifs
-      order_by_processes:
-        active: Actifs
-        all: Tous
-        past: Passés
-        upcoming: À venir
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,22 @@ fr:
       participatory_process_groups:
         none: Aucun
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processus actif
+              other: "%{count} processus actifs"
+            all:
+              one: 1 processus
+              other: "%{count} processus"
+            past:
+              one: 1 processus passé
+              other: "%{count} processus passés"
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
         index:
           loading: Chargement des résultats...
       show:
@@ -330,10 +343,6 @@ fr:
       participatory_processes:
         index:
           promoted_processes: Processus mis en avant
-        order_by_processes:
-          processes:
-            one: "%{count} processus participatif"
-            other: "%{count} processus participatifs"
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer
