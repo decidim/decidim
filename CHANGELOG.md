@@ -16,7 +16,8 @@
 - **decidim-generators**: Generated application not including bootsnap.
 - **decidim-generators**: Generated application not including optional gems.
 - **decidim-core**: Fix follow within search results. [\#3745](https://github.com/decidim/decidim/pull/3745)
-- **decidim-core**: Fix notifications sending when there's no componen. [\#3792](https://github.com/decidim/decidim/pull/3792)
+- **decidim-proposals**: An author should always follow their proposal. [\#3791](https://github.com/decidim/decidim/pull/3791)
+- **decidim-core**: Fix notifications sending when there's no component. [\#3792](https://github.com/decidim/decidim/pull/3792)
 
 **Removed**:
 

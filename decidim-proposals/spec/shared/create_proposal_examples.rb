@@ -89,6 +89,13 @@ shared_examples "create a proposal" do |with_author|
             expect(creator.user_group).to eq(nil)
           end
 
+          it "adds the author as a follower" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.followers).to include(author)
+          end
+
           context "with a proposal limit" do
             let(:component) do
               create(:proposal_component, settings: { "proposal_limit" => 2 })
