@@ -18,8 +18,8 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Modalités
-        promoted: Mis en avant
-        published_at: Publié à
+        promoted: Mise en avant
+        published_at: Publiée à
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
@@ -33,7 +33,7 @@ fr:
         description: Description
         hero_image: Image
         name: Nom
-        participatory_process_ids: Processus participatifs liés
+        participatory_process_ids: Concertations liées
       participatory_process_step:
         description: Description
         end_date: Date de fin
@@ -67,17 +67,17 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new_process: Nouveau processus
-        new_process_group: Nouveau groupe de processus
+        new_process: Nouvelle concertation
+        new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur du processus
+        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
       menu:
-        participatory_process_groups: Groupes de processus
-        participatory_processes: Processus participatifs
+        participatory_process_groups: Groupes de concertations
+        participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
@@ -86,34 +86,34 @@ fr:
           components: Fonctionnalités
           info: Information
           moderations: Modérations
-          private_users: Utilisateurs
-          process_admins: Administrateurs du processus participatif
-          steps: Etapes
+          private_users: Utilisateurs privés
+          process_admins: Administrateurs de la concertation
+          steps: Étapes
       models:
         participatory_process:
           fields:
             created_at: Créé le
-            private: Statut
-            promoted: Mis en évidence
-            published: Publié
+            private: Privé
+            promoted: Mise en avant
+            published: Publiée
             title: Titre
-          name: Processus participatif
+          name: Concertation
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupe de processus
+          name: Groupe de concertations
         participatory_process_step:
           fields:
             end_date: Date de fin
             start_date: Date de début
             title: Titre
-          name: Étape du processus participatif
+          name: Étape de la concertation
         participatory_process_user_role:
           fields:
             email: Email
             name: Nom
             role: Rôle
-          name: Utilisateur du processus participatif
+          name: Utilisateur de la concertation
           roles:
             admin: Administrateur
             collaborator: Relecteur
@@ -126,22 +126,22 @@ fr:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer le processus participatif
+          title: Dupliquer la concertation
       participatory_process_groups:
         destroy:
-          success: Groupe de processus participatifs supprimé avec succès.
+          success: Groupe de concertations supprimé avec succès.
         edit:
-          title: Modifier le groupe de processus
+          title: Modifier le groupe de concertations
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de processus
+          title: Nouveau groupe de concertation
         update:
-          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatifs.
-          success: Groupe de processus participatifs mis à jour avec succès.
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
+          success: Groupe de concertations mis à jour avec succès.
       participatory_process_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de ce processus participatif.
+          error: Une erreur s'est produite lors de la publication de cette concertation.
           success: Processus participatif publié avec succès.
         destroy:
           error: Une erreur s'est produite lors de la publication de ce processus participatif.
@@ -258,8 +258,8 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processus pour %{group}
-          other: "%{count} processus pour %{group}"
+          one: 1 concertation pour %{group}
+          other: "%{count} concertations pour %{group}"
         title: Groupes de processus
     participatory_process_steps:
       index:
@@ -288,21 +288,21 @@ fr:
         filters:
           counters:
             active:
-              one: 1 processus actif
-              other: "%{count} processus actifs"
+              one: 1 concertation active
+              other: "%{count} concertations actives"
             all:
-              one: 1 processus
-              other: "%{count} processus"
+              one: 1 concertation
+              other: "%{count} concertations"
             past:
-              one: 1 processus passé
-              other: "%{count} processus passés"
+              one: 1 concertation passée
+              other: "%{count} concertations passées"
             upcoming:
-              one: 1 processus à venir
-              other: "%{count} processus à venir"
+              one: 1 concertation à venir
+              other: "%{count} concertations à venir"
           explanations:
-            no_active: Aucun processus actif
-            no_active_nor_upcoming: Aucun processus actif ni à venir
-            no_active_nor_upcoming_callout: Il n'y a pas de processus actifs ni à venir. Voici une liste des passés.
+            no_active: Aucune concertation active
+            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
           names:
             active: Actifs
             all: Tous
