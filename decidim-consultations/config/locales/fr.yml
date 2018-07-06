@@ -237,7 +237,7 @@ fr:
       results:
         title: Résultats
       show:
-        read_more: En voir plus
+        read_more: Voir la suite
       statistics:
         assistants_count_title: Assistants
         comments_count_title: Commentaires
@@ -252,7 +252,7 @@ fr:
         vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
-        title: 'Consultation: soutien aux questions'
+        title: 'Votation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
         confirm: Confirmer
@@ -268,6 +268,6 @@ fr:
         start_voting_date: Le vote commence le
       question_components:
         question_menu_item: La question
-        unfold: Dérouler
+        unfold: Voir la suite
       question_header:
-        back_to_consultation: Voir toutes les consultations
+        back_to_consultation: Voir toutes les votations
