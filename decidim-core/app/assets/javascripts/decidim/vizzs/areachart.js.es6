@@ -220,7 +220,7 @@ const renderAreaCharts = () => {
       fetchDatacharts()
     }
 
-    // Make a clone of the object
+    // Make a clone of the array of objects
     let data = DATACHARTS[container.dataset.metric].map((d) => {
       return { ...d }
     })

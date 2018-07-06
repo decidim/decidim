@@ -1,5 +1,5 @@
 /* global d3, DATACHARTS, fetchDatacharts */
-/* eslint-disable id-length, max-params, no-sequences, multiline-ternary, no-ternary */
+/* eslint-disable id-length, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -14,6 +14,7 @@ const renderRowCharts = () => {
     let subtitle = opts.subtitle
     let container = d3.select(opts.container)
     let ratio = opts.ratio
+    let xTickFormat = opts.xTickFormat
     let showTooltip = opts.tip !== "false"
     let legendSize = 15
 
@@ -107,6 +108,7 @@ const renderRowCharts = () => {
     let xAxis = d3.axisBottom(x)
       .ticks(5)
       .tickSize(-height)
+      .tickFormat(xTickFormat)
     let yAxis = d3.axisLeft(y0)
 
     let _xAxis = (xg) => {
@@ -178,7 +180,7 @@ const renderRowCharts = () => {
           groupByKey[cat] = groupByKey[cat].map((f) => f.value).reduce((a, b) => a + b)
         }
       }
-      // updates every value with the respective percentage
+      // updates every value with its respective percentage
       [].concat(...percent.map((f) => f.value)).map((item) => {
         item.value = (item.value / groupByKey[item.key]) * 100
         return item
@@ -193,7 +195,7 @@ const renderRowCharts = () => {
       fetchDatacharts()
     }
 
-    // Make a clone of the object
+    // Make a clone of the array of objects
     let data = DATACHARTS[container.dataset.metric].map((d) => {
       return { ...d }
     })
@@ -202,14 +204,17 @@ const renderRowCharts = () => {
       let config = init(container.dataset)
       let dataModified = data
 
-      config.percent = "true"
-      dataModified = (config.percent === "true") ? percentage(data) : data
+      if (config.percent === "true") {
+        dataModified = percentage(data)
+        config.xTickFormat = (d) => `${d}%`
+      }
 
       rowchart({
         container: `#${container.id}`,
         title: config.title,
         subtitle: config.subtitle,
         data: dataModified,
+        xTickFormat: config.xTickFormat,
         ratio: config.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
         tip: config.tip
       })
