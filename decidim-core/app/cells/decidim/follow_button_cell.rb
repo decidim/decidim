@@ -16,10 +16,6 @@ module Decidim
       context[:current_user]
     end
 
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
-    end
-
     def button_classes
       return "card__button secondary text-uppercase follow-button" if inline?
       "button secondary hollow expanded small button--icon follow-button"
