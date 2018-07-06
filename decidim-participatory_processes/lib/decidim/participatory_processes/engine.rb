@@ -56,7 +56,7 @@ module Decidim
                     decidim_participatory_processes.participatory_processes_path,
                     position: 2,
                     if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                    active: :inclusive
+                    active: %r{^\/process(es|_groups)}
         end
       end
 
