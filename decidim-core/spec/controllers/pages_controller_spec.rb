@@ -39,10 +39,8 @@ module Decidim
 
       context "when a page doesn't exist" do
         it "redirects to the 404" do
-          get :show, params: { id: "some-page" }
-
-          expect(response.status).to eq(302)
-          expect(response).to redirect_to("/404")
+          expect { get :show, params: { id: "some-page" } }
+            .to raise_error(ActionController::RoutingError)
         end
       end
     end

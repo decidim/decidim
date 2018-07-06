@@ -22,7 +22,7 @@ module Decidim
       elsif page
         render :decidim_page
       else
-        redirect_to "/404"
+        raise ActionController::RoutingError, "Not Found"
       end
     end
 
