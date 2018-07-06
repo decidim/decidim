@@ -1,5 +1,5 @@
 /* global d3, DATACHARTS, fetchDatacharts */
-/* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
+/* eslint-disable id-length, max-params, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -15,7 +15,6 @@ const renderRowCharts = () => {
     let container = d3.select(opts.container)
     let ratio = opts.ratio
     let showTooltip = opts.tip !== "false"
-    let baseColor = opts.color
     let legendSize = 15
 
     // precalculation
@@ -42,7 +41,6 @@ const renderRowCharts = () => {
     const x = d3.scaleLinear().rangeRound([0, width])
     const y0 = d3.scaleBand().rangeRound([height, 0]).paddingInner(0.1)
     const y1 = d3.scaleBand().padding(0.05)
-    const z = d3.scaleOrdinal().range(keys)
 
     // set the scales
     x.domain([0, maxValue]).nice()
@@ -89,6 +87,7 @@ const renderRowCharts = () => {
       .attr("x", width + margin.left + margin.right - legendSize - 4)
       .attr("y", legendSize / 2)
       .attr("dy", "0.32em")
+      .attr("class", "subtitle")
       .text((d) => d)
 
     let lower = svg.append("g")
@@ -161,52 +160,56 @@ const renderRowCharts = () => {
         title: "",
         subtitle: "",
         ratio: "",
+        percent: "",
         tip: ""
       }
       return {...datasetDefault, ...dataset}
     }
 
-    // OPTIONAL: Helper function to preprocess the data
-    const parseData = (data) => {
-      // format the data
-      data.forEach((d) => {
-        d.key = d3.isoParse(d.key)
-        d.value = Number(d.value)
+    // OPTIONAL: Helper function to turn all values into percentages
+    const percentage = (percent) => {
+      // helper function to groupBy
+      const groupBy = (arr, by) => arr.reduce((r, v, j, a, k = v[by]) => ((r[k] || (r[k] = [])).push(v), r), {})
+      // get an object grouped by key
+      let groupByKey = groupBy([].concat(...percent.map((f) => f.value)), "key")
+      // get total sum of values by key
+      for (let cat in groupByKey) {
+        if (Object.prototype.hasOwnProperty.call(groupByKey, cat)) {
+          groupByKey[cat] = groupByKey[cat].map((f) => f.value).reduce((a, b) => a + b)
+        }
+      }
+      // updates every value with the respective percentage
+      [].concat(...percent.map((f) => f.value)).map((item) => {
+        item.value = (item.value / groupByKey[item.key]) * 100
+        return item
       })
 
-      // order by date
-      return data.sort((x, y) => d3.ascending(x.key, y.key))
+      return percent
     }
 
-    // OPTIONAL: Helper function to accumulates all data values
-    const aggregate = (agg) => agg.map((item, index, array) => {
-      if (index > 0) {
-        item.value += array[index - 1].value
-      }
-      return item
-    })
-
+    // MANDATORY: HTML must contain which metric should it display
     // If there's no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
       fetchDatacharts()
     }
 
-    // MANDATORY: HTML must contain which metric should it display
+    // Make a clone of the object
     let data = DATACHARTS[container.dataset.metric].map((d) => {
       return { ...d }
     })
 
     if (data) {
-      // let dataModified = aggregate(parseData(data))
-
       let config = init(container.dataset)
+      let dataModified = data
+
+      config.percent = "true"
+      dataModified = (config.percent === "true") ? percentage(data) : data
 
       rowchart({
         container: `#${container.id}`,
         title: config.title,
         subtitle: config.subtitle,
-        data: data,
-        // data: dataModified,
+        data: dataModified,
         ratio: config.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
         tip: config.tip
       })

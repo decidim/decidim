@@ -214,12 +214,13 @@ const renderAreaCharts = () => {
       return item
     })
 
+    // MANDATORY: HTML must contain which metric should it display
     // If there's no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
       fetchDatacharts()
     }
 
-    // MANDATORY: HTML must contain which metric should it display
+    // Make a clone of the object
     let data = DATACHARTS[container.dataset.metric].map((d) => {
       return { ...d }
     })
