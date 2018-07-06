@@ -35,8 +35,8 @@ fr:
   activerecord:
     models:
       decidim/initiative:
-        one: Pétition
-        other: Pétitions
+        one: Initiative
+        other: Initiatives
       decidim/initiative_comittee:
         one: Comité
         other: Comités
@@ -46,10 +46,10 @@ fr:
   decidim:
     admin:
       actions:
-        new_initiative_type: Nouveau type de pétition
+        new_initiative_type: Nouveau type d'initiative
       menu:
-        initiatives: Pétitions
-        initiatives_types: Types de pétition
+        initiatives: Initiatives
+        initiatives_types: Types d'initiative
       models:
         initiatives:
           fields:
