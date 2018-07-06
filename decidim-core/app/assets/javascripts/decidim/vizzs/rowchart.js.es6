@@ -35,7 +35,6 @@ const renderRowCharts = () => {
       let maxLabelLengthAllowed = Number(container.node().getBoundingClientRect().width) * 0.4
 
       // Pre-estimated number, after testing
-      console.log(avgLabelLength);
       const longLabelEstimation = 50
 
       return (avgLabelLength < longLabelEstimation)
@@ -92,7 +91,7 @@ const renderRowCharts = () => {
       .selectAll("g")
       .data(keys)
       .enter().append("g")
-      .attr("transform", (d, i) => `translate(0,${-(i * legendSize * 1.2) - margin.top + headerHeight})`)
+      .attr("transform", (d, i, arr) => `translate(0,${-((arr.length - 1 - i) * legendSize * 1.2) - margin.top + headerHeight})`)
 
     legend.append("rect")
       .attr("x", width + margin.left + margin.right - legendSize)
