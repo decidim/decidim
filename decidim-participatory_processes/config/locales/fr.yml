@@ -142,23 +142,23 @@ fr:
       participatory_process_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette concertation.
-          success: Processus participatif publié avec succès.
+          success: Concertation publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication de ce processus participatif.
-          success: Processus participatif dépublié avec succès.
+          error: Une erreur s'est produite lors de la publication de cette concertation.
+          success: Concertation dépubliée avec succès.
       participatory_process_step_activations:
         create:
-          error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
-          success: Étape du processus participatif activée avec succès.
+          error: Une erreur s'est produite lors de l'activation de cette étape de la concertation.
+          success: Étape de la concertation activée avec succès.
       participatory_process_steps:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
-          success: Étape du processus participatif créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
+          success: Étape de la concertation créée avec succès.
         default_title: Introduction
         destroy:
           error:
-            active_step: Vous ne pouvez pas supprimer l'étape active du processus.
-            last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
+            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
+            last_step: Vous ne pouvez pas supprimer la dernière étape de la concertation.
           success: L'étape du processus participatif a été supprimée avec succès.
         edit:
           title: Modifier l'étape du processus participatif
