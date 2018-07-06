@@ -119,6 +119,7 @@ en:
           categories: Categories
           components: Components
           conference_admins: Conference admins
+          conference_invites: Conference Invites
           conference_speakers: Conference speakers
           info: Info
           moderations: Moderations
@@ -155,6 +156,17 @@ en:
         conference_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        conference_invites:
+          index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite Attendee
+            invites: Invites
+            search: Search
         conference_speakers:
           form:
             existing_user: Existing user
@@ -178,6 +190,13 @@ en:
           speakers: Speakers
       index:
         title: Conferences
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
       pages:
         home:
           highlighted_conferences:

@@ -35,6 +35,11 @@ module Decidim
              class_name: "Decidim::ConferenceSpeaker",
              dependent: :destroy
 
+    has_many :conference_registrations, class_name: "Decidim::Conferences::ConferenceRegistration", foreign_key: "decidim_conference_id", dependent: :destroy
+
+    has_many :conference_invites, class_name: "Decidim::Conferences::ConferenceInvite",
+    foreign_key: "decidim_conference_id", dependent: :destroy
+
     has_many :components, as: :participatory_space, dependent: :destroy
 
     validates :slug, uniqueness: { scope: :organization }

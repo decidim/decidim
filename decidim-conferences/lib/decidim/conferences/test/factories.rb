@@ -101,4 +101,25 @@ FactoryBot.define do
       user { create(:user, organization: conference.organization) }
     end
   end
+
+  factory :conference_registration, class: "Decidim::Conferences::ConferenceRegistration" do
+    meeting
+    user
+  end
+
+  factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do
+    meeting
+    user
+    sent_at { Time.current - 1.day }
+    accepted_at nil
+    rejected_at nil
+
+    trait :accepted do
+      accepted_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+  end
 end

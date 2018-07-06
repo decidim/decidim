@@ -17,6 +17,7 @@ module Decidim
           public_list_conferences_action?
           public_read_conference_action?
           public_list_speakers_action?
+          # can_decline_conference_invite?
           public_report_content_action?
           return permission_action
         end
@@ -94,6 +95,12 @@ module Decidim
 
         allow!
       end
+
+      # def can_decline_conference_invite?
+      #   return unless conference.registrations_enabled? &&
+      #                 conference.conference_invites.where(user: user).exists?
+      #   allow!
+      # end
 
       def public_report_content_action?
         return unless permission_action.action == :create &&
@@ -192,7 +199,8 @@ module Decidim
           :moderation,
           :conference,
           :conference_user_role,
-          :conference_speaker
+          :conference_speaker,
+          :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -209,7 +217,8 @@ module Decidim
           :moderation,
           :conference,
           :conference_user_role,
-          :conference_speaker
+          :conference_speaker,
+          :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

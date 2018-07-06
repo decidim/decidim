@@ -17,6 +17,7 @@ module Decidim
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
           resources :speakers, controller: "conference_speakers"
+          resources :conference_invites, only: [:index, :new, :create]
 
           resources :user_roles, controller: "conference_user_roles" do
             member do
