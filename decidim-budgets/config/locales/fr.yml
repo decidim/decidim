@@ -17,7 +17,7 @@ fr:
     budgets:
       actions:
         attachment_collections: Dossiers
-        attachments: Pièces jointes
+        attachments: Documents liés
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
@@ -89,7 +89,7 @@ fr:
           close_modal: Fermez la fenêtre
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Voir la suite
         order_progress:
           vote: Voter
         order_selected_projects:
