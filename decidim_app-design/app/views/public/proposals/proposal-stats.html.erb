@@ -15,8 +15,10 @@
     <%= partial "rowchart", metric: "rowchart-0", ratio: "16:9", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
     <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
-  <% 3.times do %>
-  <% end %>
+  <div class="row columns">
+    <%= partial "rowchart", metric: "rowchart-0", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+  </div>
 </main>
 
 <%= partial "template_bottom" %>

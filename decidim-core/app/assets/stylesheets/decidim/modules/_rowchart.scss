@@ -1,20 +1,5 @@
 .rowchart{
   //common
-  svg{
-    // overflow: visible;
-  }
-
-// TODO: testing
-  .type-0{
-    fill: red
-  }
-  .type-1{
-    fill: green
-  }
-  .type-2{
-    fill: blue
-  }
-
   .background{
     fill: darken($body-background, 2.5);
   }
@@ -36,6 +21,49 @@
 
     .dashed{
       stroke-dasharray: 3;
+    }
+  }
+
+  // helper to colors
+  @mixin loop-even-odd-types($color, $max: 4){
+    $interval: 100 / $max;
+
+    @for $i from 0 through ($max - 1){
+      $percent: $interval * $i;
+      $even: tint($color, $percent);
+      $odd: shade($color, $percent);
+
+      .type-#{$i}{
+        @if $i % 2 == 0{
+          fill: $even;
+
+          &:hover{
+            cursor: pointer;
+            fill: rgba($even, .5);
+          }
+        }
+
+        @else{
+          fill: $odd;
+
+          &:hover{
+            cursor: pointer;
+            fill: rgba($odd, .5);
+          }
+        }
+      }
+    }
+  }
+
+  // default color
+  @include loop-even-odd-types($proposals);
+
+  // colors modifiers
+  $map: $foundation-palette;
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @include loop-even-odd-types($value);
     }
   }
 }

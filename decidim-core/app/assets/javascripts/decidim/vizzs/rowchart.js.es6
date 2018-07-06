@@ -6,28 +6,6 @@
 // = require d3
 
 const renderRowCharts = () => {
-  // helper https://www.sitepoint.com/javascript-generate-lighter-darker-color/
-  // const colorLuminance = (_hex, _lum) => {
-  //   // validate hex string
-  //   let hex = String(_hex).replace(/[^0-9a-f]/gi, "")
-  //   if (hex.length < 6) {
-  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]
-  //   }
-  //   let lum = _lum || 0
-  //
-  //   // convert to decimal and change luminosity
-  //   let rgb = "#"
-  //   let c = 0
-  //
-  //   for (let i = 0; i < 3; i += 1) {
-  //     c = parseInt(hex.substr(i * 2, 2), 16)
-  //     c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16)
-  //     rgb += (`00${c}`).substr(c.length)
-  //   }
-  //
-  //   return rgb;
-  // }
-
   // lib
   const rowchart = (opts = {}) => {
     // parse opts
@@ -54,7 +32,7 @@ const renderRowCharts = () => {
       top: headerHeight + (gutter * 2),
       right: gutter * 2,
       bottom: gutter * 6,
-      left: Number(container.node().getBoundingClientRect().width) / 4
+      left: Number(container.node().getBoundingClientRect().width) * 0.25
     }
 
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
@@ -172,10 +150,6 @@ const renderRowCharts = () => {
       .transition()
       .duration(500)
       .attr("width", (d) => x(d.value))
-      // .attr("fill", (d, i) => {
-      //   // if odd, baseColor darker (negative); if even, baseColor lighter (positive)
-      //   return (i % 2 === 0) ? colorLuminance(baseColor, i * 0.25) : colorLuminance(baseColor, -i * 0.25)
-      // })
   }
 
   return $(".rowchart:visible").each((i, container) => {
@@ -187,7 +161,6 @@ const renderRowCharts = () => {
         title: "",
         subtitle: "",
         ratio: "",
-        color: "",
         tip: ""
       }
       return {...datasetDefault, ...dataset}
@@ -227,7 +200,6 @@ const renderRowCharts = () => {
       // let dataModified = aggregate(parseData(data))
 
       let config = init(container.dataset)
-      let colors = ["238ff7", "57d685", "fa6c96", "fabc6c"]
 
       rowchart({
         container: `#${container.id}`,
@@ -236,7 +208,6 @@ const renderRowCharts = () => {
         data: data,
         // data: dataModified,
         ratio: config.ratio.split(":").reduce((a, b) => a / b) || (4 / 3),
-        color: config.color || colors[Math.floor(Math.random() * colors.length)],
         tip: config.tip
       })
     }
