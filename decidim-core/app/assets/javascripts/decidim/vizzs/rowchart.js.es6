@@ -27,12 +27,28 @@ const renderRowCharts = () => {
     const headerHeight = (keys.length * legendSize * 1.2)
     const gutter = 5
 
+    // estimation Y-labels length
+    // get the mean of each label length
+    const getMarginLeftLengthEstimation = () => {
+      let avgLabelLength = data.map((f) => f.key.length).reduce((a, b) => a + b) / data.length
+      let initialMarginLeft = Number(container.node().getBoundingClientRect().width) * 0.25
+      let maxLabelLengthAllowed = Number(container.node().getBoundingClientRect().width) * 0.4
+
+      // Pre-estimated number, after testing
+      console.log(avgLabelLength);
+      const longLabelEstimation = 50
+
+      return (avgLabelLength < longLabelEstimation)
+        ? initialMarginLeft
+        : maxLabelLengthAllowed
+    }
+
     // set the dimensions and margins of the graph
     let margin = {
       top: headerHeight + (gutter * 2),
       right: gutter * 2,
       bottom: gutter * 6,
-      left: Number(container.node().getBoundingClientRect().width) * 0.25
+      left: getMarginLeftLengthEstimation()
     }
 
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
@@ -141,6 +157,7 @@ const renderRowCharts = () => {
               if (tspan.node().getComputedTextLength() > limitLength) {
 
                 if (lineNumber > 1) {
+                  line.pop()
                   tspan.html(`${line.join(" ")}&hellip;`)
                   break
                 }
