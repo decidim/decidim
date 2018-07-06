@@ -40,6 +40,10 @@
                   <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
                 <% end %>
 
+                <% if allowed_to? :update, :component, component: project.component %>
+                  <%= icon_link_to "key", edit_component_permissions_path(project), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions #{"action-icon--highlighted" if project.permissions.present?}" %>
+                <% end %>
+
                 <% if allowed_to? :destroy, :project, project: project %>
                   <%= icon_link_to "circle-x", project_path(project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% end %>

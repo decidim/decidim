@@ -21,6 +21,7 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
+    resource.actions = %(vote)
   end
 
   component.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
