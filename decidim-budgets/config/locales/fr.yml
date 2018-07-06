@@ -118,14 +118,14 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Annonce
             comments_enabled: Activer le module de commentaire
             projects_per_page: Projets par page
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
-            comments_blocked: Bloquer la création de nouveaux commentaires
+            comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
             votes_enabled: Votes activés
     orders:
