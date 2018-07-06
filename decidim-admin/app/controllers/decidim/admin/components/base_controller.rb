@@ -18,7 +18,8 @@ module Decidim
 
         helper_method :current_component,
                       :current_participatory_space,
-                      :parent_path
+                      :parent_path,
+                      :edit_component_permissions_path
 
         before_action except: [:index, :show] do
           enforce_permission_to :manage, :component, component: current_component
@@ -53,7 +54,17 @@ module Decidim
         end
 
         def parent_path
-          @parent_path ||= EngineRouter.admin_proxy(current_participatory_space).components_path
+          @parent_path ||= current_participatory_space_admin_proxy.components_path
+        end
+
+        def edit_component_permissions_path(resource)
+          current_participatory_space_admin_proxy.edit_component_permissions_path(current_component.id, resource_name: resource.resource_manifest.name, resource_id: resource.id)
+        end
+
+        private
+
+        def current_participatory_space_admin_proxy
+          @current_participatory_space_admin_proxy ||= ::Decidim::EngineRouter.admin_proxy(current_participatory_space)
         end
       end
     end

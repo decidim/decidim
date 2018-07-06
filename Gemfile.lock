@@ -76,6 +76,7 @@ PATH
       foundation-rails (~> 6.4, < 6.5)
       foundation_rails_helper (~> 3.0)
       geocoder (~> 1.4)
+      hashdiff (~> 0.3.7)
       invisible_captcha (~> 0.10.0)
       jquery-rails (~> 4.3)
       kaminari (~> 1.0)
@@ -233,7 +234,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.6.4)
+    autoprefixer-rails (8.6.5)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
