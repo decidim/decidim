@@ -6,10 +6,11 @@ module Decidim
       extend ActiveSupport::Concern
 
       class_methods do
-        def base_metric_scope(query, attribute, type = :count)
-          query = query.group("date_trunc('day', #{attribute})") if type == :metric
-          query = query.count if [:count, :metric].include? type
-          query
+        def base_metric_scope(query, type = :count, attribute = :day)
+          query = query.group(attribute) if type == :metric
+          # group(:day).sum(:cumulative)
+
+          query.count
         end
       end
     end

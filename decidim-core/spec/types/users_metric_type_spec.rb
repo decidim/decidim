@@ -12,15 +12,18 @@ module Decidim
 
       include_context "with a graphql type"
 
-      let(:confirmed_at_date) { Time.zone.now }
-      let!(:current_user) {} # :current_user overwritten to evade creation
-      let!(:models) { create_list(:user, 4, confirmed_at: confirmed_at_date, organization: current_organization) }
+      let(:today) { Time.zone.today }
+      let!(:models) do
+        (0..4).each do |count|
+          create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "users", organization: current_organization)
+        end
+      end
 
       describe "count" do
         let(:query) { "{ count }" }
 
         it "returns the User's count" do
-          expect(response).to include("count" => models.size)
+          expect(response).to include("count" => 4)
         end
       end
 
@@ -29,17 +32,9 @@ module Decidim
 
         it "returns the User's metric data" do
           data = response.with_indifferent_access
-          expect(data[:metric]).to include("key" => confirmed_at_date.strftime("%Y-%m-%d"), "value" => models.size)
-        end
-      end
-
-      describe "data" do
-        let(:query) { "{ data { confirmed_at } }" }
-
-        it "returns the User's data" do
-          data = response.with_indifferent_access
-          expect(data[:data].size).to eq(models.size)
-          expect(data[:data]).to include("confirmed_at" => confirmed_at_date.strftime("%Y-%m-%d"))
+          expect(data[:metric].size).to eq(5)
+          expect(data[:metric]).to include("key" => today.strftime("%Y-%m-%d"), "value" => 4)
+          expect(data[:metric]).to include("key" => (today - 4.days).strftime("%Y-%m-%d"), "value" => 0)
         end
       end
     end

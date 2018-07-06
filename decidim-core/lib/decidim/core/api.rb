@@ -11,6 +11,5 @@ module Decidim
     autoload :AttachableInterface, "decidim/api/attachable_interface"
     autoload :UsersMetricInterface, "decidim/api/users_metric_interface"
     autoload :MetricObjectType, "decidim/api/metric_object_interface"
-    autoload :UsersMetricObjectInterface, "decidim/api/users_metric_object_interface"
   end
 end

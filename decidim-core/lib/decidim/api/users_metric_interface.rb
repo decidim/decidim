@@ -18,12 +18,6 @@ module Decidim
         }
       end
 
-      field :data, !types[UsersMetricObjectType], "Data for each user" do
-        resolve ->(_obj, _args, ctx) {
-          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :data)
-        }
-      end
-
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end
