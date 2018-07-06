@@ -8,7 +8,7 @@ fr:
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
-        closing_report: Compte-rendu
+        closing_report: Compte rendu
         contributions_count: Nombre de contributions
         proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
@@ -51,8 +51,8 @@ fr:
         one: Rencontre
         other: Rencontres
       decidim/meetings/minutes:
-        one: Compte-rendu
-        other: Comptes-rendus
+        one: Compte rendu
+        other: Comptes rendus
       decidim/meetings/registration:
         one: Inscription
         other: Inscriptions
@@ -82,7 +82,7 @@ fr:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte-rendu sur sa page :'
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" est terminée
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
@@ -120,7 +120,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Compte-rendu
+        minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -211,15 +211,15 @@ fr:
         minutes:
           create:
             invalid: Un problème est survenu lors de la création de ce compte rendu
-            success: Compte-rendu créé avec succès
+            success: Compte rendu créé avec succès
           edit:
             update: Mettre à jour
           new:
             create: Créer
-            title: Créer un compte-rendu
+            title: Créer un compte rendu
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce compte-rendu
-            success: Compte-rendu mis à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
+            success: Compte rendu mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -236,20 +236,20 @@ fr:
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
-            success: Les paramètres d'inscriptions ont été enregistrés avec succès.
+            success: Les paramètres d'inscription ont été enregistrés avec succès.
       admin_log:
         meeting:
           close: "%{user_name} a fermé la rencontre %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la rencontre %{resource_name} sur l'espace %{space_name}"
           delete: "%{user_name} a supprimé la rencontre %{resource_name} sur l'espace %{space_name}"
-          export_registrations: "%{user_name} a exporté les enregistrements de la rencontre %{resource_name} sur l'espace %{space_name}"
+          export_registrations: "%{user_name} a exporté les inscriptions de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour la rencontre %{resource_name} sur l'espace %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
         minutes:
-          create: "%{user_name} a créé le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -271,15 +271,15 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Voir la suite
         index:
           view_meeting: Voir la rencontre
         meeting_minutes:
-          meeting_minutes: Comptes-rendus des rencontres
-          related_information: Informations connexes
+          meeting_minutes: Comptes rendus des rencontres
+          related_information: Informations liées
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
-          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées, mais ici, vous trouverez une liste de toutes les rencontres passées.
+          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -298,7 +298,7 @@ fr:
       models:
         meeting:
           fields:
-            closed: Clos
+            closed: Close
             end_time: Heure de fin
             map: Carte
             start_time: Date de début
