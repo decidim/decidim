@@ -281,7 +281,7 @@ fr:
           highlighted_processes:
             active_processes: Concertations actives
             active_step: Étape active
-            see_all_processes: Voir tous les processus
+            see_all_processes: Voir toutes les concertations
       participatory_process_groups:
         none: Aucun
       participatory_processes:
@@ -317,7 +317,7 @@ fr:
         local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités
-        private_space: Ceci est un processus privé
+        private_space: Ceci est une concertation privée
         scope: Périmètre d'application
         start_date: Date de début
         target: Participants
@@ -326,12 +326,12 @@ fr:
         answers_count: Réponses
         comments_count: Commentaires
         debates_count: Débats
-        endorsements_count: Recommandations
+        endorsements_count: Soutiens
         headline: Activité
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
-        processes_count: Processus participatifs
+        processes_count: Concertations
         projects_count: Projets
         proposals_count: Propositions
         results_count: Réalisations
@@ -343,14 +343,14 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
-          processes_count: 'Processus :'
+          processes_count: 'Concertations :'
       participatory_process_widgets:
         show:
-          active_step: Étape active
+          active_step: 'Étape actuelle :'
           take_part: Participer
       participatory_processes:
         index:
-          promoted_processes: Processus mis en avant
+          promoted_processes: Concertations mises en avant
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer
@@ -360,7 +360,7 @@ fr:
           take_part: Participer
       process_header:
         process_menu_item: Présentation
-        unfold: Dérouler
+        unfold: Voir la suite
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes
