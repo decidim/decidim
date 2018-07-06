@@ -7,26 +7,26 @@
 
 const renderRowCharts = () => {
   // helper https://www.sitepoint.com/javascript-generate-lighter-darker-color/
-  const colorLuminance = (_hex, _lum) => {
-    // validate hex string
-    let hex = String(_hex).replace(/[^0-9a-f]/gi, "")
-    if (hex.length < 6) {
-      hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]
-    }
-    let lum = _lum || 0
-
-    // convert to decimal and change luminosity
-    let rgb = "#"
-    let c = 0
-
-    for (let i = 0; i < 3; i += 1) {
-      c = parseInt(hex.substr(i * 2, 2), 16)
-      c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16)
-      rgb += (`00${c}`).substr(c.length)
-    }
-
-    return rgb;
-  }
+  // const colorLuminance = (_hex, _lum) => {
+  //   // validate hex string
+  //   let hex = String(_hex).replace(/[^0-9a-f]/gi, "")
+  //   if (hex.length < 6) {
+  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]
+  //   }
+  //   let lum = _lum || 0
+  //
+  //   // convert to decimal and change luminosity
+  //   let rgb = "#"
+  //   let c = 0
+  //
+  //   for (let i = 0; i < 3; i += 1) {
+  //     c = parseInt(hex.substr(i * 2, 2), 16)
+  //     c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16)
+  //     rgb += (`00${c}`).substr(c.length)
+  //   }
+  //
+  //   return rgb;
+  // }
 
   // lib
   const rowchart = (opts = {}) => {
@@ -64,6 +64,7 @@ const renderRowCharts = () => {
     const x = d3.scaleLinear().rangeRound([0, width])
     const y0 = d3.scaleBand().rangeRound([height, 0]).paddingInner(0.1)
     const y1 = d3.scaleBand().padding(0.05)
+    const z = d3.scaleOrdinal().range(keys)
 
     // set the scales
     x.domain([0, maxValue]).nice()
@@ -96,7 +97,7 @@ const renderRowCharts = () => {
     let legend = upper.append("g")
       .attr("text-anchor", "end")
       .selectAll("g")
-      .data(keys.slice().reverse())
+      .data(keys)
       .enter().append("g")
       .attr("transform", (d, i) => `translate(0,${-(i * legendSize * 1.2) - margin.top + headerHeight})`)
 
@@ -104,7 +105,7 @@ const renderRowCharts = () => {
       .attr("x", width + margin.left + margin.right - legendSize)
       .attr("width", legendSize)
       .attr("height", legendSize)
-      .attr("fill", baseColor)
+      .attr("class", (d, i) => `type-${i}`)
 
     legend.append("text")
       .attr("x", width + margin.left + margin.right - legendSize - 4)
@@ -167,14 +168,14 @@ const renderRowCharts = () => {
       .enter().append("rect")
       .attr("y", (d) => y1(d.key))
       .attr("height", y1.bandwidth())
-      .attr("class", (d, i) => `type-${i}`)
+      .attr("class", (d) =>  `type-${keys.indexOf(d.key)}`)
       .transition()
       .duration(500)
       .attr("width", (d) => x(d.value))
-      .attr("fill", (d, i) => {
-        // if odd, baseColor darker (negative); if even, baseColor lighter (positive)
-        return (i % 2 === 0) ? colorLuminance(baseColor, i * 0.25) : colorLuminance(baseColor, -i * 0.25)
-      })
+      // .attr("fill", (d, i) => {
+      //   // if odd, baseColor darker (negative); if even, baseColor lighter (positive)
+      //   return (i % 2 === 0) ? colorLuminance(baseColor, i * 0.25) : colorLuminance(baseColor, -i * 0.25)
+      // })
   }
 
   return $(".rowchart:visible").each((i, container) => {

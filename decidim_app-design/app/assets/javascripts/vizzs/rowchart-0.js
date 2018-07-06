@@ -5,15 +5,15 @@ DATACHARTS["rowchart-0"] = [
     "key": "Honduras",
     "value": [
       {
-        "key": "blue",
+        "key": "banana",
         "value": 41
       },
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 35
       },
       {
-        "key": "green",
+        "key": "pear",
         "value": 32
       }
     ]
@@ -22,15 +22,15 @@ DATACHARTS["rowchart-0"] = [
     "key": "Romania",
     "value": [
       {
-        "key": "green",
+        "key": "pear",
         "value": 24
       },
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 45
       },
       {
-        "key": "blue",
+        "key": "banana",
         "value": 27
       }
     ]
@@ -39,11 +39,11 @@ DATACHARTS["rowchart-0"] = [
     "key": "Central African Republic",
     "value": [
       {
-        "key": "green",
+        "key": "pear",
         "value": 14
       },
       {
-        "key": "blue",
+        "key": "banana",
         "value": 10
       }
     ]
@@ -52,15 +52,15 @@ DATACHARTS["rowchart-0"] = [
     "key": "Angola",
     "value": [
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 23
       },
       {
-        "key": "blue",
+        "key": "banana",
         "value": 31
       },
       {
-        "key": "green",
+        "key": "pear",
         "value": 23
       }
     ]
@@ -69,11 +69,11 @@ DATACHARTS["rowchart-0"] = [
     "key": "Malta",
     "value": [
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 20
       },
       {
-        "key": "green",
+        "key": "pear",
         "value": 46
       }
     ]
@@ -82,11 +82,11 @@ DATACHARTS["rowchart-0"] = [
     "key": "Oman",
     "value": [
       {
-        "key": "blue",
+        "key": "banana",
         "value": 37
       },
       {
-        "key": "green",
+        "key": "pear",
         "value": 17
       }
     ]
@@ -95,7 +95,7 @@ DATACHARTS["rowchart-0"] = [
     "key": "Heard and McDonald Islands",
     "value": [
       {
-        "key": "blue",
+        "key": "banana",
         "value": 21
       }
     ]
@@ -104,11 +104,11 @@ DATACHARTS["rowchart-0"] = [
     "key": "Morocco",
     "value": [
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 29
       },
       {
-        "key": "blue",
+        "key": "banana",
         "value": 43
       }
     ]
@@ -117,7 +117,7 @@ DATACHARTS["rowchart-0"] = [
     "key": "Syria",
     "value": [
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 10
       }
     ]
@@ -126,15 +126,15 @@ DATACHARTS["rowchart-0"] = [
     "key": "Viet Nam",
     "value": [
       {
-        "key": "brown",
+        "key": "lemon",
         "value": 13
       },
       {
-        "key": "blue",
+        "key": "banana",
         "value": 23
       },
       {
-        "key": "green",
+        "key": "pear",
         "value": 24
       }
     ]
