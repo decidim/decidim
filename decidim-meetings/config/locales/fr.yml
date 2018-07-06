@@ -8,7 +8,7 @@ fr:
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
-        closing_report: Compte rendu
+        closing_report: Compte-rendu
         contributions_count: Nombre de contributions
         proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
@@ -22,7 +22,7 @@ fr:
         location_hints: Données de localisation
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
-        registrations_enabled: Inscriptions activées
+        registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
@@ -36,8 +36,8 @@ fr:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minute
-              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minute
+              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minutes
+              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minutes
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -74,11 +74,11 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             default_registration_terms: Conditions d'inscription par défaut
           step:
             announcement: Annonce
-            comments_blocked: Bloquer la création de nouveaux commentaires
+            comments_blocked: Commentaires bloqués
     events:
       meetings:
         meeting_closed:
@@ -167,7 +167,7 @@ fr:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
           new:
-            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
+            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire à l'organisation.
             invite: Inviter
             new_invite: Inviter un utilisateur
         meeting_closes:
