@@ -36,6 +36,15 @@ module Decidim
           expect(response.body).to include(page.content[I18n.locale.to_s])
         end
       end
+
+      context "when a page doesn't exist" do
+        it "redirects to the 404" do
+          get :show, params: { id: "some-page" }
+
+          expect(response.status).to eq(302)
+          expect(response).to redirect_to("/404")
+        end
+      end
     end
   end
 end
