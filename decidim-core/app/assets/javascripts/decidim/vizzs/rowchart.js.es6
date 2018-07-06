@@ -1,5 +1,5 @@
 /* global d3, DATACHARTS, fetchDatacharts */
-/* eslint-disable id-length, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
+/* eslint-disable id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -16,7 +16,6 @@ const renderRowCharts = () => {
     let ratio = opts.ratio
     let xTickFormat = opts.xTickFormat
     let showTooltip = opts.tip !== "false"
-    let legendSize = 15
 
     // precalculation
     // Explanation: get the inner values foreach object outer values, flat the array, remove duplicates
@@ -24,6 +23,7 @@ const renderRowCharts = () => {
     // Explanation: get the inner keys foreach object outer values, flat the array, remove duplicates
     let keys = [...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]
 
+    const legendSize = 15
     const headerHeight = (keys.length * legendSize * 1.2)
     const gutter = 5
 
@@ -123,6 +123,43 @@ const renderRowCharts = () => {
       yg.selectAll(".tick line").remove()
       yg.selectAll(".tick text")
         .attr("class", "text-large")
+        .each(function(i, e) {
+          let text = d3.select(this)
+          let limitLength = margin.left - (gutter * 10)
+
+          if (text.node().getComputedTextLength() > limitLength) {
+            let words = text.text().split(/\s+/).reverse()
+            let word = ""
+            let line = []
+            let lineNumber = 1
+            let dy = text.attr("dy")
+            let tspan = text.text(null).append("tspan")
+              .attr("x", -9)
+              .attr("dy", `-${dy}`)
+
+            while (word = words.pop()) {
+              if (tspan.node().getComputedTextLength() > limitLength) {
+
+                if (lineNumber > 1) {
+                  tspan.html(`${line.join(" ")}&hellip;`)
+                  break
+                }
+
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                  .attr("x", -9)
+                  .attr("dy", `${1 + (lineNumber * parseFloat(dy))}em`)
+                  .text(word);
+                lineNumber += 1
+              }
+
+              line.push(word);
+              tspan.text(line.join(" "))
+            }
+          }
+        })
     }
 
     g.append("g")
