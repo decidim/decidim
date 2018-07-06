@@ -15,6 +15,9 @@ module Decidim
       # An association with all the links that are originated from this model.
       has_many :resource_links_from, as: :from, class_name: "Decidim::ResourceLink"
 
+      # An association with the permissions settings for the resource
+      has_one :resource_permission, as: :resource, class_name: "Decidim::ResourcePermission"
+
       # Finds all the linked resources to or from this model for a given resource
       # name and link name.
       #
@@ -82,6 +85,7 @@ module Decidim
       end
 
       delegate :resource_manifest, to: :class
+      delegate :permissions, to: :resource_permission, allow_nil: true
 
       # Checks throughout all its parent hierarchy if this Resource is visible.
       # i.e. checks
