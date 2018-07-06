@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "selenium-webdriver"
-require "capybara-screenshot/rspec"
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -38,23 +37,10 @@ Capybara.asset_host = "http://localhost:3000"
 
 Capybara.server_errors = [SyntaxError, StandardError]
 
-Capybara.save_path = "/tmp/screenshots"
-
-Capybara::Screenshot.prune_strategy = :keep_last_run
-Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
-
-Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
-  driver.browser.save_screenshot(path)
-end
-
 RSpec.configure do |config|
   config.before :each, type: :system do
     driven_by(:headless_chrome)
     switch_to_default_host
-  end
-
-  config.after :each, type: :system do |example|
-    Capybara::Screenshot::RSpec.after_failed_example(example)
   end
 
   config.before :each, driver: :rack_test do
