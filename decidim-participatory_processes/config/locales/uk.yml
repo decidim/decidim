@@ -263,6 +263,11 @@ uk:
       processes: Рухи
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 рух у %{group}
+          few: "%{count} рухи у %{group}"
+          many: "%{count} рухів у %{group}"
+          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
@@ -289,6 +294,30 @@ uk:
         none: Жоден
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 діючий рух
+              few: "%{count} діючих рухи"
+              many: "%{count} діючих рухів"
+              other: "%{count} діючих рухів"
+            all:
+              one: 1 рух
+              few: "%{count} рухи"
+              many: "%{count} рухів"
+              other: "%{count} рухів"
+            past:
+              one: 1 минулий рух
+              few: "%{count} минулі рухи"
+              many: "%{count} минулих рухів"
+              other: "%{count} минулих рухів"
+            upcoming:
+              one: 1 прийдешній рух
+              few: "%{count} прийдешні рухи"
+              many: "%{count} прийдешніх рухів"
+              other: "%{count} прийдешніх рухів"
+          explanations:
+            no_active: Нема діючих рухів
+            no_active_nor_upcoming: Немає діючих чи прийдешніх рухів
           names:
             active: Діючі
             all: Усі
