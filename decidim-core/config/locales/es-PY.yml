@@ -411,11 +411,11 @@ es-PY:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
         body_2: '¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:'
-        body_3: Con este consentimiento, podrá continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de su parte, dejaremos de enviarle nuestros mensajes. Si confirma que desea mantenerse informado, siempre tendrá la opción de cancelar en cualquier momento.
+        body_3: Con este consentimiento, podrás continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de tu parte, dejaremos de enviarte nuestros mensajes. Si confirmas que deseas mantenerte informado, siempre tendrás la opción de cancelar en cualquier momento.
         button: Sí, deseo continuar recibiendo información relevante
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
-        subject: '¿Desea seguir recibiendo información relevante sobre %{organization_name}?'
+        subject: '¿Deseas seguir recibiendo información relevante sobre %{organization_name}?'
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:

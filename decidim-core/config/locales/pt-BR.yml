@@ -11,7 +11,7 @@ pt-BR:
         name: Seu nome
         nickname: Seu identificador curto e exclusivo
         password: Senha
-        password_confirmation: Confirme sua senha
+        password_confirmation: Confirme a sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
@@ -186,7 +186,7 @@ pt-BR:
       export:
         ready: pronto
       show:
-        download_data: Baixe os dados
+        download_data: Baixar os dados
         download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
         request_data: Solicitar dados
     devise:
@@ -288,7 +288,7 @@ pt-BR:
     export_mailer:
       data_portability_export:
         click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
-        download: Baixar
+        download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
@@ -336,8 +336,8 @@ pt-BR:
         friend_email: 'E-mail do amigo nº%{index}'
         invitations_subtitle: Deixe seus amigos saberem sobre este site
         invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
-        invite: Convite
-        visit_your_profile: Visite seu perfil
+        invite: Convidar
+        visit_your_profile: Visitar o seu perfil
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -405,7 +405,7 @@ pt-BR:
     newsletters_opt_in:
       unathorized: Desculpe, este link não está mais disponível
       update:
-        error: Aconteceu algo de errado
+        error: Algo deu errado
         success: Configurações de boletim informativo atualizadas com sucesso
     newsletters_opt_in_mailer:
       notify:

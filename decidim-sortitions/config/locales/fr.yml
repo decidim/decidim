@@ -52,7 +52,7 @@ fr:
               decidim_proposals_component: Fonctionnalité (Propositions)
               dice: Dé
               reference: Référence
-              request_timestamp: Date et Heure
+              request_timestamp: Date et heure
               seed: Valeur aléatoire
               target_items: Eléments à sélectionner
               title: Titre
@@ -104,7 +104,7 @@ fr:
           cancelled: Annulé
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          search: Chercher
+          search: Rechercher
           state: Etat
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue

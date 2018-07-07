@@ -257,7 +257,9 @@ fi:
       processes: Prosessit
     participatory_process_groups:
       show:
-        group_participatory_processes: Prosessit ryhmälle %{group}
+        group_participatory_processes:
+          one: 1 prosessit %{group}
+          other: "%{count} prosesseja %{group}"
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
-      order_by_processes:
-        active: Aktivoi
-        all: Kaikki
-        past: Menneet
-        upcoming: Tulevat
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,30 @@ fi:
       participatory_process_groups:
         none: Ei ryhmää
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiivinen prosessi
+              other: "%{count} aktiivista prosessia"
+            all:
+              one: 1 prosessi
+              other: "%{count} prosesseja"
+            past:
+              one: 1 aikaisempi prosessi
+              other: "%{count} menneitä prosesseja"
+            upcoming:
+              one: 1 tulevaa prosessia
+              other: "%{count} tulevia prosesseja"
+          explanations:
+            no_active: Ei aktiivisia prosesseja
+            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
+            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
+          names:
+            active: Aktivoi
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
+          see: nähdä
         index:
           loading: Ladataan tulokset...
       show:
@@ -330,10 +351,6 @@ fi:
       participatory_processes:
         index:
           promoted_processes: Korostetut prosessit
-        order_by_processes:
-          processes:
-            one: "%{count} prosessi"
-            other: "%{count} prosessia"
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
           take_part: Osallistu
