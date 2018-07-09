@@ -38,6 +38,10 @@ gl:
             base:
               too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
               too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -160,12 +164,23 @@ gl:
           registrations: Rexistros
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} convidoute a unirse a unha reunión en %{application}. Podes aceptalo a través da seguinte ligazón."
+            decline: Declina a invitación
+            invited_you_to_join_a_meeting: "%{invited_by} convidoute a unirse a unha reunión en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             join: Únete á reunión "%{meeting_title}"
         invites:
           create:
             error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
             success: O usuario convidouse con éxito a unirse á reunión.
+          index:
+            filter:
+              accepted: Aceptada
+              all: Todo
+              rejected: Rexeitado
+              sent: Enviado
+            filter_by: Filtrar por
+            invite_attendee: Invitar asistente
+            invites: Invitacións
+            search: Busca
           new:
             explanation: Invitarase ao usuario a unirse a unha reunión. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
             invite: Invitar
@@ -228,7 +243,7 @@ gl:
             save: Gardar
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
-            invite_user: Invitar ao usuario
+            invites: Invitacións
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
@@ -238,6 +253,10 @@ gl:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
       admin_log:
+        invite:
+          create: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
+          deleted: "%{user_name} non invitados %{attendee_name} de unirse a %{resource_name} reunións no espazo %{space_name}"
+          update: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
         meeting:
           close: "%{user_name} pechou a %{resource_name} reunión no espazo %{space_name}"
           create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"
@@ -296,6 +315,16 @@ gl:
             other: "%{count} slots restantes"
           view: Ver
       models:
+        invite:
+          fields:
+            email: Correo electrónico
+            name: Nome
+            sent_at: Enviado en
+            status: Estado
+          status:
+            accepted: Aceptado (%{at})
+            rejected: Rexeitado (%{at})
+            sent: Enviado
         meeting:
           fields:
             closed: Pechado
@@ -312,6 +341,9 @@ gl:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
           success: Uniches á reunión correctamente.
+        decline_invitation:
+          invalid: Produciuse un problema ao diminuír a invitación.
+          success: Rexeitou con éxito a invitación.
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.
