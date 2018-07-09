@@ -10,28 +10,24 @@
         </div>
       </div>
     <% elsif question.consultation.finished? && signed_in? && question.voted_by?(current_user) %>
-      <%= action_authorized_button_to :unvote,
-                                      decidim_consultations.question_question_votes_path(question),
-                                      method: :delete,
-                                      remote: true,
-                                      data: { disable: true },
-                                      class: "card__button button expanded success disabled",
-                                      id: "unvote_button" do %>
+      <%= button_to decidim_consultations.question_question_votes_path(question),
+                  method: :delete,
+                  remote: true,
+                  data: { disable: true },
+                  class: "card__button button expanded success disabled",
+                  id: "unvote_button" do %>
         <div class="vote-button-caption">
           <%= t("questions.vote_button.already_voted", scope: "decidim") %>
         </div>
       <% end %>
     <% elsif signed_in? && question.consultation.active? %>
       <% if allowed_to? :unvote, :question, question: question %>
-        <%= action_authorized_button_to :unvote,
-                                        decidim_consultations.question_question_votes_path(question),
-                                        method: :delete,
-                                        remote: true,
-                                        data: {
-                                          disable: true
-                                        },
-                                        class: "card__button button expanded success",
-                                        id: "unvote_button" do %>
+        <%= button_to decidim_consultations.question_question_votes_path(question),
+                      method: :delete,
+                      remote: true,
+                      data: { disable: true },
+                      class: "card__button button expanded success",
+                      id: "unvote_button" do %>
           <div class="vote-button-caption"
                data-original="<%= t("questions.vote_button.already_voted", scope: "decidim") %>"
                data-replace="<%= t("questions.vote_button.already_voted_hover", scope: "decidim") %>">
@@ -44,11 +40,10 @@
         <% end %>
       <% end %>
     <% elsif question.consultation.active? %>
-      <%= action_authorized_button_to :vote,
-                                    decidim_consultations.question_question_votes_path(question),
-                                    class: "card__button button expanded",
-                                    data: { disable: true },
-                                    id: "vote_button" do %>
+      <%= logged_button_to decidim_consultations.question_question_votes_path(question),
+                           class: "card__button button expanded",
+                           data: { disable: true },
+                           id: "vote_button" do %>
         <div class="vote-button-caption">
           <%= t("questions.vote_button.vote", scope: "decidim") %>
         </div>
