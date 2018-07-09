@@ -221,6 +221,7 @@ fr:
             body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de votes
+            proposal_votes_weight: Nombre de votes
             proposals: Propositions
       admin_log:
         proposal:
@@ -281,6 +282,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
+            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
         edit:
@@ -321,7 +323,7 @@ fr:
           unfold: Voir plus
         index:
           new_proposal: Nouvelle proposition
-          see_all_withdrawn: Voir toutes les propositions retirées
+          see_all_withdrawn: Voir toutes les propositions retirées par leurs auteurs
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -381,6 +383,12 @@ fr:
           count:
             one: VOTE
             other: VOTES
+          maximum_votes_reached: Nombre maximum de votes atteint
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
+          neutral : Neutre
+          no_votes_remaining: Aucun vote restant
+          votes_blocked: Votes désactivés
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes
