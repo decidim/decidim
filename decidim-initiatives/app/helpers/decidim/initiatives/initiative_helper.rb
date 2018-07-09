@@ -6,6 +6,15 @@ module Decidim
     module InitiativeHelper
       include Decidim::SanitizeHelper
 
+      # Public: The state of a proposal in a way a human can understand.
+      #
+      # state - The String state of the proposal.
+      #
+      # Returns a String.
+      def humanize_proposal_state(state)
+        I18n.t(state, scope: "decidim.initiatives.admin_states", default: :created)
+      end
+
       # Public: The css class applied based on the initiative state to
       #         the initiative badge.
       #
