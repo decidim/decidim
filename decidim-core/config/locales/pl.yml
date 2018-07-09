@@ -614,6 +614,7 @@ pl:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
+        decline: Odrzuć zaproszenie
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
