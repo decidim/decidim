@@ -117,7 +117,7 @@ fr:
         description: Description
         hero_image: Image de la page d'accueil
         name: Nom
-        participatory_processes: Processus participatifs
+        participatory_processes: Concertations
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
@@ -293,7 +293,7 @@ fr:
           needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
           not_managed: Non représenté
           promote: Promouvoir
-          search: Chercher
+          search: Rechercher
           status: Statut
           view_logs: Consultez les journaux d'activité
       impersonations:
@@ -429,7 +429,7 @@ fr:
           error: Il y a eu une erreur lors de la création de cette newsletter.
           success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
         deliver:
-          error: Erreur lors de l'envoi de cette newsletter.
+          error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
           error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
@@ -438,7 +438,7 @@ fr:
           save_and_preview: Enregistrer et prévisualiser
           title: Modifier la newsletter
         form:
-          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
+          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
           title: Newsletters
@@ -492,7 +492,7 @@ fr:
           officialize: Valider
           officialized: Validé
           reofficialize: De nouveau validé
-          search: Chercher
+          search: Rechercher
           status: Statut
           unofficialize: Invalider
         new:
@@ -649,11 +649,11 @@ fr:
       admin:
         reportable:
           hide:
-            invalid: Il y a eu un problème au moment de masquer la ressource.
-            success: Ressource masquée avec succès.
+            invalid: Il y a eu un problème au moment de masquer le contenu.
+            success: Contenu masqué avec succès.
           unreport:
-            invalid: Il y a eu un problème lors de l'annulation du signalement de la ressource.
-            success: La ressource n'est plus signalée.
+            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
+            success: Le contenu n'est plus signalé.
       models:
         moderation:
           fields:
