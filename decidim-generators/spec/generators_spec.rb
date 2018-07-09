@@ -23,37 +23,13 @@ module Decidim
       Bundler.with_original_env { GemManager.capture(command, env: env) }
     end
 
-    shared_examples_for "a sane generator" do
-      it "successfully generates application" do
-        expect(result[1]).to be_success, result[0]
-      end
-    end
-
     # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
-      Decidim::GemManager.run_all(
-        "gem build %name && mv %name-%version.gem ..",
-        include_root: false,
-        out: File::NULL
-      )
-
-      Decidim::GemManager.new(repo_root).run(
-        "gem build %name && gem install *.gem",
-        out: File::NULL
-      )
+      Decidim::GemManager.install_all(out: File::NULL)
     end
 
     after(:all) do
-      Decidim::GemManager.run_all(
-        "gem uninstall %name -v %version --executables --force",
-        include_root: false,
-        out: File::NULL
-      )
-
-      Decidim::GemManager.new(repo_root).run(
-        "gem uninstall %name -v %version --executables --force && rm decidim-*.gem",
-        out: File::NULL
-      )
+      Decidim::GemManager.uninstall_all(out: File::NULL)
     end
     # rubocop:enable RSpec/BeforeAfterAll
 
@@ -62,34 +38,54 @@ module Decidim
 
       after { FileUtils.rm_rf(test_app) }
 
+      shared_examples_for "a new production application" do
+        it "includes optional plugins commented out in Gemfile" do
+          expect(result[1]).to be_success, result[0]
+
+          expect(File.read("#{test_app}/Gemfile"))
+            .to match(/^# gem "decidim-initiatives"/)
+            .and match(/^# gem "decidim-consultations"/)
+        end
+      end
+
+      shared_examples_for "a new development application" do
+        it "includes optional plugins uncommented in Gemfile" do
+          expect(result[1]).to be_success, result[0]
+
+          expect(File.read("#{test_app}/Gemfile"))
+            .to match(/^gem "decidim-initiatives"/)
+            .and match(/^gem "decidim-consultations"/)
+        end
+      end
+
       context "without flags" do
         let(:command) { "decidim #{test_app}" }
 
-        it_behaves_like "a sane generator"
+        it_behaves_like "a new production application"
       end
 
       context "with --edge flag" do
         let(:command) { "decidim --edge #{test_app}" }
 
-        it_behaves_like "a sane generator"
+        it_behaves_like "a new production application"
       end
 
       context "with --branch flag" do
         let(:command) { "decidim --branch master #{test_app}" }
 
-        it_behaves_like "a sane generator"
+        it_behaves_like "a new production application"
       end
 
       context "with --path flag" do
         let(:command) { "decidim --path #{repo_root} #{test_app}" }
 
-        it_behaves_like "a sane generator"
+        it_behaves_like "a new production application"
       end
 
       context "with a development application" do
-        let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db" }
+        let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db --demo" }
 
-        it_behaves_like "a sane generator"
+        it_behaves_like "a new development application"
       end
     end
 
@@ -99,7 +95,9 @@ module Decidim
 
       after { FileUtils.rm_rf("decidim-module-#{test_component}") }
 
-      it_behaves_like "a sane generator"
+      it "suceeeds" do
+        expect(result[1]).to be_success, result[0]
+      end
     end
 
     private

@@ -150,6 +150,7 @@ ignore_unused:
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*
+  - decidim.participatory_processes.participatory_processes.filters.*
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*

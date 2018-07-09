@@ -53,7 +53,7 @@ shared_examples_for "coauthorable" do
       context "when there are many user_groups" do
         before do
           coauthorable.coauthorships.clear
-          other_user_groups.reverse.each do |ug|
+          other_user_groups.each do |ug|
             Decidim::Coauthorship.create(author: ug.memberships.first.user, user_group: ug, coauthorable: coauthorable)
           end
         end
@@ -94,16 +94,16 @@ shared_examples_for "coauthorable" do
       end
       context "when there are many coauthors of both types" do
         before do
-          other_authors.reverse.each { |author| coauthorable.authors << author }
-          other_user_groups.reverse.each do |user_group|
+          other_authors.each { |author| coauthorable.authors << author }
+          other_user_groups.each do |user_group|
             Decidim::Coauthorship.create(author: user_group.memberships.first.user, user_group: user_group, coauthorable: coauthorable)
           end
         end
         it "returns an array of identities" do
-          identities = other_user_groups
+          identities = [creator_author]
           identities += other_authors
-          identities << creator_author
-          expect(coauthorable.identities).to eq(identities)
+          identities += other_user_groups
+          expect(coauthorable.identities.to_a).to eq(identities)
         end
       end
     end

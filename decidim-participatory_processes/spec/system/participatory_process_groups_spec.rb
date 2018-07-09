@@ -59,7 +59,7 @@ describe "Participatory Process Groups", type: :system do
 
     it "lists all the processes" do
       within "#processes-grid" do
-        within "#processes-grid h2" do
+        within "#processes-grid h1" do
           expect(page).to have_content("2")
         end
 

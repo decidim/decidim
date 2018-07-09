@@ -25,7 +25,7 @@ module Decidim
 
     def update_notifications_settings
       @user.email_on_notification = @form.email_on_notification
-      @user.newsletter_notifications = @form.newsletter_notifications
+      @user.newsletter_notifications_at = @form.newsletter_notifications_at
     end
   end
 end

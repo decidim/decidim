@@ -28,7 +28,7 @@ module Decidim
           body: @proposal.body,
           votes: @proposal.proposal_votes_count,
           comments: @proposal.comments.count,
-          created_at: @proposal.created_at,
+          published_at: @proposal.published_at,
           url: url,
           component: { id: component.id },
           meeting_urls: meetings

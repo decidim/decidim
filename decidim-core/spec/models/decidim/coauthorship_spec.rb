@@ -40,23 +40,5 @@ describe Decidim::Coauthorship do
 
       it { is_expected.to be_invalid }
     end
-
-    describe "identity" do
-      context "when author is a user" do
-        it "returns the referenced user" do
-          expect(subject.identity).to eq(subject.author)
-        end
-      end
-      context "when author is a user_group" do
-        let(:author) { coauthorship.author }
-        let(:user_group) { create(:user_group, :verified, organization: author.organization, users: [author]) }
-
-        before { subject.user_group = user_group }
-
-        it "returns the referenced user_group" do
-          expect(subject.identity).to eq(user_group)
-        end
-      end
-    end
   end
 end

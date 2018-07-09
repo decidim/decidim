@@ -13,11 +13,29 @@ module Decidim
         return permission_action if permission_action.subject != :project
 
         case permission_action.action
+        when :vote
+          can_vote_project?(project || order&.projects&.first)
         when :report
           permission_action.allow!
         end
 
         permission_action
+      end
+
+      private
+
+      def project
+        @project ||= context.fetch(:project, nil)
+      end
+
+      def order
+        @order ||= context.fetch(:order, nil)
+      end
+
+      def can_vote_project?(a_project)
+        is_allowed = a_project && authorized?(:vote)
+
+        toggle_allow(is_allowed)
       end
     end
   end

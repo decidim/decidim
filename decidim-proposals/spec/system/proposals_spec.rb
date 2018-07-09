@@ -50,9 +50,9 @@ describe "Proposals", type: :system do
 
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
-      expect(page).to have_author(proposal.author.name)
+      expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
-      expect(page).to have_creation_date(I18n.l(proposal.created_at, format: :decidim_short))
+      expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do
@@ -77,7 +77,7 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, component: component, author: nil) }
+      let!(:official_proposal) { create(:proposal, :official, component: component) }
 
       it "shows the author as official" do
         visit_component
@@ -193,7 +193,7 @@ describe "Proposals", type: :system do
       let(:proposal) { proposals.first }
 
       before do
-        Decidim::DestroyAccount.call(proposal.author, Decidim::DeleteAccountForm.from_params({}))
+        Decidim::DestroyAccount.call(proposal.creator_author, Decidim::DeleteAccountForm.from_params({}))
       end
 
       it "the user is displayed as a deleted user" do
@@ -242,6 +242,7 @@ describe "Proposals", type: :system do
         expect(page).to have_selector(".card--proposal", count: 2)
         expect(page).to have_selector(".card--proposal", text: lucky_proposal.title)
         expect(page).to have_selector(".card--proposal", text: unlucky_proposal.title)
+        expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
 

@@ -26,7 +26,7 @@ module Decidim
             follower = create(:user, organization: proposal.organization)
             create(:follow, followable: current_user, user: follower)
             author_follower = create(:user, organization: proposal.organization)
-            create(:follow, followable: proposal.author, user: author_follower)
+            create(:follow, followable: proposal.authors.first, user: author_follower)
 
             expect(Decidim::EventsManager)
               .to receive(:publish)

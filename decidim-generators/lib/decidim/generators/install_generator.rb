@@ -148,20 +148,12 @@ module Decidim
 
       # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
-        with_original_env do
-          abort unless system("bin/rails", *args)
-        end
+        abort unless system("bin/rails", *args)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
-        with_original_env do
-          system("bin/rails", *args, err: File::NULL)
-        end
-      end
-
-      def with_original_env
-        options[:skip_gemfile] ? yield : Bundler.with_original_env { yield }
+        system("bin/rails", *args, err: File::NULL)
       end
 
       def scss_variables
