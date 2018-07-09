@@ -38,6 +38,10 @@ ca:
             base:
               too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
               too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Aquest correu electrònic ja ha estat convidat
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -160,12 +164,23 @@ ca:
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una trobada a %{application}. Pots acceptar la invitació a través de l'enllaç següent."
+            decline: Declina la invitació
+            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a unir-te a una reunió a l' %{application}. Podeu rebuig o acceptar-lo a través dels enllaços a continuació."
             join: Uneix-te a la trobada '%{meeting_title}'
         invites:
           create:
             error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
             success: L'usuari s'ha convidat correctament a unir-se a la trobada.
+          index:
+            filter:
+              accepted: Acceptat
+              all: Tots
+              rejected: Rebutjada
+              sent: Enviat
+            filter_by: Filtra per
+            invite_attendee: Convida l'assistent
+            invites: Convida
+            search: Cerca
           new:
             explanation: L'usuari serà convidat a participar en una trobada. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
             invite: Convidar
@@ -228,7 +243,7 @@ ca:
             save: Desa
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
-            invite_user: Convida l'usuari
+            invites: Convida
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
@@ -238,6 +253,10 @@ ca:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
       admin_log:
+        invite:
+          create: "%{user_name} convidats %{attendee_name} a unir-se a %{resource_name} reunions a l'espai %{space_name}"
+          deleted: "%{user_name} sense invitació %{attendee_name} d'unir-se a la %{resource_name} reunió a l'espai %{space_name}"
+          update: "%{user_name} convidats %{attendee_name} a unir-se a %{resource_name} reunions a l'espai %{space_name}"
         meeting:
           close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
@@ -296,6 +315,16 @@ ca:
             other: "%{count} inscripcions restants"
           view: Veure
       models:
+        invite:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            sent_at: Enviat a
+            status: Estat
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Rebutjat (%{at})
+            sent: Enviat
         meeting:
           fields:
             closed: Tancada
@@ -312,6 +341,9 @@ ca:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
           success: T'has inscrit a la reunió amb èxit.
+        decline_invitation:
+          invalid: Hi ha hagut un problema en disminuir la invitació.
+          success: Has rebutjat la invitació amb èxit.
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
