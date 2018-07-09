@@ -18,14 +18,14 @@ fr:
       comments: Commentaires
       votes:
         create:
-          error: Une erreur s'est produite lors du soutien du commentaire.
+          error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
         form:
           body:
             label: Commentaire
-            placeholder: Que pensez-vous de cela?
+            placeholder: Que pensez-vous de cela ?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Publier
           user_group_id:
@@ -33,7 +33,7 @@ fr:
         opinion:
           neutral: Neutre
         remaining_characters: "%{count} caractères restants"
-        remaining_characters_1: "%{count} caractères restants"
+        remaining_characters_1: "%{count} caractère restant"
         title: Ajoutez votre commentaire
       comment:
         alignment:
@@ -48,16 +48,16 @@ fr:
           description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
-            does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-            offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
-            spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
+            does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+            offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
+            spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un problème
       comment_order_selector:
         order:
           best_rated: Les mieux notés
           most_discussed: Les plus débattus
           older: Les plus anciens
-          recent: Les plus récentes
+          recent: Les plus récents
         title: 'Classement par :'
       comment_thread:
         title: Conversation avec %{authorName}
@@ -69,33 +69,19 @@ fr:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez désabonner de cet utilisateur depuis sa page de profil.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
-        comment_authorized:
-          email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
-          email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-          email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
-          notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
-          url: "Url du commentaire : %{resource_url}"
-          reply:
-            email_intro: '"%{resource_title}" a reçu un commentaire'
-            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-            email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
-            url: "Url du commentaire : %{resource_url}"
         comment_created:
-          email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire sur cette page:'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
-          email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
-          notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
-          url: "Url du commentaire : %{resource_url}"
-          reply:
-            email_intro: '"%{resource_title}" a été commenté'
-            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
-            email_subject: Il y a une nouvelle réponse à votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
-            url: "Url du commentaire : %{resource_url}"
+          email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page :"
+          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
+          email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
+          notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
+          email_outro: Vous venez de recevoir une notification à votre commentaire.
+          email_subject: "%{author_name} a répondu à votre commentaire dans %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagi à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.

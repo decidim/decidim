@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     models:
@@ -11,10 +10,10 @@ fr:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette article ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouvel article
         title: Actions
       admin:
         models:
@@ -47,28 +46,28 @@ fr:
             title: titre
       posts:
         show:
-          view: Vue
+          view: Voir
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
-      read_more: Lire la suite
+      read_more: Voir la suite
     components:
       blogs:
         name: Actualités
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Commentaires désactivés
     events:
       blogs:
         post_created:
           email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié en %{participatory_space_title}
+          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
     participatory_processes:
       statistics:
         posts_count: Articles

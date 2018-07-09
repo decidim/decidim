@@ -17,11 +17,11 @@ fr:
     budgets:
       actions:
         attachment_collections: Dossiers
-        attachments: Pièces jointes
-        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet ?
+        attachments: Documents liés
+        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouveau projet
         preview: Aperçu
         title: Actions
       admin:
@@ -43,9 +43,9 @@ fr:
             title: Projets
           new:
             create: Créer
-            title: Nouveau résultat
+            title: Nouveau projet
           update:
-            invalid: Il y a eu un problème lors de mise à jour de ce projet
+            invalid: Il y a eu un problème lors de la mise à jour de ce projet
             success: Projet mis à jour avec succès
       admin_log:
         project:
@@ -86,10 +86,10 @@ fr:
           category_prompt: Sélectionner une catégorie
           search: Rechercher
         filters_small_view:
-          close_modal: Fermer la vue
+          close_modal: Fermez la fenêtre
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Déplier
+          unfold: Voir la suite
         order_progress:
           vote: Voter
         order_selected_projects:
@@ -118,16 +118,16 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Annonce
             comments_enabled: Activer le module de commentaire
             projects_per_page: Projets par page
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
-            announcement: Message d'annonce
-            comments_blocked: Bloquer la création de nouveaux commentaires
+            announcement: Annonce
+            comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
-            votes_enabled: Autoriser les utilisateurs à voter pour le budget
+            votes_enabled: Votes activés
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
