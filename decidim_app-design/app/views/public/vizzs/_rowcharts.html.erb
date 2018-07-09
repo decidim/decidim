@@ -34,11 +34,14 @@
 </div>
 <br />
 <div class="row column">
-  <h4>Versión con muchas categorías</h4>
-  <code>partial "rowchart", metric: "metrica"</code>
+  <h4>Versión con muchas categorías (<code>máximo 12</code>)</h4>
+  <div class="callout warning">
+    Se aumenta el <em>aspect ratio</em> a <strong>1:2</strong> por propósitos de visualización
+  </div>
+  <code>partial "rowchart", metric: "metrica", ratio: "1:2"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "rowchart", metric: "rowchart-3", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+  <%= partial "rowchart", metric: "rowchart-3", ratio: "1:2", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
 </div>
 <br />
 <div class="row column">
@@ -68,7 +71,7 @@
 <div class="row column">
   <h4>Diferentes colores según su status</h4>
   <div class="callout warning">
-    El color que coge por defecto es el de la variable CSS <code>$proposals</code>
+    El color por defecto es el de la variable CSS <code>$proposals</code>
   </div>
   <code>partial "rowchart", classes: "secondary|warning|success|alert", metric: "metrica"</code>
 </div>
@@ -88,6 +91,19 @@
 </div>
 <br />
 <div class="row column">
+  <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
+  <code>partial "rowchart", metric: "metrica", tip: false</code>
+</div>
+<div class="row mt-s">
+  <div class="column medium-9">
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
+  </div>
+  <div class="column medium-9">
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
+  </div>
+</div>
+<br />
+<div class="row column">
   <h4>Adaptables al contenedor</h4>
   <div class="callout warning">
     Debido a la naturaleza del gráfico, mostrar varios en la misma fila puede resultar confuso, debido a la etiquetas
@@ -96,7 +112,7 @@
 <div class="row">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "rowchart", ratio: "1:1", metric: "rowchart-0", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", ratio: "1:2", metric: "rowchart-0", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
   </div>
   <% end %>
 </div>
