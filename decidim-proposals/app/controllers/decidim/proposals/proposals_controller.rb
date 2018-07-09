@@ -11,7 +11,6 @@ module Decidim
       include Orderable
       include Paginable
 
-      helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
@@ -199,10 +198,6 @@ module Decidim
       end
 
       private
-
-      def geocoded_proposals
-        @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)
-      end
 
       def search_klass
         ProposalSearch

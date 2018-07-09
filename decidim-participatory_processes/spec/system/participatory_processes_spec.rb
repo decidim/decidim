@@ -119,12 +119,6 @@ describe "Participatory Processes", type: :system do
 
     context "and filtering processes" do
       context "and choosing 'active' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "Active"
-          end
-        end
-
         it "lists the active processes" do
           within "#processes-grid h2" do
             expect(page).to have_content("2")

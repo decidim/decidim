@@ -442,6 +442,8 @@ workflows:
               ignore:
                 - l10n_master
                 - l10n_0.12-stable
+          requires:
+            - main
       - build_test_app:
           filters:
             branches:
@@ -460,66 +462,86 @@ workflows:
               ignore:
                 - l10n_master
                 - l10n_0.12-stable
+          requires:
+            - main
       - core:
           requires:
             - build_test_app
+            - main
       - assemblies:
           requires:
             - build_test_app
+            - main
       - initiatives:
           requires:
             - build_test_app
+            - main
       - api:
           requires:
             - build_test_app
+            - main
       - participatory_processes:
           requires:
             - build_test_app
+            - main
       - admin:
           requires:
             - build_test_app
+            - main
       - system:
           requires:
             - build_test_app
+            - main
       - proposals:
           requires:
             - build_test_app
+            - main
       - sortitions:
           requires:
             - build_test_app
+            - main
       - blogs:
           requires:
             - build_test_app
+            - main
       - consultations:
           requires:
             - build_test_app
+            - main
       - comments:
           requires:
             - build_test_app
+            - main
       - meetings:
           requires:
             - build_test_app
+            - main
       - pages:
           requires:
             - build_test_app
+            - main
       - accountability:
           requires:
             - build_test_app
+            - main
       - budgets:
           requires:
             - build_test_app
+            - main
       - surveys:
           requires:
             - build_test_app
+            - main
       - verifications:
           requires:
             - build_test_app
+            - main
       - debates:
           requires:
             - build_test_app
+            - main
       - upload-coverage:
           requires:
-            - main
             - generators
             - core
             - assemblies
