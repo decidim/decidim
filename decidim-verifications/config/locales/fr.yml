@@ -54,13 +54,13 @@ fr:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
             dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
-            id_documents: Soyez vérifié en téléchargeant votre document d'identité
-            postal_letter: Faites-vous vérifier en recevant un code de vérification par courrier postal
+            id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
+            postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
           title: Vérifier votre Identité
-          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
+          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         new:
           authorize: Envoyer
-          authorize_with: Vérifier avec %{authorizer}
+          authorize_with: Vérifier votre identité avec %{authorizer}
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
       dummy_authorization:
