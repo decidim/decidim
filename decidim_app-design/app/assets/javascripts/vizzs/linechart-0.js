@@ -3,155 +3,125 @@
 DATACHARTS = DATACHARTS || {}
 DATACHARTS["linechart-0"] = [
   {
-    "key": "2017-06-12T12:10:02-02:00",
+    "key": "South Dakota",
     "value": [
       {
-        "key": "Massachusetts",
+        "key": "2017-10-19T02:36:25-02:00",
+        "value": 14
+      },
+      {
+        "key": "2016-09-20T08:33:37-02:00",
+        "value": 16
+      },
+      {
+        "key": "2016-10-05T09:03:02-02:00",
+        "value": 46
+      },
+      {
+        "key": "2017-07-16T04:56:14-02:00",
         "value": 34
       },
       {
-        "key": "Alaska",
-        "value": 44
+        "key": "2017-12-18T07:32:08-01:00",
+        "value": 20
       },
       {
-        "key": "Oklahoma",
-        "value": 29
-      }
-    ]
-  },
-  {
-    "key": "2016-09-05T07:15:07-02:00",
-    "value": [
-      {
-        "key": "Massachusetts",
-        "value": 38
-      },
-      {
-        "key": "Alaska",
-        "value": 18
-      },
-      {
-        "key": "Oklahoma",
-        "value": 26
-      }
-    ]
-  },
-  {
-    "key": "2017-08-08T05:41:15-02:00",
-    "value": [
-      {
-        "key": "Massachusetts",
-        "value": 25
-      },
-      {
-        "key": "Alaska",
-        "value": 16
-      },
-      {
-        "key": "Oklahoma",
-        "value": 18
-      }
-    ]
-  },
-  {
-    "key": "2017-03-02T02:09:23-01:00",
-    "value": [
-      {
-        "key": "Massachusetts",
-        "value": 33
-      },
-      {
-        "key": "Alaska",
-        "value": 12
-      },
-      {
-        "key": "Oklahoma",
-        "value": 31
-      }
-    ]
-  },
-  {
-    "key": "2017-04-23T08:55:43-02:00",
-    "value": [
-      {
-        "key": "Massachusetts",
+        "key": "2017-09-02T10:28:54-02:00",
         "value": 17
       },
       {
-        "key": "Alaska",
-        "value": 45
+        "key": "2017-01-19T04:50:01-01:00",
+        "value": 33
       },
       {
-        "key": "Oklahoma",
-        "value": 16
+        "key": "2016-03-26T04:57:24-01:00",
+        "value": 50
+      },
+      {
+        "key": "2017-03-30T10:23:57-02:00",
+        "value": 20
       }
     ]
   },
   {
-    "key": "2017-12-20T01:53:52-01:00",
+    "key": "Minnesota",
     "value": [
       {
-        "key": "Massachusetts",
-        "value": 38
+        "key": "2017-08-12T01:18:07-02:00",
+        "value": 15
       },
       {
-        "key": "Alaska",
+        "key": "2017-11-01T03:21:37-01:00",
+        "value": 24
+      },
+      {
+        "key": "2016-02-23T08:08:19-01:00",
+        "value": 35
+      },
+      {
+        "key": "2017-03-28T01:09:58-02:00",
+        "value": 22
+      },
+      {
+        "key": "2017-04-07T12:26:51-02:00",
         "value": 26
       },
       {
-        "key": "Oklahoma",
-        "value": 43
-      }
-    ]
-  },
-  {
-    "key": "2016-11-17T09:44:16-01:00",
-    "value": [
-      {
-        "key": "Massachusetts",
-        "value": 23
+        "key": "2016-09-27T05:58:05-02:00",
+        "value": 30
       },
       {
-        "key": "Alaska",
-        "value": 44
-      },
-      {
-        "key": "Oklahoma",
-        "value": 21
-      }
-    ]
-  },
-  {
-    "key": "2016-08-20T07:33:34-02:00",
-    "value": [
-      {
-        "key": "Massachusetts",
-        "value": 21
-      },
-      {
-        "key": "Alaska",
-        "value": 29
-      },
-      {
-        "key": "Oklahoma",
+        "key": "2016-10-30T12:27:56-01:00",
         "value": 27
+      },
+      {
+        "key": "2016-08-08T06:57:43-02:00",
+        "value": 21
+      },
+      {
+        "key": "2017-07-26T02:54:42-02:00",
+        "value": 20
       }
     ]
   },
   {
-    "key": "2017-03-01T08:53:43-01:00",
+    "key": "Illinois",
     "value": [
       {
-        "key": "Massachusetts",
-        "value": 11
+        "key": "2017-06-05T03:33:07-02:00",
+        "value": 45
       },
       {
-        "key": "Alaska",
-        "value": 44
+        "key": "2016-07-07T04:25:07-02:00",
+        "value": 31
       },
       {
-        "key": "Oklahoma",
-        "value": 42
+        "key": "2017-01-07T12:57:38-01:00",
+        "value": 49
+      },
+      {
+        "key": "2017-05-16T01:03:17-02:00",
+        "value": 17
+      },
+      {
+        "key": "2017-11-12T04:35:23-01:00",
+        "value": 15
+      },
+      {
+        "key": "2016-08-05T03:15:50-02:00",
+        "value": 40
+      },
+      {
+        "key": "2016-07-01T08:56:02-02:00",
+        "value": 18
+      },
+      {
+        "key": "2017-01-02T06:23:32-01:00",
+        "value": 28
+      },
+      {
+        "key": "2017-02-17T11:44:14-01:00",
+        "value": 43
       }
     ]
   }

@@ -24,6 +24,11 @@
     }
   }
 
+  .line{
+    fill: none;
+    stroke-width: 3px;
+  }
+
   // helper to colors
   @mixin loop-colors-types($color, $max: 12){
     @for $i from 0 through ($max - 1){
@@ -32,7 +37,36 @@
       $shades: shade($color, $interval);
       $adjusts: adjust-color($color, $lightness: $interval, $hue: -$interval);
 
-      .type-#{$i}{
+      .type-#{$i}:not(.legend){
+        @if $i < 4{
+          stroke: $tints;
+
+          &:hover{
+            cursor: pointer;
+            stroke: darken($tints, 20%);
+          }
+        }
+
+        @else if $i >= 4 and $i < 8{
+          stroke: $shades;
+
+          &:hover{
+            cursor: pointer;
+            stroke: lighten($shades, 20%);
+          }
+        }
+
+        @else{
+          stroke: $adjusts;
+
+          &:hover{
+            cursor: pointer;
+            stroke: lighten($adjusts, 20%);
+          }
+        }
+      }
+
+      .type-#{$i}:not(.line){
         @if $i < 4{
           fill: $tints;
 

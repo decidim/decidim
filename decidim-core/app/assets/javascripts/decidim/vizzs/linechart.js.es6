@@ -21,10 +21,8 @@ const renderLineCharts = () => {
     let showTooltip = opts.tip !== "false"
 
     // precalculation
-    // Explanation: get the inner values foreach object outer values, flat the array, remove duplicates
-    let maxValue = d3.max([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))])
     // Explanation: get the inner keys foreach object outer values, flat the array, remove duplicates
-    let keys = [...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]
+    let keys = data.map((f) => f.key)
 
     const legendSize = 15
     const headerHeight = (keys.length * legendSize * 1.2)
@@ -44,13 +42,11 @@ const renderLineCharts = () => {
     // set the ranges
     const x = d3.scaleTime().range([0, width])
     const y = d3.scaleLinear().range([height, 0])
-    const z = d3.scaleOrdinal()
 
     // set the scales
-    x.domain(d3.extent(data, (d) => d.key))
+    x.domain(d3.extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]))
     // group names
-    y.domain([0, maxValue])
-    z.domain(keys)
+    y.domain(d3.extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))]))
 
     // container
     let svg = container.append("svg")
@@ -84,7 +80,7 @@ const renderLineCharts = () => {
       .attr("x", width + margin.left + margin.right - legendSize)
       .attr("width", legendSize)
       .attr("height", legendSize)
-      .attr("class", (d, i) => `type-${i}`)
+      .attr("class", (d, i) => `legend type-${i}`)
 
     legend.append("text")
       .attr("x", width + margin.left + margin.right - legendSize - 4)
@@ -107,17 +103,15 @@ const renderLineCharts = () => {
       .attr("transform", `translate(${margin.left},${margin.top - headerHeight})`)
 
     let line = d3.line()
-      // .curve(d3.curveBasis)
-      .x((d) => x(new Date(d.ref)))
+      .curve(d3.curveBasis)
+      .x((d) => x(d.key))
       .y((d) => y(d.value))
 
     let cat = g.selectAll("path")
       .data(data)
       .enter().append("path")
-      .attr("d", (d) => {
-        console.log(d.value);
-        return line(d.value)
-      })
+      .attr("d", (d) => line(d.value))
+      .attr("class", (d) =>  `line type-${keys.indexOf(d.key)}`)
 
     // axis
     let xAxis = d3.axisBottom(x)
@@ -146,24 +140,6 @@ const renderLineCharts = () => {
     g.append("g")
       .attr("class", "y axis")
       .call(_yAxis)
-
-    // bars
-    // let barGroup = g.append("g")
-    //   .selectAll("g")
-    //   .data(data)
-    //   .enter().append("g")
-    //   .attr("class", "group")
-    //   .attr("transform", (d) => `translate(0,${y(d.key)})`)
-    //
-    // barGroup.selectAll("rect")
-    //   .data((d) => d.value)
-    //   .enter().append("rect")
-    //   .attr("y", (d) => y(d.key))
-    //   .attr("height", y.bandwidth())
-    //   .attr("class", (d) =>  `type-${keys.indexOf(d.key)}`)
-    //   .transition()
-    //   .duration(500)
-    //   .attr("width", (d) => x(d.value))
 
     // tooltip
     if (showTooltip) {
@@ -248,14 +224,17 @@ const renderLineCharts = () => {
     }
 
     // OPTIONAL: Helper function to preprocess the data
-    const parseData = (data) => {
+    const parseDates = (data) => {
       // format the data
       data.forEach((d) => {
-        d.key = d3.isoParse(d.key)
+        d.value.forEach((f) => {
+          f.key = d3.isoParse(f.key)
+        })
+
+        d.value.sort((x, y) => d3.ascending(x.key, y.key))
       });
 
-      // order by date
-      return data.sort((x, y) => d3.ascending(x.key, y.key))
+      return data
     }
 
     // MANDATORY: HTML must contain which metric should it display
@@ -271,7 +250,7 @@ const renderLineCharts = () => {
 
     if (data) {
       let config = init(container.dataset)
-      let dataModified = parseData(addRefs(data))
+      let dataModified = parseDates(addRefs(data))
 
       if (config.percent === "true") {
         dataModified = percentage(dataModified)
