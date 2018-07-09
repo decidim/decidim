@@ -12,6 +12,7 @@ module Decidim
     include Decidim::Followable
     include Decidim::Loggable
     include Decidim::DataPortability
+    include Decidim::Searchable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
@@ -51,6 +52,17 @@ module Decidim
 
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
+
+    attr_accessor :newsletter_notifications
+
+    searchable_fields({
+                        # scope_id: :decidim_scope_id,
+                        organization_id: :decidim_organization_id,
+                        A: :name,
+                        datetime: :created_at
+                      },
+                      index_on_create: ->(user) { !user.deleted? },
+                      index_on_update: ->(user) { !user.deleted? })
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?

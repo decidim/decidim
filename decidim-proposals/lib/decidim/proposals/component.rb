@@ -128,8 +128,6 @@ Decidim.register_component(:proposals) do |component|
     end
 
     5.times do |n|
-      author = Decidim::User.where(organization: component.organization).all.sample
-      user_group = [true, false].sample ? author.user_groups.verified.sample : nil
       state, answer = if n > 3
                         ["accepted", Decidim::Faker::Localized.sentence(10)]
                       elsif n > 2
@@ -151,7 +149,12 @@ Decidim.register_component(:proposals) do |component|
         answered_at: Time.current,
         published_at: Time.current
       )
-      proposal.add_coauthor(author, user_group: user_group) if n.even?
+      if n.positive?
+        Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
+          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          proposal.add_coauthor(author, user_group: user_group)
+        end
+      end
 
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
