@@ -1,8 +1,9 @@
-/* global renderAreaCharts, renderRowCharts */
+/* global renderAreaCharts, renderRowCharts, renderLineCharts */
 $(() => {
   const render = () => {
     renderAreaCharts()
     renderRowCharts()
+    renderLineCharts()
   }
 
   // init

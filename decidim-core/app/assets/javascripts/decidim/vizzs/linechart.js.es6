@@ -1,13 +1,13 @@
-/* eslint-disable max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-sequences, no-ternary */
+/* eslint-disable max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 /* global d3, DATACHARTS, fetchDatacharts */
 
 // = require d3
 
-const renderRowCharts = () => {
+const renderLineCharts = () => {
   // lib
-  const rowchart = (opts = {}) => {
+  const linechart = (opts = {}) => {
     // remove any previous chart
     $(opts.container).empty()
 
@@ -30,43 +30,27 @@ const renderRowCharts = () => {
     const headerHeight = (keys.length * legendSize * 1.2)
     const gutter = 5
 
-    // estimation Y-labels length
-    // get the mean of each label length
-    const getMarginLeftLengthEstimation = () => {
-      let avgLabelLength = data.map((f) => f.key.length).reduce((a, b) => a + b) / data.length
-      let initialMarginLeft = Number(container.node().getBoundingClientRect().width) * 0.25
-      let maxLabelLengthAllowed = Number(container.node().getBoundingClientRect().width) * 0.4
-
-      // Pre-estimated number, after testing
-      const longLabelEstimation = 50
-
-      return (avgLabelLength < longLabelEstimation)
-        ? initialMarginLeft
-        : maxLabelLengthAllowed
-    }
-
     // set the dimensions and margins of the graph
     let margin = {
       top: headerHeight + (gutter * 2),
       right: gutter * 2,
       bottom: gutter * 6,
-      left: getMarginLeftLengthEstimation()
+      left: gutter * 2
     }
 
     let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
     let height = (width / ratio) - margin.top - margin.bottom
 
     // set the ranges
-    const x = d3.scaleLinear().rangeRound([0, width])
-    const y0 = d3.scaleBand().rangeRound([height, 0]).paddingInner(0.1)
-    const y1 = d3.scaleBand().padding(0.05)
+    const x = d3.scaleTime().range([0, width])
+    const y = d3.scaleLinear().range([height, 0])
+    const z = d3.scaleOrdinal()
 
     // set the scales
-    x.domain([0, maxValue]).nice()
+    x.domain(d3.extent(data, (d) => d.key))
     // group names
-    y0.domain(data.map((d) => d.key))
-    // individual values for each group
-    y1.domain(keys).rangeRound([0, y0.bandwidth()])
+    y.domain([0, maxValue])
+    z.domain(keys)
 
     // container
     let svg = container.append("svg")
@@ -122,12 +106,25 @@ const renderRowCharts = () => {
     let g = lower.append("g")
       .attr("transform", `translate(${margin.left},${margin.top - headerHeight})`)
 
+    let line = d3.line()
+      // .curve(d3.curveBasis)
+      .x((d) => x(new Date(d.ref)))
+      .y((d) => y(d.value))
+
+    let cat = g.selectAll("path")
+      .data(data)
+      .enter().append("path")
+      .attr("d", (d) => {
+        console.log(d.value);
+        return line(d.value)
+      })
+
     // axis
     let xAxis = d3.axisBottom(x)
       .ticks(5)
       .tickSize(-height)
       .tickFormat(xTickFormat)
-    let yAxis = d3.axisLeft(y0)
+    let yAxis = d3.axisLeft(y)
 
     let _xAxis = (xg) => {
       xg.call(xAxis)
@@ -138,47 +135,7 @@ const renderRowCharts = () => {
     let _yAxis = (yg) => {
       yg.call(yAxis)
       yg.select(".domain").remove()
-      yg.selectAll(".tick line").remove()
-      yg.selectAll(".tick text")
-        .attr("class", "text-large")
-        .each(function() {
-          let text = d3.select(this)
-          let limitLength = margin.left - (gutter * 10)
-
-          if (text.node().getComputedTextLength() > limitLength) {
-            let words = text.text().split(/\s+/).reverse()
-            let word = ""
-            let line = []
-            let lineNumber = 1
-            let dy = text.attr("dy")
-            let tspan = text.text(null).append("tspan")
-              .attr("x", -9)
-              .attr("dy", `-${dy}`)
-
-            while (word = words.pop()) {
-              if (tspan.node().getComputedTextLength() > limitLength) {
-
-                if (lineNumber > 1) {
-                  line.pop()
-                  tspan.html(`${line.join(" ")}&hellip;`)
-                  break
-                }
-
-                line.pop();
-                tspan.text(line.join(" "));
-                line = [word];
-                tspan = text.append("tspan")
-                  .attr("x", -9)
-                  .attr("dy", `${1 + (lineNumber * parseFloat(dy))}em`)
-                  .text(word);
-                lineNumber += 1
-              }
-
-              line.push(word);
-              tspan.text(line.join(" "))
-            }
-          }
-        })
+      yg.selectAll(".tick text").attr("text-anchor", "start").attr("x", 6)
     }
 
     g.append("g")
@@ -191,22 +148,22 @@ const renderRowCharts = () => {
       .call(_yAxis)
 
     // bars
-    let barGroup = g.append("g")
-      .selectAll("g")
-      .data(data)
-      .enter().append("g")
-      .attr("class", "group")
-      .attr("transform", (d) => `translate(0,${y0(d.key)})`)
-
-    barGroup.selectAll("rect")
-      .data((d) => d.value)
-      .enter().append("rect")
-      .attr("y", (d) => y1(d.key))
-      .attr("height", y1.bandwidth())
-      .attr("class", (d) =>  `type-${keys.indexOf(d.key)}`)
-      .transition()
-      .duration(500)
-      .attr("width", (d) => x(d.value))
+    // let barGroup = g.append("g")
+    //   .selectAll("g")
+    //   .data(data)
+    //   .enter().append("g")
+    //   .attr("class", "group")
+    //   .attr("transform", (d) => `translate(0,${y(d.key)})`)
+    //
+    // barGroup.selectAll("rect")
+    //   .data((d) => d.value)
+    //   .enter().append("rect")
+    //   .attr("y", (d) => y(d.key))
+    //   .attr("height", y.bandwidth())
+    //   .attr("class", (d) =>  `type-${keys.indexOf(d.key)}`)
+    //   .transition()
+    //   .duration(500)
+    //   .attr("width", (d) => x(d.value))
 
     // tooltip
     if (showTooltip) {
@@ -215,33 +172,33 @@ const renderRowCharts = () => {
         .attr("class", "chart-tooltip")
         .style("opacity", 0)
 
-      barGroup.selectAll("rect")
-        .on("mouseover", () => {
-          tooltip.style("opacity", 1)
-        })
-        .on("mouseout", () => {
-          tooltip.style("opacity", 0)
-        })
-        .on("mousemove", function(d) {
-          // svg position relative to document
-          let coords = {
-            x: window.pageXOffset + container.node().getBoundingClientRect().left,
-            y: window.pageYOffset + container.node().getBoundingClientRect().top
-          }
-
-          let tooltipContent = `
-            <div class="tooltip-content">
-              ${d.key}: ${d.value.toLocaleString()}
-            </div>`
-
-          tooltip.html(tooltipContent)
-            .style("left", `${coords.x + (x(d.value) / 2) + margin.left}px`)
-            .style("top", `${coords.y + y1(d.key) + y0(d.ref) + margin.top}px`)
-        })
+      // barGroup.selectAll("rect")
+      //   .on("mouseover", () => {
+      //     tooltip.style("opacity", 1)
+      //   })
+      //   .on("mouseout", () => {
+      //     tooltip.style("opacity", 0)
+      //   })
+      //   .on("mousemove", function(d, p, e, l, h) {
+      //     // svg position relative to document
+      //     let coords = {
+      //       x: window.pageXOffset + container.node().getBoundingClientRect().left,
+      //       y: window.pageYOffset + container.node().getBoundingClientRect().top
+      //     }
+      //
+      //     let tooltipContent = `
+      //       <div class="tooltip-content">
+      //         ${d.key}: ${d.value.toLocaleString()}
+      //       </div>`
+      //
+      //     tooltip.html(tooltipContent)
+      //       .style("left", `${coords.x + (x(d.value) / 2) + margin.left}px`)
+      //       .style("top", `${coords.y + y1(d.key) + y0(d.ref) + margin.top}px`)
+      //   })
     }
   }
 
-  return $(".rowchart:visible").each((i, container) => {
+  return $(".linechart:visible").each((i, container) => {
 
     // Initialize dataset values
     const init = (dataset) => {
@@ -290,6 +247,17 @@ const renderRowCharts = () => {
       return parentize
     }
 
+    // OPTIONAL: Helper function to preprocess the data
+    const parseData = (data) => {
+      // format the data
+      data.forEach((d) => {
+        d.key = d3.isoParse(d.key)
+      });
+
+      // order by date
+      return data.sort((x, y) => d3.ascending(x.key, y.key))
+    }
+
     // MANDATORY: HTML must contain which metric should it display
     // If there's no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
@@ -303,14 +271,14 @@ const renderRowCharts = () => {
 
     if (data) {
       let config = init(container.dataset)
-      let dataModified = addRefs(data)
+      let dataModified = parseData(addRefs(data))
 
       if (config.percent === "true") {
         dataModified = percentage(dataModified)
         config.xTickFormat = (d) => `${d}%`
       }
 
-      rowchart({
+      linechart({
         container: `#${container.id}`,
         title: config.title,
         subtitle: config.subtitle,
