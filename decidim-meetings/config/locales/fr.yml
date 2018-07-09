@@ -135,7 +135,7 @@ fr:
             add_agenda_item_child: Ajouter un point d'ordre du jour
             agenda_item: Point d'ordre du jour
             agenda_item_children: Points de l'ordre du jour
-            down: Descendre
+            down: Vers le bas
             remove: Retirer
             up: Vers le haut
           agenda_item_child:
