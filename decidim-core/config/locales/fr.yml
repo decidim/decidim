@@ -604,6 +604,7 @@ fr:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
+        decline: Refuser l'invitation
         hello: Bonjour %{email},
         ignore: |-
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
