@@ -18,7 +18,7 @@ module Decidim
           create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "acceptedProposals", organization: current_organization)
         end
       end
-      let!(:unaccepted) { create(:metric, day: today , cumulative: 4, quantity: 1, metric_type: "proposals", organization: current_organization) }
+      let!(:unaccepted) { create(:metric, day: today, cumulative: 4, quantity: 1, metric_type: "proposals", organization: current_organization) }
 
       describe "count" do
         let(:query) { "{ count }" }

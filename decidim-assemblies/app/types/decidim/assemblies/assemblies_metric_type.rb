@@ -13,7 +13,6 @@ module Decidim
       def self.base_scope(organization, type = :count)
         Rails.cache.fetch("assemblies_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
           Decidim::Assemblies::Metrics::AssembliesMetricCount.for(organization, counter_type: type)
-
         end
       end
     end

@@ -12,11 +12,6 @@ module Decidim
 
       include_context "with a graphql type"
 
-      let(:created_at_date) { Time.zone.now }
-      let(:component) { create(:proposal_component, :published) }
-      let(:proposal) { create(:proposal, :published, component: component) }
-      let!(:models) { create_list(:proposal_vote, 4, created_at: created_at_date, proposal: proposal) }
-
       let(:today) { Time.zone.today }
       let!(:models) do
         (0..4).each do |count|
