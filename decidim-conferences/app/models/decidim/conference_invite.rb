@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # The data store for an Invite in the Decidim::Conferences component.
-    class ConferenceInvite < Conferences::ApplicationRecord
+    class ConferenceInvite < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::DataPortability
