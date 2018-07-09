@@ -101,4 +101,20 @@ FactoryBot.define do
     visible true
     meeting
   end
+
+  factory :invite, class: "Decidim::Meetings::Invite" do
+    meeting
+    user
+    sent_at { Time.current - 1.day }
+    accepted_at nil
+    rejected_at nil
+
+    trait :accepted do
+      accepted_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+  end
 end
