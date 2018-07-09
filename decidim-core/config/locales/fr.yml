@@ -343,7 +343,7 @@ fr:
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
       destroy:
         button: Ne plus suivre
-        error: Une erreur s'est produite lors du traitement de votre demande de désabonnement.
+        error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
       current_file: Fichier actuel
       current_image: Image actuelle
