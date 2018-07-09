@@ -38,7 +38,7 @@
     </fieldset>
   </div>
 
-  <%= scopes_picker_field form, :scope_id, root: true %>
+  <%= scopes_picker_filter form, :scope_id %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

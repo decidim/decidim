@@ -16,20 +16,24 @@ module Decidim
       def initiative_types_select(name, options = {})
         selected = object.send(name)
 
-        if selected.present?
-          if selected == "all"
-            types = Decidim::InitiativesType.all.map do |type|
-              [type.title[I18n.locale.to_s], type.id]
-            end
-          else
-            selected = selected.values if selected.is_a?(Hash)
-            selected = [selected] unless selected.is_a?(Array)
-            types = Decidim::InitiativesType.where(id: selected.map(&:to_i)).map do |type|
-              [type.title[I18n.locale.to_s], type.id]
-            end
-          end
-        else
-          types = []
+        # if selected.present?
+        #   if selected == "all"
+        #     types = Decidim::InitiativesType.all.map do |type|
+        #       [type.title[I18n.locale.to_s], type.id]
+        #     end
+        #   else
+        #     selected = selected.values if selected.is_a?(Hash)
+        #     selected = [selected] unless selected.is_a?(Array)
+        #     types = Decidim::InitiativesType.where(id: selected.map(&:to_i)).map do |type|
+        #       [type.title[I18n.locale.to_s], type.id]
+        #     end
+        #   end
+        # else
+        #   types = []
+        # end
+
+        types = Decidim::InitiativesType.all.map do |type|
+          [type.title[I18n.locale.to_s], type.id]
         end
 
         prompt = options.delete(:prompt)
@@ -37,7 +41,7 @@ module Decidim
         multiple = options.delete(:multiple) || false
         html_options = {
           multiple: multiple,
-          class: "select2",
+          class: "select2 initiative-types-select",
           "data-remote-path" => remote_path,
           "data-placeholder" => prompt
         }

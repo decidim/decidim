@@ -47,7 +47,7 @@ module Decidim
         query
           .joins(:scoped_type)
           .where(
-            "decidim_initiatives_type_scopes.decidim_initiatives_types_id = ?",
+            "decidim_initiatives_type_scopes.decidim_initiatives_types_id IN (?)",
             type
           )
       end
