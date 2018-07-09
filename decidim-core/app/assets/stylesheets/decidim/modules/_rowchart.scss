@@ -25,7 +25,7 @@
   }
 
   // helper to colors
-  @mixin loop-even-odd-types($color, $max: 12){
+  @mixin loop-colors-types($color, $max: 12){
     @for $i from 0 through ($max - 1){
       $interval: ($i % 4) * 24 + 1;
       $tints: tint($color, $interval);
@@ -64,14 +64,14 @@
   }
 
   // default color
-  @include loop-even-odd-types($proposals);
+  @include loop-colors-types($proposals);
 
   // colors modifiers
   $map: $foundation-palette;
 
   @each $key, $value in $map{
     &.#{$key}{
-      @include loop-even-odd-types($value);
+      @include loop-colors-types($value);
     }
   }
 }

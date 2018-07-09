@@ -1,7 +1,7 @@
-/* global d3, DATACHARTS, fetchDatacharts */
-/* eslint-disable id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
+/* eslint-disable max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
+/* global d3, DATACHARTS, fetchDatacharts */
 
 // = require d3
 
@@ -204,6 +204,38 @@ const renderRowCharts = () => {
       .transition()
       .duration(500)
       .attr("width", (d) => x(d.value))
+
+    // tooltip
+    if (showTooltip) {
+      let tooltip = d3.select("body").append("div")
+        .attr("id", `${container.node().id}-tooltip`)
+        .attr("class", "chart-tooltip")
+        .style("opacity", 0)
+
+      barGroup.selectAll("rect")
+        .on("mouseover", () => {
+          tooltip.style("opacity", 1)
+        })
+        .on("mouseout", () => {
+          tooltip.style("opacity", 0)
+        })
+        .on("mousemove", function(d, p, e, l, h) {
+          // svg position relative to document
+          let coords = {
+            x: window.pageXOffset + container.node().getBoundingClientRect().left,
+            y: window.pageYOffset + container.node().getBoundingClientRect().top
+          }
+
+          let tooltipContent = `
+            <div class="tooltip-content">
+              ${d.key}: ${d.value.toLocaleString()}
+            </div>`
+
+          tooltip.html(tooltipContent)
+            .style("left", `${coords.x + (x(d.value) / 2) + margin.left}px`)
+            .style("top", `${coords.y + y1(d.key) + y0(d.ref) + margin.top}px`)
+        })
+    }
   }
 
   return $(".rowchart:visible").each((i, container) => {
@@ -242,6 +274,19 @@ const renderRowCharts = () => {
       return percent
     }
 
+    // MANDATORY: Helper function to add a reference to the parent
+    const addRefs = (parentize) => {
+      for (let x = 0; x < parentize.length; x += 1) {
+        if (Object.prototype.hasOwnProperty.call(parentize[x], "value")) {
+          for (let y = 0; y < parentize[x].value.length; y += 1) {
+            parentize[x].value[y].ref = parentize[x].key
+          }
+        }
+      }
+
+      return parentize
+    }
+
     // MANDATORY: HTML must contain which metric should it display
     // If there's no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
@@ -255,7 +300,7 @@ const renderRowCharts = () => {
 
     if (data) {
       let config = init(container.dataset)
-      let dataModified = data
+      let dataModified = addRefs(data)
 
       if (config.percent === "true") {
         dataModified = percentage(data)
