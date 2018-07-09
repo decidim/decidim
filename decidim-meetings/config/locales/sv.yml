@@ -38,6 +38,10 @@ sv:
             base:
               too_many_minutes: Varaktigheten av objekten överstiger mötesperioden med %{count} minuter
               too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendan "%{parent_title}" med %{count} minut
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Det här mailet har redan blivit inbjudet
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -160,12 +164,23 @@ sv:
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
+            decline: Avvisa inbjudan
+            invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan avböja eller acceptera det genom länkarna nedan."
             join: Gå med i mötet "%{meeting_title}"
         invites:
           create:
             error: Det har varit ett problem när du uppmanar användaren att gå med i mötet.
             success: Användaren framgångsrikt inbjuden att delta i mötet.
+          index:
+            filter:
+              accepted: Accepterad
+              all: Allt
+              rejected: avvisade
+              sent: sände
+            filter_by: Filtrera efter
+            invite_attendee: Bjud in deltagare
+            invites: Inbjudningskort
+            search: Sök
           new:
             explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
             invite: Bjud in
@@ -228,7 +243,7 @@ sv:
             save: Spara
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade kortplatser.
-            invite_user: Bjud in användare
+            invites: Inbjudningskort
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har registrerats %{count}.
@@ -238,6 +253,10 @@ sv:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
       admin_log:
+        invite:
+          create: "%{user_name} uppmanade %{attendee_name} att gå med %{resource_name} möte på %{space_name} platsen"
+          deleted: "%{user_name} objudna %{attendee_name} från att gå med %{resource_name} möte på %{space_name} platsen"
+          update: "%{user_name} uppmanade %{attendee_name} att gå med %{resource_name} möte på %{space_name} platsen"
         meeting:
           close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
           create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"
@@ -296,6 +315,16 @@ sv:
             other: "%{count} platser kvar"
           view: Se
       models:
+        invite:
+          fields:
+            email: E-post
+            name: namn
+            sent_at: Skickat på
+            status: Status
+          status:
+            accepted: Accepterad (%{at})
+            rejected: Avvisad (%{at})
+            sent: sände
         meeting:
           fields:
             closed: Stängd
@@ -312,6 +341,9 @@ sv:
         create:
           invalid: Det har varit ett problem att gå med i det här mötet.
           success: Du har gått med på mötet framgångsrikt.
+        decline_invitation:
+          invalid: Det har varit ett problem att minska inbjudan.
+          success: Du har avböjt inbjudan framgångsrikt.
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.
