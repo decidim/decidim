@@ -121,7 +121,7 @@ fr:
         authorizations:
           create:
             error: Il y a eu un problème avec votre demande
-            success: Merci! Nous enverrons un code de vérification à votre adresse
+            success: Merci ! Nous enverrons un code de vérification à votre adresse
           edit:
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
