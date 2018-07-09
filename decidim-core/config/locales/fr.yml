@@ -549,7 +549,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètres d'application
+      scopes: Périmètre d'application
     search:
       filter:
         all: Tout
