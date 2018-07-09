@@ -339,8 +339,8 @@ fr:
       no_followings: Aucun abonnement
     follows:
       create:
-        button: S'abonner
-        error: Une erreur s'est produite lors du traitement de votre demande d'abonnement.
+        button: Suivre
+        error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de désabonnement.
