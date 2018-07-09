@@ -166,7 +166,6 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
@@ -234,7 +233,6 @@ ru:
             save: Сохранить
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
-            invite_user: Пригласить участника
             registrations_count:
               one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
