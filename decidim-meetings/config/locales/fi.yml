@@ -38,6 +38,10 @@ fi:
             base:
               too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
               too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tämä sähköposti on jo kutsuttu
     models:
       decidim/meetings/close_meeting_event: Kokous päättyi
       decidim/meetings/create_meeting_event: Tapaaminen
@@ -160,12 +164,23 @@ fi:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapaamiseen %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+            decline: Hylkää kutsu
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut mukaan kokoukseen klo %{application}. Voit hylätä tai hyväksyä sen alla olevien linkkien kautta."
             join: Liity tapaamiseen "%{meeting_title}"
         invites:
           create:
             error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
             success: Käyttäjä kutsuttu tapahtumaan onnistuneesti.
+          index:
+            filter:
+              accepted: Hyväksytyt
+              all: Kaikki
+              rejected: hylätty
+              sent: Lähetetyt
+            filter_by: Suodata
+            invite_attendee: Kutsu osallistuja
+            invites: kutsut
+            search: Hae
           new:
             explanation: Käyttäjä kutsutaan mukaan tapahtumaan. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
@@ -228,7 +243,7 @@ fi:
             save: Tallenna
           form:
             available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
-            invite_user: Kutsu käyttäjä
+            invites: kutsut
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
@@ -238,6 +253,10 @@ fi:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
       admin_log:
+        invite:
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
+          deleted: "%{user_name} kutsunut %{attendee_name} liittymään %{resource_name} kokoukseen %{space_name} tilassa"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
         meeting:
           close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
           create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"
@@ -296,6 +315,16 @@ fi:
             other: "%{count} paikkaa jäljellä"
           view: näkymä
       models:
+        invite:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            sent_at: Lähetetty osoitteessa
+            status: Status
+          status:
+            accepted: Hyväksytty (%{at})
+            rejected: Hylätty (%{at})
+            sent: Lähetetyt
         meeting:
           fields:
             closed: Suljettu
@@ -312,6 +341,9 @@ fi:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
           success: Olet liittynyt tapahtumaan onnistuneesti.
+        decline_invitation:
+          invalid: Ongelma on hylätty.
+          success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: Tapahtuman ilmoittautumisen perumisessa on tapahtunut virhe.
           success: Olet perunut ilmoittautumisesi tapahtumaan onnistuneesti.
