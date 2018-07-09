@@ -131,7 +131,7 @@ fr:
             title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
-            success: Toutes nos félicitations. Vous avez été vérifié avec succès
+            success: Félicitations, votre identité a été vérifiée avec succès
   errors:
     messages:
-      uppercase_only_letters_numbers: tout doit être en majuscule et ne contenir que des lettres et / ou des chiffres
+      uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres
