@@ -8,6 +8,9 @@
 const renderRowCharts = () => {
   // lib
   const rowchart = (opts = {}) => {
+    // remove any previous chart
+    $(opts.container).empty()
+
     // parse opts
     let data = opts.data
     let title = opts.title
