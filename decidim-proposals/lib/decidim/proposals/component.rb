@@ -150,7 +150,7 @@ Decidim.register_component(:proposals) do |component|
         published_at: Time.current
       )
       if n.positive?
-        Decidim::User.where(organization: component.organization).all.sample(n) do |author|
+        Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
           user_group = [true, false].sample ? author.user_groups.verified.sample : nil
           proposal.add_coauthor(author, user_group: user_group)
         end

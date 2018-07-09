@@ -39,6 +39,14 @@ module Decidim::Meetings
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)
       end
 
+      context "and exists and invite for the user" do
+        let!(:invite) { create(:invite, meeting: meeting, user: user) }
+
+        it "marks the invite as accepted" do
+          expect { subject.call }.to change { invite.reload.accepted_at }.from(nil).to(kind_of(Time))
+        end
+      end
+
       context "when the meeting available slots are occupied over the 50%" do
         before do
           create_list :registration, (available_slots * 0.5).round - 1, meeting: meeting

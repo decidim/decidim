@@ -11,19 +11,17 @@ module Decidim
                         :sorted_results
 
           helper Decidim::WidgetUrlsHelper
-          helper Decidim::ActionAuthorizationHelper
         end
       end
 
       def self.extended(base)
         base.extend Decidim::NeedsOrganization, InstanceMethods
-        base.include Decidim::Consultations::ActionAuthorization
 
         enhance_controller(base)
       end
 
       def self.included(base)
-        base.include Decidim::NeedsOrganization, InstanceMethods, Decidim::Consultations::ActionAuthorization
+        base.include Decidim::NeedsOrganization, InstanceMethods
 
         enhance_controller(base)
       end
