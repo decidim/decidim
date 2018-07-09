@@ -148,4 +148,4 @@ fr:
         sortitions_count:
           count:
             one: 1 tirage au sort
-            other: "%{count} tirage(s) au sort"
+            other: "%{count} tirages au sort"
