@@ -58,10 +58,6 @@ module Decidim
       Decidim::Core::Engine.routes.url_helpers
     end
 
-    def hidden_elements_count_i18n_key
-      "decidim.proposals.#{model.class.name.demodulize}.show.hidden_authors_count"
-    end
-
     def has_authors?
       model.is_a?(Decidim::Authorable) || model.is_a?(Decidim::Coauthorable)
     end
