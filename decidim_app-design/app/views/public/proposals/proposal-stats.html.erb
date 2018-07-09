@@ -23,6 +23,10 @@
     <%= partial "rowchart", metric: "rowchart-2", percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
     <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
+  <div class="row columns">
+    <%= partial "rowchart", metric: "rowchart-3", ratio: "3:4", percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+  </div>
 </main>
 
 <%= partial "template_bottom" %>

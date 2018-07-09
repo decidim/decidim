@@ -25,30 +25,38 @@
   }
 
   // helper to colors
-  @mixin loop-even-odd-types($color, $max: 10){
-    $interval: 100 / $max;
-
+  @mixin loop-even-odd-types($color, $max: 12){
     @for $i from 0 through ($max - 1){
-      $percent: $interval * $i;
-      $even: tint($color, $percent);
-      $odd: shade($color, $percent);
+      $interval: ($i % 4) * 24 + 1;
+      $tints: tint($color, $interval);
+      $shades: shade($color, $interval);
+      $adjusts: adjust-color($color, $lightness: $interval, $hue: -$interval);
 
       .type-#{$i}{
-        @if $i % 2 == 0{
-          fill: $even;
+        @if $i < 4{
+          fill: $tints;
 
           &:hover{
             cursor: pointer;
-            fill: rgba($even, .5);
+            fill: darken($tints, 20%);
+          }
+        }
+
+        @else if $i >= 4 and $i < 8{
+          fill: $shades;
+
+          &:hover{
+            cursor: pointer;
+            fill: lighten($shades, 20%);
           }
         }
 
         @else{
-          fill: $odd;
+          fill: $adjusts;
 
           &:hover{
             cursor: pointer;
-            fill: rgba($odd, .5);
+            fill: lighten($adjusts, 20%);
           }
         }
       }
