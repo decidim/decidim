@@ -9,9 +9,10 @@ module Decidim
       #
       class ConferenceInvitesController < Admin::ApplicationController
         def index
-          #raise Working here
+          # raise Working here
           @conference_invites
         end
+
         def new
           enforce_permission_to :invite_attendee, :conference, conference: conference
 

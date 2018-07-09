@@ -179,12 +179,11 @@ en:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       conference_speaker:
-        show:
-          affiliation: Affiliation
-          charge: Charge
-          personal_url: Personal Url
-          short_bio: Short bio
-          twitter_handle: Twitter
+        affiliation: Affiliation
+        charge: Charge
+        personal_url: Personal Url
+        short_bio: Short bio
+        twitter_handle: Twitter
       conference_speakers:
         index:
           speakers: Speakers
