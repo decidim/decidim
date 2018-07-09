@@ -7,20 +7,14 @@ module Decidim
       description "ResultsMetric definition"
 
       field :count, !types.Int, "Total results" do
-        resolve ->(organization, _args, _ctx) {
-          ResultsMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          ResultsMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          ResultsMetricTypeHelper.base_scope(organization, :metric)
-        }
-      end
-
-      field :data, !types[ResultsMetricObjectType], "Data for each result" do
-        resolve ->(organization, _args, _ctx) {
-          ResultsMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          ResultsMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 

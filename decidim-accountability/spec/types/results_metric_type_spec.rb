@@ -4,41 +4,37 @@ require "spec_helper"
 require "decidim/api/test/type_context"
 
 module Decidim
-  module Assemblies
-    describe AssembliesMetricType, type: :graphql do
+  module Accountability
+    describe ResultsMetricType, type: :graphql do
       before do
         Rails.cache.clear
       end
 
       include_context "with a graphql type"
 
-      let(:published_at_date) { Time.zone.now }
-      let!(:models) { create_list(:assembly, 4, published_at: published_at_date) }
+      let(:today) { Time.zone.today }
+      let!(:models) do
+        (0..4).each do |count|
+          create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "results", organization: current_organization)
+        end
+      end
 
       describe "count" do
         let(:query) { "{ count }" }
 
-        it "returns the Assembly's count" do
-          expect(response).to include("count" => models.size)
+        it "returns the Result's count" do
+          expect(response).to include("count" => 4)
         end
       end
 
       describe "metric" do
         let(:query) { "{ metric { key value } }" }
 
-        it "returns the Assembly's metric data" do
+        it "returns the Result's metric data" do
           data = response.with_indifferent_access
-          expect(data[:metric]).to include("key" => published_at_date.strftime("%Y-%m-%d"), "value" => models.size)
-        end
-      end
-
-      describe "data" do
-        let(:query) { "{ data { published_at } }" }
-
-        it "returns the Assembly's data" do
-          data = response.with_indifferent_access
-          expect(data[:data].size).to eq(models.size)
-          expect(data[:data]).to include("published_at" => published_at_date.strftime("%Y-%m-%d"))
+          expect(data[:metric].size).to eq(5)
+          expect(data[:metric]).to include("key" => today.strftime("%Y-%m-%d"), "value" => 4)
+          expect(data[:metric]).to include("key" => (today - 4.days).strftime("%Y-%m-%d"), "value" => 0)
         end
       end
     end

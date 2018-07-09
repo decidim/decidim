@@ -10,12 +10,9 @@ module Decidim
     end
 
     module ResultsMetricTypeHelper
-      include Decidim::Core::BaseMetricTypeHelper
-
       def self.base_scope(organization, type = :count)
         Rails.cache.fetch("results_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
-          query = Result.includes(:category, :status)
-          base_metric_scope(query, :created_at, type)
+          Decidim::Accountability::Metrics::ResultsMetricCount.for(organization, counter_type: type)
         end
       end
     end

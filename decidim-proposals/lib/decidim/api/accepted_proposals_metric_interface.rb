@@ -18,12 +18,6 @@ module Decidim
         }
       end
 
-      field :data, !types[ProposalsMetricObjectType], "Data for each proposal" do
-        resolve ->(_obj, _args, ctx) {
-          AcceptedProposalsMetricTypeHelper.base_scope(ctx[:current_organization], :data)
-        }
-      end
-
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end

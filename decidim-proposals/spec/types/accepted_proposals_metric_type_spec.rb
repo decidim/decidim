@@ -12,16 +12,19 @@ module Decidim
 
       include_context "with a graphql type"
 
-      let(:published_at_date) { Time.zone.now }
-      let(:component) { create(:proposal_component, :published) }
-      let!(:models) { create_list(:proposal, 4, :accepted, published_at: published_at_date, component: component) }
-      let!(:unaccepted) { create(:proposal, published_at: published_at_date, component: component) }
+      let(:today) { Time.zone.today }
+      let!(:models) do
+        (0..4).each do |count|
+          create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "acceptedProposals", organization: current_organization)
+        end
+      end
+      let!(:unaccepted) { create(:metric, day: today , cumulative: 4, quantity: 1, metric_type: "proposals", organization: current_organization) }
 
       describe "count" do
         let(:query) { "{ count }" }
 
-        it "returns the AcceptedProposal's count" do
-          expect(response).to include("count" => models.size)
+        it "returns the AcceptedProposal's last day cumulative count" do
+          expect(response).to include("count" => 4)
         end
       end
 
@@ -30,17 +33,9 @@ module Decidim
 
         it "returns the AcceptedProposal's metric data" do
           data = response.with_indifferent_access
-          expect(data[:metric]).to include("key" => published_at_date.strftime("%Y-%m-%d"), "value" => models.size)
-        end
-      end
-
-      describe "data" do
-        let(:query) { "{ data { published_at } }" }
-
-        it "returns the AcceptedProposal's data" do
-          data = response.with_indifferent_access
-          expect(data[:data].size).to eq(models.size)
-          expect(data[:data]).to include("published_at" => published_at_date.strftime("%Y-%m-%d"))
+          expect(data[:metric].size).to eq(5)
+          expect(data[:metric]).to include("key" => today.strftime("%Y-%m-%d"), "value" => 4)
+          expect(data[:metric]).to include("key" => (today - 4.days).strftime("%Y-%m-%d"), "value" => 0)
         end
       end
     end

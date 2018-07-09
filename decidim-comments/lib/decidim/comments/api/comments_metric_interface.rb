@@ -7,20 +7,14 @@ module Decidim
       description "CommentsMetric definition"
 
       field :count, !types.Int, "Total comments" do
-        resolve ->(organization, _args, _ctx) {
-          CommentsMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          CommentsMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          CommentsMetricTypeHelper.base_scope(organization, :metric)
-        }
-      end
-
-      field :data, !types[CommentsMetricObjectType], "Data for each comment" do
-        resolve ->(organization, _args, _ctx) {
-          CommentsMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          CommentsMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 

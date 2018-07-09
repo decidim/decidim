@@ -18,12 +18,6 @@ module Decidim
         }
       end
 
-      field :data, !types[VotesMetricObjectType], "Data for each vote" do
-        resolve ->(_obj, _args, ctx) {
-          VotesMetricTypeHelper.base_scope(ctx[:current_organization], :data)
-        }
-      end
-
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end

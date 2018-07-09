@@ -22,7 +22,7 @@ module Decidim
       describe "count" do
         let(:query) { "{ count }" }
 
-        it "returns the User's count" do
+        it "returns the User's last day cumulative count" do
           expect(response).to include("count" => 4)
         end
       end

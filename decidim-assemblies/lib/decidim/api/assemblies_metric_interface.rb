@@ -7,20 +7,14 @@ module Decidim
       description "AssembliesMetric definition"
 
       field :count, !types.Int, "Total assemblies" do
-        resolve ->(organization, _args, _ctx) {
-          AssembliesMetricTypeHelper.base_scope(organization, :count)
+        resolve ->(_obj, _args, ctx) {
+          AssembliesMetricTypeHelper.base_scope(ctx[:current_organization], :count)
         }
       end
 
       field :metric, !types[Decidim::Core::MetricObjectType], "Metric data" do
-        resolve ->(organization, _args, _ctx) {
-          AssembliesMetricTypeHelper.base_scope(organization, :metric)
-        }
-      end
-
-      field :data, !types[AssembliesMetricObjectType], "Data for each assembly" do
-        resolve ->(organization, _args, _ctx) {
-          AssembliesMetricTypeHelper.base_scope(organization, :data)
+        resolve ->(_obj, _args, ctx) {
+          AssembliesMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
         }
       end
 

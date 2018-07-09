@@ -10,12 +10,9 @@ module Decidim
     end
 
     module ProposalsMetricTypeHelper
-      include Decidim::Proposals::BaseProposalMetricTypeHelper
-
       def self.base_scope(organization, type = :count)
         Rails.cache.fetch("proposals_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
-          query = super(organization).except_withdrawn
-          base_metric_scope(query, :published_at, type)
+          Decidim::Proposals::Metrics::ProposalsMetricCount.for(organization, counter_type: type)
         end
       end
     end

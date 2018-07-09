@@ -10,12 +10,10 @@ module Decidim
     end
 
     module AssembliesMetricTypeHelper
-      include Decidim::Core::BaseMetricTypeHelper
-
       def self.base_scope(organization, type = :count)
         Rails.cache.fetch("assemblies_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
-          query = Assembly.includes(:scope, :area).published
-          base_metric_scope(query, :published_at, type)
+          Decidim::Assemblies::Metrics::AssembliesMetricCount.for(organization, counter_type: type)
+
         end
       end
     end

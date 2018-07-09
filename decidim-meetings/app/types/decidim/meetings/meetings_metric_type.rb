@@ -10,12 +10,9 @@ module Decidim
     end
 
     module MeetingsMetricTypeHelper
-      include Decidim::Core::BaseMetricTypeHelper
-
       def self.base_scope(organization, type = :count)
         Rails.cache.fetch("meetings_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
-          query = Meeting.includes(:scope)
-          base_metric_scope(query, :start_time, type)
+          Decidim::Meetings::Metrics::MeetingsMetricCount.for(organization, counter_type: type)
         end
       end
     end
