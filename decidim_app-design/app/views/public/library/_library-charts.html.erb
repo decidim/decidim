@@ -2,152 +2,19 @@
   Por propósitos de visualización el parámetro <em>metric</em> apunta a varios objetos <em>javascript</em> con datos falsos almacenados en la carpeta <code>decidim_app-design/app/assets/javascripts/vizzs</code>.
   Dichas métricas deberán ser editadas en <code>decidim-core/app/assets/javascripts/decidim/vizzs/metrics.js.es6</code>.
 </div>
-<h2 class="section-heading">Gráfica de area</h2>
-<div class="row column">
-  <h4>Versión simple</h4>
-  <code>partial "areachart", metric: "metrica"</code>
-</div>
-<div class="row mt-s">
-  <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s %>
-  </div>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión simple con título dentro</h4>
-  <code>partial "areachart", metric: "metrica", title: "Lorem"</code>
-</div>
-<div class="row mt-s">
-  <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: "lorem" %>
-  </div>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión simple con letra pequeña (poco espacio)</h4>
-  <code>partial "areachart", metric: "metrica", classes: "small"</code>
-</div>
-<div class="row mt-s">
-  <% 4.times do %>
-  <div class="column medium-3">
-    <%= partial "areachart", classes: "small", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión con ejes</h4>
-  <code>partial "areachart", metric: "metrica", axis: true</code>
-</div>
-<div class="row mt-s">
-  <% 2.times do %>
-  <div class="column medium-6">
-    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión con ejes y letra pequeña (axis: <code>true</code> activa la letra pequeña)</h4>
-  <code>partial "areachart", axis: true, metric: "metrica"</code>
-</div>
-<div class="row mt-s">
-  <% 4.times do %>
-  <div class="column medium-3">
-    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
-  <code>partial "areachart", metric: "metrica", tip: false</code>
-</div>
-<div class="row mt-s">
-  <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), tip: false %>
-  </div>
-  <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), axis: true, tip: false %>
-  </div>
-</div>
-<br />
-<div class="row column">
-  <h4>Versión con diferentes ratios</h4>
-  <div class="callout warning">
-    El <code>aspect ratio</code> es un string de la forma <strong>Integer</strong>:<strong>Integer</strong>. Por defecto el valor es <em>4:3</em>
-  </div>
-  <h4>16:9</h4>
-  <code>partial "areachart", ratio: "16:9", metric: "metrica"</code>
-</div>
-<div class="row mt-s">
-  <% 2.times do %>
-  <div class="column medium-6">
-    <%= partial "areachart", ratio: "16:9", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<br />
-<div class="row column">
-  <h4>11:4</h4>
-  <code>partial "areachart", ratio: "11:4", metric: "metrica"</code>
-</div>
-<div class="row mt-s">
-  <div class="column">
-    <%= partial "areachart", ratio: "11:4", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-</div>
-<br />
-<div class="row column">
-  <h4>Adaptables al contenedor</h4>
-  <h5>Dos columnas</h5>
-</div>
-<div class="row">
-  <% 2.times do %>
-  <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<div class="row column">
-  <h5>Tres columnas</h5>
-</div>
-<div class="row">
-  <% 3.times do %>
-  <div class="column medium-4">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <% end %>
-</div>
-<br />
-<div class="row column">
-  <h4>Diferentes colores según su status</h4>
-  <code>partial "areachart", classes: "secondary|warning|success|alert", url: "..."</code>
-</div>
-<div class="row mt-s">
-  <div class="column medium-4">
-    <%= partial "areachart", classes: "secondary", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <div class="column medium-4">
-    <%= partial "areachart", classes: "warning", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-  <div class="column medium-4">
-    <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
-  </div>
-</div>
-<br />
-<div class="row column">
-  <h4>Datos sin agregar<sup>1</sup> (por defecto <code>agg: true</code>)</h4>
-  <code>partial "areachart", agg: false, url: "..."</code>
-</div>
-<div class="row mt-s">
-  <div class="column medium-6">
-    <%= partial "areachart", agg: false, metric: "areachart-0", title: Faker::Commerce.department(1) %>
-  </div>
-  <div class="column medium-6">
-    <%= partial "areachart", agg: true, metric: "areachart-0", title: Faker::Commerce.department(1) %>
-  </div>
-</div>
-<div class="row column">
-  <small><sup>1</sup>&nbsp;Ambos gráficos están usando el mismo dataset <code>areachart-0</code></small>
-</div>
+<ul class="accordion" data-accordion data-allow-all-closed="true">
+  <li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title"><h2 class="section-heading">Areachart</h2></a>
+
+    <div class="accordion-content is-active" data-tab-content>
+      <%= render partial: page_path("vizzs") + "/areacharts" %>
+    </div>
+  </li>
+  <li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title"><h2 class="section-heading">Grouped rowchart</h2></a>
+
+    <div class="accordion-content is-active" data-tab-content>
+      <%= render partial: page_path("vizzs") + "/rowcharts" %>
+    </div>
+  </li>
+</ul>

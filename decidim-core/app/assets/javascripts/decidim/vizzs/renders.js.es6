@@ -11,4 +11,7 @@ $(() => {
   $(document).on("change.zf.tabs", () => {
     render()
   });
+  $(document).on("down.zf.accordion", () => {
+    render()
+  });
 });

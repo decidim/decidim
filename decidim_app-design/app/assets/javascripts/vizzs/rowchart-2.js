@@ -1,381 +1,114 @@
 /* global DATACHARTS:true */
 DATACHARTS = DATACHARTS || {}
-DATACHARTS["rowchart-1"] = [
+DATACHARTS["rowchart-2"] = [
   {
-    "key": "Isopop Pickett",
+    "key": "anim sunt incididunt enim nisi veniam tempor labore culpa ullamco ex tempor elit dolor laboris",
     "value": [
       {
         "key": "pear",
-        "value": 48
-      },
-      {
-        "key": "banana",
-        "value": 38
-      },
-      {
-        "key": "lemon",
-        "value": 20
-      },
-      {
-        "key": "apple",
-        "value": 15
-      },
-      {
-        "key": "raspberry",
-        "value": 41
-      },
-      {
-        "key": "pinneaple",
-        "value": 12
-      },
-      {
-        "key": "blueberry",
-        "value": 41
-      },
-      {
-        "key": "watermelon",
-        "value": 26
-      },
-      {
-        "key": "orange",
-        "value": 34
-      }
-    ]
-  },
-  {
-    "key": "Obones Leach",
-    "value": [
-      {
-        "key": "pear",
-        "value": 44
-      },
-      {
-        "key": "banana",
-        "value": 49
-      },
-      {
-        "key": "lemon",
-        "value": 34
-      },
-      {
-        "key": "apple",
-        "value": 25
-      },
-      {
-        "key": "raspberry",
-        "value": 41
-      },
-      {
-        "key": "pinneaple",
-        "value": 18
-      },
-      {
-        "key": "blueberry",
-        "value": 47
-      },
-      {
-        "key": "watermelon",
-        "value": 14
-      },
-      {
-        "key": "orange",
-        "value": 44
-      }
-    ]
-  },
-  {
-    "key": "Colaire Carter",
-    "value": [
-      {
-        "key": "pear",
-        "value": 49
-      },
-      {
-        "key": "banana",
-        "value": 44
-      },
-      {
-        "key": "lemon",
-        "value": 31
-      },
-      {
-        "key": "apple",
-        "value": 20
-      },
-      {
-        "key": "raspberry",
-        "value": 32
-      },
-      {
-        "key": "pinneaple",
-        "value": 43
-      },
-      {
-        "key": "blueberry",
-        "value": 39
-      },
-      {
-        "key": "watermelon",
-        "value": 27
-      },
-      {
-        "key": "orange",
-        "value": 38
-      }
-    ]
-  },
-  {
-    "key": "Signity Levy",
-    "value": [
-      {
-        "key": "pear",
-        "value": 14
-      },
-      {
-        "key": "banana",
-        "value": 20
-      },
-      {
-        "key": "lemon",
-        "value": 35
-      },
-      {
-        "key": "apple",
-        "value": 20
-      },
-      {
-        "key": "raspberry",
-        "value": 26
-      },
-      {
-        "key": "pinneaple",
-        "value": 15
-      },
-      {
-        "key": "blueberry",
-        "value": 20
-      },
-      {
-        "key": "watermelon",
-        "value": 15
-      },
-      {
-        "key": "orange",
-        "value": 43
-      }
-    ]
-  },
-  {
-    "key": "Opticon Doyle",
-    "value": [
-      {
-        "key": "pear",
-        "value": 14
-      },
-      {
-        "key": "banana",
-        "value": 39
-      },
-      {
-        "key": "lemon",
-        "value": 38
-      },
-      {
-        "key": "apple",
-        "value": 34
-      },
-      {
-        "key": "raspberry",
-        "value": 33
-      },
-      {
-        "key": "pinneaple",
-        "value": 43
-      },
-      {
-        "key": "blueberry",
-        "value": 42
-      },
-      {
-        "key": "watermelon",
         "value": 11
       },
       {
-        "key": "orange",
-        "value": 49
-      }
-    ]
-  },
-  {
-    "key": "Otherway Dillard",
-    "value": [
-      {
-        "key": "pear",
-        "value": 48
-      },
-      {
         "key": "banana",
-        "value": 39
+        "value": 43
       },
       {
         "key": "lemon",
         "value": 36
-      },
-      {
-        "key": "apple",
-        "value": 34
-      },
-      {
-        "key": "raspberry",
-        "value": 50
-      },
-      {
-        "key": "pinneaple",
-        "value": 22
-      },
-      {
-        "key": "blueberry",
-        "value": 18
-      },
-      {
-        "key": "watermelon",
-        "value": 22
-      },
-      {
-        "key": "orange",
-        "value": 29
       }
     ]
   },
   {
-    "key": "Mantrix Duke",
+    "key": "pariatur cillum labore laboris eiusmod qui sunt eiusmod nisi irure tempor culpa officia velit elit",
     "value": [
       {
         "key": "pear",
-        "value": 16
+        "value": 19
       },
       {
         "key": "banana",
-        "value": 32
+        "value": 45
       },
       {
         "key": "lemon",
-        "value": 43
-      },
-      {
-        "key": "apple",
-        "value": 10
-      },
-      {
-        "key": "raspberry",
-        "value": 20
-      },
-      {
-        "key": "pinneaple",
-        "value": 13
-      },
-      {
-        "key": "blueberry",
-        "value": 16
-      },
-      {
-        "key": "watermelon",
-        "value": 40
-      },
-      {
-        "key": "orange",
-        "value": 31
+        "value": 11
       }
     ]
   },
   {
-    "key": "Mangelica Obrien",
+    "key": "labore proident est irure magna exercitation in anim Lorem cillum amet esse anim quis magna",
     "value": [
       {
         "key": "pear",
-        "value": 22
-      },
-      {
-        "key": "banana",
-        "value": 44
-      },
-      {
-        "key": "lemon",
-        "value": 16
-      },
-      {
-        "key": "apple",
-        "value": 49
-      },
-      {
-        "key": "raspberry",
         "value": 15
       },
       {
-        "key": "pinneaple",
-        "value": 50
-      },
-      {
-        "key": "blueberry",
-        "value": 24
-      },
-      {
-        "key": "watermelon",
-        "value": 44
-      },
-      {
-        "key": "orange",
-        "value": 45
-      }
-    ]
-  },
-  {
-    "key": "Bytrex Kelly",
-    "value": [
-      {
-        "key": "pear",
-        "value": 20
-      },
-      {
         "key": "banana",
-        "value": 16
+        "value": 25
       },
       {
         "key": "lemon",
-        "value": 48
+        "value": 46
+      }
+    ]
+  },
+  {
+    "key": "Lorem adipisicing amet eu sint magna deserunt ad nisi officia irure aliqua nulla voluptate reprehenderit",
+    "value": [
+      {
+        "key": "pear",
+        "value": 44
       },
       {
-        "key": "apple",
-        "value": 21
-      },
-      {
-        "key": "raspberry",
-        "value": 22
-      },
-      {
-        "key": "pinneaple",
-        "value": 26
-      },
-      {
-        "key": "blueberry",
-        "value": 29
-      },
-      {
-        "key": "watermelon",
+        "key": "banana",
         "value": 27
       },
       {
-        "key": "orange",
+        "key": "lemon",
         "value": 31
       }
     ]
   },
   {
-    "key": "Ecosys Taylor",
+    "key": "aliqua velit esse minim velit pariatur consequat amet amet deserunt sunt quis ea ut mollit",
     "value": [
       {
         "key": "pear",
-        "value": 31
+        "value": 42
+      },
+      {
+        "key": "banana",
+        "value": 20
+      },
+      {
+        "key": "lemon",
+        "value": 24
+      }
+    ]
+  },
+  {
+    "key": "ex ipsum ex esse ut officia irure laborum consectetur irure enim irure deserunt amet exercitation",
+    "value": [
+      {
+        "key": "pear",
+        "value": 14
+      },
+      {
+        "key": "banana",
+        "value": 40
+      },
+      {
+        "key": "lemon",
+        "value": 24
+      }
+    ]
+  },
+  {
+    "key": "cillum velit amet nostrud veniam eu quis do veniam Lorem Lorem proident cillum elit nostrud",
+    "value": [
+      {
+        "key": "pear",
+        "value": 11
       },
       {
         "key": "banana",
@@ -383,31 +116,41 @@ DATACHARTS["rowchart-1"] = [
       },
       {
         "key": "lemon",
-        "value": 50
+        "value": 39
+      }
+    ]
+  },
+  {
+    "key": "enim ex tempor sit nulla cupidatat commodo nostrud anim labore enim in dolor ullamco cupidatat",
+    "value": [
+      {
+        "key": "pear",
+        "value": 11
       },
       {
-        "key": "apple",
-        "value": 50
+        "key": "banana",
+        "value": 18
       },
       {
-        "key": "raspberry",
-        "value": 35
+        "key": "lemon",
+        "value": 28
+      }
+    ]
+  },
+  {
+    "key": "amet eu sint labore cupidatat sunt dolor aute et elit laboris officia non ea nulla",
+    "value": [
+      {
+        "key": "pear",
+        "value": 14
       },
       {
-        "key": "pinneaple",
-        "value": 31
+        "key": "banana",
+        "value": 26
       },
       {
-        "key": "blueberry",
-        "value": 42
-      },
-      {
-        "key": "watermelon",
-        "value": 37
-      },
-      {
-        "key": "orange",
-        "value": 31
+        "key": "lemon",
+        "value": 40
       }
     ]
   }
