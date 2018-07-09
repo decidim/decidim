@@ -276,6 +276,11 @@ fr:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       index:
         title: Concertations
+      order_by_processes:
+        active: Actives
+        all: Toutes
+        past: Passées
+        upcoming: À venir
       pages:
         home:
           highlighted_processes:
@@ -351,6 +356,10 @@ fr:
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant
+        order_by_processes:
+          processes:
+            one: "%{count} concertation"
+            other: "%{count} concertations"
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer
