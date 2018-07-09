@@ -38,6 +38,10 @@ it:
             base:
               too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
               too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Incontro
@@ -160,12 +164,23 @@ it:
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
+            decline: Rifiuta l'invito
+            invited_you_to_join_a_meeting: "%{invited_by} ha invitato a partecipare a una riunione %{application}. Puoi rifiutarlo o accettarlo tramite i link sottostanti."
             join: Partecipa alla riunione '%{meeting_title}'
         invites:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
             success: L'utente è stato invitato a partecipare alla riunione.
+          index:
+            filter:
+              accepted: Accettato
+              all: Tutti
+              rejected: Respinto
+              sent: Inviato
+            filter_by: Filtra per
+            invite_attendee: Invita il partecipante
+            invites: Inviti
+            search: Ricerca
           new:
             explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
             invite: Invita
@@ -228,7 +243,7 @@ it:
             save: Salva
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
-            invite_user: Invita un utente
+            invites: Inviti
             registrations_count:
               one: Si è registrato un'iscrizione.
               other: Si sono registrate %{count} iscrizione.
@@ -238,6 +253,10 @@ it:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
       admin_log:
+        invite:
+          create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
+          deleted: "%{user_name} non invitato %{attendee_name} dall'unire %{resource_name} incontri nello spazio %{space_name}"
+          update: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
         meeting:
           close: "%{user_name} ha chiuso la riunione %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato la riunione %{resource_name} nello spazio %{space_name}"
@@ -296,6 +315,16 @@ it:
             other: "%{count} slot rimanenti"
           view: vista
       models:
+        invite:
+          fields:
+            email: E-mail
+            name: Nome
+            sent_at: Inviato a
+            status: Stato
+          status:
+            accepted: Accettato (%{at})
+            rejected: Rifiutato (%{at})
+            sent: Inviato
         meeting:
           fields:
             closed: Chiuso
@@ -312,6 +341,9 @@ it:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
           success: Hai partecipato alla riunione con successo.
+        decline_invitation:
+          invalid: C'è stato un problema a rifiutare l'invito.
+          success: Hai rifiutato l'invito con successo.
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
