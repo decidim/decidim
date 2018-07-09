@@ -3,8 +3,8 @@ fr:
     attributes:
       assembly:
         area_id: Zone d'application
-        assembly_type: Type d'agora
-        assembly_type_other: Autre type d'agora
+        assembly_type: Type d'assemblée
+        assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
         closing_date: Date de clôture
         closing_date_reason: Raison de la date de clôture
@@ -15,12 +15,12 @@ fr:
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application locale
+        decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Organisateur
+        developer_group: Groupe initiateur
         domain: Domaine
-        duration: Durée du mandat
+        duration: Durée
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
@@ -29,14 +29,14 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Espace d'organisation
+        local_area: Zone d'application locale
         meta_scope: Échelle
         participatory_processes_ids: Concertations associées
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Espace privé
-        promoted: Mis en avant
-        published_at: Publié à
+        promoted: Mise en avant
+        published_at: Publiée à
         purpose_of_action: But de l'action
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
@@ -55,7 +55,7 @@ fr:
         ceased_date: Date de radiation
         designation_date: Date de désignation
         designation_mode: Mode de désignation
-        full_name: Nom complet
+        full_name: Nom et prénom
         gender: Genre
         position: Statut
       assembly_user_role:
@@ -65,109 +65,111 @@ fr:
   activerecord:
     models:
       decidim/assembly:
-        one: Agora
-        other: Agora
+        one: Assemblée
+        other: Assemblées
       decidim/assembly_member:
-        one: Membre de l'agora
-        other: Membres de l'agora
+        one: Membre de l'assemblée
+        other: Membres de l'assemblée
       decidim/assembly_user_role:
-        one: Fonction du membre dans l'agora
-        other: Fonctions du membre dans l'agora
+        one: Fonction du membre dans l'assemblée
+        other: Fonctions du membre dans l'assemblée
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvel assemblée
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle agora.
-          success: Agora créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
+          success: Assemblée créée avec succès.
         destroy:
-          success: Agora supprimée avec succès.
+          success: L'assemblée a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
           title: Informations générales
         index:
-          not_published: Non publiée
+          not_published: Non publié
           private: Privée
           public: Publique
           published: Publiée
         new:
           create: Créer
-          title: Nouvelle agora
+          title: Nouvelle assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette agora.
-          success: Agora mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
+          success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette agora.
-          success: L'agora a été dupliquée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cette assemblée.
+          success: L'assemblée a été dupliquée avec succès.
       assembly_copies:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'agora
+          title: Dupliquer l'assemblée
       assembly_members:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette agora.
-          success: Membre créé avec succès pour cette agora.
+          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
+          success: Membre créé avec succès pour cette assemblée.
         destroy:
-          success: Membre supprimé avec succès pour cette agora.
+          success: Membre supprimé avec succès pour cette assemblée.
         edit:
-          title: Mettre à jour le membre de l'agora.
+          title: Mettre à jour le membre de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_members_title: Membres de l'agora
+          assembly_members_title: Membres de l'assemblée
         new:
           create: Créer
-          title: Nouveau membre de l'agora.
+          title: Nouveau membre de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour du membre de cette agora.
-          success: Membre mis à jour avec succès pour cette agora.
+          error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
+          success: Membre mis à jour avec succès pour cette assemblée.
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette agora.
-          success: Agora publiée avec succès.
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
+          success: Assemblée publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication de cette agora.
-          success: Agora dépubliée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
+          success: Assemblée dépubliée avec succès.
       assembly_user_roles:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette agora.
-          success: Utilisateur créé avec succès pour cette agora.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette assemblée.
+          success: Utilisateur ajouté avec succès à cette assemblée.
         destroy:
-          success: Utilisateur supprimé avec succès pour cette agora.
+          success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'utilisateur de l'agora.
+          title: Mettre à jour l'utilisateur de l'assemblée.
           update: Mettre à jour
         index:
-          assembly_admins_title: Administrateurs de l'agora
+          assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel utilisateur de l'agora.
+          title: Nouvel utilisateur de l'assemblée.
         update:
-          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette agora.
-          success: Utilisateur mis à jour avec succès pour cette agora.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
+          success: Utilisateur mis à jour avec succès pour cette assemblée.
       menu:
-        assemblies: Agora
+        assemblies: Assemblées
         assemblies_submenu:
-          assembly_admins: Administrateurs de l'agora
+          assembly_admins: Administrateurs de l'assemblée
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Fonctionnalités
+          components: Composants
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
       models:
         assembly:
           fields:
-            created_at: Créé le
+            created_at: Créée le
             private: Privé
-            promoted: Mis en évidence
-            published: Publié
+            promoted: Mise en évidence
+            published: Publiée
             title: Titre
-          name: Agora
+          name: Assemblée
         assembly_member:
           fields:
             ceased_date: Date de radiation
@@ -185,25 +187,25 @@ fr:
             email: Email
             name: Nom
             role: Fonction
-          name: Utilisateur de l'agora
+          name: Utilisateur de l'assemblée
           roles:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
       titles:
-        assemblies: Agora
+        assemblies: Assemblées
     admin_log:
       assembly:
-        create: "%{user_name} a créé l'agora %{resource_name}"
-        publish: "%{user_name} a publié l'agora %{resource_name}"
-        unpublish: "%{user_name} a dépublié l'agora %{resource_name}"
-        update: "%{user_name} a mis à jour l'agora %{resource_name}"
+        create: "%{user_name} a créé l'assemblée %{resource_name}"
+        publish: "%{user_name} a publié l'assemblée %{resource_name}"
+        unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
-        create: "%{user_name} a créé le %{resource_name} membre dans l'agora %{space_name}"
-        delete: "%{user_name} enlevé le %{resource_name} membre de l'agora %{space_name}"
-        update: "%{user_name} a mis à jour le %{resource_name} membre de l'agora %{space_name}"
+        create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
+        delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
+        update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
       assembly_user_role:
-        create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
+        create: "%{user_name} a invité %{resource_name} à l'assemblée %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
         update: "%{user_name} a changé le rôle de %{resource_name} dans l'assemblée %{space_name}"
     assemblies:
@@ -219,7 +221,7 @@ fr:
             social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -233,7 +235,7 @@ fr:
               ceased: Validité terminée
               not_ceased: Validité en cours
             filter_by: Filtrer par
-            search: Chercher
+            search: Rechercher
       assembly_members:
         index:
           members: Membres
@@ -261,21 +263,21 @@ fr:
             member_of: Membre de
       show:
         area: Zone d'application
-        assembly_type: Type d'agora
-        children: Agora
+        assembly_type: Type d'assemblée
+        children: Assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
-        developer_group: Organisateur
+        developer_group: Groupe initiateur
         duration: Durée
-        included_at: Intégrée à la plateforme le
+        included_at: Inclus à
         indefinite_duration: Indéfini
         internal_organisation: Organisation interne
         is_transparent:
-          'false': non-visible
-          'true': visible
-        local_area: Espace d'organisation
+          'false': non-visible par les non-membres
+          'true': visible par les non-membres
+        local_area: Zone d'application locale
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une assemblée privée
@@ -294,14 +296,14 @@ fr:
         endorsements_count: Recommandations
         headline: Activité
         meetings_count: Rencontres
-        orders_count: Soutiens
+        orders_count: Votes
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions
-        results_count: Résultats
+        results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Soutiens
+        votes_count: Votes
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -332,8 +334,8 @@ fr:
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: Présentation
-        unfold: Voir la suite
+        assembly_menu_item: L'assemblée
+        unfold: Dérouler
       assembly_widgets:
         show:
           take_part: Participer
