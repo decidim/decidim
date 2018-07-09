@@ -166,7 +166,6 @@ uk:
           registrations: Реєстрації
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
             join: Долучитись до зустрічі '%{meeting_title}'
         invites:
           create:
@@ -234,7 +233,6 @@ uk:
             save: Зберегти
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
-            invite_user: Запросити учасника
             registrations_count:
               one: Зареєструвалась 1 людина.
               few: Зареєструвалось %{count} людей.
