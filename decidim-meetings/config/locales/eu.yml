@@ -337,6 +337,7 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
+          registration_code: Zure izena emateko kodea %{code}.
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
