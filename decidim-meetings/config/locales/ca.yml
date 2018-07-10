@@ -337,6 +337,7 @@ ca:
         confirmation:
           confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
           details: A l'arxiu adjunt trobaràs els detalls de la reunió.
+          registration_code: El vostre codi de registre és %{code}.
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
