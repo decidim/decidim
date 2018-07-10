@@ -7,6 +7,7 @@ module Decidim
       def serialize
         {
           id: resource.id,
+          code: resource.code,
           user: {
             name: resource.user.name,
             email: resource.user.email

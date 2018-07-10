@@ -909,8 +909,4 @@ $datetime-bg: $primary;
       }
     }
   }
-
-  &:not(:last-child){
-    margin-bottom: $global-margin;
-  }
 }
