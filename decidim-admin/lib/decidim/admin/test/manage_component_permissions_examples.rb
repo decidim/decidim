@@ -126,14 +126,28 @@ shared_examples "Managing component permissions" do
                                                                                                resource_id: resource.id)
     end
 
+    let(:component_settings) { nil }
+
     before do
+      if component_settings
+        component.settings = component_settings
+        component.save!
+      end
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit edit_resource_permissions_path
     end
 
-    it "shows the resource permission settings" do
+    it "shows the resource permissions settings" do
       expect(page).to have_content(resource.title)
+    end
+
+    context "when resources permissions are disabled" do
+      let(:component_settings) { { resources_permissions_enabled: false } }
+
+      it "doesn't show the resource permissions settings" do
+        expect(page).not_to have_content(resource.title)
+      end
     end
 
     context "when setting permissions" do

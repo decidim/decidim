@@ -77,8 +77,8 @@ module Decidim
 
       def resource
         @resource ||= if params[:resource_id] && params[:resource_name]
-                        manifest = Decidim.find_resource_manifest(params[:resource_name])
-                        manifest&.resource_scope(component)&.find_by(id: params[:resource_id])
+                        res = Decidim.find_resource_manifest(params[:resource_name])&.resource_scope(component)&.find_by(id: params[:resource_id])
+                        res if res&.allow_resource_permissions?
                       end
       end
 

@@ -200,18 +200,25 @@ module Decidim
 
       context "when a resource is given" do
         before do
-          allow(resource).to receive(:permissions).and_return(resource_permissions)
+          allow(resource).to receive(:resource_permission).and_return(resource_permission)
         end
 
         let(:resource) { create(:dummy_resource, component: component) }
-        let(:resource_permissions) { { resource_action => resource_permission } }
-        let(:resource_action) { action }
         let(:resource_permission) do
+          double(
+            Decidim::ResourcePermission,
+            permissions: permissions_for_resource
+          )
+        end
+        let(:permissions_for_resource) do
           {
-            "authorization_handler_name" => "another_dummy_authorization_handler",
-            "options" => {}
+            action_for_resource => {
+              "authorization_handler_name" => "another_dummy_authorization_handler",
+              "options" => {}
+            }
           }
         end
+        let(:action_for_resource) { action }
 
         it "uses resource permissions" do
           expect(response).not_to be_ok
@@ -221,7 +228,21 @@ module Decidim
         end
 
         context "when resources has no permissions for the given action" do
-          let(:resource_action) { "no_#{action}" }
+          let(:action_for_resource) { "other_#{action}" }
+
+          it "uses component permissions" do
+            expect(response).not_to be_ok
+            expect(response.code).to eq(:missing)
+            expect(response.handler_name).to eq("dummy_authorization_handler")
+            expect(response.data).to eq(action: :authorize)
+          end
+        end
+
+        context "when resources permissions are disabled" do
+          before do
+            component.settings = { resources_permissions_enabled: false }
+            component.save!
+          end
 
           it "uses component permissions" do
             expect(response).not_to be_ok

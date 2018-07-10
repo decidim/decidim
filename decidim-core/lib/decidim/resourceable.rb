@@ -85,7 +85,6 @@ module Decidim
       end
 
       delegate :resource_manifest, to: :class
-      delegate :permissions, to: :resource_permission, allow_nil: true
 
       # Checks throughout all its parent hierarchy if this Resource is visible.
       # i.e. checks
@@ -107,6 +106,16 @@ module Decidim
         else
           true
         end
+      end
+
+      # Public: Whether the permissions for this object actions can be set at resource level.
+      def allow_resource_permissions?
+        false
+      end
+
+      # Public: Returns permissions for this object actions if they can be set at resource level.
+      def permissions
+        resource_permission&.permissions if allow_resource_permissions?
       end
     end
 
