@@ -112,7 +112,7 @@ module Decidim
           end
         end
 
-        Bundler.with_original_env { run "bundle install" }
+        run "bundle install"
       end
 
       def tweak_bootsnap
