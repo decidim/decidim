@@ -15,10 +15,8 @@ module Decidim
 
       delegate :current_user, to: :controller, prefix: false
 
-      def current_component
-        #raise this is not working
-        # model.component
-        nil
+      def allowed?
+        options[:allowed]
       end
 
       def shows_remaining_slots?
