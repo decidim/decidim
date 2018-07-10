@@ -337,6 +337,7 @@ sv:
         confirmation:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
           details: Du hittar mötesuppgifterna i bilagan.
+          registration_code: Din registreringskod är %{code}.
       registrations:
         create:
           invalid: Det har varit ett problem att gå med i det här mötet.
