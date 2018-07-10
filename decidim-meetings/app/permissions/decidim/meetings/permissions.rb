@@ -17,6 +17,8 @@ module Decidim
           toggle_allow(can_join_meeting?)
         when :leave
           toggle_allow(can_leave_meeting?)
+        when :decline_invitation
+          toggle_allow(can_decline_invitation?)
         end
 
         permission_action
@@ -35,6 +37,11 @@ module Decidim
 
       def can_leave_meeting?
         meeting.registrations_enabled?
+      end
+
+      def can_decline_invitation?
+        meeting.registrations_enabled? &&
+          meeting.invites.where(user: user).exists?
       end
     end
   end
