@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-## Upgrade notes (search):
+**Upgrade notes (search)**:
 
 In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
 
