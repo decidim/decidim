@@ -430,6 +430,11 @@ en:
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.
+    amendments:
+      create:
+        button: Amend %{model_name}
+        help_text: "Improve this %{model_name} by modifying its title or description"
+        error: There has been an error amending this resource.
     follows:
       create:
         button: Follow

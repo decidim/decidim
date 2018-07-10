@@ -6,6 +6,8 @@ module Decidim
     include Decidim::OmniauthHelper
     include Decidim::ScopesHelper
     include Decidim::ContextualHelpHelper
+    include Decidim::AmendmentsHelper
+
 
     # Truncates a given text respecting its HTML tags.
     #
