@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "mdl", "~> 0.4.0"
   s.add_dependency "nokogiri", "~> 1.8", ">= 1.8.2"
+  s.add_dependency "parser", ">= 2.5", "!= 2.5.1.1" # v2.5.1.1 breaks with rubocop
   s.add_dependency "puma", "~> 3.11"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-cells", "~> 0.3.4"
