@@ -337,6 +337,7 @@ gl:
         confirmation:
           confirmed_html: Inscríbase o rexistro da reunión <a href="%{url}">%{title}</a>.
           details: Atoparás os detalles da reunión no anexo.
+          registration_code: O teu código de rexistro é %{code}.
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
