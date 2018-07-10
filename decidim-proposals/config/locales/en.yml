@@ -70,6 +70,7 @@ en:
         name: Proposals
         settings:
           global:
+            amendments_enabled: Amendments enabled
             announcement: Announcement
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
