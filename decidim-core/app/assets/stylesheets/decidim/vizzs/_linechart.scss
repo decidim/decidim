@@ -31,14 +31,6 @@
   .line{
     fill: none;
     stroke-width: 3px;
-
-    &.is-active{
-      stroke-width: 4px;
-    }
-
-    &.is-not-active{
-      opacity: .25;
-    }
   }
 
   // helper to colors

@@ -104,7 +104,7 @@ const renderLineCharts = () => {
       .attr("class", "group")
 
     let line = d3.line()
-      .curve(d3.curveBasis)
+      // .curve(d3.curveBasis)
       .x((d) => x(d.key))
       .y((d) => y(d.value))
 
@@ -113,14 +113,6 @@ const renderLineCharts = () => {
       .enter().append("path")
       .attr("d", (d) => line(d.value))
       .attr("class", (d) =>  `line type-${keys.indexOf(d.key)}`)
-      // .on("mouseover", function () {
-      //   d3.select(this).classed("is-active", true)
-      //   d3.select(this.parentNode).selectAll(":not(.is-active)").classed("is-not-active", true)
-      // })
-      // .on("mouseout", function () {
-      //   d3.select(this).classed("is-active", false)
-      //   d3.select(this.parentNode).selectAll(":not(.is-active)").classed("is-not-active", false)
-      // })
 
     // axis
     let xAxis = d3.axisBottom(x)
@@ -159,32 +151,44 @@ const renderLineCharts = () => {
         .attr("class", "chart-tooltip")
         .style("opacity", 0)
 
-console.log(cat);
-
-      cat.selectAll("rect")
+      svg
         .on("mouseover", () => {
           tooltip.style("opacity", 1)
         })
         .on("mouseout", () => {
           tooltip.style("opacity", 0)
         })
-        .on("mousemove", function(d) {
-          // svg position relative to document
-          let coords = {
-            x: window.pageXOffset + container.node().getBoundingClientRect().left,
-            y: window.pageYOffset + container.node().getBoundingClientRect().top
-          }
+        .on("mousemove", function() {
+          let x0 = x.invert(d3.mouse(this)[0])
 
-          let tooltipContent = `
+          let ge = []
+          data.forEach((o) => {
+            ge.push(o.value.find((h) => (h.key.getMonth() === x0.getMonth()) && (h.key.getFullYear() === x0.getFullYear())))
+          })
+
+          ge = ge.filter(Boolean)
+
+          if (ge.length) {
+            let html = `${ge[0].key.toLocaleDateString()}<br />`;
+            ge.forEach((d) => {
+              html += `${d.value.toLocaleString()} ${d.ref}<br />`
+            })
+
+            // svg position relative to document
+            let coords = {
+              x: window.pageXOffset + container.node().getBoundingClientRect().left,
+              y: window.pageYOffset + container.node().getBoundingClientRect().top
+            }
+
+            let tooltipContent = `
             <div class="tooltip-content">
-              ${d.key}: ${d.value.toLocaleString()}
+              ${html}
             </div>`
 
-            console.log(d);
-
-          tooltip.html(tooltipContent)
-            .style("left", `${coords.x + x(d.value) + margin.left}px`)
-            .style("top", `${coords.y + y(d.key) + margin.top}px`)
+            tooltip.html(tooltipContent)
+              .style("left", `${coords.x + x(ge[0].key) + margin.left}px`)
+              .style("top", `${coords.y + y(ge[0].value) + margin.top}px`)
+          }
         })
     }
   }
