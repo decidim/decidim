@@ -59,7 +59,7 @@ fr:
             title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Secteur
+            scope: Échelle
             supports_required: Soutiens requis
           name: Type d'initiative
         initiatives_types:
