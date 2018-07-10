@@ -35,6 +35,7 @@ module Decidim
             allow(controller).to receive(:current_user) { user }
             allow(controller).to receive(:encrypted_token) { encrypted_token }
           end
+
           it "renders the newsletter with unsubscribe link" do
             get :show, params: { id: newsletter.id }
 

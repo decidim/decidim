@@ -191,7 +191,7 @@ module Decidim
                   AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
                 GROUP BY decidim_comments_comments.decidim_commentable_id
               )
-            SQL
+        SQL
         Arel.sql(query)
       end
 

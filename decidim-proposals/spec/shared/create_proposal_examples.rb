@@ -147,6 +147,7 @@ shared_examples "create a proposal" do |with_author|
             before do
               create(:proposal, :withdrawn, users: [author], component: component)
             end
+
             it "checks the user doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
               expect { command.call }.to broadcast(:invalid)
@@ -160,6 +161,7 @@ shared_examples "create a proposal" do |with_author|
             before do
               create(:proposal, :withdrawn, users: [author], user_groups: [user_group], component: component)
             end
+
             it "checks the user_group doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
               expect { command.call }.to broadcast(:invalid)

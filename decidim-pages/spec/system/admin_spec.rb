@@ -46,6 +46,7 @@ describe "Edit a page", type: :system do
       create(:page, component: component, body: body)
       visit_component_admin
     end
+
     it_behaves_like "manage announcements"
   end
 end
