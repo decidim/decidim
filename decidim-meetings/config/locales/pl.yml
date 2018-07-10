@@ -347,6 +347,7 @@ pl:
         confirmation:
           confirmed_html: Rejestracji dla <a href="%{url}">%{title}</a> spotkanie zostało potwierdzone.
           details: Szczegóły spotkania znajdą Państwo w załączniku.
+          registration_code: Twój kod rejestracyjny to %{code}.
       registrations:
         create:
           invalid: Wystąpił problem z dołączeniem tego spotkania.
