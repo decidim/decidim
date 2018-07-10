@@ -246,6 +246,7 @@ fr:
           fields:
             category: Catégorie
             comments: Commentaires
+            created_at: Créé le
             endorsements: Soutiens
             id: ID
             notes: Remarques
@@ -379,7 +380,7 @@ fr:
             other: VOTES
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
-        votes_weight:
+        vote_weight:
           count:
             one: VOTE
             other: VOTES
