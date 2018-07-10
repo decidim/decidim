@@ -340,6 +340,7 @@ en:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
           invalid: There's been a problem joining this meeting.
