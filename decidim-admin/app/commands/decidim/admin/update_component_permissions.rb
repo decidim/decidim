@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "hashdiff"
-
 module Decidim
   module Admin
     # This command gets called when permissions for a component are updated
@@ -37,8 +35,8 @@ module Decidim
       attr_reader :form, :component, :resource
 
       def configured_permissions
-        form.permissions.select do |_action, permission|
-          permission.authorization_handler_name.present?
+        form.permissions.select do |action, permission|
+          permission.authorization_handler_name.present? || overriding_component_permissions?(action)
         end
       end
 
@@ -49,7 +47,7 @@ module Decidim
             "options" => value.options
           }
 
-          result.update(key => serialized)
+          result.update(key => value.authorization_handler_name.present? ? serialized : {})
         end
 
         if resource
@@ -73,6 +71,10 @@ module Decidim
         permissions.deep_stringify_keys.reject do |action, config|
           HashDiff.diff(config, component.permissions[action]).empty?
         end
+      end
+
+      def overriding_component_permissions?(action)
+        resource && component&.permissions&.fetch(action, nil)
       end
     end
   end
