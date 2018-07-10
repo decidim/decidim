@@ -81,6 +81,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

@@ -71,9 +71,7 @@
                   <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
                 <% end %>
 
-                <% if allowed_to? :update, :component, component: meeting.component %>
-                  <%= icon_link_to "key", edit_component_permissions_path(meeting), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions #{"action-icon--highlighted" if meeting.permissions.present?}" %>
-                <% end %>
+                <%= resource_permissions_link(meeting) %>
 
                 <% if allowed_to? :destroy, :meeting, meeting: meeting %>
                   <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
