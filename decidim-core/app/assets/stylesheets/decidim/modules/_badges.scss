@@ -1,0 +1,28 @@
+.badge-level{
+  display: table;
+  border-collapse: collapse;
+
+  > div{
+    @include square(1rem);
+
+    border: $border;
+    display: table-cell;
+
+    &.is-achieved{
+      background-color: $success;
+    }
+  }
+}
+
+.badge-tip{
+  @extend .mt-xs;
+  @extend .mr-xs;
+  @extend .flex--cc;
+
+  @include square(1rem);
+
+  color: $white;
+  border-radius: 50%;
+  background-color: $medium-gray;
+  cursor: pointer;
+}

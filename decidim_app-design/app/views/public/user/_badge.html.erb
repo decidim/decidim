@@ -1,15 +1,19 @@
-<article class="card card--badge">
+<% level = SecureRandom.random_number(5) %>
+<article class="card card--badge absolutes">
+  <div class="right badge-tip">
+    <%= icon "info", class: "icon--small" %>
+  </div>
   <div class="card__content">
-    <div class="card__header">
+    <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
       <%= image_tag "badge-demo.png", class: "card__image" %>
     </div>
     <div class="card__text text-center">
-      <strong>Yo y mi ballantines</strong>
+      <strong><%= Faker::Artist.name %></strong>
     </div>
   </div>
   <div class="card__footer card__footer--transparent">
-    <div class="card__support">
-      Level 0
+    <div class="p-xs">
+      <%= render partial: page_path("user") + "/badge-level", locals: { level: level } %>
     </div>
   </div>
 </article>
