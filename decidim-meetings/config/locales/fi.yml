@@ -337,6 +337,7 @@ fi:
         confirmation:
           confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
           details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
+          registration_code: Rekisteröintikoodisi on %{code}.
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
