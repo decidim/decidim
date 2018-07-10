@@ -952,6 +952,9 @@ Layout/SpaceInsideStringInterpolation:
     - space
     - no_space
 
+Style/AccessModifierDeclarations:
+  Enabled: false
+
 Style/SymbolArray:
   EnforcedStyle: brackets
   SupportedStyles:
