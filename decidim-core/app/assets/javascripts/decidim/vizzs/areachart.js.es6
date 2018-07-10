@@ -10,7 +10,7 @@ const renderAreaCharts = () => {
   const areachart = (opts = {}) => {
     // remove any previous chart
     $(opts.container).empty()
-    
+
     // parse opts
     let data = opts.data
     let title = opts.title
