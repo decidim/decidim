@@ -26,7 +26,9 @@ class AddConferences < ActiveRecord::Migration[5.2]
       t.integer :decidim_scope_id
 
       t.boolean :registrations_enabled, null: false, default: false
-
+      t.integer :available_slots, null: false, default: 0
+      t.jsonb :registration_terms
+      
       t.index [:decidim_organization_id, :slug],
               name: "index_unique_conference_slug_and_organization",
               unique: true

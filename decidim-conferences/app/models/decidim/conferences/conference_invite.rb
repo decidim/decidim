@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::DataPortability
 
-      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conferences::Conference"
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
       validates :user, uniqueness: { scope: :conference }

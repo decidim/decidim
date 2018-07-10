@@ -50,7 +50,12 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           Decidim::Faker::Localized.paragraph(3)
         end,
         start_date: Time.current,
-        end_date: 2.months.from_now.at_midnight
+        end_date: 2.months.from_now.at_midnight,
+        registrations_enabled: [true, false].sample,
+        available_slots: (10..50).step(10).to_a.sample,
+        registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
       )
 
       # Create users with specific roles

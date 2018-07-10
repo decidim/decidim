@@ -7,9 +7,9 @@ module Decidim
     #
     class ConferenceInvitePresenter < SimpleDelegator
       def status
-        return I18n.t("accepted", scope: "decidim.conferences.models.invite.status", at: I18n.l(accepted_at, format: :decidim_short)) if accepted_at.present?
-        return I18n.t("rejected", scope: "decidim.conferences.models.invite.status", at: I18n.l(rejected_at, format: :decidim_short)) if rejected_at.present?
-        return I18n.t("sent", scope: "decidim.conferences.models.invite.status") if sent_at.present?
+        return I18n.t("accepted", scope: "decidim.conferences.models.conference_invite.status", at: I18n.l(accepted_at, format: :decidim_short)) if accepted_at.present?
+        return I18n.t("rejected", scope: "decidim.conferences.models.conference_invite.status", at: I18n.l(rejected_at, format: :decidim_short)) if rejected_at.present?
+        return I18n.t("sent", scope: "decidim.conferences.models.conference_invite.status") if sent_at.present?
 
         "-"
       end

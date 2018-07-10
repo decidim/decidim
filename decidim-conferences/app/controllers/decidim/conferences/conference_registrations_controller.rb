@@ -3,8 +3,9 @@
 module Decidim
   module Conferences
     # Exposes the registration resource so users can join and leave conferences.
-    class RegistrationsController < Decidim::Conferences::ApplicationController
+    class ConferenceRegistrationsController < Decidim::Conferences::ApplicationController
       def create
+        
         enforce_permission_to :join, :conference, conference: conference
 
         JoinConference.call(conference, current_user) do
@@ -39,7 +40,7 @@ module Decidim
       private
 
       def conference
-        @conference ||= Conference.where(component: current_component).find(params[:conference_id])
+        @conference ||= Conference.find_by(slug: params[:conference_slug])
       end
 
       def redirect_after_path

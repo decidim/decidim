@@ -37,7 +37,7 @@ module Decidim
 
         def already_invited?
           return false unless user.persisted?
-          return false unless conference.invites.where(user: user).exists?
+          return false unless conference.conference_invites.where(user: user).exists?
 
           form.errors.add(:email, :already_invited)
           true
@@ -49,12 +49,12 @@ module Decidim
               title: conference.title
             },
             participatory_space: {
-              title: conference.participatory_space.title
+              title: conference.title
             }
           }
 
-          @invite = Decidim.traceability.create!(
-            Invite,
+          @conference_invite = Decidim.traceability.create!(
+            Decidim::Conferences::ConferenceInvite,
             invited_by,
             {
               user: user,
@@ -74,7 +74,7 @@ module Decidim
             if user.invited_to_sign_up?
               invite_user_to_sign_up
             else
-              InviteJoinMeetingMailer.invite(user, conference, invited_by).deliver_later
+              InviteJoinConferenceMailer.invite(user, conference, invited_by).deliver_later
             end
           else
             user.name = form.name

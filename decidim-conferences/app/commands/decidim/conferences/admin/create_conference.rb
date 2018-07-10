@@ -56,7 +56,10 @@ module Decidim
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
-            show_statistics: form.show_statistics
+            show_statistics: form.show_statistics,
+            registrations_enabled: form.registrations_enabled,
+            available_slots: form.available_slots,
+            registration_terms: form.registration_terms
           )
         end
 

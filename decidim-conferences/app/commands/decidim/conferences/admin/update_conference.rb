@@ -68,7 +68,10 @@ module Decidim
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
-            show_statistics: form.show_statistics
+            show_statistics: form.show_statistics,
+            registrations_enabled: form.registrations_enabled,
+            available_slots: form.available_slots,
+            registration_terms: form.registration_terms
           }
         end
       end

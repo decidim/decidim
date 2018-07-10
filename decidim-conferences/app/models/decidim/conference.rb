@@ -70,5 +70,24 @@ module Decidim
     def ancestors
       self_and_ancestors.where.not(id: id)
     end
+
+    def can_be_joined_by?(user)
+      #add control before start conference
+      registrations_enabled?
+    end
+
+    def has_registration_for?(user)
+      conference_registrations.where(user: user).any?
+    end
+
+    def has_available_slots?
+      return true if available_slots.zero?
+      available_slots > conference_registrations.count
+    end
+
+    def remaining_slots
+      available_slots - conference_registrations.count
+    end
+
   end
 end

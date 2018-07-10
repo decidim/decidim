@@ -26,6 +26,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
   activerecord:
     models:
       decidim/conference:
@@ -157,6 +163,9 @@ en:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
+          create:
+            error: There's been a problem while inviting the user to join the conference.
+            success: User successfully invited to join the conference.
           index:
             filter:
               accepted: Accepted
@@ -167,6 +176,10 @@ en:
             invite_attendee: Invite Attendee
             invites: Invites
             search: Search
+          new:
+            explanation: The user will be invited to join a conference. If the email is not registered they will be invited to the organization as well.
+            invite: Invite
+            new_invite: Invite user
         conference_speakers:
           form:
             existing_user: Existing user
@@ -177,7 +190,24 @@ en:
             search: Search
         conferences:
           form:
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+              zero: There has not been registrations yet.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: Decline invitation
+            invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
+            join: Join conference '%{conference_title}'
+        mailer:
+          invite_join_conference_mailer:
+            invite:
+              subject: Invitation to join a conference
+          registration_mailer:
+            confirmation:
+              subject: Your conference's registration has been confirmed
       conference_speaker:
         affiliation: Affiliation
         charge: Charge
@@ -187,6 +217,15 @@ en:
       conference_speakers:
         index:
           speakers: Speakers
+      conferences:
+        registration_confirm:
+          cancel: Cancelar
+          confirm: Confirmar
+        show:
+          remaining_slots:
+            one: 1 slot remaining
+            other: "%{count} slots remaining"
+            zero: No slots remaining
       index:
         title: Conferences
       models:
@@ -196,6 +235,10 @@ en:
             name: Name
             sent_at: Sent at
             status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
       pages:
         home:
           highlighted_conferences:

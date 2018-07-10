@@ -7,10 +7,17 @@ module Decidim
     module Admin
       # Controller that allows inviting users to join a conference.
       #
-      class ConferenceInvitesController < Admin::ApplicationController
+      class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
+        include Concerns::ConferenceAdmin
+        
+        helper_method :conference
+
         def index
-          # raise Working here
-          @conference_invites
+          enforce_permission_to :read_invites, :conference, conference: conference
+
+          @query = params[:q]
+          @status = params[:status]
+          @conference_invites ||= Decidim::Conferences::Admin::ConferenceInvites.for(conference.conference_invites, @query, @status).page(params[:page]).per(15)
         end
 
         def new
@@ -26,12 +33,12 @@ module Decidim
 
           InviteUserToJoinConference.call(@form, conference, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("invites.create.success", scope: "decidim.conferences.admin")
-              redirect_to conference_registrations_invities_path(conference)
+              flash[:notice] = I18n.t("conference_invites.create.success", scope: "decidim.conferences.admin")
+              redirect_to conference_conference_invites_path(conference)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("invites.create.error", scope: "decidim.conferences.admin")
+              flash.now[:alert] = I18n.t("conference_invites.create.error", scope: "decidim.conferences.admin")
               render :new
             end
           end
@@ -40,7 +47,7 @@ module Decidim
         private
 
         def conference
-          @conference ||= Decidim::Conferences::Conference.find_by(slug: params[:conference_slug])
+          @conference ||= Decidim::Conference.find_by(slug: params[:conference_slug])
         end
       end
     end

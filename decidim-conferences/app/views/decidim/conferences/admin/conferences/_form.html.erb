@@ -70,6 +70,20 @@
     <div class="row column">
       <%= form.date_field :end_date %>
     </div>
+
+    <div class="row column">
+      <%= form.check_box :registrations_enabled %>
+    </div>
+
+    <div class="row column">
+      <p><%= t(".registrations_count", count: current_participatory_space.conference_registrations.count) %></p>
+      <%= form.number_field :available_slots %>
+      <p class="help-text"><%= t(".available_slots_help") %></p>
+    </div>
+
+    <div class="row column" id="conference_registrations_terms">
+      <%= form.translated :editor, :registration_terms %>
+    </div>
   </div>
 </div>
 

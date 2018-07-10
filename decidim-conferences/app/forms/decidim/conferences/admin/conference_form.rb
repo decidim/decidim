@@ -14,6 +14,7 @@ module Decidim
         translatable_attribute :short_description, String
         translatable_attribute :description, String
         translatable_attribute :objectives, String
+        translatable_attribute :registration_terms, String
 
         mimic :conference
 
@@ -29,6 +30,8 @@ module Decidim
         attribute :show_statistics, Boolean
         attribute :start_date, Decidim::Attributes::TimeWithZone
         attribute :end_date, Decidim::Attributes::TimeWithZone
+        attribute :registrations_enabled, Boolean
+        attribute :available_slots, Integer
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true
@@ -37,6 +40,7 @@ module Decidim
 
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -47,6 +51,11 @@ module Decidim
         end
 
         private
+
+        def available_slots_greater_than_or_equal_to_registrations_count
+          conference = OrganizationConferences.new(current_organization).query.find_by(slug: slug)
+          errors.add(:available_slots, :invalid) if available_slots < conference.conference_registrations.count
+        end
 
         def slug_uniqueness
           return unless OrganizationConferences.new(current_organization).query.where(slug: slug).where.not(id: context[:conference_id]).any?

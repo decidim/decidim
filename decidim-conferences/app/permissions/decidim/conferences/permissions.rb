@@ -19,6 +19,11 @@ module Decidim
           public_list_speakers_action?
           # can_decline_conference_invite?
           public_report_content_action?
+
+          can_join_conference?
+          can_leave_conference?
+          can_decline_invitation?
+
           return permission_action
         end
 
@@ -47,6 +52,34 @@ module Decidim
       end
 
       private
+
+      def can_join_conference?
+        return unless conference.presence
+        return unless conference.can_be_joined_by?(user) &&
+                      permission_action.action == :join &&
+                      permission_action.subject == :conference
+
+        allow!
+      end
+
+      def can_leave_conference?
+        return unless conference.presence
+        return unless conference.registrations_enabled? &&
+                      permission_action.action == :leave &&
+                      permission_action.subject == :conference
+
+        allow!
+      end
+
+      def can_decline_invitation?
+        return unless conference.presence
+        return unless conference.registrations_enabled? &&
+                      conference.conference_invites.where(user: user).exists? &&
+                      permission_action.action == :decline_invitation &&
+                      permission_action.subject == :conference
+
+        allow!
+      end
 
       # It's an admin user if it's an organization admin or is a space admin
       # for the current `conference`.
