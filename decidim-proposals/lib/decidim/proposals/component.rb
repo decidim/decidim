@@ -31,6 +31,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
