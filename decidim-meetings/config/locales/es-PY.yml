@@ -337,6 +337,7 @@ es-PY:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
+          registration_code: Su código de registro es %{code}.
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
