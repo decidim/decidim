@@ -2,6 +2,14 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes (search)**:
+
+In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
+
+```ruby
+Decidim::User.find_each(&:add_to_index_as_search_resource)
+```
+
 **Added**:
 
 - **decidim-meetings**: Allow users to accept or reject invitations to meetings, and allow admins to see their status. [\#3632](https://github.com/decidim/decidim/pull/3632)
