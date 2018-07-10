@@ -27,7 +27,7 @@ module Decidim
           presenters_for_identities(model),
           cell_name: "decidim/author",
           cell_options: extra_classes,
-          size: :small,
+          size: 3,
           from: model,
           has_actions: has_actions?
         )
