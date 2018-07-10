@@ -8,7 +8,9 @@ module Decidim
     end
 
     def amend_button_for(amendable)
-      cell "decidim/amendable/amend_button_card", amendable if amendable.amendable?
+      if amendable.component.settings.amendments_enabled?
+        cell "decidim/amend_button_card", amendable, context: { current_user: current_user }
+      end
     end
 
     # Renders the emendations of a amendable resource that includes the

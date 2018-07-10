@@ -32,5 +32,9 @@ module Decidim
     def inline?
       options[:inline]
     end
+
+    def decidim
+      Decidim::Core::Engine.routes.url_helpers
+    end
   end
 end
