@@ -58,7 +58,7 @@ fr:
             title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.
+          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.
