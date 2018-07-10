@@ -476,7 +476,7 @@ GEM
       request_store (~> 1.1)
     paper_trail-association_tracking (1.0.0)
     parallel (1.12.1)
-    parser (2.5.1.0)
+    parser (2.5.1.1)
       ast (~> 2.4.0)
     pg (1.0.0)
     pg_search (2.1.2)
