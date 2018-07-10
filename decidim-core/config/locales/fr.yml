@@ -479,7 +479,7 @@ fr:
           assemblies_count: Agora
           comments_count: Commentaires
           debates_count: Débats
-          endorsements_count: Recommandations
+          endorsements_count: Soutiens
           headline: État actuel de %{organization}
           meetings_count: Rencontres
           orders_count: Votes
