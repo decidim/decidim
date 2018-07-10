@@ -7,10 +7,12 @@
   </div>
   <div class="card__content">
     <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
-      <%= image_tag "badge-demo.png", class: "card__image" %>
+      <div class="badge-container">
+        <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
+      </div>
     </div>
     <div class="card__text text-center">
-      <strong><%= Faker::Artist.name %></strong>
+      <strong><%= template.capitalize %></strong>
     </div>
   </div>
   <div class="card__footer card__footer--transparent">
