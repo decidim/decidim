@@ -24,6 +24,7 @@
         <li class="tabs-title" style="display:none"><a href="#conversation"></a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
         <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
+        <li class="tabs-title"><a href="#badges" title="Badges">Badges</a></li>
       </ul>
     </div>
   </div>
@@ -53,6 +54,9 @@
         </div>
         <div class="tabs-panel" id="followers">
           <%= render partial: page_path("user") + "/followers" %>
+        </div>
+        <div class="tabs-panel" id="badges">
+          <%= render partial: page_path("user") + "/badges" %>
         </div>
       </div>
     </div>
