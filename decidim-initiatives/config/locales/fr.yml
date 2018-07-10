@@ -5,7 +5,7 @@ fr:
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         signature_end_time: Fin de la période de collecte des signatures
         signature_start_time: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
@@ -59,7 +59,7 @@ fr:
             title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Périmètre d'application
+            scope: Secteur
             supports_required: Soutiens requis
           name: Type d'initiative
         initiatives_types:
@@ -126,22 +126,22 @@ fr:
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
+            success: Un nouveau secteur pour ce type d'initiative a été créé
           destroy:
-            success: Le périmètre d'application a été supprimé avec succès
+            success: Le secteur a été supprimé avec succès
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier le périmètre d'application de ce type d'initiative
+            title: Modifier le secteur de ce type d'initiative
             update: Mettre à jour
           new:
             back: Retour
             create: Créer
-            title: Créer un type de périmètre d'application pour les initiatives
+            title: Créer un type de secteur pour les initiatives
           update:
             error: Une erreur s'est produite
-            success: Le périmètre d'application a été mis à jour avec succès
+            success: Le secteur a été mis à jour avec succès
         initiatives_types:
           create:
             error: Une erreur s'est produite
@@ -155,7 +155,7 @@ fr:
           form:
             title: Information générale
           initiative_type_scopes:
-            title: Périmètre d'application pour ce type d'initiative
+            title: Secteur pour ce type d'initiative
           new:
             create: Créer
             title: Nouveau type d'initiative

@@ -100,12 +100,12 @@ fr:
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
-        create: "%{user_name} a créé le périmètre d'application %{resource_name}"
-        create_with_parent: "%{user_name} a créé le périmètre d'application %{resource_name} à l'intérieur du périmètre %{parent_scope}"
-        delete: "%{user_name} a supprimé le périmètre d'application %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
-        update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
+        create: "%{user_name} a créé le secteur %{resource_name}"
+        create_with_parent: "%{user_name} a créé le secteur %{resource_name} à l'intérieur du périmètre %{parent_scope}"
+        delete: "%{user_name} a supprimé le secteur %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé le secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        update: "%{user_name} a mis à jour le secteur %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -548,8 +548,8 @@ fr:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      prompt: Sélectionnez un secteur
+      scopes: Secteur
     search:
       filter:
         all: Tout
@@ -660,7 +660,7 @@ fr:
   errors:
     messages:
       content_type_whitelist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      cycle_detected: un secteur ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       long_words: contient des mots qui sont trop longs
       must_start_with_caps: doit commencer avec des majuscules

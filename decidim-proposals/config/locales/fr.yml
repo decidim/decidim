@@ -7,7 +7,7 @@ fr:
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseigner une adresse
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         state: État
         title: Titre
         user_group_id: Créer une proposition en tant que
@@ -148,7 +148,7 @@ fr:
           proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propositions
+        proposals: Quelques propositions aléatoires
         see_all_proposals: Voir toutes les propositions
     proposals:
       actions:
@@ -252,7 +252,7 @@ fr:
             notes: Remarques
             official_proposal: Proposition officielle
             published_at: Publiée à
-            scope: Périmètre d'application
+            scope: Secteur
             state: État
             title: Titre
             votes: Votes
