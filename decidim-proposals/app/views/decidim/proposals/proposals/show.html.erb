@@ -13,6 +13,8 @@
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% else %>
+      <%= amend_button_for @proposal %>
     <% end %>
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
       <div class="card">
