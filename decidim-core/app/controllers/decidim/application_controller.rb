@@ -10,6 +10,7 @@ module Decidim
     include ImpersonateUsers
     include NeedsTosAccepted
     include HttpCachingDisabler
+    include ActionAuthorization
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper

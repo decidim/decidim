@@ -11,8 +11,15 @@
       <h1>Decidim Barcelona</h1>
       <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
       <div class="section" style="columns:2">
+        <h2 class="section-heading">Vistas principales</h2>
+        <ul>
+          <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Estadísticas", page_path("stats") %></li>
+        </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
+          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
+          <li><%= link_to "Estadísticas del proceso", page_path("process-stats") %></li>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
           <li><%= link_to "Debates - Lista", page_path("debates") %></li>
@@ -28,6 +35,10 @@
               <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
             </ul>
           </li>
+          <li><%= link_to "Estadísticas de la propuesta", page_path("proposals/proposal-stats") %></li>
+          <li><%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %></li>
+          <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+          <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
           <li>
             <%= link_to "Propuesta: aprobada", page_path("proposals/proposal-view") %>
             <ul>
@@ -133,6 +144,13 @@
             </ul>
           </li>
           <li>
+            <%= link_to "Usuario: login rápido", page_path("user/user-profile-fast-login") %>
+            <ul>
+              <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
+              <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
+            </ul>
+          </li>
+          <li>
             <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
             <ul>
               <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
@@ -155,7 +173,7 @@
           <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
           <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
           <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
-          <li><%= link_to "User stories", page_path("user-stories") %></li>
+          <li><%= link_to "User stories", page_path("user/user-stories") %></li>
           <li><%= link_to "Manual de estilo", page_path("style-manual") %></li>
         </ul>
         <h2 class="section-heading">Plantilla para email</h2>
@@ -179,8 +197,6 @@
       <div class="section" style="columns:2">
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
-          <li><%= link_to "Home", page_path("home") %></li>
-          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
           <li><%= link_to "Más información", page_path("more-information") %></li>
         </ul>
         <h2 class="section-heading">Vistas de componente</h2>

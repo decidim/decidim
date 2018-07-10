@@ -64,7 +64,7 @@ module Decidim
           let(:sent_at_time) { Time.zone.at(decrypted_string.split("-").second.to_i) }
 
           context "and newsletter notifications is true" do
-            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications: true) }
+            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications_at: Time.zone.now) }
 
             it "unsubscribe user" do
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
@@ -75,7 +75,7 @@ module Decidim
           end
 
           context "and newsletter notifications is false" do
-            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications: false) }
+            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications_at: nil) }
 
             it "not unsubscribe user" do
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }

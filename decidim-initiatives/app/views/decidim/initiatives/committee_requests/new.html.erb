@@ -18,18 +18,14 @@
 <div class="row">
   <div class="columns large-12">
     <div class="section">
-      <%= sanitize translated_attribute(current_initiative.description) %>
+      <%= decidim_sanitize translated_attribute(current_initiative.description) %>
     </div>
 
     <div class="section">
       <p><%= t ".help_text" %></p>
-      <%= link_to t(".continue"),
-                  spawn_initiative_committee_requests_path(current_initiative),
-                  class: "title-action__action button small hollow" if current_user %>
-
-      <%= link_to t(".continue"),
-                  spawn_initiative_committee_requests_path(current_initiative),
-                  class: "title-action__action button small hollow" unless current_user %>
+      <%= logged_link_to t(".continue"),
+                         spawn_initiative_committee_requests_path(current_initiative),
+                         class: "title-action__action button small hollow" %>
     </div>
   </div>
 </div>

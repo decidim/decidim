@@ -244,11 +244,11 @@ pt-BR:
           fields:
             category: Categoria
             comments: Comentários
-            created_at: Criado em
             endorsements: Endossos
-            id: identidade
+            id: ID
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publicado em
             scope: Âmbito
             state: Estado
             title: Título
@@ -300,7 +300,7 @@ pt-BR:
         filters:
           accepted: Aceitaram
           activity: Atividade
-          all: Todos
+          all: Tudo
           category: Categoria
           category_prompt: Selecione uma categoria
           citizens: Cidadãos

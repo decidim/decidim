@@ -5,6 +5,14 @@ require "decidim/search_resource_fields_mapper"
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.
+  #
+  # A Searchable should include this concern and declare its `searchable_fields`.
+  #
+  # The indexing of Searchables is managed through:
+  # - after_create callback configurable via `index_on_create`.
+  # - after_update callback configurable via `index_on_update`.
+  # - searchable_resources are destroyed when the Searchable is destroyed.
+  #
   module Searchable
     extend ActiveSupport::Concern
 

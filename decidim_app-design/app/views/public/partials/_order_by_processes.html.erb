@@ -1,10 +1,10 @@
+<% actives ||= Faker::Number.between(0, 2) %>
+<% futures ||= Faker::Number.between(0, 2) %>
+<% pasts ||= Faker::Number.between(0, 2) %>
 <div class="row collapse order-by">
-  <h2 class="order-by__text section-heading">27 procesos
-    <span class="order-by__tabs">
-      <%= link_to "activos", page_path("#"), class: "order-by__tab is-active" %>
-      <%= link_to "pasados", page_path("#"), class: "order-by__tab" %>
-      <%= link_to "futuros", page_path("#"), class: "order-by__tab" %>
-    </span>
+  <h2 class="order-by__text section-heading">
+    <%= actives > 0 ? actives.to_s + " activos" : futures > 0 ? futures.to_s + " futuros" : (actives + pasts + futures).to_s + " en total" %>
+    <%= partial "order_by__tabs", { actives: actives, pasts: pasts, futures: futures } %>
   </h2>
   <div class="order-by__dropdown order-by__dropdown--right">
     <span class="order-by__text">Ordenar per:</span>
@@ -21,3 +21,10 @@
     </ul>
   </div>
 </div>
+<% if actives == 0 && futures == 0 %>
+<div class="row column">
+  <div class="callout warning mb-sm">
+    <p>There are no active nor next planned processes. Here is a list of the past ones. <a href="#">Signup to receive updates on next processes</a>.</p>
+  </div>
+</div>
+<% end %>

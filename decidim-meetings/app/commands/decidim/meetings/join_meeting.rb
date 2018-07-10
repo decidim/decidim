@@ -21,6 +21,7 @@ module Decidim
         meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
           create_registration
+          accept_invitation
           send_email_confirmation
           send_notification
         end
@@ -30,6 +31,10 @@ module Decidim
       private
 
       attr_reader :meeting, :user
+
+      def accept_invitation
+        meeting.invites.find_by(user: user)&.accept!
+      end
 
       def create_registration
         Decidim::Meetings::Registration.create!(meeting: meeting, user: user)

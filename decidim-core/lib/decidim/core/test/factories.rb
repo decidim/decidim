@@ -289,6 +289,14 @@ FactoryBot.define do
     organization
   end
 
+  factory :coauthorship, class: "Decidim::Coauthorship" do
+    coauthorable { create(:dummy_resource) }
+    transient do
+      organization { coauthorable.component.participatory_space.organization }
+    end
+    author { create(:user, :confirmed, organization: organization) }
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }

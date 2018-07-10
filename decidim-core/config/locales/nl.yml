@@ -157,6 +157,31 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Opnieuw autoriseren met "%{authorization}"
+          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
+          title: Autorisatie is verlopen
+        incomplete:
+          cancel: Annuleer
+          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          invalid_field: "%{field}"
+          reauthorize: Opnieuw autoriseren
+          title: Autoriseert u opnieuw alstublieft
+        missing:
+          authorize: Autoriseren met "%{authorization}"
+          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
+          title: Autorisatie vereist
+        pending:
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
+          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
+          title: Autorisatie is nog bezig
+        unauthorized:
+          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
+          invalid_field: "%{field} waarde %{value} is niet geldig."
+          ok: Ok
+          title: Niet geautoriseerd
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -224,8 +249,15 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
+            close_modal: Modal sluiten
             uncheck: Blijf uitgeschakeld
-          notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
+          notice: |-
+            <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
+            Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
+            Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen.</p>
+            <p>Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform.<br>
+            Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect.</p>
+            <p>Bedankt voor het lezen van dit!</p>
           title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
@@ -395,6 +427,20 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    newsletters_opt_in:
+      unathorized: Sorry, deze link is niet langer beschikbaar
+      update:
+        error: Er gebeurde iets verkeerds
+        success: Nieuwsbriefinstellingen succesvol bijgewerkt
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
+        body_2: 'Hoe kunt u ons uw toestemming geven? Klik gewoon op de volgende knop:'
+        body_3: Met deze toestemming kunt u doorgaan met het ontvangen van informatie over de diensten van het platform. Als we daarentegen geen positieve bevestiging van u ontvangen, zullen wij u niet langer onze berichten toesturen. Als u bevestigt dat u op de hoogte wilt blijven, heeft u altijd de mogelijkheid om op elk gewenst moment te annuleren.
+        button: Ja, ik wil relevante informatie blijven ontvangen
+        greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo,
+        subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
@@ -462,6 +508,7 @@ nl:
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden
+          modal_close: Modal sluiten
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
@@ -518,30 +565,6 @@ nl:
         filter_by: Filteren op
         unfold: Ontvouwen
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Opnieuw autoriseren met "%{authorization}"
-          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
-          title: Autorisatie is verlopen
-        incomplete:
-          cancel: Annuleer
-          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
-          invalid_field: "%{field}"
-          reauthorize: Opnieuw autoriseren
-          title: Autoriseert u opnieuw alstublieft
-        missing:
-          authorize: Autoriseren met "%{authorization}"
-          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
-          title: Autorisatie vereist
-        pending:
-          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
-          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
-          title: Autorisatie is nog bezig
-        unauthorized:
-          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
-          invalid_field: "%{field} waarde %{value} is niet geldig."
-          ok: Ok
-          title: Niet geautoriseerd
       embed_modal:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina

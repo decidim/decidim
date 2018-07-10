@@ -74,7 +74,7 @@ module Decidim
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
         context "when an authorized user is withdrawing a proposal" do
-          let(:proposal) { create(:proposal, component: component, author: user) }
+          let(:proposal) { create(:proposal, component: component, users: [user]) }
 
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
@@ -86,7 +86,7 @@ module Decidim
 
         describe "when current user is NOT the author of the proposal" do
           let(:current_user) { create(:user, organization: component.organization) }
-          let(:proposal) { create(:proposal, component: component, author: current_user) }
+          let(:proposal) { create(:proposal, component: component, users: [current_user]) }
 
           context "and the proposal has no supports" do
             it "is not able to withdraw the proposal" do

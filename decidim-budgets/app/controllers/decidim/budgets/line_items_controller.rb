@@ -9,7 +9,7 @@ module Decidim
       helper_method :project
 
       def create
-        authorize_action! "vote"
+        enforce_permission_to :vote, :project, project: project
 
         respond_to do |format|
           AddLineItem.call(current_order, project, current_user) do

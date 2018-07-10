@@ -38,7 +38,7 @@ pt-BR:
       organization:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
-        default_locale: Idioma por defeito
+        default_locale: Idioma padrão
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
@@ -128,7 +128,7 @@ pt-BR:
       doorkeeper/application:
         authorize_url: Autorizar URL
         client_id: ID do cliente
-        client_secret: Segredo do cliente
+        client_secret: Client Secret
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
@@ -140,9 +140,9 @@ pt-BR:
     admin:
       actions:
         add: Adicionar
-        browse: Explorar
+        browse: Navegar
         export: Exportar
-        manage: Gerir
+        manage: Gerenciar
         new: Novo %{name}
         permissions: Permissões
         reject: Rejeitar

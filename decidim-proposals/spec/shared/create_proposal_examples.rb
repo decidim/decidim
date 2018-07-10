@@ -83,9 +83,17 @@ shared_examples "create a proposal" do |with_author|
           it "sets the author" do
             command.call
             proposal = Decidim::Proposals::Proposal.last
+            creator = proposal.creator
 
-            expect(proposal.author).to eq(author)
-            expect(proposal.user_group).to eq(nil)
+            expect(creator.author).to eq(author)
+            expect(creator.user_group).to eq(nil)
+          end
+
+          it "adds the author as a follower" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.followers).to include(author)
           end
 
           context "with a proposal limit" do
@@ -105,9 +113,10 @@ shared_examples "create a proposal" do |with_author|
           it "sets the user group" do
             command.call
             proposal = Decidim::Proposals::Proposal.last
+            creator = proposal.creator
 
-            expect(proposal.author).to eq(author)
-            expect(proposal.user_group).to eq(user_group)
+            expect(creator.author).to eq(author)
+            expect(creator.user_group).to eq(user_group)
           end
 
           context "with a proposal limit" do
@@ -116,7 +125,7 @@ shared_examples "create a proposal" do |with_author|
             end
 
             before do
-              create_list(:proposal, 2, component: component, author: author)
+              create_list(:proposal, 2, component: component, users: [author])
             end
 
             it "checks the user group doesn't exceed the amount of proposals independently of the author" do
@@ -136,26 +145,26 @@ shared_examples "create a proposal" do |with_author|
             let(:user_group) { nil }
 
             before do
-              create(:proposal, :withdrawn, author: author, component: component)
+              create(:proposal, :withdrawn, users: [author], component: component)
             end
             it "checks the user doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
               expect { command.call }.to broadcast(:invalid)
 
-              user_proposal_count = Decidim::Proposals::Proposal.where(author: author).count
+              user_proposal_count = Decidim::Coauthorship.where(author: author, coauthorable_type: "Decidim::Proposals::Proposal").count
               expect(user_proposal_count).to eq(2)
             end
           end
 
           describe "when the author is a user_group" do
             before do
-              create(:proposal, :withdrawn, author: author, decidim_user_group_id: user_group.id, component: component)
+              create(:proposal, :withdrawn, users: [author], user_groups: [user_group], component: component)
             end
             it "checks the user_group doesn't exceed the amount of proposals" do
               expect { command.call }.to broadcast(:ok)
               expect { command.call }.to broadcast(:invalid)
 
-              user_group_proposal_count = Decidim::Proposals::Proposal.where(user_group: user_group).count
+              user_group_proposal_count = Decidim::Coauthorship.where(user_group: user_group, coauthorable_type: "Decidim::Proposals::Proposal").count
               expect(user_group_proposal_count).to eq(2)
             end
           end

@@ -12,7 +12,7 @@ module Decidim
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
       let!(:user_group) { create(:user_group, verified_at: DateTime.current, organization: organization, users: [author]) }
-      let!(:proposal) { create(:proposal, component: component, author: author) }
+      let!(:proposal) { create(:proposal, component: component, users: [author]) }
       let!(:proposal_endorsement) do
         build(:proposal_endorsement, proposal: proposal, author: author,
                                      user_group: user_group)
@@ -73,7 +73,7 @@ module Decidim
       end
 
       context "when proposal is rejected" do
-        let!(:proposal) { create(:proposal, :rejected, component: component, author: author) }
+        let!(:proposal) { create(:proposal, :rejected, component: component, users: [author]) }
 
         it { is_expected.to be_invalid }
       end
