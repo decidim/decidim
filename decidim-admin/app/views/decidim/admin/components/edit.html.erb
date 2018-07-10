@@ -30,13 +30,31 @@ function switchDisabling(check1, check2){
 }
 
 $(document).ready(function() {
-  var participatory_space_id = <%= current_participatory_space.id %>;
-  var $supports = $('input[name="component[step_settings][' + participatory_space_id + '][votes_enabled]"]')
-  var $votes = $('input[name="component[step_settings][' + participatory_space_id + '][votes_weight_enabled]"]')
-  console.log($supports)
-  disableClick($supports, $votes)
-  switchDisabling($supports, $votes)
-  switchDisabling($votes, $supports)
+
+  <% if current_participatory_space.has_steps? %>
+
+    <% current_participatory_space.steps.each do |step| %>
+
+      var step_id = <%= step.id %>;
+      var $supports = $('input[name="component[step_settings][' + step_id + '][votes_enabled]"]')
+      var $votes = $('input[name="component[step_settings][' + step_id + '][votes_weight_enabled]"]')
+      disableClick($supports, $votes)
+      switchDisabling($supports, $votes)
+      switchDisabling($votes, $supports)
+
+    <% end %>
+
+  <% else %>
+
+    var participatory_space_id = <%= current_participatory_space.id %>;
+    var $supports = $('input[name="component[step_settings][' + participatory_space_id + '][votes_enabled]"]')
+    var $votes = $('input[name="component[step_settings][' + participatory_space_id + '][votes_weight_enabled]"]')
+    disableClick($supports, $votes)
+    switchDisabling($supports, $votes)
+    switchDisabling($votes, $supports)
+    
+  <% end %>
+
 });
 
 
