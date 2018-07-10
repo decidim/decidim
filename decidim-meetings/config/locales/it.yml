@@ -337,6 +337,7 @@ it:
         confirmation:
           confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
           details: Puoi trovare i dettagli della riunione in allegato.
+          registration_code: Il tuo codice di registrazione è %{code}.
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
