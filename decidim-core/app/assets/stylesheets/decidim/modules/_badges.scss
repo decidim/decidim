@@ -17,7 +17,6 @@
 .badge-tip{
   @extend .mt-xs;
   @extend .mr-xs;
-  @extend .flex--cc;
 
   @include square(1rem);
 
@@ -25,4 +24,10 @@
   border-radius: 50%;
   background-color: $medium-gray;
   cursor: pointer;
+
+  span{
+    @extend .flex--cc;
+
+    height: 100%;
+  }
 }

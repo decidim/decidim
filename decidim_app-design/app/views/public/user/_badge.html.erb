@@ -1,7 +1,9 @@
 <% level = SecureRandom.random_number(5) %>
 <article class="card card--badge absolutes">
   <div class="right badge-tip">
-    <%= icon "info", class: "icon--small" %>
+    <span data-tooltip data-position="top" title="<%= Faker::Lebowski.quote %>">
+      <%= icon "info", class: "icon--small" %>
+    </span>
   </div>
   <div class="card__content">
     <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
