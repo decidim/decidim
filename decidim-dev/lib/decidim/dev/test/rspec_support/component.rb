@@ -110,6 +110,7 @@ Decidim.register_component(:dummy) do |component|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
+    resource.actions = %w(foo)
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
