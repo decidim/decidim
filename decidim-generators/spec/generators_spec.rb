@@ -10,7 +10,7 @@ module Decidim
       if ENV["SIMPLECOV"]
         {
           "RUBYOPT" => "-rsimplecov #{ENV["RUBYOPT"]}",
-          "RUBYLIB" => "#{repo_root}/decidim-generators/lib",
+          "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV["RUBYLIB"]}",
           "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV["PATH"]}",
           "COMMAND_NAME" => example.full_description.tr(" ", "_")
         }
