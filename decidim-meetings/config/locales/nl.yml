@@ -337,6 +337,7 @@ nl:
         confirmation:
           confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
+          registration_code: Uw registratiecode is %{code}.
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
