@@ -202,31 +202,9 @@ const renderLineCharts = () => {
         title: "",
         subtitle: "",
         ratio: "",
-        percent: "",
         tip: ""
       }
       return {...datasetDefault, ...dataset}
-    }
-
-    // OPTIONAL: Helper function to turn all values into percentages
-    const percentage = (percent) => {
-      // helper function to groupBy
-      const groupBy = (arr, by) => arr.reduce((r, v, j, a, k = v[by]) => ((r[k] || (r[k] = [])).push(v), r), {})
-      // get an object grouped by key
-      let groupByKey = groupBy([].concat(...percent.map((f) => f.value)), "key")
-      // get total sum of values by key
-      for (let cat in groupByKey) {
-        if (Object.prototype.hasOwnProperty.call(groupByKey, cat)) {
-          groupByKey[cat] = groupByKey[cat].map((f) => f.value).reduce((a, b) => a + b)
-        }
-      }
-      // updates every value with its respective percentage
-      [].concat(...percent.map((f) => f.value)).map((item) => {
-        item.value = (item.value / groupByKey[item.key]) * 100
-        return item
-      })
-
-      return percent
     }
 
     // OPTIONAL: Helper function to add a reference to the parent
@@ -270,11 +248,6 @@ const renderLineCharts = () => {
     if (data) {
       let config = init(container.dataset)
       let dataModified = parseDates(addRefs(data))
-
-      if (config.percent === "true") {
-        dataModified = percentage(dataModified)
-        config.xTickFormat = (d) => `${d}%`
-      }
 
       linechart({
         container: `#${container.id}`,
