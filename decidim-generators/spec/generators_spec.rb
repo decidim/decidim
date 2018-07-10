@@ -71,7 +71,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        let(:command) { "decidim --branch backport/3755-to-0.13 #{test_app}" }
+        let(:command) { "decidim --branch master #{test_app}" }
 
         it_behaves_like "a new production application"
       end
