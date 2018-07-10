@@ -337,6 +337,7 @@ fr:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
+          registration_code: Votre code d'enregistrement est %{code}.
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
