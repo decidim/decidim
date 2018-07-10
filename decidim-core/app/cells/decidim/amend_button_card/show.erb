@@ -1,0 +1,11 @@
+<div class="card text-center card__amend-button">
+  <div class="card__content">
+    <%= action_authorized_button_to :amend, decidim.root_path(amendable_id: model.id), class: button_classes do %>
+      <%= t("button", scope: "decidim.amendments.create", model_name: model_name) %>
+    <% end %>
+
+    <small>
+      <%= t("help_text", scope: "decidim.amendments.create", model_name: model_name.downcase) %>
+    </small>
+  </div>
+</div>
