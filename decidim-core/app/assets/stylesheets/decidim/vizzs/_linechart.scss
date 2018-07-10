@@ -1,5 +1,9 @@
 .linechart{
   //common
+  svg{
+    overflow: visible;
+  }
+
   .background{
     fill: darken($body-background, 2.5);
   }
@@ -27,6 +31,14 @@
   .line{
     fill: none;
     stroke-width: 3px;
+
+    &.is-active{
+      stroke-width: 4px;
+    }
+
+    &.is-not-active{
+      opacity: .25;
+    }
   }
 
   // helper to colors
@@ -43,7 +55,7 @@
 
           &:hover{
             cursor: pointer;
-            stroke: darken($tints, 20%);
+            stroke: complement($tints);
           }
         }
 
@@ -52,7 +64,7 @@
 
           &:hover{
             cursor: pointer;
-            stroke: lighten($shades, 20%);
+            stroke: complement($shades);
           }
         }
 
@@ -61,7 +73,7 @@
 
           &:hover{
             cursor: pointer;
-            stroke: lighten($adjusts, 20%);
+            stroke: complement($adjusts);
           }
         }
       }
@@ -72,7 +84,7 @@
 
           &:hover{
             cursor: pointer;
-            fill: darken($tints, 20%);
+            fill: complement($tints);
           }
         }
 
@@ -81,7 +93,7 @@
 
           &:hover{
             cursor: pointer;
-            fill: lighten($shades, 20%);
+            fill: complement($shades);
           }
         }
 
@@ -90,7 +102,7 @@
 
           &:hover{
             cursor: pointer;
-            fill: lighten($adjusts, 20%);
+            fill: complement($adjusts);
           }
         }
       }

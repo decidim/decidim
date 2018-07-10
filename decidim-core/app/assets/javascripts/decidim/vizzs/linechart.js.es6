@@ -17,7 +17,7 @@ const renderLineCharts = () => {
     let subtitle = opts.subtitle
     let container = d3.select(opts.container)
     let ratio = opts.ratio
-    let xTickFormat = opts.xTickFormat
+    let xTickFormat = opts.xTickFormat || d3.timeFormat("%b %y")
     let showTooltip = opts.tip !== "false"
 
     // precalculation
@@ -101,6 +101,7 @@ const renderLineCharts = () => {
     // main group
     let g = lower.append("g")
       .attr("transform", `translate(${margin.left},${margin.top - headerHeight})`)
+      .attr("class", "group")
 
     let line = d3.line()
       .curve(d3.curveBasis)
@@ -112,13 +113,22 @@ const renderLineCharts = () => {
       .enter().append("path")
       .attr("d", (d) => line(d.value))
       .attr("class", (d) =>  `line type-${keys.indexOf(d.key)}`)
+      // .on("mouseover", function () {
+      //   d3.select(this).classed("is-active", true)
+      //   d3.select(this.parentNode).selectAll(":not(.is-active)").classed("is-not-active", true)
+      // })
+      // .on("mouseout", function () {
+      //   d3.select(this).classed("is-active", false)
+      //   d3.select(this.parentNode).selectAll(":not(.is-active)").classed("is-not-active", false)
+      // })
 
     // axis
     let xAxis = d3.axisBottom(x)
-      .ticks(5)
+      .ticks(d3.timeMonth.every(4))
       .tickSize(-height)
       .tickFormat(xTickFormat)
     let yAxis = d3.axisLeft(y)
+      .ticks(5)
 
     let _xAxis = (xg) => {
       xg.call(xAxis)
@@ -129,7 +139,8 @@ const renderLineCharts = () => {
     let _yAxis = (yg) => {
       yg.call(yAxis)
       yg.select(".domain").remove()
-      yg.selectAll(".tick text").attr("text-anchor", "start").attr("x", 6)
+      yg.selectAll(".tick text").attr("text-anchor", "end").attr("x", gutter)
+      yg.selectAll(".tick line").attr("x1", -margin.left).attr("x2", -margin.left - 8)
     }
 
     g.append("g")
@@ -148,29 +159,33 @@ const renderLineCharts = () => {
         .attr("class", "chart-tooltip")
         .style("opacity", 0)
 
-      // barGroup.selectAll("rect")
-      //   .on("mouseover", () => {
-      //     tooltip.style("opacity", 1)
-      //   })
-      //   .on("mouseout", () => {
-      //     tooltip.style("opacity", 0)
-      //   })
-      //   .on("mousemove", function(d, p, e, l, h) {
-      //     // svg position relative to document
-      //     let coords = {
-      //       x: window.pageXOffset + container.node().getBoundingClientRect().left,
-      //       y: window.pageYOffset + container.node().getBoundingClientRect().top
-      //     }
-      //
-      //     let tooltipContent = `
-      //       <div class="tooltip-content">
-      //         ${d.key}: ${d.value.toLocaleString()}
-      //       </div>`
-      //
-      //     tooltip.html(tooltipContent)
-      //       .style("left", `${coords.x + (x(d.value) / 2) + margin.left}px`)
-      //       .style("top", `${coords.y + y1(d.key) + y0(d.ref) + margin.top}px`)
-      //   })
+console.log(cat);
+
+      cat.selectAll("rect")
+        .on("mouseover", () => {
+          tooltip.style("opacity", 1)
+        })
+        .on("mouseout", () => {
+          tooltip.style("opacity", 0)
+        })
+        .on("mousemove", function(d) {
+          // svg position relative to document
+          let coords = {
+            x: window.pageXOffset + container.node().getBoundingClientRect().left,
+            y: window.pageYOffset + container.node().getBoundingClientRect().top
+          }
+
+          let tooltipContent = `
+            <div class="tooltip-content">
+              ${d.key}: ${d.value.toLocaleString()}
+            </div>`
+
+            console.log(d);
+
+          tooltip.html(tooltipContent)
+            .style("left", `${coords.x + x(d.value) + margin.left}px`)
+            .style("top", `${coords.y + y(d.key) + margin.top}px`)
+        })
     }
   }
 

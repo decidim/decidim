@@ -100,7 +100,7 @@ const renderRowCharts = () => {
       .attr("x", width + margin.left + margin.right - legendSize)
       .attr("width", legendSize)
       .attr("height", legendSize)
-      .attr("class", (d, i) => `type-${i}`)
+      .attr("class", (d, i) => `legend type-${i}`)
 
     legend.append("text")
       .attr("x", width + margin.left + margin.right - legendSize - 4)
@@ -203,7 +203,7 @@ const renderRowCharts = () => {
       .enter().append("rect")
       .attr("y", (d) => y1(d.key))
       .attr("height", y1.bandwidth())
-      .attr("class", (d) =>  `type-${keys.indexOf(d.key)}`)
+      .attr("class", (d) =>  `line type-${keys.indexOf(d.key)}`)
       .transition()
       .duration(500)
       .attr("width", (d) => x(d.value))
