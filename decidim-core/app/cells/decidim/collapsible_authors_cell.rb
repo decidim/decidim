@@ -5,9 +5,9 @@ module Decidim
   # array of Users will be rendered with the `:cell` cell.
   #
   # Available sizes:
-  #  - `:small` => collapses after 3 elements.
-  #  - `:default` => collapses after 7 elements. If not specified, this one is
-  #    used.
+  #  - any number from 1 to 12
+  #  - default value is 3
+  #  - it is delegated to the `decidim/collapsible_list` cell
   #
   # Example:
   #
@@ -17,7 +17,7 @@ module Decidim
   #      cell_name: "my/cell",
   #      cell_options: { my: :options },
   #      hidden_elements_count_i18n_key: "my.custom.key",
-  #      size: :small
+  #      size: 3
   #    )
   class CollapsibleAuthorsCell < CollapsibleListCell
     include CellsHelper
