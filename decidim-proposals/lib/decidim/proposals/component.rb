@@ -236,6 +236,7 @@ Decidim.register_component(:proposals) do |component|
               else
                 "open"
               end
+      author = Decidim::User.where(organization: component.organization).all.sample
 
       draft = Decidim.traceability.create!(
         Decidim::Proposals::CollaborativeDraft,
