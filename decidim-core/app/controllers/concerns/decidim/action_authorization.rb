@@ -22,7 +22,7 @@ module Decidim
     end
 
     def action_authorization_cache_key(action, resource)
-      if resource
+      if resource && !resource.permissions.nil?
         "#{action}-#{resource.component.id}-#{resource.resource_manifest.name}-#{resource.id}"
       else
         "#{action}-#{current_component.id}"
