@@ -9,7 +9,7 @@ module Decidim
       #
       class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
-        
+
         helper_method :conference
 
         def index
@@ -17,7 +17,7 @@ module Decidim
 
           @query = params[:q]
           @status = params[:status]
-          @conference_invites ||= Decidim::Conferences::Admin::ConferenceInvites.for(conference.conference_invites, @query, @status).page(params[:page]).per(15)
+          @conference_invites = Decidim::Conferences::Admin::ConferenceInvites.for(conference.conference_invites, @query, @status).page(params[:page]).per(15)
         end
 
         def new

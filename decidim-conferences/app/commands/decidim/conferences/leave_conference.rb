@@ -20,7 +20,9 @@ module Decidim
       def call
         @conference.with_lock do
           return broadcast(:invalid) unless registration
+          return broadcast(:invalid) unless meetings_registrations
           destroy_registration
+          destroy_meeting_registration
         end
         broadcast(:ok)
       end
@@ -33,6 +35,17 @@ module Decidim
 
       def destroy_registration
         registration.destroy!
+      end
+
+      def meetings_registrations
+        published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components)
+
+        @meetings_registrations ||= Decidim::Meetings::Registration.where(meeting: meetings, user: @user)
+      end
+
+      def destroy_meeting_registration
+        meetings_registrations.each(&:destroy!)
       end
     end
   end

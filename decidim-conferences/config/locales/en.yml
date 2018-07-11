@@ -202,12 +202,12 @@ en:
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             join: Join conference '%{conference_title}'
         mailer:
+          conference_registration_mailer:
+            confirmation:
+              subject: Your conference's registration has been confirmed
           invite_join_conference_mailer:
             invite:
               subject: Invitation to join a conference
-          registration_mailer:
-            confirmation:
-              subject: Your conference's registration has been confirmed
       conference:
         registration_confirm:
           cancel: Cancel
@@ -219,6 +219,11 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the conference's details in the attachment.
+          registration_code: Your registration code is %{code}.
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.

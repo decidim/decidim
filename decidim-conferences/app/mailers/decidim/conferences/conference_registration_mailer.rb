@@ -30,8 +30,8 @@ module Decidim
       def add_calendar_attachment
         calendar = Icalendar::Calendar.new
         calendar.event do |event|
-          event.dtstart = Icalendar::Values::DateTime.new(@conference.start_time)
-          event.dtend = Icalendar::Values::DateTime.new(@conference.end_time)
+          event.dtstart = Icalendar::Values::DateTime.new(@conference.start_date)
+          event.dtend = Icalendar::Values::DateTime.new(@conference.end_date)
           event.summary = translated_attribute @conference.title
           event.description = strip_tags(translated_attribute(@conference.description))
           event.url = @locator.url
