@@ -89,8 +89,8 @@ fr:
       models:
         participatory_process:
           fields:
-            created_at: Créé le
-            private: Privé
+            created_at: Créée le
+            private: Privée
             promoted: Mise en avant
             published: Publiée
             title: Titre
