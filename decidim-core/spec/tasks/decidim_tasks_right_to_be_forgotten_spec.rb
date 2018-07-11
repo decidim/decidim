@@ -82,6 +82,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
       f.write("1',\"")
       f.close
     end
+
     it "raise a MALFORMED CSV error" do
       task.execute
       error_raised("Malformed CSV")

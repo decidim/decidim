@@ -48,6 +48,7 @@ module Decidim
           before do
             proposal.update(answered_at: DateTime.current, state: "rejected")
           end
+
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -85,6 +86,7 @@ module Decidim
           before do
             proposal.update(answered_at: DateTime.current, state: "rejected")
           end
+
           it "Do not increase the endorsements counter by one" do
             command.call
             proposal.reload
