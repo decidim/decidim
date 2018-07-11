@@ -26,6 +26,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-proposals**: Refactor searchable proposal test to avoid flakes. [\#3825](https://github.com/decidim/decidim/pull/3825)
 - **decidim-proposals**: Proposal seeds iterate over a sample of users to add coauthorships. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-core**: Make proposal m-card render its authorship again. [\#3727](https://github.com/decidim/decidim/pull/3727)
 - **decidim-generators**: Generated application not including bootsnap.
