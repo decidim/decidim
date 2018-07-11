@@ -288,7 +288,7 @@ pt-BR:
     export_mailer:
       data_portability_export:
         click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
-        download: Baixar
+        download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
