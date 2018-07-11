@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-      <%= render layout: "public/components/collapsible-list", locals: { text: "See all", classes: "row small-up-2 medium-up-4 collapse", size: 6, classText: "" } do %>
+      <%= render layout: "public/components/collapsible-list", locals: { text: raw("<u>see all</u>"), classes: "row small-up-2 medium-up-4 collapse", size: 6, classText: "text-small pt-s" } do %>
         <% @files.each do |i| %>
         <div class="column">
           <div class="badge-container pr-xs">
