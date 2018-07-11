@@ -312,7 +312,7 @@ fr:
           related_to: Liées à
           search: Rechercher
           state: État
-          voted: Ne montrer que les propositions pour lesquelles j'ai votées
+          voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -357,7 +357,7 @@ fr:
           sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: S'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçue de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
