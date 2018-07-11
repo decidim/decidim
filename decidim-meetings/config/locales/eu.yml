@@ -80,6 +80,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
