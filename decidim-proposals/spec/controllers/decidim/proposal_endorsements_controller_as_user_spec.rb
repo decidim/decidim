@@ -56,6 +56,7 @@ module Decidim
           #
           # UTIL METHODS
           #
+
           def create_user_groups(verified = false)
             2.times do
               user_group = create(:user_group)

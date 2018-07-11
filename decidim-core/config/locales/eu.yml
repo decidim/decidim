@@ -604,6 +604,7 @@ eu:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
+        decline: Deuseztatu gonbidapena
         hello: Kaixo, %{email},
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />

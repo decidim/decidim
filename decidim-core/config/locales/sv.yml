@@ -604,6 +604,7 @@ sv:
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
+        decline: Avvisa inbjudan
         hello: Hej %{email},
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />

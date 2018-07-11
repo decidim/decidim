@@ -604,6 +604,7 @@ fi:
       invitation_instructions:
         accept: Hyväksy kutsu
         accept_until: Tämä kutsu erääntyy %{due_date}.
+        decline: Hylkää kutsu
         hello: Hei %{email},
         ignore: |-
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
