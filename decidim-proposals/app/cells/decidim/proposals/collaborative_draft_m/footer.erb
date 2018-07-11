@@ -1,6 +1,6 @@
 <div class="card__footer">
   <div class="card__support">
-    <% if actionable? %>
+    <% if has_actions? %>
       <%= render partial: "decidim/proposals/proposals/votes_count.html", locals: { proposal: model, from_proposals_list: true } %>
       <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
     <% else %>

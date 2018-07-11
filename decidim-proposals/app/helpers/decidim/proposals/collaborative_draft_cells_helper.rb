@@ -16,7 +16,7 @@ module Decidim
 
       delegate :title, :state, to: :model
 
-      def actionable?
+      def has_actions?
         false
       end
 
