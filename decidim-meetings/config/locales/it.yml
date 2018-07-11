@@ -178,13 +178,12 @@ it:
               rejected: Respinto
               sent: Inviato
             filter_by: Filtra per
-            invite_attendee: Invita il partecipante
-            invites: Inviti
-            search: Ricerca
-          new:
-            explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
             invite: Invita
-            new_invite: Invita un utente
+            invite_attendee: Invita il partecipante
+            invite_explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
+            invites: Inviti
+            registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
+            search: Ricerca
         meeting_closes:
           edit:
             close: Chiudi
