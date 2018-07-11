@@ -38,6 +38,10 @@ eu:
             base:
               too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
               too_many_minutes_child: Elementuaren haurraren iraupena "%{parent_title}" gurasoaren iraupena gainditzen du %{count} minutuko agendako elementua
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Mezu hau dagoeneko gonbidatu da
     models:
       decidim/meetings/close_meeting_event: Bilera itxia
       decidim/meetings/create_meeting_event: Bilera
@@ -160,12 +164,23 @@ eu:
           registrations: Izen-emateak
         invite_join_meeting_mailer:
           invite:
+            decline: Deuseztatu gonbidapena
             invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
             join: Erregistratu bilera '%{meeting_title}'
         invites:
           create:
             error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
             success: Erabiltzailea behar bezala gonbidatu bilera batera.
+          index:
+            filter:
+              accepted: Onartu
+              all: guztiak
+              rejected: Baztertuta
+              sent: bidalia
+            filter_by: Iragazi arabera
+            invite_attendee: Gonbidatu gonbidatua
+            invites: Gonbidapenak
+            search: Search
           new:
             explanation: Erabiltzailea bilera batera gonbidatuko zaizu. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
             invite: Gonbit egin
@@ -228,7 +243,7 @@ eu:
             save: Gorde
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
-            invite_user: Gonbidatu erabiltzailea
+            invites: Gonbidapenak
             registrations_count:
               one: Izen-emate bat egin da.
               other: '%{count} izen-emate egin dira.'
@@ -238,6 +253,10 @@ eu:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
       admin_log:
+        invite:
+          create: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
+          deleted: "%{user_name} gabeko %{attendee_name} batu batetik %{resource_name} bileraren on %{space_name} espazio"
+          update: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
         meeting:
           close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
           create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
@@ -296,6 +315,16 @@ eu:
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
       models:
+        invite:
+          fields:
+            email: Emaila
+            name: izena
+            sent_at: Bidalitakoan
+            status: Egoera
+          status:
+            accepted: Onartuta (%{at})
+            rejected: Baztertua (%{at})
+            sent: bidalia
         meeting:
           fields:
             closed: Itxita
@@ -308,10 +337,14 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
+          registration_code: Zure izena emateko kodea %{code}.
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
+        decline_invitation:
+          invalid: Arazo bat izan da gonbidapena gaindituz gero.
+          success: Gonbidapena ongi egin du.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
