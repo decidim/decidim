@@ -23,9 +23,10 @@
   color: $white;
   border-radius: 50%;
   background-color: $medium-gray;
+  z-index: 10;
   cursor: pointer;
 
-  span{
+  > :first-child{
     @extend .flex--cc;
 
     height: 100%;
