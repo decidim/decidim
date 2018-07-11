@@ -178,13 +178,12 @@ sv:
               rejected: avvisade
               sent: sände
             filter_by: Filtrera efter
-            invite_attendee: Bjud in deltagare
-            invites: Inbjudningskort
-            search: Sök
-          new:
-            explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
             invite: Bjud in
-            new_invite: Bjud in användare
+            invite_attendee: Bjud in deltagare
+            invite_explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
+            invites: Inbjudningskort
+            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
+            search: Sök
         meeting_closes:
           edit:
             close: Stäng
