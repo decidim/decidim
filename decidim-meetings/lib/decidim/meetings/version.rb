@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-meetings version.
   module Meetings
     def self.version
-      "0.13.0.pre1"
+      "0.13.0"
     end
   end
 end

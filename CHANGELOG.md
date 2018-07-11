@@ -8,9 +8,7 @@
 
 **Fixed**:
 
-- **decidim-core**: [Backport] Fix invitations form newsletter optin [\#3789](https://github.com/decidim/decidim/issues/3789)
-
-## [0.13.0-pre1](https://github.com/decidim/decidim/tree/v0.13.0-pre1)
+## [0.13.0](https://github.com/decidim/decidim/tree/v0.13.0)
 
 **Upgrade notes: avatars**:
 
@@ -101,6 +99,7 @@ end
 - **decidim-admin**: Let user managers access the public space [\#3720](https://github.com/decidim/decidim/pull/3720)
 - **decidim-generators**: Generated application not including bootsnap.
 - **decidim-generators**: Generated application not including optional gems.
+- **decidim-core**: Fix invitations form newsletter optin [\#3789](https://github.com/decidim/decidim/issues/3789)
 
 **Removed**:
 

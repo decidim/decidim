@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-pages version.
   module Pages
     def self.version
-      "0.13.0.pre1"
+      "0.13.0"
     end
   end
 end
