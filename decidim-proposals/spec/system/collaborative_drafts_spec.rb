@@ -96,6 +96,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             click_link "View Collaborative Draft"
           end
         end
+
         it "does not show any tag" do
           expect(page).not_to have_selector("ul.tags.tags--collaborative-draft")
         end

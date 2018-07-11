@@ -46,6 +46,7 @@ module Decidim
         before do
           sign_in user, scope: :user
         end
+
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
 
         describe "GET new" do
