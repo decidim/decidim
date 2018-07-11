@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**: [Backport] Fix invitations form newsletter optin [\#3789](https://github.com/decidim/decidim/issues/3789)
+
 ## [0.13.0-pre1](https://github.com/decidim/decidim/tree/v0.13.0-pre1)
 
 **Upgrade notes: avatars**:
