@@ -80,6 +80,7 @@ fr:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
             default_registration_terms: Conditions d'inscription par défaut
+            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
