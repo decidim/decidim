@@ -18,7 +18,7 @@ module Decidim
       describe "#available_orders" do
         context "with votes enabled" do
           context "with votes hidden" do
-            let(:current_settings) { double(:current_settings, votes_enabled?: true, votes_hidden?: true) }
+            let(:current_settings) { double(:current_settings, votes_enabled?: true, votes_weight_enabled?: false, votes_hidden?: true) }
 
             it "does not show most_voted option to sort" do
               expect(view.available_orders).not_to include("most_voted")
@@ -26,7 +26,25 @@ module Decidim
           end
 
           context "with votes not hidden" do
-            let(:current_settings) { double(:current_settings, votes_enabled?: true, votes_hidden?: false) }
+            let(:current_settings) { double(:current_settings, votes_enabled?: true, votes_weight_enabled?: false, votes_hidden?: false) }
+
+            it "shows most_voted option to sort" do
+              expect(view.available_orders).to include("most_voted")
+            end
+          end
+        end
+
+        context "with weighted votes enabled" do
+          context "with votes hidden" do
+            let(:current_settings) { double(:current_settings, votes_enabled?: false, votes_weight_enabled?: true, votes_hidden?: true) }
+
+            it "does not show most_voted option to sort" do
+              expect(view.available_orders).not_to include("most_voted")
+            end
+          end
+
+          context "with votes not hidden" do
+            let(:current_settings) { double(:current_settings, votes_enabled?: false, votes_weight_enabled?: true, votes_hidden?: false) }
 
             it "shows most_voted option to sort" do
               expect(view.available_orders).to include("most_voted")
@@ -35,7 +53,7 @@ module Decidim
         end
 
         context "with votes disabled" do
-          let(:current_settings) { double(:current_settings, votes_enabled?: false) }
+          let(:current_settings) { double(:current_settings, votes_enabled?: false, votes_weight_enabled?: false) }
 
           it "doesn't show most_voted option to sort" do
             expect(view.available_orders).not_to include("most_voted")
