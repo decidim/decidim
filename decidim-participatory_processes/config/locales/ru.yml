@@ -284,7 +284,7 @@ ru:
         active: Действующие
         all: Все
         past: Прошедшие
-        upcoming: Предстоящие
+        upcoming: Грядущие
       pages:
         home:
           highlighted_processes:
