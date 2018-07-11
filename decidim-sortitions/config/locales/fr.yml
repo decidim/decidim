@@ -105,7 +105,7 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           search: Rechercher
-          state: Etat
+          state: État
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -140,7 +140,7 @@ fr:
           selected_proposals:
             one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
-          view: Vue
+          view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
         sortition_cancel_author:
@@ -148,4 +148,4 @@ fr:
         sortitions_count:
           count:
             one: 1 tirage au sort
-            other: "%{count} tirage(s) au sort"
+            other: "%{count} tirages au sort"
