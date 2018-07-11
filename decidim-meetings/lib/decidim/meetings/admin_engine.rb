@@ -14,7 +14,7 @@ module Decidim
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
           resource :registrations, only: [:edit, :update] do
-            resources :invites, only: [:index, :new, :create]
+            resources :invites, only: [:index, :create]
             collection do
               get :export
             end

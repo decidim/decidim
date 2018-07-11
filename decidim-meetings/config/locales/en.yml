@@ -179,13 +179,12 @@ en:
               rejected: Rejected
               sent: Sent
             filter_by: Filter by
-            invite_attendee: Invite attendee
-            invites: Invites
-            search: Search
-          new:
-            explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
             invite: Invite
-            new_invite: Invite user
+            invite_attendee: Invite attendee
+            invite_explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
             close: Close
