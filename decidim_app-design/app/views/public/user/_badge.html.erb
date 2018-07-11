@@ -1,4 +1,4 @@
-<% level ||= (Faker::Boolean.boolean(0.4)) ? SecureRandom.random_number(5) : 0 %>
+<% level ||= SecureRandom.random_number(5) %>
 <article class="card card--badge absolutes">
   <div class="right badge-tip">
     <div data-tooltip data-position="top" title="<%= Faker::Lebowski.quote %>">
