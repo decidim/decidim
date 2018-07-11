@@ -11,7 +11,7 @@ module Decidim
       let(:params) { { component_id: component.id } }
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
-      let!(:collaborative_draft) { create(:collaborative_draft, component: component, authors: [author]) }
+      let!(:collaborative_draft) { create(:collaborative_draft, component: component, users: [author]) }
       let(:user_2) { create(:user, :confirmed, organization: component.organization) }
 
       before do
@@ -177,7 +177,7 @@ module Decidim
 
         it "accepts a request from another user to the given collaborative_draft" do
           expect(collaborative_draft.requesters.count).to eq 0
-          expect(collaborative_draft.coauthorships.count).to eq 2
+          expect(collaborative_draft.coauthorships.count).to eq 1
 
           expect(response).to have_http_status(:ok)
         end

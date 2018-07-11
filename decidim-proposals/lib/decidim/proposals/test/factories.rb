@@ -244,16 +244,25 @@ FactoryBot.define do
   end
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
+    transient do
+      users nil
+      # user_groups correspondence to users is by sorting order
+      user_groups []
+    end
+
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     state { "open" }
 
-    after(:create) do |collaborative_draft|
+    after(:build) do |collaborative_draft, evaluator|
       if collaborative_draft.component
-        user = create(:user, organization: collaborative_draft.component.participatory_space.organization)
-        Decidim::Coauthorship.create(author: user, coauthorable: collaborative_draft)
+        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization)]
+        users.each_with_index do |user, idx|
+          user_group = evaluator.user_groups[idx]
+          Decidim::Coauthorship.create(author: user, user_group: user_group, coauthorable: collaborative_draft)
+        end
       end
     end
 
