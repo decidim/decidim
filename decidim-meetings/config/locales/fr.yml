@@ -178,13 +178,12 @@ fr:
               rejected: Rejeté
               sent: Envoyé
             filter_by: Filtrer par
-            invite_attendee: Inviter un participant
-            invites: Invite
-            search: Chercher
-          new:
-            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire à l'organisation.
             invite: Inviter
-            new_invite: Inviter un utilisateur
+            invite_attendee: Inviter un participant
+            invite_explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire à l'organisation.
+            invites: Invite
+            registrations_disabled: Vous ne pouvez pas inviter un participant car les enregistrements sont désactivés.
+            search: Chercher
         meeting_closes:
           edit:
             close: Clore
