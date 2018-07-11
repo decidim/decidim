@@ -4,9 +4,11 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateComponentPermissions do
-    let!(:participatory_process) { create(:participatory_process, :with_steps) }
+    subject(:command) { described_class.call(form, component, resource) }
 
-    let!(:component) do
+    let(:participatory_process) { create(:participatory_process, :with_steps) }
+
+    let(:component) do
       create(
         :component,
         participatory_space: participatory_process,
@@ -14,10 +16,16 @@ module Decidim::Admin
           "create" => {
             "authorization_handler_name" => "dummy_authorization_handler",
             "options" => { "thelma" => "louise" }
+          },
+          "vote" => {
+            "authorization_handler_name" => "dummy_authorization_handler",
+            "options" => { "thelma" => "louise" }
           }
         }
       )
     end
+
+    let(:resource) { nil }
 
     let(:manifest) { component.manifest }
 
@@ -42,29 +50,52 @@ module Decidim::Admin
       }
     end
 
-    describe "when valid" do
-      let(:valid) { true }
+    let(:valid) { true }
 
-      it "broadcasts :ok and updates the component" do
-        expect do
-          described_class.call(form, component)
-        end.to broadcast(:ok)
+    it "broadcasts :ok" do
+      expect { subject } .to broadcast(:ok)
+    end
 
-        expect(component.permissions).to eq(expected_permissions)
+    it "updates the component permissions" do
+      expect { subject } .to change(component, :permissions).to(expected_permissions)
+    end
+
+    it "fires the hooks" do
+      results = {}
+
+      manifest.on(:permission_update) do |context|
+        results = context.dup
       end
 
-      it "fires the hooks" do
-        results = {}
+      subject
 
-        manifest.on(:permission_update) do |component|
-          results[:component] = component
-        end
+      component = results[:component]
 
-        described_class.call(form, component)
+      expect(component.permissions).to eq(expected_permissions)
+    end
 
-        component = results[:component]
+    context "when receives a resource" do
+      let(:resource) { create(:dummy_resource, component: component) }
+      let(:expected_permissions) { component.permissions.merge(changing_permissions) }
+      let(:changing_permissions) do
+        {
+          "create" => {
+            "authorization_handler_name" => "dummy",
+            "options" => { "perry" => "mason" }
+          }
+        }
+      end
 
-        expect(component.permissions).to eq(expected_permissions)
+      it "broadcasts :ok" do
+        expect { subject } .to broadcast(:ok)
+      end
+
+      it "doesn't update the component permissions" do
+        expect { subject } .not_to change(component, :permissions)
+      end
+
+      it "updates the resource permissions, but only with the actions that change from components" do
+        expect { subject } .to change(resource, :permissions) .to(changing_permissions)
       end
     end
 
@@ -72,9 +103,7 @@ module Decidim::Admin
       let(:valid) { false }
 
       it "does not update the permissions" do
-        expect do
-          described_class.call(form, component)
-        end.to broadcast(:invalid)
+        expect { subject } .to broadcast(:invalid)
 
         component.reload
         expect(component.permissions).not_to eq(expected_permissions)

@@ -19,6 +19,7 @@ Decidim.register_component(:meetings) do |component|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
+    resource.actions = %w(join)
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
@@ -34,6 +35,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|

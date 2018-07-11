@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation-rails", "~> 6.4", "< 6.5"
   s.add_dependency "foundation_rails_helper", "~> 3.0"
   s.add_dependency "geocoder", "~> 1.4"
+  s.add_dependency "hashdiff", "~> 0.3.7"
   s.add_dependency "invisible_captcha", "~> 0.10.0"
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "kaminari", "~> 1.0"

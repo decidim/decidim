@@ -54,10 +54,6 @@ module Decidim
       decidim_sanitize(html_truncate(text, length: 100))
     end
 
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
-    end
-
     def has_authors?
       model.is_a?(Decidim::Authorable) || model.is_a?(Decidim::Coauthorable)
     end
