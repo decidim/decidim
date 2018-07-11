@@ -12,7 +12,7 @@ module Decidim
         let(:follower) { create(:user, organization: organization) }
         let(:other_author) { create(:user, organization: organization) }
         let(:state) { :open }
-        let(:collaborative_draft) { create(:collaborative_draft, component: component, state: state, authors: [current_user, other_author]) }
+        let(:collaborative_draft) { create(:collaborative_draft, component: component, state: state, users: [current_user, other_author]) }
         let!(:follow) { create :follow, followable: current_user, user: follower }
         let(:event) { "decidim.events.proposals.collaborative_draft_published" }
         let(:event_class) { Decidim::Proposals::CollaborativeDraftPublishedEvent }

@@ -7,7 +7,7 @@ module Decidim
     describe RequestAccessToCollaborativeDraft do
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
-      let(:collaborative_draft) { create(:collaborative_draft, state, component: component, authors: [author1, author2]) }
+      let(:collaborative_draft) { create(:collaborative_draft, state, component: component, users: [author1, author2]) }
       let(:current_user) { create(:user, :confirmed, organization: component.organization) }
       let(:author1) { create(:user, :confirmed, organization: component.organization) }
       let(:author2) { create(:user, :confirmed, organization: component.organization) }

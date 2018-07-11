@@ -19,7 +19,7 @@ module Decidim
         )
       end
 
-      let!(:collaborative_draft) { create :collaborative_draft, component: component, authors: [author] }
+      let!(:collaborative_draft) { create :collaborative_draft, component: component, users: [author] }
       let(:author) { create(:user, organization: organization) }
 
       let(:user_group) do
