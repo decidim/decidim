@@ -73,6 +73,7 @@ ca:
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text d'ajuda al pas de "completar" propostes
             proposal_wizard_step_4_help_text: Text del pas "Publicar" de l'assistent de propostes
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
