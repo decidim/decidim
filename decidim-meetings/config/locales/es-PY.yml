@@ -80,6 +80,7 @@ es-PY:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
+            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada reunión
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
