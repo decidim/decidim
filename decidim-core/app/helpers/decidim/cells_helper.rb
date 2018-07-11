@@ -39,7 +39,7 @@ module Decidim
 
     def flagable?
       return unless from_context
-      return unless (proposals_controller? || collaborative_drafts_controller?)
+      return unless proposals_controller? || collaborative_drafts_controller?
       return if index_action?
       return if from_context.try(:official?)
       true
