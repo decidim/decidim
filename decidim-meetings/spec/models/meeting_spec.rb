@@ -55,6 +55,7 @@ module Decidim::Meetings
 
       it "returns the followers" do
         expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+      end
     end
 
     describe "#can_be_joined_by?" do
@@ -114,4 +115,5 @@ module Decidim::Meetings
       end
     end
   end
+
 end
