@@ -52,7 +52,7 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
-        homepage_image: Imagem do site inicial
+        homepage_image: Imagem da página principal
         instagram_handler: Instagram handler
         logo: Logotipo
         name: Nome
@@ -132,7 +132,7 @@ pt-BR:
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local na rede Internet
+        site: Página web
   date:
     formats:
       datepicker: "%d/%m/%Y"
