@@ -121,6 +121,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             total_budget: Totale budget
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
           step:
