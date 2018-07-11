@@ -17,9 +17,8 @@ module Decidim
         let(:newsletter) { create(:newsletter, organization: organization) }
 
         it "expect a 404 page" do
-          get :show, params: { id: newsletter.id }
-          expect(response.status).to eq(302)
-          expect(response).to redirect_to("/404")
+          expect { get :show, params: { id: newsletter.id } }
+            .to raise_error(ActionController::RoutingError)
         end
       end
 
@@ -35,6 +34,7 @@ module Decidim
             allow(controller).to receive(:current_user) { user }
             allow(controller).to receive(:encrypted_token) { encrypted_token }
           end
+
           it "renders the newsletter with unsubscribe link" do
             get :show, params: { id: newsletter.id }
 

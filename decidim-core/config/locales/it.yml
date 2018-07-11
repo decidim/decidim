@@ -604,6 +604,7 @@ it:
       invitation_instructions:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
+        decline: Rifiuta l'invito
         hello: Ciao %{email},
         ignore: |-
           Se non desideri accettare l'invito, ignora questa email.<br />

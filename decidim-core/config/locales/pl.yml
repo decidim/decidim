@@ -425,31 +425,6 @@ pl:
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
-    authorization_modals:
-      show:
-        expired:
-          authorize: Ponownie autoryzuj, używając "%{authorization}"
-          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
-          title: Upoważnienie wygasło
-        incomplete:
-          cancel: Anuluj
-          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
-          invalid_field: "%{field}"
-          reauthorize: Ponów autoryzację
-          title: Proszę ponownie autoryzować
-        missing:
-          authorize: Zezwól na "%{authorization}"
-          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
-          title: Wymagana Autoryzacja
-        pending:
-          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
-          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
-          title: Autoryzacja jest nadal w toku
-        unauthorized:
-          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
-          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
-          ok: Ok
-          title: Nieautoryzowany
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -639,6 +614,7 @@ pl:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
+        decline: Odrzuć zaproszenie
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />

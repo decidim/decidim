@@ -10,7 +10,7 @@ fr:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette article ?
         destroy: Supprimer
         edit: Modifier
         new: Nouvel article
@@ -46,7 +46,7 @@ fr:
             title: titre
       posts:
         show:
-          view: Vue
+          view: Voir
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
@@ -57,7 +57,7 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés

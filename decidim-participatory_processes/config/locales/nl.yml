@@ -257,7 +257,9 @@ nl:
       processes: Thema's
     participatory_process_groups:
       show:
-        group_participatory_processes: Thema's voor %{group}
+        group_participatory_processes:
+          one: 1 processen voor %{group}
+          other: "%{count} processen voor %{group}"
         title: Participerende procesgroepen
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ nl:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
         title: Burgerinspraak
-      order_by_processes:
-        active: Actief
-        all: Alle
-        past: Archief
-        upcoming: Aankomende
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,30 @@ nl:
       participatory_process_groups:
         none: Geen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 actief proces
+              other: "%{count} actieve processen"
+            all:
+              one: 1 proces
+              other: "%{count} processen"
+            past:
+              one: 1 proces uit het verleden
+              other: "%{count} eerdere processen"
+            upcoming:
+              one: 1 aanstaande proces
+              other: "%{count} aankomende processen"
+          explanations:
+            no_active: Geen actieve processen
+            no_active_nor_upcoming: Geen actieve of aankomende processen
+            no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
+          names:
+            active: Actief
+            all: Alle
+            past: Archief
+            upcoming: Aankomende
+          see: Zien
         index:
           loading: Laden van resultaten...
       show:
@@ -330,10 +351,6 @@ nl:
       participatory_processes:
         index:
           promoted_processes: Uitgelichte thema’s
-        order_by_processes:
-          processes:
-            one: "%{count} thema"
-            other: "%{count} thema's"
         participatory_process:
           active_step: 'Huidige stap:'
           take_part: Deelnemen

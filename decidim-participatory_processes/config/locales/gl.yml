@@ -257,7 +257,9 @@ gl:
       processes: Procesos
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesos para %{group}
+        group_participatory_processes:
+          one: 1 procesos para %{group}
+          other: "%{count} procesos para %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ gl:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
       index:
         title: Procesos participativos
-      order_by_processes:
-        active: Activo
-        all: Todo
-        past: Pasado
-        upcoming: Próximos
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,30 @@ gl:
       participatory_process_groups:
         none: Nada
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 proceso activo
+              other: "%{count} procesos activos"
+            all:
+              one: 1 proceso
+              other: "%{count} procesos"
+            past:
+              one: 1 proceso pasado
+              other: "%{count} procesos pasados"
+            upcoming:
+              one: 1 proceso seguinte
+              other: "%{count} próximos procesos"
+          explanations:
+            no_active: Non hai procesos activos
+            no_active_nor_upcoming: Non hai procesos activos nin futuros
+            no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
+          names:
+            active: Activo
+            all: Todo
+            past: Pasado
+            upcoming: Próximos
+          see: Ver
         index:
           loading: Cargando resultados ...
       show:
@@ -330,10 +351,6 @@ gl:
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
-        order_by_processes:
-          processes:
-            one: "Proceso %{count}"
-            other: "Procesos %{count}"
         participatory_process:
           active_step: 'Paso actual:'
           take_part: Tomar parte en

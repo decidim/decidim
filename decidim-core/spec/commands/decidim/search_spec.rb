@@ -69,6 +69,7 @@ module Decidim
         before do
           create(:searchable_resource, organization: current_organization)
         end
+
         it "returns some random results" do
           described_class.call(term, current_organization) do
             on(:ok) do |results|

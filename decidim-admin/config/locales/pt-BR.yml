@@ -10,7 +10,7 @@ pt-BR:
         organization: Organização
         plural: Plural
       attachment:
-        attachment_collection_id: Pasta
+        attachment_collection_id: Diretório
         description: Descrição
         file: Arquivo
         title: Título
@@ -143,7 +143,7 @@ pt-BR:
         browse: Navegar
         export: Exportar
         manage: Gerenciar
-        new: Novo %{name}
+        new: Nova %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
