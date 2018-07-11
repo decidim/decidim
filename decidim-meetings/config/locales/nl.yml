@@ -80,6 +80,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             default_registration_terms: Standaard registratievoorwaarden
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
