@@ -10,7 +10,7 @@ fr:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette annonce ?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette article ?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau
@@ -46,7 +46,7 @@ fr:
             title: titre
       posts:
         show:
-          view: Vue
+          view: Voir
         sidebar_blog:
           comments: commentaires
           most_commented_posts: Articles les plus commentés
