@@ -292,11 +292,11 @@ fr:
       no_followings: Aucun abonnement
     follows:
       create:
-        button: S'abonner
-        error: Une erreur s'est produite lors du traitement de votre demande d'abonnement.
+        button: Suivre
+        error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
       destroy:
         button: Ne plus suivre
-        error: Une erreur s'est produite lors du traitement de votre demande de désabonnement.
+        error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
       current_file: Fichier actuel
       current_image: Image actuelle
@@ -406,7 +406,7 @@ fr:
           assemblies_count: Agora
           comments_count: Commentaires
           debates_count: Débats
-          endorsements_count: Recommandations
+          endorsements_count: Soutiens
           headline: État actuel de %{organization}
           meetings_count: Rencontres
           orders_count: Votes
@@ -475,7 +475,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètres d'application
+      scopes: Périmètre d'application
     search:
       filter:
         all: Tout
