@@ -80,6 +80,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Standardregistreringsvillkor
+            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje möte
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
