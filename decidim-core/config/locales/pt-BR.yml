@@ -605,7 +605,7 @@ pt-BR:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
-        decline: Recusar convite
+        decline: Negar convite
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este e-mail.<br />
