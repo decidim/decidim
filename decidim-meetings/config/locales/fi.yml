@@ -80,6 +80,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Oletussäännöt
+            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
