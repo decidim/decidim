@@ -178,13 +178,12 @@ fi:
               rejected: hylätty
               sent: Lähetetyt
             filter_by: Suodata
-            invite_attendee: Kutsu osallistuja
-            invites: kutsut
-            search: Hae
-          new:
-            explanation: Käyttäjä kutsutaan mukaan tapahtumaan. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
-            new_invite: Kutsu käyttäjä
+            invite_attendee: Kutsu osallistuja
+            invite_explanation: Käyttäjä kutsutaan mukaan tapahtumaan. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
+            invites: kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska rekisteröinnit on poistettu käytöstä.
+            search: Hae
         meeting_closes:
           edit:
             close: Lopeta
