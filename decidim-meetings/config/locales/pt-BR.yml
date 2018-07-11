@@ -80,6 +80,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
