@@ -80,6 +80,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
+            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
