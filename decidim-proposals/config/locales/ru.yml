@@ -256,6 +256,7 @@ ru:
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
+            published_at: 'Обнародовано:'
             scope: Охват
             state: Cостояние
             title: Название
