@@ -80,6 +80,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             default_registration_terms: Termini di registrazione predefiniti
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
