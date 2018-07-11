@@ -5,16 +5,34 @@
       <%= icon "info", class: "icon--small" %>
     </span>
   </div>
-  <div class="card__content">
-    <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
-      <div class="badge-container">
-        <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
+  <% if @activeuser == "logged" %>
+    <div class="card__content absolutes">
+      <% if level == 0 %>
+        <div class="left right center m-s">
+          <button class="button light">How do I get this badge?</button>
+        </div>
+      <% end%>
+      <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
+        <div class="badge-container">
+          <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
+        </div>
+      </div>
+      <div class="card__text text-center">
+        <strong><%= template.capitalize %></strong>
       </div>
     </div>
-    <div class="card__text text-center">
-      <strong><%= template.capitalize %></strong>
+  <% else %>
+    <div class="card__content">
+      <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
+        <div class="badge-container">
+          <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
+        </div>
+      </div>
+      <div class="card__text text-center">
+        <strong><%= template.capitalize %></strong>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="card__footer card__footer--transparent">
     <div class="p-xs">
       <%= render partial: page_path("user") + "/badge-level", locals: { level: level } %>
