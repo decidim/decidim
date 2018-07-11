@@ -3,6 +3,7 @@
 
 if File.exist?(File.expand_path("../../.git", __dir__))
   ENV["RUBYOPT"] = ENV["RUBYOPT"].sub("-rsimplecov ", "")
+  ENV["RUBYLIB"] = ENV["RUBYLIB"].sub("#{File.expand_path("..", __dir__)}/lib:", "")
 
   gem "decidim-core"
 end
