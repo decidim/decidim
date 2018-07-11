@@ -184,13 +184,12 @@ pl:
               rejected: Odrzucono
               sent: Wysłane
             filter_by: Filtruj według
-            invite_attendee: Zaproś uczestnika
-            invites: Zaprasza
-            search: Szukaj
-          new:
-            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
             invite: Zaproś
-            new_invite: Zaproś użytkownika
+            invite_attendee: Zaproś uczestnika
+            invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
+            invites: Zaprasza
+            registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
+            search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij
