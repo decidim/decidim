@@ -28,7 +28,7 @@ module Decidim
       private
 
       def registration
-        @registration ||= Decidim::Conferences::Registration.find_by(conference: @conference, user: @user)
+        @registration ||= Decidim::Conferences::ConferenceRegistration.find_by(conference: @conference, user: @user)
       end
 
       def destroy_registration

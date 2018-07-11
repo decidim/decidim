@@ -37,6 +37,9 @@ module Decidim
         validates :title, :slogan, :description, :short_description, translatable_presence: true
 
         validate :slug_uniqueness
+        
+        validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
 
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }

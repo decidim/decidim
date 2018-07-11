@@ -76,7 +76,7 @@
     </div>
 
     <div class="row column">
-      <p><%= t(".registrations_count", count: current_participatory_space.conference_registrations.count) %></p>
+      <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.count : 0) %></p>
       <%= form.number_field :available_slots %>
       <p class="help-text"><%= t(".available_slots_help") %></p>
     </div>

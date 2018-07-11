@@ -58,7 +58,7 @@ module Decidim
             promoted: form.promoted,
             show_statistics: form.show_statistics,
             registrations_enabled: form.registrations_enabled,
-            available_slots: form.available_slots,
+            available_slots: form.available_slots || 0,
             registration_terms: form.registration_terms
           )
         end

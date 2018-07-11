@@ -45,10 +45,20 @@ module Decidim
 
         def save_conference
           transaction do
+            update_conference_registrations
             @conference.save!
             Decidim.traceability.perform_action!(:update, @conference, form.current_user) do
               @conference
             end
+          end
+        end
+
+        def update_conference_registrations
+          @conference.registrations_enabled = form.registrations_enabled
+
+          if form.registrations_enabled
+            @conference.available_slots = form.available_slots
+            @conference.registration_terms = form.registration_terms
           end
         end
 
@@ -68,10 +78,7 @@ module Decidim
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
-            show_statistics: form.show_statistics,
-            registrations_enabled: form.registrations_enabled,
-            available_slots: form.available_slots,
-            registration_terms: form.registration_terms
+            show_statistics: form.show_statistics
           }
         end
       end

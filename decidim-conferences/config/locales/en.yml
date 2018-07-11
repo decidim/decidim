@@ -208,6 +208,27 @@ en:
           registration_mailer:
             confirmation:
               subject: Your conference's registration has been confirmed
+      conference:
+        registration_confirm:
+          cancel: Cancel
+          confirm: Confirm
+        show:
+          going: Going
+          join: Join Conference
+          remaining_slots:
+            one: 1 slot remaining
+            other: "%{count} slots remaining"
+            zero: No slots remaining
+      conference_registrations:
+        create:
+          invalid: There's been a problem joining this conference.
+          success: You have joined the conference successfully.
+        decline_invitation:
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
+        destroy:
+          invalid: There's been a problem leaving this conference.
+          success: You have left the conference successfully.
       conference_speaker:
         affiliation: Affiliation
         charge: Charge
@@ -217,15 +238,6 @@ en:
       conference_speakers:
         index:
           speakers: Speakers
-      conferences:
-        registration_confirm:
-          cancel: Cancelar
-          confirm: Confirmar
-        show:
-          remaining_slots:
-            one: 1 slot remaining
-            other: "%{count} slots remaining"
-            zero: No slots remaining
       index:
         title: Conferences
       models:
@@ -271,6 +283,10 @@ en:
           not_found: 'The conference was not found on the database (ID: %{id})'
     menu:
       conferences: Conferences
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitation to join a conference
   layouts:
     decidim:
       conference_header:

@@ -4,6 +4,7 @@ module Decidim
   module Conferences
     # This cell renders the button to join a conference.
     class JoinConferenceButtonCell < Decidim::ViewModel
+      include Decidim::LayoutHelper
       include Decidim::SanitizeHelper
       include Decidim::Conferences::Engine.routes.url_helpers
 
