@@ -178,13 +178,12 @@ es:
               rejected: Rechazadas
               sent: Expedidas
             filter_by: Filtrar por
-            invite_attendee: Invitar a un asistente
-            invites: Invitaciones
-            search: Buscar
-          new:
-            explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
             invite: Invitar
-            new_invite: Invitar usuario
+            invite_attendee: Invitar a un asistente
+            invite_explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
+            invites: Invitaciones
+            registrations_disabled: No puede invitar a un asistente porque los registros están deshabilitados.
+            search: Buscar
         meeting_closes:
           edit:
             close: Cerrar
