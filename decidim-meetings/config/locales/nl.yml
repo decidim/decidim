@@ -178,13 +178,12 @@ nl:
               rejected: Verworpen
               sent: Verzonden
             filter_by: Filteren op
-            invite_attendee: Nodig de deelnemer uit
-            invites: Uitnodigingen
-            search: Zoeken
-          new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Uitnodigen
-            new_invite: Gebruiker uitnodigen
+            invite_attendee: Nodig de deelnemer uit
+            invite_explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            invites: Uitnodigingen
+            registrations_disabled: U kunt een deelnemer niet uitnodigen omdat de registraties zijn uitgeschakeld.
+            search: Zoeken
         meeting_closes:
           edit:
             close: Sluiten
