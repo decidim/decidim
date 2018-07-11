@@ -18,7 +18,7 @@ module Decidim
           @organization = @conference.organization
           @locator = Decidim::ResourceLocatorPresenter.new(@conference)
 
-          # add_calendar_attachment
+          add_calendar_attachment
 
           subject = I18n.t("confirmation.subject", scope: "decidim.conferences.mailer.registration_mailer")
           mail(to: user.email, subject: subject)
@@ -27,20 +27,18 @@ module Decidim
 
       private
 
-      # def add_calendar_attachment
-      #   calendar = Icalendar::Calendar.new
-      #   calendar.event do |event|
-      #     event.dtstart = Icalendar::Values::DateTime.new(@conference.start_time)
-      #     event.dtend = Icalendar::Values::DateTime.new(@conference.end_time)
-      #     event.summary = translated_attribute @conference.title
-      #     event.description = strip_tags(translated_attribute(@conference.description))
-      #     event.location = @conference.address
-      #     event.geo = [@conference.latitude, @conference.longitude]
-      #     event.url = @locator.url
-      #   end
-      #
-      #   attachments["conference-calendar-info.ics"] = calendar.to_ical
-      # end
+      def add_calendar_attachment
+        calendar = Icalendar::Calendar.new
+        calendar.event do |event|
+          event.dtstart = Icalendar::Values::DateTime.new(@conference.start_time)
+          event.dtend = Icalendar::Values::DateTime.new(@conference.end_time)
+          event.summary = translated_attribute @conference.title
+          event.description = strip_tags(translated_attribute(@conference.description))
+          event.url = @locator.url
+        end
+
+        attachments["conference-calendar-info.ics"] = calendar.to_ical
+      end
     end
   end
 end

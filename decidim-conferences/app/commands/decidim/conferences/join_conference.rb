@@ -23,7 +23,7 @@ module Decidim
           create_registration
           accept_invitation
           send_email_confirmation
-          # send_notification
+          send_notification
         end
         broadcast(:ok)
       end
@@ -41,7 +41,7 @@ module Decidim
       end
 
       def can_join_conference?
-        conference.registrations_enabled?# && conference.has_available_slots?
+        conference.registrations_enabled? && conference.has_available_slots?
       end
 
       def send_email_confirmation
@@ -52,27 +52,27 @@ module Decidim
         @conference.component.participatory_space.admins
       end
 
-      # def send_notification
-      #   return send_notification_over(0.5) if occupied_slots_over?(0.5)
-      #   return send_notification_over(0.8) if occupied_slots_over?(0.8)
-      #   send_notification_over(1.0) if occupied_slots_over?(1.0)
-      # end
-      #
-      # def send_notification_over(percentage)
-      #   Decidim::EventsManager.publish(
-      #     event: "decidim.events.conferences.conference_registrations_over_percentage",
-      #     event_class: Decidim::Conferences::ConferenceRegistrationsOverPercentageEvent,
-      #     resource: @conference,
-      #     recipient_ids: participatory_space_admins.pluck(:id),
-      #     extra: {
-      #       percentage: percentage
-      #     }
-      #   )
-      # end
-      #
-      # def occupied_slots_over?(percentage)
-      #   @conference.remaining_slots == (@conference.available_slots * (1 - percentage)).round
-      # end
+      def send_notification
+        return send_notification_over(0.5) if occupied_slots_over?(0.5)
+        return send_notification_over(0.8) if occupied_slots_over?(0.8)
+        send_notification_over(1.0) if occupied_slots_over?(1.0)
+      end
+
+      def send_notification_over(percentage)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.conferences.conference_registrations_over_percentage",
+          event_class: Decidim::Conferences::ConferenceRegistrationsOverPercentageEvent,
+          resource: @conference,
+          recipient_ids: participatory_space_admins.pluck(:id),
+          extra: {
+            percentage: percentage
+          }
+        )
+      end
+
+      def occupied_slots_over?(percentage)
+        @conference.remaining_slots == (@conference.available_slots * (1 - percentage)).round
+      end
     end
   end
 end

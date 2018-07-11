@@ -277,6 +277,18 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: The "%{resource_title}" conference occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the conference's participatory space.
+          email_subject: The "%{resource_title}" conference occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference occupied slots are over %{percentage}%.
+        registrations_enabled:
+          email_intro: 'The "%{resource_title}" conference has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference has enabled registrations.
     log:
       value_types:
         conference_presenter:
