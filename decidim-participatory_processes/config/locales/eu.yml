@@ -257,7 +257,9 @@ eu:
       processes: Prozesuak
     participatory_process_groups:
       show:
-        group_participatory_processes: '%{group} talderako prozesuak'
+        group_participatory_processes:
+          one: 1 prozesu %{group}
+          other: "%{count} prozesu %{group}"
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ eu:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       index:
         title: Prozesu partizipatiboak
-      order_by_processes:
-        active: Aktiboa
-        all: guztiak
-        past: Aurrekoak
-        upcoming: Hurrengoak
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,30 @@ eu:
       participatory_process_groups:
         none: Bat bera ere ez
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 prozesu aktibo
+              other: "%{count} prozesu aktiboak"
+            all:
+              one: 1 prozesu
+              other: "%{count} prozesu"
+            past:
+              one: 1 iraganeko prozesua
+              other: "%{count} prozesu iraganean"
+            upcoming:
+              one: 1 hurrengo prozesua
+              other: "%{count} hurrengo prozesuetan"
+          explanations:
+            no_active: Ez dago prozesu aktiborik
+            no_active_nor_upcoming: Prozesu aktibo ez etorkizunik ez
+            no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
+          names:
+            active: Aktiboa
+            all: guztiak
+            past: Aurrekoak
+            upcoming: Hurrengoak
+          see: Ikusi
         index:
           loading: Emaitzak kargatzen...
       show:
@@ -330,10 +351,6 @@ eu:
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
-        order_by_processes:
-          processes:
-            one: "%{count} prozesu"
-            other: "%{count} prozesu"
         participatory_process:
           active_step: 'Oraingo fasea:'
           take_part: Parte hartu
