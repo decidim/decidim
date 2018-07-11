@@ -166,6 +166,7 @@ uk:
           registrations: Реєстрації
         invite_join_meeting_mailer:
           invite:
+            decline: Відхилити запрошення
             invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
             join: Долучитись до зустрічі '%{meeting_title}'
         invites:
@@ -173,7 +174,14 @@ uk:
             error: При спробі запросити учасника на зустріч сталася помилка.
             success: Учасника успішно запрошено на зустріч.
           index:
+            filter:
+              accepted: Прийняті
+              all: Усі
+              rejected: Відхилені
+              sent: Надіслані
+            filter_by: 'Відібрати за ознакою:'
             invite: Запросити
+            invite_attendee: Запросити учасника
             invite_explanation: Учасника буде запрошено на зустріч. Якщо його адресу електронної пошти не зареєстровано, його буде також запрошено до організації.
         meeting_closes:
           edit:
