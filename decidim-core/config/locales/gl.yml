@@ -604,6 +604,7 @@ gl:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación farase en %{due_date}.
+        decline: Declina a invitación
         hello: Ola %{email},
         ignore: |-
           Se non queres aceptar a invitación, ignora este correo electrónico.<br />

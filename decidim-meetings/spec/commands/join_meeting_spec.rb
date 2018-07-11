@@ -31,9 +31,13 @@ module Decidim::Meetings
         perform_enqueued_jobs { subject.call }
 
         email = last_email
-        expect(email.subject).to include("confirmed")
-        attachment = email.attachments.first
+        email_body = last_email_body
+        last_registration = Registration.last
 
+        expect(email.subject).to include("confirmed")
+        expect(email_body).to include(last_registration.code)
+
+        attachment = email.attachments.first
         expect(attachment.read.length).to be_positive
         expect(attachment.mime_type).to eq("text/calendar")
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)

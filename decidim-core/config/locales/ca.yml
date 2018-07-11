@@ -604,6 +604,7 @@ ca:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
+        decline: Declina la invitació
         hello: Hola %{email},
         ignore: |-
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
