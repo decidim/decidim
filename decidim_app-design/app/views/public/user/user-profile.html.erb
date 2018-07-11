@@ -1,6 +1,7 @@
 <%
 @title = "Decidim Barcelona"
 @activeuser = "logged"
+@files = Dir.glob("app/assets/images/badges/*.svg")
 %>
 
 <%= partial "template_top" %>
@@ -31,9 +32,6 @@
   <div class="row">
     <div class="columns medium-3">
       <%= render partial: page_path("user") + "/user-card" %>
-      <div class="text-center">
-        <button class="button">Edit profile</button>
-      </div>
     </div>
     <div class="columns medium-9">
       <div class="tabs-content" data-tabs-content="profile-tabs">

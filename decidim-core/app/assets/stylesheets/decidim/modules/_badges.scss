@@ -31,6 +31,10 @@
 
     height: 100%;
   }
+
+  &.badge-tip--inline{
+    display: inline-block;
+  }
 }
 
 .badge-container{
@@ -38,6 +42,15 @@
 
   .badge__logo{
     @extend .card__image;
+
+    max-height: auto;
+    min-height: auto;
+  }
+
+  .badge__logo--small{
+    @extend .badge__logo;
+
+    border: 2px solid $primary;
   }
 
   svg{

@@ -1,7 +1,6 @@
 <%
 @title = "Decidim Barcelona"
-
-files = Dir.glob("app/assets/images/badges/*.svg")
+@files = Dir.glob("app/assets/images/badges/*.svg")
 %>
 
 <%= partial "template_top" %>
@@ -11,7 +10,7 @@ files = Dir.glob("app/assets/images/badges/*.svg")
     <h1>Decidim badges</h1>
     <p>Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them. </p>
   </div>
-  <% files.each do |i| %>
+  <% @files.each do |i| %>
     <div class="row mb-m">
       <div class="column medium-2">
         <%= render partial: page_path("user") + "/badge", locals: { template: File.basename(i, ".svg"), level: 0 } %>
