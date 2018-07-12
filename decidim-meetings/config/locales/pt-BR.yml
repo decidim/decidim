@@ -172,6 +172,13 @@ pt-BR:
           create:
             error: Ocorreu um problema ao convidar o usuário a participar da reunião.
             success: O usuário foi convidado para participar da reunião.
+          form:
+            attendee_type: Tipo de participante
+            existing_user: Usuário existente
+            invite: Convite
+            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
+            non_user: Usuário não existente
+            select_user: Selecione o usuário
           index:
             filter:
               accepted: Aceitos
@@ -179,9 +186,7 @@ pt-BR:
               rejected: Rejeitados
               sent: Enviado
             filter_by: Filtrar por
-            invite: Convite
             invite_attendee: Convidar participante
-            invite_explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
             invites: Convites
             registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
             search: Pesquisar
