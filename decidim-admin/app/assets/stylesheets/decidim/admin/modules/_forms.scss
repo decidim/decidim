@@ -63,13 +63,20 @@ textarea{
   justify-content: center;
 }
 
-.check-radio{
+.check-radio,
+.check-radio-collection{
   label{
     font-weight: normal;
     display: inline-flex;
     align-items: center;
   }
 
+  legend{
+    font-weight: 600;
+  }
+}
+
+.check-radio{
   input{
     margin-bottom: 0;
   }
