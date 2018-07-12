@@ -12,8 +12,8 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit resource_locator(followable).path
         expect do
-          click_button "Follow"
-          expect(page).to have_content "Stop following"
+          click_button t("follows.create.button", scope: "decidim")
+          expect(page).to have_content t("follows.destroy.button", scope: "decidim")
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
@@ -28,8 +28,8 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit resource_locator(followable).path
         expect do
-          click_button "Stop following"
-          expect(page).to have_content "Follow"
+          click_button t("follows.destroy.button", scope: "decidim")
+          expect(page).to have_content t("follows.create.button", scope: "decidim")
         end.to change(Decidim::Follow, :count).by(-1)
       end
     end

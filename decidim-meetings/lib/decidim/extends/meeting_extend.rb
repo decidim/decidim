@@ -3,7 +3,8 @@ module MeetingExtend
   include Decidim::HasClassExtends
 
   def users_to_notify_on_comment_created
-    get_all_users_with_role
+    # get_all_users_with_role
+    followers
   end
 
   def users_to_notify_on_comment_authorized
