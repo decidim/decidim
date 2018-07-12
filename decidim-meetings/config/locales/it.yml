@@ -172,6 +172,13 @@ it:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
             success: L'utente è stato invitato a partecipare alla riunione.
+          form:
+            attendee_type: Tipo di partecipante
+            existing_user: Utente esistente
+            invite: Invita
+            invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
+            non_user: Utente non esistente
+            select_user: Seleziona utente
           index:
             filter:
               accepted: Accettato
@@ -179,9 +186,7 @@ it:
               rejected: Respinto
               sent: Inviato
             filter_by: Filtra per
-            invite: Invita
             invite_attendee: Invita il partecipante
-            invite_explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
             invites: Inviti
             registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
             search: Ricerca
