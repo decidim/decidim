@@ -199,11 +199,11 @@ es-PY:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Atributo ficticio 1
             dummy_global_attribute_2: Atributo ficticio 2
-            resources_permissions_enabled: Permisos de recursos habilitados
+            resources_permissions_enabled: Permisos sobre recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Atributo de paso ficticio 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_2: Atributo de paso ficticio 2
     contact: Contacto
     core:
       actions:
