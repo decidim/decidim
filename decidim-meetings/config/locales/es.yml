@@ -172,6 +172,13 @@ es:
           create:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
+          form:
+            attendee_type: Tipo de Asistente
+            existing_user: Usuario existente
+            invite: Invitar
+            invite_explanation: El usuario será invitado a unirse a la reunión y a la organización también.
+            non_user: Usuario no existente
+            select_user: Seleccionar usuario
           index:
             filter:
               accepted: Aceptado
@@ -179,9 +186,7 @@ es:
               rejected: Rechazadas
               sent: Expedidas
             filter_by: Filtrar por
-            invite: Invitar
             invite_attendee: Invitar a un asistente
-            invite_explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
             invites: Invitaciones
             registrations_disabled: No puede invitar a un asistente porque los registros están deshabilitados.
             search: Buscar
