@@ -107,6 +107,8 @@ module Decidim
       end
 
       def proposal_limit_reached?
+        return false if controller_name == "collaborative_drafts"
+
         proposal_limit = form.current_component.settings.proposal_limit
 
         return false if proposal_limit.zero?
