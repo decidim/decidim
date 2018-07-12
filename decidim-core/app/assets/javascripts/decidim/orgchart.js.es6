@@ -20,8 +20,8 @@ $(() => {
       marginBottom: 5,
       marginRight: 0,
       marginLeft: 30,
-      nodeRadius: 18,
       container: "body",
+      nodeDistance: 50,
       distance: 100,
       hiddenChildLevel: 1,
       nodeStroke: "#41302D",
@@ -96,9 +96,9 @@ $(() => {
 
           // increase collide strength
           if (d.children && d.depth > 2) {
-            return attrs.nodeRadius;
+            return attrs.nodeDistance;
           }
-          return attrs.nodeRadius * 2;
+          return attrs.nodeDistance * 2;
         });
 
         // manually set x positions (which is calculated using custom radial layout)
@@ -151,6 +151,11 @@ $(() => {
 
         // hide members based on their depth
         arr.forEach((d) => {
+          // Hide fake root node
+          if ((attrs.fakeRoot) && (d.depth === 1)) {
+            d.hidden = true
+          }
+
           if (d.depth > attrs.hiddenChildLevel) {
             d._children = d.children;
             d.children = null;
@@ -186,6 +191,7 @@ $(() => {
 
         // update visual based on data change
         function update(clickedNode) {
+
           // set xy and proportion properties with custom radial layout
           layouts.radial(hierarchy.root);
 
@@ -213,14 +219,7 @@ $(() => {
 
           links = links.enter()
             .append("line")
-            .attr("class", (d) => {
-              let classList = "link"
-              // Hide root fakes nodes
-              if ((attrs.fakeRoot) && (d.source.depth === 1)) {
-                classList += " element--fake"
-              }
-              return classList
-            })
+            .attr("class", "link")
             .merge(links)
 
           // node groups
@@ -230,14 +229,7 @@ $(() => {
 
           let enteredNodes = nodes.enter()
             .append("g")
-            .attr("class", (d) => {
-              let classList = "node"
-              // Hide root fakes nodes
-              if ((attrs.fakeRoot) && (d.depth === 1)) {
-                classList += " element--fake"
-              }
-              return classList
-            })
+            .attr("class", "node")
 
           // bind event handlers
           enteredNodes
@@ -246,33 +238,38 @@ $(() => {
             .on("mouseleave", nodeMouseLeave)
             .call(behaviors.drag)
 
-          // node texts
-          enteredNodes.append("text")
-            .attr("class", "node-texts")
-            .attr("x", 30)
-            .attr("fill", attrs.nodeTextColor)
-            .text((d) => d.data.name)
-            .style("display", attrs.textDisplayed ? "initial" : "none")
-
           // channels grandchildren
-          enteredNodes.append("circle")
-            .attr("r", 7)
-            .attr("stroke-width", 5)
-            .attr("stroke", attrs.nodeStroke)
+          enteredNodes.append("rect")
+            .attr("class", "as-card")
+            .attr("rx", 4)
+            .attr("ry", 4)
+
+          enteredNodes.append("text")
+            .attr("class", "as-text")
+            .text((d) => d.data.name)
+
+          enteredNodes.selectAll("text").each(function(d, i) {
+            d.bbox = this.getBBox(); // get bounding box of text field and store it in texts array
+          });
+
+          let gutter = {
+            x: 16,
+            y: 8
+          }
+          enteredNodes.selectAll("rect")
+            .attr("x", (d) => d.bbox.x - gutter.x)
+            .attr("y", (d) => d.bbox.y - gutter.y)
+            .attr("width", (d) => d.bbox.width + (2 * gutter.x))
+            .attr("height", (d) => d.bbox.height + (2 * gutter.y));
 
           // merge  node groups and style it
           nodes = enteredNodes.merge(nodes);
-          nodes
-            .attr("fill", (d) => {
-              return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-            })
-            .style("cursor", "pointer")
 
           // force simulation
           force.simulation.nodes(nodesArr).on("tick", ticked);
 
           // links simulation
-          force.simulation.force("link").links(links).id((d) => d.id).distance(100).strength(() => 1);
+          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(() => 1);
         }
 
         // ####################################### EVENT HANDLERS  ########################

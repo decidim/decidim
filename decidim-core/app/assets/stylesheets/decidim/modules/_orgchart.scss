@@ -10,13 +10,25 @@
   background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
   background-size: $dot-space $dot-space;
 
-  .element--fake{
-    display: none;
+  // .element--fake{
+  //   visibility: hidden;
+  // }
+
+  .as-card{
+    fill: $white;
+    stroke: $medium-gray;
+    stroke-width: 1px;
+  }
+
+  .as-text{
+    font-weight: 600;
+    fill: $secondary;
+    text-anchor: middle;
   }
 
   .link{
     stroke: $secondary;
-    stroke-width: 2px;
+    stroke-width: 1px;
   }
 
   .node{
