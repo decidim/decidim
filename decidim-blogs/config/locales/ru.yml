@@ -56,6 +56,20 @@ ru:
     components:
       blogs:
         name: Блог
+        settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии отключены
+    events:
+      blogs:
+        post_created:
+          email_intro: В "%{participatory_space_title}", за которым вы следите, обнародован пост "%{resource_title}".
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} обнародован новый пост
+          notification_title: В %{participatory_space_title} был обнародован пост <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:
         statistics:

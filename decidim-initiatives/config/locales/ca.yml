@@ -287,6 +287,7 @@ ca:
           title: Llistat de signatures
         vote_cabin:
           already_voted: Ja has signat
+          supports_required: "%{total_supports} suports obligatoris"
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:

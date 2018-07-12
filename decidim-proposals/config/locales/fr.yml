@@ -240,13 +240,13 @@ fr:
         success: Proposition créée avec succès. Enregistrée comme brouillon.
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
-        success: Le brouillon de la proposition a bien été supprimé.
+        success: Le projet de proposition a été supprimé avec succès.
       models:
         proposal:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créé le
+            created_at: Créée le
             endorsements: Soutiens
             id: ID
             notes: Remarques

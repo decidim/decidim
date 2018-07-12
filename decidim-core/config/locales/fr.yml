@@ -340,7 +340,7 @@ fr:
     follows:
       create:
         button: Suivre
-        error: Une erreur s'est produite lors du traitement de suivre ce contenu.
+        error: Une erreur s'est produite lors du traitement de votre demande de suivi de contenu.
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -463,7 +463,7 @@ fr:
           debates_explanation: Débattez, discutez et enrichissez les échanges de vos points de vue.
           how_to_participate: Comment participer ?
           meetings: Rencontres
-          meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
+          meetings_explanation: Découvrez les dates des prochaines réunions publiques auxquelles vous pouvez participer.
           more_info: En savoir plus
           proposals: Propositions
           proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
@@ -574,8 +574,8 @@ fr:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
-          reauthorize: Réautoriser
-          title: Veuillez réautoriser
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
         missing:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".

@@ -1,7 +1,7 @@
 {
   "name": "decidim",
   "description": "The participatory democracy framework",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
@@ -247,6 +247,7 @@
     "apollo-link-http": "^1.5.3",
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
+    "fsevents": "^1.2.4",
     "graphql": "^0.13.0",
     "graphql-anywhere": "^4.1.5",
     "graphql-tag": "^2.8.0",
