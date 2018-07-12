@@ -172,6 +172,13 @@ gl:
           create:
             error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
             success: O usuario convidouse con éxito a unirse á reunión.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Usuario existente
+            invite: Invitar
+            invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
+            non_user: Usuario non existente
+            select_user: Seleccionar usuario
           index:
             filter:
               accepted: Aceptada
@@ -179,9 +186,7 @@ gl:
               rejected: Rexeitado
               sent: Enviado
             filter_by: Filtrar por
-            invite: Invitar
             invite_attendee: Invitar asistente
-            invite_explanation: Invitarase ao usuario a unirse a unha reunión. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
             invites: Invitacións
             registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
             search: Busca
