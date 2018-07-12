@@ -9,7 +9,7 @@ $(() => {
 
   // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
 
-  let data = [{
+  let data = {
     "name": "name0",
     "children": [
       {
@@ -132,130 +132,7 @@ $(() => {
         ]
       }
     ]
-  }, {
-    "name": "name0---ARRAY",
-    "children": [
-      {
-        "name": "name1",
-        "children": [
-          {
-            "name": "name2",
-            "children": [
-              {
-                "children": [
-                  {
-                    "name": "name4"
-                  }
-                ],
-                "name": "name3"
-              },
-              {
-                "children": [
-                  {
-                    "name": "name104"
-                  },
-                  {
-                    "name": "name105"
-                  }
-                ],
-                "name": "name103"
-              }
-            ]
-          },
-          {
-            "name": "name203",
-            "children": [
-              {
-                "children": [
-                  {
-                    "name": "name205"
-                  },
-                  {
-                    "name": "name206"
-                  },
-                  {
-                    "name": "name207"
-                  }
-                ],
-                "name": "name204"
-              },
-              {
-                "children": [
-                  {
-                    "name": "name305"
-                  },
-                  {
-                    "name": "name306"
-                  }
-                ],
-                "name": "name304"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "name404",
-        "children": [
-          {
-            "name": "name405",
-            "children": [
-              {
-                "name": "name406",
-                "children": [
-                  {
-                    "name": "name407"
-                  },
-                  {
-                    "name": "name408"
-                  },
-                  {
-                    "name": "name409"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "name506",
-        "children": [
-          {
-            "name": "name507"
-          },
-          {
-            "name": "name508"
-          },
-          {
-            "name": "name509"
-          }
-        ]
-      },
-      {
-        "name": "name510",
-        "children": [
-          {
-            "name": "name511"
-          },
-          {
-            "name": "name512"
-          }
-        ]
-      },
-      {
-        "name": "name513",
-        "children": [
-          {
-            "name": "name514"
-          },
-          {
-            "name": "name515"
-          }
-        ]
-      }
-    ]
-  }]
+  }
 
   // lib
   const renderChartCollapsibleNetwork = (params) => {
@@ -281,7 +158,7 @@ $(() => {
       maxTextDisplayZoomLevel: 1,
       textDisplayed: true,
       lineStrokeWidth: 1.5,
-      isArray: false,
+      fakeRoot: false,
       data: null
     };
 
@@ -465,7 +342,7 @@ $(() => {
             .attr("class", (d) => {
               let classList = "link"
               // Hide root fakes nodes
-              if ((attrs.isArray) && (d.source.depth === 1)) {
+              if ((attrs.fakeRoot) && (d.source.depth === 1)) {
                 classList += " element--fake"
               }
               return classList
@@ -484,7 +361,7 @@ $(() => {
             .attr("class", (d) => {
               let classList = "node"
               // Hide root fakes nodes
-              if ((attrs.isArray) && (d.depth === 1)) {
+              if ((attrs.fakeRoot) && (d.depth === 1)) {
                 classList += " element--fake"
               }
               return classList
@@ -821,7 +698,7 @@ $(() => {
 
     // set attrs as property
     main.attrs = attrs;
-console.log(main.attrs);
+
     // debugging visuals
     main.debug = function (isDebug) {
       attrs.isDebug = isDebug;
@@ -887,7 +764,7 @@ console.log(main.attrs);
     renderChartCollapsibleNetwork()
       .svgHeight(height)
       .svgWidth(width)
-      .isArray(!(fake !== null))
+      .fakeRoot((fake !== null))
       .container(`#${container.id}`)
       .data({ root: fake || data })
       .debug(true)
