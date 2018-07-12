@@ -41,7 +41,7 @@ es-PY:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Este correo electrónico ya ha sido invitado
+              already_invited: Esta persona ya ha sido invitada
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -80,7 +80,7 @@ es-PY:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
-            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada reunión
+            resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -173,10 +173,10 @@ es-PY:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
           form:
-            attendee_type: Tipo de Asistente
+            attendee_type: Tipo de asistente
             existing_user: Usuario existente
             invite: Invitar
-            invite_explanation: El usuario será invitado a unirse a la reunión y a la organización también.
+            invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
