@@ -56,7 +56,7 @@ module Decidim
         )
 
         @form = form(ProposalForm).from_params(params)
-        CreateProposal.call(@form, @current_user) do
+        CreateProposal.call(@form, @current_user, @collaborative_draft.identities) do
           on(:ok) do |new_proposal|
             publish_proposal new_proposal
           end

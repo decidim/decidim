@@ -8,9 +8,11 @@ module Decidim
       #
       # form         - A form object with the params.
       # current_user - The current user.
-      def initialize(form, current_user)
+      # coauthors - The coauthors of the proposal.
+      def initialize(form, current_user, coauthors = current_user)
         @form = form
         @current_user = current_user
+        @coauthor_identities = coauthors
       end
 
       # Executes the command. Broadcasts these events:
@@ -34,6 +36,7 @@ module Decidim
 
         transaction do
           create_proposal
+          add_coauthors
           create_attachment if process_attachments?
         end
 
@@ -55,7 +58,20 @@ module Decidim
           latitude: form.latitude,
           longitude: form.longitude
         )
-        proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
+      end
+
+      def add_coauthors
+        if @coauthor_identities.is_a? Decidim::User
+          proposal.add_coauthor(@coauthor_identities, decidim_user_group_id: form.user_group_id)
+        else
+          @coauthor_identities.each do |identity|
+            if identity.is_a? Decidim::UserGroup
+              proposal.add_coauthor(identity.users.first, user_group: identity)
+            else
+              proposal.add_coauthor(identity)
+            end
+          end
+        end
       end
 
       def build_attachment
