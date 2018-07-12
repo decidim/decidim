@@ -94,7 +94,7 @@ pt-BR:
         new:
           back: Costas
           create: Criar
-          select_a_category: Por favor, selecione uma categoria
+          select_a_category: Selecione uma categoria
           title: Novo debate
         share:
           close_window: Janela fechada
