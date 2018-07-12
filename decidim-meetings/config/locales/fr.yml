@@ -172,6 +172,13 @@ fr:
           create:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
+          form:
+            attendee_type: Type de participant
+            existing_user: Utilisateur existant
+            invite: Inviter
+            invite_explanation: L'utilisateur sera invité à se joindre à la réunion et à l'organisation.
+            non_user: Utilisateur non existant
+            select_user: Sélectionner un utilisateur
           index:
             filter:
               accepted: Accepté
@@ -179,9 +186,7 @@ fr:
               rejected: Rejeté
               sent: Envoyé
             filter_by: Filtrer par
-            invite: Inviter
             invite_attendee: Inviter un participant
-            invite_explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire à l'organisation.
             invites: Invite
             registrations_disabled: Vous ne pouvez pas inviter un participant car les enregistrements sont désactivés.
             search: Chercher
