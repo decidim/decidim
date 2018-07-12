@@ -172,6 +172,13 @@ eu:
           create:
             error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
             success: Erabiltzailea behar bezala gonbidatu bilera batera.
+          form:
+            attendee_type: Parte-hartzaile mota
+            existing_user: Erabiltzaile existentea
+            invite: Gonbit egin
+            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
+            non_user: Erabiltzailea ez dago
+            select_user: Aukeratu erabiltzailea
           index:
             filter:
               accepted: Onartu
@@ -179,9 +186,7 @@ eu:
               rejected: Baztertuta
               sent: bidalia
             filter_by: Iragazi arabera
-            invite: Gonbit egin
             invite_attendee: Gonbidatu gonbidatua
-            invite_explanation: Erabiltzailea bilera batera gonbidatuko zaizu. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu parte-hartzaile bat gonbidatu erregistrazioek desgaituta egon direlako.
             search: Search
