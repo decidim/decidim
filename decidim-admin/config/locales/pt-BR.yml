@@ -222,13 +222,13 @@ pt-BR:
           success: Categoria criada com sucesso.
         destroy:
           error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
+          success: Categoria excluída com sucesso.
         edit:
           title: Editar categoria
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
+          category_used: Esta categoria não pode ser removida porque está em uso.
         new:
           create: Criar categoria
           title: Nova categoria
