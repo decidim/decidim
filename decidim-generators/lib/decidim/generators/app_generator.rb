@@ -61,6 +61,10 @@ module Decidim
                           default: false,
                           desc: "Generate demo authorization handlers"
 
+      class_option :ci, type: :boolean,
+                        default: false,
+                        desc: "Generate an application meant to be run in a CI environment"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -153,7 +157,7 @@ module Decidim
       end
 
       def eager_load
-        gsub_file "config/environments/test.rb", "config.eager_load = false", "config.eager_load = true" if options[:demo]
+        gsub_file "config/environments/test.rb", "config.eager_load = false", "config.eager_load = true" if options[:ci]
       end
 
       def install
