@@ -9,130 +9,221 @@ $(() => {
 
   // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
 
-  let data = {
-    "name": "name0",
-    "children": [
-      {
-        "name": "name1",
-        "children": [
-          {
-            "name": "name2",
-            "children": [
-              {
-                "children": [
-                  {
-                    "name": "name4"
-                  }
-                ],
-                "name": "name3"
-              },
-              {
-                "children": [
-                  {
-                    "name": "name104"
-                  },
-                  {
-                    "name": "name105"
-                  }
-                ],
-                "name": "name103"
-              }
-            ]
-          },
-          {
-            "name": "name203",
-            "children": [
-              {
-                "children": [
-                  {
-                    "name": "name205"
-                  },
-                  {
-                    "name": "name206"
-                  },
-                  {
-                    "name": "name207"
-                  }
-                ],
-                "name": "name204"
-              },
-              {
-                "children": [
-                  {
-                    "name": "name305"
-                  },
-                  {
-                    "name": "name306"
-                  }
-                ],
-                "name": "name304"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "name404",
-        "children": [
-          {
-            "name": "name405",
-            "children": [
-              {
-                "name": "name406",
-                "children": [
-                  {
-                    "name": "name407"
-                  },
-                  {
-                    "name": "name408"
-                  },
-                  {
-                    "name": "name409"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "name506",
-        "children": [
-          {
-            "name": "name507"
-          },
-          {
-            "name": "name508"
-          },
-          {
-            "name": "name509"
-          }
-        ]
-      },
-      {
-        "name": "name510",
-        "children": [
-          {
-            "name": "name511"
-          },
-          {
-            "name": "name512"
-          }
-        ]
-      },
-      {
-        "name": "name513",
-        "children": [
-          {
-            "name": "name514"
-          },
-          {
-            "name": "name515"
-          }
-        ]
-      }
-    ]
-  }
+  let data = [
+    {
+      "name": "Equatorial Guinea",
+      "children": []
+    },
+    {
+      "name": "US Minor Outlying Islands",
+      "children": [
+        {
+          "name": "Tennessee",
+          "children": [
+            {
+              "name": "Chaparrito",
+              "children": [
+                {
+                  "name": "Croton Loop"
+                },
+                {
+                  "name": "Banker Street"
+                },
+                {
+                  "name": "Colonial Court"
+                },
+                {
+                  "name": "Havens Place"
+                }
+              ]
+            },
+            {
+              "name": "Jamestown",
+              "children": []
+            },
+            {
+              "name": "Ypsilanti",
+              "children": [
+                {
+                  "name": "Lexington Avenue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wisconsin",
+          "children": [
+            {
+              "name": "Hayes",
+              "children": [
+                {
+                  "name": "Judge Street"
+                },
+                {
+                  "name": "Pooles Lane"
+                },
+                {
+                  "name": "Ross Street"
+                },
+                {
+                  "name": "Saratoga Avenue"
+                },
+                {
+                  "name": "Joval Court"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Estonia",
+      "children": [
+        {
+          "name": "South Carolina",
+          "children": [
+            {
+              "name": "Motley",
+              "children": [
+                {
+                  "name": "Ridgewood Place"
+                },
+                {
+                  "name": "Meeker Avenue"
+                }
+              ]
+            },
+            {
+              "name": "Urie",
+              "children": [
+                {
+                  "name": "Greenpoint Avenue"
+                },
+                {
+                  "name": "Kermit Place"
+                },
+                {
+                  "name": "Ellery Street"
+                }
+              ]
+            },
+            {
+              "name": "Stagecoach",
+              "children": [
+                {
+                  "name": "Bushwick Place"
+                },
+                {
+                  "name": "Chester Avenue"
+                }
+              ]
+            },
+            {
+              "name": "Caledonia",
+              "children": [
+                {
+                  "name": "Baycliff Terrace"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Alaska",
+          "children": [
+            {
+              "name": "Boomer",
+              "children": [
+                {
+                  "name": "Hanson Place"
+                },
+                {
+                  "name": "College Place"
+                },
+                {
+                  "name": "Linwood Street"
+                },
+                {
+                  "name": "Williams Court"
+                }
+              ]
+            },
+            {
+              "name": "Vivian",
+              "children": [
+                {
+                  "name": "Woodruff Avenue"
+                },
+                {
+                  "name": "Nichols Avenue"
+                },
+                {
+                  "name": "Bath Avenue"
+                }
+              ]
+            },
+            {
+              "name": "Summerset",
+              "children": [
+                {
+                  "name": "Beekman Place"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Marshall Islands",
+          "children": [
+            {
+              "name": "Santel",
+              "children": [
+                {
+                  "name": "Lincoln Road"
+                },
+                {
+                  "name": "Logan Street"
+                }
+              ]
+            },
+            {
+              "name": "Witmer",
+              "children": [
+                {
+                  "name": "Forrest Street"
+                },
+                {
+                  "name": "Bergen Place"
+                },
+                {
+                  "name": "Robert Street"
+                }
+              ]
+            },
+            {
+              "name": "Hailesboro",
+              "children": [
+                {
+                  "name": "Fleet Place"
+                },
+                {
+                  "name": "Cherry Street"
+                },
+                {
+                  "name": "Wyona Street"
+                },
+                {
+                  "name": "Dekoven Court"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 
   // lib
   const renderChartCollapsibleNetwork = (params) => {
