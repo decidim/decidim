@@ -1,5 +1,25 @@
 .orgchart{
+  // Colors
+  $bg-color: $white;
+  $dot-color: $medium-gray;
+
+  // Dimensions
+  $dot-size: rem-calc(2px);
+  $dot-space: rem-calc(10px);
+
+  background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+  background-size: $dot-space $dot-space;
+
   .element--fake{
     display: none;
+  }
+
+  .link{
+    stroke: $secondary;
+    stroke-width: 2px;
+  }
+
+  .node{
+    cursor: pointer;
   }
 }

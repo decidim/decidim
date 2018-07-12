@@ -7,225 +7,8 @@
 $(() => {
   const $orgChartContainer = $(".js-orgchart");
 
-  // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
-
-  let data = [
-    {
-      "name": "Equatorial Guinea",
-      "children": []
-    },
-    {
-      "name": "US Minor Outlying Islands",
-      "children": [
-        {
-          "name": "Tennessee",
-          "children": [
-            {
-              "name": "Chaparrito",
-              "children": [
-                {
-                  "name": "Croton Loop"
-                },
-                {
-                  "name": "Banker Street"
-                },
-                {
-                  "name": "Colonial Court"
-                },
-                {
-                  "name": "Havens Place"
-                }
-              ]
-            },
-            {
-              "name": "Jamestown",
-              "children": []
-            },
-            {
-              "name": "Ypsilanti",
-              "children": [
-                {
-                  "name": "Lexington Avenue"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Wisconsin",
-          "children": [
-            {
-              "name": "Hayes",
-              "children": [
-                {
-                  "name": "Judge Street"
-                },
-                {
-                  "name": "Pooles Lane"
-                },
-                {
-                  "name": "Ross Street"
-                },
-                {
-                  "name": "Saratoga Avenue"
-                },
-                {
-                  "name": "Joval Court"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Estonia",
-      "children": [
-        {
-          "name": "South Carolina",
-          "children": [
-            {
-              "name": "Motley",
-              "children": [
-                {
-                  "name": "Ridgewood Place"
-                },
-                {
-                  "name": "Meeker Avenue"
-                }
-              ]
-            },
-            {
-              "name": "Urie",
-              "children": [
-                {
-                  "name": "Greenpoint Avenue"
-                },
-                {
-                  "name": "Kermit Place"
-                },
-                {
-                  "name": "Ellery Street"
-                }
-              ]
-            },
-            {
-              "name": "Stagecoach",
-              "children": [
-                {
-                  "name": "Bushwick Place"
-                },
-                {
-                  "name": "Chester Avenue"
-                }
-              ]
-            },
-            {
-              "name": "Caledonia",
-              "children": [
-                {
-                  "name": "Baycliff Terrace"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Alaska",
-          "children": [
-            {
-              "name": "Boomer",
-              "children": [
-                {
-                  "name": "Hanson Place"
-                },
-                {
-                  "name": "College Place"
-                },
-                {
-                  "name": "Linwood Street"
-                },
-                {
-                  "name": "Williams Court"
-                }
-              ]
-            },
-            {
-              "name": "Vivian",
-              "children": [
-                {
-                  "name": "Woodruff Avenue"
-                },
-                {
-                  "name": "Nichols Avenue"
-                },
-                {
-                  "name": "Bath Avenue"
-                }
-              ]
-            },
-            {
-              "name": "Summerset",
-              "children": [
-                {
-                  "name": "Beekman Place"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Marshall Islands",
-          "children": [
-            {
-              "name": "Santel",
-              "children": [
-                {
-                  "name": "Lincoln Road"
-                },
-                {
-                  "name": "Logan Street"
-                }
-              ]
-            },
-            {
-              "name": "Witmer",
-              "children": [
-                {
-                  "name": "Forrest Street"
-                },
-                {
-                  "name": "Bergen Place"
-                },
-                {
-                  "name": "Robert Street"
-                }
-              ]
-            },
-            {
-              "name": "Hailesboro",
-              "children": [
-                {
-                  "name": "Fleet Place"
-                },
-                {
-                  "name": "Cherry Street"
-                },
-                {
-                  "name": "Wyona Street"
-                },
-                {
-                  "name": "Dekoven Court"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-
   // lib
+  // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
   const renderChartCollapsibleNetwork = (params) => {
 
     // exposed variables
@@ -439,8 +222,6 @@ $(() => {
               return classList
             })
             .merge(links)
-            .attr("stroke", "#9ecae1");
-          links.attr("stroke", attrs.linkColor).attr("stroke-width", attrs.lineStrokeWidth)
 
           // node groups
           nodes = nodesWrapper.selectAll(".node")
@@ -844,22 +625,24 @@ $(() => {
     let height = width / (4 / 3)
     let fake = null
 
-    // Make a fake previous node if the data entry is not hierarchical
-    if (data instanceof Array) {
-      fake = {
-        name: null,
-        children: data
+    d3.json("/orgchart.json").then((data) => {
+      // Make a fake previous node if the data entry is not hierarchical
+      if (data instanceof Array) {
+        fake = {
+          name: null,
+          children: data
+        }
       }
-    }
 
-    renderChartCollapsibleNetwork()
-      .svgHeight(height)
-      .svgWidth(width)
-      .fakeRoot((fake !== null))
-      .container(`#${container.id}`)
-      .data({ root: fake || data })
-      .debug(true)
-      .run()
+      renderChartCollapsibleNetwork()
+        .svgHeight(height)
+        .svgWidth(width)
+        .fakeRoot((fake !== null))
+        .container(`#${container.id}`)
+        .data({
+          root: fake || data
+        })
+        .run()
+    })
   })
-
-});
+})
