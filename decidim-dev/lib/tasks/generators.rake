@@ -27,6 +27,7 @@ namespace :decidim do
       "#{base_app_name}_test_app",
       "--path",
       "../..",
+      "--eager-load",
       "--recreate_db",
       "--skip_gemfile",
       "--demo"

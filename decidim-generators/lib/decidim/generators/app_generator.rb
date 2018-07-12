@@ -152,6 +152,10 @@ module Decidim
         end
       end
 
+      def eager_load
+        gsub_file "config/environments/test.rb", "config.eager_load = false", "config.eager_load = true" if options[:demo]
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
