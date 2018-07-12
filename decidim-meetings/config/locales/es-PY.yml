@@ -178,17 +178,17 @@ es-PY:
             invite: Invitar
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
             non_user: Usuario no existente
-            select_user: Seleccionar usuario
+            select_user: Selecciona un usuario
           index:
             filter:
-              accepted: Aceptado
+              accepted: Aceptada
               all: Todas
-              rejected: Rechazadas
-              sent: Expedidas
+              rejected: Rechazada
+              sent: Enviadas
             filter_by: Filtrar por
-            invite_attendee: Invitar a un asistente
+            invite_attendee: Invitar asistente
             invites: Invitaciones
-            registrations_disabled: No puede invitar a un asistente porque los registros están deshabilitados.
+            registrations_disabled: No puedes invitar al asistente porque las inscripciones están deshabilitadas.
             search: Buscar
         meeting_closes:
           edit:
@@ -259,9 +259,9 @@ es-PY:
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
       admin_log:
         invite:
-          create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
-          deleted: "%{user_name} ha eliminado la invitación de %{attendee_name} de unirse al encuentro %{resource_name} en el espacio %{space_name}"
-          update: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
+          create: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
+          deleted: "%{user_name} ha eliminado la invitación de %{attendee_name} de unirse a la reunión %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
         meeting:
           close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
@@ -322,14 +322,14 @@ es-PY:
       models:
         invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
             sent_at: Enviado el
             status: Estado
           status:
             accepted: Aceptada (%{at})
             rejected: Rechazada (%{at})
-            sent: Expedida
+            sent: Enviadas
         meeting:
           fields:
             closed: Cerrado
