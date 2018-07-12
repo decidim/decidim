@@ -178,6 +178,13 @@ pl:
           create:
             error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Udało się zaprosić użytkownika do udziału w spotkaniu.
+          form:
+            attendee_type: Typ uczestnika
+            existing_user: Istniejący użytkownik
+            invite: Zaproś
+            invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
+            non_user: Nieistniejący użytkownik
+            select_user: Wybierz użytkownika
           index:
             filter:
               accepted: Przyjęty
@@ -185,9 +192,7 @@ pl:
               rejected: Odrzucono
               sent: Wysłane
             filter_by: Filtruj według
-            invite: Zaproś
             invite_attendee: Zaproś uczestnika
-            invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
             invites: Zaprasza
             registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
             search: Szukaj
