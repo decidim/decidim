@@ -7,7 +7,7 @@ shared_examples "permission is not set" do
 end
 
 shared_examples "delegates permissions to" do |delegated_class|
-  it "delegates the check to the #{delegated_class.name} permissions class" do
+  it "the #{delegated_class.name} permissions class" do
     delegated_permissions = instance_double(delegated_class, permissions: :foo)
     delegated_permission_action = instance_double(Decidim::PermissionAction, allowed?: true)
 

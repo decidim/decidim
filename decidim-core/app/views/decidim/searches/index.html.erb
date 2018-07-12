@@ -11,8 +11,14 @@
         <%= render partial: "filters" %>
       </div>
     </div>
+      <div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
+        <div class="column">
+          <%= render partial: "decidim/shared/results_per_page" %>
+        </div>
+      </div>
     <div id="results" class="columns mediumlarge-8 large-9">
       <%= render partial: "results" %>
+      <%= paginate @results, theme: "decidim" %>
     </div>
   </div>
 </main>

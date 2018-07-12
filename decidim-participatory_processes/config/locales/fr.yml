@@ -20,8 +20,8 @@ fr:
         participatory_structure: Modalités
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Montrer les statistiques
         slug: Identifiant
@@ -257,9 +257,7 @@ fr:
       processes: Concertations
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 concertation pour %{group}
-          other: "%{count} concertations pour %{group}"
+        group_participatory_processes: Concertations pour %{group}
         title: Groupes de concertations
     participatory_process_steps:
       index:
@@ -323,7 +321,7 @@ fr:
         participatory_scope: Objectifs
         participatory_structure: Modalités
         private_space: Ceci est une concertation privée
-        scope: Périmètre d'application
+        scope: Échelle
         start_date: Date de début
         target: Participants
         unspecified: Non précisé

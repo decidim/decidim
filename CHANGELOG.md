@@ -7,15 +7,23 @@
 This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,
 and also everything related to it (controllers, views, etc.). If you have customised some
 controller or added a new module you need to rename `feature` to `component`.
+## [Unreleased](https://github.com/decidim/decidim/tree/0.12-stable)
 
-**Added**:
+**Fixed**:
 
-**Changed**:
+## [0.12.1-pre](https://github.com/decidim/decidim/tree/v0.12.1)
 
 **Fixed**:
 
 ## [0.11.0.pre](https://github.com/decidim/decidim/tree/v0.11.0)
 ## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
+- **decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
+- **decidim-assemblies**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
+- **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
+- **decidim-assemblies**: Let assembly admins access all content [\#3706](https://github.com/decidim/decidim/pull/3706)
+- **decidim-admin**: Let user managers access the public space [\#3723](https://github.com/decidim/decidim/pull/3723)
+
+## [0.12.0](https://github.com/decidim/decidim/tree/v0.12.0)
 
 **Upgrade notes (authorizations)**:
 
@@ -121,6 +129,7 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-core**: Order components by both weight and manifest_name so the order is kept [\#3264](https://github.com/decidim/decidim/pull/3264)
 - **decidim-meetings**: Add a meetings API. [\#3255](https://github.com/decidim/decidim/pull/3255)
 - **decidim-proposals**: Add "complete" step to the proposal creation wizard [\#3274](https://github.com/decidim/decidim/pull/3274)
+**decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
 - **decidim-core**: Added a global search engine for Proposals and Meetings. [\#3559](https://github.com/decidim/decidim/pull/3559)
 - **decidim-meetings**: Add Agenda and Agenda Item entities to manage meeting agenda. [\#3305](https://github.com/decidim/decidim/pull/3305)
 - **decidim-docs**: Add documentation for developers getting started. [\#3297](https://github.com/decidim/decidim/pull/3297)
@@ -265,6 +274,25 @@ Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultP
 - **decidim-core**: Consistent casing of error messages [\#3565](https://github.com/decidim/decidim/pull/3565)
 - **decidim-comments**: Fix comments stats so it appears in the homepage again [\#3570](https://github.com/decidim/decidim/pull/3570)
 - **decidim-comments**: Fix comment creation events raising errors when being delivered [\#3580](https://github.com/decidim/decidim/pull/3580)
+- **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#3605](https://github.com/decidim/decidim/pull/3605)
+- **decidim-meetings**: Do not let users join a meeting from the Search page, as the button fails [\#3612](https://github.com/decidim/decidim/pull/3612)
+
+**Fixed**:
+
+- **decidim-assemblies**: Fix private assemblies showing more than once for private users. [\#3638](https://github.com/decidim/decidim/pull/3638)
+- **decidim-proposals**: Do not index non published Proposals. [\#3618](https://github.com/decidim/decidim/pull/3618)
+- **decidim-proposals**: Fix link to endorsements behaviour, now it does not link when there are no endorsements. [\#3531](https://github.com/decidim/decidim/pull/3531)
+- **decidim-meetings**: Fix meetings M card cell so that it works outside the component [\#3612](https://github.com/decidim/decidim/pull/3612)
+- **decidim-proposals**: Fix proposals M card cell so that it works outside the component [\#3612](https://github.com/decidim/decidim/pull/3612)
+- **decidim-core**: Adds a missing migration to properly rename features to components [\#3658](https://github.com/decidim/decidim/pull/3658)
+- **decidim-core**: Search results should be paginated so that server does not hang when search term is too wide. [\#3658](https://github.com/decidim/decidim/pull/3658)
+- **decidim-blogs**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-core**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-initiatives**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-sortitions**: Use custom sanitizer in views instead of the default one [\#3659](https://github.com/decidim/decidim/pull/3659)
+- **decidim-assemblies**: Let space users access the admin area from the public one [\#3666](https://github.com/decidim/decidim/pull/3683)
+- **decidim-assemblies**: Let space admins access other spaces [\#3772](https://github.com/decidim/decidim/pull/3772)
+- **decidim-participatory_processes**: Let space admins access other spaces [\#3772](https://github.com/decidim/decidim/pull/3772)
 
 **Removed**:
 

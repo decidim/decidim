@@ -1,10 +1,5 @@
 version: 2
 
-general:
-  branches:
-    only:
-      - 0.12-dev
-
 defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
@@ -457,22 +452,22 @@ workflows:
           filters:
             branches:
               ignore:
-                - l10n_master
+                - l10n_0.12-stable
       - build_test_app:
           filters:
             branches:
               ignore:
-                - l10n_master
+                - l10n_0.12-stable
       - main:
           filters:
             branches:
               ignore:
-                - l10n_master
+                - l10n_0.12-stable
       - generators:
           filters:
             branches:
               ignore:
-                - l10n_master
+                - l10n_0.12-stable
       - core:
           requires:
             - build_test_app

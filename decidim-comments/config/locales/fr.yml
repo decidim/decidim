@@ -65,6 +65,8 @@ fr:
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         loading: Chargement des commentaires ...
         title: "%{count} commentaires"
+        title_0: "Il n'y a pas encore de commentaire"
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

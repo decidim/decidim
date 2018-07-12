@@ -2,6 +2,9 @@
 # This module is use to add customs methods to the original "proposal.rb"
 
 module ProposalExtend
+
+  include Decidim::HasClassExtends
+  
   def up_voted_by?(user)
     votes.where(author: user,  proposal: self, weight: 1).any?
   end

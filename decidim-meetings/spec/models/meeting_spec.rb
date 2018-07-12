@@ -55,6 +55,7 @@ module Decidim::Meetings
 
       it "returns the followers" do
         expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+      end
     end
 
     describe "#can_be_joined_by?" do
@@ -99,5 +100,20 @@ module Decidim::Meetings
         expect(subject.meeting_duration).to eq(120)
       end
     end
+
+    describe "#resource_visible?" do
+      context "when Meeting is private non transparent" do
+        before { subject.update(private_meeting: true, transparent: false) }
+
+        it { is_expected.not_to be_resource_visible }
+      end
+
+      context "when Meeting is private but transparent" do
+        before { subject.update(private_meeting: true, transparent: true) }
+
+        it { is_expected.to be_resource_visible }
+      end
+    end
   end
+
 end

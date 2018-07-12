@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geocoder", "~> 1.4"
   s.add_dependency "invisible_captcha", "~> 0.10.0"
   s.add_dependency "jquery-rails", "~> 4.3"
+  s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
   s.add_dependency "mini_magick", "~> 4.8"
   s.add_dependency "omniauth", "~> 1.6"
@@ -50,6 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rectify", "~> 0.11.0"
   s.add_dependency "redis", "~> 4.0"
   s.add_dependency "rubyzip", "~> 1.2"
+  s.add_dependency "sassc", "~> 1.11.0"
   s.add_dependency "sassc-rails", "~> 1.3"
   s.add_dependency "spreadsheet", "~> 1.1"
   s.add_dependency "sprockets-es6", "~> 0.9.2"

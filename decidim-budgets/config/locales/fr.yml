@@ -4,7 +4,7 @@ fr:
       project:
         budget: Budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         description: Description
         proposal_ids: Propositions liées
         title: Titre
@@ -58,7 +58,7 @@ fr:
             title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.
+          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.

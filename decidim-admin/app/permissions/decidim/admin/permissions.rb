@@ -59,6 +59,7 @@ module Decidim
         return unless permission_action.subject == :admin_dashboard &&
                       permission_action.action == :read
 
+        return user_manager_permissions if user_manager?
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 

@@ -36,6 +36,7 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
+  autoload :HasClassExtends, "decidim/has_class_extends"
   autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
@@ -87,7 +88,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu fi fr gl it nl pt pt-BR ru sv uk)
+    %w(en ca es es-PY eu fi fr gl it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
