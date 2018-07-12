@@ -10,14 +10,14 @@
   background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
   background-size: $dot-space $dot-space;
 
-  // .element--fake{
-  //   visibility: hidden;
-  // }
+  // Other vars
+  $stroke-width: 1px;
+  $stroke-color: $medium-gray;
 
   .as-card{
-    fill: $white;
-    stroke: $medium-gray;
-    stroke-width: 1px;
+    fill: $bg-color;
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
   }
 
   .as-text{
@@ -26,9 +26,15 @@
     text-anchor: middle;
   }
 
+  .as-circle{
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
+    fill: $bg-color;
+  }
+
   .link{
-    stroke: $secondary;
-    stroke-width: 1px;
+    stroke: $stroke-color;
+    stroke-width: $stroke-width;
   }
 
   .node{

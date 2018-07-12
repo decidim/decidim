@@ -33,6 +33,8 @@ $(() => {
       textDisplayed: true,
       lineStrokeWidth: 1.5,
       fakeRoot: false,
+      nodeGutter: { x: 16, y: 8 },
+      childrenIndicatorRadius: 15,
       data: null
     };
 
@@ -248,19 +250,32 @@ $(() => {
             .attr("class", "as-text")
             .text((d) => d.data.name)
 
-          enteredNodes.selectAll("text").each(function(d, i) {
-            d.bbox = this.getBBox(); // get bounding box of text field and store it in texts array
+          enteredNodes.selectAll("text").each(function(d) {
+            d.bbox = this.getBBox()
           });
 
-          let gutter = {
-            x: 16,
-            y: 8
-          }
           enteredNodes.selectAll("rect")
-            .attr("x", (d) => d.bbox.x - gutter.x)
-            .attr("y", (d) => d.bbox.y - gutter.y)
-            .attr("width", (d) => d.bbox.width + (2 * gutter.x))
-            .attr("height", (d) => d.bbox.height + (2 * gutter.y));
+            .attr("x", (d) => d.bbox.x - attrs.nodeGutter.x)
+            .attr("y", (d) => d.bbox.y - attrs.nodeGutter.y)
+            .attr("width", (d) => d.bbox.width + (2 * attrs.nodeGutter.x))
+            .attr("height", (d) => d.bbox.height + (2 * attrs.nodeGutter.y));
+
+// TODO: E DEBE FILTRAR LOS NODOS
+          enteredNodes
+            .filter((d) => (!d.children || !d._children) ? null : d)
+            .append("circle")
+            .attr("class", "as-circle")
+            .attr("r", attrs.childrenIndicatorRadius)
+            .attr("cx", (d) => d.bbox.x + d.bbox.width + attrs.nodeGutter.x)
+            .attr("cy", (d) => d.bbox.y + d.bbox.height + attrs.nodeGutter.y)
+
+          enteredNodes
+            .filter((d) => !d.children || !d._children)
+            .append("text")
+            .attr("class", "as-text")
+            .attr("dx", (d) => d.bbox.x + d.bbox.width + attrs.nodeGutter.x)
+            .attr("dy", attrs.childrenIndicatorRadius + 3)
+            .text((d) => d3.max([(d.children || {}).length, (d._children || {}).length]))
 
           // merge  node groups and style it
           nodes = enteredNodes.merge(nodes);
