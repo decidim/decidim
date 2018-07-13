@@ -35,9 +35,9 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
+    page.execute_script("$('#participatory_process_step_start_date').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
-    page.execute_script("$('#date_field_participatory_process_step_end_date').focus()")
+    page.execute_script("$('#participatory_process_step_end_date').focus()")
     page.find(".datepicker-dropdown .day", text: "22").click
 
     within ".new_participatory_process_step" do
