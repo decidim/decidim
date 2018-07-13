@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc, max-lines, no-return-assign, func-style, id-length, no-plusplus, no-use-before-define, no-negated-condition, init-declarations, no-invalid-this, no-param-reassign, no-ternary, multiline-ternary, no-nested-ternary, no-eval, no-extend-native, prefer-reflect */
 /* eslint dot-location: ["error", "property"], no-negated-condition: "error" */
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+/* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* global d3 */
 
 // = require d3
@@ -11,6 +12,7 @@ $(() => {
 
   let dataDepicted = null
   let fake = false
+  let orgchart = {}
 
   // lib
   // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
@@ -49,7 +51,9 @@ $(() => {
 
     // innerFunctions which will update visuals
     let updateData
+    let collapse, expand
     let filter
+    let hierarchy = {}
 
     // main chart object
     let main = function (selection) {
@@ -63,7 +67,6 @@ $(() => {
         calc.chartHeight = attrs.svgHeight - attrs.marginBottom - calc.chartTopMargin
 
         // ########################## HIERARCHY STUFF  #########################
-        let hierarchy = {}
         hierarchy.root = d3.hierarchy(attrs.data.root)
 
         // ###########################   BEHAVIORS #########################
@@ -385,17 +388,9 @@ $(() => {
 
           // collapse or expand node
           if (d.children) {
-            d._children = d.children
-            d.children = null
-            update()
-            force.simulation.restart()
-            force.simulation.alphaTarget(0.15)
+            collapse(d)
           } else if (d._children) {
-            d.children = d._children
-            d._children = null
-            update(d)
-            force.simulation.restart()
-            force.simulation.alphaTarget(0.15)
+            expand(d)
           } else {
           // nothing is to collapse or expand
           }
@@ -405,6 +400,36 @@ $(() => {
         // #########################################  UTIL FUNCS ##################################
         updateData = function () {
           main.run()
+        }
+
+        collapse = function (d, deep = false) {
+          if (d.children) {
+            if (deep) {
+              d.children.forEach((e) => collapse(e, true))
+            }
+
+            d._children = d.children
+            d.children = null
+          }
+
+          update()
+          force.simulation.restart()
+          force.simulation.alphaTarget(0.15)
+        }
+
+        expand = function (d, deep = false) {
+          if (d._children) {
+            if (deep) {
+              d._children.forEach((e) => expand(e, true))
+            }
+
+            d.children = d._children
+            d._children = null
+          }
+
+          update(d)
+          force.simulation.restart()
+          force.simulation.alphaTarget(0.15)
         }
 
         function slowDownNodes() {
@@ -619,6 +644,14 @@ $(() => {
       return main
     }
 
+    main.reset = function () {
+
+      hierarchy.root.children.forEach((e) => collapse(e, true))
+      main.run()
+
+      return main
+    }
+
     return main
   }
 
@@ -626,7 +659,7 @@ $(() => {
   $orgChartContainer.each((i, container) => {
 
     let width = $(container).width()
-    let height = width / (4 / 3)
+    let height = width / (16 / 9)
 
     d3.json("/orgchart.json").then((data) => {
       // Make a fake previous node if the data entry is not hierarchical
@@ -640,7 +673,7 @@ $(() => {
         dataDepicted = data
       }
 
-      renderChartCollapsibleNetwork()
+      orgchart = renderChartCollapsibleNetwork()
         .svgHeight(height)
         .svgWidth(width)
         .fakeRoot(fake)
@@ -648,15 +681,13 @@ $(() => {
         .data({
           root: dataDepicted
         })
+        .debug(true)
         .run()
     })
   })
 
   // reset
   $btnReset.click(function() {
-    renderChartCollapsibleNetwork()
-      .fakeRoot(fake)
-      .data({ root: dataDepicted })
-      .run()
+    orgchart.reset()
   })
 })
