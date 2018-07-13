@@ -88,22 +88,8 @@ $(() => {
 
         // prevent collide
         force.collide = d3.forceCollide().radius((d) => {
-
-          // if parent has many children, reduce collide strength
-          if (d.parent) {
-            if (d.parent.children.length > 10) {
-
-            // also slow down node movement
-              slowDownNodes()
-              return 7
-            }
-          }
-
-          // increase collide strength
-          if (d.children && d.depth > 2) {
-            return attrs.nodeDistance
-          }
-          return attrs.nodeDistance * 2
+          // Creates an invented radius based on element measures: diagonal = 2 * radius = sqrt(width^2, height^2)
+          d3.max([attrs.nodeDistance * 2, Math.sqrt(Math.pow(d.bbox.width + (attrs.nodeGutter.x * 2), 2) + Math.pow(d.bbox.height + (attrs.nodeGutter.y * 2), 2)) / 2])
         })
 
         // manually set x positions (which is calculated using custom radial layout)
