@@ -29,13 +29,8 @@ $(() => {
       nodeDistance: 50,
       distance: 100,
       hiddenChildLevel: 1,
-      nodeStroke: "#41302D",
-      nodeTextColor: "#E5E5E5",
-      linkColor: "#303030",
-      activeLinkColor: "blue",
       hoverOpacity: 0.2,
       maxTextDisplayZoomLevel: 1,
-      textDisplayed: true,
       lineStrokeWidth: 1.5,
       fakeRoot: false,
       nodeGutter: { x: 16, y: 8 },
@@ -308,15 +303,6 @@ $(() => {
 
           svg.selectAll(".node").attr("transform", (d) => `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`)
           svg.selectAll(".link").attr("stroke-width", attrs.lineStrokeWidth / (attrs.lastTransform ? attrs.lastTransform.k : 1))
-
-          // hide texts if zooming is less than certain level
-          if (transform.k < attrs.maxTextDisplayZoomLevel) {
-            svg.selectAll(".node-texts").style("display", "none")
-            attrs.textDisplayed = false
-          } else {
-            svg.selectAll(".node-texts").style("display", "initial")
-            attrs.textDisplayed = true
-          }
         }
 
         // tick handler
@@ -378,7 +364,6 @@ $(() => {
           linksWrapper.selectAll(".link")
             .filter((l) => l.source.id === d.id || l.target.id === d.id)
             .attr("opacity", 1)
-            .attr("stroke", attrs.activeLinkColor)
         }
 
         // --------------- handle mouseleave event ---------------
@@ -388,7 +373,6 @@ $(() => {
             .attr("opacity", 1)
           linksWrapper.selectAll(".link")
             .attr("opacity", 1)
-            .attr("stroke", attrs.linkColor)
         }
 
         // --------------- handle node click event ---------------
