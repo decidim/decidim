@@ -56,7 +56,7 @@ module Decidim
         )
 
         params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
-        params[:proposal][:scope_id] = @collaborative_draft.scope.id
+        params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
 
         @form = form(ProposalForm).from_params(params)
         CreateProposal.call(@form, @current_user, @collaborative_draft.identities) do

@@ -103,8 +103,8 @@ module Decidim
               command.call
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
 
-              expect(collaborative_draft.coauthorships.count).to eq(2)
-              expect(collaborative_draft.authors.count).to eq(2)
+              expect(collaborative_draft.coauthorships.count).to eq(1)
+              expect(collaborative_draft.authors.count).to eq(1)
               expect(collaborative_draft.authors.first).to eq(author)
             end
           end
