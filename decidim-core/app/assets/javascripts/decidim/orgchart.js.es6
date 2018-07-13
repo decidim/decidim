@@ -28,7 +28,7 @@ $(() => {
       marginRight: 0,
       marginLeft: 30,
       container: "body",
-      nodeDistance: 50,
+      nodeDistance: 20,
       distance: 100,
       hiddenChildLevel: 1,
       hoverOpacity: 0.2,
@@ -89,7 +89,13 @@ $(() => {
         // prevent collide
         force.collide = d3.forceCollide().radius((d) => {
           // Creates an invented radius based on element measures: diagonal = 2 * radius = sqrt(width^2, height^2)
-          d3.max([attrs.nodeDistance * 2, Math.sqrt(Math.pow(d.bbox.width + (attrs.nodeGutter.x * 2), 2) + Math.pow(d.bbox.height + (attrs.nodeGutter.y * 2), 2)) / 2])
+          let base = (d.bbox || {}).width + (attrs.nodeGutter.x * 2)
+          let height = (d.bbox || {}).height + (attrs.nodeGutter.y * 2)
+          let diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2))
+          // Adds 10 to the result in order to make it a lil' bigger
+          let fakeRadius = (diagonal / 2) + 10
+
+          return d3.max([attrs.nodeDistance * 2, fakeRadius])
         })
 
         // manually set x positions (which is calculated using custom radial layout)
