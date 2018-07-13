@@ -40,4 +40,23 @@
   .node{
     cursor: pointer;
   }
+
+  .button{
+    $height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) - rem-calc(1);
+
+    min-height: $height;
+    color: $body-font-color;
+    outline: none;
+    border: $border;
+    background-color: $input-background;
+    box-shadow: $input-shadow;
+
+    @if has-value($button-transition){
+      transition: $button-transition;
+    }
+
+    &:hover{
+      background-color: $input-background;
+    }
+  }
 }

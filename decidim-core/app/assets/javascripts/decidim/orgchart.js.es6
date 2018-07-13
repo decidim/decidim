@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc, max-lines, no-return-assign, func-style, id-length, no-plusplus, no-use-before-define, no-negated-condition, init-declarations, no-invalid-this, no-param-reassign, no-ternary, multiline-ternary, no-nested-ternary, no-eval, no-extend-native, prefer-reflect */
 /* eslint dot-location: ["error", "property"], no-negated-condition: "error" */
+/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 /* global d3 */
 
 // = require d3
@@ -8,7 +9,8 @@ $(() => {
   const $orgChartContainer = $(".js-orgchart")
   const $btnReset = $(".js-reset-orgchart")
 
-  let data = null
+  let dataDepicted = null
+  let fake = false
 
   // lib
   // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
@@ -197,9 +199,8 @@ $(() => {
         // update visual based on data change
         function update(clickedNode) {
 
-          if (clickedNode) {
-            console.log('Mostrar el botón de reseteo del gráfico')
-          }
+          // Show/hide reset button
+          (clickedNode) ? $btnReset.removeClass("invisible") : $btnReset.addClass("invisible")
 
           // set xy and proportion properties with custom radial layout
           layouts.radial(hierarchy.root)
@@ -642,25 +643,26 @@ $(() => {
 
     let width = $(container).width()
     let height = width / (4 / 3)
-    let fake = null
 
     d3.json("/orgchart.json").then((data) => {
-
       // Make a fake previous node if the data entry is not hierarchical
       if (data instanceof Array) {
-        fake = {
+        fake = true
+        dataDepicted = {
           name: null,
           children: data
         }
+      } else {
+        dataDepicted = data
       }
 
       renderChartCollapsibleNetwork()
         .svgHeight(height)
         .svgWidth(width)
-        .fakeRoot((fake !== null))
+        .fakeRoot(fake)
         .container(`#${container.id}`)
         .data({
-          root: fake || data
+          root: dataDepicted
         })
         .run()
     })
@@ -668,7 +670,9 @@ $(() => {
 
   // reset
   $btnReset.click(function() {
-    debugger
-    renderChartCollapsibleNetwork().data({ root: data })
+    renderChartCollapsibleNetwork()
+      .fakeRoot(fake)
+      .data({ root: dataDepicted })
+      .run()
   })
 })
