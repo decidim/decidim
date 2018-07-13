@@ -5,7 +5,10 @@
 // = require d3
 
 $(() => {
-  const $orgChartContainer = $(".js-orgchart");
+  const $orgChartContainer = $(".js-orgchart")
+  const $btnReset = $(".js-reset-orgchart")
+
+  let data = null
 
   // lib
   // https://bl.ocks.org/bumbeishvili/b96ba47ea21d14dfce6ebb859b002d3a
@@ -36,20 +39,20 @@ $(() => {
       nodeGutter: { x: 16, y: 8 },
       childrenIndicatorRadius: 15,
       data: null
-    };
+    }
 
     /* ############### IF EXISTS OVERWRITE ATTRIBUTES FROM PASSED PARAM  #######  */
 
-    let attrKeys = Object.keys(attrs);
+    let attrKeys = Object.keys(attrs)
     attrKeys.forEach(function (key) {
       if (params && params[key]) {
-        attrs[key] = params[key];
+        attrs[key] = params[key]
       }
     })
 
     // innerFunctions which will update visuals
-    let updateData;
-    let filter;
+    let updateData
+    let filter
 
     // main chart object
     let main = function (selection) {
@@ -57,29 +60,29 @@ $(() => {
 
         // calculated properties
         let calc = {}
-        calc.chartLeftMargin = attrs.marginLeft;
-        calc.chartTopMargin = attrs.marginTop;
-        calc.chartWidth = attrs.svgWidth - attrs.marginRight - calc.chartLeftMargin;
-        calc.chartHeight = attrs.svgHeight - attrs.marginBottom - calc.chartTopMargin;
+        calc.chartLeftMargin = attrs.marginLeft
+        calc.chartTopMargin = attrs.marginTop
+        calc.chartWidth = attrs.svgWidth - attrs.marginRight - calc.chartLeftMargin
+        calc.chartHeight = attrs.svgHeight - attrs.marginBottom - calc.chartTopMargin
 
         // ########################## HIERARCHY STUFF  #########################
-        let hierarchy = {};
-        hierarchy.root = d3.hierarchy(attrs.data.root);
+        let hierarchy = {}
+        hierarchy.root = d3.hierarchy(attrs.data.root)
 
         // ###########################   BEHAVIORS #########################
-        let behaviors = {};
-        behaviors.zoom = d3.zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed);
-        behaviors.drag = d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+        let behaviors = {}
+        behaviors.zoom = d3.zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed)
+        behaviors.drag = d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)
 
         // ###########################   LAYOUTS #########################
-        let layouts = {};
+        let layouts = {}
 
         // custom radial layout
-        layouts.radial = d3.radial();
+        layouts.radial = d3.radial()
 
         // ###########################   FORCE STUFF #########################
-        let force = {};
-        force.link = d3.forceLink().id((d) => d.id);
+        let force = {}
+        force.link = d3.forceLink().id((d) => d.id)
         force.charge = d3.forceManyBody()
         force.center = d3.forceCenter(calc.chartWidth / 2, calc.chartHeight / 2)
 
@@ -91,17 +94,17 @@ $(() => {
             if (d.parent.children.length > 10) {
 
             // also slow down node movement
-              slowDownNodes();
-              return 7;
+              slowDownNodes()
+              return 7
             }
           }
 
           // increase collide strength
           if (d.children && d.depth > 2) {
-            return attrs.nodeDistance;
+            return attrs.nodeDistance
           }
-          return attrs.nodeDistance * 2;
-        });
+          return attrs.nodeDistance * 2
+        })
 
         // manually set x positions (which is calculated using custom radial layout)
         force.x = d3.forceX()
@@ -116,8 +119,8 @@ $(() => {
             }
 
             // custom circle projection -  radius will be -  (d.depth - 1) * 150
-            return projectCircle(d.proportion, (d.depth - 1) * 150)[0];
-          });
+            return projectCircle(d.proportion, (d.depth - 1) * 150)[0]
+          })
 
         // manually set y positions (which is calculated using d3.cluster)
         force.y = d3.forceY()
@@ -132,7 +135,7 @@ $(() => {
             }
 
             // custom circle projection -  radius will be -  (d.depth - 1) * 150
-            return projectCircle(d.proportion, (d.depth - 1) * 150)[1];
+            return projectCircle(d.proportion, (d.depth - 1) * 150)[1]
           })
 
         // ---------------------------------  INITIALISE FORCE SIMULATION ----------------------------
@@ -149,7 +152,7 @@ $(() => {
         // ###########################   HIERARCHY STUFF #########################
 
         // flatten root
-        let arr = flatten(hierarchy.root);
+        let arr = flatten(hierarchy.root)
 
         // hide members based on their depth
         arr.forEach((d) => {
@@ -159,15 +162,15 @@ $(() => {
           }
 
           if (d.depth > attrs.hiddenChildLevel) {
-            d._children = d.children;
-            d.children = null;
+            d._children = d.children
+            d.children = null
           }
         })
 
         // ####################################  DRAWINGS #######################
 
         // drawing containers
-        let container = d3.select(this);
+        let container = d3.select(this)
 
         // add svg
         let svg = container.patternify({ tag: "svg", selector: "svg-chart-container" })
@@ -177,7 +180,7 @@ $(() => {
 
         // add container g element
         let chart = svg.patternify({ tag: "g", selector: "chart" })
-          .attr("transform", `translate(${calc.chartLeftMargin},${calc.chartTopMargin})`);
+          .attr("transform", `translate(${calc.chartLeftMargin},${calc.chartTopMargin})`)
 
         // ################################   Chart Content Drawing ##################################
 
@@ -186,16 +189,20 @@ $(() => {
 
         // node wrapper
         let nodesWrapper = chart.patternify({ tag: "g", selector: "nodes-wrapper" })
-        let links, nodes;
+        let links, nodes
 
         // reusable function which updates visual based on data change
-        update();
+        update()
 
         // update visual based on data change
         function update(clickedNode) {
 
+          if (clickedNode) {
+            console.log('Mostrar el botón de reseteo del gráfico')
+          }
+
           // set xy and proportion properties with custom radial layout
-          layouts.radial(hierarchy.root);
+          layouts.radial(hierarchy.root)
 
           // nodes and links array
           let nodesArr = flatten(hierarchy.root, true)
@@ -209,15 +216,15 @@ $(() => {
           // make new nodes to appear near the parents
           nodesArr.forEach(function (d) {
             if (clickedNode && clickedNode.id === (d.parent && d.parent.id)) {
-              d.x = d.parent.x;
-              d.y = d.parent.y;
+              d.x = d.parent.x
+              d.y = d.parent.y
             }
           })
 
           // links
           links = linksWrapper.selectAll(".link")
             .data(linksArr, (d) => d.target.id)
-          links.exit().remove();
+          links.exit().remove()
 
           links = links.enter()
             .append("line")
@@ -252,39 +259,39 @@ $(() => {
 
           enteredNodes.selectAll("text").each(function(d) {
             d.bbox = this.getBBox()
-          });
+          })
 
           enteredNodes.selectAll("rect")
             .attr("x", (d) => d.bbox.x - attrs.nodeGutter.x)
             .attr("y", (d) => d.bbox.y - attrs.nodeGutter.y)
             .attr("width", (d) => d.bbox.width + (2 * attrs.nodeGutter.x))
-            .attr("height", (d) => d.bbox.height + (2 * attrs.nodeGutter.y));
+            .attr("height", (d) => d.bbox.height + (2 * attrs.nodeGutter.y))
 
-// TODO: E DEBE FILTRAR LOS NODOS
+          // append circle & text only when there are children
           enteredNodes
-            .filter((d) => (!d.children || !d._children) ? null : d)
             .append("circle")
+            .filter((d) => Boolean(d.children) || Boolean(d._children))
             .attr("class", "as-circle")
             .attr("r", attrs.childrenIndicatorRadius)
             .attr("cx", (d) => d.bbox.x + d.bbox.width + attrs.nodeGutter.x)
             .attr("cy", (d) => d.bbox.y + d.bbox.height + attrs.nodeGutter.y)
 
           enteredNodes
-            .filter((d) => !d.children || !d._children)
             .append("text")
+            .filter((d) => Boolean(d.children) || Boolean(d._children))
             .attr("class", "as-text")
             .attr("dx", (d) => d.bbox.x + d.bbox.width + attrs.nodeGutter.x)
             .attr("dy", attrs.childrenIndicatorRadius + 3)
             .text((d) => d3.max([(d.children || {}).length, (d._children || {}).length]))
 
           // merge  node groups and style it
-          nodes = enteredNodes.merge(nodes);
+          nodes = enteredNodes.merge(nodes)
 
           // force simulation
-          force.simulation.nodes(nodesArr).on("tick", ticked);
+          force.simulation.nodes(nodesArr).on("tick", ticked)
 
           // links simulation
-          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(() => 1);
+          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(() => 1)
         }
 
         // ####################################### EVENT HANDLERS  ########################
@@ -292,8 +299,8 @@ $(() => {
         // zoom handler
         function zoomed() {
           // get transform event
-          let transform = d3.event.transform;
-          attrs.lastTransform = transform;
+          let transform = d3.event.transform
+          attrs.lastTransform = transform
 
           // apply transform event props to the wrapper
           chart.attr("transform", transform)
@@ -303,11 +310,11 @@ $(() => {
 
           // hide texts if zooming is less than certain level
           if (transform.k < attrs.maxTextDisplayZoomLevel) {
-            svg.selectAll(".node-texts").style("display", "none");
-            attrs.textDisplayed = false;
+            svg.selectAll(".node-texts").style("display", "none")
+            attrs.textDisplayed = false
           } else {
-            svg.selectAll(".node-texts").style("display", "initial");
-            attrs.textDisplayed = true;
+            svg.selectAll(".node-texts").style("display", "initial")
+            attrs.textDisplayed = true
           }
         }
 
@@ -329,7 +336,7 @@ $(() => {
         function dragstarted() {
           // disable node fixing
           nodes.each((d) => {
-            d.fx = null;
+            d.fx = null
             d.fy = null
           })
         }
@@ -337,8 +344,8 @@ $(() => {
         // handle dragging event
         function dragged(d) {
           // make dragged node fixed
-          d.fx = d3.event.x;
-          d.fy = d3.event.y;
+          d.fx = d3.event.x
+          d.fy = d3.event.y
         }
 
         // -------------------- handle drag end event ---------------
@@ -349,10 +356,10 @@ $(() => {
         // -------------------------- node mouse hover handler ---------------
         function nodeMouseEnter(d) {
           // get links
-          let _links = hierarchy.root.links();
+          let _links = hierarchy.root.links()
 
           // get hovered node connected links
-          let connectedLinks = _links.filter((l) => l.source.id === d.id || l.target.id === d.id);
+          let connectedLinks = _links.filter((l) => l.source.id === d.id || l.target.id === d.id)
 
           // get hovered node linked nodes
           let linkedNodes = connectedLinks.map((s) => s.source.id).concat(connectedLinks.map((c) => c.target.id))
@@ -387,93 +394,93 @@ $(() => {
         function nodeClick(d) {
           // free fixed nodes
           nodes.each((di) => {
-            di.fx = null;
+            di.fx = null
             di.fy = null
           })
 
           // collapse or expand node
           if (d.children) {
-            d._children = d.children;
-            d.children = null;
-            update();
-            force.simulation.restart();
-            force.simulation.alphaTarget(0.15);
+            d._children = d.children
+            d.children = null
+            update()
+            force.simulation.restart()
+            force.simulation.alphaTarget(0.15)
           } else if (d._children) {
-            d.children = d._children;
-            d._children = null;
-            update(d);
-            force.simulation.restart();
-            force.simulation.alphaTarget(0.15);
+            d.children = d._children
+            d._children = null
+            update(d)
+            force.simulation.restart()
+            force.simulation.alphaTarget(0.15)
           } else {
           // nothing is to collapse or expand
           }
-          freeNodes();
+          freeNodes()
         }
 
         // #########################################  UTIL FUNCS ##################################
         updateData = function () {
-          main.run();
+          main.run()
         }
 
         function slowDownNodes() {
-          force.simulation.alphaTarget(0.05);
+          force.simulation.alphaTarget(0.05)
         }
 
         // function speedUpNodes() {
-        //   force.simulation.alphaTarget(0.45);
+        //   force.simulation.alphaTarget(0.45)
         // }
 
         function freeNodes() {
           d3.selectAll(".node").each((n) => {
-            n.fx = null;
-            n.fy = null;
+            n.fx = null
+            n.fy = null
           })
         }
 
         function projectCircle(value, radius) {
-          let r = radius || 0;
-          let corner = value * 2 * Math.PI;
+          let r = radius || 0
+          let corner = value * 2 * Math.PI
           return [Math.sin(corner) * r, -Math.cos(corner) * r]
         }
 
         // recursively loop on children and extract nodes as an array
         function flatten(root, clustered) {
-          let nodesArray = [];
-          let i = 0;
+          let nodesArray = []
+          let i = 0
           function recurse(node, depth) {
             if (node.children) {
               node.children.forEach(function (child) {
-                recurse(child, depth + 1);
+                recurse(child, depth + 1)
               })
             }
 
             if (!node.id) {
               node.id = ++i
             } else {
-              ++i;
+              ++i
             }
 
-            node.depth = depth;
+            node.depth = depth
             if (clustered) {
               if (!node.cluster) {
               // if cluster coordinates are not set, set it
                 node.cluster = { x: node.x, y: node.y }
               }
             }
-            nodesArray.push(node);
+            nodesArray.push(node)
           }
-          recurse(root, 1);
-          return nodesArray;
+          recurse(root, 1)
+          return nodesArray
         }
 
         function debug() {
           if (attrs.isDebug) {
           // stringify func
-            let stringified = String(scope);
+            let stringified = String(scope)
 
             // parse variable names
             let groupVariables = stringified
-              // match var x-xx= {};
+              // match var x-xx= {}
               .match(/var\s+([\w])+\s*=\s*{\s*}/gi)
               // match xxx
               .map((d) => d.match(/\s+\w*/gi).filter((s) => s.trim()))
@@ -494,9 +501,9 @@ $(() => {
 
     // ----------- PROTOTYEPE FUNCTIONS  ----------------------
     d3.selection.prototype.patternify = function (_params) {
-      let selector = _params.selector;
-      let elementTag = _params.tag;
-      let _data = _params.data || [selector];
+      let selector = _params.selector
+      let elementTag = _params.tag
+      let _data = _params.data || [selector]
 
       // pattern in action
       let selection = this.selectAll(`.${selector}`).data(_data)
@@ -514,35 +521,35 @@ $(() => {
         recurse(root, 0, 1)
 
         function recurse(node, min, max) {
-          node.proportion = (max + min) / 2;
+          node.proportion = (max + min) / 2
           if (!node.x) {
 
           // if node has parent, match entered node positions to it's parent
             if (node.parent) {
-              node.x = node.parent.x;
+              node.x = node.parent.x
             } else {
-              node.x = 0;
+              node.x = 0
             }
           }
 
           // if node had parent, match entered node positions to it's parent
           if (!node.y) {
             if (node.parent) {
-              node.y = node.parent.y;
+              node.y = node.parent.y
             } else {
-              node.y = 0;
+              node.y = 0
             }
           }
 
           // recursively do the same for children
           if (node.children) {
-            let offset = (max - min) / node.children.length;
+            let offset = (max - min) / node.children.length
             node.children.forEach(function (child, i) {
               let newMin = min + (offset * i)
               let newMax = newMin + offset
 
               recurse(child, newMin, newMax)
-            });
+            })
           }
         }
       }
@@ -551,15 +558,15 @@ $(() => {
     // https://github.com/bumbeishvili/d3js-boilerplates#orderby
     Array.prototype.orderBy = function (func) {
       this.sort((_a, _b) => {
-        let a = func(_a);
-        let b = func(_b);
+        let a = func(_a)
+        let b = func(_b)
         if (typeof a === "string" || a instanceof String) {
-          return a.localeCompare(b);
+          return a.localeCompare(b)
         }
-        return a - b;
-      });
+        return a - b
+      })
 
-      return this;
+      return this
     }
 
     // ##########################  BOILEPLATE STUFF ################
@@ -577,22 +584,22 @@ $(() => {
         eval(string)
 
         return main
-      };
-    });
+      }
+    })
 
     // set attrs as property
-    main.attrs = attrs;
+    main.attrs = attrs
 
     // debugging visuals
     main.debug = function (isDebug) {
-      attrs.isDebug = isDebug;
+      attrs.isDebug = isDebug
       if (isDebug) {
         if (!window.charts) {
           window.charts = []
         }
-        window.charts.push(main);
+        window.charts.push(main)
       }
-      return main;
+      return main
     }
 
     // exposed update functions
@@ -601,18 +608,18 @@ $(() => {
         return attrs.data
       }
 
-      attrs.data = value;
+      attrs.data = value
       if (typeof updateData === "function") {
-        updateData();
+        updateData()
       }
-      return main;
+      return main
     }
 
     // run  visual
     main.run = function () {
       d3.selectAll(attrs.container)
-        .call(main);
-      return main;
+        .call(main)
+      return main
     }
 
     main.filter = function (filterParams) {
@@ -620,14 +627,14 @@ $(() => {
         return attrs.filterParams
       }
 
-      attrs.filterParams = filterParams;
+      attrs.filterParams = filterParams
       if (typeof filter === "function") {
-        filter();
+        filter()
       }
-      return main;
+      return main
     }
 
-    return main;
+    return main
   }
 
   // initialization
@@ -638,6 +645,7 @@ $(() => {
     let fake = null
 
     d3.json("/orgchart.json").then((data) => {
+
       // Make a fake previous node if the data entry is not hierarchical
       if (data instanceof Array) {
         fake = {
@@ -656,5 +664,11 @@ $(() => {
         })
         .run()
     })
+  })
+
+  // reset
+  $btnReset.click(function() {
+    debugger
+    renderChartCollapsibleNetwork().data({ root: data })
   })
 })
