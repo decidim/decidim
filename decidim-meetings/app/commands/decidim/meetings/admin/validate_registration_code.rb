@@ -20,11 +20,6 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          if registration.blank?
-            form.errors.add :code, I18n.t("registrations.validate_registration_code.invalid", scope: "decidim.meetings.admin")
-            return broadcast(:invalid)
-          end
-
           validate_registration_code
           send_notification
 
@@ -36,12 +31,7 @@ module Decidim
         attr_reader :form, :meeting
 
         def validate_registration_code
-          registration.validated_at = Time.current
-          registration.save!
-        end
-
-        def registration
-          @registration ||= meeting.registrations.find_by(code: form.code, validated_at: nil)
+          form.registration.update!(validated_at: Time.current)
         end
 
         def send_notification
@@ -49,9 +39,9 @@ module Decidim
             event: "decidim.events.meetings.registration_code_validated",
             event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
             resource: meeting,
-            recipient_ids: [registration.user.id],
+            recipient_ids: [form.registration.user.id],
             extra: {
-              registration: registration
+              registration: form.registration
             }
           )
         end
