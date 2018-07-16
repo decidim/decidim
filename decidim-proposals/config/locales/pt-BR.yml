@@ -190,7 +190,7 @@ pt-BR:
             success: Proposta criada com sucesso
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
-            select_a_category: Selecione uma categoria
+            select_a_category: Selecionar uma categoria
           index:
             actions: Ações
             cancel: Cancelar
@@ -203,7 +203,7 @@ pt-BR:
             title: Criar proposta
           update_category:
             invalid: 'Essas propostas já tinham a categoria %{category} : %{proposals}.'
-            select_a_category: Por favor, selecione uma categoria
+            select_a_category: Selecione uma categoria
             select_a_proposal: Selecione uma proposta
             success: 'Propostas atualizadas com êxito para a categoria %{category} : %{proposals}.'
         proposals_imports:
@@ -275,7 +275,7 @@ pt-BR:
           title: Propostas semelhantes
         complete:
           attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
+          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
@@ -302,7 +302,7 @@ pt-BR:
           activity: Atividade
           all: Tudo
           category: Categoria
-          category_prompt: Selecione uma categoria
+          category_prompt: Selecionar uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
           except_rejected: Todos exceto rejeitados

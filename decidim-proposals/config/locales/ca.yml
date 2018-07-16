@@ -238,7 +238,7 @@ ca:
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: El projecte de proposta s'ha suprimit correctament.
+        success: L'esborrany de proposta s'ha eliminat amb èxit.
       models:
         proposal:
           fields:
