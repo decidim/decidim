@@ -80,6 +80,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
+            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -171,6 +172,13 @@ gl:
           create:
             error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
             success: O usuario convidouse con éxito a unirse á reunión.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Usuario existente
+            invite: Invitar
+            invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
+            non_user: Usuario non existente
+            select_user: Seleccionar usuario
           index:
             filter:
               accepted: Aceptada
@@ -180,11 +188,8 @@ gl:
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
+            registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
             search: Busca
-          new:
-            explanation: Invitarase ao usuario a unirse a unha reunión. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
-            invite: Invitar
-            new_invite: Invitar ao usuario
         meeting_closes:
           edit:
             close: Pechar

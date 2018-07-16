@@ -199,6 +199,7 @@ pt:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
