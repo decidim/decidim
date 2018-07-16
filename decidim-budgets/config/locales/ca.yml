@@ -121,6 +121,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             projects_per_page: Projectes per pàgina
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada reunió
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:

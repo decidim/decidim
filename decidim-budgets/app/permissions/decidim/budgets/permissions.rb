@@ -33,7 +33,7 @@ module Decidim
       end
 
       def can_vote_project?(a_project)
-        is_allowed = a_project && authorized?(:vote)
+        is_allowed = a_project && authorized?(:vote, resource: project)
 
         toggle_allow(is_allowed)
       end

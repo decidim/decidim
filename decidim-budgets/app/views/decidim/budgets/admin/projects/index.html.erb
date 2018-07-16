@@ -40,6 +40,8 @@
                   <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
                 <% end %>
 
+                <%= resource_permissions_link(project) %>
+
                 <% if allowed_to? :destroy, :project, project: project %>
                   <%= icon_link_to "circle-x", project_path(project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% end %>

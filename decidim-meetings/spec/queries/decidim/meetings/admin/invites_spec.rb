@@ -13,7 +13,7 @@ module Decidim::Meetings::Admin
     describe "when the list is not filtered" do
       let!(:invites) { create_list(:invite, 3) }
 
-      it "returns all the assembly members" do
+      it "returns all invites" do
         expect(subject).to match_array invites
       end
     end
@@ -29,7 +29,7 @@ module Decidim::Meetings::Admin
         context "with regular characters" do
           let(:search) { "Argo" }
 
-          it "returns all matching assembly members" do
+          it "returns all matching invites" do
             expect(subject).to match_array([invites[1], invites[2]])
           end
         end

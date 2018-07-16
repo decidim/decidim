@@ -80,6 +80,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Standardregistreringsvillkor
+            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje möte
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -171,6 +172,13 @@ sv:
           create:
             error: Det har varit ett problem när du uppmanar användaren att gå med i mötet.
             success: Användaren framgångsrikt inbjuden att delta i mötet.
+          form:
+            attendee_type: Deltagare typ
+            existing_user: Existerande användare
+            invite: Bjud in
+            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen också.
+            non_user: Icke befintlig användare
+            select_user: Välj användare
           index:
             filter:
               accepted: Accepterad
@@ -180,11 +188,8 @@ sv:
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
+            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
             search: Sök
-          new:
-            explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Bjud in
-            new_invite: Bjud in användare
         meeting_closes:
           edit:
             close: Stäng
