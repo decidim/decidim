@@ -34,10 +34,10 @@ module Decidim
 
         def update_status
           status.update!(
-            key: @form.key,
-            name: @form.name,
+            key:         @form.key,
+            name:        @form.name,
             description: @form.description,
-            progress: @form.progress
+            progress:    @form.progress
           )
         end
       end

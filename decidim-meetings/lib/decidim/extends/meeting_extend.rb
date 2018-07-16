@@ -1,5 +1,6 @@
-module MeetingExtend
+# frozen_string_literal: true
 
+module MeetingExtend
   include Decidim::HasClassExtends
 
   def users_to_notify_on_comment_created

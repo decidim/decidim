@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 Decidim::Proposals::ProposalVotesHelper.class_eval do
   # Extends for Proposals weighted votes
 
@@ -10,5 +9,4 @@ Decidim::Proposals::ProposalVotesHelper.class_eval do
   def votes_enabled?
     current_settings.votes_enabled || current_settings.votes_weight_enabled
   end
-
 end

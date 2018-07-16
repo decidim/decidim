@@ -24,9 +24,7 @@ module Decidim
       def create
         @form = form(RegistrationForm).from_params(params[:user])
 
-        if @form.sign_up_as == "user_group"
-          @form.user_group_document_number = UserGroup.get_unique_random_user_group_document_number(current_organization)
-        end
+        @form.user_group_document_number = UserGroup.get_unique_random_user_group_document_number(current_organization) if @form.sign_up_as == "user_group"
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|

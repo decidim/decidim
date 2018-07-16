@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This module is use to add customs methods to the original "proposal_vote.rb"
 
 module VoteProposalExtend
@@ -10,7 +11,7 @@ module VoteProposalExtend
 
   def build_proposal_vote
     @vote = @proposal.votes.find_or_initialize_by(author: current_user)
-    @vote.update_attributes!(weight: @weight)
+    @vote.update!(weight: @weight)
   end
 end
 
