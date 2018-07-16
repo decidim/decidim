@@ -20,16 +20,20 @@ namespace :decidim do
   end
 
   desc "Generates a dummy app for testing in external installations"
-  task :generate_external_test_app do
+  task :generate_external_test_app, [:ci] do |_t, _args|
     generate_decidim_app(
-      "spec/decidim_dummy_app",
-      "--app_name",
-      "#{base_app_name}_test_app",
-      "--path",
-      "../..",
-      "--recreate_db",
-      "--skip_gemfile",
-      "--demo"
+      *[
+        "spec/decidim_dummy_app",
+        "--app_name",
+        "#{base_app_name}_test_app",
+        "--path",
+        "../..",
+        "--eager-load",
+        "--recreate_db",
+        "--skip_gemfile",
+        "--demo",
+        ENV["CI"] ? "--ci" : nil
+      ].compact
     )
   end
 
