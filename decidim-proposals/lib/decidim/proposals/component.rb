@@ -13,6 +13,8 @@ Decidim.register_component(:proposals) do |component|
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
+  component.metric_entities = %w(proposals_metric accepted_proposals_metric votes_metric)
+
   component.actions = %w(endorse vote create withdraw)
 
   component.query_type = "Decidim::Proposals::ProposalsType"

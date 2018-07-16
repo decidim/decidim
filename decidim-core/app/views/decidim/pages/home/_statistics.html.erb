@@ -11,48 +11,5 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="columns small-centered mediumlarge-10 large-8">
-        <div class="home-graphiql">
-          <div id="userMetric"></div>
-          <div id="proposalMetric"></div>
-          <div id="acceptedProposalMetric"></div>
-          <div id="votesMetric"></div>
-          <div id="assemblyMetric"></div>
-          <div id="participatoryProcessMetric"></div>
-          <div id="resultMetric"></div>
-          <div id="commentMetric"></div>
-          <div id="meetingMetric"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<%= javascript_tag do %>
-  $(function(){
-
-    metrics = [
-      { name: "userMetric", query: { "query": "{ userMetric { metric { key value } } }" } },
-      { name: "proposalMetric", query: { "query": "{ proposalMetric { metric { key value } } }" } },
-      { name: "acceptedProposalMetric", query: { "query": "{ acceptedProposalMetric { metric { key value } } }" } },
-      { name: "votesMetric", query: { "query": "{ votesMetric { metric { key value } } }" } },
-      { name: "assemblyMetric", query: { "query": "{ assemblyMetric { metric { key value } } }" } },
-      { name: "participatoryProcessMetric", query: { "query": "{ participatoryProcessMetric { metric { key value } } }" } },
-      { name: "resultMetric", query: { "query": "{ resultMetric { metric { key value } } }" } },
-      { name: "commentMetric", query: { "query": "{ commentMetric { metric { key value } } }" } },
-      { name: "meetingMetric", query: { "query": "{ meetingMetric { metric { key value } } }" } },
-    ]
-
-    $.each(metrics, function(i, metric){
-      $.post({
-        url: '<%= decidim_api.root_path %>',
-        data: JSON.stringify(metric.query),
-        contentType: 'application/json'
-      }).done(function(response) {
-        $("#" + metric.name).html(metric.name+ ': ' + JSON.stringify(response.data[metric.name].metric))
-        console.log(metric.name, ': ', response.data[metric.name].metric);
-      });
-    });
-  })
-
-<% end %>
+  </div>
+</section>

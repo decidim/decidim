@@ -20,7 +20,7 @@ module Decidim
       query = Decidim::Metric.where(metric_type: @metric, organization: @organization)
       case @counter_type
       when :count
-        query.last.try(@counter_field) || 0
+        query.group(@group_by).sum(@counter_field).sort.last.last || 0
       when :metric
         query.group(@group_by).sum(@counter_field)
       end
