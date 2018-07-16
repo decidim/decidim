@@ -11,7 +11,7 @@
         <%= proposal.has_attribute?("#{type}_votes") ? proposal.read_attribute("#{type}_votes").count : 0 %>
       </div>
     <% end %>
-    <%= icon "thumb-#{type}"%>
+    <%= icon "thumb-#{type}" %>
   <% end %>
 <% else %>
   <%= action_authorized_button_to(
@@ -35,6 +35,6 @@
         <% end %>
       </div>
     <% end %>
-    <%= icon "thumb-#{type}"%>
+    <%= icon "thumb-#{type}" %>
   <% end %>
 <% end %>
