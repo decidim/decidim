@@ -121,6 +121,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             projects_per_page: Hankkeet sivua kohden
+            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
             total_budget: Kokonaisbudjetti
             vote_threshold_percent: Äänestä kynnysarvoa
           step:

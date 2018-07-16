@@ -80,6 +80,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Oletussäännöt
+            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
@@ -171,6 +172,13 @@ fi:
           create:
             error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
             success: Käyttäjä kutsuttu tapahtumaan onnistuneesti.
+          form:
+            attendee_type: Osallistujatyyppi
+            existing_user: Olemassa oleva käyttäjä
+            invite: Kutsu
+            invite_explanation: Käyttäjää kutsutaan mukaan myös kokoukseen ja organisaatioon.
+            non_user: Ei olemassa olevaa käyttäjää
+            select_user: Valitse käyttäjä
           index:
             filter:
               accepted: Hyväksytyt
@@ -180,11 +188,8 @@ fi:
             filter_by: Suodata
             invite_attendee: Kutsu osallistuja
             invites: kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska rekisteröinnit on poistettu käytöstä.
             search: Hae
-          new:
-            explanation: Käyttäjä kutsutaan mukaan tapahtumaan. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
-            invite: Kutsu
-            new_invite: Kutsu käyttäjä
         meeting_closes:
           edit:
             close: Lopeta

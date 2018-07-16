@@ -80,6 +80,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             default_registration_terms: Termes de registre per defecte
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada reunió
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
@@ -171,6 +172,13 @@ ca:
           create:
             error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
             success: L'usuari s'ha convidat correctament a unir-se a la trobada.
+          form:
+            attendee_type: Tipus d'assistent
+            existing_user: Usuari existent
+            invite: Convidar
+            invite_explanation: L'usuari també serà convidat a participar a la reunió ia l'organització.
+            non_user: Usuari no existent
+            select_user: Seleccioneu l'usuari
           index:
             filter:
               accepted: Acceptades
@@ -180,11 +188,8 @@ ca:
             filter_by: Filtra per
             invite_attendee: Convida l'assistent
             invites: Invitacions
+            registrations_disabled: No podeu convidar un assistent perquè les inscripcions estan inhabilitades.
             search: Cerca
-          new:
-            explanation: L'usuari serà convidat a participar en una trobada. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
-            invite: Convidar
-            new_invite: Convida l'usuari
         meeting_closes:
           edit:
             close: Tancar

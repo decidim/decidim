@@ -73,6 +73,7 @@ it:
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
             proposal_wizard_step_4_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
             threshold_per_proposal: Soglia per proposta
             vote_limit: Limite di voto per utente
           step:
