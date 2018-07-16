@@ -3,24 +3,10 @@
     <h2 class="card-title"><%= t(".invite_attendee") %></h2>
   </div>
   <div class="card-section">
-    <div class="section">
-      <div class="callout warning">
-        <p><%= t(".invite_explanation") %></p>
-      </div>
-    </div>
-
     <%= decidim_form_for(@form, url: meeting_registrations_invites_path, method: :post, html: { class: "form new_meeting_registration_invite" }) do |f| %>
       <% disable_form = !allowed_to?(:invite_attendee, :meeting, meeting: meeting) %>
 
-      <div class="grid-x grid-margin-x">
-        <%= render partial: "form", object: f, locals: { disabled: disable_form } %>
-
-        <div class="shrink cell">
-          <div class="text-center mt-sm">
-            <%= f.submit t(".invite"), disabled: disable_form %>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "form", object: f, locals: { disabled: disable_form } %>
 
       <% unless meeting.registrations_enabled? %>
         <div class="text-alert">

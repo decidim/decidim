@@ -174,5 +174,44 @@ module Decidim
         expect(subject).to be_deleted
       end
     end
+
+    describe "#tos_accepted?" do
+      subject { user.tos_accepted? }
+
+      let(:user) { build(:user, organization: organization, accepted_tos_version: accepted_tos_version) }
+      let(:accepted_tos_version) { organization.tos_version }
+
+      it { is_expected.to be_truthy }
+
+      context "when user accepted ToS before organization last update" do
+        let(:accepted_tos_version) { 1.year.before }
+
+        it { is_expected.to be_falsey }
+
+        context "when organization has no TOS" do
+          let(:organization) { build(:organization, tos_version: nil) }
+
+          it { is_expected.to be_truthy }
+        end
+      end
+
+      context "when user didn't accepted ToS" do
+        let(:accepted_tos_version) { nil }
+
+        it { is_expected.to be_falsey }
+
+        context "when user is managed" do
+          let(:user) { build(:user, :managed, organization: organization, accepted_tos_version: accepted_tos_version) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when organization has no TOS" do
+          let(:organization) { build(:organization, tos_version: nil) }
+
+          it { is_expected.to be_truthy }
+        end
+      end
+    end
   end
 end

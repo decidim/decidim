@@ -79,6 +79,14 @@ module Decidim
         end
       end
 
+      context "with custom class" do
+        let(:options) { { class: "autocomplete-field--results-inline" } }
+
+        it "sets the class attribute" do
+          expect(subject.css(".autocomplete-field--results-inline")).not_to be_empty
+        end
+      end
+
       context "with custom name" do
         let(:options) { { name: "custom[name]" } }
 
