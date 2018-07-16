@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix newsletterable not being able to use `Time.zone.parse` when eager-loding the dependencies [#3830](https://github.com/decidim/decidim/pull/3847)
+
 ## [0.13.0](https://github.com/decidim/decidim/tree/v0.13.0)
 
 **Upgrade notes: avatars**:
