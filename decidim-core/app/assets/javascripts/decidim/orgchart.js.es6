@@ -312,9 +312,10 @@ $(() => {
           svg.selectAll(".node")
             .attr("transform", (d) => {
               let bounds = {
-                x: Math.max(Math.min(calc.chartWidth - ((d.bbox || {}).width / 2), d.x), -((d.bbox || {}).width / 2)),
-                y: Math.max(Math.min(calc.chartHeight - ((d.bbox || {}).height / 2), d.y), -((d.bbox || {}).height / 2))
+                x: Math.max(Math.min(calc.chartWidth, d.x), 0),
+                y: Math.max(Math.min(calc.chartHeight, d.y), 0)
               }
+
               return `translate(${bounds.x},${bounds.y})`
             })
         }
