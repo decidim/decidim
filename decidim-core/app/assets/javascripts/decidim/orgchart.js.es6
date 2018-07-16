@@ -70,7 +70,7 @@ $(() => {
 
         // ###########################   BEHAVIORS #########################
         let behaviors = {}
-        behaviors.zoom = d3.zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed)
+        // behaviors.zoom = d3.zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed)
         behaviors.drag = d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)
 
         // ###########################   LAYOUTS #########################
@@ -82,7 +82,7 @@ $(() => {
         // ###########################   FORCE STUFF #########################
         let force = {}
         force.link = d3.forceLink().id((d) => d.id)
-        force.charge = d3.forceManyBody()
+        force.charge = d3.forceManyBody().strength(-240)
         force.center = d3.forceCenter(calc.chartWidth / 2, calc.chartHeight / 2)
 
         // prevent collide
@@ -167,7 +167,7 @@ $(() => {
         let svg = container.patternify({ tag: "svg", selector: "svg-chart-container" })
           .attr("width", attrs.svgWidth)
           .attr("height", attrs.svgHeight)
-          .call(behaviors.zoom)
+          // .call(behaviors.zoom)
 
         // add container g element
         let chart = svg.patternify({ tag: "g", selector: "chart" })
@@ -287,17 +287,17 @@ $(() => {
         // ####################################### EVENT HANDLERS  ########################
 
         // zoom handler
-        function zoomed() {
-          // get transform event
-          let transform = d3.event.transform
-          attrs.lastTransform = transform
-
-          // apply transform event props to the wrapper
-          chart.attr("transform", transform)
-
-          svg.selectAll(".node").attr("transform", (d) => `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`)
-          svg.selectAll(".link").attr("stroke-width", attrs.lineStrokeWidth / (attrs.lastTransform ? attrs.lastTransform.k : 1))
-        }
+        // function zoomed() {
+        //   // get transform event
+        //   let transform = d3.event.transform
+        //   attrs.lastTransform = transform
+        //
+        //   // apply transform event props to the wrapper
+        //   chart.attr("transform", transform)
+        //
+        //   svg.selectAll(".node").attr("transform", (d) => `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`)
+        //   svg.selectAll(".link").attr("stroke-width", attrs.lineStrokeWidth / (attrs.lastTransform ? attrs.lastTransform.k : 1))
+        // }
 
         // tick handler
         function ticked() {
@@ -308,9 +308,12 @@ $(() => {
             .attr("x2", function (d) { return d.target.x; })
             .attr("y2", function (d) { return d.target.y; })
 
+          let radius = 40
           // set nodes position
           svg.selectAll(".node")
-            .attr("transform", function (d) { return `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`; })
+            // .attr("transform", function (d) { return `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`; })
+            .attr("x", function(d) { return d.x = Math.max(radius, Math.min(calc.chartWidth - radius, d.x)); })
+            .attr("y", function(d) { return d.y = Math.max(radius, Math.min(calc.chartHeight - radius, d.y)); });
         }
 
         // handler drag start event
