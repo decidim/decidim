@@ -29,7 +29,7 @@ $(() => {
       marginLeft: 30,
       container: "body",
       nodeDistance: 20,
-      distance: 100,
+      distance: 150,
       hiddenChildLevel: 1,
       hoverOpacity: 0.2,
       maxTextDisplayZoomLevel: 1,
