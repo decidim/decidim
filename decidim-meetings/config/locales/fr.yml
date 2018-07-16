@@ -244,6 +244,7 @@ fr:
             save: Sauvegarder
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
+            invite_user: Invite user
             invites: Invite
             registrations_count:
               one: Il y a eu 1 inscription.

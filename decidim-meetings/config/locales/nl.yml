@@ -39,6 +39,10 @@ nl:
             base:
               too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
               too_many_minutes_child: De duur van het item childs overschrijdt de ouder-duur van het agendapunt "%{parent_title}" met %{count} minuut
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
@@ -161,12 +165,23 @@ nl:
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
             join: Word lid van '%{meeting_title}'
         invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Uitnodigen
@@ -230,6 +245,7 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invite_user: Gebruiker uitnodigen
+            invites: Invite
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
@@ -239,6 +255,10 @@ nl:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} sloot het %{resource_name} event in de %{space_name} ruimte"
           create: "%{user_name} heeft het %{resource_name} event gemaakt in de %{space_name} ruimte"
@@ -297,6 +317,16 @@ nl:
             other: "%{count} resterende plaatsen"
           view: Uitzicht
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Gesloten
@@ -313,6 +343,9 @@ nl:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
           success: U bent met succes lid geworden van de vergadering.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.

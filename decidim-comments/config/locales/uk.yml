@@ -70,6 +70,8 @@ uk:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

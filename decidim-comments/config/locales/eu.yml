@@ -66,6 +66,8 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

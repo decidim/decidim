@@ -66,6 +66,8 @@ gl:
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         loading: Cargando comentarios ...
         title: "%{count} comentarios"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

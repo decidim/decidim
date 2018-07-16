@@ -70,6 +70,8 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

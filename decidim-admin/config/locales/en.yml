@@ -317,6 +317,11 @@ en:
         logs_list:
           no_logs_yet: There are no logs yet
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: There has been an error promoting the managed user.
           success: The managed user has been successfully promoted.
@@ -334,6 +339,7 @@ en:
         configuration: Configuration
         dashboard: Dashboard
         impersonations: Impersonations
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: OAuth applications
@@ -372,6 +378,8 @@ en:
             reason: Reason
             started_at: Started at
             user: User
+        managed_user:
+          name: Name
         navbar_link:
           fields:
             link: Link
@@ -624,6 +632,7 @@ en:
         dashboard: Dashboard
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
+        managed_users: Managed users
         navbar_links: Navbar links
         officializations: Officializations
         scope_types: Scope types

@@ -52,6 +52,8 @@ ru:
         other: Подписей
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Почины
         initiatives_types: Виды починов
@@ -77,6 +79,11 @@ ru:
         initiatives_types: Виды починов
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.

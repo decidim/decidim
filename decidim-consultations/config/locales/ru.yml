@@ -62,6 +62,9 @@ ru:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Обнародовать итоги
         unpublish_results: Отменить обнародование итогов
       consultation_publications:

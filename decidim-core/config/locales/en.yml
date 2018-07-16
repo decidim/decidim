@@ -53,6 +53,11 @@ en:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -153,6 +158,31 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
+        incomplete:
+          cancel: Annuler
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          invalid_field: "%{field}"
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
+        missing:
+          authorize: Autoriser avec "%{authorization}"
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
+          title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
+        unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
+          ok: D'accord
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -178,6 +208,13 @@ en:
     core:
       actions:
         unauthorized: You are not authorized to perform this action
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -213,6 +250,7 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
+            close_modal: Fermer la fenêtre
             uncheck: Keep uncheck
           notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
           title: Newsletter notifications
@@ -272,6 +310,11 @@ en:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -279,6 +322,9 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        download: Télécharger
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
@@ -316,6 +362,18 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir au moins une adresse email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -380,6 +438,20 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Désolé, un problème est survenu
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -447,6 +519,7 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
+          modal_close: Fermer la fenêtre
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -628,6 +701,7 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
+        invite_friends: Inviter des amis
         notifications: Notifications
         profile: My account
         public_profile: My public profile
@@ -636,6 +710,7 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
+        my_data: Mes données
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
@@ -643,6 +718,16 @@ en:
         see_more: See more
   locale:
     name: English
+  password_validator:
+    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -39,6 +39,10 @@ es-PY:
             base:
               too_many_minutes: La duración de los ítems supera la duración del encuentro en %{count} minutos
               too_many_minutes_child: La duración de los sub-ítems excede el punto "%{parent_title}" del orden del dia en %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -161,12 +165,23 @@ es-PY:
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarlo a través del siguiente enlace."
             join: Únete al encuentro '%{meeting_title}'
         invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
             invite: Invitar
@@ -230,6 +245,7 @@ es-PY:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invite_user: Invitar usuario
+            invites: Invite
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -239,6 +255,10 @@ es-PY:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
@@ -297,6 +317,16 @@ es-PY:
             other: "%{count} inscripciones disponibles"
           view: Ver
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Cerrado
@@ -313,6 +343,9 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
           success: Te has inscrito al encuentro con éxito.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.

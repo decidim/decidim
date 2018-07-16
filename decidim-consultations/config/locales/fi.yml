@@ -54,6 +54,9 @@ fi:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Julkaise tuloksia
         unpublish_results: Julkaisematta tuloksia
       consultation_publications:

@@ -66,6 +66,8 @@ fi:
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

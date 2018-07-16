@@ -86,7 +86,12 @@ eu:
             votes_blocked: Botoiak blokeatuta
             votes_enabled: Botoiak gaituta
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title}proposamen berriak sor ditzakezu! Hasi orri honetan parte hartzea:'
@@ -221,6 +226,7 @@ eu:
             body: Gorputzeko
             created_at: Sortze data
             proposal_votes_count: Botoen zenbaketa
+            proposal_votes_weight: Votes count
             proposals: proposamenak
       admin_log:
         proposal:
@@ -250,6 +256,7 @@ eu:
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
+            published_at: Publiée à
             scope: Esparrua
             state: Egoera
             title: Titulua
@@ -371,12 +378,28 @@ eu:
           no_votes_remaining: Ez da gelditzen botorik
           vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
+        vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          neutral: Neutral
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: SOSTENGU
             other: SOSTENGU
           most_popular_proposal: Proposamenrik ezagunena
           need_more_votes: Botoak gehiago behar dituzu
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke

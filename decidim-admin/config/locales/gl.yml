@@ -317,6 +317,11 @@ gl:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
           success: O usuario xestionado foi promovido con éxito.
@@ -334,6 +339,8 @@ gl:
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
         impersonations: Impersonacións
+        managed_users: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
         officializations: Oficinas
@@ -371,6 +378,13 @@ gl:
             reason: Motivo
             started_at: Comezou en
             user: Usuario
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Creado en
@@ -425,6 +439,28 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -596,6 +632,8 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Oficinas
         scope_types: Tipos de alcance
         scopes: Ámbitos
@@ -640,6 +678,28 @@ gl:
       errors:
         impersonate_user:
           reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Oculto
@@ -658,11 +718,14 @@ gl:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Oculto en
             report_count: Conde
             reportable: Reportable
             reported_content_url: URL de contido reportado
             reports: Informes
+            status: Status
+            type: Type
             visit_url: Visita o URL
   errors:
     messages:

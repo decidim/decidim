@@ -66,6 +66,8 @@ pt:
         blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
         loading: Carregando comentários ...
         title: "%{count} comentários"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

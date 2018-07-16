@@ -82,6 +82,8 @@ ru:
         other: Ролей участников собрания
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: При попытке добавить новое собрание произошла ошибка.

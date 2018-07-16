@@ -76,6 +76,8 @@ nl:
         other: Assemblage van gebruikersrollen
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.

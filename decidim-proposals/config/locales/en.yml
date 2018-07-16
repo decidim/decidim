@@ -256,6 +256,7 @@ en:
             id: ID
             notes: Notes
             official_proposal: Official proposal
+            published_at: Publiée à
             scope: Scope
             state: State
             title: Title

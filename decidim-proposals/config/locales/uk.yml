@@ -94,7 +94,12 @@ uk:
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
@@ -229,6 +234,7 @@ uk:
             body: Основний текст
             created_at: Дата створення
             proposal_votes_count: Кількість голосів
+            proposal_votes_weight: Votes count
             proposals: Пропозиції
       admin_log:
         proposal:
@@ -258,6 +264,7 @@ uk:
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
+            published_at: Publiée à
             scope: Обсяг
             state: Стан
             title: Назва
@@ -387,6 +394,16 @@ uk:
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
           votes_blocked: Голосування вимкнене
+        vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          neutral: Neutral
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             few: ГОЛОСИ
@@ -395,6 +412,12 @@ uk:
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати більше ніж %{limit} людей

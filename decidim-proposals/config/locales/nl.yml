@@ -88,7 +88,12 @@ nl:
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen actief
             votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
@@ -223,6 +228,7 @@ nl:
             body: Tekstgedeelte
             created_at: Aangemaakt op
             proposal_votes_count: Aantal stemmen
+            proposal_votes_weight: Votes count
             proposals: Voorstellen
       admin_log:
         proposal:
@@ -252,6 +258,7 @@ nl:
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
+            published_at: Publiée à
             scope: Scope
             state: Staat
             title: Titel
@@ -373,12 +380,28 @@ nl:
           no_votes_remaining: Geen stemmen over
           vote: Stem
           votes_blocked: Stemmen uitgeschakeld
+        vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          neutral: Neutral
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: STEM
             other: STEMMEN
           most_popular_proposal: Populairste voorstel
           need_more_votes: Meer stemmen nodig
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen

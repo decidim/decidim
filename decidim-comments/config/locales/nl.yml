@@ -66,6 +66,8 @@ nl:
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         loading: Reacties laden...
         title: "%{count} reacties"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

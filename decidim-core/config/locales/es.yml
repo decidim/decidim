@@ -53,6 +53,11 @@ es:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
@@ -153,6 +158,31 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
+        incomplete:
+          cancel: Annuler
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          invalid_field: "%{field}"
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
+        missing:
+          authorize: Autoriser avec "%{authorization}"
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
+          title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
+        unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
+          ok: D'accord
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -178,6 +208,13 @@ es:
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -213,6 +250,7 @@ es:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
+            close_modal: Fermer la fenêtre
             uncheck: Mantener desmarcado
           notice: Oye, ¿estás seguro de que no quieres recibir un boletín informativo? Considera volver a marcar la casilla de verificación del boletín de abajo. Es muy importante para nosotros que puedas recibir correos electrónicos ocasionales para hacer anuncios importantes. Siempre puedes cambiar esto en la página de configuración de notificaciones. Si no marca la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma. Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión. ¡Gracias por leer esto!
           title: Notificaciones de boletines
@@ -272,6 +310,11 @@ es:
           notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -279,6 +322,9 @@ es:
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        download: Télécharger
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
@@ -316,6 +362,18 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir au moins une adresse email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -380,6 +438,20 @@ es:
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Désolé, un problème est survenu
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
@@ -447,6 +519,7 @@ es:
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
+          modal_close: Fermer la fenêtre
           modal_title: "¿Confirmas que no aceptas los Términos y Condiciones actualizados?"
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
@@ -628,6 +701,7 @@ es:
       user_menu:
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
+        invite_friends: Inviter des amis
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
@@ -636,6 +710,7 @@ es:
         account: Cuenta
         authorizations: Autorizaciones
         delete_my_account: Eliminar mi cuenta
+        my_data: Mes données
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
@@ -643,6 +718,16 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
+  password_validator:
+    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban

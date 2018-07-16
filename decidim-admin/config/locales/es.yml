@@ -317,6 +317,11 @@ es:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
@@ -334,6 +339,8 @@ es:
         configuration: Configuración
         dashboard: Panel de control
         impersonations: Impersonaciones
+        managed_users: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         officializations: Oficializaciones
@@ -371,6 +378,13 @@ es:
             reason: Razón
             started_at: Empezó a las
             user: Usuario
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -425,6 +439,28 @@ es:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -596,6 +632,8 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Suplantaciones
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -640,6 +678,28 @@ es:
       errors:
         impersonate_user:
           reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Ocultas
@@ -658,11 +718,14 @@ es:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Fecha de ocultación
             report_count: Recuento
             reportable: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
+            status: Status
+            type: Type
             visit_url: Visita la URL
   errors:
     messages:

@@ -317,6 +317,11 @@ ca:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: S'ha produït un error en promoure l'usuari gestionat.
           success: S'ha promogut amb èxit l'usuari gestionat.
@@ -334,6 +339,8 @@ ca:
         configuration: Configuració
         dashboard: Tauler de control
         impersonations: Impersonacions
+        managed_users: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
         officializations: Oficialitzacions
@@ -371,6 +378,13 @@ ca:
             reason: Raó
             started_at: Va començar el
             user: Usuari
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Data de creació
@@ -425,6 +439,28 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut brossa
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
@@ -596,6 +632,8 @@ ca:
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
         impersonations: Suplantacions
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -640,6 +678,28 @@ ca:
       errors:
         impersonate_user:
           reason: Heu d'indicar un motiu quan impersoneu un usuari no administrat
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Ocults
@@ -658,11 +718,14 @@ ca:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Data d'ocultació
             report_count: Recompte
             reportable: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
+            status: Status
+            type: Type
             visit_url: Visiteu l'URL
   errors:
     messages:

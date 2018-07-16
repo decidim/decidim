@@ -46,6 +46,8 @@ sv:
         other: signaturer
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: initiativ
         initiatives_types: Initiativtyper
@@ -71,6 +73,11 @@ sv:
         initiatives_types: Initiativtyper
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.

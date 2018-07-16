@@ -39,6 +39,10 @@ pl:
             base:
               too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
               too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Spotkanie zamknięte
       decidim/meetings/create_meeting_event: Spotkanie
@@ -167,12 +171,23 @@ pl:
           registrations: Rejestracje
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} zaprosił_a Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
             error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Udało się zaprosić użytkownika do udziału w spotkaniu.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
             invite: Zaproś
@@ -236,6 +251,7 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invite_user: Zaproś użytkownika
+            invites: Invite
             registrations_count:
               few: Rejestrowano %{count}.
               many: Zarejestrowano %{count} rejestracji.
@@ -247,6 +263,10 @@ pl:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} zamknął spotkanie %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} utworzył spotkanie %{resource_name} na przestrzeni %{space_name}"
@@ -307,6 +327,16 @@ pl:
             other: Pozostało %{count}
           view: Widok
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Zamknięte
@@ -323,6 +353,9 @@ pl:
         create:
           invalid: Wystąpił problem z dołączeniem tego spotkania.
           success: Dołączyłeś do tego spotkanie.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Wystąpił problem z tym spotkaniem.
           success: Opuściłeś spotkanie pomyślnie.

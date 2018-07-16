@@ -57,6 +57,11 @@ ru:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
         confirm:
@@ -161,6 +166,31 @@ ru:
         name: Пример подтверждения личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    authorization_modals:
+      show:
+        expired:
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
+        incomplete:
+          cancel: Annuler
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          invalid_field: "%{field}"
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
+        missing:
+          authorize: Autoriser avec "%{authorization}"
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
+          title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
+        unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
+          ok: D'accord
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         few: и еще %{count}
@@ -188,6 +218,13 @@ ru:
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -223,6 +260,7 @@ ru:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
+            close_modal: Fermer la fenêtre
             uncheck: Не ставить галочку
           notice: Привет, вы уверены, что не хотите получать рассылку новостей? Пожалуйста, еще раз подумайте насчет того, чтобы поставить галочку ниже. Для нас очень важно, чтобы вы могли иногда получать сообщения с важными объявлениями. Вы всегда сможете изменить это на странице настроек уведомлений. Если вы не отметите это поле, вы можете упустить свежие возможности участия в работе площадки. Если вы все же не хотите получать рассылку, мы прекрасно понимаем такое ваше решение. Спасибо, что прочитали это!
           title: Уведомления о новостях
@@ -269,8 +307,24 @@ ru:
         email_intro: "«%{resource_title}» обновили. Вы можете посмотреть его на странице:"
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
@@ -278,6 +332,9 @@ ru:
           email_subject: "%{nickname} обновил свой профиль"
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        download: Télécharger
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
@@ -315,6 +372,18 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir au moins une adresse email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -379,6 +448,20 @@ ru:
         success: Вы успешно отменили подписку.
         token_error: Срок действия ссылки истек.
         unsubscribe: Отписаться
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Désolé, un problème est survenu
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
@@ -446,6 +529,7 @@ ru:
           modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
           modal_button: Отказаться от условий участия
+          modal_close: Fermer la fenêtre
           modal_title: Вы действительно отказываетесь от обновленных "Условий участия"?
         required_review:
           alert: Мы обновили наши "Условия участия", пожалуйста, просмотрите их.
@@ -625,6 +709,7 @@ ru:
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
+        invite_friends: Inviter des amis
         notifications: Уведомления
         profile: Моя учетная запись
         public_profile: Мой общедоступный профиль
@@ -633,6 +718,7 @@ ru:
         account: Учетная запись
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
+        my_data: Mes données
         notifications_settings: Настройки уведомлений
         title: Настройки участника
         user_groups: Организации
@@ -640,6 +726,16 @@ ru:
         see_more: Читать подробнее
   locale:
     name: Русский
+  password_validator:
+    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban

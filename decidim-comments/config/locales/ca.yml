@@ -66,6 +66,8 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:
