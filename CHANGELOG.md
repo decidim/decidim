@@ -4,6 +4,8 @@
 
 **Fixed**:
 
+- **decidim-surveys**: Order survey answer options by date and time. [#3855](https://github.com/decidim/decidim/pull/3855)
+
 ## [0.12.2](https://github.com/decidim/decidim/tree/v0.12.2)
 
 **Fixed**:
