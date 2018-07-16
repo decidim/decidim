@@ -46,7 +46,7 @@ es:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: "¿A quién va dirigido?"
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -286,7 +286,7 @@ es:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: '¿A quién va dirigida?'
+        target: "¿A quién va dirigida?"
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas

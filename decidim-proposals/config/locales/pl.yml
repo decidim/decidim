@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -36,24 +37,24 @@ pl:
   activerecord:
     models:
       decidim/proposals/proposal:
-        one: Wniosek
         few: Propozycje
         many: Propozycje
+        one: Wniosek
         other: Propozycje
       decidim/proposals/proposal_endorsement:
-        one: Poparcie
         few: Adnotacje
         many: Adnotacje
+        one: Poparcie
         other: Adnotacje
       decidim/proposals/proposal_note:
-        one: Uwaga
         few: Uwagi
         many: Uwagi
+        one: Uwaga
         other: Uwagi
       decidim/proposals/proposal_vote:
-        one: Głosować
         few: Głosy
         many: Głosy
+        one: Głosować
         other: Głosy
   decidim:
     components:
@@ -288,9 +289,9 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
-            one: 1 propozycja
             few: "%{count} propozycje"
             many: "%{count} propozycje"
+            one: 1 propozycja
             other: "%{count} propozycje"
         edit:
           back: Plecy
@@ -334,9 +335,9 @@ pl:
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
-            one: głosować
             few: głosów
             many: głosów
+            one: głosować
             other: głosów
         new:
           send: dalej
@@ -349,9 +350,9 @@ pl:
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
@@ -362,9 +363,9 @@ pl:
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
-            one: i jeszcze 1 osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i jeszcze 1 osoba
             other: i %{count} więcej osób
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
@@ -388,9 +389,9 @@ pl:
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
           count:
-            one: GŁOSOWAĆ
             few: GŁOSOWANIA
             many: GŁOSY
+            one: GŁOSOWAĆ
             other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów

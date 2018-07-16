@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -80,7 +81,9 @@ nl:
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Creatie nieuw voorstel toegestaan
             endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: "Aanbevelingen toegestaan\n"
+            endorsements_enabled: 'Aanbevelingen toegestaan
+
+'
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen actief

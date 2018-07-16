@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -241,7 +242,7 @@ sv:
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} -steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_intro: "%{resource_title} -steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: '%{resource_title} -steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'

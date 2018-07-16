@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -27,7 +28,7 @@ es-PY:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: '¿A quién va dirigida?'
+        target: "¿A quién va dirigida?"
         title: Título
       participatory_process_group:
         description: Descripción
@@ -63,7 +64,7 @@ es-PY:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: '¿Estás seguro?'
+        confirm_destroy: "¿Estás seguro?"
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar

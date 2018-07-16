@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -139,7 +140,7 @@ sv:
           random_seed: Slumpmässigt frö
           selected_proposals:
             one: 1 förslag valt
-            other: '%{count} utvalda förslag'
+            other: "%{count} utvalda förslag"
           view: Se
         sortition_author:
           deleted: Ta bort användare

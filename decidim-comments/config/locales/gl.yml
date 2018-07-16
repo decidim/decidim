@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     models:
@@ -32,8 +33,8 @@ gl:
             label: Comentar como
         opinion:
           neutral: Neutro
-        remaining_characters: "Faltan %{count} caracteres"
-        remaining_characters_1: "Faltou o personaxe %{count}"
+        remaining_characters: Faltan %{count} caracteres
+        remaining_characters_1: Faltou o personaxe %{count}
         title: Engade o teu comentario
       comment:
         alignment:
@@ -73,7 +74,7 @@ gl:
           email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
           notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "Comentouse %{resource_title} . Podes ler o comentario nesta páxina:"
+          email_intro: 'Comentouse %{resource_title} . Podes ler o comentario nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}" ou o seu autor. Podes deixar de seguir desde a ligazón anterior.
           email_subject: Hai un novo comentario de %{author_name} en %{resource_title}
           notification_title: Hai un novo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>

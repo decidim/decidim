@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -88,12 +89,12 @@ es-PY:
     events:
       proposals:
         creation_enabled:
-          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Puedes crear <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -137,7 +138,7 @@ es-PY:
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -271,7 +272,7 @@ es-PY:
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
@@ -289,7 +290,7 @@ es-PY:
           title: Editar propuesta
         edit_draft:
           discard: Descartar este borrador
-          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
+          discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
           send: Previsualizar
           title: Editar borrador de propuesta
         endorsement_identities_cabin:
@@ -358,7 +359,7 @@ es-PY:
           sign_in_or_up: "%{in} o %{up} para participar"
           sign_up: Regístrate
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_confirmation: "¿Seguro que quieres retirar esta propuesta?"
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"

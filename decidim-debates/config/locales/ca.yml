@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -64,8 +65,8 @@ ca:
             name: Debat
       admin_log:
         debate:
-          create: "L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
-          update: "L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+          create: L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}
+          update: L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}
       debates:
         count:
           debates_count:
@@ -111,14 +112,12 @@ ca:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              S'ha creat un nou debat a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
+            email_intro: 'S''ha creat un nou debat a l''espai participatiu %{space_title}, fes-hi un cop d''ull i contribueix:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat a %{space_title}
             notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:
+            email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:"
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat d'en/na %{author_nickname}
             notification_title: En/na <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -198,7 +199,7 @@ gl:
         previous_form:
           back: De volta
           continue: Continuar
-          help: '¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta.'
+          help: "¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta."
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
@@ -242,7 +243,7 @@ gl:
             other: e %{count} persoas máis
         count:
           title:
-            one: "Iniciativa %{count}"
+            one: Iniciativa %{count}
             other: "%{count} iniciativas"
         filters:
           any: Calquera
@@ -287,7 +288,7 @@ gl:
           title: Listado de sinaturas
         vote_cabin:
           already_voted: Xa está asinado
-          supports_required: "Requírense as %{total_supports} firmas"
+          supports_required: Requírense as %{total_supports} firmas
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:

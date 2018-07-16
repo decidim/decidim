@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -26,9 +27,9 @@ ru:
   activerecord:
     models:
       decidim/accountability/result:
-        one: Итог
         few: Итога
         many: Итогов
+        one: Итог
         other: Итогов
   decidim:
     accountability:
@@ -139,9 +140,9 @@ ru:
       results:
         count:
           results_count:
-            one: 1 итог
             few: "%{count} итога"
             many: "%{count} итогов"
+            one: 1 итог
             other: "%{count} итога"
         filters:
           all: Все
@@ -170,7 +171,7 @@ ru:
             version_author: Автор версии
             version_created_at: Версия, созданная на
             version_number: Автор версии
-            version_number_out_of_total: "Шаг %{current_version} из %{total_count}"
+            version_number_out_of_total: Шаг %{current_version} из %{total_count}
             votes: Выражений поддержки
         timeline:
           title: Развитие проекта

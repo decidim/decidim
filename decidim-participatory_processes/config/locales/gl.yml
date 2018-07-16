@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -329,8 +330,8 @@ gl:
           promoted_processes: Procesos destacados
         order_by_processes:
           processes:
-            one: "Proceso %{count}"
-            other: "Procesos %{count}"
+            one: Proceso %{count}
+            other: Procesos %{count}
         participatory_process:
           active_step: 'Paso actual:'
           take_part: Tomar parte en

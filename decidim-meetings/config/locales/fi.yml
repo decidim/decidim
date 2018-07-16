@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -231,7 +232,7 @@ fi:
             invite_user: Kutsu käyttäjä
             registrations_count:
               one: 1 ilmoittautuminen.
-              other: '%{count} ilmoittautumista.'
+              other: "%{count} ilmoittautumista."
             reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
             reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
           update:

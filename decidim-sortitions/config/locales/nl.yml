@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -139,7 +140,7 @@ nl:
           random_seed: Willekeurig zaad
           selected_proposals:
             one: 1 voorstel geselecteerd
-            other: '%{count} voorstellen geselecteerd'
+            other: "%{count} voorstellen geselecteerd"
           view: Uitzicht
         sortition_author:
           deleted: Verwijder gebruiker

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -352,7 +353,7 @@ sv:
             other: och %{count} fler personer
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
-          proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
+          proposal_rejected_reason: Detta förslag har avslagits på grund av att
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} att delta"

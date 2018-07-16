@@ -334,6 +334,7 @@ en:
         configuration: Configuration
         dashboard: Dashboard
         impersonations: Impersonations
+        navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: OAuth applications
         officializations: Officializations
@@ -343,7 +344,6 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
-        navbar_links: Navbar links
       models:
         area:
           fields:
@@ -372,6 +372,11 @@ en:
             reason: Reason
             started_at: Started at
             user: User
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Created at
@@ -418,11 +423,6 @@ en:
             phone: Phone
             state: State
             users_count: Users count
-        navbar_link:
-          fields:
-            title: Title
-            link: Link
-            weight: Weight
       moderations:
         index:
           title: Moderations
@@ -432,27 +432,27 @@ en:
             offensive: Offensive
             spam: Spam
       navbar_links:
-        no_links: No links created
-        form:
-          title: Title
-          link: Link
-          weight: Weight
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-        new:
-          title: New navbar link
-          create: Create
-        edit:
-          title: Edit navbar link
-          update: Update
         create:
           error: There was an error when creating this link.
           success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
         update:
           error: There was an error when updating this link.
           success: Link updated successfully
-        destroy:
-          success: Link successfully destroyed
       newsletters:
         create:
           error: There's been an error creating this newsletter.
@@ -624,13 +624,13 @@ en:
         dashboard: Dashboard
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
         user_groups: User groups
         users: Users
-        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -670,27 +670,27 @@ en:
         impersonate_user:
           reason: You need to provide a reason when impersonating a non managed user
       navbar_links:
-        no_links: No links created
-        form:
-          title: Title
-          link: Link
-          weight: Weight
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-        new:
-          title: New navbar link
-          create: Create
-        edit:
-          title: Edit navbar link
-          update: Update
         create:
           error: There was an error when creating this link.
           success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
         update:
           error: There was an error when updating this link.
           success: Link updated successfully
-        destroy:
-          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden
@@ -709,15 +709,15 @@ en:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Hidden at
             report_count: Count
             reportable: Reportable
             reported_content_url: Reported content URL
             reports: Reports
-            visit_url: Visit URL
-            date: Date
-            type: Type
             status: Status
+            type: Type
+            visit_url: Visit URL
   errors:
     messages:
       invalid_json: Invalid JSON

@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -50,19 +51,19 @@ ru:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Движение соучастия
         few: Движения соучастия
         many: Движений соучастия
+        one: Движение соучастия
         other: Движений соучастия
       decidim/participatory_process_group:
-        one: Группа движений соучастия
         few: Группы движений соучастия
         many: Групп движений соучастия
+        one: Группа движений соучастия
         other: Групп движений соучастия
       decidim/participatory_process_step:
-        one: Шаг
         few: Шага
         many: Шагов
+        one: Шаг
         other: Шагов
   decidim:
     admin:
@@ -335,9 +336,9 @@ ru:
           promoted_processes: Рекомендуемые движения
         order_by_processes:
           processes:
-            one: "%{count} движение"
             few: "%{count} движения"
             many: "%{count} движений"
+            one: "%{count} движение"
             other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'

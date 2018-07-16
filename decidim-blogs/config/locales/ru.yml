@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     models:
@@ -5,9 +6,9 @@ ru:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Пост
         few: Поста
         many: Постов
+        one: Пост
         other: Постов
   decidim:
     blogs:

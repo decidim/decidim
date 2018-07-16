@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -35,19 +36,19 @@ pl:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
         few: Inicjatywy
         many: Inicjatywy
+        one: Initative
         other: Inicjatywy
       decidim/initiative_comittee:
-        one: Komitet
         few: Komitety
         many: Komitety
+        one: Komitet
         other: Komitety
       decidim/initiative_vote:
-        one: Podpis
         few: Podpisy
         many: Podpisy
+        one: Podpis
         other: Podpisy
   decidim:
     admin:
@@ -244,15 +245,15 @@ pl:
           deleted: Usunięto
         author_list:
           hidden_authors_count:
-            one: i jeszcze 1 osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i jeszcze 1 osoba
             other: i %{count} więcej osób
         count:
           title:
-            one: "%{count} inicjatywa"
             few: "%{count} inicjatyw"
             many: "%{count} inicjatyw"
+            one: "%{count} inicjatywa"
             other: "%{count} inicjatyw"
         filters:
           any: Każdy
@@ -286,9 +287,9 @@ pl:
         signature_identities:
           select_identity: Wybierz tożsamość użytkownika
         signatures_count:
-          one: " podpis"
           few: " podpisy"
           many: " podpisy"
+          one: " podpis"
           other: " podpisy"
         statistics:
           assistants_count_title: Asystenci
@@ -299,14 +300,14 @@ pl:
           title: Lista podpisów
         vote_cabin:
           already_voted: Już podpisane
-          supports_required: "Wymagane %{total_supports} podpisów"
+          supports_required: Wymagane %{total_supports} podpisów
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
           count:
-            one: PODPIS
             few: PODPISY
             many: PODPISY
+            one: PODPIS
             other: PODPISY
       initiatives_mailer:
         creation_subject: Twoja inicjatywa obywatelska "%{title}" została utworzona

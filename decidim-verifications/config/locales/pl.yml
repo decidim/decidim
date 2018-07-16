@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ pl:
       admin:
         id_documents:
           help:
-            - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
-            - Wypełniasz informacje zawarte w przesłanym obrazie.
-            - Informacje powinny pasować do tego, co użytkownik wypełnił.
-            - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
+          - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
+          - Wypełniasz informacje zawarte w przesłanym obrazie.
+          - Informacje powinny pasować do tego, co użytkownik wypełnił.
+          - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
         postal_letter:
           help:
-            - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
-            - Wysyłasz list na adres z kodem weryfikacyjnym.
-            - Oznacz list jako wysłany.
-            - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+          - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
+          - Wysyłasz list na adres z kodem weryfikacyjnym.
+          - Oznacz list jako wysłany.
+          - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
       direct: Bezpośredni
       help: Wsparcie
       id_documents:
@@ -65,9 +66,9 @@ pl:
         start_exploring: zacznij odkrywać
       dummy_authorization:
         extra_explanation:
-          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
           few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
           many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
+          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
           other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:

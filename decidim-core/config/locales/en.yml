@@ -264,12 +264,6 @@ en:
         email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
         email_subject: An update to %{participatory_space_title}
         notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
-      participatory_process:
-        step_activated:
-          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'

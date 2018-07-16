@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -231,9 +232,9 @@ eu:
             invite_user: Gonbidatu erabiltzailea
             registrations_count:
               one: Izen-emate bat egin da.
-              other: '%{count} izen-emate egin dira.'
+              other: "%{count} izen-emate egin dira."
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
-            reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
+            reserved_slots_less_than: "%{count} baino gutxiago izan behar du"
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.

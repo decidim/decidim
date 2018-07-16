@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -93,7 +94,7 @@ eu:
           email_subject: Proposamenak orain eskuragarri %{participatory_space_title}
           notification_title: Orain <a href="%{resource_path}">proposamen berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:'
+          email_intro: "%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Onarpen proposamenak %{participatory_space_title}-ra hasi dira
           notification_title: Oraingo <a href="%{resource_path}"></a> babes-proposamenak hasi ditzakezu <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -134,7 +135,7 @@ eu:
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, check it out:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
-          email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
+          email_subject: "%{resource_title} Proposamenaren kategoria eguneratu da"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
@@ -380,12 +381,12 @@ eu:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
           proposal_limit:
-            description: '%{limit} proposamen sortu ditzakezu.'
+            description: "%{limit} proposamen sortu ditzakezu."
           threshold_per_proposal:
             description: Onartutako proposamenak %{limit} euskarri behar ditu
           title: 'Botoak honako arauak ditu:'
           vote_limit:
-            description: '%{limit} proposamenari bozkatu ahal zaizkio.'
+            description: "%{limit} proposamenari bozkatu ahal zaizkio."
             left: Emateke
             votes: Euskarriak
         wizard_aside:

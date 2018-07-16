@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -373,6 +374,11 @@ fr:
             reason: Raison
             started_at: Commencé le
             user: Utilisateur
+        navbar_link:
+          fields:
+            link: Lien
+            title: Titre
+            weight: Rang d'affichage
         newsletter:
           fields:
             created_at: Créée le
@@ -419,11 +425,6 @@ fr:
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
-        navbar_link:
-          fields:
-            title: Titre
-            link: Lien
-            weight: Rang d'affichage
       moderations:
         index:
           title: Modérations
@@ -462,7 +463,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser

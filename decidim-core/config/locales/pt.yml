@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ pt:
         one: Grupo de usuários
         other: Grupos de usuários
   booleans:
-    'false': 'Não'
-    'true': 'Sim'
+    'false': Não
+    'true': Sim
   carrierwave:
     errors:
       image_too_big: A imagem é demasiado grande
@@ -260,12 +261,6 @@ pt:
         email_subject: Uma atualização para %{resource_title}
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process:
-        step_activated:
-          email_intro: 'O passo %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Uma atualização para %{participatory_space_title}
-          notification_title: O passo %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.

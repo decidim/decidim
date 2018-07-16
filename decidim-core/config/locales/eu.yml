@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ eu:
         one: Erabiltzaile taldea
         other: Erabiltzaile taldeak
   booleans:
-    'false': 'Ez'
-    'true': 'Bai'
+    'false': Ez
+    'true': Bai
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
@@ -143,8 +144,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
-      expired_at: '%{timestamp} iraungita dago'
-      expires_at: '%{timestamp} iraungitzen da'
+      expired_at: "%{timestamp} iraungita dago"
+      expires_at: "%{timestamp} iraungitzen da"
       foo_authorization:
         fields:
           bar: Bar
@@ -245,35 +246,29 @@ eu:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{resource_title} eguneratzea'
+          email_subject: "%{resource_title} eguneratzea"
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: "%{resource_title} eguneratzea"
       feature_published_event:
-        email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+        email_intro: "%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
         email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-        email_subject: '%{participatory_space_title} eguneratze bat'
+        email_subject: "%{participatory_space_title} eguneratze bat"
         notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
-      participatory_process:
-        step_activated:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
-          notification_title: '%{resource_title} urratsa dago aktiboa orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       features:
         feature_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -356,7 +351,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
-          subject: '%{sender}-tik mezu berriak dituzu'
+          subject: "%{sender}-tik mezu berriak dituzu"
       conversations:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
@@ -424,7 +419,7 @@ eu:
           comments_count: Iruzkinak
           debates_count: Eztabaidak
           endorsements_count: Oniritziak
-          headline: '%{organization} erakundearen egungo egoera'
+          headline: "%{organization} erakundearen egungo egoera"
           meetings_count: Bilerak
           orders_count: Euskarriak
           pages_count: Orriak

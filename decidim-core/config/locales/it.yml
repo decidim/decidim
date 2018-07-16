@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -42,7 +43,7 @@ it:
         other: Gruppi di utenti
   booleans:
     'false': 'No'
-    'true': 'Si'
+    'true': Si
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -263,12 +264,6 @@ it:
         email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
         email_subject: Un aggiornamento a %{participatory_space_title}
         notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
-      participatory_process:
-        step_activated:
-          email_intro: 'Il passaggio %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Un aggiornamento a %{participatory_space_title}
-          notification_title: Il passaggio %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'Il componente %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -118,8 +119,7 @@ nl:
             email_subject: Nieuw debat op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:
+            email_intro: 'Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:'
             email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

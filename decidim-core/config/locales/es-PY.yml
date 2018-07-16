@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -42,7 +43,7 @@ es-PY:
         other: Grupos de usuarios
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imagen es demasiado grande
@@ -57,7 +58,7 @@ es-PY:
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
-          question: '¿Seguro que quieres eliminar tu cuenta?'
+          question: "¿Seguro que quieres eliminar tu cuenta?"
           title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
@@ -189,7 +190,7 @@ es-PY:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
@@ -206,7 +207,7 @@ es-PY:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
       shared:
         newsletter_modal:
@@ -333,12 +334,12 @@ es-PY:
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: "%{sender} ha iniciado una conversación contigo"
         new_message:
-          greeting: '¡Hola, %{recipient}!'
+          greeting: "¡Hola, %{recipient}!"
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         create:
@@ -359,7 +360,7 @@ es-PY:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: ¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletters:
       unsubscribe:
@@ -388,7 +389,7 @@ es-PY:
         extended:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          how_to_participate: "¿Cómo tomo parte en un proceso?"
           meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
@@ -426,7 +427,7 @@ es-PY:
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
-          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
+          success: "¡Estupendo! Has aceptado los Términos y Condiciones."
         form:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
@@ -435,7 +436,7 @@ es-PY:
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
-          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
+          modal_title: "¿Confirmas que no aceptas los Términos y Condiciones actualizados?"
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
@@ -572,7 +573,7 @@ es-PY:
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
-        greeting: '¡Hola %{recipient}!'
+        greeting: "¡Hola %{recipient}!"
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
   doorkeeper:

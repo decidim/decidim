@@ -264,12 +264,6 @@ ca:
         email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: Una actualització a %{participatory_space_title}
         notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
-      participatory_process:
-        step_activated:
-          email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: S'ha produït un esdeveniment a %{participatory_space_title}
-          notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
@@ -282,7 +276,7 @@ ca:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
           email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
+          email_subject: En/na %{nickname} ha actualitzat el seu perfil
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       export:
@@ -530,7 +524,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          invalid_field: El valor %{field} %{value} no és vàlid.
           ok: D'acord
           title: Acció no autoritzada
       embed_modal:

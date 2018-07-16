@@ -465,7 +465,7 @@ es:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás seguro que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar

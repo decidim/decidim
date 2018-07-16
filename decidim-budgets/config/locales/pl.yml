@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -11,9 +12,9 @@ pl:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Projekt
         few: Projektowanie
         many: Projektowanie
+        one: Projekt
         other: Projektowanie
   decidim:
     budgets:
@@ -81,9 +82,9 @@ pl:
           title: Ty decydujesz budżet
         count:
           projects_count:
-            one: 1 projekt
             few: "%{count} projektów"
             many: "%{count} projektowanie"
+            one: 1 projekt
             other: "%{count} projektów"
         filters:
           category: Kategoria
@@ -99,17 +100,17 @@ pl:
         order_selected_projects:
           remove: Usunąć
           selected_projects:
-            one: Wybrany projekt
             few: Wybranych projektów
             many: wybrane projekty
+            one: Wybrany projekt
             other: Wybranych projektów
           view: Widok
         project:
           add: Dodaj
           count:
-            one: 1
             few: "%{count} obsługuje"
             many: "%{count} obsługuje"
+            one: 1
             other: "%{count} obsługuje"
           remove: Usunąć
           view: Widok

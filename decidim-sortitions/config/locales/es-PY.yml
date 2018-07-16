@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -61,7 +62,7 @@ es-PY:
               other: Sorteos
         sortitions:
           confirm_destroy:
-            confirm_destroy: '¿Seguro que quieres cancelar este sorteo?'
+            confirm_destroy: "¿Seguro que quieres cancelar este sorteo?"
             destroy: Cancelar el sorteo
             title: Cancelar el sorteo
           create:
@@ -139,7 +140,7 @@ es-PY:
           random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
-            other: '%{count} propuestas seleccionadas'
+            other: "%{count} propuestas seleccionadas"
           view: Ver
         sortition_author:
           deleted: Usuario eliminado
