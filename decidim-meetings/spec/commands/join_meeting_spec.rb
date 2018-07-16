@@ -31,12 +31,24 @@ module Decidim::Meetings
         perform_enqueued_jobs { subject.call }
 
         email = last_email
-        expect(email.subject).to include("confirmed")
-        attachment = email.attachments.first
+        email_body = last_email_body
+        last_registration = Registration.last
 
+        expect(email.subject).to include("confirmed")
+        expect(email_body).to include(last_registration.code)
+
+        attachment = email.attachments.first
         expect(attachment.read.length).to be_positive
         expect(attachment.mime_type).to eq("text/calendar")
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+      end
+
+      context "and exists and invite for the user" do
+        let!(:invite) { create(:invite, meeting: meeting, user: user) }
+
+        it "marks the invite as accepted" do
+          expect { subject.call }.to change { invite.reload.accepted_at }.from(nil).to(kind_of(Time))
+        end
       end
 
       context "when the meeting available slots are occupied over the 50%" do

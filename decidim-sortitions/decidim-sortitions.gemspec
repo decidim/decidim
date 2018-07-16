@@ -18,13 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
-
-  s.add_dependency "decidim-admin", compatible_constraint
-  s.add_dependency "decidim-comments", compatible_constraint
-  s.add_dependency "decidim-core", compatible_constraint
-  s.add_dependency "decidim-proposals", compatible_constraint
+  s.add_dependency "decidim-admin", Decidim::Sortitions.version
+  s.add_dependency "decidim-comments", Decidim::Sortitions.version
+  s.add_dependency "decidim-core", Decidim::Sortitions.version
+  s.add_dependency "decidim-proposals", Decidim::Sortitions.version
   s.add_dependency "social-share-button", "~> 1.0"
 
-  s.add_development_dependency "decidim-dev", compatible_constraint
+  s.add_development_dependency "decidim-dev", Decidim::Sortitions.version
 end

@@ -166,6 +166,31 @@ pl:
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
       started_at: Rozpoczęty pod adresem %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Ponownie autoryzuj, używając "%{authorization}"
+          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
+          title: Upoważnienie wygasło
+        incomplete:
+          cancel: Anuluj
+          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
+          invalid_field: "%{field}"
+          reauthorize: Ponów autoryzację
+          title: Proszę ponownie autoryzować
+        missing:
+          authorize: Zezwól na "%{authorization}"
+          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
+          title: Wymagana Autoryzacja
+        pending:
+          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
+          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
+          title: Autoryzacja jest nadal w toku
+        unauthorized:
+          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
+          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
+          ok: Ok
+          title: Nieautoryzowany
     collapsible_list:
       hidden_elements_count:
         one: i 1 więcej
@@ -551,30 +576,6 @@ pl:
         filter_by: Filtruj według
         unfold: Rozwijać się
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Ponownie autoryzuj, używając "%{authorization}"
-          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
-          title: Upoważnienie wygasło
-        incomplete:
-          cancel: Anuluj
-          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
-          invalid_field: "%{field}"
-          reauthorize: Ponów autoryzację
-          title: Proszę ponownie autoryzować
-        missing:
-          authorize: Zezwól na "%{authorization}"
-          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
-          title: Wymagana Autoryzacja
-        pending:
-          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
-          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
-          title: Autoryzacja jest nadal w toku
-        unauthorized:
-          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
-          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
-          ok: Ok
-          title: Nieautoryzowany
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -614,6 +615,7 @@ pl:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
+        decline: Odrzuć zaproszenie
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />

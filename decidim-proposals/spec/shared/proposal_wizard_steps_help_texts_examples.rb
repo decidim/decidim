@@ -10,6 +10,7 @@ shared_examples "manage proposal wizard steps help texts" do
       }
     )
   end
+
   let!(:proposal) { create(:proposal, component: current_component) }
   let!(:proposal_similar) { create(:proposal, component: current_component, title: "This proposal is to ensure a similar exists") }
   let!(:proposal_draft) { create(:proposal, :draft, component: current_component, title: "This proposal has a similar") }

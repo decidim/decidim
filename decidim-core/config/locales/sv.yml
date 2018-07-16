@@ -158,6 +158,31 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reauthorize med "%{authorization}"
+          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          title: Godkännandet har löpt ut
+        incomplete:
+          cancel: Avbryt
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          invalid_field: "%{field}"
+          reauthorize: reauthorize
+          title: Vänligen reauthorize
+        missing:
+          authorize: Godkänn med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
+          title: Godkännande krävs
+        pending:
+          explanation: För att kunna utföra denna åtgärd måste du godkännas med "%{authorization}", men din auktorisation är fortfarande på gång
+          resume: Kolla din "%{authorization}" tillståndsframsteg
+          title: Godkännandet är fortfarande på gång
+        unauthorized:
+          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          invalid_field: "%{field} värde %{value} är inte giltigt."
+          ok: Okej
+          title: Inte behörig
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -541,30 +566,6 @@ sv:
         filter_by: Filtrera efter
         unfold: Veckla ut
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reauthorize med "%{authorization}"
-          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
-          title: Godkännandet har löpt ut
-        incomplete:
-          cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
-          invalid_field: "%{field}"
-          reauthorize: reauthorize
-          title: Vänligen reauthorize
-        missing:
-          authorize: Godkänn med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
-          title: Godkännande krävs
-        pending:
-          explanation: För att kunna utföra denna åtgärd måste du godkännas med "%{authorization}", men din auktorisation är fortfarande på gång
-          resume: Kolla din "%{authorization}" tillståndsframsteg
-          title: Godkännandet är fortfarande på gång
-        unauthorized:
-          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
-          invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Okej
-          title: Inte behörig
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
@@ -604,6 +605,7 @@ sv:
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
+        decline: Avvisa inbjudan
         hello: Hej %{email},
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />

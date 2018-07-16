@@ -191,7 +191,7 @@ module Decidim
                   AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
                 GROUP BY decidim_comments_comments.decidim_commentable_id
               )
-            SQL
+        SQL
         Arel.sql(query)
       end
 
@@ -201,6 +201,11 @@ module Decidim
 
       def self.data_portability_images(user)
         user_collection(user).map { |p| p.attachments.collect(&:file_url) }
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
       end
 
       private

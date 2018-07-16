@@ -54,24 +54,8 @@ module Decidim
       decidim_sanitize(html_truncate(text, length: 100))
     end
 
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
-    end
-
-    def has_author?
-      model.is_a?(Decidim::Authorable)
-    end
-
-    def author
-      present(model).author
-    end
-
     def has_authors?
-      model.is_a?(Decidim::Coauthorable)
-    end
-
-    def hidden_elements_count_i18n_key
-      "decidim.proposals.#{model.class.name.demodulize}.show.hidden_authors_count"
+      model.is_a?(Decidim::Authorable) || model.is_a?(Decidim::Coauthorable)
     end
 
     def has_actions?
@@ -139,6 +123,10 @@ module Decidim
       with_tooltip t("decidim.comments.comments") do
         render :comments_counter
       end
+    end
+
+    def render_authorship
+      cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?)
     end
   end
 end

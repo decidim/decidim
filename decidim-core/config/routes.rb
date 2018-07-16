@@ -56,10 +56,12 @@ Decidim::Core::Engine.routes.draw do
         get :download_file
       end
     end
+
+    get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
   end
 
-  resources :profiles, only: [:show], param: :nickname
-  scope "/profiles/:nickname" do
+  resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^\/]+} }, format: false
+  scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^\/]+} } do
     get "notifications", to: "profiles#show", as: "profile_notifications", active: "notifications"
     get "following", to: "profiles#show", as: "profile_following", active: "following"
     get "followers", to: "profiles#show", as: "profile_followers", active: "followers"

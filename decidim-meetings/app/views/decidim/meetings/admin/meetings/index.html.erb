@@ -71,6 +71,8 @@
                   <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
                 <% end %>
 
+                <%= resource_permissions_link(meeting) %>
+
                 <% if allowed_to? :destroy, :meeting, meeting: meeting %>
                   <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
                 <% end %>

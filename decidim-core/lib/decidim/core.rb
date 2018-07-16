@@ -212,7 +212,7 @@ module Decidim
   #
   # Returns nothing.
   def self.register_global_engine(name, engine, options = {})
-    return if global_engines.keys.include?(name)
+    return if global_engines.has_key?(name)
 
     options[:at] ||= "/#{name}"
 

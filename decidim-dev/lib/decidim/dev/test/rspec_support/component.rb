@@ -64,6 +64,10 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
+
       def self.user_collection(user)
         where(decidim_author_id: user.id)
       end
@@ -96,6 +100,7 @@ Decidim.register_component(:dummy) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
   end
@@ -110,6 +115,7 @@ Decidim.register_component(:dummy) do |component|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
+    resource.actions = %w(foo)
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|

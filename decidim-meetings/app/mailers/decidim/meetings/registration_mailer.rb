@@ -11,10 +11,11 @@ module Decidim
       helper Decidim::ResourceHelper
       helper Decidim::TranslationsHelper
 
-      def confirmation(user, meeting)
+      def confirmation(user, meeting, registration)
         with_user(user) do
           @user = user
           @meeting = meeting
+          @registration = registration
           @organization = @meeting.organization
           @locator = Decidim::ResourceLocatorPresenter.new(@meeting)
 

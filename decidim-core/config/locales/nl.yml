@@ -158,6 +158,31 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Opnieuw autoriseren met "%{authorization}"
+          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
+          title: Autorisatie is verlopen
+        incomplete:
+          cancel: Annuleer
+          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          invalid_field: "%{field}"
+          reauthorize: Opnieuw autoriseren
+          title: Autoriseert u opnieuw alstublieft
+        missing:
+          authorize: Autoriseren met "%{authorization}"
+          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
+          title: Autorisatie vereist
+        pending:
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
+          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
+          title: Autorisatie is nog bezig
+        unauthorized:
+          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
+          invalid_field: "%{field} waarde %{value} is niet geldig."
+          ok: Ok
+          title: Niet geautoriseerd
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -541,30 +566,6 @@ nl:
         filter_by: Filteren op
         unfold: Ontvouwen
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Opnieuw autoriseren met "%{authorization}"
-          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
-          title: Autorisatie is verlopen
-        incomplete:
-          cancel: Annuleer
-          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
-          invalid_field: "%{field}"
-          reauthorize: Opnieuw autoriseren
-          title: Autoriseert u opnieuw alstublieft
-        missing:
-          authorize: Autoriseren met "%{authorization}"
-          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
-          title: Autorisatie vereist
-        pending:
-          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
-          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
-          title: Autorisatie is nog bezig
-        unauthorized:
-          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
-          invalid_field: "%{field} waarde %{value} is niet geldig."
-          ok: Ok
-          title: Niet geautoriseerd
       embed_modal:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
@@ -604,6 +605,7 @@ nl:
       invitation_instructions:
         accept: Accepteer uitnodiging
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
+        decline: Uitnodiging afwijzen
         hello: Hallo %{email},
         ignore: |-
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />

@@ -160,6 +160,31 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -177,6 +202,7 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -547,30 +573,6 @@ en:
         filter_by: Filter by
         unfold: Unfold
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
-          title: Authorization has expired
-        incomplete:
-          cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
-          invalid_field: "%{field}"
-          reauthorize: Reauthorize
-          title: Please reauthorize
-        missing:
-          authorize: Authorize with "%{authorization}"
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
-          title: Authorization required
-        pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
-          title: Authorization is still in progress
-        unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
-          ok: Ok
-          title: Not authorized
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -610,6 +612,7 @@ en:
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />

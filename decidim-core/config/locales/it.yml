@@ -158,6 +158,31 @@ it:
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
       started_at: Iniziato a %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Rinnova con "%{authorization}"
+          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
+          title: L'autorizzazione è scaduta
+        incomplete:
+          cancel: Annulla
+          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
+          invalid_field: "%{field}"
+          reauthorize: Ri-autorizzare
+          title: Per favore, occorre una nuova autorizzazione
+        missing:
+          authorize: Autorizzare con "%{authorization}"
+          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
+          title: Autorizzazione richiesta
+        pending:
+          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
+          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
+          title: L'autorizzazione è ancora in corso
+        unauthorized:
+          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
+          invalid_field: "%{field} valore %{value} non è valido."
+          ok: Ok
+          title: Non autorizzato
     collapsible_list:
       hidden_elements_count:
         one: e 1 altro
@@ -541,30 +566,6 @@ it:
         filter_by: Filtra per
         unfold: spiegare
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Rinnova con "%{authorization}"
-          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
-          title: L'autorizzazione è scaduta
-        incomplete:
-          cancel: Annulla
-          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
-          invalid_field: "%{field}"
-          reauthorize: Ri-autorizzare
-          title: Per favore, occorre una nuova autorizzazione
-        missing:
-          authorize: Autorizzare con "%{authorization}"
-          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
-          title: Autorizzazione richiesta
-        pending:
-          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
-          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
-          title: L'autorizzazione è ancora in corso
-        unauthorized:
-          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
-          invalid_field: "%{field} valore %{value} non è valido."
-          ok: Ok
-          title: Non autorizzato
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
@@ -604,6 +605,7 @@ it:
       invitation_instructions:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
+        decline: Rifiuta l'invito
         hello: Ciao %{email},
         ignore: |-
           Se non desideri accettare l'invito, ignora questa email.<br />
