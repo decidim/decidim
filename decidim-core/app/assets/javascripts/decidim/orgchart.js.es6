@@ -111,7 +111,7 @@ $(() => {
             }
 
             // custom circle projection -  radius will be -  (d.depth - 1) * 150
-            return projectCircle(d.proportion, (d.depth - 1) * 150)[0]
+            return projectCircle(d.proportion, (d.depth - 1) * attrs.distance)[0]
           })
 
         // manually set y positions (which is calculated using d3.cluster)
@@ -127,7 +127,7 @@ $(() => {
             }
 
             // custom circle projection -  radius will be -  (d.depth - 1) * 150
-            return projectCircle(d.proportion, (d.depth - 1) * 150)[1]
+            return projectCircle(d.proportion, (d.depth - 1) * attrs.distance)[1]
           })
 
         // ---------------------------------  INITIALISE FORCE SIMULATION ----------------------------
@@ -282,7 +282,7 @@ $(() => {
           force.simulation.nodes(nodesArr).on("tick", ticked)
 
           // links simulation
-          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(() => 1)
+          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(2)
         }
 
         // ####################################### EVENT HANDLERS  ########################
@@ -386,6 +386,7 @@ $(() => {
           } else {
           // nothing is to collapse or expand
           }
+
           freeNodes()
         }
 
@@ -424,9 +425,9 @@ $(() => {
           force.simulation.alphaTarget(0.15)
         }
 
-        function slowDownNodes() {
-          force.simulation.alphaTarget(0.05)
-        }
+        // function slowDownNodes() {
+        //   force.simulation.alphaTarget(0.05)
+        // }
 
         // function speedUpNodes() {
         //   force.simulation.alphaTarget(0.45)
