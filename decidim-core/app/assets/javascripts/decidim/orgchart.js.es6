@@ -28,7 +28,6 @@ $(() => {
       marginRight: 0,
       marginLeft: 30,
       container: "body",
-      nodeDistance: 20,
       distance: 150,
       hiddenChildLevel: 1,
       hoverOpacity: 0.2,
@@ -92,10 +91,10 @@ $(() => {
           let base = (d.bbox || {}).width + (attrs.nodeGutter.x * 2)
           let height = (d.bbox || {}).height + (attrs.nodeGutter.y * 2)
           let diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2))
-          // Adds 10 to the result in order to make it a lil' bigger
-          let fakeRadius = (diagonal / 2) + 10
+          let fakeRadius = (diagonal / 2)
 
-          return d3.max([attrs.nodeDistance * 2, fakeRadius])
+          // return d3.max([attrs.nodeDistance * 3, fakeRadius])
+          return fakeRadius * 1.2
         })
 
         // manually set x positions (which is calculated using custom radial layout)
@@ -282,7 +281,7 @@ $(() => {
           force.simulation.nodes(nodesArr).on("tick", ticked)
 
           // links simulation
-          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance).strength(2)
+          force.simulation.force("link").links(links).id((d) => d.id).distance(attrs.distance * 2).strength(2)
         }
 
         // ####################################### EVENT HANDLERS  ########################
@@ -405,7 +404,7 @@ $(() => {
             d.children = null
           }
 
-          update()
+          update(d)
           force.simulation.restart()
           force.simulation.alphaTarget(0.15)
         }
