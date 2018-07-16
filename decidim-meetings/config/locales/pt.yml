@@ -80,6 +80,7 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -171,6 +172,13 @@ pt:
           create:
             error: Ocorreu um problema ao convidar o usuário a participar da reunião.
             success: O usuário foi convidado para participar da reunião.
+          form:
+            attendee_type: Tipo de participante
+            existing_user: Usuário existente
+            invite: Convite
+            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
+            non_user: Usuário não existente
+            select_user: Selecione o usuário
           index:
             filter:
               accepted: Aceitaram
@@ -180,11 +188,8 @@ pt:
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
+            registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
             search: Pesquisa
-          new:
-            explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
-            invite: Convite
-            new_invite: Convidar Usuário
         meeting_closes:
           edit:
             close: Fechar

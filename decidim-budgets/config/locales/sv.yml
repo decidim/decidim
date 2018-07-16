@@ -121,6 +121,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             projects_per_page: Projekt per sida
+            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje möte
             total_budget: Total budget
             vote_threshold_percent: Rösta tröskel procent
           step:

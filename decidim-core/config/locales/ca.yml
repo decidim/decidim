@@ -200,6 +200,7 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1

@@ -200,6 +200,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            resources_permissions_enabled: Resources permissies ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
             dummy_step_attribute_1: Voorbeeld-kenmerk 1

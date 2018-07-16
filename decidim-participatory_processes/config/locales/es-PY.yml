@@ -297,7 +297,7 @@ es-PY:
               one: 1 proceso pasado
               other: "%{count} procesos pasados"
             upcoming:
-              one: 1 próximo proceso
+              one: 1 proceso futuro
               other: "%{count} próximos procesos"
           explanations:
             no_active: Sin procesos activos

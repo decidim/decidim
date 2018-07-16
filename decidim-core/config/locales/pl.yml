@@ -210,6 +210,7 @@ pl:
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
             comments_blocked: Komentarze zablokowane
             dummy_step_attribute_1: Atrybut krokowy atrapy 1

@@ -200,6 +200,7 @@ gl:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Atributo maniquí 1
             dummy_global_attribute_2: Atributo maniquí 2
+            resources_permissions_enabled: Permisos de recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
