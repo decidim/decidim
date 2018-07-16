@@ -4,6 +4,12 @@ require: rubocop-rspec
 AllCops:
   Include:
     - .simplecov
+    - "**/*.rb"
+    - "**/*.rake"
+    - "**/*.gemspec"
+    - "**/*.ru"
+    - "**/Gemfile"
+    - "**/Rakefile"
   Exclude:
     - "**/vendor/**/*"
     - "development_app/**/*"
