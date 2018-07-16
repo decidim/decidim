@@ -4,7 +4,7 @@
       <div class="columns small-centered large-10">
         <h1 class="text-highlight heading1 hero-heading">
           <% if translated_attribute(current_organization.welcome_text).blank? %>
-            <%= t(".welcome", organization: current_organization.name) %>
+            <%= t("decidim.pages.home.hero.welcome", organization: current_organization.name) %>
           <% else %>
             <%= decidim_sanitize translated_attribute current_organization.welcome_text %>
           <% end %>

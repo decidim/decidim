@@ -1,11 +1,7 @@
-<%= render partial: "decidim/pages/home/hero" %>
-
-<% if !translated_attribute(current_organization.description).blank? %>
-  <%= render partial: "decidim/pages/home/sub_hero" %>
-<% end %>
+<%= cell "decidim/content_blocks/hero" %>
+<%= cell "decidim/content_blocks/sub_hero" %>
 
 <%= render partial: "decidim/pages/home/highlighted_content_banner" %>
-
 <%= render partial: "decidim/pages/home/highlighted_processes" %>
 
 <%= render partial: "decidim/pages/home/extended" %>
