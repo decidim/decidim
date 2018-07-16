@@ -1,0 +1,7 @@
+<div class="help-tooltip" data-tooltip data-position="top" data-alignment="center"
+  data-allow-html data-template="
+  <%= render "public/components/help-tooltip-template" do %>
+  <%= Faker::Lovecraft.sentence %>
+  <% end %>">
+  <%= icon "question-mark", class: "icon--small" %>
+</div>

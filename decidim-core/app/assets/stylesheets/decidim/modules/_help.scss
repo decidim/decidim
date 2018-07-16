@@ -14,3 +14,15 @@
     }
   }
 }
+
+.help-tooltip{
+  @include flex;
+  @include flex-align(center, center);
+
+  border: .25rem solid lighten($secondary, 25%);
+  border-radius: 50%;
+  background-color: $secondary;
+  color: $light-gray;
+  padding: .25rem;
+  cursor: pointer;
+}
