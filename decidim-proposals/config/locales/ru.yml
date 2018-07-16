@@ -252,11 +252,11 @@ ru:
           fields:
             category: Разряд
             comments: Комментарии
-            created_at: 'Создано:'
             endorsements: Выражения поддержки
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
+            published_at: 'Обнародовано:'
             scope: Охват
             state: Cостояние
             title: Название

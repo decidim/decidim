@@ -7,7 +7,7 @@ module Decidim
       include NeedsCurrentOrder
 
       def checkout
-        authorize_action! "vote"
+        enforce_permission_to :vote, :project, order: current_order
 
         Checkout.call(current_order, current_component) do
           on(:ok) do

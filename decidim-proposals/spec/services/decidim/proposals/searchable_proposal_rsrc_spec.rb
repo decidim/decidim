@@ -12,6 +12,7 @@ module Decidim
     let!(:proposal) do
       create(
         :proposal,
+        :draft,
         component: current_component,
         scope: scope1,
         title: "Nulla TestCheck accumsan tincidunt.",
@@ -22,8 +23,19 @@ module Decidim
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
         context "when on create" do
+          let(:proposal2) do
+            # by default the factory creates as published
+            create(
+              :proposal,
+              users: [],
+              component: current_component,
+              title: "Proposal without authors.",
+              body: "body of Proposal without authors"
+            )
+          end
+
           it "does not index a SearchableResource after Proposal creation" do
-            searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
+            searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
             expect(searchables).to be_empty
           end
         end

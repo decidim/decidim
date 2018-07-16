@@ -73,6 +73,7 @@ fi:
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ohjattu ohjattu "Täydellinen" vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle ehdotukselle
             threshold_per_proposal: Kynnys per ehdotus
             vote_limit: Äänestysraja käyttäjää kohden
           step:
@@ -244,11 +245,11 @@ fi:
           fields:
             category: Aihepiiri
             comments: Kommentit
-            created_at: Luontipäivämäärä
             endorsements: merkintöjen
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
+            published_at: Julkaistu osoitteessa
             scope: Konteksti
             state: Tila
             title: Otsikko

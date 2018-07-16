@@ -81,6 +81,7 @@ pl:
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
             proposal_wizard_step_3_help_text: Kreator propozycji "Zakończ" tekst pomocy
             proposal_wizard_step_4_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdej propozycji
             threshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
@@ -252,11 +253,11 @@ pl:
           fields:
             category: Kategoria
             comments: Komentarze
-            created_at: Utworzono w
             endorsements: Adnotacje
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
+            published_at: Opublikowano na
             scope: Zakres
             state: Stan
             title: Tytuł

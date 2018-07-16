@@ -31,6 +31,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
@@ -55,6 +56,7 @@ Decidim.register_component(:proposals) do |component|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
+    resource.actions = %w(endorse vote)
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
@@ -128,8 +130,6 @@ Decidim.register_component(:proposals) do |component|
     end
 
     5.times do |n|
-      author = Decidim::User.where(organization: component.organization).all.sample
-      user_group = [true, false].sample ? author.user_groups.verified.sample : nil
       state, answer = if n > 3
                         ["accepted", Decidim::Faker::Localized.sentence(10)]
                       elsif n > 2
@@ -146,13 +146,17 @@ Decidim.register_component(:proposals) do |component|
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
-        author: author,
-        user_group: user_group,
         state: state,
         answer: answer,
         answered_at: Time.current,
         published_at: Time.current
       )
+      if n.positive?
+        Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
+          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          proposal.add_coauthor(author, user_group: user_group)
+        end
+      end
 
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"

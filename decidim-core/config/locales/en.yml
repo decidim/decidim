@@ -158,6 +158,31 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -175,6 +200,7 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -225,8 +251,19 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
+            close_modal: Close modal
             uncheck: Keep uncheck
-          notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
+          notice: |-
+            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            Please consider again ticking the newsletter checkbox below.<br>
+            It is very important for us that you can receive occasional emails
+            to make important announcements, you can always change this on your
+            notifications settings page.</p>
+            <p>If you don't tick the box you might be missing relevant information
+            about new participatory opportunities within the platform.<br>
+            If you still want to avoid receiving newsletters, we perfectly
+            understand your decision.</p>
+            <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
@@ -396,6 +433,20 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    newsletters_opt_in:
+      unathorized: Sorry, this link is no longer available
+      update:
+        error: Something wrong happened
+        success: Newsletter settings updated successfully
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_2: 'How can you give us your consent? Just click the following button:'
+        body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
+        button: Yes, I want to continue receiving relevant information
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Do you want to keep receiving relevant information about %{organization_name}?
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -463,6 +514,7 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
+          modal_close: Close modal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -519,30 +571,6 @@ en:
         filter_by: Filter by
         unfold: Unfold
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
-          title: Authorization has expired
-        incomplete:
-          cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
-          invalid_field: "%{field}"
-          reauthorize: Reauthorize
-          title: Please reauthorize
-        missing:
-          authorize: Authorize with "%{authorization}"
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
-          title: Authorization required
-        pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
-          title: Authorization is still in progress
-        unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
-          ok: Ok
-          title: Not authorized
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -582,6 +610,7 @@ en:
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />

@@ -7,11 +7,12 @@ module Decidim
     describe Proposal do
       subject { proposal }
 
-      let(:proposal) { build(:proposal, component: component) }
-      let(:organization) { component.participatory_space.organization }
       let(:component) { build :proposal_component }
+      let(:organization) { component.participatory_space.organization }
+      let(:proposal) { build(:proposal, component: component) }
+      let(:coauthorable) { proposal }
 
-      include_examples "authorable"
+      include_examples "coauthorable"
       include_examples "has component"
       include_examples "has scope"
       include_examples "has category"
@@ -137,12 +138,12 @@ module Decidim
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, component: component, author: author, updated_at: Time.current }
+          let(:proposal) { build :proposal, component: component, users: [author], updated_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
 
           context "when the proposal has been linked to another one" do
-            let(:proposal) { create :proposal, component: component, author: author, updated_at: Time.current }
+            let(:proposal) { create :proposal, component: component, users: [author], updated_at: Time.current }
             let(:original_proposal) do
               original_component = create(:proposal_component, organization: organization, participatory_space: component.participatory_space)
               create(:proposal, component: original_component)
@@ -157,8 +158,8 @@ module Decidim
         end
 
         context "when proposal is from user group and user is admin" do
-          let(:user_group) { create :user_group, users: [author], organization: author.organization }
-          let(:proposal) { build :proposal, component: component, author: author, updated_at: Time.current, user_group: user_group }
+          let(:user_group) { create :user_group, :verified, users: [author], organization: author.organization }
+          let(:proposal) { build :proposal, component: component, updated_at: Time.current, users: [author], user_groups: [user_group] }
 
           it { is_expected.to be_editable_by(author) }
         end
@@ -170,13 +171,13 @@ module Decidim
         end
 
         context "when proposal is answered" do
-          let(:proposal) { build :proposal, :with_answer, component: component, updated_at: Time.current, author: author }
+          let(:proposal) { build :proposal, :with_answer, component: component, updated_at: Time.current, users: [author] }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal editing time has run out" do
-          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component: component, author: author }
+          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component: component, users: [author] }
 
           it { is_expected.not_to be_editable_by(author) }
         end
@@ -188,6 +189,7 @@ module Decidim
 
           it { is_expected.to be_withdrawn }
         end
+
         context "when proposal is not withdrawn" do
           let(:proposal) { build :proposal }
 
@@ -199,33 +201,33 @@ module Decidim
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, component: component, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
 
           it { is_expected.to be_withdrawable_by(author) }
         end
 
         context "when user is admin" do
           let(:admin) { build(:user, :admin, organization: organization) }
-          let(:proposal) { build :proposal, component: component, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(admin) }
         end
 
         context "when user is not the author" do
           let(:someone_else) { build(:user, organization: organization) }
-          let(:proposal) { build :proposal, component: component, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
         end
 
         context "when proposal is already withdrawn" do
-          let(:proposal) { build :proposal, :withdrawn, component: component, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, :withdrawn, component: component, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end
 
         context "when the proposal has been linked to another one" do
-          let(:proposal) { create :proposal, component: component, author: author, created_at: Time.current }
+          let(:proposal) { create :proposal, component: component, users: [author], created_at: Time.current }
           let(:original_proposal) do
             original_component = create(:proposal_component, organization: organization, participatory_space: component.participatory_space)
             create(:proposal, component: original_component)

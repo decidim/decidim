@@ -165,6 +165,31 @@ pl:
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
       started_at: Rozpoczęty pod adresem %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Ponownie autoryzuj, używając "%{authorization}"
+          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
+          title: Upoważnienie wygasło
+        incomplete:
+          cancel: Anuluj
+          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
+          invalid_field: "%{field}"
+          reauthorize: Ponów autoryzację
+          title: Proszę ponownie autoryzować
+        missing:
+          authorize: Zezwól na "%{authorization}"
+          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
+          title: Wymagana Autoryzacja
+        pending:
+          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
+          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
+          title: Autoryzacja jest nadal w toku
+        unauthorized:
+          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
+          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
+          ok: Ok
+          title: Nieautoryzowany
     collapsible_list:
       hidden_elements_count:
         one: i 1 więcej
@@ -184,6 +209,7 @@ pl:
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
             comments_blocked: Komentarze zablokowane
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
@@ -234,8 +260,15 @@ pl:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
+            close_modal: Zamknij modalne
             uncheck: Pozostaw niezaznaczone
-          notice: Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu? Rozważ ponownie zaznaczenie pola wyboru biuletynu poniżej. Bardzo ważne jest dla nas, że możesz odbierać od czasu do czasu e-maile, by tworzyć ważne ogłoszenia. Zawsze możesz to zmienić na stronie ustawień powiadomień. Jeśli nie zaznaczysz tego pola, być może brakuje odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy. Jeśli nadal chcesz uniknąć otrzymywania biuletynów, doskonale rozumiemy Twoją decyzję. Dziękuję za przeczytanie tego!
+          notice: |-
+            <p>Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu?<br>
+            Proszę rozważyć ponownie zaznaczenie pola wyboru biuletynu poniżej.<br>
+            Jest dla nas bardzo ważne, abyś mógł otrzymywać od czasu do czasu e-maile do ważnych ogłoszeń, zawsze możesz to zmienić na stronie ustawień powiadomień.</p>
+            <p>Jeśli nie zaznaczysz tego pola, może brakować odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy.<br>
+            Jeśli nadal nie chcesz otrzymywać biuletynów, doskonale rozumiemy Twoją decyzję.</p>
+            <p>Dziękuję za przeczytanie tego!</p>
           title: Powiadomienia biuletynu
         omniauth_buttons:
           or: Lub
@@ -405,6 +438,20 @@ pl:
         success: Zyskujesz subskrypcję.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
+    newsletters_opt_in:
+      unathorized: Przepraszamy, ten link nie jest już dostępny
+      update:
+        error: Stało się coś złego
+        success: Ustawienia newslettera zostały pomyślnie zaktualizowane
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
+        body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij następujący przycisk:'
+        body_3: Za tą zgodą będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli, wręcz przeciwnie, nie otrzymamy potwierdzenia z Twojej strony, przestaniemy wysyłać Ci nasze wiadomości. Jeśli potwierdzisz, że chcesz być na bieżąco informowany, zawsze będziesz mieć możliwość anulowania w dowolnym momencie.
+        button: Tak, chcę nadal otrzymywać odpowiednie informacje
+        greetings: Pozdrowienia,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Cześć,
+        subject: Czy chcesz nadal otrzymywać odpowiednie informacje o %{organization_name}?
     notifications:
       no_notifications: Nie powiadomienia.
     notifications_settings:
@@ -472,6 +519,7 @@ pl:
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
+          modal_close: Zamknij modalne
           modal_title: Czy rzeczywiście odmawiasz zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
@@ -528,30 +576,6 @@ pl:
         filter_by: Filtruj według
         unfold: Rozwijać się
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Ponownie autoryzuj, używając "%{authorization}"
-          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
-          title: Upoważnienie wygasło
-        incomplete:
-          cancel: Anuluj
-          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
-          invalid_field: "%{field}"
-          reauthorize: Ponów autoryzację
-          title: Proszę ponownie autoryzować
-        missing:
-          authorize: Zezwól na "%{authorization}"
-          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
-          title: Wymagana Autoryzacja
-        pending:
-          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
-          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
-          title: Autoryzacja jest nadal w toku
-        unauthorized:
-          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
-          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
-          ok: Ok
-          title: Nieautoryzowany
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -591,6 +615,7 @@ pl:
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
+        decline: Odrzuć zaproszenie
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />

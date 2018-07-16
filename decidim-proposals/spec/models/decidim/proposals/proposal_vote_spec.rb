@@ -11,7 +11,7 @@ module Decidim
       let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:proposal) { create(:proposal, component: component, author: author) }
+      let!(:proposal) { create(:proposal, component: component, users: [author]) }
       let!(:proposal_vote) { build(:proposal_vote, proposal: proposal, author: author) }
 
       it "is valid" do
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when proposal is rejected" do
-        let!(:proposal) { create(:proposal, :rejected, component: component, author: author) }
+        let!(:proposal) { create(:proposal, :rejected, component: component, users: [author]) }
 
         it { is_expected.to be_invalid }
       end

@@ -56,6 +56,7 @@ module Decidim::Admin
             expect(subject.query).to eq(verified_user_groups)
           end
         end
+
         context 'when the user filters by "Rejected"' do
           let(:filter) { "rejected" }
 
@@ -63,6 +64,7 @@ module Decidim::Admin
             expect(subject.query).to eq(rejected_user_groups)
           end
         end
+
         context 'when the user filters by "Pending"' do
           let(:filter) { "pending" }
 

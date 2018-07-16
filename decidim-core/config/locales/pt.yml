@@ -157,6 +157,31 @@ pt:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
+        incomplete:
+          cancel: Cancelar
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Por favor reautorize
+        missing:
+          authorize: Autorizar com "%{authorization}"
+          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
+          title: Autorização necessária
+        pending:
+          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
+          resume: Verifique o seu progresso de autorização "%{authorization}"
+          title: A autorização ainda está em progresso
+        unauthorized:
+          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
+          invalid_field: "%{field} valor %{value} não é válido."
+          ok: OK
+          title: Não autorizado
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -174,6 +199,7 @@ pt:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -224,8 +250,15 @@ pt:
         newsletter_modal:
           buttons:
             check: Verifique e continue
+            close_modal: Fechar modal
             uncheck: Manter desmarcado
-          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          notice: |-
+            <p>Tem certeza de que não quer receber uma newsletter?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
+            É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações.</p>
+            <p>Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma.<br>
+            Se você ainda quiser evitar receber boletins informativos, entenderemos perfeitamente sua decisão.</p>
+            <p>Obrigado por ler isto!</p>
           title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
@@ -395,6 +428,20 @@ pt:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    newsletters_opt_in:
+      unathorized: Desculpe, este link não está mais disponível
+      update:
+        error: Aconteceu algo de errado
+        success: Configurações de boletim informativo atualizadas com sucesso
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
+        body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
+        body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
+        button: Sim, quero continuar recebendo informações relevantes
+        greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá,
+        subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
     notifications:
       no_notifications: Ainda não há notificações.
     notifications_settings:
@@ -462,6 +509,7 @@ pt:
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
@@ -518,30 +566,6 @@ pt:
         filter_by: Filtrar por
         unfold: Desdobrar
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reautorize com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
-          title: A autorização expirou
-        incomplete:
-          cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Por favor reautorize
-        missing:
-          authorize: Autorizar com "%{authorization}"
-          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
-          title: Autorização necessária
-        pending:
-          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o seu progresso de autorização "%{authorization}"
-          title: A autorização ainda está em progresso
-        unauthorized:
-          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
-          invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
-          title: Não autorizado
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -581,6 +605,7 @@ pt:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
+        decline: Recusar convite
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este e-mail.<br />

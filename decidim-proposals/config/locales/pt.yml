@@ -73,6 +73,7 @@ pt:
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
             proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
             proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
@@ -244,11 +245,11 @@ pt:
           fields:
             category: Categoria
             comments: Comentários
-            created_at: Criado em
             endorsements: Endossos
             id: identidade
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publicado em
             scope: Âmbito
             state: Estado
             title: Título

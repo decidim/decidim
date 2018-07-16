@@ -7,51 +7,26 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      helper_method :authorize_action_path, :action_authorization
+      helper_method :action_authorized_to
     end
 
-    # Public: Authorizes an action of a component given an action name.
-    #
-    # action_name  - The action name to authorize. Actions are set up on the
-    #                component's permissions panel.
-    # redirect_url - Url to be redirected to when the authorization is finished.
-    def authorize_action!(action_name, redirect_url: nil)
-      status = action_authorization(action_name)
+    private
 
-      return if status.ok?
-      raise Unauthorized if status.code == :unauthorized
-
-      redirect_to authorize_action_path(action_name, redirect_url: redirect_url)
+    def action_authorized_to(action, resource: nil)
+      action_authorization_cache[action_authorization_cache_key(action, resource)] ||=
+        ::Decidim::ActionAuthorizer.new(current_user, action, resource&.component || current_component, resource).authorize
     end
 
-    # Public: Returns the authorization object for an authorization.
-    #
-    # action_name - The action to authorize against.
-    #
-    # Returns an ActionAuthorizer::AuthorizationStatus
-    def action_authorization(action_name)
-      @action_authorizations ||= {}
-
-      @action_authorizations[action_name] = _action_authorizer(action_name).authorize
+    def action_authorization_cache
+      request.env["decidim.action_authorization_cache"] ||= {}
     end
 
-    # Public: Returns the authorization path for a failed authorization with
-    # the populated redirect url.
-    #
-    # action_name - The action name to authorize against.
-    # redirect_url - The url to redirect to when finished.
-    #
-    # Returns a String.
-    def authorize_action_path(action_name, redirect_url: nil)
-      redirect_url ||= request.path
-
-      action_authorization(action_name).current_path(redirect_url: redirect_url)
+    def action_authorization_cache_key(action, resource)
+      if resource && !resource.permissions.nil?
+        "#{action}-#{resource.component.id}-#{resource.resource_manifest.name}-#{resource.id}"
+      else
+        "#{action}-#{current_component.id}"
+      end
     end
-
-    def _action_authorizer(action_name)
-      ::Decidim::ActionAuthorizer.new(current_user, current_component, action_name)
-    end
-
-    class Unauthorized < StandardError; end
   end
 end

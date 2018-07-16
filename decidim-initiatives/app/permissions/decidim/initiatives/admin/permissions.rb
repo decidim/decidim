@@ -173,7 +173,7 @@ module Decidim
             allowed = initiative.created? && (
                         !initiative.decidim_user_group_id.nil? ||
                           initiative.committee_members.approved.count >= Decidim::Initiatives.minimum_committee_members
-            )
+                      )
 
             toggle_allow(allowed)
           when :manage_membership

@@ -73,6 +73,7 @@ pt-BR:
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
             proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
             proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por usuário
           step:
@@ -190,7 +191,7 @@ pt-BR:
             success: Proposta criada com sucesso
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
-            select_a_category: Selecione uma categoria
+            select_a_category: Selecionar uma categoria
           index:
             actions: Ações
             cancel: Cancelar
@@ -203,7 +204,7 @@ pt-BR:
             title: Criar proposta
           update_category:
             invalid: 'Essas propostas já tinham a categoria %{category} : %{proposals}.'
-            select_a_category: Por favor, selecione uma categoria
+            select_a_category: Selecione uma categoria
             select_a_proposal: Selecione uma proposta
             success: 'Propostas atualizadas com êxito para a categoria %{category} : %{proposals}.'
         proposals_imports:
@@ -244,11 +245,11 @@ pt-BR:
           fields:
             category: Categoria
             comments: Comentários
-            created_at: Criado em
             endorsements: Endossos
-            id: identidade
+            id: ID
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publicado em
             scope: Âmbito
             state: Estado
             title: Título
@@ -275,7 +276,7 @@ pt-BR:
           title: Propostas semelhantes
         complete:
           attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
+          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
@@ -300,9 +301,9 @@ pt-BR:
         filters:
           accepted: Aceitaram
           activity: Atividade
-          all: Todos
+          all: Tudo
           category: Categoria
-          category_prompt: Selecione uma categoria
+          category_prompt: Selecionar uma categoria
           citizens: Cidadãos
           evaluating: Avaliando
           except_rejected: Todos exceto rejeitados

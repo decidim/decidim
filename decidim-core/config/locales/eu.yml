@@ -157,6 +157,31 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          title: Baimena iraungi da
+        incomplete:
+          cancel: Utzi
+          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
+          invalid_field: "%{field}"
+          reauthorize: Berriz eskuratu baimena
+          title: Mesedez, eskura ezazu berriz baimena
+        missing:
+          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
+          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
+          title: Baimena behar da
+        pending:
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
+          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
+          title: Baimena oraindik ere egiten ari da
+        unauthorized:
+          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
+          invalid_field: "%{field} balio %{value} ez da baliozkoa."
+          ok: Ados
+          title: Ez dago baimenduta
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -174,6 +199,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             dummy_global_attribute_1: Dummy Atributua 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Baliabideen baimenak gaituta
           step:
             comments_blocked: Iruzkinak blokeatuta
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -224,8 +250,15 @@ eu:
         newsletter_modal:
           buttons:
             check: Egiaztatu eta jarraitu
+            close_modal: Itxi modal
             uncheck: Mantendu uncheck
-          notice: Kaixo, ziur zaude buletin bat jaso nahi duzula? Berriro begiratu berriro buletina kontrol-laukia markatuta. Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, zure jakinarazpenen ezarpenen orrian alda dezakezu beti. Kutxa markatzen ez baduzu, parte hartzaileen aukera berriei buruzko informazio garrantzitsua falta zaizu plataforman. Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu. Eskerrik asko irakurri hau!
+          notice: |-
+            <p>Hola, ziur zaude buletin bat jaso nahi duzula?<br>
+            Berriro begiratu berriro buletina kontrol-laukia markatuta.<br>
+            Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, beti ere zure jakinarazpen ezarpenen orrian alda dezakezu.</p>
+            <p>Kutxa markatzen ez baduzu, plataformaren barruan aukera partaide berriei buruzko informazio garrantzitsua falta zaizu.<br>
+            Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu.</p>
+            <p>Eskerrik asko irakurri hau!</p>
           title: Buletina jakinarazpenak
         omniauth_buttons:
           or: Edo
@@ -395,6 +428,20 @@ eu:
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
+    newsletters_opt_in:
+      unathorized: Esteka hau jada ez dago erabilgarri
+      update:
+        error: Zerbait gaizki gertatu zen
+        success: Buletinaren ezarpenak behar bezala eguneratu dira
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriaren (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, "OK" behar dugu, %{organization_name}jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
+        body_2: 'Nola eman dezakezun zure baimena? Egin klik botoi honetan:'
+        body_3: Baimen honekin plataformaren zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, ez badugu baieztapen positiboa jasoko, zure mezuak bidaltzen jarraituko dugu. Jakinarazten jarraitu nahi duzula baieztatzen baduzu, edonoiz bertan behera uzteko aukera izango duzu beti.
+        button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
+        greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Kaixo,
+        subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
@@ -462,6 +509,7 @@ eu:
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
           modal_button: Ezetsi terminoak
+          modal_close: Itxi modal
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
@@ -518,30 +566,6 @@ eu:
         filter_by: Iragazi arabera
         unfold: Zabaldu
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Errebokatu "%{authorization}" rekin
-          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
-          title: Baimena iraungi da
-        incomplete:
-          cancel: Utzi
-          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
-          invalid_field: "%{field}"
-          reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
-        missing:
-          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
-          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
-          title: Baimena behar da
-        pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
-          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
-          title: Baimena oraindik ere egiten ari da
-        unauthorized:
-          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
-          invalid_field: "%{field} balio %{value} ez da baliozkoa."
-          ok: Ados
-          title: Ez dago baimenduta
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
@@ -581,6 +605,7 @@ eu:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
+        decline: Deuseztatu gonbidapena
         hello: Kaixo, %{email},
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />

@@ -73,6 +73,7 @@ nl:
             proposal_wizard_step_2_help_text: Helptekst "Vergelijk" bij het maken van een nieuw voorstel
             proposal_wizard_step_3_help_text: Voorstel wizard "Complete" stap helptekst
             proposal_wizard_step_4_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
             threshold_per_proposal: Limiet per voorstel
             vote_limit: Limiet van het aantal stemmen per gebruiker
           step:
@@ -244,11 +245,11 @@ nl:
           fields:
             category: Categorie
             comments: Reacties
-            created_at: Aangemaakt op
             endorsements: Endorsements
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
+            published_at: Gepubliceerd op
             scope: Scope
             state: Staat
             title: Titel

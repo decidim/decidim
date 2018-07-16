@@ -20,10 +20,12 @@ module Decidim
     attr_reader :user, :permission_action, :context
 
     def disallow!
+      permission_action.trace(self.class.name, :disallowed)
       permission_action.disallow!
     end
 
     def allow!
+      permission_action.trace(self.class.name, :allowed)
       permission_action.allow!
     end
 
@@ -36,10 +38,11 @@ module Decidim
         [:participatory_space, :component].include?(permission_action.subject)
     end
 
-    def authorized?(permission_action)
-      return unless component
+    def authorized?(permission_action, resource: nil)
+      return unless resource || component
+      return if component && resource && component != resource.component
 
-      ActionAuthorizer.new(user, component, permission_action).authorize.ok?
+      ActionAuthorizer.new(user, permission_action, component, resource).authorize.ok?
     end
 
     def current_settings

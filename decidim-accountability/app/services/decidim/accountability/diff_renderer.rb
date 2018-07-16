@@ -75,7 +75,12 @@ module Decidim
 
       def generate_i18n_label(attribute, locale)
         label = I18n.t(attribute, scope: "activemodel.attributes.result")
-        locale_name = I18n.t("locale.name", locale: locale)
+        locale_name = if I18n.available_locales.include?(locale.to_sym)
+                        I18n.t("locale.name", locale: locale)
+                      else
+                        locale
+                      end
+
         "#{label} (#{locale_name})"
       end
     end

@@ -20,10 +20,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  compatible_constraint = "#{Gem::Version.new(s.version).approximate_recommendation}.a"
-
   s.add_dependency "capybara", "~> 3.0"
-  s.add_dependency "decidim", compatible_constraint
+  s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
   s.add_dependency "byebug", "~> 10.0"
@@ -38,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "rspec-rails", "~> 3.7"
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
-  s.add_dependency "rubocop", "~> 0.54.0"
+  s.add_dependency "rubocop", "~> 0.58.0"
   s.add_dependency "rubocop-rspec", "~> 1.21"
   s.add_dependency "selenium-webdriver", "~> 3.7"
   s.add_dependency "simplecov", "~> 0.13"

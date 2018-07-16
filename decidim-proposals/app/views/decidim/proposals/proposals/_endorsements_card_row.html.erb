@@ -9,7 +9,7 @@
         <% elsif current_user %>
           <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% else %>
-          <%= action_authorized_button_to :endorse, t(".endorse"), "", class: "card__button button #{endorsement_button_classes(false)} secondary" %>
+          <%= action_authorized_button_to :endorse, t(".endorse"), "", resource: @proposal, class: "card__button button #{endorsement_button_classes(false)} secondary" %>
         <% end %>
       </div>
     </div>

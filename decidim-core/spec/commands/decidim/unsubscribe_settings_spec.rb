@@ -9,7 +9,7 @@ module Decidim
       let(:command) { described_class.new(user) }
 
       context "when invalid" do
-        let(:user) { create(:user, organization: organization, newsletter_notifications: "0") }
+        let(:user) { create(:user, organization: organization, newsletter_notifications_at: nil) }
 
         it "Doesn't unsubscribe user" do
           expect { command.call }.to broadcast(:invalid)
@@ -17,10 +17,10 @@ module Decidim
       end
 
       context "when valid" do
-        let(:user) { create(:user, organization: organization, newsletter_notifications: "1") }
+        let(:user) { create(:user, organization: organization, newsletter_notifications_at: Time.zone.now) }
 
         it "unsubscribes user" do
-          user.newsletter_notifications = "0"
+          user.newsletter_notifications_at = nil
           user.save!
         end
 

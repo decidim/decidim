@@ -39,6 +39,10 @@ en:
             base:
               too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
               too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -77,6 +81,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -161,16 +166,31 @@ en:
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can accept it through the link below."
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
             join: Join meeting '%{meeting_title}'
         invites:
           create:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
-          new:
-            explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
             invite: Invite
-            new_invite: Invite user
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
+          index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite attendee
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
             close: Close
@@ -229,7 +249,7 @@ en:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            invite_user: Invite user
+            invites: Invites
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -240,6 +260,10 @@ en:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
           close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
@@ -299,6 +323,16 @@ en:
             zero: No slots remaining
           view: View
       models:
+        invite:
+          fields:
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
         meeting:
           fields:
             closed: Closed
@@ -311,10 +345,14 @@ en:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
           invalid: There's been a problem joining this meeting.
           success: You have joined the meeting successfully.
+        decline_invitation:
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.

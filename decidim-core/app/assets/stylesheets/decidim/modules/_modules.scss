@@ -42,6 +42,7 @@
 @import "progress-bar";
 @import "docs-manager";
 @import "horizontal-tabs";
+@import "conversation";
 
 //Process elements
 @import "process-header";
@@ -59,6 +60,10 @@
 @import "user-form";
 @import "signup";
 
+//Visualizations
+@import "areachart";
+@import "chart-tooltip";
+
 //Additional elements
 @import "share";
 @import "help";
@@ -70,3 +75,4 @@
 @import "block-banner";
 @import "fingerprint";
 @import "toggle";
+@import "loading-spinner";

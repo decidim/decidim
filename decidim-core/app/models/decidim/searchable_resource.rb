@@ -26,7 +26,7 @@ module Decidim
                class_name: "Decidim::Scope",
                optional: true
     belongs_to :resource, polymorphic: true
-    belongs_to :decidim_participatory_space, polymorphic: true
+    belongs_to :decidim_participatory_space, polymorphic: true, optional: true
 
     validates :locale, uniqueness: { scope: :resource }
 

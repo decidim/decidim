@@ -10,7 +10,7 @@ pt-BR:
         organization: Organização
         plural: Plural
       attachment:
-        attachment_collection_id: Pasta
+        attachment_collection_id: Diretório
         description: Descrição
         file: Arquivo
         title: Título
@@ -38,7 +38,7 @@ pt-BR:
       organization:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
-        default_locale: Idioma por defeito
+        default_locale: Idioma padrão
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
@@ -52,7 +52,7 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
-        homepage_image: Imagem do site inicial
+        homepage_image: Imagem da página inicial
         instagram_handler: Instagram handler
         logo: Logotipo
         name: Nome
@@ -98,7 +98,7 @@ pt-BR:
         description: Descrição
         developer_group: Grupo promotor
         domain: Domínio
-        end_date: Data de fim
+        end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem da página principal
         local_area: Área municipal
@@ -128,11 +128,11 @@ pt-BR:
       doorkeeper/application:
         authorize_url: Autorizar URL
         client_id: ID do cliente
-        client_secret: Segredo do cliente
+        client_secret: Client Secret
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local na rede Internet
+        site: Página web
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -140,10 +140,10 @@ pt-BR:
     admin:
       actions:
         add: Adicionar
-        browse: Explorar
+        browse: Navegar
         export: Exportar
-        manage: Gerir
-        new: Novo %{name}
+        manage: Gerenciar
+        new: Nova %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
@@ -222,13 +222,13 @@ pt-BR:
           success: Categoria criada com sucesso.
         destroy:
           error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
+          success: Categoria excluída com sucesso.
         edit:
           title: Editar categoria
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
+          category_used: Esta categoria não pode ser removida porque está em uso.
         new:
           create: Criar categoria
           title: Nova categoria

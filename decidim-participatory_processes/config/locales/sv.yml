@@ -257,7 +257,9 @@ sv:
       processes: Processer
     participatory_process_groups:
       show:
-        group_participatory_processes: Processer för %{group}
+        group_participatory_processes:
+          one: 1 processer för %{group}
+          other: "%{count} processer för %{group}"
         title: Deltagande processgrupper
     participatory_process_steps:
       index:
@@ -274,11 +276,6 @@ sv:
             slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
       index:
         title: Deltagande processer
-      order_by_processes:
-        active: Aktiva
-        all: Alla
-        past: Tidigare
-        upcoming: Kommande
       pages:
         home:
           highlighted_processes:
@@ -288,6 +285,30 @@ sv:
       participatory_process_groups:
         none: Ingen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiv process
+              other: "%{count} aktiva processer"
+            all:
+              one: 1 process
+              other: "%{count} processer"
+            past:
+              one: 1 tidigare process
+              other: "%{count} tidigare processer"
+            upcoming:
+              one: 1 kommande process
+              other: "%{count} kommande processer"
+          explanations:
+            no_active: Inga aktiva processer
+            no_active_nor_upcoming: Inga aktiva eller kommande processer
+            no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
+          names:
+            active: Aktiva
+            all: Alla
+            past: Tidigare
+            upcoming: Kommande
+          see: Se
         index:
           loading: Laddar resultat...
       show:
@@ -330,10 +351,6 @@ sv:
       participatory_processes:
         index:
           promoted_processes: Markerade processer
-        order_by_processes:
-          processes:
-            one: "%{count} process"
-            other: "%{count} processer"
         participatory_process:
           active_step: 'Nuvarande steg:'
           take_part: Delta

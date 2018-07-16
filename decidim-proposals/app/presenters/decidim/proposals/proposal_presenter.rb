@@ -12,10 +12,13 @@ module Decidim
       def author
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
-                    elsif user_group
-                      Decidim::UserGroupPresenter.new(user_group)
                     else
-                      Decidim::UserPresenter.new(super)
+                      coauthorship = coauthorships.first
+                      if coauthorship.user_group
+                        Decidim::UserGroupPresenter.new(coauthorship.user_group)
+                      else
+                        Decidim::UserPresenter.new(coauthorship.author)
+                      end
                     end
       end
 

@@ -81,6 +81,7 @@ uk:
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
+            resources_permissions_enabled: Права на дії можна встановити для кожної пропозиції
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
           step:
@@ -252,11 +253,11 @@ uk:
           fields:
             category: Розряд
             comments: Коментарі
-            created_at: 'Створено:'
             endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
+            published_at: 'Оприлюднено:'
             scope: Обсяг
             state: Стан
             title: Назва
