@@ -171,23 +171,12 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
-            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
             error: При попытке пригласить этого участника на встречу произошла ошибка.
             success: Участник успешно приглашен на встречу.
-          index:
-            filter:
-              accepted: Accepté
-              all: Tout
-              rejected: Rejeté
-              sent: Envoyé
-            filter_by: Filtrer par
-            invite_attendee: Inviter un participant
-            invites: Invite
-            search: Chercher
           new:
             explanation: Участник будет приглашен на встречу. Если эл-адрес не зарегистрирован, он также будет приглашен в организацию.
             invite: Пригласить
@@ -251,7 +240,6 @@ ru:
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invite_user: Пригласить участника
-            invites: Invite
             registrations_count:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
@@ -327,16 +315,6 @@ ru:
             other: Осталось %{count} мест
           view: Посмотреть
       models:
-        invite:
-          fields:
-            email: Email
-            name: prénom
-            sent_at: Envoyé à
-            status: Statut
-          status:
-            accepted: Accepté (%{at})
-            rejected: Rejeté (%{at})
-            sent: Envoyé
         meeting:
           fields:
             closed: Завершена
@@ -353,9 +331,6 @@ ru:
         create:
           invalid: При попытке присоединиться к встрече произошла ошибка.
           success: Вы успешно зарегистрировались на эту встречу.
-        decline_invitation:
-          invalid: Un problème est survenu lors du refus de l'invitation.
-          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: При попытке отказаться от встречи произошла ошибка.
           success: Вы успешно отменили регистрацию на встречу.

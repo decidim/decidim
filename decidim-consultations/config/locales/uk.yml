@@ -62,9 +62,6 @@ uk:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
         publish_results: Оприлюднити підсумки
         unpublish_results: Скасувати оприлюднення підсумків
       consultation_publications:

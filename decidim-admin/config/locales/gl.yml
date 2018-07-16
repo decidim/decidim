@@ -339,7 +339,6 @@ gl:
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
         impersonations: Impersonacións
-        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
@@ -678,28 +677,6 @@ gl:
       errors:
         impersonate_user:
           reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
     moderations:
       actions:
         hidden: Oculto
@@ -718,14 +695,11 @@ gl:
       models:
         moderation:
           fields:
-            date: Date
             hidden_at: Oculto en
             report_count: Conde
             reportable: Reportable
             reported_content_url: URL de contido reportado
             reports: Informes
-            status: Status
-            type: Type
             visit_url: Visita o URL
   errors:
     messages:

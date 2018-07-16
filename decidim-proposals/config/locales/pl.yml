@@ -234,7 +234,6 @@ pl:
             body: Ciało
             created_at: Data utworzenia
             proposal_votes_count: Liczenie głosów
-            proposal_votes_weight: Votes count
             proposals: Propozycje
       admin_log:
         proposal:
@@ -264,7 +263,6 @@ pl:
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
-            published_at: Publiée à
             scope: Zakres
             state: Stan
             title: Tytuł
@@ -395,13 +393,9 @@ pl:
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:
@@ -413,9 +407,6 @@ pl:
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
         votes_weight:
-          count:
-            one: VOTE
-            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

@@ -228,7 +228,6 @@ nl:
             body: Tekstgedeelte
             created_at: Aangemaakt op
             proposal_votes_count: Aantal stemmen
-            proposal_votes_weight: Votes count
             proposals: Voorstellen
       admin_log:
         proposal:
@@ -258,7 +257,6 @@ nl:
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
-            published_at: Publiée à
             scope: Scope
             state: Staat
             title: Titel
@@ -381,13 +379,9 @@ nl:
           vote: Stem
           votes_blocked: Stemmen uitgeschakeld
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:
@@ -397,9 +391,6 @@ nl:
           most_popular_proposal: Populairste voorstel
           need_more_votes: Meer stemmen nodig
         votes_weight:
-          count:
-            one: VOTE
-            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

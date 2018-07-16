@@ -339,7 +339,6 @@ it:
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
         impersonations: impersonations
-        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
@@ -678,28 +677,6 @@ it:
       errors:
         impersonate_user:
           reason: È necessario fornire un motivo durante la rappresentazione di un utente non gestito
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
     moderations:
       actions:
         hidden: Nascosto
@@ -718,14 +695,11 @@ it:
       models:
         moderation:
           fields:
-            date: Date
             hidden_at: Nascosto a
             report_count: Conteggio
             reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
-            status: Status
-            type: Type
             visit_url: Visita URL
   errors:
     messages:

@@ -68,10 +68,6 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new_process: Nouvelle concertation
-        new_process_group: Nouveau groupe de concertations
-        new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -289,30 +285,6 @@ fr:
       participatory_process_groups:
         none: Aucun
       participatory_processes:
-        filters:
-          counters:
-            active:
-              one: 1 concertation active
-              other: "%{count} concertations actives"
-            all:
-              one: 1 concertation
-              other: "%{count} concertations"
-            past:
-              one: 1 concertation passée
-              other: "%{count} concertations passées"
-            upcoming:
-              one: 1 concertation à venir
-              other: "%{count} concertations à venir"
-          explanations:
-            no_active: Aucune concertation active
-            no_active_nor_upcoming: Aucune concertation active ni à venir
-            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
-          names:
-            active: Actifs
-            all: Tous
-            past: Passés
-            upcoming: À venir
-          see: Voir
         index:
           loading: Chargement des résultats...
       show:

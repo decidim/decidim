@@ -82,8 +82,6 @@ uk:
         other: Ролей учасників зборів
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: При спробі додати нові збори сталася помилка.

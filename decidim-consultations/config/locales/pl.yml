@@ -62,9 +62,6 @@ pl:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
         publish_results: Opublikuj wyniki
         unpublish_results: Cofnij publikację wyników
       consultation_publications:

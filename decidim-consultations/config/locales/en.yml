@@ -54,9 +54,6 @@ en:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
         publish_results: Publish results
         unpublish_results: Unpublish results
       consultation_publications:

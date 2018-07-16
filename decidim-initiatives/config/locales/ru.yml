@@ -52,8 +52,6 @@ ru:
         other: Подписей
   decidim:
     admin:
-      actions:
-        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Почины
         initiatives_types: Виды починов

@@ -226,7 +226,6 @@ fr:
             body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de votes
-            proposal_votes_weight: Nombre de votes
             proposals: Propositions
       admin_log:
         proposal:
@@ -256,7 +255,6 @@ fr:
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
-            published_at: Publiée à
             scope: Secteur
             state: État
             title: Titre
@@ -380,13 +378,9 @@ fr:
           vote: Voter
           votes_blocked: Votes désactivés
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Nombre maximum de votes atteint
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
-          neutral: Neutre
           no_votes_remaining: Aucun vote restant
           votes_blocked: Votes désactivés
         votes_count:
@@ -396,9 +390,6 @@ fr:
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
         votes_weight:
-          count:
-            one: VOTE
-            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:
