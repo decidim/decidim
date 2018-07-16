@@ -308,12 +308,15 @@ $(() => {
             .attr("x2", function (d) { return d.target.x; })
             .attr("y2", function (d) { return d.target.y; })
 
-          let radius = 40
           // set nodes position
           svg.selectAll(".node")
-            // .attr("transform", function (d) { return `translate(${d.x},${d.y}) scale(${1 / (attrs.lastTransform ? attrs.lastTransform.k : 1)})`; })
-            .attr("x", function(d) { return d.x = Math.max(radius, Math.min(calc.chartWidth - radius, d.x)); })
-            .attr("y", function(d) { return d.y = Math.max(radius, Math.min(calc.chartHeight - radius, d.y)); });
+            .attr("transform", (d) => {
+              let bounds = {
+                x: Math.max(Math.min(calc.chartWidth - ((d.bbox || {}).width / 2), d.x), -((d.bbox || {}).width / 2)),
+                y: Math.max(Math.min(calc.chartHeight - ((d.bbox || {}).height / 2), d.y), -((d.bbox || {}).height / 2))
+              }
+              return `translate(${bounds.x},${bounds.y})`
+            })
         }
 
         // handler drag start event
