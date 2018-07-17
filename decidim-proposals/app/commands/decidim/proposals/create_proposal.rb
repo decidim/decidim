@@ -44,7 +44,7 @@ module Decidim
           body: form.body,
           component: form.component
         )
-        proposal.add_coauthor(@current_user)
+        proposal.add_coauthor(@current_user, user_group: user_group)
       end
 
       def proposal_limit_reached?
