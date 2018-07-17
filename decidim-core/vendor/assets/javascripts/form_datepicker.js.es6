@@ -5,7 +5,7 @@
       const initialDate = $(node).data("startdate") || "";
       const pickTime = $(node).data("timepicker") === "";
       const languageProps = $(node).fdatepicker.dates[language] && $(node).fdatepicker.dates[language].format;
-      let format = $(node).data('date-format') || languageProps || "mm/dd/yyyy";
+      let format = $(node).data("date-format") || languageProps || "mm/dd/yyyy";
 
       if (pickTime) {
         format = `${format}, hh:ii`;

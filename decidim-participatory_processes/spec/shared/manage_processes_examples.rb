@@ -53,7 +53,7 @@ shared_examples "manage processes examples" do
       )
       attach_file :participatory_process_banner_image, image3_path
 
-      page.execute_script("$('#date_field_participatory_process_end_date').focus()")
+      page.execute_script("$('#participatory_process_end_date').focus()")
       page.find(".datepicker-dropdown .day", text: "22").click
 
       within ".edit_participatory_process" do

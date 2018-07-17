@@ -260,8 +260,7 @@ module Decidim
       template += @template.text_field(
         @object_name,
         attribute,
-        options.merge(id: "#{@object_name}_#{attribute}",
-                      data: data)
+        options.merge(data: data)
       )
       template += error_and_help_text(attribute, options.merge(help_text: displayed_format))
       template.html_safe
