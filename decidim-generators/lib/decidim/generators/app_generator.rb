@@ -82,6 +82,10 @@ module Decidim
         template "README.md.erb", "README.md", force: true
       end
 
+      def license
+        template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 
