@@ -5,9 +5,6 @@
 <%= render partial: "decidim/pages/home/highlighted_processes" %>
 
 <%= cell "decidim/content_blocks/how_to_participate" %>
-
-<% if current_organization.show_statistics? %>
-  <%= render partial: "decidim/pages/home/statistics" %>
-<% end %>
+<%= cell "decidim/content_blocks/stats" %>
 
 <%= render partial: "decidim/pages/home/footer_sub_hero" %>
