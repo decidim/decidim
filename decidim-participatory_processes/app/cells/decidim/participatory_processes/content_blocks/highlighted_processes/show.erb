@@ -1,5 +1,5 @@
 <div class="row" id="highlighted-processes">
-  <h3 class="section-heading"><%= t(".active_processes") %></h3>
+  <h3 class="section-heading"><%= t("active_processes", scope: i18n_scope) %></h3>
   <div class="row collapse">
     <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
       large-up-4 card-grid">
@@ -16,7 +16,7 @@
               <% end %>
               <% if process.active_step %>
                 <span class="card--process__small">
-                  <%= t(".active_step") %>
+                  <%= t("active_step", scope: i18n_scope) %>
                   <strong><%= translated_attribute process.active_step.title %></strong>
                 </span>
               <% end %>
@@ -30,6 +30,6 @@
 <div class="row" id="see-all-processes">
   <div class="columns small-centered small-12
     smallmedium-8 medium-6 large-4">
-    <%= link_to t(".see_all_processes"), decidim_participatory_processes.participatory_processes_path, class: "button expanded hollow button--sc home-section__cta" %>
+    <%= link_to t("see_all_processes", scope: i18n_scope), decidim_participatory_processes.participatory_processes_path, class: "button expanded hollow button--sc home-section__cta" %>
   </div>
 </div>
