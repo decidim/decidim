@@ -252,8 +252,8 @@ module Decidim
       value = object.send(attribute)
       data = { datepicker: "" }
       data[:startdate] = I18n.localize(value, format: :datepicker) if value.present? && [Date, DateTime, Time].include?(value.class)
-      default_date_user_format= I18n.t("date.formats.default_user_format")
-      data[:"date-format"]= default_date_user_format
+      displayed_format= I18n.t("date.formats.displayed")
+      data[:"date-format"]= displayed_format
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
@@ -263,7 +263,7 @@ module Decidim
         options.merge(id: "#{@object_name}_#{attribute}",
                       data: data)
       )
-      template += error_and_help_text(attribute, options.merge(help_text: default_date_user_format))
+      template += error_and_help_text(attribute, options.merge(help_text: displayed_format))
       template.html_safe
     end
 

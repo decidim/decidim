@@ -52,7 +52,7 @@ en:
       datepicker: "%d/%m/%Y"
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
-      default_user_format: dd/mm/yyyy
+      displayed: dd/mm/yyyy
   decidim:
     account:
       data_portability_export:
