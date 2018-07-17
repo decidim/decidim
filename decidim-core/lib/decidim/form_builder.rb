@@ -252,8 +252,8 @@ module Decidim
       value = object.send(attribute)
       data = { datepicker: "" }
       data[:startdate] = I18n.localize(value, format: :datepicker) if value.present? && [Date, DateTime, Time].include?(value.class)
-      displayed_format= I18n.t("date.formats.displayed")
-      data[:"date-format"]= displayed_format
+      displayed_format = I18n.t("date.formats.displayed")
+      data[:"date-format"] = displayed_format
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
