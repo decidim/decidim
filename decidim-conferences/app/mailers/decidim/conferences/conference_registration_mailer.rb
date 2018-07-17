@@ -20,7 +20,7 @@ module Decidim
 
           add_calendar_attachment
 
-          subject = I18n.t("confirmation.subject", scope: "decidim.conferences.mailer.registration_mailer")
+          subject = I18n.t("confirmation.subject", scope: "decidim.conferences.mailer.conference_registration_mailer")
           mail(to: user.email, subject: subject)
         end
       end

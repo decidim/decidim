@@ -198,16 +198,9 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         invite_join_conference_mailer:
           invite:
-            decline: Decline invitation
+            decline: Decline invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             join: Join conference '%{conference_title}'
-        mailer:
-          conference_registration_mailer:
-            confirmation:
-              subject: Your conference's registration has been confirmed
-          invite_join_conference_mailer:
-            invite:
-              subject: Invitation to join a conference
       conference:
         registration_confirm:
           cancel: Cancel
@@ -215,6 +208,7 @@ en:
         show:
           going: Going
           join: Join Conference
+          no_slots_available: No slots available
           remaining_slots:
             one: 1 slot remaining
             other: "%{count} slots remaining"
@@ -223,7 +217,6 @@ en:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the conference's details in the attachment.
-          registration_code: Your registration code is %{code}.
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.
@@ -240,11 +233,24 @@ en:
         personal_url: Personal Url
         short_bio: Short bio
         twitter_handle: Twitter
+        show:
+          affiliation: Affiliation
+          charge: Charge
+          personal_url: Personal Url
+          short_bio: Short bio
+          twitter_handle: Twitter
       conference_speakers:
         index:
           speakers: Speakers
       index:
         title: Conferences
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Your conference's registration has been confirmed
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitation to join a conference
       models:
         conference_invite:
           fields:

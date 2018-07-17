@@ -36,6 +36,22 @@ module Decidim
         end
       end
 
+      def decline_invitation
+        enforce_permission_to :decline_invitation, :conference, conference: conference
+
+        DeclineInvitation.call(conference, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("conference_registrations.decline_invitation.success", scope: "decidim.conferences")
+            redirect_after_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("conference_registrations.decline_invitation.invalid", scope: "decidim.conferences")
+            redirect_after_path
+          end
+        end
+      end
+
       private
 
       def conference

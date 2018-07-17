@@ -31,7 +31,10 @@ module Decidim::Conferences
         show_statistics: false,
         objectives: { en: "objectives" },
         start_date: 1.day.from_now,
-        end_date: 5.days.from_now
+        end_date: 5.days.from_now,
+        registrations_enabled: false,
+        available_slots: 0,
+        registration_terms: { en: "registrations terms" }
       )
     end
     let(:invalid) { false }

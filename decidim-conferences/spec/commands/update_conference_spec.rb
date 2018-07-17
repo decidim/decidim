@@ -36,7 +36,10 @@ module Decidim::Conferences
             start_date: my_conference.start_date,
             end_date: my_conference.end_date,
             errors: my_conference.errors,
-            show_statistics: my_conference.show_statistics
+            show_statistics: my_conference.show_statistics,
+            registrations_enabled: my_conference.registrations_enabled,
+            available_slots: my_conference.available_slots,
+            registration_terms: my_conference.registration_terms
           }
         }
       end

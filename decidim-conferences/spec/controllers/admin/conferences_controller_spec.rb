@@ -32,7 +32,8 @@ module Decidim
               description: conference.description,
               short_description: conference.short_description,
               slug: conference.slug,
-              scopes_enabled: conference.scopes_enabled
+              scopes_enabled: conference.scopes_enabled,
+              registrations_enabled: conference.registrations_enabled,
             }
           end
 

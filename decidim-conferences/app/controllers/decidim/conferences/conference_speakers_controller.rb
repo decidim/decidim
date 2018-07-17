@@ -6,7 +6,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: :index
 
-      helper_method :collection
+      helper_method :collection, :conference
 
       def index
         raise ActionController::RoutingError, "No speakers for this conference " if speakers.none?
@@ -29,6 +29,10 @@ module Decidim
         @current_participatory_space ||= OrganizationConferences.new(current_organization).query.where(slug: params[:conference_slug]).or(
           OrganizationConferences.new(current_organization).query.where(id: params[:conference_slug])
         ).first!
+      end
+
+      def conference
+        current_participatory_space
       end
     end
   end
