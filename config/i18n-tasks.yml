@@ -152,6 +152,7 @@ ignore_unused:
   - password_validator.*
   - decidim.participatory_processes.participatory_processes.filters.*
   - decidim.participatory_processes.pages.home.highlighted_processes.*
+  - decidim.assemblies.pages.home.highlighted_assemblies.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
