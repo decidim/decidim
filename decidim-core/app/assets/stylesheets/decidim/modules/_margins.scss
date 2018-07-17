@@ -43,12 +43,12 @@ $side:(
   @each $p-key, $prop in $property{
     @each $v-key, $value in $size{
       .#{$p-key}-#{$v-key}{
-        #{$prop}: #{$value} !important;
+        #{$prop}: #{$value};
       }
 
       @each $s-key, $side in $side{
         .#{$p-key}#{$s-key}-#{$v-key}{
-          #{$prop}-#{$side}: #{$value} !important;
+          #{$prop}-#{$side}: #{$value};
         }
       }
     }
