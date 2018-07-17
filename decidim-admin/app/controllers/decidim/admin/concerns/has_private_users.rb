@@ -97,7 +97,7 @@ module Decidim
             @collection ||= privatable_to
                             .participatory_space_private_users
                             .page(params[:page])
-                            .per(1)
+                            .per(20)
           end
         end
       end
