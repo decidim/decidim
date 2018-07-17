@@ -121,6 +121,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             projects_per_page: Progetti per pagina
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             total_budget: Budget totale
             vote_threshold_percent: Vota la percentuale di soglia
           step:

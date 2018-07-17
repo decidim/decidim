@@ -72,7 +72,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # If you need custom authorization logic, you can implement your own action
   # authorizer. In this case, it allows to set a list of valid postal codes for
   # an authorization.
-  class ActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
+  class DummyActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
     attr_reader :allowed_postal_codes
 
     # Overrides the parent class method, but it still uses it to keep the base behavior

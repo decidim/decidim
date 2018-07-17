@@ -74,6 +74,7 @@ en:
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
+            resources_permissions_enabled: Actions permissions can be set for each proposal
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:

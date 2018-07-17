@@ -203,6 +203,11 @@ module Decidim
         user_collection(user).map { |p| p.attachments.collect(&:file_url) }
       end
 
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
+
       private
 
       # Checks whether the proposal is inside the time window to be editable or not once published.

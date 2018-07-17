@@ -38,10 +38,11 @@ module Decidim
         [:participatory_space, :component].include?(permission_action.subject)
     end
 
-    def authorized?(permission_action)
-      return unless component
+    def authorized?(permission_action, resource: nil)
+      return unless resource || component
+      return if component && resource && component != resource.component
 
-      ActionAuthorizer.new(user, component, permission_action).authorize.ok?
+      ActionAuthorizer.new(user, permission_action, component, resource).authorize.ok?
     end
 
     def current_settings

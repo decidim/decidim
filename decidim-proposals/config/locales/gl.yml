@@ -73,6 +73,7 @@ gl:
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
             proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
+            resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
           step:

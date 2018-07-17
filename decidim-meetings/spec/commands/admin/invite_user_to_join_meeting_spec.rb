@@ -10,10 +10,14 @@ module Decidim::Meetings
     let!(:current_user) { create :user, :admin, organization: organization }
     let(:name) { "name" }
     let(:email) { "foo@example.org" }
+    let(:existing_user) { false }
+    let(:user_id) { nil }
     let(:form_params) do
       {
         name: name,
-        email: email
+        email: email,
+        existing_user: existing_user,
+        user_id: user_id
       }
     end
     let(:form) do
@@ -58,6 +62,27 @@ module Decidim::Meetings
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      context "when the form provides an existing user" do
+        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let(:existing_user) { true }
+        let(:user_id) { user.id }
+
+        it "does not create another user" do
+          expect do
+            subject.call
+          end.not_to change(Decidim::User, :count)
+        end
+
+        it_behaves_like "creates the invitation and traces the action" do
+          let(:attendee) { user }
+        end
+
+        it "sends the invitation instructions" do
+          subject.call
+          expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        end
       end
 
       context "when a user already exists" do

@@ -30,6 +30,8 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. If you want, configure your [**social providers**](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md) to enable login using external applications.
 
+1. Check that you don't have any **default users, emails and passwords**, neither on the admin or on the system panel.
+
 ## Contents
 
 1. Ideally you'll have a **Team** formed with experts on IT, Communication, Participation, Design and Law.
