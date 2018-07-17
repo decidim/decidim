@@ -20,6 +20,11 @@ module Decidim
             current_component: component
           )
         end
+        let(:has_address) { false }
+        let(:address) { nil }
+        let(:latitude) { 40.1234 }
+        let(:longitude) { 2.1234 }
+        let(:attachment_params) { nil }
 
         if with_author
           let(:author) { create(:user, organization: organization) }
@@ -28,12 +33,6 @@ module Decidim
             create(:user_group, :verified, organization: organization, users: [author])
           end
         end
-
-        let(:has_address) { false }
-        let(:address) { nil }
-        let(:latitude) { 40.1234 }
-        let(:longitude) { 2.1234 }
-        let(:attachment_params) { nil }
 
         describe "call" do
           let(:form_params) do
