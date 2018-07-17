@@ -51,15 +51,7 @@ module Decidim
       end
 
       def create_proposal
-        params = ActionController::Parameters.new(
-          proposal: @collaborative_draft.as_json
-        )
-
-        params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
-        params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
-
-        @form = form(ProposalForm).from_params(params)
-        CreateProposal.call(@form, @current_user, @collaborative_draft.identities) do
+        CreateProposal.call(@proposal_form, @current_user, @collaborative_draft.coauthorships) do
           on(:ok) do |new_proposal|
             publish_proposal new_proposal
           end

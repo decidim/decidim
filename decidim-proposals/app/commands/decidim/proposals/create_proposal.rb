@@ -8,11 +8,11 @@ module Decidim
       #
       # form         - A form object with the params.
       # current_user - The current user.
-      # coauthors - The coauthors of the proposal.
-      def initialize(form, current_user, coauthors = current_user)
+      # coauthorships - The coauthorships of the proposal.
+      def initialize(form, current_user, coauthorships = nil)
         @form = form
         @current_user = current_user
-        @coauthor_identities = coauthors
+        @coauthorships = coauthorships
       end
 
       # Executes the command. Broadcasts these events:
@@ -61,16 +61,16 @@ module Decidim
       end
 
       def add_coauthors
-        if @coauthor_identities.is_a? Decidim::User
-          proposal.add_coauthor(@coauthor_identities, decidim_user_group_id: form.user_group_id)
+        if @coauthorships.nil?
+          @proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
         else
-          @coauthor_identities.each do |identity|
-            if identity.is_a? Decidim::UserGroup
-              proposal.add_coauthor(identity.users.first, user_group: identity)
-            else
-              proposal.add_coauthor(identity)
-            end
+          @proposal.coauthorships = @coauthorships.each do |coauthorship|
+            Coauthorship.new(
+              decidim_author_id: coauthorship.decidim_author_id,
+              decidim_user_group_id: coauthorship.decidim_user_group_id
+            )
           end
+          @proposal.save!
         end
       end
 
@@ -107,7 +107,7 @@ module Decidim
       end
 
       def proposal_limit_reached?
-        return false if @coauthor_identities.is_a? Array
+        return false if @coauthorships.present?
 
         proposal_limit = form.current_component.settings.proposal_limit
 
