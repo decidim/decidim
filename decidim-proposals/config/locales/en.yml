@@ -125,11 +125,6 @@ en:
           email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-        collaborative_draft_published:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> published the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} published the %{resource_title} collaborative draft."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>published</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.

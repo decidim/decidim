@@ -8,9 +8,11 @@ module Decidim
       #
       # collaborative_draft - The collaborative_draft to publish.
       # current_user - The current user.
-      def initialize(collaborative_draft, current_user)
+      # proposal_form - the form object of the new proposal
+      def initialize(collaborative_draft, current_user, proposal_form)
         @collaborative_draft = collaborative_draft
         @current_user = current_user
+        @proposal_form = proposal_form
         @new_proposal = nil
       end
 
@@ -31,7 +33,6 @@ module Decidim
           end
 
           publish_collaborative_draft
-          send_notification_to_authors
         end
 
         broadcast(:ok, @new_proposal)
@@ -80,21 +81,6 @@ module Decidim
 
       def link_collaborative_draft_and_proposal
         @collaborative_draft.link_resources(@new_proposal, link_resource_name)
-      end
-
-      def send_notification_to_authors
-        recipient_ids = @collaborative_draft.authors.pluck(:id) - [@current_user.id]
-        return if recipient_ids.blank?
-
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.collaborative_draft_published",
-          event_class: Decidim::Proposals::CollaborativeDraftPublishedEvent,
-          resource: @collaborative_draft,
-          recipient_ids: recipient_ids.uniq,
-          extra: {
-            author_id: @current_user.id
-          }
-        )
       end
 
       def link_resource_name

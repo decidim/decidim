@@ -162,7 +162,16 @@ module Decidim
       end
 
       def publish
-        PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
+        proposal_form_params = ActionController::Parameters.new(
+          proposal: @collaborative_draft.as_json
+        )
+
+        proposal_form_params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
+        proposal_form_params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
+
+        proposal_form = form(ProposalForm).from_params(proposal_form_params)
+
+        PublishCollaborativeDraft.call(@collaborative_draft, current_user, proposal_form) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
             redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
