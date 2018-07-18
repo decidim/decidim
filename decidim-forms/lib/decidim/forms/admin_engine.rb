@@ -8,6 +8,10 @@ module Decidim
 
       paths["db/migrate"] = nil
 
+      initializer "decidim_forms.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_forms_manifest.js)
+      end
+
       def load_seed
         nil
       end

@@ -14,10 +14,6 @@ module Decidim
         root to: "surveys#edit"
       end
 
-      initializer "decidim_surveys.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_surveys_manifest.js)
-      end
-
       def load_seed
         nil
       end
