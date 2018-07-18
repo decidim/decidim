@@ -30,6 +30,7 @@ const areachart = (opts = {}) => {
   // parse opts
   let data = parseData(opts.data)
   let title = opts.title
+  let object_name = opts.object_name || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
   let ratio = opts.ratio || (4/3)
@@ -126,7 +127,7 @@ const areachart = (opts = {}) => {
         let tooltipContent = `
           <div class="tooltip-content">
             ${d3.timeFormat("%e %B %Y")(d.key)}<br />
-            ${d.value.toLocaleString()} propuestas
+            ${d.value.toLocaleString()} ${object_name}
           </div>`
 
         circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
@@ -199,6 +200,5 @@ const areachart = (opts = {}) => {
       .attr("dy", titlePadding * 2)
       .attr("class", "sum")
       .text(data[data.length - 1].value.toLocaleString())
-      // .text(Number(data.map((r) => r.value).reduce((a, b) => a + b, 0)).toLocaleString())
   }
 }
