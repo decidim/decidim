@@ -29,19 +29,10 @@ module Decidim
             )
           end
 
-          # let(:project_form_params) do
-          #   ActionController::Parameters.new(
-          #     project: proposal.as_json
-          #   )
-          # end
-
-          # let!(:project_forms) { [ProjectForm.from_params(params) ] }
-
           let!(:project_forms) do
             rs = []
 
             proposals.each do |original_proposal|
-              # next if proposal_already_copied?(original_proposal, target_component)
               params = ActionController::Parameters.new(project: original_proposal.as_json)
 
               params[:project][:title] = project_localized(original_proposal.title)
@@ -52,7 +43,6 @@ module Decidim
               params[:project][:decidim_category_id] = original_proposal.category.id if original_proposal.category
               params[:project][:proposal_ids] = original_proposal.id
 
-              # puts "------------#{params}"
               r = ProjectForm.from_params(params).with_context(
                 current_user: current_user,
                 current_organization: organization,
@@ -110,8 +100,9 @@ module Decidim
                   command.call
                 end.to change { Project.where(component: current_component).count }.by(3)
 
-                first_project = Project.where(component: current_component).first
-                last_project = Project.where(component: current_component).last
+                projects = Project.where(component: current_component)
+                first_project = projects.first
+                last_project = projects.last
                 expect(translated(first_project.title)).to eq(proposal.title)
                 expect(translated(last_project.title)).to eq(second_proposal.title)
               end

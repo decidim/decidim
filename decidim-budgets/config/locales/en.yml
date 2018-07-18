@@ -57,7 +57,6 @@ en:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
-            select_states: Check the states of the proposals to import
       admin_log:
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
