@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      describe UpdateSurvey do
+      describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
@@ -109,7 +109,7 @@ module Decidim
           }
         end
         let(:form) do
-          SurveyForm.from_params(
+          Decidim::Surveys::Admin::SurveyForm.from_params(
             survey: form_params
           ).with_context(
             current_organization: current_organization

@@ -17,7 +17,7 @@ module Decidim
 
         @form = form(SurveyForm).from_params(params)
 
-        AnswerSurvey.call(@form, current_user, survey) do
+        Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, survey) do
           on(:ok) do
             flash[:notice] = I18n.t("surveys.answer.success", scope: "decidim.surveys")
             redirect_to survey_path(survey)

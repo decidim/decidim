@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      # This command is executed when the user changes a Survey from the admin
+      # This command is executed when the user changes a Questionnaire from the admin
       # panel.
-      class UpdateSurvey < Rectify::Command
-        # Initializes a UpdateSurvey Command.
+      class UpdateQuestionnaire < Rectify::Command
+        # Initializes a UpdateQuestionnaire Command.
         #
         # form - The form from which to get the data.
-        # survey - The current instance of the survey to be updated.
-        def initialize(form, survey)
+        # questionnaire - The current instance of the questionnaire to be updated.
+        def initialize(form, questionnaire)
           @form = form
-          @survey = survey
+          @questionnaire = questionnaire
         end
 
-        # Updates the survey if valid.
+        # Updates the questionnaire if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Survey.transaction do
-            update_survey_questions if @survey.questions_editable?
-            update_survey
+          Decidim::Surveys::Survey.transaction do
+            update_questionnaire_questions if @questionnaire.questions_editable?
+            update_questionnaire
           end
 
           broadcast(:ok)
@@ -31,13 +31,13 @@ module Decidim
 
         private
 
-        def update_survey_questions
+        def update_questionnaire_questions
           @form.questions.each do |form_question|
-            update_survey_question(form_question)
+            update_questionnaire_question(form_question)
           end
         end
 
-        def update_survey_question(form_question)
+        def update_questionnaire_question(form_question)
           question_attributes = {
             body: form_question.body,
             description: form_question.description,
@@ -47,7 +47,7 @@ module Decidim
             max_choices: form_question.max_choices
           }
 
-          update_nested_model(form_question, question_attributes, @survey.questions) do |question|
+          update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
             form_question.answer_options.each do |form_answer_option|
               answer_option_attributes = {
                 body: form_answer_option.body,
@@ -75,10 +75,10 @@ module Decidim
           end
         end
 
-        def update_survey
-          @survey.update!(title: @form.title,
-                          description: @form.description,
-                          tos: @form.tos)
+        def update_questionnaire
+          @questionnaire.update!(title: @form.title,
+                                 description: @form.description,
+                                 tos: @form.tos)
         end
       end
     end

@@ -19,7 +19,7 @@ module Decidim
           params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 
-          Admin::UpdateSurvey.call(@form, survey) do
+          Decidim::Forms::Admin::UpdateQuestionnaire.call(@form, survey) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.update.success", scope: "decidim.surveys.admin")
               redirect_to parent_path

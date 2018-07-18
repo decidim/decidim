@@ -1,37 +1,37 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
-    # This command is executed when the user answers a Survey.
-    class AnswerSurvey < Rectify::Command
-      # Initializes a AnswerSurvey Command.
+  module Forms
+    # This command is executed when the user answers a Questionnaire.
+    class AnswerQuestionnaire < Rectify::Command
+      # Initializes a AnswerQuestionnaire Command.
       #
       # form - The form from which to get the data.
-      # survey - The current instance of the survey to be answered.
-      def initialize(form, current_user, survey)
+      # questionnaire - The current instance of the questionnaire to be answered.
+      def initialize(form, current_user, questionnaire)
         @form = form
         @current_user = current_user
-        @survey = survey
+        @questionnaire = questionnaire
       end
 
-      # Answers a survey if it is valid
+      # Answers a questionnaire if it is valid
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) if @form.invalid?
 
-        answer_survey
+        answer_questionnaire
         broadcast(:ok)
       end
 
       private
 
-      def answer_survey
-        SurveyAnswer.transaction do
+      def answer_questionnaire
+        Decidim::Surveys::SurveyAnswer.transaction do
           @form.survey_answers.each do |form_answer|
-            answer = SurveyAnswer.new(
+            answer = Decidim::Surveys::SurveyAnswer.new(
               user: @current_user,
-              survey: @survey,
+              survey: @questionnaire,
               question: form_answer.question,
               body: form_answer.body
             )

@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  module Surveys
-    describe AnswerSurvey do
+  module Forms
+    describe AnswerQuestionnaire do
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
@@ -42,7 +42,7 @@ module Decidim
         }
       end
       let(:form) do
-        SurveyForm.from_params(
+        Decidim::Surveys::SurveyForm.from_params(
           form_params
         ).with_context(
           current_organization: current_organization,
@@ -63,7 +63,7 @@ module Decidim
         it "doesn't create survey answers" do
           expect do
             command.call
-          end.not_to change(SurveyAnswer, :count)
+          end.not_to change(Decidim::Surveys::SurveyAnswer, :count)
         end
       end
 
@@ -75,16 +75,16 @@ module Decidim
         it "creates a survey answer for each question answered" do
           expect do
             command.call
-          end.to change(SurveyAnswer, :count).by(3)
-          expect(SurveyAnswer.all.map(&:survey)).to eq([survey, survey, survey])
+          end.to change(Decidim::Surveys::SurveyAnswer, :count).by(3)
+          expect(Decidim::Surveys::SurveyAnswer.all.map(&:survey)).to eq([survey, survey, survey])
         end
 
         it "creates answers with the correct information" do
           command.call
 
-          expect(SurveyAnswer.first.body).to eq("This is my first answer")
-          expect(SurveyAnswer.second.choices.pluck(:body)).to eq(%w(My second answer))
-          expect(SurveyAnswer.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["answer", 1]])
+          expect(Decidim::Surveys::SurveyAnswer.first.body).to eq("This is my first answer")
+          expect(Decidim::Surveys::SurveyAnswer.second.choices.pluck(:body)).to eq(%w(My second answer))
+          expect(Decidim::Surveys::SurveyAnswer.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["answer", 1]])
         end
       end
     end
