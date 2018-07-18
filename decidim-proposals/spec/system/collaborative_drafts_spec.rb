@@ -21,7 +21,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:category2) { create :category, participatory_space: participatory_process }
   let!(:category3) { create :category, participatory_space: participatory_process }
-  let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category, scope: scope, authors: [author]) }
+  let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category, scope: scope, users: [author]) }
   let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component: component) }
 
   let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category) }
@@ -69,7 +69,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
     end
 
-    describe "Renders collaborative draft Details (show)" do
+    describe "renders collaborative draft details" do
       before do
         within "#collaborative_draft_#{collaborative_draft.id}" do
           click_link "View Collaborative Draft"
@@ -135,25 +135,34 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
-      context "when the collaborative draft is published as a proposal" do
-        let(:proposals) { create_list(:proposal, 3, component: component) }
-        let(:proposal) { proposals.first }
-
+      context "when publishing as a proposal" do
         before do
+          login_as author, scope: :user
           visit current_path
         end
 
-        xit "shows related proposal" do
-          proposals.each do |proposal|
-            expect(page).to have_content(proposal.title)
-            expect(page).to have_content(proposal.author.name)
-            expect(page).to have_content(proposal.votes.size)
+        it "shows the publish button" do
+          within ".view-side" do
+            expect(page).to have_css("button", text: "PUBLISH")
           end
         end
 
-        xit "the result is mentioned in the proposal page" do
-          click_link proposal.title
-          expect(page).to have_i18n_content(result.title)
+        context "when the published" do
+          before do
+            visit current_path
+            click_button "Publish"
+          end
+
+          it "shows the a modal" do
+            within "#publish-irreversible-action-modal" do
+              expect(page).to have_css("h3", text: "The following action is irreversible")
+              expect(page).to have_css("button", text: "Publish as a Proposal")
+            end
+          end
+
+          after do
+            click_button "Publish as a Proposal"
+          end
         end
       end
 

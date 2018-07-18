@@ -13,7 +13,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
   let(:author) { create(:user, :confirmed, organization: component.organization) }
   let!(:collaborative_draft) { create(:collaborative_draft, component: component) }
   let(:authors) { create_list(:user, 5, organization: component.organization) }
-  let(:collaborative_draft_va) { create(:collaborative_draft, component: component, authors: authors) }
+  let(:collaborative_draft_va) { create(:collaborative_draft, component: component, users: authors) }
   let(:context) {}
 
   before do
@@ -60,7 +60,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     end
 
     describe "with coauthors" do
-      let(:collaborative_draft) { create(:collaborative_draft, component: component, authors: authors) }
+      let(:collaborative_draft) { create(:collaborative_draft, component: component, users: authors) }
 
       it "renders the first three authors" do
         within ".card__content" do
