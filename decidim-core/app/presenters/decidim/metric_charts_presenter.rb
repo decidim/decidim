@@ -7,7 +7,7 @@ module Decidim
 
     # Public: Render a collection of primary metrics.
     def highlighted
-      highlighted_metrics = Decidim::MetricEntity.metric_entities & ["usersMetric", "proposalsMetric"]
+      highlighted_metrics = Decidim::MetricEntity.metric_entities & %w(usersMetric proposalsMetric)
       safe_join(
         highlighted_metrics.map do |metric|
           content_tag :div, class: "column medium-4" do
@@ -19,13 +19,13 @@ module Decidim
 
     # Public: Render a collection of metrics that are not primary.
     def not_highlighted
-      not_highlighted_metrics = Decidim::MetricEntity.metric_entities - ["usersMetric", "proposalsMetric"]
+      not_highlighted_metrics = Decidim::MetricEntity.metric_entities - %w(usersMetric proposalsMetric)
 
       safe_join(
         not_highlighted_metrics.map do |metric|
           content_tag :div, class: "column medium-4 left" do
             content_tag :div, class: "column medium-6" do
-              render_metrics_data(metric, {klass: "small"})
+              render_metrics_data(metric, klass: "small")
             end
           end
         end
@@ -34,7 +34,7 @@ module Decidim
 
     private
 
-    def render_metrics_data(metric, opts={})
+    def render_metrics_data(metric, opts = {})
       content_tag :div, "", id: "#{metric}_chart", class: "areachart metric-chart #{opts[:klass]}", data: { chart: "areachart", metric: metric }
     end
   end
