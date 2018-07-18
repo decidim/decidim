@@ -10,6 +10,9 @@
           <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
         </div>
         <div class="row column">
+          <%= f.number_field :default_budget %>
+        </div>
+        <div class="row column">
           <%= f.check_box :import_all_accepted_proposals %>
         </div>
       </div>

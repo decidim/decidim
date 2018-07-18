@@ -9,10 +9,12 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
+        attribute :default_budget, Integer
         attribute :import_all_accepted_proposals, Boolean
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :import_all_accepted_proposals, allow_nil: false, acceptance: true
+        validates :default_budget, presence: true, numericality: { greater_than: 0 }
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
