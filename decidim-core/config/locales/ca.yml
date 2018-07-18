@@ -199,6 +199,7 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
@@ -604,6 +605,7 @@ ca:
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
+        decline: Declina la invitació
         hello: Hola %{email},
         ignore: |-
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />

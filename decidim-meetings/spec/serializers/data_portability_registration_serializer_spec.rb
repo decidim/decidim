@@ -12,6 +12,10 @@ module Decidim::Meetings
         expect(subject.serialize).to include(id: resource.id)
       end
 
+      it "includes the registration code" do
+        expect(subject.serialize).to include(code: resource.code)
+      end
+
       it "includes the user" do
         expect(subject.serialize[:user]).to(
           include(name: resource.user.name)

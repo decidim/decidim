@@ -168,7 +168,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed
+      return true if managed || organization.tos_version.nil?
       return false if accepted_tos_version.nil?
       accepted_tos_version >= organization.tos_version
     end

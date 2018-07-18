@@ -57,7 +57,10 @@
 
     <% if allowed_to? :create, :proposal_answer %>
      <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>
-   <% end %>
+    <% end %>
+
+    <%= resource_permissions_link(proposal) %>
+
    <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
   </td>
 </tr>

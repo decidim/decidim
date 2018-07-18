@@ -121,6 +121,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
             total_budget: Aurrekontu osoa
             vote_threshold_percent: Votuen ehuneko atalasea
           step:

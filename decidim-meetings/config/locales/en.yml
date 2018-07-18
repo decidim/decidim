@@ -81,6 +81,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -172,6 +173,13 @@ en:
           create:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite: Invite
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
               accepted: Accepted
@@ -181,11 +189,8 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
             search: Search
-          new:
-            explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
-            invite: Invite
-            new_invite: Invite user
         meeting_closes:
           edit:
             close: Close
@@ -340,6 +345,7 @@ en:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
           invalid: There's been a problem joining this meeting.

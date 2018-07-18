@@ -121,6 +121,7 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             projects_per_page: Projetos por página
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
             total_budget: Orçamento total
             vote_threshold_percent: Porcentagem do limiar de voto
           step:

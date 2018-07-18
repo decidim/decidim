@@ -38,6 +38,10 @@ pt:
             base:
               too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos
               too_many_minutes_child: A duração do item childs excede o item da agenda "%{parent_title}" duração pai em %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Este email já foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: encontro
@@ -76,6 +80,7 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -160,16 +165,31 @@ pt:
           registrations: Inscrições
         invite_join_meeting_mailer:
           invite:
+            decline: Recusar convite
             invited_you_to_join_a_meeting: "%{invited_by} convidou você a participar de uma reunião em %{application}. Você pode aceitá-lo através do link abaixo."
             join: Junte-se à reunião '%{meeting_title}'
         invites:
           create:
             error: Ocorreu um problema ao convidar o usuário a participar da reunião.
             success: O usuário foi convidado para participar da reunião.
-          new:
-            explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
+          form:
+            attendee_type: Tipo de participante
+            existing_user: Usuário existente
             invite: Convite
-            new_invite: Convidar Usuário
+            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
+            non_user: Usuário não existente
+            select_user: Selecione o usuário
+          index:
+            filter:
+              accepted: Aceitaram
+              all: Todos
+              rejected: Rejeitado
+              sent: Enviei
+            filter_by: Filtrar por
+            invite_attendee: Convidar participante
+            invites: Convites
+            registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
+            search: Pesquisa
         meeting_closes:
           edit:
             close: Fechar
@@ -228,7 +248,7 @@ pt:
             save: Salve 
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
-            invite_user: Convidar Usuário
+            invites: Convites
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
@@ -238,6 +258,10 @@ pt:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
       admin_log:
+        invite:
+          create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
+          deleted: "%{user_name} uninvited %{attendee_name} de juntar %{resource_name} reunião no espaço %{space_name}"
+          update: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
         meeting:
           close: "%{user_name} fechou a reunião %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
@@ -296,6 +320,16 @@ pt:
             other: "%{count} slots restantes"
           view: Visão
       models:
+        invite:
+          fields:
+            email: O email
+            name: Nome
+            sent_at: Enviado em
+            status: Status
+          status:
+            accepted: Aceito (%{at})
+            rejected: Rejeitado (%{at})
+            sent: Enviei
         meeting:
           fields:
             closed: Fechadas
@@ -308,10 +342,14 @@ pt:
         confirmation:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Você encontrará os detalhes da reunião no anexo.
+          registration_code: Seu código de registro é %{code}.
       registrations:
         create:
           invalid: Houve um problema ao se juntar a essa reunião.
           success: Você se juntou à reunião com sucesso.
+        decline_invitation:
+          invalid: Houve um problema ao recusar o convite.
+          success: Você recusou o convite com sucesso.
         destroy:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.

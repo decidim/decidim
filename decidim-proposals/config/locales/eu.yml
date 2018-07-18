@@ -73,6 +73,7 @@ eu:
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
             proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:

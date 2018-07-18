@@ -4,5 +4,10 @@
       color: rgba($muted, .3);
       vertical-align: bottom;
     }
+
+    &.action-icon--highlighted{
+      color: $warning-color;
+      vertical-align: bottom;
+    }
   }
 }

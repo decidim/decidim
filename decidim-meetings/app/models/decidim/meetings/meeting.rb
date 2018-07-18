@@ -86,6 +86,11 @@ module Decidim
         commentable? && !component.current_settings.comments_blocked
       end
 
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
+
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
       def comments_have_alignment?
         true

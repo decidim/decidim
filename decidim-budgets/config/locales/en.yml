@@ -122,6 +122,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             projects_per_page: Projects per page
+            resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
           step:

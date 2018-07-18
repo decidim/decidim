@@ -189,6 +189,7 @@ module Decidim
 
           it { is_expected.to be_withdrawn }
         end
+
         context "when proposal is not withdrawn" do
           let(:proposal) { build :proposal }
 
