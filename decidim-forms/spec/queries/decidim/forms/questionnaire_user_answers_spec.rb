@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Surveys::SurveyUserAnswers do
+describe Decidim::Forms::QuestionnaireUserAnswers do
   subject { described_class.new(survey) }
 
   let!(:survey) { create(:survey) }

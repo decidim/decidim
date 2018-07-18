@@ -51,7 +51,7 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Surveys::SurveyUserAnswers.for(survey)
+      Decidim::Forms::QuestionnaireUserAnswers.for(survey) # FIXME: survey.questionnaire?
     end
 
     exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
