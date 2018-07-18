@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  module Surveys
-    describe SurveyForm do
+  module Forms
+    describe QuestionnaireForm do
       subject do
         described_class.from_model(survey).with_context(current_component: survey.component)
       end

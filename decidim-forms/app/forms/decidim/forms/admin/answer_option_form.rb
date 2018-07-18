@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      # This class holds a Form to update survey question answer options
-      class SurveyAnswerOptionForm < Decidim::Form
+      # This class holds a Form to update answer options
+      class AnswerOptionForm < Decidim::Form
         include TranslatableAttributes
 
         attribute :deleted, Boolean, default: false

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
-    # This class holds a Form to update survey question answer options
-    class SurveyAnswerChoiceForm < Decidim::Form
+  module Forms
+    # This class holds a Form to save the chosen option for an answer
+    class AnswerChoiceForm < Decidim::Form
       attribute :body, String
       attribute :custom_body, String
       attribute :position, Integer

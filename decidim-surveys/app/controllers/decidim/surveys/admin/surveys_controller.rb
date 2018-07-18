@@ -10,14 +10,14 @@ module Decidim
         def edit
           enforce_permission_to :update, :survey, survey: survey
 
-          @form = form(Admin::SurveyForm).from_model(survey)
+          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_model(survey) # FIXME: remove namespace
         end
 
         def update
           enforce_permission_to :update, :survey, survey: survey
 
           params["published_at"] = Time.current if params.has_key? "save_and_publish"
-          @form = form(Admin::SurveyForm).from_params(params)
+          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_params(params) # FIXME: remove namespace
 
           Decidim::Forms::Admin::UpdateQuestionnaire.call(@form, survey) do
             on(:ok) do
@@ -39,11 +39,11 @@ module Decidim
         end
 
         def blank_question
-          @blank_question ||= Admin::SurveyQuestionForm.new
+          @blank_question ||= Decidim::Forms::Admin::QuestionForm.new # FIXME: remove namespace
         end
 
         def blank_answer_option
-          @blank_answer_option ||= Admin::SurveyAnswerOptionForm.new
+          @blank_answer_option ||= Decidim::Forms::Admin::AnswerOptionForm.new # FIXME: remove namespace
         end
 
         def question_types

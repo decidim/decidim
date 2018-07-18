@@ -3,12 +3,12 @@
 require "spec_helper"
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      describe SurveyAnswerOptionForm do
+      describe AnswerOptionForm do
         subject do
           described_class.from_params(
-            survey_answer_option: attributes
+            answer_option: attributes
           ).with_context(current_organization: organization)
         end
 

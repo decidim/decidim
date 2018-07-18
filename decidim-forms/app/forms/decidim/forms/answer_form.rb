@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
-    # This class holds a Form to update survey unswers from Decidim's public page
-    class SurveyAnswerForm < Decidim::Form
+  module Forms
+    # This class holds a Form to save the questionnaire answers from Decidim's public page
+    class AnswerForm < Decidim::Form
+      mimic :survey_answer # FIXME: remove
+
       include Decidim::TranslationsHelper
 
       attribute :question_id, String
       attribute :body, String
-      attribute :choices, Array[SurveyAnswerChoiceForm]
+      attribute :choices, Array[AnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
@@ -39,7 +41,7 @@ module Decidim
         self.question = model.question
 
         self.choices = model.choices.map do |choice|
-          SurveyAnswerChoiceForm.from_model(choice)
+          AnswerChoiceForm.from_model(choice)
         end
       end
 

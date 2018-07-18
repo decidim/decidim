@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      describe SurveyQuestionForm do
+      describe QuestionForm do
         subject do
           described_class.from_params(
             survey_question: attributes
@@ -14,7 +14,7 @@ module Decidim
 
         let!(:survey) { create(:survey) }
         let!(:position) { 0 }
-        let!(:question_type) { SurveyQuestion::TYPES.first }
+        let!(:question_type) { Decidim::Surveys::SurveyQuestion::TYPES.first } # FIXME: remove namespace
         let!(:organization) { create :organization }
         let(:deleted) { "false" }
         let(:attributes) do

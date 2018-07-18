@@ -109,7 +109,7 @@ module Decidim
           }
         end
         let(:form) do
-          Decidim::Surveys::Admin::SurveyForm.from_params(
+          QuestionnaireForm.from_params(
             survey: form_params
           ).with_context(
             current_organization: current_organization

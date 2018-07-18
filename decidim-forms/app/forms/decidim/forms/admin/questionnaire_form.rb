@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Surveys
+  module Forms
     module Admin
-      # This class holds a Form to update surveys from Decidim's admin panel.
-      class SurveyForm < Decidim::Form
+      # This class holds a Form to update questionnaires from Decidim's admin panel.
+      class QuestionnaireForm < Decidim::Form
+        mimic :survey # FIXME: remove
+
         include TranslatableAttributes
 
         translatable_attribute :title, String
@@ -12,13 +14,13 @@ module Decidim
         translatable_attribute :tos, String
 
         attribute :published_at, DateTime
-        attribute :questions, Array[SurveyQuestionForm]
+        attribute :questions, Array[QuestionForm]
 
         validates :title, :tos, translatable_presence: true
 
         def map_model(model)
           self.questions = model.questions.map do |question|
-            SurveyQuestionForm.from_model(question)
+            QuestionForm.from_model(question)
           end
         end
       end

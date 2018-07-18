@@ -9,13 +9,13 @@ module Decidim
       helper_method :survey
 
       def show
-        @form = form(SurveyForm).from_model(survey)
+        @form = form(Decidim::Forms::QuestionnaireForm).from_model(survey) # FIXME: remove namespace
       end
 
       def answer
         enforce_permission_to :answer, :survey
 
-        @form = form(SurveyForm).from_params(params)
+        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params) # FIXME: remove namespace
 
         Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, survey) do
           on(:ok) do
