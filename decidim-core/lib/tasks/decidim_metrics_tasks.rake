@@ -11,7 +11,7 @@ namespace :decidim do
       # Rake::Task["decidim:metrics:users_metric"].invoke(args.day)
       Decidim::MetricEntity.metric_entities.each do |entity|
         puts " ------------ Executing #{entity} entity"
-        Rake::Task["decidim:metrics:#{entity}"].invoke(args.day)
+        Rake::Task["decidim:metrics:#{entity.underscore}"].invoke(args.day)
       end
     end
 

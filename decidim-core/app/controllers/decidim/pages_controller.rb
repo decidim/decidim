@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :stats
+    helper_method :page, :stats, :metrics
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
@@ -32,6 +32,10 @@ module Decidim
 
     def stats
       @stats ||= HomeStatsPresenter.new(organization: current_organization)
+    end
+
+    def metrics
+      @metrics ||= MetricChartsPresenter.new(organization: current_organization)
     end
   end
 end

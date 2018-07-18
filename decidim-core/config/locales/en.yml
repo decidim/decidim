@@ -479,6 +479,8 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
+        metrics:
+          headline: Decidim in numbers
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
