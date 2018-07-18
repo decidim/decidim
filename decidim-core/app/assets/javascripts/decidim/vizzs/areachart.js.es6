@@ -1,4 +1,4 @@
-/* global d3, DATACHARTS, fetchDatacharts */
+/* global d3 */
 /* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
@@ -30,7 +30,7 @@ const areachart = (opts = {}) => {
   // parse opts
   let data = parseData(opts.data)
   let title = opts.title
-  let object_name = opts.object_name || ""
+  let objectName = opts.object_name || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
   let ratio = opts.ratio || (4/3)
@@ -127,7 +127,7 @@ const areachart = (opts = {}) => {
         let tooltipContent = `
           <div class="tooltip-content">
             ${d3.timeFormat("%e %B %Y")(d.key)}<br />
-            ${d.value.toLocaleString()} ${object_name}
+            ${d.value.toLocaleString()} ${objectName}
           </div>`
 
         circle.attr("transform", `translate(${x(d.key)},${y(d.value)})`)
