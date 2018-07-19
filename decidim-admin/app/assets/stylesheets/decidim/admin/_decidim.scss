@@ -6,7 +6,7 @@
 @import "utils/toggle-expand";
 @import "foundation";
 
-@include foundation-everything();
+@include foundation-everything($flex: false);
 
 @import "utils/mixins";
 @import "utils/flex";
