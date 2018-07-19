@@ -45,14 +45,15 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-accountability**: Fix accountability diff renderer when a locale is missing. [\#3797](https://github.com/decidim/decidim/pull/3797)
 - **decidim-core**: Don't crash when a nickname has a dot. [\#3793](https://github.com/decidim/decidim/pull/3793)
 - **decidim-core**: Don't crash when a page doesn't exist. [\#3799](https://github.com/decidim/decidim/pull/3799)
+- **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
+- **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
 - **decidim-proposals**: Proposal creation and update fixes: [\#3744](https://github.com/decidim/decidim/pull/3744)
   - Fix `CookieOverflow` in wizard steps
   - Fix `proposal_length` validation on create_step
   - Fix ability to update proposal attachment
   - Fix `has_address` checked and `address` on invalid form
   - Fix ability to update the proposal's `author/user_group`
-- **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
-
+  
 **Removed**:
 
 ## Previous versions
