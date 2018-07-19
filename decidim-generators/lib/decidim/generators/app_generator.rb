@@ -119,6 +119,10 @@ module Decidim
         run "bundle install"
       end
 
+      def production_log
+        gsub_file "config/environments/production.rb", "config.log_level = :debug", "config.log_level = :warn"
+      end
+
       def tweak_bootsnap
         gsub_file "config/boot.rb", %r{require 'bootsnap/setup'.*$}, <<~RUBY.rstrip
           require "bootsnap"
