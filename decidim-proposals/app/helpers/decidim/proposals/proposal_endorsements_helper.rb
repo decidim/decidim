@@ -124,16 +124,17 @@ module Decidim
       end
 
       def render_endorsements_button_card_part(proposal, fully_endorsed)
+        endorse_translated = t("decidim.proposals.proposal_endorsements_helper.render_endorsements_button_card_part.endorse")
         if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)
-          content_tag :span, t(".endorse"), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t(".endorse")
+          content_tag :span, endorse_translated, class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
         elsif current_user && allowed_to?(:endorse, :proposal, proposal: proposal)
           render partial: "endorsement_identities_cabin", locals: { proposal: proposal, fully_endorsed: fully_endorsed }
         elsif current_user
-          button_to(t(".endorse"), proposal_path(proposal),
+          button_to(endorse_translated, proposal_path(proposal),
                     data: { open: "authorizationModal", "open-url": modal_path(:endorse, proposal) },
                     class: "card__button button #{endorsement_button_classes(false)} secondary")
         else
-          action_authorized_button_to :endorse, t(".endorse"), "", resource: proposal, class: "card__button button #{endorsement_button_classes(false)} secondary"
+          action_authorized_button_to :endorse, endorse_translated, "", resource: proposal, class: "card__button button #{endorsement_button_classes(false)} secondary"
         end
       end
     end
