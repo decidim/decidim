@@ -51,6 +51,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
   - Fix ability to update proposal attachment
   - Fix `has_address` checked and `address` on invalid form
   - Fix ability to update the proposal's `author/user_group`
+- **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
 
 **Removed**:
 
