@@ -53,7 +53,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
   - Fix ability to update proposal attachment
   - Fix `has_address` checked and `address` on invalid form
   - Fix ability to update the proposal's `author/user_group`
-  
+
 **Removed**:
 
 ## Previous versions
