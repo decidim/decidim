@@ -49,6 +49,7 @@ module Decidim
             description: form.description,
             short_description: form.short_description,
             objectives: form.objectives,
+            location: form.location,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             start_date: form.start_date,

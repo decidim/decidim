@@ -33,7 +33,7 @@ module Decidim
               short_description: conference.short_description,
               slug: conference.slug,
               scopes_enabled: conference.scopes_enabled,
-              registrations_enabled: conference.registrations_enabled,
+              registrations_enabled: conference.registrations_enabled
             }
           end
 

@@ -1,0 +1,43 @@
+<div class="card" id="conference-registrations">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %> - <%= t(".registrations") %>
+      <% if allowed_to? :export_conference_registrations, :conference, conference: conference %>
+        <span class="exports dropdown tiny button button--simple button--title" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+        <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+          <ul class="vertical menu add-components">
+            <% %w{CSV JSON Excel}.each do |format| %>
+              <li class="exports--format--<%= format.downcase %> exports--registrations"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.admin.conferences.exports.registrations"), export_format: format), export_conference_conference_registrations_path(conference_id: conference, format: format) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.conference_registration.fields.name", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_registration.fields.email", scope: "decidim.conferences") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @conference_registrations.each do |registration| %>
+            <tr data-id="<%= registration.id %>">
+              <td>
+                <%= registration.user.name %>
+              </td>
+              <td>
+                <%= registration.user.email %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @conference_registrations, theme: "decidim" %>
+    </div>
+  </div>
+</div>

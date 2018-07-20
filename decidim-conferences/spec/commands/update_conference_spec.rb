@@ -18,6 +18,7 @@ module Decidim::Conferences
             slogan_en: my_conference.slogan,
             slogan_ca: my_conference.slogan,
             slogan_es: my_conference.slogan,
+            location: my_conference.location,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
             hero_image: nil,

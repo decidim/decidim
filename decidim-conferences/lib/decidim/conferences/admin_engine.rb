@@ -18,7 +18,11 @@ module Decidim
           resources :copies, controller: "conference_copies", only: [:new, :create]
           resources :speakers, controller: "conference_speakers"
           resources :conference_invites, only: [:index, :new, :create]
-
+          resources :conference_registrations, only: :index do
+            collection do
+              get :export
+            end
+          end
           resources :user_roles, controller: "conference_user_roles" do
             member do
               post :resend_invitation, to: "conference_user_roles#resend_invitation"

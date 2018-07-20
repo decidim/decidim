@@ -9,8 +9,7 @@ module Decidim
       helper_method :collection, :conference
 
       def index
-        raise ActionController::RoutingError, "No speakers for this conference " if speakers.none?
-
+        raise ActionController::RoutingError, "No speakers for this conference " if speakers.empty?
         enforce_permission_to :list, :speakers
         redirect_to decidim_conferences.conference_path(current_participatory_space) unless current_user_can_visit_space?
       end

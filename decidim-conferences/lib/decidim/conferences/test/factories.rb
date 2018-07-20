@@ -18,6 +18,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
+    location { Faker::Lorem.sentence(3) }
     organization
     show_statistics true
     start_date { 1.month.ago }
@@ -103,12 +104,12 @@ FactoryBot.define do
   end
 
   factory :conference_registration, class: "Decidim::Conferences::ConferenceRegistration" do
-    meeting
+    conference
     user
   end
 
   factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do
-    meeting
+    conference
     user
     sent_at { Time.current - 1.day }
     accepted_at nil

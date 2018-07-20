@@ -8,6 +8,7 @@ class AddConferences < ActiveRecord::Migration[5.2]
       t.string :slug, null: false
       t.string :hashtag
       t.string :reference
+      t.string :location
       t.integer :decidim_organization_id,
                 foreign_key: true,
                 index: { name: "index_decidim_conferences_on_decidim_organization_id" }

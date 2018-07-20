@@ -32,6 +32,7 @@ module Decidim
         attribute :end_date, Decidim::Attributes::TimeWithZone
         attribute :registrations_enabled, Boolean
         attribute :available_slots, Integer
+        attribute :location, String
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true

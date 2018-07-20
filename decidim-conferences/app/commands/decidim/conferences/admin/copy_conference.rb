@@ -46,6 +46,7 @@ module Decidim
             hashtag: @conference.hashtag,
             description: @conference.description,
             short_description: @conference.short_description,
+            location: @conference.location,
             hero_image: @conference.hero_image,
             banner_image: @conference.banner_image,
             promoted: @conference.promoted,

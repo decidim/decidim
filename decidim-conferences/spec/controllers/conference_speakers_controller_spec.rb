@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
 
-      let!(:conference) do
+      let(:conference) do
         create(
           :conference,
           :published,
@@ -24,6 +24,9 @@ module Decidim
       describe "GET index" do
         context "when conference has no speakers" do
           it "redirects to 404" do
+            puts "-------------"
+            puts "#{conference.slug}"
+            puts "-------------"
             expect { get :index, params: { conference_slug: conference.slug } }
               .to raise_error(ActionController::RoutingError)
           end
@@ -50,7 +53,7 @@ module Decidim
             it "redirects to conference path" do
               get :index, params: { conference_slug: conference.slug }
 
-              expect(response).to redirect_to(conference_path(conference))
+              expect(response).to redirect_to(conference_path(conference.slug))
             end
           end
         end

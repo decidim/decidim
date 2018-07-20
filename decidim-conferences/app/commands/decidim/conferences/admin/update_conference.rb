@@ -71,6 +71,7 @@ module Decidim
             description: form.description,
             short_description: form.short_description,
             objectives: form.objectives,
+            location: form.location,
             start_date: form.start_date,
             end_date: form.end_date,
             hero_image: form.hero_image,

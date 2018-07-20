@@ -101,6 +101,8 @@ en:
           success: Conference deleted successfully.
         edit:
           update: Update
+        exports:
+          registrations: Registrations
         form:
           title: General Information
         index:
@@ -126,6 +128,7 @@ en:
           components: Components
           conference_admins: Conference admins
           conference_invites: Conference Invites
+          conference_registrations: Conference Registrations
           conference_speakers: Conference speakers
           info: Info
           moderations: Moderations
@@ -166,6 +169,12 @@ en:
           create:
             error: There's been a problem while inviting the user to join the conference.
             success: User successfully invited to join the conference.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
               accepted: Accepted
@@ -180,6 +189,9 @@ en:
             explanation: The user will be invited to join a conference. If the email is not registered they will be invited to the organization as well.
             invite: Invite
             new_invite: Invite user
+        conference_registrations:
+          index:
+            registrations: Registrations
         conference_speakers:
           form:
             existing_user: Existing user
@@ -228,11 +240,6 @@ en:
           invalid: There's been a problem leaving this conference.
           success: You have left the conference successfully.
       conference_speaker:
-        affiliation: Affiliation
-        charge: Charge
-        personal_url: Personal Url
-        short_bio: Short bio
-        twitter_handle: Twitter
         show:
           affiliation: Affiliation
           charge: Charge
@@ -262,6 +269,10 @@ en:
             accepted: Accepted (%{at})
             rejected: Rejected (%{at})
             sent: Sent
+        conference_registration:
+          fields:
+            email: Email
+            name: Name
       pages:
         home:
           highlighted_conferences:

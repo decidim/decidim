@@ -4,6 +4,8 @@ module Decidim
   module Conferences
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action unless user
+
         user_can_enter_space_area?
 
         return permission_action if conference && !conference.is_a?(Decidim::Conference)
@@ -35,6 +37,8 @@ module Decidim
 
         user_can_read_conference_list?
         user_can_read_current_conference?
+        user_can_read_conference_registrations?
+        user_can_export_conference_registrations?
         user_can_create_conference?
         user_can_destroy_conference?
 
@@ -178,6 +182,22 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
+      # Only organization admins can read a conference registrations
+      def user_can_read_conference_registrations?
+        return unless permission_action.action == :read_conference_registrations &&
+                      permission_action.subject == :conference
+
+        toggle_allow(user.admin?)
+      end
+
+      # Only organization admins can export a conference registrations
+      def user_can_export_conference_registrations?
+        return unless permission_action.action == :export_conference_registrations &&
+                      permission_action.subject == :conference
+
+        toggle_allow(user.admin?)
+      end
+
       # Everyone can read the conference list
       def user_can_read_conference_list?
         return unless read_conference_list_permission_action?
@@ -223,7 +243,6 @@ module Decidim
           :component,
           :component_data,
           :moderation,
-          :conference,
           :conference_user_role,
           :conference_speaker,
           :conference_invite
@@ -244,7 +263,9 @@ module Decidim
           :conference,
           :conference_user_role,
           :conference_speaker,
-          :conference_invite
+          :conference_invite,
+          :read_conference_registrations,
+          :export_conference_registrations
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

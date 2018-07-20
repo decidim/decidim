@@ -19,6 +19,7 @@ module Decidim::Conferences
         slogan: { en: "slogan" },
         slug: "slug",
         hashtag: "hashtag",
+        location: "location location",
         hero_image: nil,
         banner_image: nil,
         promoted: nil,
