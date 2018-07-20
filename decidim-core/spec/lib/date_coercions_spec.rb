@@ -30,5 +30,11 @@ describe Decidim do
       form = TmpFormWithDate.from_params(test_date: "#{date.day} :> #{date.month} () #{date.year} !!")
       expect(form.test_date).to eq(date)
     end
+    I18n.available_locales -= ["fake_locale"]
+  end
+
+  it "accepts coercion of blank values" do
+    TmpFormWithDate.from_params(test_date: nil)
+    TmpFormWithDate.from_params(test_date: "")
   end
 end

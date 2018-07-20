@@ -15,8 +15,8 @@ module Decidim
         attribute :type_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :signature_type, String
-        attribute :signature_start_time, Date
-        attribute :signature_end_time, Date
+        attribute :signature_start_time, DateTime
+        attribute :signature_end_time, DateTime
         attribute :hashtag, String
         attribute :offline_votes, Integer
 
