@@ -328,7 +328,7 @@ uk:
         all: Усі
         dummyresource: Приклади ресурсів
         meeting: Зустрічі
-        project: Задуми
+        project: Проекти
         proposal: Пропозиції
         result: Підсумки
     fingerprint:
@@ -491,7 +491,7 @@ uk:
           orders_count: Голосів
           pages_count: Сторінок
           processes_count: Рухів
-          projects_count: Задумів
+          projects_count: Проектів
           proposals_accepted: Прийняті пропозиції
           proposals_count: Пропозицій
           results_count: Підсумків
