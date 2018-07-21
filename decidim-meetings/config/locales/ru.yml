@@ -174,6 +174,17 @@ ru:
             success: Участник успешно приглашен на встречу.
           form:
             invite: Пригласить
+          index:
+            filter:
+              accepted: Принятые
+              all: Все
+              rejected: Отклоненные
+              sent: Отправленные
+            filter_by: 'Отобрать по признаку:'
+            invite_attendee: Пригласить участника
+            invites: Приглашения
+            registrations_disabled: Вы не можете пригласить участника, так как регистрация отключена.
+            search: Поиск
         meeting_closes:
           edit:
             close: Закрыть
@@ -232,6 +243,7 @@ ru:
             save: Сохранить
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
+            invites: Приглашения
             registrations_count:
               one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
@@ -243,6 +255,10 @@ ru:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
       admin_log:
+        invite:
+          create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
+          deleted: "%{user_name} отменил приглашение %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
         meeting:
           close: "%{user_name} закрыл встречу %{resource_name} в пространстве %{space_name}"
           create: "%{user_name} создал встречу %{resource_name} в пространстве %{space_name}"
@@ -303,6 +319,16 @@ ru:
             other: "Осталось %{count} мест"
           view: Посмотреть
       models:
+        invite:
+          fields:
+            email: Эл. адрес
+            name: Имя
+            sent_at: 'Отправлено:'
+            status: Состояние
+          status:
+            accepted: Принято (%{at})
+            rejected: Отклонено (%{at})
+            sent: Отправлено
         meeting:
           fields:
             closed: Завершена
@@ -315,10 +341,14 @@ ru:
         confirmation:
           confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
           details: Подробное описание встречи - в прилагаемом файле.
+          registration_code: 'Ваш регистрационный код: %{code}.'
       registrations:
         create:
           invalid: При попытке присоединиться к встрече произошла ошибка.
           success: Вы успешно зарегистрировались на эту встречу.
+        decline_invitation:
+          invalid: При попытке отклонить это приглашение произошла ошибка.
+          success: Вы успешно отклонили это приглашение.
         destroy:
           invalid: При попытке отказаться от встречи произошла ошибка.
           success: Вы успешно отменили регистрацию на встречу.
