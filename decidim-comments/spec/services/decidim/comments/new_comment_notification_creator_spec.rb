@@ -38,7 +38,6 @@ describe Decidim::Comments::NewCommentNotificationCreator do
 
   before do
     create :follow, user: user_following_comment_author, followable: comment_author
-    create :follow, user: commentable_author, followable: commentable
 
     allow(commentable)
       .to receive(:users_to_notify_on_comment_created)
