@@ -10,7 +10,7 @@ pt-BR:
         organization: Organização
         plural: Plural
       attachment:
-        attachment_collection_id: Diretório
+        attachment_collection_id: Pasta
         description: Descrição
         file: Arquivo
         title: Título
@@ -101,7 +101,7 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área local
+        local_area: Áreas municipais
         meta_scope: Metadados do âmbito
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
@@ -152,7 +152,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo tipo de área.
           success: Tipo de área criado com sucesso.
         destroy:
-          success: Tipo de área destruído com sucesso
+          success: Tipo de área excluído com sucesso
         edit:
           title: Editar tipo de área
           update: Atualizar
@@ -167,7 +167,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
-          success: Área destruída com sucesso
+          success: Área excluída com sucesso
         edit:
           title: Editar área
           update: Atualizar
@@ -180,10 +180,10 @@ pt-BR:
           success: Área atualizada com sucesso
       attachment_collections:
         create:
-          error: Houve um erro ao criar uma nova pasta.
+          error: Ocorreu um erro ao criar uma nova pasta.
           success: Pasta criada com sucesso.
         destroy:
-          success: Pasta destruída com sucesso.
+          success: Pasta excluída com sucesso.
         edit:
           title: Editar pasta
           update: Atualizar
@@ -194,7 +194,7 @@ pt-BR:
           create: Criar
           title: Nova pasta
         update:
-          error: Houve um erro ao atualizar esta pasta.
+          error: Ocorreu um erro ao atualizar esta pasta.
           success: Pasta atualizada com sucesso.
       attachments:
         create:
@@ -434,7 +434,7 @@ pt-BR:
           success: Newsletter entregue com sucesso.
         destroy:
           error_already_sent: 'Não é possível destruir a newsletter: já foi enviada.'
-          success: Newsletter destruída com sucesso.
+          success: Newsletter excluída com sucesso.
         edit:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
@@ -460,7 +460,7 @@ pt-BR:
           success: Aplicativo criado com sucesso.
         destroy:
           error: Houve um erro ao destruir este aplicativo.
-          success: Aplicativo destruído com sucesso.
+          success: Aplicativo excluído com sucesso.
         edit:
           save: Salvar
           title: Editar aplicativo
@@ -531,7 +531,7 @@ pt-BR:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
           success: Espaço participativo acesso de usuário privado criado com sucesso.
         destroy:
-          success: Espaço participativo acesso de usuário privado destruído com sucesso.
+          success: Espaço participativo acesso de usuário privado excluído com sucesso.
         index:
           title: Espaço participativo usuário particular
         new:
@@ -575,7 +575,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
         destroy:
-          success: Página destruída com sucesso
+          success: Página excluída com sucesso
         edit:
           changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar página
