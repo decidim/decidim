@@ -662,7 +662,7 @@ pt-BR:
             report_count: Contagem
             reportable: Reportable
             reported_content_url: URL de conteúdo relatado
-            reports: Relatórios
+            reports: Denúncias
             visit_url: URL de visita
   errors:
     messages:
@@ -671,11 +671,11 @@ pt-BR:
     decidim:
       admin:
         newsletters:
-          title: boletins informativos
+          title: Boletins informativos
         settings:
           title: Configurações
         users:
-          title: Utilizadores
+          title: Usuários
   time:
     formats:
       datepicker: "%d/%m/%Y"
