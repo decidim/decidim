@@ -258,7 +258,7 @@ pt-BR:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processos para %{group}
+          one: 1 processo para %{group}
           other: "%{count} processos para %{group}"
         title: Grupos de processos participativos
     participatory_process_steps:
