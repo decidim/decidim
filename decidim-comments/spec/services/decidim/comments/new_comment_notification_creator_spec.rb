@@ -119,6 +119,41 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     subject.create
   end
 
+  context "when comment author is a commentable recipient" do
+    let(:commentable_recipients) do
+      Decidim::User.where(
+        id: [
+          comment_author.id,
+          commentable_follower.id,
+          commentable_author.id
+        ]
+      )
+    end
+
+    it "does not notify comment author even if it's following the commentable" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .twice
+        .ordered
+
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .once
+        .ordered
+        .with(
+          event: "decidim.events.comments.comment_created",
+          event_class: Decidim::Comments::CommentCreatedEvent,
+          resource: dummy_resource,
+          recipient_ids: a_collection_containing_exactly(commentable_follower.id, commentable_author.id),
+          extra: {
+            comment_id: comment.id
+          }
+        )
+
+      subject.create
+    end
+  end
+
   context "when replying another comment" do
     let(:top_level_comment) { create :comment, commentable: dummy_resource, author: top_level_comment_author }
     let(:top_level_comment_author) { create(:user, organization: organization) }
