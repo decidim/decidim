@@ -14,7 +14,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   let(:comment) { create :comment, author: comment_author, commentable: commentable, root_commentable: dummy_resource }
 
   let(:mentioned_user) { create(:user, organization: organization) }
-  let(:mentioned_user_following_comment_author) { create(:user, organization: organization) }
+  let(:another_mentioned_user) { create(:user, organization: organization) }
   let(:user_following_comment_author) { create(:user, organization: organization) }
   let(:commentable_author) { create(:user, organization: organization) }
   let(:commentable_follower) { create(:user, organization: organization) }
@@ -23,7 +23,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     Decidim::User.where(
       id: [
         mentioned_user.id,
-        mentioned_user_following_comment_author.id
+        another_mentioned_user.id
       ]
     )
   end
@@ -38,7 +38,6 @@ describe Decidim::Comments::NewCommentNotificationCreator do
 
   before do
     create :follow, user: user_following_comment_author, followable: comment_author
-    create :follow, user: mentioned_user_following_comment_author, followable: comment_author
     create :follow, user: commentable_follower, followable: commentable
     create :follow, user: commentable_author, followable: commentable
 
