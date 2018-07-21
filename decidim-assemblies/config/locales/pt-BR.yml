@@ -29,7 +29,7 @@ pt-BR:
         instagram: Instagram
         internal_organisation: Organização interna
         is_transparent: É transparente
-        local_area: Área Local
+        local_area: Área local
         meta_scope: Metadados do âmbito
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
@@ -215,7 +215,7 @@ pt-BR:
             duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             included_at_help: Selecione a data em que esta montagem foi adicionada ao Decidim. Não precisa necessariamente ser o mesmo que a data de criação.
             select_a_created_by: Selecione um criado por
-            select_an_area: Selecione uma Área
+            select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de montagem
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
@@ -277,7 +277,7 @@ pt-BR:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área Local
+        local_area: Áreas municipais
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         private_space: Esta é uma assembleia privada
