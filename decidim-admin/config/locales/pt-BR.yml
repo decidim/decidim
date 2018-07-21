@@ -74,7 +74,7 @@ pt-BR:
         organization: Organização
         parent_id: Pai
         scope_type: Tipo de âmbito
-        scope_type_id: Tipo de escopo
+        scope_type_id: Tipo de âmbito
       scope_type:
         name: Nome
         organization: Organização
@@ -201,7 +201,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo anexo.
           success: Anexo criado com sucesso.
         destroy:
-          success: Anexo apagado com sucesso.
+          success: Anexo excluído com sucesso.
         edit:
           title: Editar anexo
           update: Atualizar
@@ -646,7 +646,7 @@ pt-BR:
         hide: Ocultar
         not_hidden: Não oculto
         title: Ações
-        unreport: Unreport
+        unreport: Anular denúncia
       admin:
         reportable:
           hide:
