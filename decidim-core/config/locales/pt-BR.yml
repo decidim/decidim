@@ -100,12 +100,12 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
       scope:
-        create: "%{user_name} criou o escopo %{resource_name}"
-        create_with_parent: "%{user_name} criou o escopo %{resource_name} dentro do escopo %{parent_scope}"
-        delete: "%{user_name} excluiu o escopo %{resource_name}"
-        delete_with_parent: "%{user_name} excluiu o escopo %{resource_name} dentro do escopo %{parent_scope}"
-        update: "%{user_name} atualizou o escopo %{resource_name}"
-        update_with_parent: "%{user_name} atualizou o escopo %{resource_name} dentro do escopo %{parent_scope}"
+        create: "%{user_name} criou o âmbito %{resource_name}"
+        create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+        delete: "%{user_name} excluiu o âmbito %{resource_name}"
+        delete_with_parent: "%{user_name} excluiu o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+        update: "%{user_name} atualizou o âmbito %{resource_name}"
+        update_with_parent: "%{user_name} atualizou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
       static_page:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
@@ -283,7 +283,7 @@ pt-BR:
         try_later: Por favor, tente novamente mais tarde.
       not_found:
         back_home: Voltar ao início
-        content_doesnt_exist: Este endereço está incorreto ou foi apagado.
+        content_doesnt_exist: Este endereço está incorreto ou foi excluído.
         title: A página que você procura não pode ser encontrada
     events:
       attachments:
@@ -380,9 +380,9 @@ pt-BR:
         area_type_presenter:
           not_found: 'O tipo de área não foi encontrado no banco de dados (ID: %{id})'
         scope_presenter:
-          not_found: 'O escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O âmbito não foi encontrado no banco de dados (ID: %{id})'
         scope_type_presenter:
-          not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O tipo de âmbito não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão de representação atual expirou.
     menu:
@@ -549,8 +549,8 @@ pt-BR:
         cancel: Cancelar
         choose: Selecione
         title: Selecione %{field}
-      prompt: Selecione um escopo
-      scopes: Escopos
+      prompt: Selecione um âmbito
+      scopes: Âmbitos
     search:
       filter:
         all: Todos
