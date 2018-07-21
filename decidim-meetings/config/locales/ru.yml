@@ -38,6 +38,10 @@ ru:
             base:
               too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
               too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Участник с таким адресом уже приглашен
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -82,6 +86,7 @@ ru:
             announcement: Объявление
             comments_enabled: Комментарии включены
             default_registration_terms: Условия регистрации по умолчанию
+            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
@@ -166,6 +171,7 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
+            decline: Отклонить приглашение
             invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
@@ -173,7 +179,12 @@ ru:
             error: При попытке пригласить этого участника на встречу произошла ошибка.
             success: Участник успешно приглашен на встречу.
           form:
+            attendee_type: Вид участника
+            existing_user: Существующий участник
             invite: Пригласить
+            invite_explanation: Участнику будет предложено присоединиться к встрече и к организации.
+            non_user: Не существующий участник
+            select_user: Выберите участника
           index:
             filter:
               accepted: Принятые
