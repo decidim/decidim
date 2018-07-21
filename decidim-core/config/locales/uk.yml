@@ -209,7 +209,7 @@ uk:
             comments_enabled: Коментарі увімкнено
             dummy_global_attribute_1: Приклад властивості 1
             dummy_global_attribute_2: Приклад властивості 2
-            resources_permissions_enabled: Дозволи на ресурси увімкнуто
+            resources_permissions_enabled: Дозволи ресурсів увімкнуто
           step:
             comments_blocked: Коментарі вимкнено
             dummy_step_attribute_1: Приклад 1 властивості кроку
