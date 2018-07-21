@@ -81,6 +81,7 @@ ru:
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
             proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
+            resources_permissions_enabled: Для каждого предложения можно задать те или иные разрешения на действия
             threshold_per_proposal: Порог для каждого предложения
             vote_limit: Предельное количество голосов для одного участника
           step:
