@@ -178,7 +178,7 @@ pt-BR:
             invite: Convite
             invite_explanation: O usuário será convidado a participar da reunião e também da organização.
             non_user: Usuário não existente
-            select_user: Selecione o usuário
+            select_user: Selecionar usuário
           index:
             filter:
               accepted: Aceitos
@@ -349,7 +349,7 @@ pt-BR:
           success: Você se juntou à reunião com sucesso.
         decline_invitation:
           invalid: Houve um problema ao recusar o convite.
-          success: Você recusou o convite com sucesso.
+          success: Você recusou o convite.
         destroy:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
