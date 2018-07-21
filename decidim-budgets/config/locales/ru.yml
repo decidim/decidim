@@ -129,6 +129,7 @@ ru:
             announcement: Объявление
             comments_enabled: Комментарии включены
             projects_per_page: Проектов на страницу
+            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
             total_budget: Общий бюджет
             vote_threshold_percent: Минимальный процент бюджета для голосования
           step:
