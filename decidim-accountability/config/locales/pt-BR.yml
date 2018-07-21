@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Estado
+        decidim_accountability_status_id: Status
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -82,7 +82,7 @@ pt-BR:
             success: Status excluído com êxito
           edit:
             title: Editar status
-            update: Atualizar o status
+            update: Atualizar status
           index:
             title: Status
           new:
