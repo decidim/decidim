@@ -81,7 +81,7 @@ uk:
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
-            resources_permissions_enabled: Права на дії можна встановити для кожної пропозиції
+            resources_permissions_enabled: Для кожної пропозиції можна встановити ті чи інші дозволи на дії
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
           step:
@@ -430,7 +430,7 @@ uk:
       copied_from_component:
         proposal_proposal: Супутні пропозиції
       included_projects:
-        project_result: 'Підсумки цього задуму:'
+        project_result: 'Підсумки, згадані у цьому проекті:'
       included_proposals:
-        proposal_project: 'Пропозиція є в таких задумах:'
+        proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
