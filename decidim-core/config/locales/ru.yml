@@ -410,7 +410,7 @@ ru:
           error: Беседа не началась. Попробуйте позже
         index:
           no_conversations: У вас еще нет бесед
-          title: Беседа с
+          title: Беседы
         reply:
           send: Отправить
           title: Ответить
