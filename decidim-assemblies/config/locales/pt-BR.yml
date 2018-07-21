@@ -16,7 +16,7 @@ pt-BR:
         created_by_other: Criado por outro
         creation_date: Data Criada
         decidim_area_id: Área
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
         domain: Domínio
@@ -79,7 +79,7 @@ pt-BR:
         new_assembly: Nova montagem
       assemblies:
         create:
-          error: Ocorreu um erro ao criar uma nova assembléia.
+          error: Ocorreu um erro ao criar uma nova assembleia.
           success: Assembleia criada com sucesso.
         destroy:
           success: Montagem excluída com sucesso.
@@ -106,7 +106,7 @@ pt-BR:
         new:
           copy: Cópia
           select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar assembléia
+          title: Duplicar assembleia
       assembly_members:
         create:
           error: Houve um erro ao adicionar um membro para este assembly.
@@ -126,10 +126,10 @@ pt-BR:
           success: Membro atualizado com êxito para este assembly.
       assembly_publications:
         create:
-          error: Ocorreu um erro ao publicar esta assembléia.
+          error: Ocorreu um erro ao publicar esta assembleia.
           success: Assembleia publicada com sucesso.
         destroy:
-          error: Ocorreu um erro ao atualizar esta assembléia.
+          error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia não publicada com sucesso.
       assembly_user_roles:
         create:
@@ -141,7 +141,7 @@ pt-BR:
           title: Atualize o usuário da montagem.
           update: Atualizar
         index:
-          assembly_admins_title: Usuários da assembléia
+          assembly_admins_title: Usuários da assembleia
         new:
           create: Criar
           title: Novo usuário de montagem.
@@ -151,7 +151,7 @@ pt-BR:
       menu:
         assemblies: Assembleias
         assemblies_submenu:
-          assembly_admins: Usuários da assembléia
+          assembly_admins: Usuários da assembleia
           assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: arquivos
@@ -217,11 +217,11 @@ pt-BR:
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
             select_an_assembly_type: Selecione um tipo de montagem
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -257,7 +257,7 @@ pt-BR:
         home:
           highlighted_assemblies:
             active_assemblies: Conjuntos ativos
-            see_all_assemblies: Veja todas as assembléias
+            see_all_assemblies: Veja todas as assembleias
         user_profile:
           member_of:
             member_of: Membro de
@@ -280,7 +280,7 @@ pt-BR:
         local_area: Área Local
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        private_space: Esta é uma assembléia privada
+        private_space: Esta é uma assembleia privada
         purpose_of_action: Objetivo da ação
         read_less: Leia menos
         read_more: Consulte Mais informação
@@ -334,7 +334,7 @@ pt-BR:
           take_part: Participar
       assembly_header:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A assembléia
+        assembly_menu_item: A assembleia
         unfold: Desdobrar
       assembly_widgets:
         show:
