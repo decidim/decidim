@@ -34,7 +34,7 @@ pt-BR:
         organization_logo: Logotipo da organização (quadrado)
         organization_name: Nome da organização
         organization_url: URL da organização
-        redirect_uri: URI de redirecionamento
+        redirect_uri: Redirecionar URI
       organization:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
@@ -101,7 +101,7 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área municipal
+        local_area: Área local
         meta_scope: Metadados do âmbito
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
@@ -131,7 +131,7 @@ pt-BR:
         client_secret: Client Secret
         organization_name: Nome da organização
         organization_url: URL da organização
-        redirect_uri: URI de redirecionamento
+        redirect_uri: Redirecionar URI
         site: Site
   date:
     formats:
@@ -275,7 +275,7 @@ pt-BR:
           success: O componente foi atualizado com sucesso.
       dashboard:
         show:
-          view_more_logs: Ver mais logs
+          view_more_logs: Ver mais registros
           welcome: Bem-vindo ao Decidim Admin Panel.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -542,7 +542,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
           success: Tipo de âmbito criado com sucesso.
         destroy:
-          success: Tipo de âmbito destruído com sucesso
+          success: Tipo de âmbito excluído com sucesso
         edit:
           title: Editar tipo de âmbito
           update: Atualizar
@@ -550,23 +550,23 @@ pt-BR:
           create: Criar tipo de âmbito
           title: Novo âmbito
         update:
-          error: Ocorreu um erro ao atualizar esse tipo de âmbito.
+          error: Ocorreu um erro ao atualizar este tipo de âmbito.
           success: Tipo de âmbito atualizado com sucesso
       scopes:
         create:
           error: Ocorreu um erro ao criar um novo âmbito.
           success: Âmbito criado com sucesso.
         destroy:
-          success: Âmbito destruído com sucesso
+          success: Âmbito excluído com sucesso
         edit:
-          title: Editar o âmbito
+          title: Editar âmbito
           update: Atualizar
         new:
           create: Criar âmbito
           title: Novo âmbito
         no_scopes: Nenhum âmbito neste nível.
         update:
-          error: Ocorreu um erro ao atualizar esse âmbito.
+          error: Ocorreu um erro ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
       static_pages:
         actions:
