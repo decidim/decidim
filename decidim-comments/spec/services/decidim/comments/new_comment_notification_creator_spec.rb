@@ -17,7 +17,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   let(:another_mentioned_user) { create(:user, organization: organization) }
   let(:user_following_comment_author) { create(:user, organization: organization) }
   let(:commentable_author) { create(:user, organization: organization) }
-  let(:commentable_follower) { create(:user, organization: organization) }
+  let(:commentable_recipient) { create(:user, organization: organization) }
 
   let(:mentioned_users) do
     Decidim::User.where(
@@ -30,7 +30,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   let(:commentable_recipients) do
     Decidim::User.where(
       id: [
-        commentable_follower.id,
+        commentable_recipient.id,
         commentable_author.id
       ]
     )
@@ -38,7 +38,6 @@ describe Decidim::Comments::NewCommentNotificationCreator do
 
   before do
     create :follow, user: user_following_comment_author, followable: comment_author
-    create :follow, user: commentable_follower, followable: commentable
     create :follow, user: commentable_author, followable: commentable
 
     allow(commentable)
@@ -123,7 +122,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
       Decidim::User.where(
         id: [
           comment_author.id,
-          commentable_follower.id,
+          commentable_recipient.id,
           commentable_author.id
         ]
       )
@@ -143,7 +142,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: dummy_resource,
-          recipient_ids: a_collection_containing_exactly(commentable_follower.id, commentable_author.id),
+          recipient_ids: a_collection_containing_exactly(commentable_recipient.id, commentable_author.id),
           extra: {
             comment_id: comment.id
           }
