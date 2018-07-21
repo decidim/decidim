@@ -136,7 +136,7 @@ pt-BR:
       another_dummy_authorization_handler:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
-          passport_number: Número do passaporte
+          passport_number: Número de passaporte
         name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento que termina com "X"
