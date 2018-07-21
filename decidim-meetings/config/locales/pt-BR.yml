@@ -80,7 +80,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
-            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -176,8 +176,8 @@ pt-BR:
             attendee_type: Tipo de participante
             existing_user: Usuário existente
             invite: Convite
-            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
-            non_user: Usuário não existente
+            invite_explanation: O usuário será convidado a participar do encontro e da organização.
+            non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
             filter:
