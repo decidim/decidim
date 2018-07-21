@@ -145,7 +145,7 @@ pt-BR:
         manage: Gerenciar
         new: Nova %{name}
         permissions: Permissões
-        reject: Rejeitar
+        reject: Negar
         verify: Verificar
       area_types:
         create:
@@ -295,7 +295,7 @@ pt-BR:
           not_managed: Não gerenciado
           promote: Promover
           search: Buscar
-          status: Estado
+          status: Status
           view_logs: Ver registros
       impersonations:
         close_session:
@@ -494,7 +494,7 @@ pt-BR:
           officialized: Oficializado
           reofficialize: Reorientar
           search: Pesquisa
-          status: Situação
+          status: Status
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização
