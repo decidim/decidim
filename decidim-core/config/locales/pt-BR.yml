@@ -2,18 +2,18 @@ pt-BR:
   activemodel:
     attributes:
       account:
-        delete_reason: Razão para cancelar a sua conta
+        delete_reason: Motivo para excluir sua conta
       report:
         details: Comentários adicionais
       user:
         about: Sobre
         email: O seu email
         name: Seu nome
-        nickname: Seu identificador curto e exclusivo
+        nickname: O seu identificador curto e único
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
-        remove_avatar: Remover avatar
+        remove_avatar: Excluir avatar
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
@@ -25,11 +25,11 @@ pt-BR:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: Email
+        email: E-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
-        remember_me: Recorde-me
+        remember_me: Lembrar-me
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
@@ -45,7 +45,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é demasiado grande
+      image_too_big: A imagem é muito grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -53,7 +53,7 @@ pt-BR:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Arquivo não existe
+        file_no_exists: O arquivo não existe
         invalid_token: O token fornecido é inválido.
         no_token: Nenhum token fornecido
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
@@ -61,8 +61,8 @@ pt-BR:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero cancelar a minha conta
-          question: Tem certeza de que deseja cancelar a sua conta?
+          ok: Sim, eu quero excluir minha conta
+          question: Deseja mesmo excluir a sua conta?
           title: Excluir minha conta
         explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
       destroy:
