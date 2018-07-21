@@ -48,7 +48,7 @@ module Decidim
       def notify_parent_comment_author
         return if comment.depth.zero?
 
-        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids
+        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids - [comment.author.id]
         @already_notified_ids += recipient_ids
 
         notify(recipient_ids, :reply_created)

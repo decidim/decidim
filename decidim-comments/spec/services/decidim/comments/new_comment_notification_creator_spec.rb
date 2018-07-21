@@ -152,36 +152,59 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   end
 
   context "when replying another comment" do
-    let(:top_level_comment) { create :comment, commentable: dummy_resource, author: top_level_comment_author }
-    let(:top_level_comment_author) { create(:user, organization: organization) }
     let(:commentable) { top_level_comment }
 
-    it "notifies the parent comment author" do
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .once
-        .ordered
+    context "when comment author is replying to herself" do
+      let(:top_level_comment) { create :comment, commentable: dummy_resource, author: comment_author }
 
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .once
-        .ordered
-        .with(
-          event: "decidim.events.comments.reply_created",
-          event_class: Decidim::Comments::ReplyCreatedEvent,
-          resource: dummy_resource,
-          recipient_ids: a_collection_containing_exactly(top_level_comment_author.id),
-          extra: {
-            comment_id: comment.id
-          }
-        )
+      it "does not notify the comment author" do
+        expect(Decidim::EventsManager)
+          .not_to receive(:publish)
+          .with(
+            event: "decidim.events.comments.reply_created",
+            event_class: Decidim::Comments::ReplyCreatedEvent,
+            resource: dummy_resource,
+            recipient_ids: [comment_author.id],
+            extra: {
+              comment_id: comment.id
+            }
+          )
 
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .twice
-        .ordered
+        subject.create
+      end
+    end
 
-      subject.create
+    context "when comment author is not replying to herself" do
+      let(:top_level_comment_author) { create(:user, organization: organization) }
+      let(:top_level_comment) { create :comment, commentable: dummy_resource, author: top_level_comment_author }
+
+      it "notifies the parent comment author" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .once
+          .ordered
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .once
+          .ordered
+          .with(
+            event: "decidim.events.comments.reply_created",
+            event_class: Decidim::Comments::ReplyCreatedEvent,
+            resource: dummy_resource,
+            recipient_ids: a_collection_containing_exactly(top_level_comment_author.id),
+            extra: {
+              comment_id: comment.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .twice
+          .ordered
+
+        subject.create
+      end
     end
   end
 end
