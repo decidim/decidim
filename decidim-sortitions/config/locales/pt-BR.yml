@@ -61,7 +61,7 @@ pt-BR:
               other: Sorteios
         sortitions:
           confirm_destroy:
-            confirm_destroy: Tem certeza de que deseja cancelar essa classificação?
+            confirm_destroy: Deseja mesmo cancelar este sorteio?
             destroy: Cancelar ordenação
             title: Cancelamento da classificação
           create:
@@ -142,9 +142,9 @@ pt-BR:
             other: '%{count} propostas selecionadas'
           view: Visão
         sortition_author:
-          deleted: Usuário deletado
+          deleted: Usuário excluído
         sortition_cancel_author:
-          deleted: Usuário deletado
+          deleted: Usuário excluído
         sortitions_count:
           count:
             one: 1 ordenação
