@@ -104,14 +104,14 @@ uk:
         local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
         participatory_scope: Що вирішується
-        participatory_structure: Структура співучасті
+        participatory_structure: Як це вирішується
         promoted: Рекламується
         scope: Обсяг
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Мета
+        target: Хто бере участь
         title: Назва
       decidim/participatory_process_group:
         description: Опис
