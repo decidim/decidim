@@ -83,7 +83,7 @@ pt-BR:
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
-            votes_blocked: Votação bloqueada
+            votes_blocked: Votação desativada
             votes_enabled: Votação habilitada
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
