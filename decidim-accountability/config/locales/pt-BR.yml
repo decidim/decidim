@@ -31,7 +31,7 @@ pt-BR:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Tem certeza de que deseja excluir este %{name}?
+        confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
         new: Novo %{name}
