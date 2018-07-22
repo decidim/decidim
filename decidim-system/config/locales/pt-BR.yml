@@ -2,7 +2,7 @@ pt-BR:
   decidim:
     system:
       actions:
-        confirm_destroy: Tem certeza de que deseja excluir isso?
+        confirm_destroy: Deseja mesmo excluir isso?
         destroy: Excluir
         edit: Editar
         new: Novo
