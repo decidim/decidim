@@ -69,7 +69,7 @@ pt-BR:
           ok: OK
           title: O orçamento máximo excedeu
         budget_summary:
-          are_you_sure: Tem certeza de que deseja cancelar o seu voto?
+          are_you_sure: Deseja mesmo cancelar o seu voto?
           assigned: 'Atribuído:'
           cancel_order: exclua seu voto e comece de novo
           checked_out:
