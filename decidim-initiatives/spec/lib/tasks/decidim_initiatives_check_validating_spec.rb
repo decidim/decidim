@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-# rubocop:disable RSpec/DescribeClass
 describe "decidim_initiatives:check_validating", type: :task do
   let(:threshold) { DateTime.current - Decidim::Initiatives.max_time_in_validating_state }
 
@@ -38,4 +37,3 @@ describe "decidim_initiatives:check_validating", type: :task do
     end
   end
 end
-# rubocop:enable RSpec/DescribeClass
