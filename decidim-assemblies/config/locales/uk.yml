@@ -32,7 +32,7 @@ uk:
         local_area: Дільниця
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Що вирішується
         participatory_structure: Структура співучасті
         private_space: Приватний простір
         promoted: Рекламується
@@ -284,7 +284,7 @@ uk:
           'false': непрозорі
           'true': прозорі
         local_area: Дільниця
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Що вирішується
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
         purpose_of_action: Мета дії
