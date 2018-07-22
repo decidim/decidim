@@ -63,7 +63,7 @@ pt-BR:
       actions:
         activate: Ativar
         configure: Configurar
-        confirm_destroy: Confirme a exclusão
+        confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
