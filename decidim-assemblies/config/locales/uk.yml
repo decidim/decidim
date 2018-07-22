@@ -29,7 +29,7 @@ uk:
         instagram: Інстаграм
         internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
-        local_area: Місцева дільниця
+        local_area: Дільниця
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Обсяг співучасті
@@ -283,7 +283,7 @@ uk:
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Місцева дільниця
+        local_area: Дільниця
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         private_space: Це приватні збори
