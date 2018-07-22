@@ -29,7 +29,7 @@ ru:
         instagram: Инстаграм
         internal_organisation: Внутренняя организация
         is_transparent: Прозрачное
-        local_area: Местный участок
+        local_area: Участок
         meta_scope: Метаданные охвата
         participatory_processes_ids: Сопутствующие движения соучастия
         participatory_scope: Охват соучастия
@@ -283,7 +283,7 @@ ru:
         is_transparent:
           'false': непрозрачное
           'true': прозрачное
-        local_area: Местный участок
+        local_area: Участок
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         private_space: Это частное собрание
