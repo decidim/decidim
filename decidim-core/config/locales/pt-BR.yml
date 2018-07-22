@@ -67,7 +67,7 @@ pt-BR:
         explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
       destroy:
         error: Ocorreu um erro ao cancelar a sua conta.
-        success: Sua conta foi cancelada com sucesso.
+        success: Sua conta foi excluída.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
@@ -593,7 +593,7 @@ pt-BR:
         share: Partilhar
         share_link: Partilhar link
       version_author:
-        deleted: Usuário deletado
+        deleted: Usuário excluído
   devise:
     invitations:
       edit:
@@ -681,7 +681,7 @@ pt-BR:
       user_profile:
         account: Conta
         authorizations: Autorizações
-        delete_my_account: Deletar minha conta
+        delete_my_account: Excluir minha conta
         my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
