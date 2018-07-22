@@ -33,7 +33,7 @@ uk:
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
         participatory_scope: Що вирішується
-        participatory_structure: Структура співучасті
+        participatory_structure: Як це вирішується
         private_space: Приватний простір
         promoted: Рекламується
         published_at: 'Оприлюднено:'
@@ -45,7 +45,7 @@ uk:
         slug: Скорочена веб-адреса
         special_features: Особливості
         subtitle: Підзаголовок
-        target: Мета
+        target: Хто бере участь
         title: Назва
         twitter: Твіттер
         youtube: ЮТуб
@@ -285,7 +285,7 @@ uk:
           'true': прозорі
         local_area: Дільниця організації
         participatory_scope: Що вирішується
-        participatory_structure: Структура співучасті
+        participatory_structure: Як це вирішується
         private_space: Це приватні збори
         purpose_of_action: Мета дії
         read_less: Читати менше
@@ -293,7 +293,7 @@ uk:
         related_participatory_processes: Пов'язані рухи співучасті
         scope: Обсяг
         social_networks: Соціальні мережі
-        target: Мета
+        target: Хто бере участь
       statistics:
         answers_count: Відповідей
         assemblies_count: Зборів
