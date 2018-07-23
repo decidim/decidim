@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-# rubocop:disable RSpec/DescribeClass
 describe "decidim_initiatives:notify_progress", type: :task do
   it "preloads the Rails environment" do
     expect(task.prerequisites).to include "environment"
@@ -118,4 +117,3 @@ describe "decidim_initiatives:notify_progress", type: :task do
     end
   end
 end
-# rubocop:enable RSpec/DescribeClass

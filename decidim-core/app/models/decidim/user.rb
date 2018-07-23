@@ -137,6 +137,12 @@ module Decidim
                      end
     end
 
+    def following_users
+      @following_users ||= following.select do |f|
+        f.is_a?(Decidim::User)
+      end
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end

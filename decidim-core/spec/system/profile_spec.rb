@@ -71,6 +71,7 @@ describe "Profile", type: :system do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
+      let!(:something_that_should_not_be_counted) { create(:follow, user: user, followable: build(:dummy_resource)) }
 
       before do
         create(:follow, user: user, followable: other_user)
