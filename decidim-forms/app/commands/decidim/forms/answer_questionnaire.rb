@@ -27,11 +27,11 @@ module Decidim
       private
 
       def answer_questionnaire
-        Decidim::Surveys::SurveyAnswer.transaction do
-          @form.survey_answers.each do |form_answer|
-            answer = Decidim::Surveys::SurveyAnswer.new(
+        Answer.transaction do
+          @form.answers.each do |form_answer|
+            answer = Answer.new(
               user: @current_user,
-              survey: @questionnaire,
+              questionnaire: @questionnaire,
               question: form_answer.question,
               body: form_answer.body
             )
@@ -40,7 +40,7 @@ module Decidim
               answer.choices.build(
                 body: choice.body,
                 custom_body: choice.custom_body,
-                decidim_survey_answer_option_id: choice.answer_option_id,
+                decidim_answer_option_id: choice.answer_option_id,
                 position: choice.position
               )
             end

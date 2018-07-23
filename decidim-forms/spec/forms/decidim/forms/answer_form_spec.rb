@@ -6,20 +6,22 @@ module Decidim
   module Forms
     describe AnswerForm do
       subject do
-        described_class.from_model(survey_answer).with_context(current_component: survey.component)
+        described_class.from_model(answer)
       end
 
       let(:mandatory) { false }
       let(:question_type) { "short_answer" }
       let(:max_choices) { nil }
 
-      let!(:survey) { create(:survey) }
-      let!(:user) { create(:user, organization: survey.component.participatory_space.organization) }
 
-      let!(:survey_question) do
+      let!(:questionable) { create(:dummy_resource) }
+      let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
+      let!(:user) { create(:user, organization: questionable.organization) }
+
+      let!(:question) do
         create(
-          :survey_question,
-          survey: survey,
+          :question,
+          questionnaire: questionnaire,
           mandatory: mandatory,
           question_type: question_type,
           max_choices: max_choices,
@@ -31,7 +33,7 @@ module Decidim
         )
       end
 
-      let!(:survey_answer) { build(:survey_answer, user: user, survey: survey, question: survey_question) }
+      let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

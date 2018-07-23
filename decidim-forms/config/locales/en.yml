@@ -1,0 +1,7 @@
+---
+en:
+  decidim:
+    forms:
+      questionnaires:
+        question:
+          max_choices: 'Max choices: %{n}'

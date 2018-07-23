@@ -20,7 +20,7 @@ module Decidim
 
       # Finds and group answers by user for each questionnaire's question.
       def query
-        answers = Decidim::Surveys::SurveyAnswer.where(survey: @questionnaire) # FIXME: remove namespace and change relation name
+        answers = Answer.where(questionnaire: @questionnaire)
         answers.sort_by { |answer| answer.question.position }.group_by(&:user).values
       end
     end

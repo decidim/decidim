@@ -96,8 +96,6 @@ en:
         answer:
           invalid: There's been errors when answering the survey.
           success: Survey answered successfully.
-        question:
-          max_choices: 'Max choices: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the survey.

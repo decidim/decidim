@@ -20,7 +20,7 @@ module Decidim
         translatable_attribute :description, String
 
         validates :position, numericality: { greater_than_or_equal_to: 0 }
-        validates :question_type, inclusion: { in: Decidim::Surveys::SurveyQuestion::TYPES }  # FIXME: remove namespace
+        validates :question_type, inclusion: { in: Decidim::Forms::Question::TYPES }
         validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true
         validates :body, translatable_presence: true, unless: :deleted
 

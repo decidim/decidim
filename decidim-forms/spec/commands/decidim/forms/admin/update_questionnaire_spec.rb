@@ -8,8 +8,7 @@ module Decidim
       describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
-        let(:survey) { create(:survey, component: component) }
+        let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
         let(:published_at) { nil }
         let(:form_params) do
           {
@@ -110,12 +109,12 @@ module Decidim
         end
         let(:form) do
           QuestionnaireForm.from_params(
-            survey: form_params
+            questionnaire: form_params
           ).with_context(
             current_organization: current_organization
           )
         end
-        let(:command) { described_class.new(form, survey) }
+        let(:command) { described_class.new(form, questionnaire) }
 
         describe "when the form is invalid" do
           before do
@@ -126,8 +125,8 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the survey" do
-            expect(survey).not_to receive(:update!)
+          it "doesn't update the questionnaire" do
+            expect(questionnaire).not_to receive(:update!)
             command.call
           end
         end
@@ -137,37 +136,37 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "updates the survey" do
+          it "updates the questionnaire" do
             command.call
-            survey.reload
+            questionnaire.reload
 
-            expect(survey.description["en"]).to eq("<p>Content</p>")
-            expect(survey.questions.length).to eq(4)
+            expect(questionnaire.description["en"]).to eq("<p>Content</p>")
+            expect(questionnaire.questions.length).to eq(4)
 
-            survey.questions.each_with_index do |question, idx|
+            questionnaire.questions.each_with_index do |question, idx|
               expect(question.body["en"]).to eq(form_params["questions"][idx.to_s]["body"]["en"])
             end
 
-            expect(survey.questions[1]).to be_mandatory
-            expect(survey.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
-            expect(survey.questions[1].question_type).to eq("long_answer")
-            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+            expect(questionnaire.questions[1]).to be_mandatory
+            expect(questionnaire.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
+            expect(questionnaire.questions[1].question_type).to eq("long_answer")
+            expect(questionnaire.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
 
-            expect(survey.questions[2].question_type).to eq("single_option")
-            expect(survey.questions[2].max_choices).to be_nil
+            expect(questionnaire.questions[2].question_type).to eq("single_option")
+            expect(questionnaire.questions[2].max_choices).to be_nil
 
-            expect(survey.questions[3].question_type).to eq("multiple_option")
-            expect(survey.questions[2].answer_options[0].free_text).to eq(false)
-            expect(survey.questions[2].max_choices).to be_nil
+            expect(questionnaire.questions[3].question_type).to eq("multiple_option")
+            expect(questionnaire.questions[2].answer_options[0].free_text).to eq(false)
+            expect(questionnaire.questions[2].max_choices).to be_nil
 
-            expect(survey.questions[3].question_type).to eq("multiple_option")
-            expect(survey.questions[3].answer_options[0].free_text).to eq(true)
-            expect(survey.questions[3].max_choices).to eq(2)
+            expect(questionnaire.questions[3].question_type).to eq("multiple_option")
+            expect(questionnaire.questions[3].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[3].max_choices).to eq(2)
           end
         end
 
-        describe "when the survey has an existing question" do
-          let!(:survey_question) { create(:survey_question, survey: survey) }
+        describe "when the questionnaire has an existing question" do
+          let!(:question) { create(:question, questionnaire: questionnaire) }
 
           context "and the question should be removed" do
             let(:form_params) do
@@ -189,8 +188,8 @@ module Decidim
                 },
                 "questions" => [
                   {
-                    "id" => survey_question.id,
-                    "body" => survey_question.body,
+                    "id" => question.id,
+                    "body" => question.body,
                     "position" => 0,
                     "question_type" => "short_answer",
                     "deleted" => "true"
@@ -199,11 +198,11 @@ module Decidim
               }
             end
 
-            it "deletes the survey question" do
+            it "deletes the questionnaire question" do
               command.call
-              survey.reload
+              questionnaire.reload
 
-              expect(survey.questions.length).to eq(0)
+              expect(questionnaire.questions.length).to eq(0)
             end
           end
         end

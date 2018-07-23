@@ -47,7 +47,7 @@ module Decidim
         end
 
         def question_types
-          @question_types ||= SurveyQuestion::TYPES.map do |question_type|
+          @question_types ||= Decidim::Forms::Question::TYPES.map do |question_type| # FIXME: remove namespace
             [question_type, I18n.t("decidim.surveys.question_types.#{question_type}")]
           end
         end

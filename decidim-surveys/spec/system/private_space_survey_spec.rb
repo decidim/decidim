@@ -28,7 +28,7 @@ describe "Private Space Answer a survey", type: :system do
   let!(:participatory_space_private_user) { create :participatory_space_private_user, user: other_user, privatable_to: participatory_space_private }
 
   let!(:survey) { create(:survey, component: component, title: title, description: description) }
-  let!(:survey_question) { create(:survey_question, survey: survey, position: 0) }
+  let!(:question) { create(:question, questionnaire: survey.questionnaire, position: 0) }
 
   let!(:participatory_space) { participatory_space_private }
 
@@ -54,7 +54,7 @@ describe "Private Space Answer a survey", type: :system do
           expect(page).to have_i18n_content(survey.title, upcase: true)
           expect(page).to have_i18n_content(survey.description)
 
-          expect(page).to have_no_i18n_content(survey_question.body)
+          expect(page).to have_no_i18n_content(question.body)
 
           expect(page).to have_content("Sign in with your account or sign up to answer the survey.")
         end
@@ -73,7 +73,7 @@ describe "Private Space Answer a survey", type: :system do
           expect(page).to have_i18n_content(survey.title, upcase: true)
           expect(page).to have_i18n_content(survey.description)
 
-          fill_in survey_question.body["en"], with: "My first answer"
+          fill_in question.body["en"], with: "My first answer"
 
           check "survey_tos_agreement"
 
@@ -84,7 +84,7 @@ describe "Private Space Answer a survey", type: :system do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).to have_no_i18n_content(survey_question.body)
+          expect(page).to have_no_i18n_content(question.body)
         end
       end
 
@@ -130,7 +130,7 @@ describe "Private Space Answer a survey", type: :system do
           expect(page).to have_i18n_content(survey.title, upcase: true)
           expect(page).to have_i18n_content(survey.description)
 
-          fill_in survey_question.body["en"], with: "My first answer"
+          fill_in question.body["en"], with: "My first answer"
 
           check "survey_tos_agreement"
 
@@ -141,7 +141,7 @@ describe "Private Space Answer a survey", type: :system do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).to have_no_i18n_content(survey_question.body)
+          expect(page).to have_no_i18n_content(question.body)
         end
       end
 

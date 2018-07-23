@@ -23,7 +23,7 @@ module Decidim
       attr_writer :question
 
       def question
-        @question ||= Decidim::Surveys::SurveyQuestion.find(question_id)
+        @question ||= Decidim::Forms::Question.find(question_id)
       end
 
       def label(idx)
@@ -37,7 +37,7 @@ module Decidim
       #
       # Returns nothing.
       def map_model(model)
-        self.question_id = model.decidim_survey_question_id
+        self.question_id = model.decidim_question_id
         self.question = model.question
 
         self.choices = model.choices.map do |choice|
@@ -64,7 +64,7 @@ module Decidim
       end
 
       def max_choices_label
-        I18n.t("surveys.question.max_choices", scope: "decidim.surveys", n: question.max_choices)
+        I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
       end
     end
   end

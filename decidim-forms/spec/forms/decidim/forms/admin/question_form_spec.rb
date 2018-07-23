@@ -8,14 +8,15 @@ module Decidim
       describe QuestionForm do
         subject do
           described_class.from_params(
-            survey_question: attributes
-          ).with_context(current_component: survey.component, current_organization: organization)
+            question: attributes
+          ).with_context(current_organization: questionable.organization)
         end
 
-        let!(:survey) { create(:survey) }
+        let!(:questionable) { create(:dummy_resource) }
+        let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
         let!(:position) { 0 }
-        let!(:question_type) { Decidim::Surveys::SurveyQuestion::TYPES.first } # FIXME: remove namespace
-        let!(:organization) { create :organization }
+        let!(:question_type) { Decidim::Forms::Question::TYPES.first }
+
         let(:deleted) { "false" }
         let(:attributes) do
           {

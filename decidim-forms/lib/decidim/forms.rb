@@ -7,6 +7,6 @@ require "decidim/forms/admin_engine"
 module Decidim
   # This namespace holds the logic of the `Forms`.
   module Forms
-
+    autoload :UserAnswersSerializer, "decidim/forms/user_answers_serializer"
   end
 end

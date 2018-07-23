@@ -21,7 +21,7 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Decidim::Surveys::Survey.transaction do
+          Decidim::Forms::Questionnaire.transaction do
             update_questionnaire_questions if @questionnaire.questions_editable?
             update_questionnaire
           end

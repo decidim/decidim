@@ -67,7 +67,7 @@ module Decidim
 
         let(:attributes) do
           {
-            "survey" => {
+            "questionnaire" => {
               "tos" => tos,
               "title" => title,
               "description" => description,

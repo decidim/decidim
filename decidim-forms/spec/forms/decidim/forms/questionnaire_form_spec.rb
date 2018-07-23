@@ -6,14 +6,14 @@ module Decidim
   module Forms
     describe QuestionnaireForm do
       subject do
-        described_class.from_model(survey).with_context(current_component: survey.component)
+        described_class.from_model(questionnaire)
       end
 
-      let!(:survey) { create(:survey) }
-      let!(:survey_question) { create(:survey_question, survey: survey) }
+      let!(:questionnaire) { create(:questionnaire) }
+      let!(:question) { create(:question, questionnaire: questionnaire) }
 
       it "builds empty answers for each question" do
-        expect(subject.survey_answers.length).to eq(1)
+        expect(subject.answers.length).to eq(1)
       end
 
       context "when tos_agreement is not accepted" do
