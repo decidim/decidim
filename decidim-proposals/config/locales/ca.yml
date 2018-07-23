@@ -80,11 +80,11 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
-            votes_blocked: Votació bloquejada
-            votes_enabled: S'ha habilitat la votació
+            votes_blocked: Suports deshabilitats
+            votes_enabled: Recollida de suport habilitada
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
@@ -96,7 +96,7 @@ ca:
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Ara ja et pots adherir a les propostes de %{participatory_space_title}
+          email_subject: Ara ja pots adherir-te a les propostes de %{participatory_space_title}
           notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
