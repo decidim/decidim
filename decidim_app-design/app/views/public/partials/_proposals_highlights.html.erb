@@ -1,6 +1,11 @@
 <div class="row small-up-1 medium-up-2 card-grid">
   <div class="column">
     <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view-rejected"), class: "card__link" do %>
@@ -44,6 +49,11 @@
   </div>
   <div class="column">
     <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>

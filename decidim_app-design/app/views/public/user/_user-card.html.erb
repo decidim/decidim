@@ -33,5 +33,50 @@
         <% end %>
       </div>
     </div>
+    <% if @activeuser != "logged" %>
+      <div class="row">
+        <div class="column medium-8 medium-centered">
+          <button class="button secondary hollow expanded button--icon button--sc">
+            <%= icon "bell" %>
+            <span>Seguir</span>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="card__footer card__footer--transparent">
+    <div class="card__support">
+      <div class="row column mb-s">
+        <strong class="muted">Badges</strong>
+        <div class="badge-tip badge-tip--inline">
+          <div data-tooltip data-position="top" title="<%= Faker::Lebowski.quote %>">
+            <%= icon "info", class: "icon--small" %>
+          </div>
+        </div>
+      </div>
+      <%= render layout: "public/components/collapsible-list", locals: { text: raw("<u>see all</u>"), classes: "row small-up-2 medium-up-4 collapse", size: 6, classText: "text-small pt-s" } do %>
+        <% @files.each do |i| %>
+        <div class="column">
+          <div class="badge-container pr-xs">
+            <%= external_icon "badges/" + File.basename(i, ".svg") + ".svg", class: "badge__logo--small", remove_icon_class: true %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if @activeuser == "logged" %>
+<div class="row">
+  <div class="column medium-8 medium-centered">
+    <button class="button light expanded">Edit profile</button>
+  </div>
+</div>
+<% end %>
+<div class="row">
+  <div class="column medium-8 medium-centered">
+    <button class="button secondary light expanded">
+      Invite friends
+    </button>
   </div>
 </div>
