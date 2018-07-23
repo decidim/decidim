@@ -266,6 +266,8 @@ gl:
         endorsement_button:
           already_endorsed: Aprobado
           endorse: Endosar
+        render_endorsements_button_card_part:
+          endorse: Endosar
       proposal_votes:
         create:
           error: Houbo erros ao votar a proposta.
@@ -297,7 +299,6 @@ gl:
           endorse: Endosar
         endorsements_card_row:
           comments: Comentarios
-          endorse: Endosar
         filters:
           accepted: Aceptada
           activity: Actividade
