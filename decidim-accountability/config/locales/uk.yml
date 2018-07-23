@@ -8,7 +8,7 @@ uk:
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
-        project_ids: Включені задуми
+        project_ids: Включені проекти
         proposals: Включені пропозиції
         start_date: Дата початку
         title: Назва
@@ -38,7 +38,7 @@ uk:
         edit: Редагувати
         new: Додати %{name}
         preview: Попередній перегляд
-        timeline_entries: Розвиток задуму
+        timeline_entries: Розвиток проекту
         title: Дії
       admin:
         exports:
@@ -103,7 +103,7 @@ uk:
             title: Редагувати запис
             update: Оновити запис
           index:
-            title: Записи на лінії часу задуму
+            title: Записи на лінії часу проекту
           new:
             create: Створити запис
             title: Додати запис
@@ -173,7 +173,7 @@ uk:
             version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
             votes: Підтримує
         timeline:
-          title: Розвиток задуму
+          title: Розвиток проекту
       versions:
         index:
           changes_at_title: Зміни в "%{title}"
@@ -190,7 +190,7 @@ uk:
             categories_label: Назва для "Розряди"
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
-            heading_leaf_level_results: Назва для "Задуми"
+            heading_leaf_level_results: Назва для "Проекти"
             heading_parent_level_results: Назва для "Підсумки"
             intro: Вступ
             subcategories_label: Назва для "Підрозряди"
@@ -213,6 +213,6 @@ uk:
         see_all_results: Переглянути всі підсумки
     resource_links:
       included_projects:
-        result_project: Задуми, включені до цих підсумків
+        result_project: Проекти, включені до цих підсумків
       included_proposals:
         result_proposal: Пропозиції, включені до цих підсумків
