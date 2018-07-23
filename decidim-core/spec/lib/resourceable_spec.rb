@@ -9,10 +9,11 @@ module Decidim
     end
 
     describe "linked_resources" do
-      let(:participatory_process) { create(:participatory_process) }
+      let(:organization) { create(:organization) }
+      let(:participatory_process) { create(:participatory_process, organization: organization) }
 
-      let!(:target_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
-      let!(:current_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
+      let!(:target_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process, organization: organization) }
+      let!(:current_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process, organization: organization) }
 
       let!(:resource) { create(:dummy_resource, component: current_component) }
       let!(:target_resource) { create(:dummy_resource, component: target_component) }
@@ -111,10 +112,11 @@ module Decidim
     describe "#linked_classes_for" do
       subject { Decidim::Proposals::Proposal }
 
-      let(:proposals_component_1) { create :component, manifest_name: "proposals" }
-      let(:proposals_component_2) { create :component, manifest_name: "proposals" }
-      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component_1.participatory_space }
-      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component_2.participatory_space }
+      let(:organization) { create(:organization) }
+      let(:proposals_component_1) { create :component, manifest_name: "proposals", organization: organization }
+      let(:proposals_component_2) { create :component, manifest_name: "proposals", organization: organization }
+      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component_1.participatory_space, organization: organization }
+      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component_2.participatory_space, organization: organization }
       let(:proposal_1) { create :proposal, component: proposals_component_1 }
       let(:proposal_2) { create :proposal, component: proposals_component_2 }
       let(:meeting) { create :meeting, component: meetings_component }

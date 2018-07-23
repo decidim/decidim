@@ -9,12 +9,13 @@ module Decidim
     include Publicable
     include Traceable
     include Loggable
+    include Organizable
 
     belongs_to :participatory_space, polymorphic: true
 
     default_scope { order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
-    delegate :organization, :categories, to: :participatory_space
+    delegate :categories, to: :participatory_space
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter

@@ -11,7 +11,7 @@ module Decidim
     end
 
     let(:component) do
-      create(:component, id: 1, participatory_space: participatory_process)
+      create(:component, id: 1, participatory_space: participatory_process, organization: organization)
     end
 
     let(:resource) do

@@ -28,7 +28,7 @@ FactoryBot.define do
         { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
       ]
     end
-    component { build(:component, manifest_name: "meetings") }
+    component { create(:component, manifest_name: "meetings") }
 
     organizer do
       create(:user, organization: component.organization) if component

@@ -242,7 +242,6 @@ FactoryBot.define do
     transient do
       organization { create(:organization) }
     end
-
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name "dummy"
@@ -379,7 +378,7 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: organization }
-    component { build :component, participatory_space: participatory_space }
+    component { create :component, participatory_space: participatory_space }
     resource { build(:dummy_resource, component: component) }
     action { "create" }
     extra do
