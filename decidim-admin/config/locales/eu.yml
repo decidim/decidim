@@ -108,13 +108,13 @@ eu:
         promoted: Nabarmendua
         scope: Esparrua
         short_description: Deskribapen laburra
-        slug: URL testu laburra
+        slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Titulua
       decidim/participatory_process_group:
-        description: Deskribapena
+        description: Descripción
         hero_image: Orri nagusiko irudia
         name: Izena
         participatory_processes: Prozesu partizipatiboak
