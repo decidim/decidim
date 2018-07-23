@@ -235,7 +235,7 @@ pt-BR:
               ceased: Cessou
               not_ceased: Não cessou
             filter_by: Filtrar por
-            search: Pesquisa
+            search: Procurar
       assembly_members:
         index:
           members: Membros
