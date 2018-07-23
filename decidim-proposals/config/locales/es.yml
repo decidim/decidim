@@ -71,15 +71,15 @@ es:
             proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_3_help_text: Texto de ayuda al paso "Completar" de propuestas
+            proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             threshold_per_proposal: Umbral por propuesta
-            vote_limit: Límite de voto por usuario
+            vote_limit: Límite de apoyos por usuario
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de propuesta habilitada
+            creation_enabled: Habilitar creación de propuestas
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas
@@ -106,7 +106,7 @@ es:
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a quién sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:"
           email_outro: Has recibido esta notificación porque estás siguiendo %{endorser_nickname}. Puedes dejar de recibir notificaciones a través del enlace anterior.
-          email_subject: "%{endorser_nickname} ha reivindicado una nueva propuesta"
+          email_subject: "%{endorser_nickname} se ha adherido a una nueva propuesta."
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido reivindicada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
