@@ -112,6 +112,11 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
+        registration_code_validated:
+          email_intro: Ваш регистрационный код «%{registration_code}» подтвержден.
+          email_outro: Вы получили это уведомление, потому что ваш регистрационный код для встречи «%{resource_title}» был подтвержден.
+          email_subject: Ваш регистрационный код «%{registration_code}» подтвержден
+          notification_title: Ваш регистрационный код «%{registration_code}» для встречи <a href="%{resource_path}">%{resource_title}</a> был подтвержден.
         registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
@@ -252,6 +257,8 @@ ru:
         registrations:
           edit:
             save: Сохранить
+            validate: Подтвердить
+            validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
@@ -265,6 +272,9 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
+          validate_registration_code:
+            invalid: Этот регистрационный код неуместен.
+            success: Регистрационный код успешно подтвержден.
       admin_log:
         invite:
           create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
