@@ -384,7 +384,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser validat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validades, les propostes han d'arribar a un quòrum mínim de %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
