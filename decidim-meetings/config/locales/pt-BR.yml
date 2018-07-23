@@ -250,7 +250,7 @@ pt-BR:
             name: encontro
         registrations:
           edit:
-            save: Salve 
+            save: Salvar
             validate: Confirmar
             validate_registration_code: Confirmar código de registro
           form:
@@ -297,7 +297,7 @@ pt-BR:
         filters:
           category: Categoria
           category_prompt: Selecione uma categoria
-          date: Encontro
+          date: Data
           past: Passado
           search: Pesquisa
           upcoming: próximos
