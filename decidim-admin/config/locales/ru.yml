@@ -93,34 +93,6 @@ ru:
               must_be_ssl: URI перенаправления должен быть SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Изображение баннера
-        description: Описание
-        developer_group: Рабочая группа по продвижению
-        domain: Домен
-        end_date: Дата окончания
-        hashtag: Хэштег
-        hero_image: Изображение главной страницы
-        local_area: Участок организации
-        meta_scope: Метаданные охвата
-        participatory_scope: Что решается
-        participatory_structure: Как это решается
-        promoted: Рекламируется
-        scope: Охват
-        short_description: Краткое описание
-        slug: Сокращенный веб-адрес
-        start_date: Дата начала
-        subtitle: Подзаголовок
-        target: Кто участвует
-        title: Название
-      decidim/participatory_process_group:
-        description: Описание
-        hero_image: Изображение главной страницы
-        name: Имя
-        participatory_processes: Движения соучастия
-      decidim/participatory_process_step:
-        end_date: Дата окончания
-        start_date: Дата начала
       decidim/static_page:
         content: Содержание
         slug: Сокращенный веб-адрес
