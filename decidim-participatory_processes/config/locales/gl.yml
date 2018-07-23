@@ -13,11 +13,11 @@ gl:
         end_date: Data de finalización
         hashtag: Etiqueta
         hero_image: Imaxe na casa
-        local_area: Área local
+        local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -27,7 +27,7 @@ gl:
         slug: URL slug
         start_date: Data de inicio
         subtitle: Subtítulo
-        target: Obxectivo
+        target: Quen participa
         title: Título
       participatory_process_group:
         description: Descrición
