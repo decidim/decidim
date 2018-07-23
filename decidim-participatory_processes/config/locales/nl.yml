@@ -13,11 +13,8 @@ nl:
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        local_area: Lokaal gebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep thema's
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -27,7 +24,6 @@ nl:
         slug: URL slak
         start_date: Startdatum
         subtitle: Ondertiteling
-        target: Doel
         title: Titel
       participatory_process_group:
         description: Beschrijving
