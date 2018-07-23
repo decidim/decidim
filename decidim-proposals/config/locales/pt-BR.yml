@@ -260,7 +260,7 @@ pt-BR:
         create:
           error: Houve erros ao endossar a proposta.
         identities:
-          done: Feito
+          done: Concluído
           select_identity: Selecione a identidade
       proposal_endorsements_helper:
         endorsement_button:
@@ -334,7 +334,7 @@ pt-BR:
         orders:
           label: 'Ordene propostas por:'
           most_voted: Mais votados
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         preview:
           modify: Modificar a proposta
