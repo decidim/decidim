@@ -68,10 +68,10 @@
                 <%= member_presenter.position %>
               </td>
               <td>
-                <%= l member.designation_date, format: :datepicker %>
+                <%= l member.designation_date, format: :decidim_short %>
               </td>
               <td>
-                <%= member.ceased_date ? l(member.ceased_date, format: :datepicker) : nil %>
+                <%= member.ceased_date ? l(member.ceased_date, format: :decidim_short) : nil %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :assembly_member, member: member %>

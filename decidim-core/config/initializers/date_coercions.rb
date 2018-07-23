@@ -12,7 +12,7 @@ module Coercible
         # NOTE: The used format should be the same than the one used by
         # the user (manual date entry) and the datepicker widget in the UI.
         return value if value.blank?
-        ::Date.strptime(value, I18n.t("date.formats.datepicker"))
+        ::Date.strptime(value, I18n.t("date.formats.decidim_short"))
       end
     end
   end

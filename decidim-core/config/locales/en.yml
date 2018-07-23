@@ -49,10 +49,9 @@ en:
       image_too_big: The image is too big
   date:
     formats:
-      datepicker: "%d/%m/%Y"
+      datepicker: dd/mm/yyyy
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
-      displayed: dd/mm/yyyy
   decidim:
     account:
       data_portability_export:
