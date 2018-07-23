@@ -2,13 +2,13 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-**Upgrade notes (search)**:
+**Upgrade notes**:
 
-In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
+- In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
 
-```ruby
-Decidim::User.find_each(&:add_to_index_as_search_resource)
-```
+  ```ruby
+  Decidim::User.find_each(&:add_to_index_as_search_resource)
+  ```
 
 **Added**:
 
