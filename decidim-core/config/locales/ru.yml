@@ -200,7 +200,7 @@ ru:
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
-          newsletter: Получать время от времени рассылку с новостями
+          newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
           nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_in: Войти
@@ -355,7 +355,7 @@ ru:
           error: Беседа не началась. Попробуйте позже
         index:
           no_conversations: У вас еще нет бесед
-          title: Беседа с
+          title: Беседы
         reply:
           send: Отправить
           title: Ответить
