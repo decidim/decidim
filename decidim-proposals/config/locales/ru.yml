@@ -274,6 +274,8 @@ ru:
         endorsement_button:
           already_endorsed: Поддержано
           endorse: Поддержать
+        render_endorsements_button_card_part:
+          endorse: Поддержать
       proposal_votes:
         create:
           error: При голосовании по этому предложению произошли ошибки.
