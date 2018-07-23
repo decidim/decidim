@@ -104,7 +104,7 @@ pt-BR:
           cancelled: Cancelado
           category: Categoria
           category_prompt: Selecionar uma categoria
-          search: Pesquisa
+          search: Pesquisar
           state: Estado
         filters_small_view:
           close_modal: Fechar modal
@@ -115,7 +115,7 @@ pt-BR:
           selected_proposals: Propostas selecionadas
         orders:
           label: 'Ordenar ordenações por:'
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         results_count:
           count:
