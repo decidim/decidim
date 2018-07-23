@@ -10,9 +10,7 @@ module Decidim
       highlighted_metrics = Decidim::MetricEntity.metric_entities & %w(usersMetric proposalsMetric)
       safe_join(
         highlighted_metrics.map do |metric|
-          content_tag :div, class: "column medium-4" do
-            render_metrics_data(metric)
-          end
+          render_metrics_data(metric)
         end
       )
     end
@@ -20,14 +18,9 @@ module Decidim
     # Public: Render a collection of metrics that are not primary.
     def not_highlighted
       not_highlighted_metrics = Decidim::MetricEntity.metric_entities - %w(usersMetric proposalsMetric)
-
       safe_join(
         not_highlighted_metrics.map do |metric|
-          content_tag :div, class: "column medium-4 left" do
-            content_tag :div, class: "column medium-6" do
-              render_metrics_data(metric, klass: "small")
-            end
-          end
+          render_metrics_data(metric, klass: "small")
         end
       )
     end

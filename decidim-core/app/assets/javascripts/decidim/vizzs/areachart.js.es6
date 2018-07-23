@@ -30,7 +30,7 @@ const areachart = (opts = {}) => {
   // parse opts
   let data = parseData(opts.data)
   let title = opts.title
-  let objectName = opts.object_name || ""
+  let objectName = opts.objectName || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
   let ratio = opts.ratio || (4/3)
