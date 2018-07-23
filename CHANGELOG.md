@@ -32,6 +32,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-proposals**: Fix Endorse button broken if endorse action is authorized. [\#3875](https://github.com/decidim/decidim/pull/3875)
 - **decidim-proposals**: Refactor searchable proposal test to avoid flakes. [\#3825](https://github.com/decidim/decidim/pull/3825)
 - **decidim-proposals**: Proposal seeds iterate over a sample of users to add coauthorships. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-core**: Make proposal m-card render its authorship again. [\#3727](https://github.com/decidim/decidim/pull/3727)
@@ -48,6 +49,8 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
 - **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
 - **decidim-core**: Set `organization.tos_version` when creating `terms-and-conditions` DefaultPage [#3882](https://github.com/decidim/decidim/pull/3882)
+- **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
+- **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
 
 **Removed**:
 
