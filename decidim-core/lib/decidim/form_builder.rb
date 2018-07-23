@@ -251,7 +251,7 @@ module Decidim
     def date_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "" }
-      data[:startdate] = I18n.localize(value, format: :datepicker) if value.present? && [Date, DateTime, Time].include?(value.class)
+      data[:startdate] = I18n.localize(value, format: :datepicker) if value.present? && value.is_a?(Date)
       displayed_format = I18n.t("date.formats.displayed")
       data[:"date-format"] = displayed_format
 
