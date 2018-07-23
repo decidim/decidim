@@ -93,34 +93,6 @@ ca:
               must_be_ssl: L'URL de redirecció ha de ser SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imatge de bàner
-        description: Descripció
-        developer_group: Grup promotor
-        domain: Àrees municipals
-        end_date: Data de finalització
-        hashtag: Hashtag
-        hero_image: Imatge de portada
-        local_area: Àrea municipal
-        meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
-        promoted: Destacat
-        scope: Àmbit
-        short_description: Descripció breu
-        slug: Nom curt d'URL
-        start_date: Data d'inici
-        subtitle: Subtítol
-        target: A qui va dirigit?
-        title: Títol
-      decidim/participatory_process_group:
-        description: Descripció
-        hero_image: Imatge de portada
-        name: Nom
-        participatory_processes: Processos participatius
-      decidim/participatory_process_step:
-        end_date: Data de finalització
-        start_date: Data d'inici
       decidim/static_page:
         content: Contingut
         slug: Nom curt d'URL
