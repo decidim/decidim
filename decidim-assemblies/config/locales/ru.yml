@@ -29,11 +29,8 @@ ru:
         instagram: Инстаграм
         internal_organisation: Внутренняя организация
         is_transparent: Прозрачное
-        local_area: Участок организации
         meta_scope: Метаданные охвата
         participatory_processes_ids: Сопутствующие движения соучастия
-        participatory_scope: Что решается
-        participatory_structure: Как это решается
         private_space: Частное пространство
         promoted: Рекламируется
         published_at: 'Обнародовано:'
@@ -45,7 +42,6 @@ ru:
         slug: Сокращенный веб-адрес
         special_features: Особенности
         subtitle: Подзаголовок
-        target: Кто участвует
         title: Название
         twitter: Твиттер
         youtube: ЮТуб
@@ -283,9 +279,6 @@ ru:
         is_transparent:
           'false': непрозрачное
           'true': прозрачное
-        local_area: Участок организации
-        participatory_scope: Что решается
-        participatory_structure: Как это решается
         private_space: Это частное собрание
         purpose_of_action: Цель действия
         read_less: Читать меньше
@@ -293,7 +286,6 @@ ru:
         related_participatory_processes: Сопутствующие движения соучастия
         scope: Охват
         social_networks: Социальные сети
-        target: Кто участвует
       statistics:
         answers_count: Ответов
         assemblies_count: Собраний
