@@ -4,7 +4,7 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         banner_image: Imagem da bandeira
-        copy_categories: Cópiar categorias
+        copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copie etapas
         description: Descrição
@@ -22,8 +22,8 @@ pt-BR:
         published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
-        short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
+        short_description: Descrição curta
+        show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
