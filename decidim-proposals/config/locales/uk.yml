@@ -274,6 +274,8 @@ uk:
         endorsement_button:
           already_endorsed: Підтримано
           endorse: Підтримати
+        render_endorsements_button_card_part:
+          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні щодо пропозиції сталися помилки.
