@@ -3,7 +3,7 @@ es:
     attributes:
       proposal:
         answer: Respuesta
-        answered_at: Respondido
+        answered_at: Respondido en
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
@@ -73,7 +73,7 @@ es:
             proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
             proposal_wizard_step_3_help_text: Texto de ayuda al paso "Completar" de propuestas
             proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
-            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada propuesta
+            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de voto por usuario
           step:
@@ -267,7 +267,7 @@ es:
           already_endorsed: Adherido
           endorse: Adherirse
         render_endorsements_button_card_part:
-          endorse: Endosar
+          endorse: Adherirse
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
