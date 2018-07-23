@@ -1,6 +1,6 @@
 <% answer_option = form.object %>
 
-<div class="card survey-question-answer-option">
+<div class="card questionnaire-question-answer-option">
   <div class="card-divider">
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
@@ -30,7 +30,7 @@
         form.check_box(
           :free_text,
           label: t(".free_text"),
-          disabled: !survey.questions_editable?
+          disabled: !questionnaire.questions_editable?
         )
       %>
     </div>

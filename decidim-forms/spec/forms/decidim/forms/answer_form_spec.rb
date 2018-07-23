@@ -13,7 +13,6 @@ module Decidim
       let(:question_type) { "short_answer" }
       let(:max_choices) { nil }
 
-
       let!(:questionable) { create(:dummy_resource) }
       let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
       let!(:user) { create(:user, organization: questionable.organization) }

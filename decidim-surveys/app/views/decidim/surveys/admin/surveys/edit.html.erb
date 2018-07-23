@@ -1,7 +1,0 @@
-<%= decidim_form_for(@form, url: survey_path, method: :post, html: { class: "form edit_survey" }) do |form| %>
-  <%= render partial: "form", object: form, locals: { title: t(".title") } %>
-
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".save"), class: "button" %>
-  </div>
-<% end %>

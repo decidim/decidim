@@ -5,16 +5,16 @@
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
-  const wrapperSelector = ".survey-questions";
-  const fieldSelector = ".survey-question";
+  const wrapperSelector = ".questionnaire-questions";
+  const fieldSelector = ".questionnaire-question";
   const questionTypeSelector = "select[name$=\\[question_type\\]]";
-  const answerOptionFieldSelector = ".survey-question-answer-option";
-  const answerOptionsWrapperSelector = ".survey-question-answer-options";
+  const answerOptionFieldSelector = ".questionnaire-question-answer-option";
+  const answerOptionsWrapperSelector = ".questionnaire-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
-  const maxChoicesWrapperSelector = ".survey-question-max-choices";
+  const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
-    listSelector: ".survey-question:not(.hidden)",
+    listSelector: ".questionnaire-question:not(.hidden)",
     labelSelector: ".card-title span:first",
     onPositionComputed: (el, idx) => {
       $(el).find("input[name$=\\[position\\]]").val(idx);
@@ -22,7 +22,7 @@
   });
 
   const autoButtonsByPosition = new AutoButtonsByPositionComponent({
-    listSelector: ".survey-question:not(.hidden)",
+    listSelector: ".questionnaire-question:not(.hidden)",
     hideOnFirstSelector: ".move-up-question",
     hideOnLastSelector: ".move-down-question"
   });
@@ -31,21 +31,21 @@
     return new AutoSelectOptionsByTotalItemsComponent({
       wrapperSelector: fieldSelector,
       selectSelector: `${maxChoicesWrapperSelector} select`,
-      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`
+      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .questionnaire-question-answer-option:not(.hidden)`
     })
   };
 
   const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
     return new AutoButtonsByMinItemsComponent({
       wrapperSelector: fieldSelector,
-      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`,
+      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .questionnaire-question-answer-option:not(.hidden)`,
       minItems: 2,
       hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
     })
   };
 
   const createSortableList = () => {
-    createSortList(".survey-questions-list:not(.published)", {
+    createSortList(".questionnaire-questions-list:not(.published)", {
       handle: ".question-divider",
       placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
       forcePlaceholderSize: true,
@@ -58,9 +58,9 @@
     const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
 
     return createDynamicFields({
-      placeholderId: "survey-question-answer-option-id",
+      placeholderId: "questionnaire-question-answer-option-id",
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
-      containerSelector: ".survey-question-answer-options-list",
+      containerSelector: ".questionnaire-question-answer-options-list",
       fieldSelector: answerOptionFieldSelector,
       addFieldButtonSelector: ".add-answer-option",
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
@@ -137,9 +137,9 @@
   }
 
   createDynamicFields({
-    placeholderId: "survey-question-id",
+    placeholderId: "questionnaire-question-id",
     wrapperSelector: wrapperSelector,
-    containerSelector: ".survey-questions-list",
+    containerSelector: ".questionnaire-questions-list",
     fieldSelector: fieldSelector,
     addFieldButtonSelector: ".add-question",
     removeFieldButtonSelector: ".remove-question",

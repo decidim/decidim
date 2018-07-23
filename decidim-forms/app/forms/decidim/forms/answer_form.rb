@@ -4,8 +4,6 @@ module Decidim
   module Forms
     # This class holds a Form to save the questionnaire answers from Decidim's public page
     class AnswerForm < Decidim::Form
-      mimic :survey_answer # FIXME: remove
-
       include Decidim::TranslationsHelper
 
       attribute :question_id, String

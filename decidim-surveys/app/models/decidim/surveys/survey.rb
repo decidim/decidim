@@ -9,8 +9,6 @@ module Decidim
 
       component_manifest_name "surveys"
 
-      delegate_missing_to :questionnaire # FIXME: remove once all moved
-
       validates :questionnaire, presence: true
     end
   end

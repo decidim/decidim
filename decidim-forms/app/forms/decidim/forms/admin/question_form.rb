@@ -5,8 +5,6 @@ module Decidim
     module Admin
       # This class holds a Form to update questionnaire questions from Decidim's admin panel.
       class QuestionForm < Decidim::Form
-        mimic :survey_question # FIXME: remove
-
         include TranslatableAttributes
 
         attribute :position, Integer
@@ -25,7 +23,7 @@ module Decidim
         validates :body, translatable_presence: true, unless: :deleted
 
         def to_param
-          id || "survey-question-id"
+          id || "questionnaire-question-id"
         end
 
         def number_of_options

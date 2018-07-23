@@ -23,12 +23,13 @@ describe "Private Space Answer a survey", type: :system do
 
   let!(:organization) { create(:organization) }
   let(:user) { create :user, :confirmed, organization: organization }
-  let!(:other_user) { create(:user, :confirmed, organization: organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: organization) }
 
-  let!(:participatory_space_private_user) { create :participatory_space_private_user, user: other_user, privatable_to: participatory_space_private }
+  let!(:participatory_space_private_user) { create :participatory_space_private_user, user: another_user, privatable_to: participatory_space_private }
 
-  let!(:survey) { create(:survey, component: component, title: title, description: description) }
-  let!(:question) { create(:question, questionnaire: survey.questionnaire, position: 0) }
+  let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
+  let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
+  let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
 
   let!(:participatory_space) { participatory_space_private }
 
@@ -51,12 +52,12 @@ describe "Private Space Answer a survey", type: :system do
         visit_component
 
         within ".wrapper" do
-          expect(page).to have_i18n_content(survey.title, upcase: true)
-          expect(page).to have_i18n_content(survey.description)
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("Sign in with your account or sign up to answer the survey.")
+          expect(page).to have_content("Sign in with your account or sign up to answer the questionnaire.")
         end
       end
     end
@@ -64,18 +65,18 @@ describe "Private Space Answer a survey", type: :system do
     context "when the user is logged in" do
       context "and is private user space" do
         before do
-          login_as other_user, scope: :user
+          login_as another_user, scope: :user
         end
 
         it "allows answering the survey" do
           visit_component
 
-          expect(page).to have_i18n_content(survey.title, upcase: true)
-          expect(page).to have_i18n_content(survey.description)
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
 
           fill_in question.body["en"], with: "My first answer"
 
-          check "survey_tos_agreement"
+          check "questionnaire_tos_agreement"
 
           accept_confirm { click_button "Submit" }
 
@@ -83,7 +84,7 @@ describe "Private Space Answer a survey", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this survey.")
+          expect(page).to have_content("You have already answered this questionnaire.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end
@@ -97,10 +98,10 @@ describe "Private Space Answer a survey", type: :system do
           visit_component
 
           within ".wrapper" do
-            expect(page).to have_i18n_content(survey.title, upcase: true)
-            expect(page).to have_i18n_content(survey.description)
-            expect(page).to have_content "The survey is available only for private users"
-            expect(page).to have_content "Survey closed"
+            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.description)
+            expect(page).to have_content "The questionnaire is available only for private users"
+            expect(page).to have_content "Questionnaire closed"
 
             expect(page).to have_selector(".button[disabled]")
           end
@@ -121,18 +122,18 @@ describe "Private Space Answer a survey", type: :system do
     context "when the user is logged in" do
       context "and is private user space" do
         before do
-          login_as other_user, scope: :user
+          login_as another_user, scope: :user
         end
 
         it "allows answering the survey" do
           visit_component
 
-          expect(page).to have_i18n_content(survey.title, upcase: true)
-          expect(page).to have_i18n_content(survey.description)
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
 
           fill_in question.body["en"], with: "My first answer"
 
-          check "survey_tos_agreement"
+          check "questionnaire_tos_agreement"
 
           accept_confirm { click_button "Submit" }
 
@@ -140,7 +141,7 @@ describe "Private Space Answer a survey", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this survey.")
+          expect(page).to have_content("You have already answered this questionnaire.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end

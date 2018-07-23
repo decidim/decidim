@@ -1,15 +1,15 @@
 <% add_decidim_meta_tags({
-  title: translated_attribute(survey.title),
-  description: translated_attribute(survey.description),
+  title: translated_attribute(questionnaire.title),
+  description: translated_attribute(questionnaire.description),
 }) %>
 
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
-  <h2 class="section-heading"><%= translated_attribute survey.title %></h2>
+  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
   <div class="row">
     <div class="columns large-6 medium-centered lead">
-      <%= decidim_sanitize translated_attribute survey.description %>
+      <%= decidim_sanitize translated_attribute questionnaire.description %>
     </div>
   </div>
 </div>
@@ -20,37 +20,37 @@
       <div class="card__content">
         <% if current_settings.allow_answers? %>
           <% if current_user %>
-            <% if survey.answered_by?(current_user) %>
+            <% if questionnaire.answered_by?(current_user) %>
               <div class="section">
                 <div class="callout success">
-                  <h5><%= t(".survey_answered.title") %></h5>
-                  <p><%= t(".survey_answered.body") %></p>
+                  <h5><%= t(".questionnaire_answered.title") %></h5>
+                  <p><%= t(".questionnaire_answered.body") %></p>
                 </div>
               </div>
             <% else %>
-              <div class="answer-survey">
+              <div class="answer-questionnaire">
                 <% unless current_participatory_space.can_participate?(current_user) %>
                   <div class="section">
                     <div class="callout alert">
-                      <h5><%= t(".survey_for_private_users.title") %></h5>
-                      <p><%= t(".survey_for_private_users.body") %></p>
+                      <h5><%= t(".questionnaire_for_private_users.title") %></h5>
+                      <p><%= t(".questionnaire_for_private_users.body") %></p>
                     </div>
                   </div>
                 <% end %>
 
-                <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
+                <%= decidim_form_for(@form, url: url_for([questionnaire_for, action: :answer]), method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
-                      <%= fields_for "survey[survey_answers][#{answer_idx}]", answer do |answer_form| %>
-                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
+                      <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
+                        <%= render "decidim/forms/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>
                     </div>
                   <% end %>
 
                   <div class="row column tos-agreement">
-                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                     <div class="help-text">
-                      <%= decidim_sanitize translated_attribute survey.tos %>
+                      <%= decidim_sanitize translated_attribute questionnaire.tos %>
                     </div>
                   </div>
 
@@ -61,18 +61,18 @@
               </div>
             <% end %>
           <% else %>
-            <div class="answer-survey">
-              <h5 class="section-heading"><%= t(".answer_survey.title") %></h5>
+            <div class="answer-questionnaire">
+              <h5 class="section-heading"><%= t(".answer_questionnaire.title") %></h5>
               <p>
-                <%= t(".answer_survey.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
+                <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
               </p>
             </div>
           <% end %>
         <% else %>
           <div class="section">
             <div class="callout warning">
-              <h5><%= t(".survey_closed.title") %></h5>
-              <p><%= t(".survey_closed.body") %></p>
+              <h5><%= t(".questionnaire_closed.title") %></h5>
+              <p><%= t(".questionnaire_closed.body") %></p>
             </div>
           </div>
         <% end %>

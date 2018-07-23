@@ -2,10 +2,6 @@
 
 This gem encapsulates the logic to create and manage forms, so it can be reused in other modules, like surveys and meetings.
 
-## Usage
-
-Surveys will be available as a Component for a Participatory Process.
-
 ## Installation
 
 Add this line to your module's gemspec:

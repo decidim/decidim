@@ -4,8 +4,6 @@ module Decidim
   module Forms
     # This class holds a Form to answer a questionnaire from Decidim's public page.
     class QuestionnaireForm < Decidim::Form
-      mimic :survey # FIXME: remove
-
       attribute :answers, Array[AnswerForm]
 
       attribute :tos_agreement, Boolean

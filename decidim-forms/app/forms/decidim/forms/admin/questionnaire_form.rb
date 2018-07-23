@@ -5,8 +5,6 @@ module Decidim
     module Admin
       # This class holds a Form to update questionnaires from Decidim's admin panel.
       class QuestionnaireForm < Decidim::Form
-        mimic :survey # FIXME: remove
-
         include TranslatableAttributes
 
         translatable_attribute :title, String
