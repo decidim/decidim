@@ -2,13 +2,19 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-**Upgrade notes (search)**:
+**Upgrade notes**:
 
-In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
+- In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
 
-```ruby
-Decidim::User.find_each(&:add_to_index_as_search_resource)
-```
+  ```ruby
+  Decidim::User.find_each(&:add_to_index_as_search_resource)
+  ```
+
+- If you have an external module that defines rake tasks and more than one
+  engine, you probably want to add `paths["lib/tasks"] = nil` to all engines but
+  the main one, otherwise the tasks you define are probably running multiple
+  times unintentionally. Check
+  [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
 
 **Added**:
 
@@ -52,6 +58,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-core**: Set `organization.tos_version` when creating `terms-and-conditions` DefaultPage [#3882](https://github.com/decidim/decidim/pull/3882)
 - **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
+- **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
 
 **Removed**:
 

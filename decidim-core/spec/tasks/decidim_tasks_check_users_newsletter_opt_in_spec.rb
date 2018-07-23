@@ -3,9 +3,7 @@
 require "spec_helper"
 require "support/tasks"
 
-# rubocop:disable RSpec/DescribeClass
 describe "rake decidim:check_users_newsletter_opt_in", type: :task do
-  # rubocop:enable RSpec/DescribeClass
   let!(:user_wo) { create(:user, :confirmed, newsletter_notifications_at: nil) }
   let!(:user_w_optin) { create(:user, :confirmed, newsletter_notifications_at: Time.zone.parse("2018-05-26 00:00 +02:00")) }
   let!(:users) { create_list(:user, 4, :confirmed, newsletter_notifications_at: Time.zone.parse("2018-05-24 00:00 +02:00")) }
