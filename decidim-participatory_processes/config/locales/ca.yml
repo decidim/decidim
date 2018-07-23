@@ -13,11 +13,8 @@ ca:
         end_date: Data de finalització
         hashtag: Hashtag
         hero_image: Imatge de portada
-        local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
         participatory_process_group_id: Grup de processos
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
         promoted: Destacat
         published_at: Publicat el
         scope_id: Àmbit
@@ -27,7 +24,6 @@ ca:
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol
-        target: A qui va dirigit
         title: Títol
       participatory_process_group:
         description: Descripció
