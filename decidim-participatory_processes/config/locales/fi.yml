@@ -13,11 +13,8 @@ fi:
         end_date: Päättymisaika
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        local_area: Paikallisalue
         meta_scope: Kontekstin metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_scope: Osallistumisprosessin konteksti
-        participatory_structure: Osallistumisprosessin rakenne
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
         scope_id: Konteksti
@@ -27,7 +24,6 @@ fi:
         slug: URL-tunniste
         start_date: Aloitusaika
         subtitle: Alaotsikko
-        target: Kohde
         title: Otsikko
       participatory_process_group:
         description: Kuvaus
