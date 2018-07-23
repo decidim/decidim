@@ -101,22 +101,22 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева дільниця
+        local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
-        participatory_scope: Обсяг співучасті
-        participatory_structure: Структура співучасті
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
         promoted: Рекламується
         scope: Обсяг
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Мета
+        target: Хто бере участь
         title: Назва
       decidim/participatory_process_group:
         description: Опис
         hero_image: Зображення головної сторінки
-        name: Назва
+        name: Ім'я
         participatory_processes: Рухи співучасті
       decidim/participatory_process_step:
         end_date: Дата закінчення
