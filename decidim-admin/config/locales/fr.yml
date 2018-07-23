@@ -107,16 +107,16 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         scope: Périmètre d’application
-        short_description: Résumé
+        short_description: Brève description
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
         target: Participants
-        title: Titre
+        title: Titre de la pièce jointe
       decidim/participatory_process_group:
         description: Description
         hero_image: Image de la page d'accueil
-        name: Nom
+        name: Titre
         participatory_processes: Concertations
       decidim/participatory_process_step:
         end_date: Date de fin
