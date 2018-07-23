@@ -117,7 +117,7 @@ pt-BR:
         attachment_collections: Coleções
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Tem certeza de que deseja excluir esta reunião?
+        confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
         minutes: Minutos
@@ -185,7 +185,7 @@ pt-BR:
             invalid: Tem havido um problema ao criar esta reunião
             success: Reunião criada com sucesso
           destroy:
-            success: Reunião excluída com êxito
+            success: Reunião excluída com sucesso
           edit:
             update: Atualizar
           form:
