@@ -115,11 +115,11 @@ es:
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
-          email_subject: Su propuesta "%{mentioned_proposal_title}" ha sido mencionada
-          notification_title: Su propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
+          email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
+          notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha publicado una nueva propuesta, compruébalo y contribuye:"
-          email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones desde el enlace anterior.
+          email_outro: Recibiste esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones desde el enlace anterior.
           email_subject: Nueva propuesta de %{author_nickname}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
@@ -138,10 +138,10 @@ es:
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -191,7 +191,7 @@ es:
             success: Propuesta creada correctamente
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
-            select_a_category: Seleccione una categoría
+            select_a_category: Selecciona una categoría
           index:
             actions: Acciones
             cancel: Cancelar
