@@ -83,7 +83,7 @@ es:
             endorsements_enabled: Adhesiones habilitados
             proposal_answering_enabled: Contestación de propuesta habilitada
             votes_blocked: Apoyos bloqueados
-            votes_enabled: Votos habilitados
+            votes_enabled: Apoyos habilitados
             votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
     events:
       proposals:
