@@ -286,8 +286,8 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          back: Volver
-          select_a_category: Por favor, seleccione una categoría
+          back: Atrás
+          select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
         edit_draft:
@@ -307,14 +307,14 @@ es:
           category_prompt: Selecciona una categoría
           citizens: Ciudadanía
           evaluating: En evaluación
-          except_rejected: Todos excepto rechazados
+          except_rejected: Todas excepto las rechazadas
           official: Oficial
           origin: Origen
           rejected: Rechazadas
-          related_to: Relacionado con
+          related_to: Relacionadas con
           search: Buscar
           state: Estado
-          voted: Votado
+          voted: Apoyadas
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -326,21 +326,21 @@ es:
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
-            one: voto
-            other: votos
+            one: dar apoyo
+            other: apoyos
         new:
           send: Continuar
           title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
-          most_voted: Más votado
+          most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
         preview:
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
-            other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
+            other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
         proposal:
@@ -351,7 +351,7 @@ es:
           endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
             one: y 1 persona más
-            other: y %{count} personas más
+            other: y %{count} persona/s más
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -359,8 +359,8 @@ es:
           sign_in: Registrarse
           sign_in_or_up: "%{in} o %{up} para participar"
           sign_up: Regístrate
-          withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
+          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
