@@ -10,6 +10,12 @@
   Decidim::User.find_each(&:add_to_index_as_search_resource)
   ```
 
+- If you have an external module that defines rake tasks and more than one
+  engine, you probably want to add `paths["lib/tasks"] = nil` to all engines but
+  the main one, otherwise the tasks you define are probably running multiple
+  times unintentionally. Check
+  [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
+
 **Added**:
 
 - **decidim-docs**: Add proposal lifecycle diagram to docs. [\#3811](https://github.com/decidim/decidim/pull/3811)
