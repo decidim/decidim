@@ -13,11 +13,11 @@ es-PY:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
         scope_id: Ámbito
@@ -27,7 +27,7 @@ es-PY:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: '¿A quién va dirigida?'
+        target: Quién participa
         title: Título
       participatory_process_group:
         description: Descripción
