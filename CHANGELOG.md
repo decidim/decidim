@@ -48,6 +48,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-core**: Don't crash when a page doesn't exist. [\#3799](https://github.com/decidim/decidim/pull/3799)
 - **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
 - **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
+- **decidim-core**: Set `organization.tos_version` when creating `terms-and-conditions` DefaultPage [#3882](https://github.com/decidim/decidim/pull/3882)
 - **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
 
