@@ -267,7 +267,7 @@ es-PY:
           already_endorsed: Adherido
           endorse: Adherirse
         render_endorsements_button_card_part:
-          endorse: Endosar
+          endorse: Adherirse
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
