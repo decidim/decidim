@@ -12,7 +12,7 @@ uk:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Ви дійсно бажаєте видалити цей задум?
+        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
         edit: Редагувати
         new: Додати
