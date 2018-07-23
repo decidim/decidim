@@ -238,7 +238,7 @@ pt-BR:
         success: Proposta criada com sucesso. Salvo como um rascunho.
       destroy_draft:
         error: Houve erros ao excluir o rascunho da proposta.
-        success: O rascunho da proposta foi destruído com sucesso.
+        success: O rascunho da proposta foi excluído com sucesso.
       models:
         proposal:
           fields:
@@ -289,7 +289,7 @@ pt-BR:
           title: Editar proposta
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
           title: Editar proposta de rascunho
         endorsement_identities_cabin:
