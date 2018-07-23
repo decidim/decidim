@@ -133,6 +133,9 @@ eu:
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
         site: Web
+  date:
+    formats:
+      datepicker: "%Y/%m/%d"
   decidim:
     admin:
       actions:
@@ -673,3 +676,7 @@ eu:
           title: Ezarpenak
         users:
           title: Erabiltzaileak
+  time:
+    formats:
+      datepicker: "%Y/%m/%d"
+      timepicker: "%d/%m/%Y %H:%M"

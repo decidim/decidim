@@ -133,6 +133,9 @@ ru:
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
         site: Веб-сайт
+  date:
+    formats:
+      datepicker: "%d.%m.%Y"
   decidim:
     admin:
       actions:
@@ -673,3 +676,7 @@ ru:
           title: Настройки
         users:
           title: Участники
+  time:
+    formats:
+      datepicker: "%d.%m.%Y"
+      timepicker: "%H:%M %d.%m.%Y"
