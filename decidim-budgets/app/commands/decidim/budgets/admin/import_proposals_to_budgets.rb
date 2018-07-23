@@ -9,9 +9,8 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form object with the params.
-        def initialize(import_form, project_forms)
-          @import_form = import_form
-          @project_forms = project_forms
+        def initialize(form)
+          @form = form
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,22 +20,74 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless @import_form.valid?
-          return broadcast(:invalid) if @project_forms.empty?
+          return broadcast(:invalid) unless @form.valid?
 
-          import_proposals
-
-          broadcast(:ok)
+          broadcast(:ok, import_proposals)
         end
 
         private
 
-        attr_reader :import_form, :project_forms
+        attr_reader :form
 
         def import_proposals
-          @project_forms.each do |project_form|
-            CreateProject.call(project_form)
+          proposals.map do |original_proposal|
+            next if proposal_already_copied?(original_proposal, target_component)
+
+            origin_attributes = original_proposal.attributes.except(
+              "id",
+              "title",
+              "body",
+              "created_at",
+              "updated_at",
+              "state",
+              "answer",
+              "answered_at",
+              "decidim_component_id",
+              "reference",
+              "proposal_votes_count",
+              "proposal_notes_count",
+              "proposal_endorsements_count",
+              "address",
+              "latitude",
+              "longitude",
+              "coauthorships_count",
+              "published_at"
+            )
+
+            project = Decidim::Budgets::Project.new(origin_attributes)
+            project.title = project_localized(original_proposal.title)
+            project.description = project_localized(original_proposal.body)
+            project.budget = form.default_budget
+            project.category = original_proposal.category
+            project.component = target_component
+            project.save!
+
+            project.link_resources([original_proposal], "included_proposals")
+          end.compact
+        end
+
+        def proposals
+          Decidim::Proposals::Proposal.where(component: origin_component).where(state: "accepted")
+        end
+
+        def origin_component
+          @form.origin_component
+        end
+
+        def target_component
+          @form.current_component
+        end
+
+        def proposal_already_copied?(original_proposal, target_component)
+          original_proposal.linked_resources(:projects, "included_proposals").any? do |proposal|
+            proposal.component == target_component
           end
+        end
+
+        def project_localized(text)
+          Decidim.available_locales.inject({}) do |result, locale|
+            result.update(locale => text)
+          end.with_indifferent_access
         end
       end
     end

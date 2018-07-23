@@ -18,7 +18,7 @@ module Decidim
           end
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
-          let!(:import_form) do
+          let!(:form) do
             instance_double(
               ProjectImportProposalsForm,
               origin_component: proposal.component,
@@ -29,36 +29,10 @@ module Decidim
             )
           end
 
-          let!(:project_forms) do
-            rs = []
-
-            proposals.each do |original_proposal|
-              params = ActionController::Parameters.new(project: original_proposal.as_json)
-
-              params[:project][:title] = project_localized(original_proposal.title)
-              params[:project][:description] = project_localized(original_proposal.body)
-              params[:project][:budget] = 10_000 # default_budget
-              params[:project][:decidim_scope_id] = original_proposal.scope.id if original_proposal.scope
-              params[:project][:decidim_component_id] = current_component.id
-              params[:project][:decidim_category_id] = original_proposal.category.id if original_proposal.category
-              params[:project][:proposal_ids] = original_proposal.id
-
-              r = ProjectForm.from_params(params).with_context(
-                current_user: current_user,
-                current_organization: organization,
-                current_participatory_space: current_component.participatory_space,
-                current_component: current_component
-              )
-
-              rs << r
-            end
-            rs
-          end
-
           let(:default_budget) { 1000 }
           let(:import_all_accepted_proposals) { true }
 
-          let(:command) { described_class.new(import_form, project_forms) }
+          let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
             let(:valid) { false }
@@ -84,11 +58,11 @@ module Decidim
             it "creates the projects" do
               expect do
                 command.call
-              end.to change { Project.where(component: current_component).count }.by(3)
+              end.to change { Project.where(component: current_component).count }.by(1)
             end
 
             context "when a proposal was already imported" do
-              let(:second_proposal) { proposals.last }
+              let(:second_proposal) { create(:proposal, :accepted, component: proposal.component) }
 
               before do
                 command.call
@@ -98,7 +72,7 @@ module Decidim
               it "doesn't import it again" do
                 expect do
                   command.call
-                end.to change { Project.where(component: current_component).count }.by(3)
+                end.to change { Project.where(component: current_component).count }.by(1)
 
                 projects = Project.where(component: current_component)
                 first_project = projects.first
@@ -108,13 +82,22 @@ module Decidim
               end
             end
 
+            it "links the proposals" do
+              command.call
+              last_project = Project.where(component: current_component).last
+
+              linked = last_project.linked_resources(:proposals, "included_proposals")
+
+              expect(linked).to include(proposal)
+            end
+
             it "only imports wanted attributes" do
               command.call
 
               new_project = Project.where(component: current_component).last
-              expect(translated(new_project.title)).to eq(proposals.last.title)
-              expect(translated(new_project.description)).to eq(proposals.last.body)
-              expect(new_project.category).to eq(proposals.last.category)
+              expect(translated(new_project.title)).to eq(proposal.title)
+              expect(translated(new_project.description)).to eq(proposal.body)
+              expect(new_project.category).to eq(proposal.category)
             end
           end
         end
