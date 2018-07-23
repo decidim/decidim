@@ -42,7 +42,6 @@ module Decidim
         html = Nokogiri::HTML(builder.input(:birthday))
 
         expect(html.css("label[for='authorization_handler_birthday']").length).to eq(1)
-        expect(html.css("#authorization_handler_birthday").length).to eq(1)
         expect(html.css("input[type='text']").length).to eq(1)
         expect(html.css("#authorization_handler_birthday").length).to eq(1)
       end
