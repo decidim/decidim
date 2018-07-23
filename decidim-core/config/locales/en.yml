@@ -50,6 +50,7 @@ en:
   date:
     formats:
       datepicker: dd/mm/yyyy
+      datepicker_help_text: "Expected format: %{datepicker_format}"
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
   decidim:
