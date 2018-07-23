@@ -266,6 +266,8 @@ es:
         endorsement_button:
           already_endorsed: Adherido
           endorse: Adherirse
+        render_endorsements_button_card_part:
+          endorse: Endosar
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -297,7 +299,6 @@ es:
           endorse: Adherirse
         endorsements_card_row:
           comments: Comentarios
-          endorse: Adherirse
         filters:
           accepted: Aceptadas
           activity: Actividad
