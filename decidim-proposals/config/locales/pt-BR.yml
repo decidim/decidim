@@ -266,6 +266,8 @@ pt-BR:
         endorsement_button:
           already_endorsed: Endossado
           endorse: Endossar
+        render_endorsements_button_card_part:
+          endorse: Endossar
       proposal_votes:
         create:
           error: Houve erros ao votar a proposta.
@@ -297,7 +299,6 @@ pt-BR:
           endorse: Endossar
         endorsements_card_row:
           comments: Comentários
-          endorse: Endossar
         filters:
           accepted: Aceitaram
           activity: Atividade
