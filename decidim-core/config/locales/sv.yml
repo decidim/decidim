@@ -48,7 +48,6 @@ sv:
       image_too_big: Bilden är för stor
   date:
     formats:
-      datepicker: "%d/%m/%Y"
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
   decidim:
@@ -723,14 +722,12 @@ sv:
     xing: Xing
   time:
     formats:
-      datepicker: "%d/%m/%Y"
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      timepicker: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Första"
