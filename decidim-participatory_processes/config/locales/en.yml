@@ -14,11 +14,11 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
-        local_area: Local area
+        local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -28,7 +28,7 @@ en:
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle
-        target: Target
+        target: Who participates
         title: Title
       participatory_process_group:
         description: Description

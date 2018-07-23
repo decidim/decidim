@@ -30,11 +30,11 @@ en:
         instagram: Instagram
         internal_organisation: Internal organisation
         is_transparent: Is transparent
-        local_area: Local area
+        local_area: Organization area
         meta_scope: Scope metadata
         participatory_processes_ids: Related Participatory processes
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         private_space: Private space
         promoted: Promoted
         published_at: Published at
@@ -46,7 +46,7 @@ en:
         slug: URL slug
         special_features: Special features
         subtitle: Subtitle
-        target: Target
+        target: Who participates
         title: Title
         twitter: Twitter
         youtube: YouTube
@@ -278,9 +278,9 @@ en:
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        local_area: Organization area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         private_space: This is a private assembly
         purpose_of_action: Purpose of action
         read_less: Read less
@@ -288,7 +288,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        target: Target
+        target: Who participates
       statistics:
         answers_count: Answers
         assemblies_count: Assemblies
