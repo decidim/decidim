@@ -429,7 +429,7 @@ uk:
       copied_from_component:
         proposal_proposal: Супутні пропозиції
       included_projects:
-        project_result: 'Підсумки цього задуму:'
+        project_result: 'Підсумки, згадані у цьому проекті:'
       included_proposals:
-        proposal_project: 'Пропозиція є в таких задумах:'
+        proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
