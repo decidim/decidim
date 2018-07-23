@@ -93,34 +93,6 @@ uk:
               must_be_ssl: URI перенаправлення має бути SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Банерне зображення
-        description: Опис
-        developer_group: Робочий гурт з просування
-        domain: Домен
-        end_date: Дата закінчення
-        hashtag: Хештег
-        hero_image: Зображення головної сторінки
-        local_area: Дільниця організації
-        meta_scope: Метавідомості обсягу
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
-        promoted: Рекламується
-        scope: Обсяг
-        short_description: Стислий опис
-        slug: Скорочена веб-адреса
-        start_date: Дата початку
-        subtitle: Підзаголовок
-        target: Хто бере участь
-        title: Назва
-      decidim/participatory_process_group:
-        description: Опис
-        hero_image: Зображення головної сторінки
-        name: Назва
-        participatory_processes: Рухи співучасті
-      decidim/participatory_process_step:
-        end_date: Дата закінчення
-        start_date: Дата початку
       decidim/static_page:
         content: Вміст
         slug: Скорочена веб-адреса
