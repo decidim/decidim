@@ -206,7 +206,7 @@ es:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
             select_a_proposal: Por favor selecciona una propuesta
-            success: 'Propuestas correctamente actualizadas a la categoría %{category} : %{proposals}.'
+            success: 'Propuestas actualizadas correctamente en la categoría %{category}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ha habido un problema al importar las propuestas
@@ -215,16 +215,16 @@ es:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
-            select_states: Verifique los estados de las propuestas para importar
+            select_states: Verifica los estados de las propuestas para importar
         shared:
           info_proposal:
             body: Cuerpo
             created_at: Fecha de creación
-            proposal_votes_count: Número de votos
+            proposal_votes_count: Número de apoyos
             proposals: Propuestas
       admin_log:
         proposal:
-          answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
+          answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
@@ -233,7 +233,7 @@ es:
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
-        withdrawn: Retirado
+        withdrawn: Retirada
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -245,7 +245,7 @@ es:
           fields:
             category: Categoría
             comments: Comentarios
-            endorsements: Adhesión
+            endorsements: Adhesiones
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
@@ -253,7 +253,7 @@ es:
             scope: Ámbito
             state: Estado
             title: Título
-            votes: Votos
+            votes: Apoyos
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
       proposal_endorsements:
@@ -264,20 +264,20 @@ es:
           select_identity: Seleccionar identidad
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Adherido
+          already_endorsed: Adherido/a
           endorse: Adherirse
         render_endorsements_button_card_part:
           endorse: Adherirse
       proposal_votes:
         create:
-          error: Ha habido errores al votar la propuesta.
+          error: Ha habido errores al apoyar la propuesta.
       proposals:
         compare:
           mine_is_different: Mi propuesta es diferente
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Completa tu propuesta
