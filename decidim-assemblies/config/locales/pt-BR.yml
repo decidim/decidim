@@ -29,7 +29,7 @@ pt-BR:
         instagram: Instagram
         internal_organisation: Organização interna
         is_transparent: É transparente
-        local_area: Área de organização
+        local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: O que é decidido
@@ -287,7 +287,7 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Quem participa
+        target: Quem pode participar
       statistics:
         answers_count: Respostas
         assemblies_count: Assembleias
