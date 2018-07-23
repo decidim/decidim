@@ -13,6 +13,7 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          helper PaginateHelper
           helper_method :privatable_to, :authorization_object, :collection
 
           def index
@@ -93,7 +94,10 @@ module Decidim
           end
 
           def collection
-            @collection ||= privatable_to.participatory_space_private_users
+            @collection ||= privatable_to
+                            .participatory_space_private_users
+                            .page(params[:page])
+                            .per(20)
           end
         end
       end
