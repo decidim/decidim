@@ -93,34 +93,6 @@ gl:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imaxe do banner
-        description: Descrición
-        developer_group: Grupo promotor
-        domain: Dominio
-        end_date: Data de finalización
-        hashtag: Etiqueta
-        hero_image: Imaxe na casa
-        local_area: Área local
-        meta_scope: Metadatos de ámbito
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
-        promoted: Promocionado
-        scope: Alcance
-        short_description: Descrición curta
-        slug: URL slug
-        start_date: Data de inicio
-        subtitle: Subtítulo
-        target: Obxectivo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrición
-        hero_image: Imaxe na casa
-        name: Nome
-        participatory_processes: Procesos participativos
-      decidim/participatory_process_step:
-        end_date: Data de finalización
-        start_date: Data de inicio
       decidim/static_page:
         content: Contido
         slug: URL slug
