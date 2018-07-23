@@ -15,7 +15,7 @@ es:
         answer: Respuesta
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
-        origin_component_id: Componente para copiar las propuestas de
+        origin_component_id: Componente desde dónde copiar las propuestas
     errors:
       models:
         proposal:
@@ -25,8 +25,8 @@ es:
     models:
       decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
-      decidim/proposals/creation_enabled_event: Creación de propuesta habilitada
-      decidim/proposals/endorsing_enabled_event: Aprobación de propuesta habilitada
+      decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
+      decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
       decidim/proposals/proposal_endorsed_event: Adherido/a
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
@@ -58,12 +58,12 @@ es:
         name: Propuestas
         settings:
           global:
-            announcement: Anuncio
+            announcement: "Aviso\n"
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
-            new_proposal_help_text: Nuevo texto de ayuda de propuesta
+            new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
