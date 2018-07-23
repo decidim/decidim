@@ -112,6 +112,11 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Зустріч "%{resource_title}" було оновлено
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
+        registration_code_validated:
+          email_intro: Ваш реєстраційний код "%{registration_code}" підтверджено.
+          email_outro: Ви отримали це повідомлення, оскільки ваш реєстраційний код для зустрічі "%{resource_title}" підтверджено.
+          email_subject: Ваш реєстраційний код "%{registration_code}" підтверджено
+          notification_title: Ваш реєстраційний код "%{registration_code}" для зустрічі <a href="%{resource_path}">%{resource_title}</a> підтверджено.
         registrations_enabled:
           email_intro: 'Розпочалася реєстрація на зустріч "%{resource_title}". Ви можете зареєструватися на сторінці:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
@@ -252,6 +257,8 @@ uk:
         registrations:
           edit:
             save: Зберегти
+            validate: Підтвердити
+            validate_registration_code: Підтвердити реєстраційний код
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
@@ -265,6 +272,9 @@ uk:
           update:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
+          validate_registration_code:
+            invalid: Цей реєстраційний код неналежний.
+            success: Реєстраційний код успішно підтверджено.
       admin_log:
         invite:
           create: "%{user_name} запросив %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
