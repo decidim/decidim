@@ -72,7 +72,7 @@ es:
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por usuario
@@ -366,30 +366,30 @@ es:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
           filed_as: Archivado como
         vote_button:
-          already_voted: Ya votado
-          already_voted_hover: Retirar voto
-          maximum_votes_reached: Límite de votos alcanzado
+          already_voted: Ya has dado tu apoyo
+          already_voted_hover: Retirar tu apoyo
+          maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
-          votes_blocked: Votación desactivada
+          votes_blocked: Apoyos desactivados
         votes_count:
           count:
             one: APOYO
             other: APOYOS
           most_popular_proposal: La propuesta más popular
-          need_more_votes: Necesita más votos
+          need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser validadas, las propuestas deben llegar a %{limit} apoyos
-          title: 'La votación se rige por las siguientes normas:'
+            description: Para ser validadas, las propuestas deben llegar a un cuórum nínimo de %{limit} apoyos
+          title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
-            description: Puedes votar hasta %{limit} propuestas.
+            description: Puedes apoyar hasta %{limit} propuestas.
             left: Restante
-            votes: Votos
+            votes: Apoyos
         wizard_aside:
           back: Volver
           info: Estás creando una <strong>propuesta</strong>.
