@@ -13,11 +13,8 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_scope: Objectif
-        participatory_structure: Modalités
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Périmètre d'application
@@ -27,7 +24,6 @@ fr:
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Participants
         title: Titre
       participatory_process_group:
         description: Description
