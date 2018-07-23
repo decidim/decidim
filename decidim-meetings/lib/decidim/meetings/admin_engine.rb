@@ -17,6 +17,7 @@ module Decidim
             resources :invites, only: [:index, :create]
             collection do
               get :export
+              post :validate_registration_code
             end
           end
           resources :agenda, except: [:index, :destroy]
