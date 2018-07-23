@@ -13,11 +13,11 @@ pt:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Área de organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
@@ -27,7 +27,7 @@ pt:
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
       participatory_process_group:
         description: Descrição
