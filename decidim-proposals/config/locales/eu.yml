@@ -266,6 +266,8 @@ eu:
         endorsement_button:
           already_endorsed: abala
           endorse: gatoz
+        render_endorsements_button_card_part:
+          endorse: gatoz
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
@@ -297,7 +299,6 @@ eu:
           endorse: gatoz
         endorsements_card_row:
           comments: Oharrak
-          endorse: gatoz
         filters:
           accepted: Onartuta
           activity: Jarduera
