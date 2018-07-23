@@ -13,11 +13,8 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
         participatory_process_group_id: Сукупність рухів
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
         promoted: Рекламується
         published_at: 'Оприлюднено:'
         scope_id: Обсяг
@@ -27,7 +24,6 @@ uk:
         slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Хто бере участь
         title: Назва
       participatory_process_group:
         description: Опис
