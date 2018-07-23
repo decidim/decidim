@@ -266,6 +266,8 @@ sv:
         endorsement_button:
           already_endorsed: Stött
           endorse: Stödja
+        render_endorsements_button_card_part:
+          endorse: Stödja
       proposal_votes:
         create:
           error: Det har varit fel när man röstade förslaget.
@@ -297,7 +299,6 @@ sv:
           endorse: Stödja
         endorsements_card_row:
           comments: kommentarer
-          endorse: Stödja
         filters:
           accepted: Accepterad
           activity: Aktivitet
