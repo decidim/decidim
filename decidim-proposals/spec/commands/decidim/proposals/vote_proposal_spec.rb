@@ -7,8 +7,9 @@ module Decidim
     describe VoteProposal do
       describe "call" do
         let(:proposal) { create(:proposal) }
+        let(:weight) { (-1..1).to_a.sample }
         let(:current_user) { create(:user, organization: proposal.component.organization) }
-        let(:command) { described_class.new(proposal, current_user) }
+        let(:command) { described_class.new(proposal, current_user, weight) }
 
         context "with normal conditions" do
           it "broadcasts ok" do
