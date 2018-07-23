@@ -547,7 +547,7 @@ pt-BR:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        choose: Selecione
+        choose: Selecionar
         title: Selecione %{field}
       prompt: Selecione um âmbito
       scopes: Âmbitos
@@ -590,7 +590,7 @@ pt-BR:
         label: 'Resultados por página:'
       share_modal:
         close_window: Fechar janela
-        share: Partilhar
+        share: Compartilhar
         share_link: Partilhar link
       version_author:
         deleted: Usuário excluído
