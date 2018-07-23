@@ -13,11 +13,11 @@ eu:
         end_date: Bukaera-data
         hashtag: Traola
         hero_image: Orri nagusiko irudia
-        local_area: Udal-alorrak
+        local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -27,7 +27,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
         title: Titulua
       participatory_process_group:
         description: Deskribapena
