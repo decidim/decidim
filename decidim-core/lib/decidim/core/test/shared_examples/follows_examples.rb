@@ -25,7 +25,7 @@ shared_examples "follows" do
     end
 
     context "when user clicks the Follow button" do
-      it "makes the user follow the followable" do
+      it "makes the user stop follow the followable" do
         visit resource_locator(followable).path
         expect do
           click_button "Stop following"

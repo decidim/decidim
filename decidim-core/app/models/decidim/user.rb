@@ -173,7 +173,11 @@ module Decidim
     def tos_accepted?
       return true if managed || organization.tos_version.nil?
       return false if accepted_tos_version.nil?
-      accepted_tos_version >= organization.tos_version
+
+      # For some reason, if we don't use `#to_i` here we get some
+      # cases where the comparison returns false, but calling `#to_i` returns
+      # the same number :/
+      accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
     protected
