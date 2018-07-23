@@ -274,6 +274,8 @@ pl:
         endorsement_button:
           already_endorsed: Zatwierdzony
           endorse: Podpisać się
+        render_endorsements_button_card_part:
+          endorse: Podpisać się
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
@@ -307,7 +309,6 @@ pl:
           endorse: Podpisać się
         endorsements_card_row:
           comments: Komentarze
-          endorse: Podpisać się
         filters:
           accepted: Przyjęty
           activity: Czynność
