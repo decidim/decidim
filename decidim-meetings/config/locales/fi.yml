@@ -106,6 +106,11 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
           email_subject: '"%{resource_title}" -kokous päivitettiin'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+        registration_code_validated:
+          email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
+          email_outro: Olet saanut tämän ilmoituksen, koska "%{resource_title}" -kokouksen rekisteröintikoodi on vahvistettu.
+          email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
+          notification_title: Rekisteröintikoodisi "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> -kokoukselle on vahvistettu.
         registrations_enabled:
           email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
@@ -246,6 +251,8 @@ fi:
         registrations:
           edit:
             save: Tallenna
+            validate: vahvistaa
+            validate_registration_code: Vahvista rekisteröintikoodi
           form:
             available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: kutsut
@@ -257,6 +264,9 @@ fi:
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
+          validate_registration_code:
+            invalid: Tämä rekisteröintikoodi on virheellinen.
+            success: Rekisteröintikoodi on vahvistettu.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
