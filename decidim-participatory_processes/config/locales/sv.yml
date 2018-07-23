@@ -13,11 +13,11 @@ sv:
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
         participatory_process_group_id: Processgrupp
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
@@ -27,7 +27,7 @@ sv:
         slug: URL slug
         start_date: Startdatum
         subtitle: Underrubrik
-        target: Mål
+        target: Vem deltar
         title: Titel
       participatory_process_group:
         description: Beskrivning
