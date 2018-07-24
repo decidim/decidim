@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       consultation:
-        banner_image: Банер зображення
+        banner_image: Банерне зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
         end_voting_date: Голосування закінчується
