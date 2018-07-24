@@ -110,7 +110,7 @@ pt-BR:
           name: Etapa do processo participativo
         participatory_process_user_role:
           fields:
-            email: O email
+            email: Endereço de e-mail
             name: Nome
             role: Cargo
           name: Usuário do processo participativo
