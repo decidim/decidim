@@ -9,7 +9,7 @@ ru:
         has_address: Имеет адрес
         scope_id: Охват
         state: Cостояние
-        title: Название
+        title: Заголовок
         user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
@@ -260,7 +260,7 @@ ru:
             published_at: 'Обнародовано:'
             scope: Охват
             state: Cостояние
-            title: Название
+            title: Заголовок
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
