@@ -1,6 +1,7 @@
 <%
 @title = "Decidim Barcelona"
 @activeuser = "logged"
+@files = Dir.glob("app/assets/images/badges/*.svg")
 %>
 
 <%= partial "template_top" %>
@@ -24,15 +25,13 @@
         <li class="tabs-title" style="display:none"><a href="#conversation"></a></li>
         <li class="tabs-title"><a href="#following" title="Following">Following</a></li>
         <li class="tabs-title"><a href="#followers" title="Followers">Followers</a></li>
+        <li class="tabs-title"><a href="#badges" title="Badges">Badges</a></li>
       </ul>
     </div>
   </div>
   <div class="row">
     <div class="columns medium-3">
       <%= render partial: page_path("user") + "/user-card" %>
-      <div class="text-center">
-        <button class="button">Edit profile</button>
-      </div>
     </div>
     <div class="columns medium-9">
       <div class="tabs-content" data-tabs-content="profile-tabs">
@@ -53,6 +52,9 @@
         </div>
         <div class="tabs-panel" id="followers">
           <%= render partial: page_path("user") + "/followers" %>
+        </div>
+        <div class="tabs-panel" id="badges">
+          <%= render partial: page_path("user") + "/badges" %>
         </div>
       </div>
     </div>

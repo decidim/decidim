@@ -94,34 +94,6 @@ en:
               must_be_ssl: The redirect URI must be a SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Promoter group
-        domain: Domain
-        end_date: End date
-        hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
-      decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Content
         slug: URL slug

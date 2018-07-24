@@ -151,11 +151,24 @@
             </ul>
           </li>
           <li>
-            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
+            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("user/user-profile")+ "#timeline" %>
             <ul>
-              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("user/user-profile") + "#notifications" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("user/user-profile") + "#conversations" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("user/user-profile") + "#conversation" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("user/user-profile") + "#followers" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("user/user-profile") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("user/user-profile") + "#badges" %></li>
             </ul>
           </li>
+          <li>
+            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("user/user-profile-public") + "#followers" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("user/user-profile-public") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("user/user-profile-public") + "#badges" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Información sobre badges", page_path("user/user-badges-info") %></li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
           <li>
             <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>
