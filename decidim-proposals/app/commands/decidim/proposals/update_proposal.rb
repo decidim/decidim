@@ -26,8 +26,16 @@ module Decidim
         return broadcast(:invalid) unless proposal.editable_by?(current_user)
         return broadcast(:invalid) if proposal_limit_reached?
 
+        if process_attachments?
+          @proposal.attachments.destroy_all
+
+          build_attachment
+          return broadcast(:invalid) if attachment_invalid?
+        end
+
         transaction do
           update_proposal
+          create_attachment if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -35,7 +43,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :proposal, :current_user
+      attr_reader :form, :proposal, :current_user, :attachment
 
       def update_proposal
         @proposal.update!(
@@ -77,6 +85,39 @@ module Decidim
 
       def user_group_proposals
         Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id)
+      end
+
+      def build_attachment
+        @attachment = Attachment.new(
+          title: form.attachment.title,
+          file: form.attachment.file,
+          attached_to: @proposal
+        )
+      end
+
+      def attachment_invalid?
+        if form.attachment.invalid? && form.attachment.errors.has_key?(:file)
+          form.attachment.errors.add :file, attachment.errors[:file]
+          true
+        end
+      end
+
+      def attachment_present?
+        return if form.attachment.nil?
+        form.attachment.file.present?
+      end
+
+      def create_attachment
+        attachment.attached_to = proposal
+        attachment.save!
+      end
+
+      def attachments_allowed?
+        form.current_component.settings.attachments_allowed?
+      end
+
+      def process_attachments?
+        attachments_allowed? && attachment_present?
       end
     end
   end
