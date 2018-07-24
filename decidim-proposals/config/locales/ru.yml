@@ -294,6 +294,7 @@ ru:
             many: "%{count} предложений"
             other: "%{count} предложений"
         edit:
+          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           select_a_category: Пожалуйста, выберите разряд
           send: Отправить
