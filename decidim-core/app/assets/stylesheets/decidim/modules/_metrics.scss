@@ -1,13 +1,15 @@
-.metric-charts {
+.metric-charts{
   display: flex;
   justify-content: space-around;
   margin-bottom: 1em;
-  .metric-chart {
+
+  .metric-chart{
     flex-basis: 33%;
-    flex-shrink:0;
+    flex-shrink: 0;
   }
-  &.small-charts {
-    .metric-chart {
+
+  &.small-charts{
+    .metric-chart{
       flex-basis: 16.6%;
     }
   }
