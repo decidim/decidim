@@ -278,8 +278,6 @@ en:
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Send
           title: Complete your proposal
         count:
@@ -287,6 +285,7 @@ en:
             one: 1 proposal
             other: "%{count} proposals"
         edit:
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           select_a_category: Please select a category
           send: Send

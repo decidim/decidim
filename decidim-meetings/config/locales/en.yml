@@ -107,6 +107,11 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        registration_code_validated:
+          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -247,6 +252,8 @@ en:
         registrations:
           edit:
             save: Save
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
@@ -259,6 +266,9 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+          validate_registration_code:
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
           create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"

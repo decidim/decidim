@@ -1218,6 +1218,7 @@ RSpec/DescribeClass:
     - decidim-admin/spec/bundles_spec.rb
     - decidim-comments/spec/bundle_spec.rb
     - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
 
 RSpec/EmptyExampleGroup:
   Exclude:
