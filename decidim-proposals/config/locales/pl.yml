@@ -285,8 +285,6 @@ pl:
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swoją propozycję
         count:
@@ -296,6 +294,7 @@ pl:
             many: "%{count} propozycje"
             other: "%{count} propozycje"
         edit:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
