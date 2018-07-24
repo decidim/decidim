@@ -8,6 +8,7 @@ module Decidim
       isolate_namespace Decidim::Pages::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         post "/", to: "pages#update", as: :page
