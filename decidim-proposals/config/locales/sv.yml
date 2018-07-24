@@ -277,8 +277,6 @@ sv:
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
         complete:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
           send: Skicka
           title: Fyll i ditt förslag
         count:
@@ -286,6 +284,7 @@ sv:
             one: 1 förslag
             other: "%{count} förslag"
         edit:
+          attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
           select_a_category: Välj en kategori
           send: Skicka
