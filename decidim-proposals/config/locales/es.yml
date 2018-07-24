@@ -277,8 +277,6 @@ es:
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
-          attachment_legend: "(Opcional) Añadir un archivo adjunto"
-          select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Completa tu propuesta
         count:
@@ -286,6 +284,7 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
+          attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Atrás
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
