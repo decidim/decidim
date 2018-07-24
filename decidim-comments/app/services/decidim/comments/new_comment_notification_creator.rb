@@ -48,7 +48,7 @@ module Decidim
       def notify_parent_comment_author
         return if comment.depth.zero?
 
-        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids
+        recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids - [comment.author.id]
         @already_notified_ids += recipient_ids
 
         notify(recipient_ids, :reply_created)
@@ -63,7 +63,7 @@ module Decidim
 
       # Notifies the users the `comment.commentable` resource implements as necessary.
       def notify_commentable_recipients
-        recipient_ids = comment.commentable.users_to_notify_on_comment_created.pluck(:id) - already_notified_ids
+        recipient_ids = comment.commentable.users_to_notify_on_comment_created.pluck(:id) - already_notified_ids - [comment.author.id]
         @already_notified_ids += recipient_ids
 
         notify(recipient_ids, :comment_created)

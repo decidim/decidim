@@ -7,6 +7,7 @@ module Decidim
       isolate_namespace Decidim::Proposals::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :proposals, only: [:index, :new, :create] do

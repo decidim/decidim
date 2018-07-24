@@ -7,6 +7,7 @@ module Decidim
       isolate_namespace Decidim::Comments::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       def load_seed
         nil
