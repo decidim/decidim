@@ -22,48 +22,29 @@ module Decidim
         def call
           return broadcast(:invalid) unless @form.valid?
 
-          broadcast(:ok, import_proposals)
+          broadcast(:ok, create_projects_from_accepted_proposals)
         end
 
         private
 
         attr_reader :form
 
-        def import_proposals
-          proposals.map do |original_proposal|
-            next if proposal_already_copied?(original_proposal, target_component)
+        def create_projects_from_accepted_proposals
+          transaction do
+            proposals.map do |original_proposal|
+              next if proposal_already_copied?(original_proposal, target_component)
 
-            origin_attributes = original_proposal.attributes.except(
-              "id",
-              "title",
-              "body",
-              "created_at",
-              "updated_at",
-              "state",
-              "answer",
-              "answered_at",
-              "decidim_component_id",
-              "reference",
-              "proposal_votes_count",
-              "proposal_notes_count",
-              "proposal_endorsements_count",
-              "address",
-              "latitude",
-              "longitude",
-              "coauthorships_count",
-              "published_at"
-            )
+              project = Decidim::Budgets::Project.new()
+              project.title = project_localized(original_proposal.title)
+              project.description = project_localized(original_proposal.body)
+              project.budget = form.default_budget
+              project.category = original_proposal.category
+              project.component = target_component
+              project.save!
 
-            project = Decidim::Budgets::Project.new(origin_attributes)
-            project.title = project_localized(original_proposal.title)
-            project.description = project_localized(original_proposal.body)
-            project.budget = form.default_budget
-            project.category = original_proposal.category
-            project.component = target_component
-            project.save!
-
-            project.link_resources([original_proposal], "included_proposals")
-          end.compact
+              project.link_resources([original_proposal], "included_proposals")
+            end.compact
+          end
         end
 
         def proposals
