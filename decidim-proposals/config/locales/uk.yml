@@ -335,10 +335,10 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: голосувати
+            one: голос
             few: голоси
-            many: голоси
-            other: голоси
+            many: голосів
+            other: голосів
         new:
           send: Продовжити
           title: Внесіть свою пропозицію
