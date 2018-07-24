@@ -138,7 +138,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed || organization.tos_version.nil?
+      return true if managed
       return false if accepted_tos_version.nil?
 
       # For some reason, if we don't use `#to_i` here we get some
