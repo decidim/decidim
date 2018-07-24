@@ -34,7 +34,7 @@ module Decidim
             proposals.map do |original_proposal|
               next if proposal_already_copied?(original_proposal, target_component)
 
-              project = Decidim::Budgets::Project.new()
+              project = Decidim::Budgets::Project.new
               project.title = project_localized(original_proposal.title)
               project.description = project_localized(original_proposal.body)
               project.budget = form.default_budget
