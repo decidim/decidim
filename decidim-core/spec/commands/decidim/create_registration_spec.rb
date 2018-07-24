@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateRegistration do
       describe "call" do
-        let(:organization) { create(:organization) }
+        let(:organization) { create(:organization, :with_tos) }
 
         let(:name) { "Username" }
         let(:nickname) { "nickname" }

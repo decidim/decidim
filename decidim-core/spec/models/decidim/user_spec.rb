@@ -205,6 +205,13 @@ module Decidim
         let(:accepted_tos_version) { 1.year.before }
 
         it { is_expected.to be_falsey }
+
+        context "when organization has no TOS" do
+          let(:organization) { build(:organization, tos_version: nil) }
+          let(:user) { build(:user, organization: organization) }
+
+          it { is_expected.to be_falsey }
+        end
       end
 
       context "when user didn't accepted ToS" do
@@ -216,6 +223,12 @@ module Decidim
           let(:user) { build(:user, :managed, organization: organization, accepted_tos_version: accepted_tos_version) }
 
           it { is_expected.to be_truthy }
+        end
+
+        context "when organization has no TOS" do
+          let(:organization) { build(:organization, tos_version: nil) }
+
+          it { is_expected.to be_falsey }
         end
       end
     end

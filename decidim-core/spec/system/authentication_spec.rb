@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, :with_tos) }
   let(:last_user) { Decidim::User.last }
 
   before do

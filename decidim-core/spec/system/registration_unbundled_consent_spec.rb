@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "TOS", type: :system do
   let(:organization) { create(:organization) }
-  let!(:terms_and_conditions_page) { create(:static_page, slug: "terms-and-conditions", organization: organization) }
+  let!(:terms_and_conditions_page) { create(:static_page, :tos, organization: organization) }
 
   before do
     switch_to_host(organization.host)

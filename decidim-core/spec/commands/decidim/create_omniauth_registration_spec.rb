@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateOmniauthRegistration do
       describe "call" do
-        let(:organization) { create(:organization) }
+        let(:organization) { create(:organization, :with_tos) }
         let(:email) { "user@from-facebook.com" }
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
