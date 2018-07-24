@@ -199,6 +199,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
+            resources_permissions_enabled: Autorisations de ressources activées
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1

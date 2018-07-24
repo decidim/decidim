@@ -100,7 +100,7 @@ es-PY:
           update:
             error: Hubo un problema al volver a subir tu documento
             success: El documento se ha resubido correctamente
-        dni: DNI
+        dni: CI
         nie: NIE
         passport: Pasaporte
       postal_letter:

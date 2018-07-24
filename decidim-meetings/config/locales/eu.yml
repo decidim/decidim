@@ -80,6 +80,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
@@ -171,6 +172,13 @@ eu:
           create:
             error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
             success: Erabiltzailea behar bezala gonbidatu bilera batera.
+          form:
+            attendee_type: Parte-hartzaile mota
+            existing_user: Erabiltzaile existentea
+            invite: Gonbit egin
+            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
+            non_user: Erabiltzailea ez dago
+            select_user: Aukeratu erabiltzailea
           index:
             filter:
               accepted: Onartu
@@ -180,11 +188,8 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu gonbidatua
             invites: Gonbidapenak
+            registrations_disabled: Ezin duzu parte-hartzaile bat gonbidatu erregistrazioek desgaituta egon direlako.
             search: Search
-          new:
-            explanation: Erabiltzailea bilera batera gonbidatuko zaizu. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
-            invite: Gonbit egin
-            new_invite: Gonbidatu erabiltzailea
         meeting_closes:
           edit:
             close: Itxi

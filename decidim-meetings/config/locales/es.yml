@@ -80,6 +80,7 @@ es:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
+            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada reunión
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -171,6 +172,13 @@ es:
           create:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
+          form:
+            attendee_type: Tipo de Asistente
+            existing_user: Usuario existente
+            invite: Invitar
+            invite_explanation: El usuario será invitado a unirse a la reunión y a la organización también.
+            non_user: Usuario no existente
+            select_user: Seleccionar usuario
           index:
             filter:
               accepted: Aceptado
@@ -180,11 +188,8 @@ es:
             filter_by: Filtrar por
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
+            registrations_disabled: No puede invitar a un asistente porque los registros están deshabilitados.
             search: Buscar
-          new:
-            explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
-            invite: Invitar
-            new_invite: Invitar usuario
         meeting_closes:
           edit:
             close: Cerrar

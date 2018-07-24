@@ -41,7 +41,7 @@ pt-BR:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Este email já foi convidado
+              already_invited: Este endereço de e-mail já foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: Encontro
@@ -80,6 +80,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -164,27 +165,31 @@ pt-BR:
           registrations: Inscrições
         invite_join_meeting_mailer:
           invite:
-            decline: Recusar convite
+            decline: Rejeitar convite
             invited_you_to_join_a_meeting: "%{invited_by} convidou você a participar de uma reunião em %{application}. Você pode aceitá-lo através do link abaixo."
             join: Junte-se à reunião '%{meeting_title}'
         invites:
           create:
             error: Ocorreu um problema ao convidar o usuário a participar da reunião.
             success: O usuário foi convidado para participar da reunião.
+          form:
+            attendee_type: Tipo de participante
+            existing_user: Usuário existente
+            invite: Convite
+            invite_explanation: O usuário será convidado a participar da reunião e também da organização.
+            non_user: Usuário não existente
+            select_user: Selecione o usuário
           index:
             filter:
-              accepted: Aceitaram
-              all: Todos
-              rejected: Rejeitado
-              sent: Enviei
+              accepted: Aceitos
+              all: Tudo
+              rejected: Rejeitados
+              sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisa
-          new:
-            explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
-            invite: Convite
-            new_invite: Convidar Usuário
+            registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
+            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
@@ -317,14 +322,14 @@ pt-BR:
       models:
         invite:
           fields:
-            email: O email
+            email: E-mail
             name: Nome
             sent_at: Enviado em
-            status: Status
+            status: Estado
           status:
             accepted: Aceito (%{at})
             rejected: Rejeitado (%{at})
-            sent: Enviei
+            sent: Enviado
         meeting:
           fields:
             closed: Fechadas

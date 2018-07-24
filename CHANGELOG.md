@@ -2,13 +2,19 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-**Upgrade notes (search)**:
+**Upgrade notes**:
 
-In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
+- In order for the currently existing Users to be indexed, you'll have to manually trigger a reindex. You can do that executing:
 
-```ruby
-Decidim::User.find_each(&:add_to_index_as_search_resource)
-```
+  ```ruby
+  Decidim::User.find_each(&:add_to_index_as_search_resource)
+  ```
+
+- If you have an external module that defines rake tasks and more than one
+  engine, you probably want to add `paths["lib/tasks"] = nil` to all engines but
+  the main one, otherwise the tasks you define are probably running multiple
+  times unintentionally. Check
+  [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
 
 **Added**:
 
@@ -20,6 +26,7 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-meetings**: Allow users to accept or reject invitations to meetings, and allow admins to see their status. [\#3632](https://github.com/decidim/decidim/pull/3632)
 - **decidim-meetings**: Allow admins to invite existing users to meetings. [\#3831](https://github.com/decidim/decidim/pull/3831)
 - **decidim-meetings**: Generate a registration code and give it to users when they join to the meeting. [\#3805](https://github.com/decidim/decidim/pull/3805)
+- **decidim-meetings**: Allow admins to validate meeting registration codes and notify the user. [\#3833](https://github.com/decidim/decidim/pull/3833)
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
 
@@ -32,6 +39,8 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-proposals**: Fix Endorse button broken if endorse action is authorized. [\#3875](https://github.com/decidim/decidim/pull/3875)
+- **decidim-proposals**: Refactor searchable proposal test to avoid flakes. [\#3825](https://github.com/decidim/decidim/pull/3825)
 - **decidim-proposals**: Proposal seeds iterate over a sample of users to add coauthorships. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-core**: Make proposal m-card render its authorship again. [\#3727](https://github.com/decidim/decidim/pull/3727)
 - **decidim-generators**: Generated application not including bootsnap.
@@ -45,6 +54,11 @@ Decidim::User.find_each(&:add_to_index_as_search_resource)
 - **decidim-core**: Don't crash when a nickname has a dot. [\#3793](https://github.com/decidim/decidim/pull/3793)
 - **decidim-core**: Don't crash when a page doesn't exist. [\#3799](https://github.com/decidim/decidim/pull/3799)
 - **decidim-consultations**: Remove unused indexes from consultations questions. [\#3840](https://github.com/decidim/decidim/pull/3840)
+- **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
+- **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
+- **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
+- **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
+- **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
 
 **Removed**:
 

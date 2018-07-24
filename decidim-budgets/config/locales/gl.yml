@@ -121,6 +121,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             projects_per_page: Proxectos por páxina
+            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
           step:

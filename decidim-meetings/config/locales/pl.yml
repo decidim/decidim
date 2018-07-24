@@ -86,6 +86,7 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             default_registration_terms: Domyślne warunki rejestracji
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -177,6 +178,13 @@ pl:
           create:
             error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Udało się zaprosić użytkownika do udziału w spotkaniu.
+          form:
+            attendee_type: Typ uczestnika
+            existing_user: Istniejący użytkownik
+            invite: Zaproś
+            invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
+            non_user: Nieistniejący użytkownik
+            select_user: Wybierz użytkownika
           index:
             filter:
               accepted: Przyjęty
@@ -186,11 +194,8 @@ pl:
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
             invites: Zaprasza
+            registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
             search: Szukaj
-          new:
-            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
-            invite: Zaproś
-            new_invite: Zaproś użytkownika
         meeting_closes:
           edit:
             close: Zamknij
