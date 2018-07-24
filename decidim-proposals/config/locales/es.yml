@@ -32,7 +32,7 @@ es:
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/rejected_proposal_event: Propuesta rechazada
-      decidim/proposals/voting_enabled_event: Votación de propuestas habilitada
+      decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
   activerecord:
     models:
       decidim/proposals/proposal:
@@ -45,8 +45,8 @@ es:
         one: Nota
         other: Notas
       decidim/proposals/proposal_vote:
-        one: Voto
-        other: Votos
+        one: Apoyo
+        other: Apoyo
   decidim:
     components:
       proposals:
