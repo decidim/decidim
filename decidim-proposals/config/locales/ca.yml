@@ -9,13 +9,13 @@ ca:
         has_address: Té adreça
         scope_id: Àmbit
         state: Estat
-        title: Grup de processos participatius
+        title: Títol
         user_group_id: Crea una proposta com a
       proposal_answer:
         answer: Respondre
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
-        origin_component_id: Component des d'on copiar les propostes
+        origin_component_id: Component des d'on importar les propostes
     errors:
       models:
         proposal:
