@@ -294,6 +294,7 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
           select_a_category: Будь ласка, оберіть розряд
           send: Надіслати
