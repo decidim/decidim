@@ -11,7 +11,7 @@ ru:
         project_ids: Включенные проекты
         proposals: Включенные предложения
         start_date: Дата начала
-        title: Название
+        title: Заголовок
         updated_at: 'Обновлено:'
       status:
         description: Описание
@@ -125,7 +125,7 @@ ru:
             progress: Продвижение
             start_date: Дата начала
             status: Состояние
-            title: Название
+            title: Заголовок
         status:
           fields:
             description: Описание
@@ -168,9 +168,9 @@ ru:
             proposals: Предложения
             show_all_versions: Показать все версии
             version_author: Автор версии
-            version_created_at: Версия, созданная на
-            version_number: Автор версии
-            version_number_out_of_total: "Шаг %{current_version} из %{total_count}"
+            version_created_at: 'Версия создана:'
+            version_number: Номер версии
+            version_number_out_of_total: "%{current_version} из %{total_count}"
             votes: Выражений поддержки
         timeline:
           title: Развитие проекта
