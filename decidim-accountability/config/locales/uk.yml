@@ -16,7 +16,7 @@ uk:
       status:
         description: Опис
         key: Ключ
-        name: Назва
+        name: Ім'я
         progress: Перебіг
       timeline_entry:
         description: Опис
@@ -170,7 +170,7 @@ uk:
             version_author: Автор версії
             version_created_at: 'Версію створено:'
             version_number: Номер версії
-            version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
+            version_number_out_of_total: "%{current_version} з %{total_count}"
             votes: Підтримує
         timeline:
           title: Розвиток проекту
