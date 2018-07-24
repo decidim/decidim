@@ -19,7 +19,7 @@ module Decidim
             start_date: resource.conference.start_date,
             end_date: resource.conference.end_date,
             location: resource.conference.location,
-            objectives: resource.conference.objectives,
+            objectives: resource.conference.objectives
           }
         }
       end

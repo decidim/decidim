@@ -47,6 +47,9 @@ module Decidim
           transaction do
             update_conference_registrations
             @conference.save!
+            send_notification_registrations_enabled if should_notify_followers_registrations_enabled?
+            send_notification_update_conference if should_notify_followers_update_conference?
+            schedule_upcoming_conference_notification if start_date_changed?
             Decidim.traceability.perform_action!(:update, @conference, form.current_user) do
               @conference
             end
@@ -81,6 +84,48 @@ module Decidim
             scope: form.scope,
             show_statistics: form.show_statistics
           }
+        end
+
+        def send_notification_registrations_enabled
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
+            resource: @conference,
+            recipient_ids: @conference.followers.pluck(:id)
+          )
+        end
+
+        def should_notify_followers_registrations_enabled?
+          @conference.previous_changes["registrations_enabled"].present? && @conference.registrations_enabled?
+        end
+
+        def send_notification_update_conference
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.conference_updated",
+            event_class: Decidim::Conferences::UpdateConferenceEvent,
+            resource: @conference,
+            recipient_ids: @conference.followers.pluck(:id)
+          )
+        end
+
+        def should_notify_followers_update_conference?
+          important_attributes.any? { |attr| @conference.previous_changes[attr].present? }
+        end
+
+        def important_attributes
+          %w(start_date end_date location)
+        end
+
+        def start_date_changed?
+          @conference.previous_changes["start_date"].present?
+        end
+
+        def schedule_upcoming_conference_notification
+          checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(@conference)
+
+          Decidim::Conferences::UpcomingConferenceNotificationJob
+            .set(wait_until: @conference.start_date - 2.days)
+            .perform_later(@conference.id, checksum)
         end
       end
     end

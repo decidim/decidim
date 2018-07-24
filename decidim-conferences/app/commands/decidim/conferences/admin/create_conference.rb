@@ -24,8 +24,8 @@ module Decidim
 
           if conference.persisted?
             add_admins_as_followers(conference)
-
             broadcast(:ok, conference)
+            send_notification if should_notify_followers?
           else
             form.errors.add(:hero_image, conference.errors[:hero_image]) if conference.errors.include? :hero_image
             form.errors.add(:banner_image, conference.errors[:banner_image]) if conference.errors.include? :banner_image
@@ -75,6 +75,19 @@ module Decidim
 
             Decidim::CreateFollow.new(form, admin).call
           end
+        end
+
+        def send_notification
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
+            resource: conference,
+            recipient_ids: conference.followers.pluck(:id)
+          )
+        end
+
+        def should_notify_followers?
+          conference.previous_changes["registrations_enabled"].present? && conference.registrations_enabled?
         end
       end
     end

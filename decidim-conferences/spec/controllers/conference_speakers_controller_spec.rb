@@ -24,9 +24,6 @@ module Decidim
       describe "GET index" do
         context "when conference has no speakers" do
           it "redirects to 404" do
-            puts "-------------"
-            puts "#{conference.slug}"
-            puts "-------------"
             expect { get :index, params: { conference_slug: conference.slug } }
               .to raise_error(ActionController::RoutingError)
           end

@@ -10,9 +10,9 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
   participatory_space.permissions_class_name = "Decidim::Conferences::Permissions"
   participatory_space.data_portable_entities = [
-                                                "Decidim::Conferences::ConferenceRegistration",
-                                                "Decidim::Conferences::ConferenceInvite"
-                                               ]
+    "Decidim::Conferences::ConferenceRegistration",
+    "Decidim::Conferences::ConferenceInvite"
+  ]
 
   participatory_space.register_resource(:conference) do |resource|
     resource.model_class_name = "Decidim::Conference"
