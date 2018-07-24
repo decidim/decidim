@@ -177,7 +177,7 @@ ru:
         invite_join_meeting_mailer:
           invite:
             decline: Отклонить приглашение
-            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
+            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу в %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
