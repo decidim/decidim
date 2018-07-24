@@ -3,7 +3,7 @@
 module Decidim
   module Sortitions
     def self.version
-      "0.13.0"
+      "0.13.1"
     end
   end
 end

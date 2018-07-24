@@ -2,9 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.13-stable)
 
-**Added**:
+**Fixed**:
 
-**Changed**:
+## [0.13.1](https://github.com/decidim/decidim/tree/v0.13.1)
 
 **Fixed**:
 
