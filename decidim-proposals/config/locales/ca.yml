@@ -45,7 +45,7 @@ ca:
         one: Nota
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Vot
+        one: Donar suport
         other: Suports
   decidim:
     components:
