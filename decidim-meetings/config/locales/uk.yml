@@ -38,6 +38,10 @@ uk:
             base:
               too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
               too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Учасника з такою адресою вже запрошено
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -82,6 +86,7 @@ uk:
             announcement: Оголошення
             comments_enabled: Коментарі увімкнено
             default_registration_terms: Умови реєстрації за умовчанням
+            resources_permissions_enabled: Права на дії можна встановити для кожної зустрічі
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -166,16 +171,26 @@ uk:
           registrations: Реєстрації
         invite_join_meeting_mailer:
           invite:
+            decline: Відхилити запрошення
             invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
             join: Долучитись до зустрічі '%{meeting_title}'
         invites:
           create:
             error: При спробі запросити учасника на зустріч сталася помилка.
             success: Учасника успішно запрошено на зустріч.
-          new:
-            explanation: Учасника буде запрошено на зустріч. Якщо його адресу електронної пошти не зареєстровано, його буде також запрошено до організації.
+          form:
             invite: Запросити
-            new_invite: Запросити учасника
+          index:
+            filter:
+              accepted: Прийняті
+              all: Усі
+              rejected: Відхилені
+              sent: Надіслані
+            filter_by: 'Відібрати за ознакою:'
+            invite_attendee: Запросити учасника
+            invites: Запрошення
+            registrations_disabled: Ви не можете запросити учасника, оскільки реєстрація відключена.
+            search: Шукати
         meeting_closes:
           edit:
             close: Закрити
@@ -234,6 +249,7 @@ uk:
             save: Зберегти
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
+            invites: Запрошення
             registrations_count:
               one: Зареєструвалась 1 людина.
               few: Зареєструвалось %{count} людей.
@@ -245,6 +261,10 @@ uk:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
       admin_log:
+        invite:
+          create: "%{user_name} запросив %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
+          deleted: "%{user_name} скасував запрошення %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} запросив %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
         meeting:
           close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
           create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
@@ -305,6 +325,16 @@ uk:
             other: "Залишилось %{count} місць"
           view: Переглянути
       models:
+        invite:
+          fields:
+            email: Адреса електронної пошти
+            name: Ім'я
+            sent_at: 'Надіслане:'
+            status: Стан
+          status:
+            accepted: Прийняте (%{at})
+            rejected: Відхилене (%{at})
+            sent: Надіслано
         meeting:
           fields:
             closed: Завершено
@@ -317,10 +347,14 @@ uk:
         confirmation:
           confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
           details: Детальні відомості про зустріч читайте у вкладенні.
+          registration_code: Ваш реєстраційний код - %{code}.
       registrations:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.
           success: Ви успішно долучилися до цієї зустрічі.
+        decline_invitation:
+          invalid: При спробі відхилити це запрошення сталася помилка.
+          success: Запрошення успішно відхилено.
         destroy:
           invalid: При спробі скасувати реєстрацію на цю зустріч сталася помилка.
           success: Ви успішно скасували реєстрацію на зустріч.

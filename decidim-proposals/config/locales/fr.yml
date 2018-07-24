@@ -73,6 +73,7 @@ fr:
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
+            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:

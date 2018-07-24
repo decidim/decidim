@@ -200,6 +200,7 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1

@@ -14,6 +14,7 @@ require "autoprefixer-rails"
 require "rectify"
 require "doorkeeper"
 require "doorkeeper-i18n"
+require "hashdiff"
 
 module Decidim
   module Admin

@@ -80,6 +80,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             default_registration_terms: Standaard registratievoorwaarden
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -171,6 +172,13 @@ nl:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
+          form:
+            attendee_type: Type deelnemer
+            existing_user: Bestaande gebruiker
+            invite: Uitnodigen
+            invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
+            non_user: Niet bestaande gebruiker
+            select_user: Selecteer gebruiker
           index:
             filter:
               accepted: Aanvaard
@@ -180,11 +188,8 @@ nl:
             filter_by: Filteren op
             invite_attendee: Nodig de deelnemer uit
             invites: Uitnodigingen
+            registrations_disabled: U kunt een deelnemer niet uitnodigen omdat de registraties zijn uitgeschakeld.
             search: Zoeken
-          new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
-            invite: Uitnodigen
-            new_invite: Gebruiker uitnodigen
         meeting_closes:
           edit:
             close: Sluiten
