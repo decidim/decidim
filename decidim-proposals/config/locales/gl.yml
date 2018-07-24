@@ -277,8 +277,6 @@ gl:
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:
-          attachment_legend: "(Opcional) Engada un anexo"
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Completa a túa proposta
         count:
@@ -286,6 +284,7 @@ gl:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           select_a_category: Selecciona unha categoría
           send: Enviar
