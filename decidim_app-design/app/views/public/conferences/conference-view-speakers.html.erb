@@ -10,102 +10,23 @@
         <%= partial "conferences_nav" %>
       </div>
       <div class="columns mediumlarge-8">
-        <section id="section-0" class="section">
-          <h1 class="section-heading">Introducción</h1>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Començarem per:</p>
-          <ul class="list-reset">
-            <li><p>examinar les funcionalitats del decidim.barcelona</p></li>
-            <li><p>prioritzar les línies de desenvolupament</p></li>
-            <li><p>decidir projectes de millora</p></li>
-            <li><p>deliberar sobre els usos i possibilitats futures</p></li>
-          </ul>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-1" class="section">
-          <h1 class="section-heading">Detalls</h1>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona.</p>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. </p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/ahVZLOlE3GE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. </p>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona.</p>
-          <div class="row m-l">
-            <div class="column medium-6 medium-centered">
-              <div class="column medium-6">
-                <button type="button" class="button button--sc expanded">Registrate</button>
-              </div>
-              <div class="column medium-6">
-                <button type="button" class="button button--sc secondary light expanded">Programa</button>
+        <h1 class="section-heading">Ponentes</h1>
+        <div class="row small-up-2 medium-up-4">
+          <% 12.times do %>
+          <div class="column speaker">
+            <div class="speaker-img-wrapper">
+              <div class="speaker-img">
+                <%= image_tag Faker::Fillmurray.image(false, Faker::Number.between(10, 500), Faker::Number.between(10, 500)) %>
               </div>
             </div>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-2" class="section">
-          <h1 class="section-heading">Grupo motor</h1>
-          <div class="row small-up-2 medium-up-3 card-grid">
-            <% 4.times do %>
-            <div class="column collapse text-center mb-s">
-              <div class="card p-m flex--cc"><%= image_tag Faker::Company.logo %></div>
-              <div class="text-medium"><%= Faker::Company.name %></div>
-            </div>
-            <% end %>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-3" class="section">
-          <h1 class="section-heading">Colaboradores</h1>
-          <div class="row small-up-2 medium-up-3 card-grid">
-            <% 14.times do %>
-            <div class="column collapse text-center mb-s">
-              <div class="card p-m flex--cc"><%= image_tag Faker::Company.logo %></div>
-            </div>
-            <% end %>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-4" class="section">
-          <h1 class="section-heading">Ubicaciones</h1>
-          <div class="row">
-            <div class="column medium-4">
-              <% 3.times do %>
-              <div class="mb-s">
-                <div><strong><%= Faker::Address.community %> - <%= Faker::University.name %></strong></div>
-                <div class="text-medium"><%= Faker::Address.full_address %></div>
-              </div>
-              <% end %>
-            </div>
-            <div class="column medium-8">
-              <%= partial "meetings_map" %>
+            <div class="speaker-data">
+              <div class="data-name"><%= Faker::Name.name %></div>
+              <div class="data-role"><%= Faker::Company.profession %> · <%= Faker::Internet.domain_name %></div>
+              <div class="data-extra"><a href="" class="card-link">@<%= Faker::Internet.username %></a>&nbsp;<span><u>more info</u></span></div>
             </div>
           </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-5" class="section">
-          <h1 class="section-heading">Registro-1</h1>
-          <div class="row">
-            <div class="column medium-6">
-              <div class="card p-m">
-                <p>¿Ya tienes cuenta en decidim?</p>
-                <a href="">Haz login para realizar tu registro en esta conferencia</a>
-              </div>
-            </div>
-            <div class="column medium-6">
-              <div class="card p-m">
-                <p>¿Nuevo usuario?</p>
-                <a href="">Regístrate gratis en decidim para realizar tu registro</a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-6" class="section">
-          <h1 class="section-heading">Registro-2</h1>
-          <div class="card p-m text-center">
-            <p>Estas logueado como <%= Faker::Name.name %>&nbsp;&#60;<%= Faker::Internet.email %>&#62;</p>
-            <p>Realiza tu registro en la conferencia:</p>
-            <button type="button" class="button button--sc">Registrate</button>
-          </div>
-        </section>
+          <% end %>
+        </div>
       </div>
     </div>
   </section>
