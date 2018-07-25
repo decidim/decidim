@@ -2,12 +2,13 @@
 
 require "spec_helper"
 
-describe "Highlighted Initiatives", type: :system do
+describe "Homepage initiatives content blocks", type: :system do
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, organization: organization) }
   let!(:closed_initiative) { create(:initiative, :rejected, organization: organization) }
 
   before do
+    create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_initiatives
     switch_to_host(organization.host)
   end
 
