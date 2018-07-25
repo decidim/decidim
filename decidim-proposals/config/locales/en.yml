@@ -276,16 +276,6 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
-        vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
-          need_more_votes: Need more votes
-          neutral: Neutral
-          maximum_votes_reached: Vote limit reached
-          most_popular_proposal: Most popular proposal
-          no_votes_remaining: No votes remaining
-          votes_blocked: Voting disabled
         compare:
           mine_is_different: My proposal is different
           no_similars_found: Well done! No similar proposals found
@@ -399,6 +389,16 @@ en:
             other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+        vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          need_more_votes: Need more votes
+          neutral: Neutral
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
