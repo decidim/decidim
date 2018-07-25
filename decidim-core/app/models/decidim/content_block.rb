@@ -9,5 +9,9 @@ module Decidim
     include HasAttachments
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
+
+    def manifest
+      Decidim.content_blocks.for(scope).find { |manifest| manifest.name.to_s == manifest_name }
+    end
   end
 end
