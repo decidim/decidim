@@ -64,10 +64,6 @@ module Decidim
       end
 
       initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          view_context.cell "decidim/assemblies/content_blocks/highlighted_assemblies"
-        end
-
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
@@ -83,6 +79,12 @@ module Decidim
               assemblies: assemblies
             }
           )
+        end
+      end
+
+      initializer "decidim_assemblies.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
+          content_block.cell "decidim/assemblies/content_blocks/highlighted_assemblies"
         end
       end
     end

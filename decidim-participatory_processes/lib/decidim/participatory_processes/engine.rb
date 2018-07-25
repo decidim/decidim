@@ -58,9 +58,9 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          view_context.cell "decidim/participatory_processes/content_blocks/highlighted_processes"
+      initializer "decidim_participatory_processes.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_processes) do |content_block|
+          content_block.cell "decidim/participatory_processes/content_blocks/highlighted_processes"
         end
       end
     end

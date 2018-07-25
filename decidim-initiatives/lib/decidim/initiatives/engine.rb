@@ -61,9 +61,9 @@ module Decidim
         )
       end
 
-      initializer "decidim_initiatives.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          view_context.cell "decidim/initiatives/content_blocks/highlighted_initiatives"
+      initializer "decidim_initiatives.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
+          content_block.cell "decidim/initiatives/content_blocks/highlighted_initiatives"
         end
       end
 

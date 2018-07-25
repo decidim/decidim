@@ -1,9 +1,3 @@
-<%= cell "decidim/content_blocks/hero" %>
-<%= cell "decidim/content_blocks/sub_hero" %>
-<%= cell "decidim/content_blocks/highlighted_content_banner" %>
-
-<%= render_hook(:highlighted_elements) %>
-
-<%= cell "decidim/content_blocks/how_to_participate" %>
-<%= cell "decidim/content_blocks/stats" %>
-<%= cell "decidim/content_blocks/footer_sub_hero" %>
+<% Decidim.content_blocks.for(:homepage).each do |manifest| %>
+  <%= cell manifest.cell_name %>
+<% end %>
