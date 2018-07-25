@@ -23,6 +23,10 @@ references:
     restore_cache:
       keys:
         - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+  restore_runtime_log_cache: &restore_runtime_log_cache
+      restore_cache:
+        keys:
+          - runtime-log-{{ .Environment.CIRCLE_JOB }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
@@ -64,10 +68,15 @@ references:
   store_test_results: &store_test_results
     store_test_results:
       path: ~/rspec
+  save_runtime_log_cache: &save_runtime_log_cache
+    save_cache:
+      key: runtime-log-{{ .Environment.CIRCLE_JOB }}
+      paths:
+        - ~/runtime_rspec_$CIRCLE_JOB.log
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake parallel:spec[$NUM_CPUS]
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec parallel_test spec/ -n $NUM_CPUS -t rspec --runtime-log ~/runtime_rspec_$CIRCLE_JOB.log -o "--format progress --format ParallelTests::RSpec::RuntimeLogger --out ~/runtime_rspec_$CIRCLE_JOB.log"
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
@@ -127,10 +136,12 @@ jobs:
       - *install_ruby_dependencies
       - *save_ruby_cache
       - *wait_for_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *install_test_reporter
       - *format_test_coverage
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   core:
     <<: *defaults
@@ -139,12 +150,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   assemblies:
     <<: *defaults
@@ -153,12 +166,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   initiatives:
     <<: *defaults
@@ -167,12 +182,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   api:
     <<: *defaults
@@ -181,12 +198,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   participatory_processes:
     <<: *defaults
@@ -195,12 +214,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   admin:
     <<: *defaults
@@ -210,12 +231,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   system:
     <<: *defaults
@@ -224,12 +247,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   proposals:
     <<: *defaults
@@ -238,12 +263,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   comments:
     <<: *defaults
@@ -256,12 +283,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   meetings:
     <<: *defaults
@@ -270,12 +299,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   pages:
     <<: *defaults
@@ -284,12 +315,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   accountability:
     <<: *defaults
@@ -298,12 +331,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   budgets:
     <<: *defaults
@@ -312,12 +347,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   surveys:
     <<: *defaults
@@ -326,12 +363,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   verifications:
     <<: *defaults
@@ -340,12 +379,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   debates:
     <<: *defaults
@@ -354,12 +395,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   sortitions:
     <<: *defaults
@@ -368,12 +411,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   blogs:
     <<: *defaults
@@ -382,12 +427,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   consultations:
     <<: *defaults
@@ -396,12 +443,14 @@ jobs:
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
+      - *restore_runtime_log_cache
       - *run_rspec
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
       - *store_log_artifacts
       - *store_test_results
+      - *save_runtime_log_cache
       - *persist_coverage_to_workspace
   build_design_app:
     working_directory: /app
