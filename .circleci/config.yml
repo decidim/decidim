@@ -26,7 +26,7 @@ references:
   restore_runtime_log_cache: &restore_runtime_log_cache
       restore_cache:
         keys:
-          - runtime-log-{{ .Environment.CIRCLE_JOB }}
+          - t1-runtime-log-{{ .Environment.CIRCLE_JOB }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
@@ -70,13 +70,13 @@ references:
       path: ~/rspec
   save_runtime_log_cache: &save_runtime_log_cache
     save_cache:
-      key: runtime-log-{{ .Environment.CIRCLE_JOB }}
+      key: t1-runtime-log-{{ .Environment.CIRCLE_JOB }}
       paths:
-        - ~/runtime_rspec_$CIRCLE_JOB.log
+        - ~/runtime_rspec.log
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec parallel_test spec/ -n $NUM_CPUS -t rspec --runtime-log ~/runtime_rspec_$CIRCLE_JOB.log -o "--format progress --format ParallelTests::RSpec::RuntimeLogger --out ~/runtime_rspec_$CIRCLE_JOB.log"
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec parallel_test spec/ -n $NUM_CPUS -t rspec --runtime-log ~/runtime_rspec.log -o "--format progress --format ParallelTests::RSpec::RuntimeLogger --out ~/runtime_rspec.log"
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
