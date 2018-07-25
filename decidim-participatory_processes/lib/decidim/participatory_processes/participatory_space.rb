@@ -37,6 +37,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 31,
+      scope: :homepage,
+      manifest_name: :highlighted_processes,
+      published_at: Time.current
+    )
+
     process_groups = []
     2.times do
       process_groups << Decidim::ParticipatoryProcessGroup.create!(
