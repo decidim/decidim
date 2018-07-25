@@ -11,7 +11,7 @@ module VoteProposalExtend
 
   def build_proposal_vote
     @vote = @proposal.votes.find_or_initialize_by(author: @current_user)
-    @vote.update!(weight: @weight)
+    @vote.update(weight: @weight)
   end
 end
 
