@@ -76,7 +76,7 @@ fr:
   decidim:
     admin:
       actions:
-        new_assembly: Nouvel assemblée
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -88,7 +88,7 @@ fr:
         form:
           title: Informations générales
         index:
-          not_published: Non publié
+          not_published: Non publiée
           private: Privée
           public: Publique
           published: Publiée
@@ -165,7 +165,7 @@ fr:
         assembly:
           fields:
             created_at: Créée le
-            private: Privé
+            private: Privée
             promoted: Mise en évidence
             published: Publiée
             title: Titre
@@ -213,7 +213,7 @@ fr:
         assemblies:
           form:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cette assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
@@ -334,7 +334,7 @@ fr:
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
         unfold: Dérouler
       assembly_widgets:
         show:
