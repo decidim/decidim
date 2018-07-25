@@ -391,6 +391,9 @@ nl:
           most_popular_proposal: Populairste voorstel
           need_more_votes: Meer stemmen nodig
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

@@ -407,6 +407,9 @@ pl:
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

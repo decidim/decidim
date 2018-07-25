@@ -389,6 +389,9 @@ gl:
           most_popular_proposal: A proposta máis popular
           need_more_votes: Necesita máis votos
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

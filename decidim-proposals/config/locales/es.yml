@@ -389,6 +389,9 @@ es:
           most_popular_proposal: La propuesta más popular
           need_more_votes: Necesita más votos
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

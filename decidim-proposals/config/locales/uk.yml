@@ -407,6 +407,9 @@ uk:
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:

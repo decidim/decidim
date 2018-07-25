@@ -407,6 +407,9 @@ ru:
           most_popular_proposal: Самое популярное предложение
           need_more_votes: Нужно больше голосов
         votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:
