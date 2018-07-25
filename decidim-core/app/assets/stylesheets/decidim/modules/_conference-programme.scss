@@ -1,0 +1,19 @@
+.conference-programme{
+  > .row:first-child{
+    @extend .pb-xs;
+
+    border-bottom: $border;
+    color: $muted;
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+  }
+
+  > .row:not(:first-child){
+    @extend .pt-s;
+    @extend .pb-s;
+
+    border-bottom: $border;
+    border-bottom-style: dashed;
+  }
+}

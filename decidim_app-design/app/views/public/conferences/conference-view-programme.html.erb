@@ -10,102 +10,127 @@
         <%= partial "conferences_nav" %>
       </div>
       <div class="columns mediumlarge-8">
-        <section id="section-0" class="section">
-          <h1 class="section-heading">Introducción</h1>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Començarem per:</p>
-          <ul class="list-reset">
-            <li><p>examinar les funcionalitats del decidim.barcelona</p></li>
-            <li><p>prioritzar les línies de desenvolupament</p></li>
-            <li><p>decidir projectes de millora</p></li>
-            <li><p>deliberar sobre els usos i possibilitats futures</p></li>
-          </ul>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-1" class="section">
-          <h1 class="section-heading">Detalls</h1>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona.</p>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. </p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/ahVZLOlE3GE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. </p>
-          <p>Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona. Les I Jornades/Hackató de desenvolupament participatiu de la plataforma decidim.barcelona han de servir per a que la ciutadania s’apropi del desenvolupament, supervisió i millora del decidim.barcelona.</p>
-          <div class="row m-l">
-            <div class="column medium-6 medium-centered">
-              <div class="column medium-6">
-                <button type="button" class="button button--sc expanded">Registrate</button>
-              </div>
-              <div class="column medium-6">
-                <button type="button" class="button button--sc secondary light expanded">Programa</button>
-              </div>
+        <h1 class="section-heading">Programa</h1>
+        <div class="conference-programme">
+          <div class="row collapse">
+            <div class="column medium-2">
+              Día
+            </div>
+            <div class="column medium-10">
+              <a href="#" class="button button--nomargin button--sc secondary light">Mércores 28 oct 2018</a>
+              <a href="#" class="button button--nomargin button--sc button--muted secondary light">Xoves 29 oct 2018</a>
+              <a href="#" class="button button--nomargin button--sc button--muted secondary light">Venres 30 oct 2018</a>
             </div>
           </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-2" class="section">
-          <h1 class="section-heading">Grupo motor</h1>
-          <div class="row small-up-2 medium-up-3 card-grid">
-            <% 4.times do %>
-            <div class="column collapse text-center mb-s">
-              <div class="card p-m flex--cc"><%= image_tag Faker::Company.logo %></div>
-              <div class="text-medium"><%= Faker::Company.name %></div>
+          <div class="row collapse">
+            <div class="column medium-2">
+              10:00 - 12:00
             </div>
-            <% end %>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-3" class="section">
-          <h1 class="section-heading">Colaboradores</h1>
-          <div class="row small-up-2 medium-up-3 card-grid">
-            <% 14.times do %>
-            <div class="column collapse text-center mb-s">
-              <div class="card p-m flex--cc"><%= image_tag Faker::Company.logo %></div>
-            </div>
-            <% end %>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-4" class="section">
-          <h1 class="section-heading">Ubicaciones</h1>
-          <div class="row">
-            <div class="column medium-4">
-              <% 3.times do %>
-              <div class="mb-s">
-                <div><strong><%= Faker::Address.community %> - <%= Faker::University.name %></strong></div>
-                <div class="text-medium"><%= Faker::Address.full_address %></div>
+            <div class="column medium-10">
+              <div><strong>Introducción y bienvenida</strong></div>
+              <div>Pensaremos y debatiremos colectivamente las potencialidades de Decidim en el desarrollo de procesos de participación ciudadana. Recogeremos experiencias, identificaremos oportunidades y retos de las herramientas digitales</div>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Ponentes</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= render layout: "public/components/collapsible-list", locals: { text: raw("y 6 más"), size: 3, classText: "", classes: "no-margin" } do %>
+                  <% 9.times do %>
+                  <%= partial "author_data", { nick: false, small: true } %>
+                  <% end %>
+                  <% end %>
+                </div>
               </div>
-              <% end %>
-            </div>
-            <div class="column medium-8">
-              <%= partial "meetings_map" %>
-            </div>
-          </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-5" class="section">
-          <h1 class="section-heading">Registro-1</h1>
-          <div class="row">
-            <div class="column medium-6">
-              <div class="card p-m">
-                <p>¿Ya tienes cuenta en decidim?</p>
-                <a href="">Haz login para realizar tu registro en esta conferencia</a>
+              <!-- No mt-xs class in 2nd row-->
+              <div class="row">
+                <div class="column medium-2">
+                  <strong>Ubicación</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= Faker::Address.community %>&nbsp;<span class="text-medium"><%= Faker::Address.full_address %></span>
+                </div>
               </div>
-            </div>
-            <div class="column medium-6">
-              <div class="card p-m">
-                <p>¿Nuevo usuario?</p>
-                <a href="">Regístrate gratis en decidim para realizar tu registro</a>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Contenido</strong>
+                </div>
+                <div class="column medium-10">
+                  No disponible
+                </div>
+              </div>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Streaming</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= Faker::Internet.url %>
+                </div>
               </div>
             </div>
           </div>
-        </section>
-        <hr class="reset mt-none mb-m">
-        <section id="section-6" class="section">
-          <h1 class="section-heading">Registro-2</h1>
-          <div class="card p-m text-center">
-            <p>Estas logueado como <%= Faker::Name.name %>&nbsp;&#60;<%= Faker::Internet.email %>&#62;</p>
-            <p>Realiza tu registro en la conferencia:</p>
-            <button type="button" class="button button--sc">Registrate</button>
+          <div class="row collapse">
+            <div class="column medium-2">
+              10:00 - 12:00
+            </div>
+            <div class="column medium-10">
+              <div><strong>Coffee break</strong></div>
+            </div>
           </div>
-        </section>
+          <div class="row collapse">
+            <div class="column medium-2">
+              10:00 - 12:00
+            </div>
+            <div class="column medium-10">
+              <div><strong>Introducción y bienvenida</strong></div>
+              <div>Pensaremos y debatiremos colectivamente las potencialidades de Decidim en el desarrollo de procesos de participación ciudadana. Recogeremos experiencias, identificaremos oportunidades y retos de las herramientas digitales</div>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Ponentes</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= render layout: "public/components/collapsible-list", locals: { text: raw("y 6 más"), size: 3, classText: "", classes: "no-margin" } do %>
+                  <% 9.times do %>
+                  <%= partial "author_data", { nick: false, small: true } %>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <!-- No mt-xs class in 2nd row-->
+              <div class="row">
+                <div class="column medium-2">
+                  <strong>Ubicación</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= Faker::Address.community %>&nbsp;<span class="text-medium"><%= Faker::Address.full_address %></span>
+                </div>
+              </div>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Contenido</strong>
+                </div>
+                <div class="column medium-10">
+                  No disponible
+                </div>
+              </div>
+              <div class="row mt-xs">
+                <div class="column medium-2">
+                  <strong>Streaming</strong>
+                </div>
+                <div class="column medium-10">
+                  <%= Faker::Internet.url %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="column medium-2">
+              10:00 - 12:00
+            </div>
+            <div class="column medium-10">
+              <div><strong>Coffee break</strong></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -31,4 +31,8 @@
     display: inline-flex;
     margin: 0 0 .5rem;
   }
+
+  &.no-margin > *{
+    margin: 0;
+  }
 }
