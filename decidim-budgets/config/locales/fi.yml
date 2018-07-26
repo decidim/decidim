@@ -21,6 +21,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
+        import: Tuo ehdotuksia hankkeisiin
         new: Uusi projekti
         preview: Esikatsele
         title: Toiminnot
@@ -47,6 +48,14 @@ fi:
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
             success: Projekti päivitetty onnistuneesti
+        proposals_imports:
+          create:
+            invalid: Ongelma on tuonut ehdotukset hankkeisiin
+            success: "%{number} ehdotusta on tuotu onnistuneesti projekteihin"
+          new:
+            create: Tuo ehdotuksia hankkeisiin
+            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tueksi hankkeisiin.
+            select_component: Valitse komponentti
       admin_log:
         project:
           create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
