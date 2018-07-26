@@ -1,6 +1,5 @@
 .conference-speaker{
   margin-bottom: $global-margin * 3;
-  position: relative;
 
   .speaker-img-wrapper{
     margin-bottom: $global-margin;
@@ -43,15 +42,20 @@
     @extend .card;
 
     display: none;
-    padding: $global-padding * 2;
-    position: absolute;
-    top: 0;
+    padding: $global-padding;
     left: 0;
     background-color: $white;
     box-shadow: 0 0 20px 0 rgba($black, .2);
     z-index: 1;
-    width: 300%;
-    transform: translateY(-10%);
+    width: 100vw;
+    position: absolute;
+
+    @include breakpoint(medium){
+      top: 0;
+      width: 300%;
+      padding: $global-padding * 2;
+      transform: translateY(-10%);
+    }
 
     > :first-child{
       display: flex;
@@ -71,8 +75,12 @@
     display: block;
   }
 
-  &:nth-of-type(4n + 3) .speaker-bio,
-  &:nth-of-type(4n + 4) .speaker-bio{
-    transform: translateY(-10%) translateX(-50%);
+  @include breakpoint(medium){
+    position: relative;
+
+    &:nth-of-type(4n + 3) .speaker-bio,
+    &:nth-of-type(4n + 4) .speaker-bio{
+      transform: translateY(-10%) translateX(-50%);
+    }
   }
 }
