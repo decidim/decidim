@@ -4,7 +4,7 @@
   list-style: none;
 
   li{
-    @extend .p-xs;
+    padding: $global-padding * .5;
 
     a{
       font-size: rem-calc(18);

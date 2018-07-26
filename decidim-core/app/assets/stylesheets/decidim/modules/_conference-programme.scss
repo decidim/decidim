@@ -1,17 +1,14 @@
 .conference-programme{
   .programme-selector{
-    @extend .pb-xs;
-
     border-bottom: $border;
+    padding-bottom: $global-margin * .5;
     color: $muted;
     text-transform: uppercase;
     font-size: rem-calc(19);
   }
 
   .programme-day > .row{
-    @extend .pt-sm;
-    @extend .pb-sm;
-
+    padding: $global-padding * 2 0;
     border-bottom: $border;
     border-bottom-style: dashed;
   }
@@ -68,7 +65,7 @@
 
     // except 2nd child
     > .row:not(:nth-child(2)){
-      @extend .mt-xs;
+      margin-top: $global-margin * .5;
     }
 
     span{

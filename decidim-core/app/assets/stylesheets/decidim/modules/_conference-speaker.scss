@@ -1,11 +1,9 @@
 .conference-speaker{
-  @extend .mb-m;
-
+  margin-bottom: $global-margin * 3;
   position: relative;
 
   .speaker-img-wrapper{
-    @extend .mb-s;
-
+    margin-bottom: $global-margin;
     position: relative;
 
     &::before{
@@ -43,9 +41,9 @@
 
   .speaker-bio{
     @extend .card;
-    @extend .p-sm;
 
     display: none;
+    padding: $global-padding * 2;
     position: absolute;
     top: 0;
     left: 0;

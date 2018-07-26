@@ -16,7 +16,7 @@
         </div>
         <div class="column medium-10">
           <% speakers = SecureRandom.random_number(8) + 1 %>
-          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y #{ speakers - 3 } más"), size: 3, classText: "" } do %>
+          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y #{ speakers - 2 } más"), size: 2, classText: "" } do %>
           <% speakers.times do %>
           <%= partial "author_data", { nick: false, small: true } %>
           <% end %>
