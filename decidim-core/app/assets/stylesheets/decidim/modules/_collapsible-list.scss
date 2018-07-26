@@ -17,6 +17,10 @@
     .collapsible-list__see-less{
       display: none;
     }
+
+    > *{
+      margin: 0;
+    }
   }
 
   .collapsible-list__see-less{
@@ -30,9 +34,5 @@
   > *{
     display: inline-flex;
     margin: 0 0 .5rem;
-  }
-
-  &.no-margin > *{
-    margin: 0;
   }
 }

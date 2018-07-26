@@ -7,6 +7,7 @@
     text-transform: uppercase;
     display: flex;
     align-items: baseline;
+    font-size: rem-calc(19);
   }
 
   > .row:not(:first-child){
@@ -15,5 +16,65 @@
 
     border-bottom: $border;
     border-bottom-style: dashed;
+  }
+
+  //Override foundation
+  .tabs,
+  .tabs-content{
+    background: transparent;
+  }
+
+  //Override foundation
+  .tabs-title{
+    > a{
+      padding: 0;
+
+      &:hover{
+        background: transparent;
+      }
+    }
+
+    > a[aria-selected='true']{
+      background: transparent;
+    }
+
+    &:not(.is-active) .button{
+      opacity: .4;
+    }
+  }
+
+  .programme-header{
+    display: flex;
+    align-items: baseline;
+  }
+
+  .programme-time{
+    font-size: rem-calc(19);
+    font-weight: $global-weight-bold;
+  }
+
+  .programme-title{
+    font-size: rem-calc(24);
+    color: $secondary;
+    font-weight: $global-weight-bold;
+  }
+
+  .programme-resume{
+    font-size: rem-calc(14);
+    color: $muted;
+  }
+
+  .programme-extra{
+    color: $muted;
+    font-size: rem-calc(14);
+
+    // except 2nd child
+    > .row:not(:nth-child(2)){
+      @extend .mt-xs;
+    }
+
+    span{
+      opacity: .6;
+    }
   }
 }
