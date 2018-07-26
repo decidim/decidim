@@ -57,8 +57,10 @@ module Decidim
             attrs[:signature_end_time] = form.signature_end_time
             attrs[:offline_votes] = form.offline_votes
 
-            @notify_extended = true if form.signature_end_time != initiative.signature_end_time &&
-                                       form.signature_end_time > initiative.signature_end_time
+            if initiative.published?
+              @notify_extended = true if form.signature_end_time != initiative.signature_end_time &&
+                                         form.signature_end_time > initiative.signature_end_time
+            end
           end
 
           attrs
