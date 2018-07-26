@@ -5,6 +5,22 @@
     color: $muted;
     text-transform: uppercase;
     font-size: rem-calc(19);
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(small only){
+      flex-direction: column;
+      text-align: center;
+    }
+
+    //Override foundation
+    .tabs{
+      @include flexgap(.5rem, column);
+
+      @include breakpoint(medium){
+        @include flexgap(.5rem);
+      }
+    }
   }
 
   .programme-day > .row{
@@ -41,6 +57,10 @@
   .programme-header{
     display: flex;
     align-items: baseline;
+
+    @include breakpoint(small only){
+      flex-direction: column;
+    }
   }
 
   .programme-time{
@@ -52,6 +72,10 @@
     font-size: rem-calc(24);
     color: $secondary;
     font-weight: $global-weight-bold;
+
+    @include breakpoint(small only){
+      @include ellipsis();
+    }
   }
 
   .programme-resume{
@@ -66,6 +90,17 @@
     // except 2nd child
     > .row:not(:nth-child(2)){
       margin-top: $global-margin * .5;
+    }
+
+    // Fix position list-item beneath collapsible-list
+    @include breakpoint(medium up){
+      > .row:nth-child(2){
+        margin-top: -$global-margin * .5;
+
+        > :nth-child(2){
+          margin-top: -$global-margin * .5;
+        }
+      }
     }
 
     span{
