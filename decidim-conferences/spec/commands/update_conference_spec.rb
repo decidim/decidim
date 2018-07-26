@@ -134,6 +134,133 @@ module Decidim::Conferences
           end
         end
       end
+
+      describe "events" do
+        let!(:follow) { create :follow, followable: my_conference, user: user }
+        let(:title) { my_conference.title }
+        let(:start_date) { my_conference.start_date }
+        let(:end_date) { my_conference.end_date }
+        let(:location) { my_conference.location }
+        let(:form) do
+          double(
+            invalid?: false,
+            title: title,
+            slogan: my_conference.slogan,
+            slug: my_conference.slug,
+            hashtag: my_conference.slug,
+            short_description: my_conference.short_description,
+            description: my_conference.description,
+            objectives: my_conference.objectives,
+            location: location,
+            start_date: start_date,
+            end_date: end_date,
+            scopes_enabled: my_conference.scopes_enabled,
+            scope: my_conference.scope,
+            hero_image: nil,
+            banner_image: nil,
+            promoted: my_conference.promoted,
+            show_statistics: my_conference.show_statistics,
+            registrations_enabled: my_conference.registrations_enabled,
+            available_slots: my_conference.available_slots,
+            registration_terms: my_conference.registration_terms,
+            current_organization: my_conference.organization,
+            current_user: user
+          )
+        end
+
+        context "when nothing changes" do
+          it "doesn't notify the change" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+
+            command.call
+          end
+        end
+
+        context "when a non-important attribute changes" do
+          let(:title) do
+            {
+              "en" => "Title updated"
+            }
+          end
+
+          it "doesn't notify the change" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+
+            command.call
+          end
+
+          it "doesn't schedule the upcoming conference notification job" do
+            expect(UpcomingConferenceNotificationJob)
+              .not_to receive(:perform_later)
+
+            command.call
+          end
+        end
+
+        context "when the start date changes" do
+          let(:start_date) { my_conference.start_date - 1.day }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.conferences.conference_updated",
+                event_class: UpdateConferenceEvent,
+                resource: my_conference,
+                recipient_ids: [user.id]
+              )
+
+            command.call
+          end
+
+          it "schedules a upcoming conference notification job 48h before start time" do
+            expect(UpcomingConferenceNotificationJob)
+              .to receive(:generate_checksum).and_return "1234"
+
+            expect(UpcomingConferenceNotificationJob)
+              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+              .with(set: start_date - 2.days).with(my_conference.id, "1234")
+
+            command.call
+          end
+        end
+
+        context "when the end date changes" do
+          let(:end_date) { my_conference.end_date + 1.day }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.conferences.conference_updated",
+                event_class: UpdateConferenceEvent,
+                resource: my_conference,
+                recipient_ids: [user.id]
+              )
+
+            command.call
+          end
+        end
+
+        context "when the location changes" do
+          let(:location) { "some location" }
+
+          it "notifies the change" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.conferences.conference_updated",
+                event_class: UpdateConferenceEvent,
+                resource: my_conference,
+                recipient_ids: [user.id]
+              )
+
+            command.call
+          end
+        end
+      end
     end
   end
 end

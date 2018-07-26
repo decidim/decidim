@@ -172,7 +172,7 @@ en:
           form:
             attendee_type: Attendee type
             existing_user: Existing user
-            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            invite_explanation: The user will be invited to join the conference and to the organization as well.
             non_user: Non existing user
             select_user: Select user
           index:
@@ -306,6 +306,11 @@ en:
           email_outro: You have received this notification because you are an admin of the conference's participatory space.
           email_subject: The "%{resource_title}" conference occupied slots are over %{percentage}%
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference occupied slots are over %{percentage}%.
+        conference_updated:
+          email_intro: 'The "%{resource_title}" conference was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" conference was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference was updated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" conference has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.

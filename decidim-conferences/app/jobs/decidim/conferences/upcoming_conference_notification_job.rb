@@ -6,12 +6,12 @@ module Decidim
       queue_as :events
 
       def perform(conference_id, checksum)
-        conference = Decidim::Conferences::Conference.find(conference_id)
+        conference = Decidim::Conference.find(conference_id)
         send_notification(conference) if verify_checksum(conference, checksum)
       end
 
       def self.generate_checksum(conference)
-        Digest::MD5.hexdigest("#{conference.id}-#{conference.start_time}")
+        Digest::MD5.hexdigest("#{conference.id}-#{conference.start_date}")
       end
 
       private

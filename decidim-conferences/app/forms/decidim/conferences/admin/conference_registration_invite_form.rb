@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # A form object used to invite users to join a meeting.
+      # A form object used to invite users to join a conference.
       #
       class ConferenceRegistrationInviteForm < Form
         attribute :name, String

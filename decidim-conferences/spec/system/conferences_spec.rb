@@ -81,7 +81,7 @@ describe "Conferences", type: :system do
           expect(page).to have_content("Conferences")
           click_link "Conferences"
         end
-        
+
         expect(page).to have_current_path decidim_conferences.conferences_path
       end
     end

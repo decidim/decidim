@@ -51,27 +51,27 @@
       <div class="card__text card--picture-offset">
         <% if charge.presence %>
           <div>
-            <small><strong><%= t(".charge") %>: </strong><%= charge %></small>
+            <small><strong><%= t("charge", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= charge %></small>
           </div>
         <% end %>
         <% if twitter_handle.presence %>
           <div>
-            <small><strong><%= t(".twitter_handle") %>: </strong><%= twitter_handle %></small>
+            <small><strong><%= t("twitter_handle", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= twitter_handle %></small>
           </div>
         <% end %>
         <% if personal_url.presence %>
           <div>
-            <small><strong><%= t(".personal_url") %>: </strong><%= personal_url %></small>
+            <small><strong><%= t("personal_url", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= personal_url %></small>
           </div>
         <% end %>
         <% if affiliation.presence %>
           <div>
-            <small><strong><%= t(".affiliation") %>: </strong><%= affiliation %></small>
+            <small><strong><%= t("affiliation", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= affiliation %></small>
           </div>
         <% end %>
         <% if short_bio.presence %>
           <div>
-            <small><strong><%= t(".short_bio") %>: </strong><%= short_bio %></small>
+            <small><strong><%= t("short_bio", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= short_bio %></small>
           </div>
         <% end %>
       </div>

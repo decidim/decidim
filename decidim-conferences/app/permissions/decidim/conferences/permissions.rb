@@ -4,8 +4,6 @@ module Decidim
   module Conferences
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless user
-
         user_can_enter_space_area?
 
         return permission_action if conference && !conference.is_a?(Decidim::Conference)
@@ -243,6 +241,7 @@ module Decidim
           :component,
           :component_data,
           :moderation,
+          :conference,
           :conference_user_role,
           :conference_speaker,
           :conference_invite

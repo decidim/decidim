@@ -59,7 +59,7 @@ module Decidim
       end
 
       def participatory_space_admins
-        @conference.component.participatory_space.admins
+        @conference.admins
       end
 
       def send_notification

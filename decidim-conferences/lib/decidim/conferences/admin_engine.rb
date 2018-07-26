@@ -11,6 +11,7 @@ module Decidim
       isolate_namespace Decidim::Conferences::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :conferences, param: :slug, except: :show do
