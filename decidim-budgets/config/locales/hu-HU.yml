@@ -21,6 +21,7 @@ hu:
         confirm_destroy: Biztosan törölni szeretné ezt a projektet?
         destroy: Töröl
         edit: szerkesztése
+        import: Import projektekre vonatkozó javaslatok
         new: Új projekt
         preview: Előnézet
         title: Hozzászólások
@@ -47,6 +48,14 @@ hu:
           update:
             invalid: Probléma történt a projekt frissítésével
             success: A projekt sikeresen frissült
+        proposals_imports:
+          create:
+            invalid: Probléma merült fel a javaslatok projektekben történő importálásában
+            success: "%{number} pályázat sikeresen behozott projektekbe"
+          new:
+            create: Import projektekre vonatkozó javaslatok
+            no_components: Ebben a részvételi térben nincs más javaslatösszetevő a jelentések projektbe történő importálásához.
+            select_component: Kérjük, válasszon egy összetevőt
       admin_log:
         project:
           create: "%{user_name} létrehozta az %{resource_name} projektet a %{space_name} térben"
