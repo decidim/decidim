@@ -18,6 +18,7 @@
 
 **Added**:
 
+- **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
 - **decidim-proposals**: Results from searches should show the participatory space where they belong to if any. [\#3897](https://github.com/decidim/decidim/pull/3897)
 - **decidim-docs**: Add proposal lifecycle diagram to docs. [\#3811](https://github.com/decidim/decidim/pull/3811)
 - **decidim-budgets**: Added vote project authorization action [\#3804](https://github.com/decidim/decidim/pull/3804)
@@ -54,6 +55,7 @@
 - **decidim-accountability**: Fix accountability diff renderer when a locale is missing. [\#3797](https://github.com/decidim/decidim/pull/3797)
 - **decidim-core**: Don't crash when a nickname has a dot. [\#3793](https://github.com/decidim/decidim/pull/3793)
 - **decidim-core**: Don't crash when a page doesn't exist. [\#3799](https://github.com/decidim/decidim/pull/3799)
+- **decidim-consultations**: Remove unused indexes from consultations questions. [\#3840](https://github.com/decidim/decidim/pull/3840)
 - **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
 - **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
 - **decidim-proposals**: Proposal creation and update fixes: [\#3744](https://github.com/decidim/decidim/pull/3744)

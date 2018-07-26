@@ -2,7 +2,8 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.budgets"), new_project_path, class: "button tiny button--title" if allowed_to? :create, :project %>
+      <%= link_to t("actions.new", scope: "decidim.budgets"), new_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
+      <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_proposals_import_path, class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
     </h2>
   </div>
 
