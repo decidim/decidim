@@ -19,7 +19,7 @@ shared_examples "update an initiative" do
     {
       title: { en: "A reasonable initiative title" },
       description: { en: "A reasonable initiative description" },
-      signature_start_date: Date.today + 10.days,
+      signature_start_date: Date.current + 10.days,
       signature_end_date: signature_end_date,
       signature_type: "any",
       type_id: initiative.type.id,
