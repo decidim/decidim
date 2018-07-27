@@ -34,6 +34,8 @@
 
 **Changed**:
 
+- **decidim-initiatives**: For consistency with DB, use Ruby Dates instead of DateTimes, rename signature_(start/end)_time fields to signature_(start/end)_date. [\#3932](https://github.com/decidim/decidim/pull/3932)
+- **decidim-participatory_processes**: For consistency with DB, use Ruby Dates instead of DateTimes for `start_date` and `end_date`. [\#3932](https://github.com/decidim/decidim/pull/3932)
 - **decidim-participatory_processes**: Improve usability of filters on processes index page [\#3728](https://github.com/decidim/decidim/pull/3728)
 - **decidim-meetings**: The invite attendee form has been moved to the top of the new invites list. [\#3826](https://github.com/decidim/decidim/pull/3826)
 - **decidim-core**: Load authorization modals content with AJAX requests. [\#3753](https://github.com/decidim/decidim/pull/3753)
