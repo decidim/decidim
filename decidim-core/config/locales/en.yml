@@ -126,6 +126,33 @@ en:
       user_group:
         reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
+    amendments:
+      amendable:
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its title or description
+        section_heading: Amendments (%{count})
+      emendation:
+        actions:
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+        announcement:
+          accepted: |-
+            This emendation for the %{amendable_type} %{amendable_link} has been
+            accepted was approved on <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            This is an emendation for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          publish_as: publish this emendation as an independent %{amendable_type}
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.<br>
+            You can %{publish_as_button}.
+      new:
+        back: Back
+        help_text: You are modifying the %{model_name}
+        send: Send
     anonymous_user: Anonymous
     application:
       collection:
@@ -430,11 +457,6 @@ en:
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.
-    amendments:
-      create:
-        button: Amend %{model_name}
-        help_text: "Improve this %{model_name} by modifying its title or description"
-        error: There has been an error amending this resource.
     follows:
       create:
         button: Follow
