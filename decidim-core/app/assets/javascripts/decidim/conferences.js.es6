@@ -1,23 +1,16 @@
-/* global Foundation */
 /* eslint-disable no-invalid-this */
-$(() => {
-  if (!Foundation.MediaQuery.atLeast("medium")) {
-    // True if small
-    const $speaker = $(".js-conference")
+((exports) => {
+  const { Foundation } = exports;
 
-    $speaker.hover(function () {
-      const top = $(window).scrollTop()
-      $(this).find(".js-bio").css("top", top)
-    })
+  $(() => {
+    // True if small devices
+    if (!Foundation.MediaQuery.atLeast("medium")) {
+      const $speaker = $(".js-conference")
 
-// REVIEW: Mirar el data toggler
-    $speaker.find("[data-close]").click(function () {
-      const $vm = $(this)
-
-      // Wait for the animation ends
-      setTimeout(function () {
-        $vm.closest(".js-bio").removeAttr("style")
-      }, 500);
-    })
-  }
-});
+      $speaker.hover(function () {
+        const top = $(window).scrollTop() + ($(window).height() * 0.1)
+        $(this).find(".js-bio").css("top", top)
+      })
+    }
+  });
+})(window)
