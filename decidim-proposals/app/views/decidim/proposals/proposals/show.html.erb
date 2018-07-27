@@ -5,6 +5,7 @@
 }) %>
 
 <%= render partial: "voting_rules" %>
+<%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
   <h2 class="heading2"><%= present(@proposal).html_title %></h2>
   <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3) %>
@@ -16,6 +17,9 @@
     <% else %>
       <%= amend_button_for @proposal %>
     <% end %>
+
+    <%= emendation_actions_for @proposal %>
+
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
       <div class="card">
         <div class="card__content">
@@ -74,6 +78,8 @@
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
     <%= cell "decidim/proposals/endorsers_list", @proposal %>
+
+    <%= amends_for @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>

@@ -21,6 +21,7 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Hashtaggable
       include Decidim::Proposals::ParticipatoryTextSection
+      include Decidim::Amendable
 
       fingerprint fields: [:title, :body]
 
