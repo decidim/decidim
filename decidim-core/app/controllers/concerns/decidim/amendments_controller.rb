@@ -59,21 +59,18 @@ module Decidim
     end
 
     def accept
-      # # to do!
-      # @form = form(Decidim::AcceptAmendForm).from_params(params)
-      # enforce_permission_to :accept, :amend, amend: @form.amendable
-      #
-      # Decidim::AcceptAmend.call(@form, current_user) do
-      #   on(:ok) do
-      #     # flash[:notice] = t("accepted.success", scope: "decidim.amendments")
-      #   end
-      #
-      #   on(:invalid) do
-      #     # flash[:notice] = t("accepted.error", scope: "decidim.amendments")
-      #   end
-      #
-      #   redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-      # end
+      @form = form(Decidim::AcceptAmendForm).from_params(params)
+      enforce_permission_to :accept, :amend, amend: @form.amendable
+
+      AcceptAmend.call(@form, current_user) do
+        on(:ok) do
+          render :update_button
+        end
+
+        on(:invalid) do
+          render json: { error: I18n.t("amendments.accept.error", scope: "decidim") }, status: 422
+        end
+      end
     end
 
     private
