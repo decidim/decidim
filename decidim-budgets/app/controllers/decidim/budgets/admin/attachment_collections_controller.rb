@@ -19,10 +19,6 @@ module Decidim
         def project
           @project ||= projects.find(params[:project_id])
         end
-
-        def authorization_object
-          project.component
-        end
       end
     end
   end

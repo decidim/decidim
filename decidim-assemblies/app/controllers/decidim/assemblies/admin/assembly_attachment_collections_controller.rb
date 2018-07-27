@@ -16,10 +16,6 @@ module Decidim
         def collection_for
           current_assembly
         end
-
-        def authorization_object
-          @attachment_collection || AttachmentCollection
-        end
       end
     end
   end
