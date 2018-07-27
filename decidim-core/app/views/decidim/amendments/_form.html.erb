@@ -1,0 +1,17 @@
+<% console %>
+<%= decidim_form_for(@form, url: amend_path, method: :post) do |form| %>
+  <%= form.hidden_field :amendable_gid %>
+  <%= form.hidden_field :amendable_type %>
+
+  <div class="field">
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :body, rows: 10 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("send", scope: "decidim.amendments.new"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+  </div>
+<% end %>
