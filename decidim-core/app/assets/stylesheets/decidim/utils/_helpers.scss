@@ -62,6 +62,14 @@
   @include flex-align($x: justify, $y: bottom);
 }
 
+// flex--sc:
+// justify-content: flex-start;
+// align-items: center;
+.flex--sc{
+  @include flex;
+  @include flex-align($x: left, $y: middle);
+}
+
 .scroll{
   max-height: 50vh;
   overflow-y: scroll;
