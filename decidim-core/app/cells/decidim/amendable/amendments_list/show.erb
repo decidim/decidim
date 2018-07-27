@@ -1,0 +1,10 @@
+<div class="section">
+  <h2 class="section-heading">
+    <%= t("section_heading", scope: "decidim.amendments.amendable", count: model.count) %>
+  </h2>
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <% model.each do |emmendation| %>
+      <%= card_for emmendation, context: { has_footer: false }, has_footer: false , show_footer_actions: false %>
+    <% end %>
+  </div>
+</div>

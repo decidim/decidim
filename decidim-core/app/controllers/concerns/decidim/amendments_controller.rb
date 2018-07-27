@@ -42,13 +42,37 @@ module Decidim
       end
     end
 
+    def reject
+      @form = form(Decidim::RejectAmendForm).from_params(params)
+      enforce_permission_to :reject, :amend, amend: @form.amendable
+
+      RejectAmend.call(@form, current_user) do
+        on(:ok) do
+          render :update_button
+        end
+
+        on(:invalid) do
+          render json: { error: I18n.t("amendments.reject.error", scope: "decidim") }, status: 422
+        end
+      end
+    end
+
+    def accept
+      @form = form(Decidim::AcceptAmendForm).from_params(params)
+      enforce_permission_to :accept, :amend, amend: @form.amendable
+
+      AcceptAmend.call(@form, current_user) do
+        on(:ok) do
+          render :update_button
+        end
+
+        on(:invalid) do
+          render json: { error: I18n.t("amendments.accept.error", scope: "decidim") }, status: 422
+        end
+      end
+    end
+
     private
-
-    def reject; end
-
-    def review; end
-
-    def accept; end
 
     def amendable_gid
       params[:amendable_gid]
