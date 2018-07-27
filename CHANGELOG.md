@@ -34,6 +34,7 @@
 
 **Changed**:
 
+- **decidim-docs**: Update the image that shows the proposed life-cycle of a Proposal.[\#3933](https://github.com/decidim/decidim/pull/3933)
 - **decidim-participatory_processes**: Improve usability of filters on processes index page [\#3728](https://github.com/decidim/decidim/pull/3728)
 - **decidim-meetings**: The invite attendee form has been moved to the top of the new invites list. [\#3826](https://github.com/decidim/decidim/pull/3826)
 - **decidim-core**: Load authorization modals content with AJAX requests. [\#3753](https://github.com/decidim/decidim/pull/3753)
