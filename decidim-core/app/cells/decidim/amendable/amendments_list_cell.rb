@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::Amendable
   # This cell renders the button to amend the given resource.
-  class AmendButtonCardCell < Decidim::ViewModel
-    include LayoutHelper
+  class AmendmentsListCell < Decidim::ViewModel
+    include Decidim::LayoutHelper
+    include Decidim::CardHelper
 
     private
+
+    def has_actions?
+      false
+    end
 
     def model_name
       model.model_name.human
@@ -16,15 +21,12 @@ module Decidim
     end
 
     def current_component
-      model.component
+      model.first.component
     end
 
     def decidim
       Decidim::Core::Engine.routes.url_helpers
     end
 
-    def button_classes
-      "button secondary hollow expanded button--icon button--sc"
-    end
   end
 end

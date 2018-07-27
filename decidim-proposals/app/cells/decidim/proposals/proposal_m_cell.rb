@@ -27,7 +27,7 @@ module Decidim
       end
 
       def has_badge?
-        answered? || withdrawn?
+        answered? || withdrawn? || emendation?
       end
 
       def has_link_to_resource?
