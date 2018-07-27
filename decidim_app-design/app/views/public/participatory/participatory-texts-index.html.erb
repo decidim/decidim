@@ -1,0 +1,45 @@
+<%
+@title = "Participatory texts -- Decidim Barcelona"
+@activepage = "index"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <div class="wrapper">
+    <%= partial "process_header" %>
+    <div class="row column view-header">
+      <h2 class="heading2">Estatutos de Som Energia, SCCL</h2>
+    </div>
+    <div class="row column">
+      <div class="card p-sm absolutes">
+        <h4>Índice del documento</h4>
+        <div class="text-muted">
+          <% Faker::Number.between(5, 10).times do |i| %>
+          <div class="mb-s">
+            <p>
+              <%= link_to page_path("proposal-view") do %>
+                <u class="text-uppercase">
+                  <%= "Capitol " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
+                </u>
+              <% end %>
+              <br />
+              <% Faker::Number.between(5, 10).times do |j| %>
+              <%= link_to page_path("proposal-view") do %>
+                <u>
+                  <%= "Article " + (j + 1).to_s + ". " + Faker::Lorem.sentence %>
+                </u>
+                <br />
+              <% end %>
+              <% end %>
+            </p>
+          </div>
+          <% end %>
+        </div>
+        <button type="button" class="close-button">&times;</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
