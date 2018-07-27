@@ -41,7 +41,20 @@ module Decidim
       end
     end
 
-    def reject; end
+    def reject
+      @form = form(Decidim::RejectAmendForm).from_params(params)
+      enforce_permission_to :reject, :amend, amend: @form.amendable
+
+      RejectAmend.call(@form, current_user) do
+        on(:ok) do
+          render :update_button
+        end
+
+        on(:invalid) do
+          render json: { error: I18n.t("amendments.reject.error", scope: "decidim") }, status: 422
+        end
+      end
+    end
 
     def review; end
 

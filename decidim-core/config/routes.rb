@@ -105,7 +105,7 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
-  resources :amends, only: [:new], controller: :amendments do
+  resources :amends, only: [:new, :reject], controller: :amendments do
     collection do
       post :create
     end
