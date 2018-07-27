@@ -1,0 +1,29 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to :back do %>
+          <%= icon "chevron-left", class: "icon--small" %>
+          <%= t("back", scope: "decidim.amendments.new") %>
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          <%= t("help_text", scope: "decidim.amendments.new", model_name: amendable.model_name.human) %>
+          <strong>
+            <%= amendable.title %>
+          </strong>
+        </p>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <h2 class="section-heading">Crea tu enmienda</h2>
+      <div class="card">
+        <div class="card__content">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
