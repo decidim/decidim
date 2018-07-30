@@ -33,7 +33,7 @@ const areachart = (opts = {}) => {
   let objectName = opts.objectName || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
-  let ratio = opts.ratio || (4/3)
+  let ratio = opts.ratio || (4 / 3)
   let showTooltip = opts.tip !== "false"
   let cumulative = opts.cumulative || false
 

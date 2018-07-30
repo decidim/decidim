@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* global areachart */
 
 $(() => {
   const query = (metric) => {
