@@ -37,8 +37,6 @@ module Decidim
 
       def link_to_versions
         @path ||= decidim_proposals.collaborative_draft_versions_path(
-          initiative_slug: model.participatory_space.slug,
-          component_id: model.component.id,
           collaborative_draft_id: model.id
         )
         link_to @path, class: "text-medium" do
@@ -53,7 +51,7 @@ module Decidim
       end
 
       def decidim_proposals
-        Decidim::Proposals::Engine.routes.url_helpers
+        Decidim::EngineRouter.main_proxy(model.component)
       end
     end
   end

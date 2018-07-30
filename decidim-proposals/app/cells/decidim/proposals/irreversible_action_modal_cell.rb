@@ -49,7 +49,7 @@ module Decidim
 
       def button_continue
         label = t("ok", scope: "decidim.proposals.collaborative_drafts.collaborative_draft.#{action}.irreversible_action_modal")
-        path = resource_path + "/#{action}"
+        path = resource_path action
         css = "button expanded"
         button_to label, path, class: css, form_class: "columns medium-6"
       end
@@ -66,8 +66,13 @@ module Decidim
         end
       end
 
-      def resource_path
-        resource_locator(model).path
+      def resource_path(action)
+        @resource_path ||= decidim_proposals.send("#{action}_collaborative_draft_path",
+                                                  id: model.id)
+      end
+
+      def decidim_proposals
+        Decidim::EngineRouter.main_proxy(model.component)
       end
     end
   end
