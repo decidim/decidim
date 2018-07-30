@@ -13,8 +13,8 @@ module Decidim
       private
 
       def proposal
-        link_resource_name = Decidim::Proposals::CollaborativeDraft.resource_manifest.link_resource_name[:proposals]
-        model.linked_resources(:proposal, link_resource_name).first
+        @link_resource_name ||= Decidim::Proposals::CollaborativeDraft.resource_manifest.link_resource_name[:proposals]
+        @proposal ||= model.linked_resources(:proposal, @link_resource_name).first
       end
 
       def link_to_resource
@@ -36,8 +36,12 @@ module Decidim
       end
 
       def link_to_versions
-        path = resource_locator(model).path + "/versions"
-        link_to path, class: "text-medium" do
+        @path ||= decidim_proposals.collaborative_draft_versions_path(
+          initiative_slug: model.participatory_space.slug,
+          component_id: model.component.id,
+          collaborative_draft_id: model.id
+        )
+        link_to @path, class: "text-medium" do
           content_tag :u do
             t("version_history", scope: "decidim.proposals.collaborative_drafts.show")
           end
@@ -46,6 +50,10 @@ module Decidim
 
       def decidim
         Decidim::Core::Engine.routes.url_helpers
+      end
+
+      def decidim_proposals
+        Decidim::Proposals::Engine.routes.url_helpers
       end
     end
   end
