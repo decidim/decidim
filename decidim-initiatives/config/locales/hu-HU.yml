@@ -6,8 +6,8 @@ hu:
         description: Leírás
         offline_votes: Homlok-szalagok
         scope_id: terület
-        signature_end_time: Az aláírásgyűjtési időszak vége
-        signature_start_time: Az aláírásgyűjtési időszak kezdete
+        signature_end_date: Az aláírásgyűjtési időszak vége
+        signature_start_date: Az aláírásgyűjtési időszak kezdete
         signature_type: Aláírási gyűjtemény típusa
         signature_type_values:
           any: Vegyes
