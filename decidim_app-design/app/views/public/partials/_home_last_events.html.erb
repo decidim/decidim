@@ -12,7 +12,7 @@
         </div>
         <div class="card__text">
           <div class="row collapse text-medium">
-            <span class="column medium-4"><%= icon "datetime", class: "primary" %>&nbsp;<%= Faker::Time.forward(Faker::Number.non_zero_digit.to_i, :afternoon).strftime("%e %^b %Y · %k:%M") %></span>
+            <span class="column medium-4 icon--container"><%= icon "datetime", class: "primary" %>&nbsp;<%= Faker::Time.forward(Faker::Number.non_zero_digit.to_i, :afternoon).strftime("%e %^b %Y · %k:%M") %></span>
             <span class="column medium-8">PROCESO&nbsp;<%= link_to "Plan de Equipamentos de Nou Barris", page_path("meetings/meeting-view") %></span>
           </div>
         </div>
