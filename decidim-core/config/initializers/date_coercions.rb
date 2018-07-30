@@ -13,6 +13,8 @@ module Coercible
         # the user (manual date entry) and the datepicker widget in the UI.
         return value if value.blank?
         ::Date.strptime(value, I18n.t("date.formats.decidim_short"))
+      rescue ArgumentError => e
+        raise ArgumentError.new("#{e.message}: #{value}. Expected format :#{I18n.locale} #{I18n.t("date.formats.decidim_short")}")
       end
     end
   end
