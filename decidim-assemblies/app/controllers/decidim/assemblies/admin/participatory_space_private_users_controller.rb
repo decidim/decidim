@@ -16,10 +16,6 @@ module Decidim
         def privatable_to
           current_assembly
         end
-
-        def authorization_object
-          @participatory_space_private_user || ParticipatorySpacePrivateUser
-        end
       end
     end
   end

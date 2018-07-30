@@ -40,6 +40,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-rspec", "~> 1.21"
   s.add_dependency "selenium-webdriver", "~> 3.7"
   s.add_dependency "simplecov", "~> 0.13"
+  s.add_dependency "system_test_html_screenshots", "~> 0.1.1"
   s.add_dependency "webmock", "~> 3.0"
   s.add_dependency "wisper-rspec", "~> 1.0"
 end

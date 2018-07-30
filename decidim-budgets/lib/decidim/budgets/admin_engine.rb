@@ -15,6 +15,9 @@ module Decidim
         resources :projects do
           resources :attachment_collections
           resources :attachments
+          collection do
+            resource :proposals_import, only: [:new, :create]
+          end
         end
 
         root to: "projects#index"

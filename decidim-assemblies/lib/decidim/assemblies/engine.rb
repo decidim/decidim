@@ -66,19 +66,6 @@ module Decidim
       end
 
       initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_assemblies = OrganizationPrioritizedAssemblies.new(view_context.current_organization, view_context.current_user)
-
-          next unless highlighted_assemblies.any?
-
-          view_context.render(
-            partial: "decidim/assemblies/pages/home/highlighted_assemblies",
-            locals: {
-              highlighted_assemblies: highlighted_assemblies
-            }
-          )
-        end
-
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
@@ -100,6 +87,12 @@ module Decidim
       initializer "decidim_proposals.query_extensions" do
         Decidim::Api::QueryType.define do
           QueryExtensions.define(self)
+        end
+      end
+
+      initializer "decidim_assemblies.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
+          content_block.cell "decidim/assemblies/content_blocks/highlighted_assemblies"
         end
       end
     end

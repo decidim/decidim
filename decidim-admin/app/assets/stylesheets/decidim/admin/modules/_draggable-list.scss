@@ -2,6 +2,13 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  min-height: ($global-padding * 2) + $global-lineheight;
+
+  &.dragging{
+    border-top: 2px dashed $medium-gray;
+    border-bottom: 2px dashed $medium-gray;
+    background-color: $body-background;
+  }
 
   li{
     cursor: move;

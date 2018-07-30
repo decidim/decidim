@@ -27,6 +27,7 @@ module Decidim
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
+          CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
           return broadcast(:invalid) if invite_form.invalid?
         end

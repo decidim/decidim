@@ -99,7 +99,7 @@ describe "Proposal", type: :system do
           within ".section-heading" do
             expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
-          expect(page).to have_css(".new_proposal")
+          expect(page).to have_css(".edit_proposal")
         end
 
         it "shows no similar proposal found callout" do
