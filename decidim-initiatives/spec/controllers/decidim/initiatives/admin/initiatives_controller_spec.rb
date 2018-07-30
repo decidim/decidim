@@ -194,9 +194,9 @@ module Decidim
 
         context "when update" do
           let(:valid_attributes) do
-            attrs= attributes_for(:initiative, organization: organization)
-            attrs[:signature_end_date]= I18n.l(attrs[:signature_end_date], format: :decidim_short)
-            attrs[:signature_start_date]= I18n.l(attrs[:signature_start_date], format: :decidim_short)
+            attrs = attributes_for(:initiative, organization: organization)
+            attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
+            attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
             attrs
           end
 
