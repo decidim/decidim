@@ -1,4 +1,4 @@
-# frozen_literal_string: true
+# frozen_string_literal: true
 
 class AddCoreContentBlocks < ActiveRecord::Migration[5.2]
   class Organization < ApplicationRecord
