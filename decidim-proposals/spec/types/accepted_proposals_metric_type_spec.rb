@@ -15,7 +15,7 @@ module Decidim
       let(:today) { Time.zone.today }
       let!(:models) do
         (0..4).each do |count|
-          create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "acceptedProposals", organization: current_organization)
+          create(:metric, day: (today - count.days), cumulative: (4 - count), quantity: 1, metric_type: "accepted_proposals", organization: current_organization)
         end
       end
       let!(:unaccepted) { create(:metric, day: today, cumulative: 4, quantity: 1, metric_type: "proposals", organization: current_organization) }
