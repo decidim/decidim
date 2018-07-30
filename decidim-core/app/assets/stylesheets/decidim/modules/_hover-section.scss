@@ -1,0 +1,22 @@
+.hover-section{
+  &:hover{
+    background-color: $white;
+    border: $border;
+    box-shadow: 0 0 20px 0 rgba($black, .2);
+    padding: $global-padding;
+    transform: translate(-$global-padding, -$global-padding);
+    cursor: pointer;
+
+    .hidden-section{
+      display: block;
+    }
+  }
+
+  a{
+    color: inherit;
+  }
+
+  .hidden-section{
+    display: none;
+  }
+}

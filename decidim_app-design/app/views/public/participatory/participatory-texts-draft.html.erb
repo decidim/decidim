@@ -20,7 +20,8 @@
     <div class="row">
       <div class="columns mediumlarge-8">
           <% Faker::Number.between(3, 7).times do |i| %>
-          <div class="section">
+          <div class="section hover-section">
+            <%= link_to page_path("participatory/participatory-texts-view") do %>
             <h5>
               <strong class="text-uppercase">
                 <%= "Capitol " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
@@ -39,6 +40,10 @@
               <%= Faker::Lorem.paragraph(Faker::Number.between(3, 8)) %>
             </p>
             <% end %>
+            <% end %>
+            <div class="hidden-section">
+              <%= render partial: page_path("participatory") + "/additional-buttons" %>
+            </div>
           </div>
           <% end %>
       </div>
