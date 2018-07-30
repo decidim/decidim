@@ -17,36 +17,36 @@
         <%= render partial: page_path("participatory") + "/view-index" %>
       </div>
     </div>
-    <div class="row">
-      <div class="columns mediumlarge-8">
-          <% Faker::Number.between(3, 7).times do |i| %>
-          <div class="section hover-section">
-            <%= link_to page_path("participatory/participatory-texts-view") do %>
-            <h5>
-              <strong class="text-uppercase">
-                <%= "Capitol " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
-              </strong>
-            </h5>
-            <h6>
-              <strong>
-                <%= "Article " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
-              </strong>
-            </h6>
-            <p>
-              <%= Faker::Lorem.paragraph(Faker::Number.between(8, 15)) %>
-            </p>
-            <% if Faker::Boolean.boolean %>
-            <p>
-              <%= Faker::Lorem.paragraph(Faker::Number.between(3, 8)) %>
-            </p>
-            <% end %>
-            <% end %>
-            <div class="hidden-section">
-              <%= render partial: page_path("participatory") + "/additional-buttons" %>
-            </div>
-          </div>
+    <div class="row columns">
+      <% Faker::Number.between(3, 7).times do |i| %>
+      <div class="row section hover-section">
+        <div class="columns mediumlarge-8">
+          <%= link_to page_path("participatory/participatory-texts-view"), class: "card__link--block pt-s pb-s" do %>
+          <h5>
+            <strong class="text-uppercase">
+              <%= "Capitol " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
+            </strong>
+          </h5>
+          <h6>
+            <strong>
+              <%= "Article " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
+            </strong>
+          </h6>
+          <p>
+            <%= Faker::Lovecraft.paragraph(Faker::Number.between(8, 15)) %>
+          </p>
+          <% if Faker::Boolean.boolean %>
+          <p>
+            <%= Faker::Lovecraft.paragraph(Faker::Number.between(3, 8)) %>
+          </p>
           <% end %>
+          <% end %>
+        </div>
+        <div class="columns mediumlarge-4 hidden-section p-sm">
+          <%= render partial: page_path("participatory") + "/additional-buttons" %>
+        </div>
       </div>
+      <% end %>
     </div>
   </div>
 </main>
