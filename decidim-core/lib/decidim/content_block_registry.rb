@@ -25,7 +25,7 @@ module Decidim
   #       content_block.cell "decidim/content_blocks/carousel_block"
   #     end
   #
-  # You will probably want to register your content blocs in an initializer in
+  # You will probably want to register your content blocks in an initializer in
   # the `engine.rb` file of your module.
   class ContentBlockRegistry
     # Public: Registers a content block for the home page.
