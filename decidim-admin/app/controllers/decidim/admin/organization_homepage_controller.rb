@@ -14,14 +14,14 @@ module Decidim
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
-          ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
-            on(:ok) do
-              head :ok
-            end
-            on(:invalid) do
-              head 500
-            end
+        ReorderContentBlocks.call(current_organization, :homepage, params[:manifests]) do
+          on(:ok) do
+            head :ok
           end
+          on(:invalid) do
+            head :bad_request
+          end
+        end
       end
 
       private
@@ -43,8 +43,8 @@ module Decidim
       end
 
       def unused_manifests
-        @unused_manifests ||= Decidim.content_blocks.for(:homepage).select do |manifest|
-          !used_manifests.include?(manifest.name.to_s)
+        @unused_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
+          used_manifests.include?(manifest.name.to_s)
         end
       end
     end

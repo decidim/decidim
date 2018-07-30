@@ -6,7 +6,7 @@
           <p class="mb-m">Bloques activos</p>
           <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= decidim_admin.organization_homepage_path %>">
             <% active_blocks.each do |content_block| %>
-            <li draggable="true" data-content-block-id="<%= content_block.id %>">
+            <li draggable="true" data-content-block-manifest-name="<%= content_block.manifest_name %>">
               <div class="draggable-content">
                 <%= content_block.manifest_name %>
                 <div>
@@ -25,9 +25,10 @@
           <p class="mb-m">Bloques disponibles</p>
           <ul class="draggable-list js-connect js-list-availables">
             <% inactive_blocks.each do |content_block_or_manifest| %>
-            <li draggable="true">
+            <% manifest_name = content_block_or_manifest.try(:manifest_name) || content_block_or_manifest.name %>
+            <li draggable="true" data-content-block-manifest-name="<%= manifest_name %>">
               <div class="draggable-content">
-                <%= content_block_or_manifest.try(:manifest_name) || content_block_or_manifest.name %>
+                <%= manifest_name %>
                 <div>
                   <%= icon "menu" %>
                 </div>
@@ -44,14 +45,14 @@
 <script>
   document.addEventListener("dragend", function (event) {
     var activeBlocks = Array.prototype.slice.call(document.querySelectorAll(".js-list-actives li"));
-    var activeBlocksIds = activeBlocks.map(block => block.dataset.contentBlockId);
+    var activeBlocksManifestName = activeBlocks.map(block => block.dataset.contentBlockManifestName);
     var sortUrl = document.querySelector(".js-list-actives").dataset.sortUrl;
 
     $.ajax({
       method: "PUT",
       url: sortUrl,
       contentType: "application/json",
-      data: JSON.stringify({ ids: activeBlocksIds })
+      data: JSON.stringify({ manifests: activeBlocksManifestName })
     });
   })
 </script>
