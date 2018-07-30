@@ -16,6 +16,7 @@ describe "User prints the initiative", type: :system do
     it "shows a printable form with all available data about the initiative" do
       within "main" do
         expect(page).to have_content(translated(initiative.title, locale: :en))
+        expect(page).to have_content(translated(initiative.type.tytle, locale: :en))
         expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
       end
     end
