@@ -21,10 +21,8 @@
       $draggables.not(event.target.parentElement).addClass("dragging")
     })
 
-    document.addEventListener("dragend", function (event) {
-      if ($(event.target.parentElement).hasClass("dragging")) {
-        $(event.target.parentElement).removeClass("dragging")
-      }
+    document.addEventListener("dragend", function() {
+      $draggables.removeClass("dragging")
     })
 
     createSortableList(draggablesClassNames.join(", "))
