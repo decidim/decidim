@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -53,6 +54,9 @@ sv:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publicera resultat
         unpublish_results: Uppdatera resultaten
       consultation_publications:

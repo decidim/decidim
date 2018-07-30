@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -39,28 +40,31 @@ pl:
   activerecord:
     models:
       decidim/consultations:
-        one: Konsultacja
         few: Konsultacje
         many: Konsultacje
+        one: Konsultacja
         other: Konsultacje
       decidim/consultations/question:
-        one: Pytanie
         few: pytania
         many: pytania
+        one: Pytanie
         other: pytania
       decidim/consultations/response:
-        one: Odpowiedź
         few: Odpowiedzi
         many: Odpowiedzi
+        one: Odpowiedź
         other: Odpowiedzi
       decidim/consultations/vote:
-        one: Głosować
         few: Głosy
         many: Głosy
+        one: Głosować
         other: Głosy
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Opublikuj wyniki
         unpublish_results: Cofnij publikację wyników
       consultation_publications:
@@ -114,9 +118,9 @@ pl:
             published: Opublikowany
             title: Tytuł
           name:
-            one: Konsultacja
             few: Konsultacje
             many: Konsultacje
+            one: Konsultacja
             other: Konsultacje
         question:
           fields:
@@ -124,18 +128,18 @@ pl:
             published: Opublikowany
             title: Tytuł
           name:
-            one: Pytanie
             few: pytania
             many: pytania
+            one: Pytanie
             other: pytania
         response:
           fields:
             created_at: Utworzono w
             title: Tytuł
           name:
-            one: Odpowiedź
             few: Odpowiedzi
             many: Odpowiedzi
+            one: Odpowiedź
             other: Odpowiedzi
       question_publications:
         create:
@@ -197,9 +201,9 @@ pl:
           recent: Najnowszy
       count:
         title:
-          one: "%{count} konsultacja"
           few: "%{count} konsultacji"
           many: "%{count} konsultacji"
+          one: "%{count} konsultacja"
           other: "%{count} konsultacji"
       filters:
         active: Aktywny
@@ -221,9 +225,9 @@ pl:
         take_part: Wziąć udział
         view_results: Pokaż wyniki
         votes_out_of:
-          one: zagłosuj na
           few: głosów z
           many: głosów z
+          one: zagłosuj na
           other: głosów z
       question_votes:
         create:

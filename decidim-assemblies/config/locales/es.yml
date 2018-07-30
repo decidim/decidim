@@ -46,7 +46,7 @@ es:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: "¿A quién va dirigido?"
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -76,6 +76,8 @@ es:
         other: Roles de usuario de la asamblea
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
@@ -286,7 +288,7 @@ es:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: '¿A quién va dirigida?'
+        target: "¿A quién va dirigida?"
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas

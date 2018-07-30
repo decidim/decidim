@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -316,6 +317,11 @@ fi:
         logs_list:
           no_logs_yet: Ei vielä lokeja
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
           success: Hallitun käyttäjän taso on onnistuneesti korotettu.
@@ -333,6 +339,8 @@ fi:
         configuration: Asetukset
         dashboard: Hallintapaneeli
         impersonations: huumorinsa
+        managed_users: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
@@ -370,6 +378,13 @@ fi:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -424,6 +439,28 @@ fi:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -595,6 +632,8 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Epäilyttävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
@@ -639,6 +678,28 @@ fi:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy epäonnistuneelle käyttäjälle
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Piilotettu
@@ -657,11 +718,14 @@ fi:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Piilotuksen ajankohta
             report_count: Määrä
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
+            status: Status
+            type: Type
             visit_url: Vieraile URL-osoitteessa
   errors:
     messages:

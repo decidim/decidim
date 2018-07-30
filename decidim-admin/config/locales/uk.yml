@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -316,6 +317,11 @@ uk:
         logs_list:
           no_logs_yet: Ще немає журналів
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: При підвищенні керованого учасника сталася помилка.
           success: Керованого учасника було успішно підвищено.
@@ -333,6 +339,8 @@ uk:
         configuration: Конфігурація
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
+        managed_users: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
         officializations: Надання службового статусу
@@ -370,6 +378,13 @@ uk:
             reason: Причина
             started_at: Започатковано о
             user: Учасник
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Створено:'
@@ -424,6 +439,28 @@ uk:
             does_not_belong: Неприйнятно
             offensive: Образливе
             spam: Спам
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
@@ -595,6 +632,8 @@ uk:
         dashboard: Приладна дошка
         impersonatable_users: Учасники, в ролі яких можна виступати
         impersonations: Виступи в ролі учасника
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Надання службового статусу
         scope_types: Різновиди обсягу
         scopes: Обсяги
@@ -639,6 +678,28 @@ uk:
       errors:
         impersonate_user:
           reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Приховано
@@ -657,11 +718,14 @@ uk:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: 'Приховано:'
             report_count: Кількість
             reportable: Різновид скарги
             reported_content_url: Веб-адреса оскарженого вмісту
             reports: Скарги
+            status: Status
+            type: Type
             visit_url: Відвідайте веб-адресу
   errors:
     messages:

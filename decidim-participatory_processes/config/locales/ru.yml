@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -50,19 +51,19 @@ ru:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Движение соучастия
         few: Движения соучастия
         many: Движений соучастия
+        one: Движение соучастия
         other: Движений соучастия
       decidim/participatory_process_group:
-        one: Группа движений соучастия
         few: Группы движений соучастия
         many: Групп движений соучастия
+        one: Группа движений соучастия
         other: Групп движений соучастия
       decidim/participatory_process_step:
-        one: Шаг
         few: Шага
         many: Шагов
+        one: Шаг
         other: Шагов
   decidim:
     admin:
@@ -74,6 +75,10 @@ ru:
         duplicate: Создать копию
         edit: Редактировать
         new: Добавить
+        new_process: Nouvelle concertation
+        new_process_group: Nouveau groupe de concertations
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение
@@ -291,6 +296,30 @@ ru:
       participatory_process_groups:
         none: Нет
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 concertation active
+              other: "%{count} concertations actives"
+            all:
+              one: 1 concertation
+              other: "%{count} concertations"
+            past:
+              one: 1 concertation passée
+              other: "%{count} concertations passées"
+            upcoming:
+              one: 1 concertation à venir
+              other: "%{count} concertations à venir"
+          explanations:
+            no_active: Aucune concertation active
+            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
+          see: Voir
         index:
           loading: Загрузка результатов...
       show:
@@ -335,9 +364,9 @@ ru:
           promoted_processes: Рекомендуемые движения
         order_by_processes:
           processes:
-            one: "%{count} движение"
             few: "%{count} движения"
             many: "%{count} движений"
+            one: "%{count} движение"
             other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'

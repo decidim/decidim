@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -111,14 +112,12 @@ sv:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Hej, En ny debatt har skapats på %{space_title} deltagande rymden, kolla in det och bidra:
+            email_intro: 'Hej, En ny debatt har skapats på %{space_title} deltagande rymden, kolla in det och bidra:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{space_title} deltagande rymden. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt om %{space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Hej, %{author_name} %{author_nickname}, vem du följer har skapat en ny debatt, kolla in den och bidra med:
+            email_intro: 'Hej, %{author_name} %{author_nickname}, vem du följer har skapat en ny debatt, kolla in den och bidra med:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt av %{author_nickname}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -45,6 +46,8 @@ eu:
         other: sinadurak
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
@@ -70,8 +73,13 @@ eu:
         initiatives_types: Ekimen motak
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
-          email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+          email_intro: "%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!"
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Mugarri berria osatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
@@ -221,12 +229,12 @@ eu:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, ekimen berri bat sortu du, egiaztatu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} ekimen berria'
+          email_subject: "%{author_nickname} ekimen berria"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} babestutako ekimena'
+          email_subject: "%{author_nickname} babestutako ekimena"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
       index:
         title: Ekimenak
@@ -300,13 +308,13 @@ eu:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
+        progress_report_body_for: "%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du."
         progress_report_for: 'Berrekin ekimenari buruz: %{title}'
         promotal_committee_help: Gogoratu gutxienez %{member_count} pertsona gonbidatu behar dituzula batzorde sustatzaileari. Birbidali hurrengo estekara gonbidapena sustatzeko batzordera gonbidatzeko
-        status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
-        status_change_for: '%{title} ekimena bere egoera aldatu du'
-        technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
-        technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
+        status_change_body_for: "%{title} ekimena bere egoera aldatu du: %{state}"
+        status_change_for: "%{title} ekimena bere egoera aldatu du"
+        technical_validation_body_for: "%{title} ekimena balidazio teknikoa eskatu du."
+        technical_validation_for: "%{title} ekimena balidazio teknikoa eskatu du."
       pages:
         home:
           highlighted_initiatives:

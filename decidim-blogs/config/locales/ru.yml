@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     models:
@@ -5,9 +6,9 @@ ru:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Пост
         few: Поста
         many: Постов
+        one: Пост
         other: Постов
   decidim:
     blogs:
@@ -56,6 +57,20 @@ ru:
     components:
       blogs:
         name: Блог
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments Blocked
+    events:
+      blogs:
+        post_created:
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:

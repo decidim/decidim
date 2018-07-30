@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -109,18 +110,18 @@ fr:
             published: Publiée
             title: Titre
           name:
-            zero: Votation
             one: Votation
             other: Votations
+            zero: Votation
         question:
           fields:
             created_at: Créée le
             published: Publiée
             title: Titre
           name:
-            zero: Question
             one: Question
             other: Questions
+            zero: Question
         response:
           fields:
             created_at: Créée le
@@ -188,9 +189,9 @@ fr:
           recent: Les plus récentes
       count:
         title:
-          zero: "%{count} votation"
           one: "%{count} votation"
           other: "%{count} votations"
+          zero: "%{count} votation"
       filters:
         active: Actives
         all: Tout

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -45,6 +46,8 @@ it:
         other: firme
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa
@@ -70,6 +73,11 @@ it:
         initiatives_types: Tipi di iniziativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: L'iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.

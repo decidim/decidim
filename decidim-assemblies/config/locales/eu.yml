@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -75,6 +76,8 @@ eu:
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.

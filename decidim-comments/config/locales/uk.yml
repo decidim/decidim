@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     models:
@@ -8,14 +9,14 @@ uk:
   activerecord:
     models:
       decidim/comments/comment:
-        one: Коментар
         few: Коментаря
         many: Коментарів
+        one: Коментар
         other: Коментарів
       decidim/comments/comment_vote:
-        one: Голос
         few: Голоси
         many: Голосів
+        one: Голос
         other: Голосів
   decidim:
     comments:
@@ -36,8 +37,8 @@ uk:
             label: Коментувати як
         opinion:
           neutral: Безсторонньо
-        remaining_characters: "Залишилось %{count} символів"
-        remaining_characters_1: "Залишився %{count} символ"
+        remaining_characters: Залишилось %{count} символів
+        remaining_characters_1: Залишився %{count} символ
         title: Додати свій коментар
       comment:
         alignment:
@@ -69,6 +70,8 @@ uk:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     models:
@@ -5,9 +6,9 @@ uk:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Допис
         few: Дописи
         many: Дописів
+        one: Допис
         other: Дописів
   decidim:
     blogs:

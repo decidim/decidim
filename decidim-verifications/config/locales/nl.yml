@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ nl:
       admin:
         id_documents:
           help:
-            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
-            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
-            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-            - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
+          - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+          - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+          - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+          - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
         postal_letter:
           help:
-            - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
-            - U stuurt de brief naar hun adres met de verificatiecode.
-            - U markeert de brief zoals verzonden.
-            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+          - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
+          - U stuurt de brief naar hun adres met de verificatiecode.
+          - U markeert de brief zoals verzonden.
+          - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
       direct: direct
       help: Helpen
       id_documents:

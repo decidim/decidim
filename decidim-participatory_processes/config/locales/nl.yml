@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -68,6 +69,10 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         new: Nieuw
+        new_process: Nieuw overleg
+        new_process_group: Nieuwe Overleggroep
+        new_process_step: Nieuwe etappe
+        new_process_user_role: Nieuwe gebruiker van het overleg
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -285,6 +290,30 @@ nl:
       participatory_process_groups:
         none: Geen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 actief overleg
+              other: "%{count} actief overleg"
+            all:
+              one: 1 concertation
+              other: "%{count} consulten"
+            past:
+              one: 1 voorafgaande raadpleging
+              other: "%{count} eerdere raadplegingen"
+            upcoming:
+              one: 1 concert na afloop
+              other: "%{count} aanstaande raadplegingen"
+          explanations:
+            no_active: Geen actief overleg
+            no_active_nor_upcoming: Geen actief of toekomstig overleg
+            no_active_nor_upcoming_callout: Er zijn geen actieve of aanstaande raadplegingen. Hier is een lijst van eerdere raadplegingen.
+          names:
+            active: Activa
+            all: ruimte
+            past: Verleden
+            upcoming: Komend
+          see: Bekijk
         index:
           loading: Laden van resultaten...
       show:

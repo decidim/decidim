@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -69,7 +70,7 @@ gl:
           ok: Ok
           title: O orzamento máximo excedeu
         budget_summary:
-          are_you_sure: '¿Estás seguro de que queres cancelar o teu voto?'
+          are_you_sure: "¿Estás seguro de que queres cancelar o teu voto?"
           assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -53,6 +54,9 @@ gl:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publicar resultados
         unpublish_results: Non publicar resultados
       consultation_publications:
@@ -183,8 +187,8 @@ gl:
           recent: Máis recente
       count:
         title:
-          one: "Consulta %{count}"
-          other: "Consultas %{count}"
+          one: Consulta %{count}
+          other: Consultas %{count}
       filters:
         active: Activo
         all: Todo

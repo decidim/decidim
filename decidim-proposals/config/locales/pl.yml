@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -36,24 +37,24 @@ pl:
   activerecord:
     models:
       decidim/proposals/proposal:
-        one: Wniosek
         few: Propozycje
         many: Propozycje
+        one: Wniosek
         other: Propozycje
       decidim/proposals/proposal_endorsement:
-        one: Poparcie
         few: Adnotacje
         many: Adnotacje
+        one: Poparcie
         other: Adnotacje
       decidim/proposals/proposal_note:
-        one: Uwaga
         few: Uwagi
         many: Uwagi
+        one: Uwaga
         other: Uwagi
       decidim/proposals/proposal_vote:
-        one: Głosować
         few: Głosy
         many: Głosy
+        one: Głosować
         other: Głosy
   decidim:
     components:
@@ -93,7 +94,12 @@ pl:
             votes_blocked: Głosy zablokowane
             votes_enabled: Głosowanie włączone
             votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
@@ -228,6 +234,7 @@ pl:
             body: Ciało
             created_at: Data utworzenia
             proposal_votes_count: Liczenie głosów
+            proposal_votes_weight: Votes count
             proposals: Propozycje
       admin_log:
         proposal:
@@ -257,6 +264,7 @@ pl:
             id: ID
             notes: Uwagi
             official_proposal: Oficjalny wniosek
+            published_at: Publiée à
             scope: Zakres
             state: Stan
             title: Tytuł
@@ -288,9 +296,9 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
-            one: 1 propozycja
             few: "%{count} propozycje"
             many: "%{count} propozycje"
+            one: 1 propozycja
             other: "%{count} propozycje"
         edit:
           back: Plecy
@@ -334,9 +342,9 @@ pl:
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
-            one: głosować
             few: głosów
             many: głosów
+            one: głosować
             other: głosów
         new:
           send: dalej
@@ -349,9 +357,9 @@ pl:
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
@@ -362,9 +370,9 @@ pl:
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
-            one: i jeszcze 1 osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i jeszcze 1 osoba
             other: i %{count} więcej osób
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
@@ -386,14 +394,30 @@ pl:
           no_votes_remaining: Brak głosów
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
+        vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          neutral: Neutral
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
-            one: GŁOSOWAĆ
             few: GŁOSOWANIA
             many: GŁOSY
+            one: GŁOSOWAĆ
             other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory

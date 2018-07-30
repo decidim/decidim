@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -127,7 +128,7 @@ eu:
           cancelled: Ezeztatuta sortzea
           candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
           candidate_proposals_info: 'Hurrengo proposamenen artean (%{category_label}) honako idazketa hauek egin dira (hautatutako proposamenetan lodia)  '
-          category: '%{category} kategoriatik'
+          category: "%{category} kategoriatik"
           dice_result: "(1) Datuen emaitza"
           introduction: 'Orrialde honek %{reference}sortzearen emaitzak ditu. Sortzapen honen bidez, %{target_items} emaitza kopurua ausaz aukeratuta eta probabilitate banaketa berdinarekin bat datozen proposamen multzoetatik hautatu dira. Emaitzen arabera, orrialde honetan agertzen den informazioa bermeak maximizatzeko eta emaitzak erreproduzitzeko beharrezko informazio guztia eskaintzen du. Gertakizun honen kalitatearen gakoa dude baten bikoiztasuna (testigantzak egiaztatutakoa) eta ausazko aukeraketa sortzen duen algoritmoaren sarrera ematen duen sortzearen denbora zehatza da. Denbora-hazia sortzea hain zehatza (segundotan) dela gizakientzat ezin da kontrolatu, beraz, "kontrolik gabeko" sarrera bikoitza ematen du arrazoizko emaitza bermatzeko.  '
           mathematical_result: Emaitza (1) x (2)
@@ -139,7 +140,7 @@ eu:
           random_seed: Ausazko hazia
           selected_proposals:
             one: Aukeratutako 1 proposamena
-            other: '%{count} proposamen hautatuak'
+            other: "%{count} proposamen hautatuak"
           view: ikusi
         sortition_author:
           deleted: Erabiltzailea ezabatua

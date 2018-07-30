@@ -1,10 +1,11 @@
+---
 pl:
   activerecord:
     models:
       decidim/pages/page:
-        one: Strona
         few: Strony
         many: Strony
+        one: Strona
         other: Strony
   decidim:
     admin_log:

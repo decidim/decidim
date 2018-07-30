@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -68,6 +69,10 @@ eu:
         duplicate: Kopiatu
         edit: Editatu
         new: Berria
+        new_process: Nouvelle concertation
+        new_process_group: Nouveau groupe de concertations
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
@@ -241,20 +246,20 @@ eu:
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} urratsa aktiboa da <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
     menu:
       processes: Prozesuak
     participatory_process_groups:
       show:
-        group_participatory_processes: '%{group} talderako prozesuak'
+        group_participatory_processes: "%{group} talderako prozesuak"
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
       index:
@@ -285,6 +290,30 @@ eu:
       participatory_process_groups:
         none: Bat bera ere ez
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 concertation active
+              other: "%{count} concertations actives"
+            all:
+              one: 1 concertation
+              other: "%{count} concertations"
+            past:
+              one: 1 concertation passée
+              other: "%{count} concertations passées"
+            upcoming:
+              one: 1 concertation à venir
+              other: "%{count} concertations à venir"
+          explanations:
+            no_active: Aucune concertation active
+            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
+          see: Voir
         index:
           loading: Emaitzak kargatzen...
       show:
@@ -342,5 +371,5 @@ eu:
         process_menu_item: Prozesua
         unfold: Zabaldu
       process_header_steps:
-        step: '%{total} fasetatik %{current}.a'
+        step: "%{total} fasetatik %{current}.a"
         view_steps: Ikusi faseak

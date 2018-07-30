@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -84,9 +85,13 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
-            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
+            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
@@ -283,9 +288,9 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
+            zero: "%{count} proposition"
         edit:
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
@@ -374,12 +379,6 @@ fr:
           no_votes_remaining: Aucun vote restant
           vote: Voter
           votes_blocked: Votes désactivés
-        votes_count:
-          count:
-            one: VOTE
-            other: VOTES
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         vote_weight:
           count:
             one: VOTE
@@ -387,9 +386,21 @@ fr:
           maximum_votes_reached: Nombre maximum de votes atteint
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
-          neutral : Neutre
+          neutral: Neutre
           no_votes_remaining: Aucun vote restant
           votes_blocked: Votes désactivés
+        votes_count:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes

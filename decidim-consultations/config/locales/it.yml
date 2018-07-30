@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -53,6 +54,9 @@ it:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Pubblica risultati
         unpublish_results: Annulla pubblicazione dei risultati
       consultation_publications:

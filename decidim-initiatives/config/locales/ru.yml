@@ -1,19 +1,63 @@
+---
 ru:
   activemodel:
     attributes:
       initiative:
         decidim_user_group_id: Автор
+        description: Description
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
         signature_end_time: Конец периода сбора подписей
         signature_start_time: Начало периода сбора подписей
         signature_type: Вид сбора подписей
+        signature_type_values:
+          any: Mixed
+          offline: Face to face
+          online: OnLine
+        title: Title
+      initiative_author:
+        address: Address
+        city: City
+        id_document: DNI/NIE
+        name: Name and Surname
+        phone_number: Phone number
+        post_code: Post code
+        province: Province
+      initiatives_committee_member:
+        user: Committee member
+      initiatives_type:
+        banner_image: Banner image
+        description: Description
+        title: Title
+      organization_data:
+        address: Address
+        id_document: CIF
+        name: Complete name
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initative
+        other: Initatives
+      decidim/initiative_comittee:
+        one: Comittee
+        other: Comittees
+      decidim/initiative_vote:
+        one: Signature
+        other: Signatures
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
+      menu:
+        initiatives: Initiatives
+        initiatives_types: Initiative types
       models:
         initiatives:
           fields:
+            created_at: Created at
+            state: State
             supports_count: Выражений поддержки
+            title: Initiatives
         initiatives_type_scope:
           fields:
             scope: Охват
@@ -21,6 +65,7 @@ ru:
           name: Охват вида почина
         initiatives_types:
           fields:
+            created_at: Created at
             title: Виды починов
           name: Вид почина
       titles:
@@ -28,6 +73,11 @@ ru:
         initiatives_types: Виды починов
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: Почин %{resource_title} достиг %{percentage}% подписей!
           email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -101,6 +151,7 @@ ru:
             success: Этот вид почина успешно удален
           edit:
             confirm_destroy: Вы уверены?
+            destroy: Destroy
             update: Обновить
           form:
             title: Общие сведения
@@ -149,6 +200,7 @@ ru:
           access_reminder: Помните, что вы всегда можете получить доступ к своим починам через меню участника.
           help_for_organizations: Если вы являетесь ассоциацией организаций, вам нужно загрузить протоколы заседаний правления всех организаций, входящих в рабочую группу по продвижению
           help_in_person_signatures: Если вы выбрали сбор подписей на личных встречах или в сочетании со сбором онлайн, вам нужно будет загрузить требуемые для этого сведения.
+          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it to procedure.
           initiatives_page_link: Вы можете просмотреть все эти сведения на %{link} где рассказывается всё о починах.
           page: страница
         previous_form:
@@ -164,36 +216,136 @@ ru:
           back: Вернуться
           more_information: "(Дополнительные сведения)"
           select: Выбрать
+          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
+          continue: Continue
           invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
+        show_similar_initiatives:
+          back: Back
+          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          continue: My initiative is different
+          more_information: "(More information)"
       events:
         create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New initiative by %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiatives
+      initiative_votes:
+        create:
+          error: There's been errors when signing the initiative.
       initiatives:
+        author:
+          deleted: Deleted
+        author_list:
+          hidden_authors_count:
+            one: and 1 more person
+            other: and %{count} more people
+        count:
+          title:
+            one: "%{count} initiative"
+            other: "%{count} initiatives"
+        filters:
+          any: Any
+          author: Author
+          closed: Closed
+          myself: My initiatives
+          open: Open
+          search: Search
+          state: State
+          type: Type
+          type_prompt: Select a type
+        filters_small_view:
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index_header:
           new_initiative: Добавить почин
+        orders:
+          label: 'Sort initiatives by:'
+          most_commented: Most commented
+          most_voted: Most signed
+          random: Random
+          recent: Most recent
         result:
+          initiative_accepted_reason: This initiative has been accepted because
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
         show:
+          any_vote_method: This citizen initiative collects online support as well as face to face.
           offline_method: Этот гражданский почин собирает выражения поддержки только на личных встречах.
+        signature_identities:
+          select_identity: Select user identity
+        signatures_count:
+          one: " signature"
+          other: " signatures"
         statistics:
           assistants_count_title: Помощников
           comments_count_title: Комментариев
           meetings_count_title: Встреч
           supports_count_title: Подписей
+        supports:
+          title: Listing of signatures
         vote_cabin:
-          supports_required: "Требуется %{total_supports} подписей"
+          already_voted: Already signed
+          supports_required: Требуется %{total_supports} подписей
+          vote: Sign
+          votes_blocked: Signing disabled
+        votes_count:
+          count:
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
+        creation_subject: Your citizen initiative '%{title}' has been created
+        initiative_link:
+          check_initiative_details: You can see the initiative details
+          here: here
+        more_information: Here you have more information about the initiative creation process.
         progress_report_body_for: Почин %{title} достиг %{percentage}% от необходимой поддержки.
+        progress_report_for: 'Resume about the initiative: %{title}'
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
+        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
+        status_change_for: The initiative %{title} has changed its state
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Действующие почины
+            see_all_initiatives: See all initiatives
+      states:
+        accepted: Accepted
+        expired: Expired
+    menu:
+      initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
+          attachments: Attachments
+          committee_members: Committee members
           components: Составляющие
+          information: Information
       initiative_creation_header:
+        fill_data: Create
+        finish: Finish
+        previous_form: Start
         promotal_committee: Рабочая группа по продвижению
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+      initiative_header:
+        initiative_menu_item: Initiative
+        unfold: Unfold
+      initiatives:
+        initiative:
+          check: Check it out
+          check_and_support: Check it out and sign
+        no_initiatives_yet:
+          no_initiatives_yet: No initiatives yet!

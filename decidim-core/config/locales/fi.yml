@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ fi:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
   booleans:
-    'false': 'Ei'
-    'true': 'Kyllä'
+    'false': Ei
+    'true': Kyllä
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -52,6 +53,11 @@ fi:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -152,6 +158,31 @@ fi:
         name: Foo-tunnistautuminen
       granted_at: Myönnetty %{timestamp}
       started_at: Aloitettu %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
+        incomplete:
+          cancel: Annuler
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          invalid_field: "%{field}"
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
+        missing:
+          authorize: Autoriser avec "%{authorization}"
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
+          title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
+        unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
+          ok: D'accord
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: ja vielä 1
@@ -177,6 +208,13 @@ fi:
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -212,6 +250,7 @@ fi:
         newsletter_modal:
           buttons:
             check: Tarkista ja jatka
+            close_modal: Fermer la fenêtre
             uncheck: Poista valinta
           notice: Hei, oletko varma et halua vastaanottaa uutiskirjeitä? Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla. Meille on erittäin tärkeää, että saat satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen, voit aina muuttaa ilmoituksesi asetussivulla. Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla. Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi. Kiitos, kun olet lukenut tämän!
           title: Ilmoitusten ilmoitukset
@@ -229,7 +268,7 @@ fi:
           see_name: Katso nimesi
           see_username: Näe käyttäjätunnuksesi
           this_application_will_be_able_to: 'Tämä sovellus pystyy:'
-          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
+          this_application_will_not_be_able_to: Tämä sovellus ei pysty
           update_profile: Päivitä profiili
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
@@ -249,7 +288,7 @@ fi:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
@@ -259,24 +298,23 @@ fi:
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
       feature_published_event:
-        email_intro: '%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_intro: "%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
         email_subject: Päivitys kohteeseen %{participatory_space_title}
         notification_title: '%{resource_title} -komponentti on nyt aktiivinen osallistumistilassa <a href="%{resource_path}">%{participatory_space_title}</a>'
-      participatory_process:
-        step_activated:
-          email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Päivitys kohteeseen %{participatory_space_title}
-          notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
       features:
         feature_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
@@ -284,6 +322,9 @@ fi:
           email_subject: "%{nickname} päivitti profiilinsa"
           notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        download: Télécharger
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
@@ -321,6 +362,18 @@ fi:
       errors:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir au moins une adresse email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} luotu %{resource_name}"
@@ -385,6 +438,20 @@ fi:
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Désolé, un problème est survenu
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -452,6 +519,7 @@ fi:
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastelen sitä myöhemmin
           modal_button: Kieltää ehdot
+          modal_close: Fermer la fenêtre
           modal_title: Odotatko todella päivitetyt käyttöehdot?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme ja tarkistamme ne.
@@ -529,7 +597,7 @@ fi:
           title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: Kentän %{field} arvo %{value} ei ole kelvollinen.
           ok: Ok
           title: Ei varmennettu
       embed_modal:
@@ -633,6 +701,7 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
+        invite_friends: Inviter des amis
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -641,6 +710,7 @@ fi:
         account: Käyttäjätili
         authorizations: Varmennukset
         delete_my_account: Poista tilini
+        my_data: Mes données
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
         user_groups: Organisaatiot
@@ -648,6 +718,16 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+  password_validator:
+    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban
