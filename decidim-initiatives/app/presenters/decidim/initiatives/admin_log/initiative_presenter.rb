@@ -28,8 +28,8 @@ module Decidim
           {
             state: :string,
             published_at: :date,
-            signature_start_time: :date,
-            signature_end_time: :date,
+            signature_start_date: :date,
+            signature_end_date: :date,
             description: :i18n,
             title: :i18n,
             hashtag: :string

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Highlighted Processes", type: :system do
+describe "Homepage processes content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
@@ -19,6 +19,7 @@ describe "Highlighted Processes", type: :system do
   let!(:promoted_external_process) { create(:participatory_process, :promoted) }
 
   before do
+    create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_processes
     switch_to_host(organization.host)
   end
 
