@@ -154,14 +154,5 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization
   )
 
-  [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :footer_sub_hero].each_with_index do |manifest_name, index|
-    weight = (index + 1) * 10
-    Decidim::ContentBlock.create(
-      organization: organization,
-      weight: weight,
-      scope: :homepage,
-      manifest_name: manifest_name,
-      published_at: Time.current
-    )
-  end
+  Decidim::System::CreateDefaultContentBlocks.call(organization)
 end
