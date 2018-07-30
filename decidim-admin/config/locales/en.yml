@@ -306,6 +306,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
