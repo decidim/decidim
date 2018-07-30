@@ -6,8 +6,8 @@ uk:
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
-        signature_end_time: Конець проміжку збору підписів
-        signature_start_time: Початок проміжку збору підписів
+        signature_end_date: Конець проміжку збору підписів
+        signature_start_date: Початок проміжку збору підписів
         signature_type: Різновид збору підписів
         signature_type_values:
           any: Поєднаний
