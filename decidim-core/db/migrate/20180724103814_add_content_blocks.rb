@@ -7,7 +7,7 @@ class AddContentBlocks < ActiveRecord::Migration[5.2]
       t.string :manifest_name, null: false, index: true
       t.string :scope, null: false, index: true
       t.jsonb :options
-      t.datetime :published_at
+      t.datetime :published_at, index: true
       t.integer :weight
       t.references
     end
