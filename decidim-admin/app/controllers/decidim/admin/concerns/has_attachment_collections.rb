@@ -100,14 +100,6 @@ module Decidim
             raise NotImplementedError
           end
 
-          # Public: The Class or Object to be used with the authorization layer to
-          # verify the user can manage the attachment collection
-          #
-          # By default is the same as the collection_for.
-          def authorization_object
-            collection_for
-          end
-
           def collection
             @collection ||= collection_for.attachment_collections
           end

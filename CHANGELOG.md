@@ -18,6 +18,8 @@
 
 **Added**:
 
+- **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
+- **decidim-proposals**: Results from searches should show the participatory space where they belong to if any. [\#3897](https://github.com/decidim/decidim/pull/3897)
 - **decidim-docs**: Add proposal lifecycle diagram to docs. [\#3811](https://github.com/decidim/decidim/pull/3811)
 - **decidim-budgets**: Added vote project authorization action [\#3804](https://github.com/decidim/decidim/pull/3804)
 - **decidim-meetings**: Added join meeting authorization action [\#3804](https://github.com/decidim/decidim/pull/3804)
@@ -33,6 +35,9 @@
 **Changed**:
 
 - **decidim-core**: Allow users to enter date fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
+- **decidim-docs**: Update the image that shows the proposed life-cycle of a Proposal.[\#3933](https://github.com/decidim/decidim/pull/3933)
+- **decidim-initiatives**: For consistency with DB, use Ruby Dates instead of DateTimes, rename `signature_start_time` and `signature_end_time` fields to `signature_start_date` and `signature_end_date`. [\#3932](https://github.com/decidim/decidim/pull/3932)
+- **decidim-participatory_processes**: For consistency with DB, use Ruby Dates instead of DateTimes for `start_date` and `end_date`. [\#3932](https://github.com/decidim/decidim/pull/3932)
 - **decidim-participatory_processes**: Improve usability of filters on processes index page [\#3728](https://github.com/decidim/decidim/pull/3728)
 - **decidim-meetings**: The invite attendee form has been moved to the top of the new invites list. [\#3826](https://github.com/decidim/decidim/pull/3826)
 - **decidim-core**: Load authorization modals content with AJAX requests. [\#3753](https://github.com/decidim/decidim/pull/3753)
@@ -40,6 +45,7 @@
 
 **Fixed**:
 
+- **decidim-initiatives**: Fix initiative edition when state is not published. [\#3930](https://github.com/decidim/decidim/pull/3930)
 - **decidim-proposals**: Fix Endorse button broken if endorse action is authorized. [\#3875](https://github.com/decidim/decidim/pull/3875)
 - **decidim-proposals**: Refactor searchable proposal test to avoid flakes. [\#3825](https://github.com/decidim/decidim/pull/3825)
 - **decidim-proposals**: Proposal seeds iterate over a sample of users to add coauthorships. [\#3796](https://github.com/decidim/decidim/pull/3796)
@@ -54,8 +60,15 @@
 - **decidim-accountability**: Fix accountability diff renderer when a locale is missing. [\#3797](https://github.com/decidim/decidim/pull/3797)
 - **decidim-core**: Don't crash when a nickname has a dot. [\#3793](https://github.com/decidim/decidim/pull/3793)
 - **decidim-core**: Don't crash when a page doesn't exist. [\#3799](https://github.com/decidim/decidim/pull/3799)
+- **decidim-consultations**: Remove unused indexes from consultations questions. [\#3840](https://github.com/decidim/decidim/pull/3840)
 - **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
 - **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
+- **decidim-proposals**: Proposal creation and update fixes: [\#3744](https://github.com/decidim/decidim/pull/3744)
+  - Fix `CookieOverflow` in wizard steps
+  - Fix `proposal_length` validation on create_step
+  - Fix ability to update proposal attachment
+  - Fix `has_address` checked and `address` on invalid form
+  - Fix ability to update the proposal's `author/user_group`
 - **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
 - **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
