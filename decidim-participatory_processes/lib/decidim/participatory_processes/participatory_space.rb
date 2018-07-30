@@ -72,8 +72,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        start_date: Time.current,
-        end_date: 2.months.from_now.at_midnight,
+        start_date: Date.current,
+        end_date: 2.months.from_now,
         participatory_process_group: process_groups.sample,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
       )
@@ -86,8 +86,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        start_date: 1.month.ago.at_midnight,
-        end_date: 2.months.from_now.at_midnight
+        start_date: 1.month.ago,
+        end_date: 2.months.from_now
       )
 
       # Create users with specific roles
