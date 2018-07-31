@@ -12,6 +12,7 @@ module Decidim
   #                         default: lambda { StatsRegistry::HIGH_PRIORITY }
   #                         values: lambda { [StatsRegistry::HIGH_PRIORITY, StatsRegistry::MEDIUM_PRIORITY] }
   #       content_block.cell "decidim/content_blocks/stats_block"
+  #       content_block.public_name_key "decidim.content_blocks.stats_block.name"
   #     end
   #
   # Content blocks can also register attached images. Here's an example of a
@@ -23,6 +24,7 @@ module Decidim
   #       content_block.image :image_3
   #       content_block.image :image_4
   #       content_block.cell "decidim/content_blocks/carousel_block"
+  #       content_block.public_name_key "decidim.content_blocks.carousel_block.name"
   #     end
   #
   # You will probably want to register your content blocks in an initializer in
