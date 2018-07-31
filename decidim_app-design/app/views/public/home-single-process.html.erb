@@ -53,143 +53,52 @@
     <div class="row">
       <h3 class="section-heading">Processos destacats</h3>
       <div class="row collapse">
-        <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
-                    large-up-4 card-grid">
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
-              <% end %>
+        <article class="card card--full card--process">
+          <div class="row collapse card--process__row">
+            <div class="column large-6 card--process__column">
               <div class="card__content">
                 <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Superilles</h4>
+                  <h2 class="card__title">
+                    Plan de fomento del turismo en la Barceloneta
+                  </h2>
                 <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
-              </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
+                <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+                  quam volutpat aliquam. Integer et elit eget elit facilisis
+                  tristique. Namvel iaculis mauris. Sed ullamcorper tellus erat, non
+                  ultrices semtincidunt euismod. Fusce rhoncus porttitor velit, eu
+                  bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis,
+                  facilisis accumsan turpis.</p>
+                <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod.
+                  Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce
+                  lorem leo, vehicula at nibh quis, facilisis accumsan turpis. Fusce
+                  rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem
+                  leo, vehicula at nibh quis...</p>
+                <%= link_to page_path("info"), class: "button secondary small hollow" do %>
+                  Más información
                 <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
               </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
-                <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
-              </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
-              <% end %>
-                <div class="card__content">
-                  <%= link_to page_path("info"), class: "card__link" do %>
-                    <h4 class="card__title">Pla de turisme sostenible</h4>
-                  <% end %>
-                  <span class="card--process__small">Fase activa:
-                    <strong>Diagnóstico</strong>
-                  </span>
+            </div>
+            <div class="column large-6 card--process__column">
+              <div class="card--full__image"
+                style="background-image:url(<%= image_path "process-demo-banner.jpg" %>)">
+                <div class="card__content row collapse">
+                  <div class="large-6 large-offset-6 columns">
+                    <%= link_to page_path("info"), class: "button expanded button--sc" do %>
+                      Participa
+                      <span class="button__info">Fase actual: Diagnóstico</span>
+                    <% end %>
+                  </div>
                 </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
-              <% end %>
-                <div class="card__content">
-                  <%= link_to page_path("info"), class: "card__link" do %>
-                    <h4 class="card__title">Pla de turisme sostenible</h4>
-                  <% end %>
-                  <span class="card--process__small">Fase activa:
-                    <strong>Diagnóstico</strong>
-                  </span>
-                </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Superilles</h4>
-                <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
               </div>
-            </article>
+            </div>
           </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
-                <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
-              </div>
-            </article>
-          </div>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to page_path("info"), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to page_path("info"), class: "card__link" do %>
-                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
-                <% end %>
-                <span class="card--process__small">Fase activa:
-                  <strong>Diagnóstico</strong>
-                </span>
-              </div>
-            </article>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
     <div class="row">
       <div class="columns small-centered small-12
                   smallmedium-8 medium-6 large-4">
-        <%= link_to page_path("processes/processes"), class: "button expanded hollow button--sc home-section__cta" do %>
+        <%= link_to page_path("processes/processes-single-one"), class: "button expanded hollow button--sc home-section__cta" do %>
           Ver todos los procesos
         <% end %>
       </div>
