@@ -69,6 +69,10 @@ en:
         duplicate: Duplicate
         edit: Edit
         new: New
+        new_process: New consultation
+        new_process_group: New consultation group
+        new_process_step: New stage
+        new_process_user_role: New consultation user
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
@@ -286,6 +290,30 @@ en:
       participatory_process_groups:
         none: None
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 active consultation
+              other: "%{count} active consultations"
+            all:
+              one: 1 consultation
+              other: "%{count} consultations"
+            past:
+              one: 1 past consultation
+              other: "%{count} past consultations"
+            upcoming:
+              one: 1 concertation to come
+              other: "%{count} upcoming consultations"
+          explanations:
+            no_active: No active consultation
+            no_active_nor_upcoming: No active or upcoming consultations
+            no_active_nor_upcoming_callout: There are no active or upcoming consultations. Here is a list of past consultations.
+          names:
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
         index:
           loading: Loading results...
       show:

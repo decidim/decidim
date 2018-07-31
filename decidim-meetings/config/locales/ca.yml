@@ -165,12 +165,23 @@ ca:
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una trobada a %{application}. Pots acceptar la invitació a través de l'enllaç següent."
             join: Uneix-te a la trobada '%{meeting_title}'
         invites:
           create:
             error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
             success: L'usuari s'ha convidat correctament a unir-se a la trobada.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: L'usuari serà convidat a participar en una trobada. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
             invite: Convidar
@@ -234,6 +245,7 @@ ca:
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invite_user: Convida l'usuari
+            invites: Invite
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
@@ -305,6 +317,16 @@ ca:
             other: "%{count} inscripcions restants"
           view: Veure
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Tancada
@@ -321,6 +343,9 @@ ca:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
           success: T'has inscrit a la reunió amb èxit.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.

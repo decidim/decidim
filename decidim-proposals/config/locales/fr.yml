@@ -89,9 +89,9 @@ fr:
             votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
       proposal_created:
-        email_subject: New proposal from %{author_name}
-        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-        url: 'Comment''s url : %{resource_url}'
+        email_subject: Nouvelle proposition de %{author_name}.
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
@@ -226,6 +226,7 @@ fr:
             body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de votes
+            proposal_votes_weight: Nombre de votes
             proposals: Propositions
       admin_log:
         proposal:
@@ -244,17 +245,18 @@ fr:
         success: Proposition créée avec succès. Enregistrée comme brouillon.
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
-        success: Le projet de proposition a été supprimé avec succès.
+        success: Le brouillon de la proposition a bien été supprimé.
       models:
         proposal:
           fields:
             category: Catégorie
             comments: Commentaires
-            created_at: Créée le
+            created_at: Créé le
             endorsements: Soutiens
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
+            published_at: Publiée à
             scope: Secteur
             state: État
             title: Titre
@@ -378,9 +380,13 @@ fr:
           vote: Voter
           votes_blocked: Votes désactivés
         vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
           maximum_votes_reached: Nombre maximum de votes atteint
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
+          neutral: Neutre
           no_votes_remaining: Aucun vote restant
           votes_blocked: Votes désactivés
         votes_count:
@@ -393,8 +399,8 @@ fr:
           count:
             one: VOTE
             other: VOTES
-          most_popular_proposal: Most popular proposal
-          need_more_votes: Need more votes
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes

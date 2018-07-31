@@ -76,6 +76,8 @@ it:
         other: Assemblare i ruoli utente
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.

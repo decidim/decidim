@@ -165,12 +165,23 @@ it:
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
             join: Partecipa alla riunione '%{meeting_title}'
         invites:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
             success: L'utente è stato invitato a partecipare alla riunione.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
             invite: Invita
@@ -234,6 +245,7 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invite_user: Invita un utente
+            invites: Invite
             registrations_count:
               one: Si è registrato un'iscrizione.
               other: Si sono registrate %{count} iscrizione.
@@ -305,6 +317,16 @@ it:
             other: "%{count} slot rimanenti"
           view: vista
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Chiuso
@@ -321,6 +343,9 @@ it:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
           success: Hai partecipato alla riunione con successo.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.

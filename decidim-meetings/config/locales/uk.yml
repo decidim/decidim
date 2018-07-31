@@ -171,12 +171,23 @@ uk:
           registrations: Реєстрації
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
             join: Долучитись до зустрічі '%{meeting_title}'
         invites:
           create:
             error: При спробі запросити учасника на зустріч сталася помилка.
             success: Учасника успішно запрошено на зустріч.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: Учасника буде запрошено на зустріч. Якщо його адресу електронної пошти не зареєстровано, його буде також запрошено до організації.
             invite: Запросити
@@ -240,6 +251,7 @@ uk:
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invite_user: Запросити учасника
+            invites: Invite
             registrations_count:
               few: Зареєструвалось %{count} людей.
               many: Зареєструвалось %{count} людей.
@@ -315,6 +327,16 @@ uk:
             other: Залишилось %{count} місць
           view: Переглянути
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Завершено
@@ -331,6 +353,9 @@ uk:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.
           success: Ви успішно долучилися до цієї зустрічі.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: При спробі скасувати реєстрацію на цю зустріч сталася помилка.
           success: Ви успішно скасували реєстрацію на зустріч.

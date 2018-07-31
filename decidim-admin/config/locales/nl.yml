@@ -318,8 +318,8 @@ nl:
           no_logs_yet: Er zijn nog geen logs
       managed_users:
         index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
+          impersonate: zich voordoen
+          needs_authoriation_warning: Waarschuwing voor de behoeften van de auteur
           promote: Promote
           view_logs: View logs
         promotion:
@@ -339,7 +339,8 @@ nl:
         configuration: Configuratie
         dashboard: Dashboard
         impersonations: Zich voordoen als
-        navbar_links: Navbar links
+        managed_users: Gebruikers vertegenwoordigd
+        navbar_links: Navbar koppelingen
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
         officializations: Bevestigde gebruikers
@@ -383,7 +384,7 @@ nl:
           fields:
             link: Link
             title: Title
-            weight: Weight
+            weight: zwaarte
         newsletter:
           fields:
             created_at: Aangemaakt op
@@ -440,26 +441,26 @@ nl:
             spam: Spam
       navbar_links:
         create:
-          error: There was an error when creating this link.
-          success: Link created successfully
+          error: Er was een fout bij het maken van deze link.
+          success: Link met succes aangemaakt
         destroy:
-          success: Link successfully destroyed
+          success: Verband met succes vernietigd
         edit:
-          title: Edit navbar link
-          update: Update
+          title: Navar link bewerken
+          update: Bijwerken
         form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
+          link: verband
+          new_tab: Openen in een nieuw tabblad
+          same_tab: In hetzelfde tabblad openen
           title: Title
-          weight: Weight
+          weight: Gewicht
         new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
+          create: Creëer
+          title: Nieuwe Navbar link
+        no_links: Geen links aangemaakt
         update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
+          error: Er was een fout bij het updaten van deze link.
+          success: Link met succes bijgewerkt
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
@@ -633,8 +634,8 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Nabootsingingen
-        managed_users: Managed users
-        navbar_links: Navbar links
+        managed_users: Beheerde gebruikers
+        navbar_links: Navbar koppelingen
         officializations: Bevestigen gebruikers
         scope_types: Scope types
         scopes: Scopes
@@ -679,6 +680,28 @@ nl:
       errors:
         impersonate_user:
           reason: Je moet een reden opgeven waarom je je uitgeeft als een niet beheerde gebruiker
+      navbar_links:
+        create:
+          error: Er was een fout bij het maken van deze link.
+          success: Link met succes aangemaakt
+        destroy:
+          success: Verband met succes vernietigd
+        edit:
+          title: Navar link bewerken
+          update: Bijwerken
+        form:
+          link: verband
+          new_tab: Openen in een nieuw tabblad
+          same_tab: In hetzelfde tabblad openen
+          title: Titel
+          weight: Gewicht
+        new:
+          create: Creëer
+          title: Nieuwe Navbar link
+        no_links: Geen links aangemaakt
+        update:
+          error: Er was een fout bij het updaten van deze link.
+          success: Link met succes bijgewerkt
     moderations:
       actions:
         hidden: Verborgen
@@ -697,11 +720,14 @@ nl:
       models:
         moderation:
           fields:
+            date: verouderen
             hidden_at: Verborgen op
             report_count: Aantal
             reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
+            status: Status
+            type: vlekkeloos
             visit_url: Bezoek URL
   errors:
     messages:

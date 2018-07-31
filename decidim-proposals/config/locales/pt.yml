@@ -226,6 +226,7 @@ pt:
             body: Corpo
             created_at: Data de criação
             proposal_votes_count: Contagem de votos
+            proposal_votes_weight: Votes count
             proposals: Propostas
       admin_log:
         proposal:
@@ -255,6 +256,7 @@ pt:
             id: identidade
             notes: Notas
             official_proposal: Proposta oficial
+            published_at: Publiée à
             scope: Âmbito
             state: Estado
             title: Título
@@ -377,9 +379,13 @@ pt:
           vote: Voto
           votes_blocked: Votação desativada
         vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

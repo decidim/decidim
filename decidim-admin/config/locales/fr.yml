@@ -319,10 +319,10 @@ fr:
           no_logs_yet: Il n'y a pas encore de journal d'activité
       managed_users:
         index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
+          impersonate: Se faire passer pour
+          needs_authoriation_warning: Besoin d'un message d'avertissement concernant l'autorisation
+          promote: Promouvoir
+          view_logs: Voir les logs
         promotion:
           error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
           success: L'utilisateur représenté a été promu avec succès.
@@ -340,6 +340,7 @@ fr:
         configuration: Configuration
         dashboard: Tableau de bord
         impersonations: Utilisateurs représentés
+        managed_users: Utilisateurs représentés
         navbar_links: Liens de navigation
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
@@ -384,7 +385,7 @@ fr:
           fields:
             link: Lien
             title: Titre
-            weight: Rang d'affichage
+            weight: pondération
         newsletter:
           fields:
             created_at: Créée le
@@ -632,7 +633,7 @@ fr:
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
-        managed_users: Managed users
+        managed_users: Utilisateurs gérés
         navbar_links: Liens de navigation
         officializations: Validation d'utilisateurs
         scope_types: Types de secteur
@@ -678,6 +679,28 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+      navbar_links:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau lien.
+          success: Lien créé avec succès.
+        destroy:
+          success: Lien supprimé avec succès
+        edit:
+          title: Modifier le lien
+          update: Modifier
+        form:
+          link: Lien
+          new_tab: Ouvrir sur un nouvel onglet
+          same_tab: Ouvrir dans le même onglet
+          title: Titre
+          weight: Rang d'affichage
+        new:
+          create: Créer
+          title: Nouveau lien de navigation
+        no_links: Vous n'avez pas créé de lien
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce lien.
+          success: Lien mis à jour avec succès
     moderations:
       actions:
         hidden: Masqués
@@ -696,11 +719,14 @@ fr:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Masqué le
             report_count: Compteur
             reportable: Contenu
             reported_content_url: URL
             reports: Motif
+            status: Statut
+            type: Type
             visit_url: Visitez l'URL
   errors:
     messages:

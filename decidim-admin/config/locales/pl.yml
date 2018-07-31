@@ -339,6 +339,7 @@ pl:
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
         impersonations: Podszywanie się pod inne osoby
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
@@ -677,6 +678,28 @@ pl:
       errors:
         impersonate_user:
           reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Ukryty
@@ -695,11 +718,14 @@ pl:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Ukryte w
             report_count: Liczyć
             reportable: Zgłoszone
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
+            status: Status
+            type: Type
             visit_url: Odwiedź adres URL
   errors:
     messages:

@@ -226,6 +226,7 @@ fi:
             body: Tekstin runko
             created_at: Luonnin ajankohta
             proposal_votes_count: Äänten määrä
+            proposal_votes_weight: Votes count
             proposals: Ehdotukset
       admin_log:
         proposal:
@@ -255,6 +256,7 @@ fi:
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
+            published_at: Publiée à
             scope: Konteksti
             state: Tila
             title: Otsikko
@@ -377,9 +379,13 @@ fi:
           vote: Äänestä
           votes_blocked: Äänestys estetty
         vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

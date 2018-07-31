@@ -165,12 +165,23 @@ fr:
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} a invité à rejoindre une réunion à %{application}. Vous pouvez le refuser ou l'accepter via les liens ci-dessous."
             join: Rejoignez la rencontre '%{meeting_title}'
         invites:
           create:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son email n'est pas enregistré, il sera également invité à s'inscrire à l'organisation.
             invite: Inviter
@@ -234,6 +245,7 @@ fr:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
             invite_user: Invite user
+            invites: Invite
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
@@ -305,6 +317,16 @@ fr:
             other: Il reste %{count} places
           view: Voir
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Close
@@ -321,6 +343,9 @@ fr:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
           success: Vous avez rejoint la rencontre avec succès.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.

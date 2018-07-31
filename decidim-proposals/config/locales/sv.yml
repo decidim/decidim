@@ -226,6 +226,7 @@ sv:
             body: Innehåll
             created_at: Skapelsedagen
             proposal_votes_count: Antal röster
+            proposal_votes_weight: Votes count
             proposals: Förslag
       admin_log:
         proposal:
@@ -255,6 +256,7 @@ sv:
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
+            published_at: Publiée à
             scope: Omfattning
             state: Status
             title: Titel
@@ -377,9 +379,13 @@ sv:
           vote: Rösta
           votes_blocked: Röstning inaktiverad
         vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

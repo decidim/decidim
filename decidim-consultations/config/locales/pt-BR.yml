@@ -54,6 +54,9 @@ pt-BR:
   decidim:
     admin:
       actions:
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publicar resultados
         unpublish_results: Cancelar publicação dos resultados
       consultation_publications:

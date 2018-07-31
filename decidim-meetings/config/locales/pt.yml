@@ -165,12 +165,23 @@ pt:
           registrations: Inscrições
         invite_join_meeting_mailer:
           invite:
+            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} convidou você a participar de uma reunião em %{application}. Você pode aceitá-lo através do link abaixo."
             join: Junte-se à reunião '%{meeting_title}'
         invites:
           create:
             error: Ocorreu um problema ao convidar o usuário a participar da reunião.
             success: O usuário foi convidado para participar da reunião.
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
           new:
             explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
             invite: Convite
@@ -234,6 +245,7 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invite_user: Convidar Usuário
+            invites: Invite
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
@@ -305,6 +317,16 @@ pt:
             other: "%{count} slots restantes"
           view: Visão
       models:
+        invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
             closed: Fechadas
@@ -321,6 +343,9 @@ pt:
         create:
           invalid: Houve um problema ao se juntar a essa reunião.
           success: Você se juntou à reunião com sucesso.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.

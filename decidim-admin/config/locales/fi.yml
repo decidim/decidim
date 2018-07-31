@@ -183,7 +183,7 @@ fi:
           error: Virhe uuden kokoelman luomisessa.
           success: Kokoelma on luotu onnistuneesti.
         destroy:
-          success: Kokoelma poistettu.
+          success: Kokoelma on tuhottu onnistuneesti.
         edit:
           title: Muokkaa kokoelmia
           update: Päivittää
@@ -339,6 +339,7 @@ fi:
         configuration: Asetukset
         dashboard: Hallintapaneeli
         impersonations: huumorinsa
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
@@ -677,6 +678,28 @@ fi:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy epäonnistuneelle käyttäjälle
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Piilotettu
@@ -695,11 +718,14 @@ fi:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Piilotuksen ajankohta
             report_count: Määrä
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
+            status: Status
+            type: Type
             visit_url: Vieraile URL-osoitteessa
   errors:
     messages:

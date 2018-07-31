@@ -234,6 +234,7 @@ uk:
             body: Основний текст
             created_at: Дата створення
             proposal_votes_count: Кількість голосів
+            proposal_votes_weight: Votes count
             proposals: Пропозиції
       admin_log:
         proposal:
@@ -263,6 +264,7 @@ uk:
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
+            published_at: Publiée à
             scope: Обсяг
             state: Стан
             title: Назва
@@ -284,7 +286,7 @@ uk:
           error: При голосуванні щодо пропозиції сталися помилки.
       proposals:
         compare:
-          mine_is_different: Моя пропозиція інша
+          mine_is_different: Моя пропозиція відрізняється
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
@@ -393,9 +395,13 @@ uk:
           vote: Голосувати
           votes_blocked: Голосування вимкнене
         vote_weight:
+          count:
+            one: VOTE
+            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

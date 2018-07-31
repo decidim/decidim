@@ -53,6 +53,11 @@ nl:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Le fichier n'existe pas
+        invalid_token: Le jeton fourni est invalide.
+        no_token: Aucun jeton fourni
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -153,6 +158,31 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
+        incomplete:
+          cancel: Annuler
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          invalid_field: "%{field}"
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
+        missing:
+          authorize: Autoriser avec "%{authorization}"
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
+          title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
+        unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
+          ok: D'accord
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -178,6 +208,13 @@ nl:
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
+    data_portability:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -213,6 +250,7 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
+            close_modal: Fermer la fenêtre
             uncheck: Blijf uitgeschakeld
           notice: Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen? Overweeg nogmaals om het onderstaande vakje voor de nieuwsbrief aan te vinken. Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen. Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform. Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect. Bedankt voor het lezen van dit!
           title: Nieuwsbriefmeldingen
@@ -284,6 +322,9 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
+      data_portability_export:
+        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
+        download: Télécharger
       export:
         ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
@@ -321,6 +362,18 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    invitations:
+      create:
+        error: Il y a eu un problème en invitant vos amis
+        error_empty_form: Veuillez saisir au moins une adresse email
+        success: Nous avons envoyé les invitations à vos amis !
+      index:
+        customize_message: Personnalisez le message d'invitation
+        friend_email: 'Adresse email #%{index} de votre ami'
+        invitations_subtitle: Faites connaître ce site à vos amis
+        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
+        invite: Inviter
+        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -385,6 +438,20 @@ nl:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible
+      update:
+        error: Désolé, un problème est survenu
+        success: Paramètres de newsletter mis à jour avec succès
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
+        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
+        button: Oui, je veux continuer à recevoir des informations pertinentes
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
@@ -452,6 +519,7 @@ nl:
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden
+          modal_close: Fermer la fenêtre
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
@@ -633,6 +701,7 @@ nl:
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
+        invite_friends: Inviter des amis
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel
@@ -641,6 +710,7 @@ nl:
         account: Account
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
+        my_data: Mes données
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: Organisaties
@@ -648,6 +718,16 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
+  password_validator:
+    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
+    email_included_in_password: est trop similaire à votre email
+    fallback: n'est pas valide
+    name_included_in_password: est trop similaire à votre nom
+    not_enough_unique_characters: n'a pas assez de caractères uniques
+    password_not_allowed: n'est pas autorisé
+    password_too_common: est trop commun
+    password_too_long: est trop long
+    password_too_short: est trop court
   social_share_button:
     delicious: Heerlijk
     douban: Douban

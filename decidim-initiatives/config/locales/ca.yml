@@ -46,6 +46,8 @@ ca:
         other: Firmes
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -293,7 +295,7 @@ ca:
           title: Llistat de signatures
         vote_cabin:
           already_voted: Ja has signat
-          supports_required: "%{total_supports} suports obligatoris"
+          supports_required: "%{total_supports} signatures required"
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:

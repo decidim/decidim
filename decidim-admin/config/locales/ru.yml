@@ -339,6 +339,7 @@ ru:
         configuration: Конфигурация
         dashboard: Панель управления
         impersonations: Выступления в роли участника
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
@@ -677,6 +678,28 @@ ru:
       errors:
         impersonate_user:
           reason: Необходимо указать причину выступления в роли участника, не являющегося управляемым
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Скрыт
@@ -695,11 +718,14 @@ ru:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: 'Скрыто:'
             report_count: Количество
             reportable: Вид жалобы
             reported_content_url: Веб-адрес обжалованного содержимого
             reports: Жалобы
+            status: Status
+            type: Type
             visit_url: Посетите веб-адрес
   errors:
     messages:

@@ -39,7 +39,7 @@ pt-BR:
       organization:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
-        default_locale: Idioma padrão
+        default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
@@ -129,7 +129,7 @@ pt-BR:
       doorkeeper/application:
         authorize_url: Autorizar URL
         client_id: ID do cliente
-        client_secret: Client Secret
+        client_secret: Segredo do cliente
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
@@ -141,9 +141,9 @@ pt-BR:
     admin:
       actions:
         add: Adicionar
-        browse: Navegar
+        browse: Explorar
         export: Exportar
-        manage: Gerenciar
+        manage: Gerir
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
@@ -339,6 +339,7 @@ pt-BR:
         configuration: Configuração
         dashboard: Painel de controle
         impersonations: Imitações
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: Aplicações OAuth
@@ -677,6 +678,28 @@ pt-BR:
       errors:
         impersonate_user:
           reason: Você precisa fornecer um motivo ao representar um usuário não gerenciado
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Oculto
@@ -695,11 +718,14 @@ pt-BR:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: Escondido em
             report_count: Contagem
             reportable: Reportable
             reported_content_url: URL de conteúdo relatado
             reports: Relatórios
+            status: Status
+            type: Type
             visit_url: URL de visita
   errors:
     messages:

@@ -82,6 +82,8 @@ pl:
         other: Zbierz role użytkowników
   decidim:
     admin:
+      actions:
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.

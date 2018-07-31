@@ -339,6 +339,7 @@ uk:
         configuration: Конфігурація
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
+        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
@@ -390,7 +391,7 @@ uk:
             progress: Перебіг
             sent_at: 'Надіслане:'
             subject: Тема
-          name: Розсилання новин
+          name: Випуск новин
         oauth_application:
           fields:
             created_at: 'Створено:'
@@ -469,14 +470,14 @@ uk:
           success: Випуск новин успішно доставлено.
         destroy:
           error_already_sent: 'Неможливо видалити цей випуск новин: його вже надіслано.'
-          success: Розсилання новин успішно видалено.
+          success: Випуск новин успішно видалено.
         edit:
           save_and_preview: Зберегти та попередньо переглянути
-          title: Редагувати розсилання новин
+          title: Редагувати випуск новин
         form:
           interpolations_hint: 'Підказка: Ви можете використовувати "%{name}" будь-де в основному тексті або темі, і воно буде замінене на ім''я одержувача.'
         index:
-          confirm_delete: Ви дійсно бажаєте видалити це розсилання новин?
+          confirm_delete: Ви дійсно бажаєте видалити цей випуск новин?
           title: Розсилання новин
         new:
           save: Зберегти
@@ -677,6 +678,28 @@ uk:
       errors:
         impersonate_user:
           reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
     moderations:
       actions:
         hidden: Приховано
@@ -695,11 +718,14 @@ uk:
       models:
         moderation:
           fields:
+            date: Date
             hidden_at: 'Приховано:'
             report_count: Кількість
             reportable: Різновид скарги
             reported_content_url: Веб-адреса оскарженого вмісту
             reports: Скарги
+            status: Status
+            type: Type
             visit_url: Відвідайте веб-адресу
   errors:
     messages:
