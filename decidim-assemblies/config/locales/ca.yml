@@ -76,8 +76,6 @@ ca:
         other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.

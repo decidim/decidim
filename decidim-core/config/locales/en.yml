@@ -53,11 +53,6 @@ en:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
-      data_portability_export:
-        file_no_exists: The file does not exist
-        invalid_token: The token provided is invalid.
-        no_token: No tokens provided
-        notice: Your export is currently in progress. You will receive an email when it is full.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -158,31 +153,6 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
-    authorization_modals:
-      show:
-        expired:
-          authorize: Allow again with "%{authorization}"
-          explanation: Your authorization has expired. To perform this action, you must renew your authorization with "%{authorization}".
-          title: Authorization expired
-        incomplete:
-          cancel: Cancel
-          explanation: Even if you are currently authorized with "%{authorization}", we need to reauthorize you because we don't have the following data:''
-          invalid_field: "%{field}"
-          reauthorize: Re-authorize
-          title: Please authorize again
-        missing:
-          authorize: Allow with "%{authorization}".
-          explanation: To perform this action, you must be allowed with"%{authorization}".
-          title: Authorization required
-        pending:
-          explanation: To perform this action, you must be authorized with "%{authorization}", but your authorization is still being validated.
-          resume: Check your authorization progress "%{authorization}"
-          title: The authorization is still being validated
-        unauthorized:
-          explanation: Sorry, you cannot perform this action because some of your authorization data does not match.
-          invalid_field: "%{field} valule %{value} is invalid."
-          ok: All right
-          title: Not allowed
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -208,13 +178,6 @@ en:
     core:
       actions:
         unauthorized: You are not authorized to perform this action
-    data_portability:
-      export:
-        ready: Ready
-      show:
-        download_data: Download data
-        download_data_description: A file with all information associated with the account will be sent to <strong>%{user_email}</strong>
-        request_data: Request data
     devise:
       omniauth_registrations:
         create:
@@ -250,7 +213,6 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close window
             uncheck: Keep uncheck
           notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
           title: Newsletter notifications
@@ -322,9 +284,6 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
-      data_portability_export:
-        click_button: Click on the following button to download your data. The file will be available until %{date}.
-        download: Download
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
@@ -362,18 +321,6 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
-    invitations:
-      create:
-        error: There was a problem inviting your friends over
-        error_empty_form: Please enter at least one email address
-        success: We sent the invitations to your friends!
-      index:
-        customize_message: Customize the invitation message
-        friend_email: 'Your friend''s email address #%{index}'
-        invitations_subtitle: Tell your friends about this site
-        invitations_title: Do you think more voices should be heard in %{organization_name}?
-        invite: Invite
-        visit_your_profile: Consult your profile
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -438,20 +385,6 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
-    newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available
-      update:
-        error: Sorry, a problem occurred.
-        success: Newsletter settings successfully updated
-    newsletters_opt_in_mailer:
-      notify:
-        body_1: The processing and protection of personal data is becoming increasingly important to us all. With the new General Data Protection Regulation (GDR) of 25 May 2018, individuals have better control over their personal data. For this reason, we need your consent to continue sending you relevant information about %{organization_name} activities.
-        body_2: 'How can you give us your consent? Simply click on the following button:'
-        body_3: With your consent, you will be able to continue to receive information about the platform's services. If, on the contrary, we do not receive a positive confirmation from you, we will stop sending you messages. If you confirm that you wish to stay informed, you will always have the option to cancel this choice at a later date.
-        button: Yes, I want to continue to receive relevant information
-        greetings: Salutations,<br/>%{nom_de_l'organisation}<br/><a href="%{organization_url}">%{organization_url}</a>a>a
-        hello: Good morning,
-        subject: Do you want to continue to receive relevant information about %{organization_name}?
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -519,7 +452,6 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
-          modal_close: Close window
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -701,7 +633,6 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
-        invite_friends: Invite friends
         notifications: Notifications
         profile: My account
         public_profile: My public profile
@@ -710,7 +641,6 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
-        my_data: My data
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
@@ -718,16 +648,6 @@ en:
         see_more: See more
   locale:
     name: English
-  password_validator:
-    domain_included_in_password: is too similar to the domain name of this platform
-    email_included_in_password: is too similar to your email
-    fallback: is not valid
-    name_included_in_password: is too similar to your name
-    not_enough_unique_characters: does not have enough unique characters
-    password_not_allowed: is not allowed
-    password_too_common: is too common
-    password_too_long: is too long
-    password_too_short: is too short
   social_share_button:
     delicious: Delicious
     douban: Douban

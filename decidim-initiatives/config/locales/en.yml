@@ -46,8 +46,6 @@ en:
         other: Signatures
   decidim:
     admin:
-      actions:
-        new_initiative_type: New type of initiative
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types

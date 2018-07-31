@@ -54,9 +54,6 @@ nl:
   decidim:
     admin:
       actions:
-        new_consultation: New vote
-        new_question: New question
-        new_response: New response
         publish_results: Publiceer resultaten
         unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:

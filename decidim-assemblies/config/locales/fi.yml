@@ -76,8 +76,6 @@ fi:
         other: Asennuksen käyttäjäroolit
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Virhe luotaessa uutta kehitysryhmää.

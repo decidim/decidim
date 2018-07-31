@@ -53,11 +53,6 @@ sv:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
-      data_portability_export:
-        file_no_exists: Le fichier n'existe pas
-        invalid_token: Le jeton fourni est invalide.
-        no_token: Aucun jeton fourni
-        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
         confirm:
@@ -158,31 +153,6 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
-    authorization_modals:
-      show:
-        expired:
-          authorize: Autoriser de nouveau avec "%{authorization}"
-          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
-          title: Autorisation expirée
-        incomplete:
-          cancel: Annuler
-          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
-          invalid_field: "%{field}"
-          reauthorize: Autoriser de nouveau
-          title: Veuillez autoriser de nouveau
-        missing:
-          authorize: Autoriser avec "%{authorization}"
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
-          title: Autorisation requise
-        pending:
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
-          resume: Vérifiez votre progression d'autorisation "%{authorization}"
-          title: L'autorisation est toujours en cours de validation
-        unauthorized:
-          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid_field: "%{field} valeur %{value} n'est pas valide."
-          ok: D'accord
-          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -208,13 +178,6 @@ sv:
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
-    data_portability:
-      export:
-        ready: Prêt
-      show:
-        download_data: Télécharger les données
-        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
-        request_data: Demander les données
     devise:
       omniauth_registrations:
         create:
@@ -250,7 +213,6 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
-            close_modal: Fermer la fenêtre
             uncheck: Håll avmarkeringen
           notice: Hej, är du säker på att du inte vill få ett nyhetsbrev? Tänk på att markera kryssrutan nyhetsbrev nedan. Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra detta på sidan Meddelandeinställningar. Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen. Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt. Tack för att du läste detta!
           title: Nyhetsbrev anmälningar
@@ -322,9 +284,6 @@ sv:
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
-      data_portability_export:
-        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
-        download: Télécharger
       export:
         ready: Vänligen se bifogad en zippad version av din export.
       subject: Din export "%{name}" är klar
@@ -362,18 +321,6 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
-    invitations:
-      create:
-        error: Il y a eu un problème en invitant vos amis
-        error_empty_form: Veuillez saisir au moins une adresse email
-        success: Nous avons envoyé les invitations à vos amis !
-      index:
-        customize_message: Personnalisez le message d'invitation
-        friend_email: 'Adresse email #%{index} de votre ami'
-        invitations_subtitle: Faites connaître ce site à vos amis
-        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
-        invite: Inviter
-        visit_your_profile: Consultez votre profil
     log:
       base_presenter:
         create: "%{user_name} skapad %{resource_name}"
@@ -438,20 +385,6 @@ sv:
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
-    newsletters_opt_in:
-      unathorized: Désolé, ce lien n'est plus disponible
-      update:
-        error: Désolé, un problème est survenu
-        success: Paramètres de newsletter mis à jour avec succès
-    newsletters_opt_in_mailer:
-      notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
-        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
-        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
-        button: Oui, je veux continuer à recevoir des informations pertinentes
-        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Bonjour,
-        subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
       no_notifications: Inga notiser ännu.
     notifications_settings:
@@ -519,7 +452,6 @@ sv:
           modal_btn_continue: Acceptera villkor och fortsätt
           modal_btn_exit: Jag ska granska den senare
           modal_button: Avvisa villkoren
-          modal_close: Fermer la fenêtre
           modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
@@ -701,7 +633,6 @@ sv:
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
-        invite_friends: Inviter des amis
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
@@ -710,7 +641,6 @@ sv:
         account: Konto
         authorizations: Tillstånd
         delete_my_account: Ta bort mitt konto
-        my_data: Mes données
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Organisationer
@@ -718,16 +648,6 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
-  password_validator:
-    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
-    email_included_in_password: est trop similaire à votre email
-    fallback: n'est pas valide
-    name_included_in_password: est trop similaire à votre nom
-    not_enough_unique_characters: n'a pas assez de caractères uniques
-    password_not_allowed: n'est pas autorisé
-    password_too_common: est trop commun
-    password_too_long: est trop long
-    password_too_short: est trop court
   social_share_button:
     delicious: Delicious
     douban: Douban

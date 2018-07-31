@@ -165,23 +165,12 @@ sv:
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
-            decline: Refuser l'invitation
             invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
             join: Gå med i mötet "%{meeting_title}"
         invites:
           create:
             error: Det har varit ett problem när du uppmanar användaren att gå med i mötet.
             success: Användaren framgångsrikt inbjuden att delta i mötet.
-          index:
-            filter:
-              accepted: Accepté
-              all: Tout
-              rejected: Rejeté
-              sent: Envoyé
-            filter_by: Filtrer par
-            invite_attendee: Inviter un participant
-            invites: Invite
-            search: Chercher
           new:
             explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
             invite: Bjud in
@@ -245,7 +234,6 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade kortplatser.
             invite_user: Bjud in användare
-            invites: Invite
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har registrerats %{count}.
@@ -317,16 +305,6 @@ sv:
             other: "%{count} platser kvar"
           view: Se
       models:
-        invite:
-          fields:
-            email: Email
-            name: prénom
-            sent_at: Envoyé à
-            status: Statut
-          status:
-            accepted: Accepté (%{at})
-            rejected: Rejeté (%{at})
-            sent: Envoyé
         meeting:
           fields:
             closed: Stängd
@@ -343,9 +321,6 @@ sv:
         create:
           invalid: Det har varit ett problem att gå med i det här mötet.
           success: Du har gått med på mötet framgångsrikt.
-        decline_invitation:
-          invalid: Un problème est survenu lors du refus de l'invitation.
-          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Det har varit ett problem att lämna detta möte.
           success: Du har lämnat mötet framgångsrikt.

@@ -46,8 +46,6 @@ pt-BR:
         other: Assinaturas
   decidim:
     admin:
-      actions:
-        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa

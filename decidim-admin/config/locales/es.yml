@@ -339,7 +339,6 @@ es:
         configuration: Configuración
         dashboard: Panel de control
         impersonations: Impersonaciones
-        managed_users: Utilisateurs représentés
         navbar_links: Navbar links
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
@@ -678,28 +677,6 @@ es:
       errors:
         impersonate_user:
           reason: Debe proporcionar una razón para impersonar a un usuario no administrado
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
     moderations:
       actions:
         hidden: Ocultas
@@ -718,14 +695,11 @@ es:
       models:
         moderation:
           fields:
-            date: Date
             hidden_at: Fecha de ocultación
             report_count: Recuento
             reportable: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
-            status: Status
-            type: Type
             visit_url: Visita la URL
   errors:
     messages:

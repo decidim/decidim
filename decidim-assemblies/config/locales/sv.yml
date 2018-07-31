@@ -76,8 +76,6 @@ sv:
         other: Montera användarroller
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Det uppstod ett fel vid att skapa en ny enhet.

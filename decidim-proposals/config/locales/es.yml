@@ -226,7 +226,6 @@ es:
             body: Cuerpo
             created_at: Fecha de creación
             proposal_votes_count: Número de votos
-            proposal_votes_weight: Votes count
             proposals: Propuestas
       admin_log:
         proposal:
@@ -256,7 +255,6 @@ es:
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
-            published_at: Publiée à
             scope: Ámbito
             state: Estado
             title: Título
@@ -379,13 +377,9 @@ es:
           vote: Dar apoyo
           votes_blocked: Votación desactivada
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:
