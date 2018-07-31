@@ -1,0 +1,497 @@
+<% @activesection = "home" %>
+
+<%= partial "template_top" %>
+
+<main>
+  <section class="extended hero"
+    style="background-image:url(<%= image_path "hero-home.jpg" %>);">
+    <div class="hero__container">
+      <div class="row">
+        <div class="columns small-centered large-10">
+          <h1 class="text-highlight heading1 hero-heading">
+            Construïm entre tots <br />la Barcelona que volem
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-centered large-10" data-equalizer>
+          <div class="columns medium-6">
+            <div class="hero__boxes" data-equalizer-watch>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia debitis soluta!</p>
+              <%= link_to page_path("processes"), class: "button small-9 medium-5 button--sc" do %>
+              Participa
+              <% end %>
+            </div>
+          </div>
+          <div class="columns medium-6">
+            <div class="hero__boxes" data-equalizer-watch>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, dicta repudiandae</p>
+              <div class="box__search small-9">
+                <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+                <input type="search" placeholder="Cercar" tabindex="0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="extended subhero home-section">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h2 class="heading3">Únete a la plataforma online de
+        participación ciudadana y participa de forma activa para mejorar tu
+        ciudad. Ya somos 156000.</h2>
+        <div class="flex--cb">
+          <div class="mt-sm mr-s">
+            <%= partial "help-tooltip" %>
+          </div>
+          <%= link_to page_path("user/user-register"), class: "button--sc link subhero-cta" do %>
+          Regístrate
+          <%= icon "chevron-right", aria_hidden: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="flex--sbc">
+        <h3 class="section-heading">Processos destacats</h3>
+        <%= partial "help-tooltip" %>
+      </div>
+      <div class="row collapse">
+        <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+                    large-up-4 card-grid">
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Superilles</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+              <% end %>
+                <div class="card__content">
+                  <%= link_to page_path("info"), class: "card__link" do %>
+                    <h4 class="card__title">Pla de turisme sostenible</h4>
+                  <% end %>
+                  <span class="card--process__small">Fase activa:
+                    <strong>Diagnóstico</strong>
+                  </span>
+                </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+              <% end %>
+                <div class="card__content">
+                  <%= link_to page_path("info"), class: "card__link" do %>
+                    <h4 class="card__title">Pla de turisme sostenible</h4>
+                  <% end %>
+                  <span class="card--process__small">Fase activa:
+                    <strong>Diagnóstico</strong>
+                  </span>
+                </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Superilles</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-centered small-12
+                  smallmedium-8 medium-6 large-4">
+        <%= link_to page_path("processes"), class: "button expanded hollow button--sc home-section__cta" do %>
+          Ver todos los procesos
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="flex--fsb">
+        <h3 class="section-heading">Processos destacats</h3>
+        <div class="ml-s">
+          <%= partial "help-tooltip" %>
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+                    large-up-4 card-grid">
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Superilles</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+              <% end %>
+                <div class="card__content">
+                  <%= link_to page_path("info"), class: "card__link" do %>
+                    <h4 class="card__title">Pla de turisme sostenible</h4>
+                  <% end %>
+                  <span class="card--process__small">Fase activa:
+                    <strong>Diagnóstico</strong>
+                  </span>
+                </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+              <% end %>
+                <div class="card__content">
+                  <%= link_to page_path("info"), class: "card__link" do %>
+                    <h4 class="card__title">Pla de turisme sostenible</h4>
+                  <% end %>
+                  <span class="card--process__small">Fase activa:
+                    <strong>Diagnóstico</strong>
+                  </span>
+                </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "superilles.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Superilles</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "gracia.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Plan urbanístico de Gracia</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--process card--mini">
+              <%= link_to page_path("info"), class: "card__link" do %>
+                <div class="card__image-top"
+                  style="background-image:url(<%= image_path "puntverd.jpg" %>)"></div>
+              <% end %>
+              <div class="card__content">
+                <%= link_to page_path("info"), class: "card__link" do %>
+                  <h4 class="card__title">Reciclatge de dispositius electrònics</h4>
+                <% end %>
+                <span class="card--process__small">Fase activa:
+                  <strong>Diagnóstico</strong>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-centered small-12
+                  smallmedium-8 medium-6 large-4">
+        <%= link_to page_path("processes"), class: "button expanded hollow button--sc home-section__cta" do %>
+          Ver todos los procesos
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <section class="extended">
+    <div class="wrapper-home home-section">
+      <div class="row column text-center">
+        <div class="flex--cc">
+          <h3 class="heading2">¿Cómo participo en un proceso?</h3>
+          <div class="ml-s">
+            <%= partial "help-tooltip" %>
+          </div>
+        </div>
+      </div>
+      <div class="row small-up-1 medium-up-3 home-bullets">
+        <div class="column">
+          <div class="home-bullet">
+            <div class="home-bullet__icon">
+              <%= icon "meetings" %>
+            </div>
+            <div class="home-bullet__desc">
+              <h4 class="heading6">Encuentros</h4>
+              <p>Encontrarnos, debatir y compartir lo que nos parece importante
+                en nuestra ciudad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="home-bullet">
+            <div class="home-bullet__icon">
+              <%= icon "debates" %>
+            </div>
+            <div class="home-bullet__desc">
+              <h4 class="heading6">Debates</h4>
+              <p>Encontrarnos, debatir y compartir lo que nos parece importante en
+                nuestra ciudad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="home-bullet">
+            <div class="home-bullet__icon">
+              <%= icon "proposals" %>
+            </div>
+            <div class="home-bullet__desc">
+              <h4 class="heading6">Propuestas</h4>
+              <p>Espacio abierto para propuestas ciudadanas sobre el tipo de
+                ciudad en el que queremos vivir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-centered small-10
+                  smallmedium-8 medium-6 large-4">
+          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
+            Más información
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="extended">
+    <div class="wrapper-home">
+      <%= partial "home_stats" %>
+    </div>
+  </section>
+  <section class="extended">
+    <div class="wrapper-home">
+      <div class="row column text-center">
+        <h3 class="heading2">Resultados del proceso del Plan Municipal</h3>
+      </div>
+      <div class="row">
+        <div class="columns small-centered mediumlarge-10 large-8">
+          <div class="home-pam">
+            <div class="home-pam__highlight">
+              <div class="home-pam__data">
+                <h4 class="home-pam__title">Propuestas incorporadas</h4>
+                <span class="home-pam__number">7.284</span>
+              </div>
+              <div class="home-pam__data">
+                <h4 class="home-pam__title">Actuaciones</h4>
+                <span class="home-pam__number">1.467</span>
+              </div>
+            </div>
+            <div class="home-pam__lowlight">
+              <div class="home-pam__data">
+                <h4 class="home-pam__title">Total propuestas</h4>
+                <span class="home-pam__number">10.860</span>
+              </div>
+              <div class="home-pam__data">
+                <h4 class="home-pam__title">Apoyos</h4>
+                <span class="home-pam__number">165.121</span>
+              </div>
+              <div class="home-pam__data">
+                <h4 class="home-pam__title">Encuentros</h4>
+                <span class="home-pam__number">410</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-centered small-12
+                  smallmedium-8 medium-6 large-4">
+          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
+            Explora los resultados
+          <% end %>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="columns small-centered large-3">
+          <%= link_to page_path("processes"), class: "button--sc link subhero-cta subhero-cta--secondary" do %>
+            Descarga el Plan Municipal
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-map">
+    <div class="wrapper-home wrapper-home--mini home-section">
+      <div class="row column">
+        <h3 class="section-heading">Pròximes trobades</h3>
+      </div>
+    </div>
+    <%= partial "meetings_map" %>
+  </section>
+  <section class="extended subhero">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h4 class="heading2">73 barris, una Barcelona. Cap a la ciutat dels
+          drets i les oportunitats</h4>
+        <h5 class="heading4">Únete a la plataforma online de
+        participación ciudadana y participa de forma activa para mejorar tu
+        ciudad. Ya somos 156000.</h5>
+        <%= link_to page_path("user/user-register"), class: "button--sc link subhero-cta" do %>
+          Regístrate
+          <%= icon "chevron-right", aria_hidden: true %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>
