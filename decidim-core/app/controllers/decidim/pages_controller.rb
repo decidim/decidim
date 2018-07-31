@@ -19,19 +19,15 @@ module Decidim
       enforce_permission_to :read, :public_page, page: page
       if params[:id] == "home"
         render :home
-      else
+      elsif page
         render :decidim_page
+      else
+        raise ActionController::RoutingError, "Not Found"
       end
     end
 
     def page
       @page ||= current_organization.static_pages.find_by(slug: params[:id])
-    end
-
-    private
-
-    def stats
-      @stats ||= HomeStatsPresenter.new(organization: current_organization)
     end
   end
 end

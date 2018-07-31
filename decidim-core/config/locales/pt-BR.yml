@@ -199,6 +199,7 @@ pt-BR:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -313,7 +314,7 @@ pt-BR:
     export_mailer:
       data_portability_export:
         click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
-        download: Baixar
+        download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
@@ -604,6 +605,7 @@ pt-BR:
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
+        decline: Negar convite
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este e-mail.<br />

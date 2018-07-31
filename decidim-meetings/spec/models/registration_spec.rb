@@ -19,5 +19,33 @@ module Decidim::Meetings
 
       it { is_expected.not_to be_valid }
     end
+
+    context "when a registration with the same code already exists" do
+      let(:code) { "AZ45HJ87" }
+
+      context "when in the same meeting" do
+        before do
+          create :registration, meeting: meeting, user: create(:user, organization: meeting.organization), code: code
+        end
+
+        it "is invalid" do
+          registration.code = code
+
+          is_expected.not_to be_valid
+        end
+      end
+
+      context "when in another meeting" do
+        before do
+          create :registration, code: code
+        end
+
+        it "is invalid" do
+          registration.code = code
+
+          is_expected.to be_valid
+        end
+      end
+    end
   end
 end

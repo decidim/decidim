@@ -73,6 +73,7 @@ es-PY:
             proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
             proposal_wizard_step_3_help_text: Texto de ayuda al paso "Completar" de propuestas
             proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada propuesta
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de voto por usuario
           step:

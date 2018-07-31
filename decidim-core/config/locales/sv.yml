@@ -199,6 +199,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
+            resources_permissions_enabled: Resurser behörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
@@ -604,6 +605,7 @@ sv:
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
+        decline: Avvisa inbjudan
         hello: Hej %{email},
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />

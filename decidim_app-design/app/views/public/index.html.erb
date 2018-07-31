@@ -14,7 +14,11 @@
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
           <li><%= link_to "Home", page_path("home") %></li>
+<<<<<<< HEAD
           <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
+=======
+          <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
+>>>>>>> master
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
         <h2 class="section-heading">Process</h2>
@@ -58,6 +62,23 @@
               <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
             </ul>
           </li>
+          <li>
+            <%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %>
+            <ul>
+              <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+              <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
+            </ul>
+          </li>
+        </ul>
+        <h2 class="section-heading">Amendments</h2>
+        <ul>
+          <li><%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %></li>
+          <li><%= link_to "Formulario de creación de enmiendas", page_path("amendments/amendment-creation-wizard") %></li>
+          <li><%= link_to "Propuesta con enmiendas asociadas", page_path("amendments/proposal-view-with-amendments") %></li>
+          <li><%= link_to "Aceptar / Rechazar enmienda", page_path("amendments/amendment-view-accept-reject") %></li>
+          <li><%= link_to "Validar coautoría", page_path("amendments/amendment-view-validate-coauthorship") %></li>
+          <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
+          <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
         </ul>
         <h2 class="section-heading">Initiatives</h2>
         <ul>
@@ -135,11 +156,24 @@
             </ul>
           </li>
           <li>
-            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
+            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("user/user-profile")+ "#timeline" %>
             <ul>
-              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("user/user-profile") + "#notifications" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("user/user-profile") + "#conversations" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("user/user-profile") + "#conversation" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("user/user-profile") + "#followers" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("user/user-profile") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("user/user-profile") + "#badges" %></li>
             </ul>
           </li>
+          <li>
+            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("user/user-profile-public") + "#followers" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("user/user-profile-public") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("user/user-profile-public") + "#badges" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Información sobre badges", page_path("user/user-badges-info") %></li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
           <li>
             <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>

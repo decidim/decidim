@@ -2,7 +2,7 @@
 
 The participatory democracy framework.
 
-> Democracy never felt so real.
+> Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
 [Decidim](https://decidim.org) is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website. Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications) or like [our demo application](http://staging.decidim.codegram.com).
 

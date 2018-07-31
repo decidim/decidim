@@ -908,8 +908,18 @@ $datetime-bg: $primary;
       }
     }
   }
+}
 
-  &:not(:last-child){
-    margin-bottom: $global-margin;
+// card - participatory space
+.card__top{
+  @extend .card__footer;
+
+  .card__content{
+    line-height: $global-lineheight;
+    padding: $card-padding-small / 4 $card-padding-small;
+
+    @include breakpoint(medium){
+      padding: $card-padding / 4 $card-padding;
+    }
   }
 }

@@ -23,10 +23,12 @@ module Decidim
             expect(proposal.state).to eq("withdrawn")
           end
         end
+
         context "and the proposal HAS some supports" do
           before do
             proposal.votes.create!(author: current_user)
           end
+
           it "is not able to withdraw the proposal" do
             expect do
               expect { command.call }.to broadcast(:invalid)

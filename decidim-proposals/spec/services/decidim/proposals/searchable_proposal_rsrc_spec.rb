@@ -67,6 +67,7 @@ module Decidim
               proposal.update(title: updated_title)
 
               proposal.save!
+              searchable.reload
 
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)

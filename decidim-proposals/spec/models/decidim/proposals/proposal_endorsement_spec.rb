@@ -82,6 +82,7 @@ module Decidim
         before do
           proposal_endorsement.save!
         end
+
         let!(:other_user_group) { create(:user_group, verified_at: DateTime.current, organization: author.organization, users: [author]) }
         let!(:other_proposal_endorsement_1) do
           create(:proposal_endorsement, proposal: proposal, author: author)

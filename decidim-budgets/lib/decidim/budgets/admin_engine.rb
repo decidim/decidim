@@ -9,11 +9,15 @@ module Decidim
       isolate_namespace Decidim::Budgets::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :projects do
           resources :attachment_collections
           resources :attachments
+          collection do
+            resource :proposals_import, only: [:new, :create]
+          end
         end
 
         root to: "projects#index"

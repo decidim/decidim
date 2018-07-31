@@ -4,13 +4,7 @@
     <div class="column small-9 collapse">
       <div class="button-group button-group--collapse button--nomargin small">
         <%= render_endorsements_count_card_part(@proposal, fully_endorsed) %>
-        <% if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
-          <%= content_tag :span, t(".endorse"), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t(".endorse") %>
-        <% elsif current_user %>
-          <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
-        <% else %>
-          <%= action_authorized_button_to :endorse, t(".endorse"), "", class: "card__button button #{endorsement_button_classes(false)} secondary" %>
-        <% end %>
+        <%= render_endorsements_button_card_part(@proposal, fully_endorsed) %>
       </div>
     </div>
   <% end %>

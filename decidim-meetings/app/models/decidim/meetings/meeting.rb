@@ -20,6 +20,7 @@ module Decidim
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -83,6 +84,11 @@ module Decidim
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         commentable? && !component.current_settings.comments_blocked
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

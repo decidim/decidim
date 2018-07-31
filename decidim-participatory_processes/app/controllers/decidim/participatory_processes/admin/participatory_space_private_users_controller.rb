@@ -15,10 +15,6 @@ module Decidim
         def privatable_to
           current_participatory_process
         end
-
-        def authorization_object
-          @participatory_space_private_user
-        end
       end
     end
   end

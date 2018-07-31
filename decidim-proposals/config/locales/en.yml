@@ -74,6 +74,7 @@ en:
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
+            resources_permissions_enabled: Actions permissions can be set for each proposal
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:
@@ -266,6 +267,8 @@ en:
         endorsement_button:
           already_endorsed: Endorsed
           endorse: Endorse
+        render_endorsements_button_card_part:
+          endorse: Endorse
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -275,8 +278,6 @@ en:
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
           send: Send
           title: Complete your proposal
         count:
@@ -284,6 +285,7 @@ en:
             one: 1 proposal
             other: "%{count} proposals"
         edit:
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           select_a_category: Please select a category
           send: Send
@@ -297,7 +299,6 @@ en:
           endorse: Endorse
         endorsements_card_row:
           comments: Comments
-          endorse: Endorse
         filters:
           accepted: Accepted
           activity: Activity
