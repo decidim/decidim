@@ -275,6 +275,32 @@ module Decidim
           resource.card = "decidim/user_profile"
         end
       end
+
+      initializer "decidim.core.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :hero) do |content_block|
+          content_block.cell "decidim/content_blocks/hero"
+        end
+
+        Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
+          content_block.cell "decidim/content_blocks/sub_hero"
+        end
+
+        Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
+          content_block.cell "decidim/content_blocks/highlighted_content_banner"
+        end
+
+        Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
+          content_block.cell "decidim/content_blocks/how_to_participate"
+        end
+
+        Decidim.content_blocks.register(:homepage, :stats) do |content_block|
+          content_block.cell "decidim/content_blocks/stats"
+        end
+
+        Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
+          content_block.cell "decidim/content_blocks/footer_sub_hero"
+        end
+      end
     end
   end
 end

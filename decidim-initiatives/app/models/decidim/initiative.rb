@@ -64,14 +64,14 @@ module Decidim
     scope :open, lambda {
       published
         .where.not(state: [:discarded, :rejected, :accepted])
-        .where("signature_start_time <= ?", Time.now.utc)
-        .where("signature_end_time >= ?", Time.now.utc)
+        .where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
     }
     scope :closed, lambda {
       published
         .where(state: [:discarded, :rejected, :accepted])
-        .or(where("signature_start_time > ?", Time.now.utc))
-        .or(where("signature_end_time < ?", Time.now.utc))
+        .or(where("signature_start_date > ?", Date.current))
+        .or(where("signature_end_date < ?", Date.current))
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
@@ -165,8 +165,8 @@ module Decidim
 
     def votes_enabled?
       published? &&
-        signature_start_time <= Time.zone.today &&
-        signature_end_time >= Time.zone.today
+        signature_start_date <= Date.current &&
+        signature_end_date >= Date.current
     end
 
     # Public: Checks if the organization has given an answer for the initiative.
@@ -198,8 +198,8 @@ module Decidim
       update(
         published_at: Time.current,
         state: "published",
-        signature_start_time: DateTime.now.utc,
-        signature_end_time: DateTime.now.utc + Decidim::Initiatives.default_signature_time_period_length
+        signature_start_date: Date.current,
+        signature_end_date: Date.current + Decidim::Initiatives.default_signature_time_period_length
       )
     end
 
@@ -214,7 +214,7 @@ module Decidim
 
     # Public: Returns wether the signature interval is already defined or not.
     def has_signature_interval_defined?
-      signature_end_time.present? && signature_start_time.present?
+      signature_end_date.present? && signature_start_date.present?
     end
 
     # Public: Returns the hashtag for the initiative.
