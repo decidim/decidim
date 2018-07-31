@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CommentCreatedEventExtend
   def email_url
     I18n.t(

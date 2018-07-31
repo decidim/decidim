@@ -17,16 +17,16 @@ module Decidim
 
       def index
         @proposals = search
-                      .results
-                      .published
-                      .not_hidden
-                      .includes(:author)
-                      .includes(:category)
-                      .includes(:scope)
+                     .results
+                     .published
+                     .not_hidden
+                     .includes(:author)
+                     .includes(:category)
+                     .includes(:scope)
 
         @voted_proposals = if current_user
                              ProposalVote.where(
-                               author: current_user,
+                               author:   current_user,
                                proposal: @proposals.pluck(:id)
                              ).pluck(:decidim_proposal_id)
                            else
@@ -217,12 +217,12 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          origin: "all",
-          activity: "",
+          origin:      "all",
+          activity:    "",
           category_id: "",
-          state: "except_rejected",
-          scope_id: nil,
-          related_to: ""
+          state:       "except_rejected",
+          scope_id:    nil,
+          related_to:  ""
         }
       end
 

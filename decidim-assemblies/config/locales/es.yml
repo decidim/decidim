@@ -76,8 +76,6 @@ es:
         other: Roles de usuario de la asamblea
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.

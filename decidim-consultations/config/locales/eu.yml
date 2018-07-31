@@ -54,9 +54,6 @@ eu:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
         publish_results: Argitaratu emaitzak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:

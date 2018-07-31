@@ -46,8 +46,6 @@ fr:
         other: Signatures
   decidim:
     admin:
-      actions:
-        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
@@ -200,7 +198,7 @@ fr:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
+          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, y télécharger les informations requises et les envoyer pour traitement.
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les initiatives.
           page: page
         previous_form:

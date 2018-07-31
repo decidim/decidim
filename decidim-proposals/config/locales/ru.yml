@@ -234,7 +234,6 @@ ru:
             body: Основной текст
             created_at: Дата создания
             proposal_votes_count: Количество голосов
-            proposal_votes_weight: Votes count
             proposals: Предложения
       admin_log:
         proposal:
@@ -264,7 +263,6 @@ ru:
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
-            published_at: Publiée à
             scope: Охват
             state: Cостояние
             title: Название
@@ -395,13 +393,9 @@ ru:
           vote: Голосовать
           votes_blocked: Голосование отключено
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

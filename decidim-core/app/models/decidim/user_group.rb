@@ -43,16 +43,16 @@ module Decidim
     end
 
     def self.get_unique_random_user_group_document_number(current_organization)
-      random_range = 99999
+      random_range = 99_999
       user_group_document_number = SecureRandom.random_number(random_range)
       # While our random number is already picked, we picked an other one
-      while UserGroup.where(
-              document_number: user_group_document_number,
-              decidim_organization_id: current_organization.id
-              ).first.present?
+      while UserGroup.find_by(
+        document_number:         user_group_document_number,
+        decidim_organization_id: current_organization.id
+      ).present?
         user_group_document_number = SecureRandom.random_number(random_range)
       end
-      return user_group_document_number
+      user_group_document_number
     end
 
     private

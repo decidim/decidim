@@ -8,7 +8,7 @@ pt-BR:
       id_document_upload:
         document_number: Número do documento (com letra)
         document_type: Tipo do seu documento
-        user: Do utilizador
+        user: Usuário
         verification_attachment: Cópia digitalizada do seu documento
       postal_letter_address:
         full_address: Endereço completo
@@ -36,7 +36,7 @@ pt-BR:
           - Você marca a carta como enviada.
           - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       direct: Direto
-      help: Socorro
+      help: Ajuda
       id_documents:
         explanation: Carregue seus documentos de identidade para que possamos verificar sua identidade
         name: Documentos de identidade

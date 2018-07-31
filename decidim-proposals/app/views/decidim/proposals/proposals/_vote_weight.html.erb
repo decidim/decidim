@@ -9,7 +9,7 @@
           proposal: @proposal,
           from_proposals_list: false,
           disabled: true,
-          info: t('decidim.proposals.proposals.vote_weight.votes_blocked')
+          info: t("decidim.proposals.proposals.vote_weight.votes_blocked")
         } %>
       <% else %>
         <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
@@ -34,7 +34,7 @@
             proposal: @proposal,
             from_proposals_list: false,
             disabled: true,
-            info: t('decidim.proposals.proposals.vote_weight.maximum_votes_reached')
+            info: t("decidim.proposals.proposals.vote_weight.maximum_votes_reached")
           } %>
         <% else %>
           <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
@@ -42,14 +42,14 @@
               proposal: @proposal,
               from_proposals_list: false,
               disabled: true,
-              info: t('decidim.proposals.proposals.vote_weight.no_votes_remaining')
+              info: t("decidim.proposals.proposals.vote_weight.no_votes_remaining")
             } %>
           <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
             <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {
               proposal: @proposal,
               from_proposals_list: false,
               disabled: true,
-              info: t('decidim.proposals.proposals.vote_weight.votes_blocked')
+              info: t("decidim.proposals.proposals.vote_weight.votes_blocked")
             } %>
           <% else %>
             <%= render partial: "decidim/proposals/proposals/vote_weight/row.html", locals: {

@@ -139,11 +139,11 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when user_group_document_number is not present" do
-        let(:user_group_document_number) { nil }
-
-        it { is_expected.to be_invalid }
-      end
+      # context "when user_group_document_number is not present" do
+      #   let(:user_group_document_number) { nil }
+      #
+      #   it { is_expected.to be_invalid }
+      # end
 
       context "when user_group_phone is not present" do
         let(:user_group_phone) { nil }

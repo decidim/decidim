@@ -339,7 +339,6 @@ nl:
         configuration: Configuratie
         dashboard: Dashboard
         impersonations: Zich voordoen als
-        managed_users: Gebruikers vertegenwoordigd
         navbar_links: Navbar koppelingen
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
@@ -680,28 +679,6 @@ nl:
       errors:
         impersonate_user:
           reason: Je moet een reden opgeven waarom je je uitgeeft als een niet beheerde gebruiker
-      navbar_links:
-        create:
-          error: Er was een fout bij het maken van deze link.
-          success: Link met succes aangemaakt
-        destroy:
-          success: Verband met succes vernietigd
-        edit:
-          title: Navar link bewerken
-          update: Bijwerken
-        form:
-          link: verband
-          new_tab: Openen in een nieuw tabblad
-          same_tab: In hetzelfde tabblad openen
-          title: Titel
-          weight: Gewicht
-        new:
-          create: Creëer
-          title: Nieuwe Navbar link
-        no_links: Geen links aangemaakt
-        update:
-          error: Er was een fout bij het updaten van deze link.
-          success: Link met succes bijgewerkt
     moderations:
       actions:
         hidden: Verborgen
@@ -720,14 +697,11 @@ nl:
       models:
         moderation:
           fields:
-            date: verouderen
             hidden_at: Verborgen op
             report_count: Aantal
             reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
-            status: Status
-            type: vlekkeloos
             visit_url: Bezoek URL
   errors:
     messages:

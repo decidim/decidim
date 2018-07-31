@@ -4,7 +4,6 @@ module Decidim
   # A custom mailer for sending notifications to an admin when a report is created..
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
-
     helper_method :reported_content_url, :manage_moderations_url
 
     def report(user, report)
@@ -14,7 +13,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
-        mail(from: Decidim.config.mailer_sender , to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
       end
     end
 
@@ -25,7 +24,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
-        mail(from: Decidim.config.mailer_sender , to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
       end
     end
 

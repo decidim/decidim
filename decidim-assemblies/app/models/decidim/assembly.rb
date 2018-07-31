@@ -69,7 +69,7 @@ module Decidim
                           joins("LEFT JOIN decidim_participatory_space_private_users ON
                           decidim_participatory_space_private_users.privatable_to_id = #{table_name}.id")
                             .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?)
-                            or private_space = ? or (private_space = ? and is_transparent = ?)", true, user, false, true, true)
+                            or private_space = ? or (private_space = ? and is_transparent = ?)", true, user, false, true, true).distinct
                         }
 
     after_create :set_parents_path

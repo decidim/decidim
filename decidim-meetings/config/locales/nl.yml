@@ -165,23 +165,12 @@ nl:
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
-            decline: Weigeren de uitnodiging
             invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
             join: Word lid van '%{meeting_title}'
         invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
-          index:
-            filter:
-              accepted: Aanvaard
-              all: Alles
-              rejected: Afgewezen
-              sent: Verzonden
-            filter_by: Filter op
-            invite_attendee: Nodig een deelnemer uit
-            invites: Nodigt uit
-            search: Zoeken
           new:
             explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Uitnodigen
@@ -245,7 +234,6 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invite_user: Gebruiker uitnodigen
-            invites: Invite
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
@@ -317,16 +305,6 @@ nl:
             other: "%{count} resterende plaatsen"
           view: Uitzicht
       models:
-        invite:
-          fields:
-            email: Email
-            name: voornaam
-            sent_at: Verzonden naar
-            status: Status
-          status:
-            accepted: Aanvaard (%{at})
-            rejected: Afgewezen (%{at})
-            sent: Verzonden
         meeting:
           fields:
             closed: Gesloten
@@ -343,9 +321,6 @@ nl:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
           success: U bent met succes lid geworden van de vergadering.
-        decline_invitation:
-          invalid: Er deed zich een probleem voor toen de uitnodiging werd geweigerd.
-          success: U hebt de uitnodiging met succes afgewezen.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.

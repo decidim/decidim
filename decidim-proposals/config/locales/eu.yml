@@ -226,7 +226,6 @@ eu:
             body: Gorputzeko
             created_at: Sortze data
             proposal_votes_count: Botoen zenbaketa
-            proposal_votes_weight: Votes count
             proposals: proposamenak
       admin_log:
         proposal:
@@ -256,7 +255,6 @@ eu:
             id: NORTASUN AGIRIA
             notes: Oharrak
             official_proposal: Proposamen ofiziala
-            published_at: Publiée à
             scope: Esparrua
             state: Egoera
             title: Titulua
@@ -379,13 +377,9 @@ eu:
           vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:

@@ -226,7 +226,6 @@ ca:
             body: Cos
             created_at: Data de creació
             proposal_votes_count: Nombre de suports
-            proposal_votes_weight: Votes count
             proposals: Propostes
       admin_log:
         proposal:
@@ -256,7 +255,6 @@ ca:
             id: ID
             notes: Notes
             official_proposal: Proposta oficial
-            published_at: Publiée à
             scope: Àmbit
             state: Estat
             title: Títol
@@ -379,13 +377,9 @@ ca:
           vote: Donar suport
           votes_blocked: Recollida de suports desactivada
         vote_weight:
-          count:
-            one: VOTE
-            other: VOTES
           maximum_votes_reached: Vote limit reached
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
-          neutral: Neutral
           no_votes_remaining: No votes remaining
           votes_blocked: Voting disabled
         votes_count:
