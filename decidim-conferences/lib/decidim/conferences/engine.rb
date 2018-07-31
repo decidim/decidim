@@ -67,18 +67,9 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_conferences = OrganizationPrioritizedConferences.new(view_context.current_organization, view_context.current_user)
-
-          next unless highlighted_conferences.any?
-
-          view_context.render(
-            partial: "decidim/conferences/pages/home/highlighted_conferences",
-            locals: {
-              highlighted_conferences: highlighted_conferences
-            }
-          )
+      initializer "decidim_conferences.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_conferences) do |content_block|
+          content_block.cell "decidim/conferences/content_blocks/highlighted_conferences"
         end
       end
     end

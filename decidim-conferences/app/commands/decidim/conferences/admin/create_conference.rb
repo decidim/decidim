@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when creating a new participatory
+      # A command with all the business logic when creating a new
       # conference in the system.
       class CreateConference < Rectify::Command
         # Public: Initializes the command.
@@ -25,7 +25,7 @@ module Decidim
           if conference.persisted?
             add_admins_as_followers(conference)
             broadcast(:ok, conference)
-            send_notification if should_notify_followers?
+            send_notification
           else
             form.errors.add(:hero_image, conference.errors[:hero_image]) if conference.errors.include? :hero_image
             form.errors.add(:banner_image, conference.errors[:banner_image]) if conference.errors.include? :banner_image
@@ -84,10 +84,6 @@ module Decidim
             resource: conference,
             recipient_ids: conference.followers.pluck(:id)
           )
-        end
-
-        def should_notify_followers?
-          conference.previous_changes["registrations_enabled"].present? && conference.registrations_enabled?
         end
       end
     end

@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # process admin in the system.
+      # A command with all the business logic when creating a new conference
+      # admin in the system.
       class CreateConferenceAdmin < Rectify::Command
         # Public: Initializes the command.
         #
@@ -27,7 +27,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           ActiveRecord::Base.transaction do
-            @user = @user ||= existing_user || new_user
+            @user ||= existing_user || new_user
             create_role
             add_admin_as_follower
           end

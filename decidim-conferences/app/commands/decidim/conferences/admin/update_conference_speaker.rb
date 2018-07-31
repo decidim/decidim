@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when updating an conference
+      # A command with all the business logic when updating a conference
       # speaker in the system.
       class UpdateConferenceSpeaker < Rectify::Command
         # Public: Initializes the command.

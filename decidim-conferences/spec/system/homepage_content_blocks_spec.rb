@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Highlighted Conferences", type: :system do
+describe "Homepage conferences content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_conference) { create(:conference, :promoted, organization: organization) }
@@ -10,6 +10,7 @@ describe "Highlighted Conferences", type: :system do
   let!(:promoted_external_conference) { create(:conference, :promoted) }
 
   before do
+    create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_conferences
     switch_to_host(organization.host)
   end
 

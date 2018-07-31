@@ -159,6 +159,20 @@ jobs:
       - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
+  conferences:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
   initiatives:
     <<: *defaults
     steps:
@@ -472,6 +486,10 @@ workflows:
           requires:
             - build_test_app
             - main
+      - conferences:
+          requires:
+            - build_test_app
+            - main
       - initiatives:
           requires:
             - build_test_app
@@ -562,3 +580,4 @@ workflows:
             - sortitions
             - consultations
             - blogs
+            - conferences

@@ -154,6 +154,7 @@ ignore_unused:
   - decidim.participatory_processes.pages.home.highlighted_processes.*
   - decidim.assemblies.pages.home.highlighted_assemblies.*
   - decidim.initiatives.pages.home.highlighted_initiatives.*
+  - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.statistics.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

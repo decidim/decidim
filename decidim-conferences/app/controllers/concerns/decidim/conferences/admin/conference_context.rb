@@ -10,8 +10,6 @@ module Decidim
           base.class_eval do
             include Concerns::ConferenceAdmin
 
-            delegate :active_step, to: :current_conference, prefix: false
-
             alias_method :current_conference, :current_participatory_space
           end
         end

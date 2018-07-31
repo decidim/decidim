@@ -60,25 +60,18 @@ module Decidim
 
         def copy_conference_categories
           @conference.categories.each do |category|
-            Category.create!(
-              name: category.name,
-              description: category.description,
-              parent_id: category.parent_id,
-              participatory_space: @copied_conference
-            )
+            category_copied = category.dup
+            category_copied.participatory_space = @copied_conference
+            category_copied.save
           end
         end
 
         def copy_conference_components
           @conference.components.each do |component|
-            new_component = Component.create!(
-              manifest_name: component.manifest_name,
-              name: component.name,
-              participatory_space: @copied_conference,
-              settings: component.settings,
-              step_settings: component.step_settings
-            )
-            component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
+            component_copied = component.dup
+            component_copied.participatory_space = @copied_conference
+            component_copied.save
+            component.manifest.run_hooks(:copy, new_component: component_copied, old_component: component)
           end
         end
       end
