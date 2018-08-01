@@ -253,6 +253,9 @@ pl:
         others: Inni
         participatory: Uczestniczy
         working_group: Grupa robocza
+      content_blocks:
+        highlighted_assemblies:
+          name: Wyróżnione złożenia
       created_by:
         city_council: Rada Miejska
         others: Inni
