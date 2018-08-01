@@ -181,6 +181,9 @@ ca:
           help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciatives destacades
       create_initiative:
         fill_data:
           back: Enrere
