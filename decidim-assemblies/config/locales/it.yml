@@ -247,6 +247,9 @@ it:
         others: Altri
         participatory: Participatory
         working_group: Gruppo di lavoro
+      content_blocks:
+        highlighted_assemblies:
+          name: Assiemi evidenziati
       created_by:
         city_council: Consiglio comunale
         others: Altri
