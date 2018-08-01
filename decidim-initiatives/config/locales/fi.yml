@@ -181,6 +181,9 @@ fi:
           help_text: Oletko pyytämässä jäseneksi tämän aloitteentekijän komiteaa
         spawn:
           success: Pyyntösi on lähetetty aloitteen tekijälle.
+      content_blocks:
+        highlighted_initiatives:
+          name: Korostetut aloitteet
       create_initiative:
         fill_data:
           back: Takaisin
