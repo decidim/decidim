@@ -247,6 +247,9 @@ hu:
         others: Egyéb
         participatory: A részvételi
         working_group: Munkacsoport
+      content_blocks:
+        highlighted_assemblies:
+          name: Kiemelt szerelvények
       created_by:
         city_council: Városi tanács
         others: Egyéb
