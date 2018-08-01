@@ -326,7 +326,7 @@ ru:
     filters:
       linked_classes:
         all: Все
-        dummyresource: Примеры ресурсов
+        dummy_resource: Примеры ресурсов
         meeting: Встречи
         project: Проекты
         proposal: Предложения
