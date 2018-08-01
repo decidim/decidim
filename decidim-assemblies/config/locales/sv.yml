@@ -247,6 +247,9 @@ sv:
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
+      content_blocks:
+        highlighted_assemblies:
+          name: Utrustade församlingar
       created_by:
         city_council: Statsråd
         others: Övriga
