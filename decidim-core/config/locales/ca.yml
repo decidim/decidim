@@ -321,7 +321,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
-        dummyresource: Recursos de prova
+        dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
         proposal: propostes
