@@ -305,6 +305,7 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
+        homepage: Hasiera
         impersonations: impersonations
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
@@ -498,6 +499,10 @@ eu:
           homepage_highlighted_content_banner_title: Highligted edukien banner
           layout_appearance_title: Editatu itxura diseinua
           omnipresent_banner_appearance_title: Editatu omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Eduki bloke aktiboak
+          inactive_content_blocks: Eduki eduki gabeko blokeak
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
