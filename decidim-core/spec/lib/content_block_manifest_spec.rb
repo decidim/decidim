@@ -8,6 +8,7 @@ module Decidim
 
     let(:name) { :my_block }
     let(:cell) { "my/fake/cell" }
+    let(:public_name_key) { "my.fake.key.name" }
     let(:attributes) do
       {
         name: name
@@ -16,6 +17,7 @@ module Decidim
 
     before do
       subject.cell cell
+      subject.public_name_key public_name_key
     end
 
     it { is_expected.to be_valid }
