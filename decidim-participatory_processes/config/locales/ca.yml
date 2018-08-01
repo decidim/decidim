@@ -274,6 +274,9 @@ ca:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a l'usuari just a sota de la informació del procés.
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos destacats
       index:
         title: Processos participatius
       pages:
