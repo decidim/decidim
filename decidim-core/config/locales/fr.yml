@@ -205,6 +205,19 @@ fr:
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Bannière sous-héros footer
+      hero:
+        name: Image de héros
+      highlighted_content_banner:
+        name: Bannière de contenu mise en évidence
+      how_to_participate:
+        name: Comment participer
+      stats:
+        name: Statistiques de l'organisation
+      sub_hero:
+        name: Bannière de sous-héros
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
