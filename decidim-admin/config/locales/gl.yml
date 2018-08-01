@@ -305,6 +305,7 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        homepage: Páxina de inicio
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
@@ -498,6 +499,10 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar o banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contido activo
+          inactive_content_blocks: Bloques de contido inactivo
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
