@@ -205,6 +205,19 @@ eu:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Harremanetarako
+    content_blocks:
+      footer_sub_hero:
+        name: Oinaren azpi-heroiaren pankarta
+      hero:
+        name: Heroi irudia
+      highlighted_content_banner:
+        name: Nabarmendutako edukia banner
+      how_to_participate:
+        name: Nola parte hartu
+      stats:
+        name: Erakundearen estatistikak
+      sub_hero:
+        name: Sub heroi banner
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
