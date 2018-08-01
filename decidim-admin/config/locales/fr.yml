@@ -305,6 +305,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
+        homepage: Homepage
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
@@ -498,6 +499,10 @@ fr:
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
           omnipresent_banner_appearance_title: Modifier la bannière permanente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
