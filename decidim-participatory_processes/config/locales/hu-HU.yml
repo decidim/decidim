@@ -274,6 +274,9 @@ hu:
           form:
             announcement_help: Az itt megadott szöveg megjelenik a felhasználónak a folyamatinformációk alatt.
             slug_help: 'Az URL-címkék az ebbe a folyamatba mutató URL-ek előállításához használhatók. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
       pages:
