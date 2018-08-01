@@ -1,0 +1,27 @@
+.accordion{
+  background: transparent;
+
+  .accordion-title{
+    font-size: $global-font-size;
+    color: inherit;
+    border: none;
+
+    &:hover,
+    &:focus{
+      background: transparent;
+    }
+  }
+
+  li:last-child:not(.is-active) > .accordion-title{
+    border: none;
+  }
+
+  .accordion-content{
+    background-color: $light-gray;
+
+    .tabs-title > a[aria-selected="true"],
+    .tabs-content{
+      background: transparent;
+    }
+  }
+}
