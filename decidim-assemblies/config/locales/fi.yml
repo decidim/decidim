@@ -247,6 +247,9 @@ fi:
         others: toiset
         participatory: osallistava
         working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Korostetut kokoonpanot
       created_by:
         city_council: Kaupunginvaltuusto
         others: toiset
