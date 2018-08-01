@@ -16,12 +16,15 @@ module Decidim
             manifest.participatory_spaces.call(@organization).public_spaces
           end
           components = Decidim::Component.where(participatory_space: spaces).published
-          @query = Decidim::Proposals::Proposal.where(component: components).joins(:category, :component)
+          @query = Decidim::Proposals::Proposal.where(component: components).joins(:component)
+                                               .joins("LEFT OUTER JOIN decidim_categorizations
+                                                 ON decidim_proposals_proposals.id = decidim_categorizations.categorizable_id
+                                                 AND decidim_categorizations.categorizable_type = 'Decidim::Proposals::Proposal'")
         end
 
         def query
-          @query = @query.where("decidim_proposals_proposals.published_at <= ?", @end_date).except_withdrawn
-          @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id)
+          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_date).except_withdrawn
+          @query = @query.group("decidim_categorizations.decidim_category_id", :participatory_space_type, :participatory_space_id)
         end
 
         def cumulative
@@ -29,10 +32,11 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= @query.where("decidim_proposals_proposals.published_at >= ?", @start_date).count
+          @quantity ||= @query.where("decidim_proposals_proposals.published_at >= ?", start_date).count
         end
 
         def registry
+          return @registry if @registry.present?
           @registry = []
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
@@ -44,6 +48,7 @@ module Decidim
             registry.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
             @registry << registry
           end
+          @registry
         end
 
         def registry!

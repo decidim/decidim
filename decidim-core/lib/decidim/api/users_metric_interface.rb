@@ -6,19 +6,9 @@ module Decidim
       name "UsersMetricInterface"
       description "UsersMetric definition"
 
-      field :count, !types.Int, "Total users" do
-        resolve ->(_obj, _args, ctx) {
-          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :count)
-        }
-      end
+      field :count, !types.Int, "Total users"
 
-      field :metric, !types[MetricObjectType], "Metric data" do
-        resolve ->(_obj, _args, ctx) {
-          UsersMetricTypeHelper.base_scope(ctx[:current_organization], :metric)
-        }
-      end
-
-      resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
+      field :metric, !types[MetricObjectType], "Metric data"
     end
   end
 end

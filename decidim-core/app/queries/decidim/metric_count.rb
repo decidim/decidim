@@ -5,7 +5,7 @@ module Decidim
   # in an optional interval of time.
   class MetricCount < Rectify::Query
     def self.for(organization, metric, counter_type: :count, counter_field: :cumulative, group_by: :day)
-      new(organization, metric, counter_type: counter_type, counter_field: counter_field, group_by: group_by).query
+      new(organization, metric, counter_type: counter_type, counter_field: counter_field, group_by: group_by)
     end
 
     def initialize(organization, metric, counter_type: :count, counter_field: :cumulative, group_by: :day)
@@ -14,16 +14,15 @@ module Decidim
       @counter_type = counter_type
       @counter_field = counter_field
       @group_by = group_by
+      @query = Decidim::Metric.where(metric_type: @metric, organization: @organization)
     end
 
-    def query
-      query = Decidim::Metric.where(metric_type: @metric, organization: @organization)
-      case @counter_type
-      when :count
-        query.group(@group_by).sum(@counter_field).max.try(:last) || 0
-      when :metric
-        query.group(@group_by).sum(@counter_field)
-      end
+    def metric
+      @query.group(@group_by).sum(@counter_field)
+    end
+
+    def count
+      metric.max.try(:last) || 0
     end
   end
 end
