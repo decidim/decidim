@@ -1,7 +1,8 @@
-$icon-size: rem-calc(14);
-$icon-size-sm: rem-calc(10);
-$icon-size-l: rem-calc(24);
-$icon-size-xl: rem-calc(30);
+// font type based on parent container
+$icon-size: .875em;
+$icon-size-sm: .625em;
+$icon-size-l: 1.5em;
+$icon-size-xl: 1.875em;
 
 .icon{
   width: $icon-size;
@@ -28,6 +29,11 @@ $icon-size-xl: rem-calc(30);
 
 .icon--action{
   fill: rgba(black, .2);
+}
+
+.icon--container{
+  display: inline-flex;
+  align-items: center;
 }
 
 .icon--action:hover,

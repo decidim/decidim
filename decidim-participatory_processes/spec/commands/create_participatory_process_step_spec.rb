@@ -14,8 +14,8 @@ module Decidim::ParticipatoryProcesses
         current_user: user,
         title: { en: "title" },
         description: { en: "description" },
-        start_date: Time.current,
-        end_date: Time.current + 1.week,
+        start_date: Date.current,
+        end_date: Date.current + 1.week,
         invalid?: invalid
       )
     end

@@ -15,10 +15,6 @@ module Decidim
         def attached_to
           current_question
         end
-
-        def authorization_object
-          collection.find_by(id: params[:id]) || Decidim::Attachment
-        end
       end
     end
   end

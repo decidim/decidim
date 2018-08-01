@@ -25,8 +25,8 @@ FactoryBot.define do
     published_at { Time.current }
     state "published"
     signature_type "online"
-    signature_start_time { Time.now.utc - 1.hour }
-    signature_end_time { Time.now.utc + 120.days }
+    signature_start_date { Date.current - 1.day }
+    signature_end_date { Date.current + 120.days }
 
     scoped_type do
       create(:initiatives_type_scope,
@@ -41,15 +41,15 @@ FactoryBot.define do
     trait :created do
       state "created"
       published_at nil
-      signature_start_time nil
-      signature_end_time nil
+      signature_start_date nil
+      signature_end_date nil
     end
 
     trait :validating do
       state "validating"
       published_at nil
-      signature_start_time nil
-      signature_end_time nil
+      signature_start_date nil
+      signature_end_date nil
     end
 
     trait :published do
@@ -77,8 +77,8 @@ FactoryBot.define do
     end
 
     trait :acceptable do
-      signature_start_time { Time.now.utc - 3.months }
-      signature_end_time { Time.now.utc - 2.months }
+      signature_start_date { Date.current - 3.months }
+      signature_end_date { Date.current - 2.months }
       signature_type "online"
 
       after(:build) do |initiative|
@@ -87,8 +87,8 @@ FactoryBot.define do
     end
 
     trait :rejectable do
-      signature_start_time { Time.now.utc - 3.months }
-      signature_end_time { Time.now.utc - 2.months }
+      signature_start_date { Date.current - 3.months }
+      signature_end_date { Date.current - 2.months }
       signature_type "online"
 
       after(:build) do |initiative|
