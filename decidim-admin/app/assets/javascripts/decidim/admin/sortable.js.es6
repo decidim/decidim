@@ -14,9 +14,9 @@
 
       createSortList(item, {
         handle: "li",
-        forcePlaceholderSize: true
+        forcePlaceholderSize: true,
+        placeholderClass: "sort-placeholder"
       })
-
     })
   })
 })(window)

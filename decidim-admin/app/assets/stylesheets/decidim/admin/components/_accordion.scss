@@ -7,13 +7,17 @@
     border: 0;
     border-radius: 0;
 
+    span{
+      cursor: move;
+    }
+
     &:focus{
       background: transparent;
     }
   }
 
-  // Override Foundation
   .accordion-item{
+    // Override Foundation
     &:first-child > :first-child,
     &:last-child:not(.is-active) > .accordion-title{
       border: 0;

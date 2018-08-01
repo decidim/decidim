@@ -22,25 +22,25 @@
           data-multi-expand="true"
           data-allow-all-closed="true">
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Secció</a>
+            <a href="#" class="accordion-title flex--sbc">Secció&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
 
             <div class="accordion-content" data-tab-content>
-              <%= partial "participatory-article", { desc: false } %>
+              <%= partial "participatory-article", { desc: false, placeholder: "Secció" } %>
             </div>
           </li>
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Subsecció</a>
+            <a href="#" class="accordion-title flex--sbc">Subsecció&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
 
             <div class="accordion-content" data-tab-content>
-              <%= partial "participatory-article", { desc: false } %>
+              <%= partial "participatory-article", { desc: false, placeholder: "Subsecció" } %>
             </div>
           </li>
           <% 3.times do |i| %>
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Article <%= i %></a>
+            <a href="#" class="accordion-title flex--sbc">Article&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
 
             <div class="accordion-content" data-tab-content>
-              <%= partial "participatory-article" %>
+              <%= partial "participatory-article", { placeholder: "Article" } %>
             </div>
           </li>
           <% end %>
