@@ -205,6 +205,19 @@ nl:
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Voettekst sub hero banner
+      hero:
+        name: Held afbeelding
+      highlighted_content_banner:
+        name: Gemarkeerde inhoudsbanner
+      how_to_participate:
+        name: Hoe deel te nemen
+      stats:
+        name: Organisatie statistieken
+      sub_hero:
+        name: Sub held banner
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
