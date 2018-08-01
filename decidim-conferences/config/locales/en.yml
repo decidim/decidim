@@ -107,7 +107,7 @@ en:
           title: General Information
         index:
           not_published: Not published
-          published: Publisehd
+          published: Published
         new:
           create: Create
           title: Conference
@@ -142,8 +142,8 @@ en:
         conference_speaker:
           fields:
             affiliation: Affiliation
-            charge: Charge
             full_name: Full name
+            position: Position
           name: Conference Speaker
         conference_user_role:
           fields:
@@ -242,8 +242,8 @@ en:
       conference_speaker:
         show:
           affiliation: Affiliation
-          charge: Charge
           personal_url: Personal Url
+          position: Position
           short_bio: Short bio
           twitter_handle: Twitter
       conference_speakers:

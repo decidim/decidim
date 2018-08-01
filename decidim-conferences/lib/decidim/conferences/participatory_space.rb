@@ -135,7 +135,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         Decidim::ConferenceSpeaker.create!(
           user: conference.organization.users.first,
           full_name: Faker::Name.name,
-          charge: Decidim::Faker::Localized.word,
+          position: Decidim::Faker::Localized.word,
           affiliation: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,

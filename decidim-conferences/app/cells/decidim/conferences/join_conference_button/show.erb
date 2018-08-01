@@ -1,4 +1,4 @@
-<% if model.can_be_joined_by?(current_user) %>
+<% if model.registrations_enabled? %>
   <% if model.has_registration_for? current_user %>
     <% if allowed? %>
       <%= button_to conference_conference_registration_path(model),

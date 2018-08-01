@@ -7,7 +7,7 @@ module Decidim
       class ConferenceSpeakerForm < Form
         include TranslatableAttributes
 
-        translatable_attribute :charge, String
+        translatable_attribute :position, String
         translatable_attribute :affiliation, String
         translatable_attribute :short_bio, String
 
@@ -24,7 +24,7 @@ module Decidim
 
         validates :full_name, presence: true, unless: proc { |object| object.existing_user }
         validates :user, presence: true, if: proc { |object| object.existing_user }
-        validates :charge, :affiliation, presence: true
+        validates :position, :affiliation, presence: true
         validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
         validate :personal_url_format
 

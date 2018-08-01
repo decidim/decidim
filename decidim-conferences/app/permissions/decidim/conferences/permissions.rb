@@ -56,7 +56,7 @@ module Decidim
 
       def can_join_conference?
         return unless conference.presence
-        return unless conference.can_be_joined_by?(user) &&
+        return unless conference.registrations_enabled? &&
                       permission_action.action == :join &&
                       permission_action.subject == :conference
 

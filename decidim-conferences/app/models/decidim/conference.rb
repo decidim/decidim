@@ -67,15 +67,6 @@ module Decidim
       slug
     end
 
-    def ancestors
-      self_and_ancestors.where.not(id: id)
-    end
-
-    def can_be_joined_by?(_user)
-      # add control before start conference
-      registrations_enabled?
-    end
-
     def has_registration_for?(user)
       conference_registrations.where(user: user).any?
     end

@@ -31,7 +31,7 @@
         <thead>
           <tr>
             <th><%= t("models.conference_speaker.fields.full_name", scope: "decidim.admin") %></th>
-            <th><%= t("models.conference_speaker.fields.charge", scope: "decidim.admin") %></th>
+            <th><%= t("models.conference_speaker.fields.position", scope: "decidim.admin") %></th>
             <th><%= t("models.conference_speaker.fields.affiliation", scope: "decidim.admin") %></th>
 
             <th class="actions"></th>
@@ -45,7 +45,7 @@
                 <%= speaker_presenter.name %>
               </td>
               <td>
-                <%= translated_attribute(speaker.charge) %>
+                <%= translated_attribute(speaker.position) %>
               </td>
               <td>
                 <%= translated_attribute(speaker.affiliation) %>

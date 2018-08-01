@@ -16,7 +16,7 @@ module Decidim
         end
 
         let(:full_name) { "Full name" }
-        let(:charge) { Decidim::Faker::Localized.word }
+        let(:position) { Decidim::Faker::Localized.word }
         let(:affiliation) { Decidim::Faker::Localized.word }
         let(:short_bio) { Decidim::Faker::Localized.sentence }
         let(:twitter_handle) { "full_name" }
@@ -28,7 +28,7 @@ module Decidim
           {
             "conference_speaker" => {
               "full_name" => full_name,
-              "charge" => charge,
+              "position" => position,
               "affiliation" => affiliation,
               "short_bio" => short_bio,
               "twitter_handle" => twitter_handle,
@@ -50,8 +50,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when charge is missing" do
-          let(:charge) { nil }
+        context "when position is missing" do
+          let(:position) { nil }
 
           it { is_expected.to be_invalid }
         end

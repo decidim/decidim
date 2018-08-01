@@ -51,7 +51,7 @@ module Decidim
             current_user,
             form.attributes.slice(
               :full_name,
-              :charge,
+              :position,
               :affiliation,
               :short_bio,
               :twitter_handle,

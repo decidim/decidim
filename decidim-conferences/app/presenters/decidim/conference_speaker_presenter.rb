@@ -5,7 +5,7 @@ module Decidim
   # Decorator for conference speakers
   #
   class ConferenceSpeakerPresenter < SimpleDelegator
-    delegate :profile_url, to: :user, allow_nil: true
+    delegate :profile_path, to: :user, allow_nil: true
 
     def name
       user ? user.name : full_name

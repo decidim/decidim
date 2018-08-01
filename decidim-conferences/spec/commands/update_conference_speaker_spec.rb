@@ -19,7 +19,7 @@ module Decidim::Conferences
         user: user,
         attributes: {
           full_name: "New name",
-          charge: { en: "new charge" },
+          position: { en: "new position" },
           affiliation: { en: "new affiliation" },
           short_bio: Decidim::Faker::Localized.sentence(5),
           twitter_handle: "full_name",

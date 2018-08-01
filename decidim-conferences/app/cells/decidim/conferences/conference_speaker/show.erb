@@ -6,7 +6,7 @@
           <div class="author-data__main">
             <div class="author author--flex">
               <% if has_profile? %>
-                <%= link_to profile_url, class: "author__avatar" do %>
+                <%= link_to profile_path, class: "author__avatar" do %>
                   <% if model.avatar.presence %>
                     <%= image_tag model.avatar_url %>
                   <% else %>
@@ -15,12 +15,12 @@
                 <% end %>
                 <div>
                   <div class="author__name--container">
-                    <%= link_to profile_url, class: "author__name" do %>
+                    <%= link_to profile_path, class: "author__name" do %>
                       <%= name %>
                     <% end %>
                   </div>
                   <% if nickname.present? %>
-                    <%= link_to profile_url, class: "author__nickname" do %>
+                    <%= link_to profile_path, class: "author__nickname" do %>
                       <%= nickname %>
                     <% end %>
                   <% else %>
@@ -49,9 +49,9 @@
         </div>
       </div>
       <div class="card__text card--picture-offset">
-        <% if charge.presence %>
+        <% if position.presence %>
           <div>
-            <small><strong><%= t("charge", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= charge %></small>
+            <small><strong><%= t("position", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= position %></small>
           </div>
         <% end %>
         <% if twitter_handle.presence %>

@@ -92,7 +92,7 @@ FactoryBot.define do
     conference { create(:conference) }
 
     full_name { Faker::Name.name }
-    charge { Decidim::Faker::Localized.word }
+    position { Decidim::Faker::Localized.word }
     affiliation { Decidim::Faker::Localized.word }
     short_bio { Decidim::Faker::Localized.sentence(5) }
     twitter_handle { Faker::Internet.user_name }
