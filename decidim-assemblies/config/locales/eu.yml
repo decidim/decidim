@@ -247,6 +247,9 @@ eu:
         others: Beste batzuk
         participatory: partehartzailea
         working_group: Lan taldea
+      content_blocks:
+        highlighted_assemblies:
+          name: Elkarrizketa nabarmenak
       created_by:
         city_council: Udaletxea
         others: Beste batzuk
