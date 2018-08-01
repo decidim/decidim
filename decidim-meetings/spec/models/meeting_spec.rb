@@ -115,5 +115,4 @@ module Decidim::Meetings
       end
     end
   end
-
 end

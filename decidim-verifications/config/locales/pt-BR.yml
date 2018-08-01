@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -7,7 +8,7 @@ pt-BR:
       id_document_upload:
         document_number: Número do documento (com letra)
         document_type: Tipo do seu documento
-        user: Do utilizador
+        user: Usuário
         verification_attachment: Cópia digitalizada do seu documento
       postal_letter_address:
         full_address: Endereço completo
@@ -24,18 +25,18 @@ pt-BR:
       admin:
         id_documents:
           help:
-            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-            - Você preencher as informações presentes na imagem carregada.
-            - A informação deve corresponder ao que o usuário preenchido.
-            - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
+          - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
+          - Você preencher as informações presentes na imagem carregada.
+          - A informação deve corresponder ao que o usuário preenchido.
+          - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
         postal_letter:
           help:
-            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-            - Você envia a carta para seu endereço com o código de verificação.
-            - Você marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+          - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
+          - Você envia a carta para seu endereço com o código de verificação.
+          - Você marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       direct: Direto
-      help: Socorro
+      help: Ajuda
       id_documents:
         explanation: Carregue seus documentos de identidade para que possamos verificar sua identidade
         name: Documentos de identidade

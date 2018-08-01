@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -15,7 +16,7 @@ fr:
     pages:
       home:
         statistics:
-          bar: Seuil
+          bar: Machin
           dummies_count_high: Référence de test haute
           dummies_count_medium: Référence de test moyenne
           foo: Truc

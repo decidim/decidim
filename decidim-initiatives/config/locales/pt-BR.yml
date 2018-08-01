@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -70,6 +71,11 @@ pt-BR:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: A iniciativa %{resource_title} obteve %{percentage} de assinaturas!
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
@@ -287,7 +293,7 @@ pt-BR:
           title: Listagem de assinaturas
         vote_cabin:
           already_voted: Já assinadas
-          supports_required: "São necessárias %{total_supports} assinaturas"
+          supports_required: São necessárias %{total_supports} assinaturas
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:

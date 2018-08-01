@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ ru:
             base:
               too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
               too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -48,19 +53,19 @@ ru:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Встреча
         few: Встречи
         many: Встреч
+        one: Встреча
         other: Встреч
       decidim/meetings/minutes:
-        one: Протокол
         few: Протокола
         many: Протоколов
+        one: Протокол
         other: Протоколов
       decidim/meetings/registration:
-        one: Зарегистрировался
         few: Зарегистрировалось
         many: Зарегистрировались
+        one: Зарегистрировался
         other: Зарегистрировались
   decidim:
     admin:
@@ -236,9 +241,9 @@ ru:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invite_user: Пригласить участника
             registrations_count:
-              one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
+              one: Зарегистрировался 1 человек.
               other: Зарегистрировалось %{count} человек.
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
@@ -246,6 +251,10 @@ ru:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} закрыл встречу %{resource_name} в пространстве %{space_name}"
           create: "%{user_name} создал встречу %{resource_name} в пространстве %{space_name}"
@@ -300,10 +309,10 @@ ru:
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
           remaining_slots:
+            few: Осталось %{count} места
+            many: Осталось %{count} мест
             one: Осталось 1 место
-            few: "Осталось %{count} места"
-            many: "Осталось %{count} мест"
-            other: "Осталось %{count} мест"
+            other: Осталось %{count} мест
           view: Посмотреть
       models:
         meeting:

@@ -41,7 +41,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update,  :navbar_link
+        enforce_permission_to :update, :navbar_link
         @form = form(NavbarLinkForm).from_params(params)
 
         UpdateNavbarLink.call(@form, navbar_link) do
@@ -69,11 +69,11 @@ module Decidim
       private
 
       def navbar_link
-        navbar_link = if params[:id]
-                        NavbarLink.find(params[:id])
-                      else
-                        NavbarLink.new
-                      end
+        if params[:id]
+          NavbarLink.find(params[:id])
+        else
+          NavbarLink.new
+        end
       end
     end
   end

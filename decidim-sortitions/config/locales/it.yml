@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -139,7 +140,7 @@ it:
           random_seed: Seme casuale
           selected_proposals:
             one: 1 proposta selezionata
-            other: '%{count} proposte selezionate'
+            other: "%{count} proposte selezionate"
           view: vista
         sortition_author:
           deleted: Utente eliminato

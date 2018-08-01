@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ fi:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
   booleans:
-    'false': 'Ei'
-    'true': 'Kyllä'
+    'false': Ei
+    'true': Kyllä
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -229,7 +230,7 @@ fi:
           see_name: Katso nimesi
           see_username: Näe käyttäjätunnuksesi
           this_application_will_be_able_to: 'Tämä sovellus pystyy:'
-          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
+          this_application_will_not_be_able_to: Tämä sovellus ei pysty
           update_profile: Päivitä profiili
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
@@ -249,7 +250,7 @@ fi:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
@@ -259,24 +260,23 @@ fi:
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
       feature_published_event:
-        email_intro: '%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_intro: "%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
         email_subject: Päivitys kohteeseen %{participatory_space_title}
         notification_title: '%{resource_title} -komponentti on nyt aktiivinen osallistumistilassa <a href="%{resource_path}">%{participatory_space_title}</a>'
-      participatory_process:
-        step_activated:
-          email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Päivitys kohteeseen %{participatory_space_title}
-          notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
       features:
         feature_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
@@ -529,7 +529,7 @@ fi:
           title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: Kentän %{field} arvo %{value} ei ole kelvollinen.
           ok: Ok
           title: Ei varmennettu
       embed_modal:

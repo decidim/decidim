@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe CreateProposal do
-        let(:form_klass) { ProposalForm }
+      describe Decidim::Proposals::Admin::CreateProposal do
+        let(:form_klass) { Decidim::Proposals::Admin::ProposalForm }
 
         it_behaves_like "create a proposal", false
       end

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ gl:
             base:
               too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
               too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -238,6 +243,10 @@ gl:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} pechou a %{resource_name} reunión no espazo %{space_name}"
           create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"

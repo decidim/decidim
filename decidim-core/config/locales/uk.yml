@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -35,18 +36,18 @@ uk:
         user_group_phone: Телефон організації
     models:
       decidim/user:
-        one: Учасник
         few: Учасників
         many: Учасників
+        one: Учасник
         other: Учасників
       decidim/user_group:
-        one: Гурт учасників
         few: Гурти учасників
         many: Гуртів учасників
+        one: Гурт учасників
         other: Гуртів учасників
   booleans:
-    'false': 'Ні'
-    'true': 'Так'
+    'false': Ні
+    'true': Так
   carrierwave:
     errors:
       image_too_big: Зображення завелике
@@ -121,9 +122,9 @@ uk:
     application:
       collection:
         documents:
-          one: Документ
           few: Документи
           many: Документів
+          one: Документ
           other: Документів
       documents:
         related_documents: Супутні документи
@@ -131,9 +132,9 @@ uk:
         related_photos: Супутні світлини
     author:
       comments:
-        one: коментар
         few: коментаря
         many: коментарів
+        one: коментар
         other: коментарів
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -162,9 +163,9 @@ uk:
       started_at: 'Розпочато: %{timestamp}'
     collapsible_list:
       hidden_elements_count:
-        one: і ще 1
         few: і ще %{count}
         many: і ще %{count}
+        one: і ще 1
         other: і ще %{count}
       see_less: "(читати менше)"
       see_more: "(читати далі)"
@@ -200,7 +201,7 @@ uk:
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
-          newsletter: Отримувати іноді розсилання з новинами
+          newsletter: Отримувати іноді розсилання з доречними відомостями
           newsletter_title: Дозвіл на зв'язок
           nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
           sign_in: Увійти
@@ -216,14 +217,14 @@ uk:
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Вперше на цій платформі?
+          are_you_new?: Ви вперше на цьому майданчику?
           register: Створити обліковий запис
       shared:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
             uncheck: Не ставити галочку
-          notice: Привіт, ви впевнені, що не хочете отримувати розсилання новин? Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання. Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень. Якщо ви не поставите цю галочку, ви можете прогледіти свіжі можливості участі в платформі. Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення. Дякуємо, що прочитали це!
+          notice: Привіт, ви впевнені, що не хочете отримувати розсилання новин? Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання. Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень. Якщо ви не поставите цю галочку, ви можете прогледіти доречні відомості щодо свіжих можливостей участі в роботі майданчика. Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення. Дякуємо, що прочитали це!
           title: Сповіщення про новини
         omniauth_buttons:
           or: Або
@@ -268,13 +269,24 @@ uk:
         email_intro: '"%{resource_title}" було оновлено. Ви можете переглянути його на сторінці:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
@@ -402,7 +414,7 @@ uk:
       home:
         extended:
           debates: Обговорення
-          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення.
+          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення, що вас цікавлять.
           how_to_participate: Як я можу взяти участь у русі?
           meetings: Зустрічі
           meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
@@ -411,7 +423,7 @@ uk:
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
           footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
-          footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
+          footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
           register: Зареєструватися
         hero:
           participate: Взяти участь
@@ -446,14 +458,14 @@ uk:
           agreement: Я погоджуюсь з цими умовами
           legend: Погодитися з умовами участі
         refuse:
-          modal_body: Якщо ви відмовитеся, ви не зможете використовувати платформу, ви можете <a href="%{data_portability_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
+          modal_body: Якщо ви відмовитеся, ви не зможете використовувати майданчик, ви можете <a href="%{data_portability_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
           modal_btn_continue: Прийняти умови та продовжити
           modal_btn_exit: Я перегляну це пізніше
           modal_button: Відмовитися від умов участі
           modal_title: Ви дійсно відмовляєтеся від оновлених "Умов участі"?
         required_review:
           alert: Ми оновили наші "Умови участі", будь ласка, перегляньте їх.
-          body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати нашу платформу.
+          body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати наш майданчик.
           title: 'Обов''язково: перегляньте оновлення до наших "Умов участі"'
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
@@ -514,7 +526,7 @@ uk:
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
-          invalid_field: "Поле %{field}"
+          invalid_field: Поле %{field}
           reauthorize: Заново підтвердити свою особу
           title: Будь ласка, заново підтвердіть свою особу
         missing:
@@ -527,7 +539,7 @@ uk:
           title: Підтвердження особи все ще триває
         unauthorized:
           explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
-          invalid_field: "Для поля %{field} значення %{value} неприпустиме."
+          invalid_field: Для поля %{field} значення %{value} неприпустиме.
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
       embed_modal:
@@ -570,8 +582,7 @@ uk:
         accept: Прийняти запрошення
         accept_until: Строк дії цього запрошення закінчується %{due_date}.
         hello: Доброго дня, %{email}%!
-        ignore: |-
-          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
+        ignore: Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
@@ -678,5 +689,5 @@ uk:
       first: "&laquo; Перша"
       last: Остання &raquo;
       next: Далі &rsaquo;
-      previous: "Попередня &lsaquo;"
+      previous: Попередня &lsaquo;
       truncate: "&hellip;"

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     models:
@@ -65,6 +66,8 @@ it:
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
         loading: Sto caricando i commenti ...
         title: "%{count} commenti"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

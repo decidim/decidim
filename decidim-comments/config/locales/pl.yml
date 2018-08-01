@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     models:
@@ -8,14 +9,14 @@ pl:
   activerecord:
     models:
       decidim/comments/comment:
-        one: Komentarz
         few: Komentarze
         many: Komentarze
+        one: Komentarz
         other: Komentarze
       decidim/comments/comment_vote:
-        one: Głosować
         few: Głosy
         many: Głosy
+        one: Głosować
         other: Głosy
   decidim:
     comments:
@@ -36,8 +37,8 @@ pl:
             label: Komentarz jako
         opinion:
           neutral: Neutralny
-        remaining_characters: "Pozostało %{count} znaków"
-        remaining_characters_1: "Pozostało znaków %{count}"
+        remaining_characters: Pozostało %{count} znaków
+        remaining_characters_1: Pozostało znaków %{count}
         title: Dodaj swój komentarz
       comment:
         alignment:
@@ -69,6 +70,8 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

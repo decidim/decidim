@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     models:
@@ -5,9 +6,9 @@ pl:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Stanowisko
         few: Posty
         many: Posty
+        one: Stanowisko
         other: Posty
   decidim:
     blogs:

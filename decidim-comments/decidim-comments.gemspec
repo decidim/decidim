@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Comments.version
   s.add_dependency "jquery-rails", "~> 4.0"
 
-  s.add_development_dependency "pry-byebug"
   s.add_development_dependency "decidim-admin", Decidim::Comments.version
   s.add_development_dependency "decidim-dev", Decidim::Comments.version
+  s.add_development_dependency "pry-byebug"
 end

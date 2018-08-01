@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     models:
@@ -33,7 +34,7 @@ eu:
         opinion:
           neutral: Neutrala
         remaining_characters: "%{count} karaktere geratzen dira"
-        remaining_characters_1: "karaktere %{count} geratzen da"
+        remaining_characters_1: karaktere %{count} geratzen da
         title: Egin hemen zure iruzkina
       comment:
         alignment:
@@ -65,17 +66,19 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} iruzkin bat utzi du %{resource_title}helbidean. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{author_name}jarraituz gero. Erabiltzaile hau bere profileko orrialdetik jarrai dezakezu.
-          email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
+          email_subject: "%{author_name} %{resource_title} iruzkin berri bat dago"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago.
         comment_created:
           email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '%{author_name} (r) en %{resource_title} iruzkin berri bat dago'
+          email_subject: "%{author_name} (r) en %{resource_title} iruzkin berri bat dago"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago
         reply_created:
           email_intro: "%{author_name} zure iruzkina erantzun du %{resource_title}zenbakian. Orri honetan irakur dezakezu:"
@@ -85,7 +88,7 @@ eu:
         user_mentioned:
           email_intro: Esan zaizu
           email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
-          email_subject: '%{resource_title} aipatu zaituzte'
+          email_subject: "%{resource_title} aipatu zaituzte"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
   errors:
     messages:

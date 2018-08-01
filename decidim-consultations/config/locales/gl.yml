@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -183,8 +184,8 @@ gl:
           recent: Máis recente
       count:
         title:
-          one: "Consulta %{count}"
-          other: "Consultas %{count}"
+          one: Consulta %{count}
+          other: Consultas %{count}
       filters:
         active: Activo
         all: Todo

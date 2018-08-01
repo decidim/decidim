@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -65,19 +66,19 @@ uk:
   activerecord:
     models:
       decidim/assembly:
-        one: Збори
         few: Зібрань
         many: Зібрань
+        one: Збори
         other: Зібрань
       decidim/assembly_member:
-        one: Член президії зборів
         few: Члени президії зборів
         many: Членів президії зборів
+        one: Член президії зборів
         other: Членів президії зборів
       decidim/assembly_user_role:
-        one: Роль учасника зборів
         few: Ролей учасників зборів
         many: Ролей учасників зборів
+        one: Роль учасника зборів
         other: Ролей учасників зборів
   decidim:
     admin:
@@ -331,9 +332,9 @@ uk:
           promoted_assemblies: Висвітлені збори
         order_by_assemblies:
           assemblies:
-            one: "%{count} (одні) збори"
             few: "%{count} зборів"
             many: "%{count} зборів"
+            one: "%{count} (одні) збори"
             other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості

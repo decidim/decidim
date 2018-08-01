@@ -184,6 +184,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: false,
+          votes_weight_enabled?: false,
           votes_blocked?: true
         }
       end
@@ -195,6 +196,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: true,
+          votes_weight_enabled?: true,
           votes_blocked?: true
         }
       end
@@ -206,6 +208,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: true,
+          votes_weight_enabled?: true,
           votes_blocked?: false
         }
       end
@@ -223,6 +226,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: true,
+          votes_weight_enabled?: true,
           votes_blocked?: false
         }
       end
@@ -240,6 +244,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: false,
+          votes_weight_enabled?: false,
           votes_blocked?: true
         }
       end
@@ -251,6 +256,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: true,
+          votes_weight_enabled?: true,
           votes_blocked?: true
         }
       end
@@ -262,6 +268,7 @@ describe Decidim::Proposals::Permissions do
       let(:extra_settings) do
         {
           votes_enabled?: true,
+          votes_weight_enabled?: true,
           votes_blocked?: false
         }
       end

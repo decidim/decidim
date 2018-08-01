@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ uk:
             base:
               too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
               too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -48,19 +53,19 @@ uk:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Зустріч
         few: Зустрічі
         many: Зустрічей
+        one: Зустріч
         other: Зустрічей
       decidim/meetings/minutes:
-        one: Протокол
         few: Протоколи
         many: Протоколів
+        one: Протокол
         other: Протоколів
       decidim/meetings/registration:
-        one: Зареєстрований
         few: Зареєстрованих
         many: Зареєстрованих
+        one: Зареєстрований
         other: Зареєстрованих
   decidim:
     admin:
@@ -236,9 +241,9 @@ uk:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invite_user: Запросити учасника
             registrations_count:
-              one: Зареєструвалась 1 людина.
               few: Зареєструвалось %{count} людей.
               many: Зареєструвалось %{count} людей.
+              one: Зареєструвалась 1 людина.
               other: Зареєструвалось %{count} людей.
             reserved_slots_help: Залиште його 0, якщо у вас немає заброньованих місць
             reserved_slots_less_than: Має бути меншим або рівним %{count}
@@ -246,6 +251,10 @@ uk:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} закрив зустріч %{resource_name} у просторі %{space_name}"
           create: "%{user_name} додав зустріч %{resource_name} у просторі %{space_name}"
@@ -300,10 +309,10 @@ uk:
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
           remaining_slots:
+            few: Залишилось %{count} місця
+            many: Залишилось %{count} місць
             one: Залишилось 1 місце
-            few: "Залишилось %{count} місця"
-            many: "Залишилось %{count} місць"
-            other: "Залишилось %{count} місць"
+            other: Залишилось %{count} місць
           view: Переглянути
       models:
         meeting:

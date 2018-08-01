@@ -54,9 +54,6 @@ module Decidim
             permissions_context.merge(extra_context)
           ).permissions
         end.allowed?
-        Rails.logger.debug "==========="
-        Rails.logger.debug [permission_action].map(&:inspect).join("\n")
-        Rails.logger.debug "==========="
       rescue Decidim::PermissionAction::PermissionNotSetError
         false
       end

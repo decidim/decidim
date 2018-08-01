@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -20,14 +21,14 @@ pl:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Ankieta
         few: Ankiety
         many: Ankiety
+        one: Ankieta
         other: Ankiety
       decidim/surveys/survey_answer:
-        one: Odpowiedź
         few: Odpowiedzi
         many: Odpowiedzi
+        one: Odpowiedź
         other: Odpowiedzi
   decidim:
     components:

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PermissionsExtend
   def voting_enabled?
     return unless current_settings

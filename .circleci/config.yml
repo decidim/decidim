@@ -4,9 +4,8 @@ defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
-    - image: decidim/decidim@sha256:889d2f57b238518d0d9bd1177db860f2cc58caae4d1094b86e4e154e41b6aaa4
+    - image: decidim/decidim@sha256:743a212e757a0c0d4cb85cf99251290864b6d02d1a17aa285d342d0bdcff796b
       environment:
-        BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
         FAIL_FAST: true
@@ -23,28 +22,19 @@ references:
     restore_cache:
       keys:
         - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-  restore_npm_cache: &restore_npm_cache
-    restore_cache:
-      keys:
-        - npm-dependencies-{{ checksum "package-lock.json" }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
-      command: bundle install
+      command: cd decidim-$CIRCLE_JOB && bundle install
   install_npm_dependencies: &install_npm_dependencies
     run:
       name: Install npm dependencies
-      command: npm install
+      command: npm ci
   save_ruby_cache: &save_ruby_cache
     save_cache:
       key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
       paths:
         - /usr/local/bundle/
-  save_npm_cache: &save_npm_cache
-    save_cache:
-      key: npm-dependencies-{{ checksum "package-lock.json" }}
-      paths:
-        - node_modules
   wait_for_db: &wait_for_db
     run:
       name: Wait for db
@@ -76,7 +66,7 @@ references:
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && rake
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
@@ -93,11 +83,9 @@ jobs:
     steps:
       - checkout
       - *restore_ruby_cache
-      - *restore_npm_cache
-      - *install_ruby_dependencies
+      - run: bundle install
       - *install_npm_dependencies
       - *save_ruby_cache
-      - *save_npm_cache
       - *wait_for_db
       - run:
           name: Generate test app
@@ -113,7 +101,7 @@ jobs:
       - *attach_workspace
       - checkout
       - *restore_ruby_cache
-      - *install_ruby_dependencies
+      - run: bundle install
       - *save_ruby_cache
       - *wait_for_db
       - run:
@@ -217,7 +205,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_npm_cache
+      - *install_npm_dependencies
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -260,7 +248,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_npm_cache
+      - *install_npm_dependencies
       - run:
           name: Run main folder lint & tests
           command: npm run test:ci
@@ -452,82 +440,108 @@ workflows:
           filters:
             branches:
               ignore:
+                - l10n_master
                 - l10n_0.12-stable
+          requires:
+            - main
       - build_test_app:
           filters:
             branches:
               ignore:
+                - l10n_master
                 - l10n_0.12-stable
       - main:
           filters:
             branches:
               ignore:
+                - l10n_master
                 - l10n_0.12-stable
       - generators:
           filters:
             branches:
               ignore:
+                - l10n_master
                 - l10n_0.12-stable
+          requires:
+            - main
       - core:
           requires:
             - build_test_app
+            - main
       - assemblies:
           requires:
             - build_test_app
+            - main
       - initiatives:
           requires:
             - build_test_app
+            - main
       - api:
           requires:
             - build_test_app
+            - main
       - participatory_processes:
           requires:
             - build_test_app
+            - main
       - admin:
           requires:
             - build_test_app
+            - main
       - system:
           requires:
             - build_test_app
+            - main
       - proposals:
           requires:
             - build_test_app
+            - main
       - sortitions:
           requires:
             - build_test_app
+            - main
       - blogs:
           requires:
             - build_test_app
+            - main
       - consultations:
           requires:
             - build_test_app
+            - main
       - comments:
           requires:
             - build_test_app
+            - main
       - meetings:
           requires:
             - build_test_app
+            - main
       - pages:
           requires:
             - build_test_app
+            - main
       - accountability:
           requires:
             - build_test_app
+            - main
       - budgets:
           requires:
             - build_test_app
+            - main
       - surveys:
           requires:
             - build_test_app
+            - main
       - verifications:
           requires:
             - build_test_app
+            - main
       - debates:
           requires:
             - build_test_app
+            - main
       - upload-coverage:
           requires:
-            - main
             - generators
             - core
             - assemblies
@@ -548,3 +562,4 @@ workflows:
             - sortitions
             - consultations
             - blogs
+

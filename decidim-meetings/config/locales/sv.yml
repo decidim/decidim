@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ sv:
             base:
               too_many_minutes: Varaktigheten av objekten överstiger mötesperioden med %{count} minuter
               too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendan "%{parent_title}" med %{count} minut
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -238,6 +243,10 @@ sv:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
           create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"

@@ -29,11 +29,11 @@ module Decidim
 
         def create_status
           @status = Status.create!(
-            component: @form.current_component,
-            key: @form.key,
-            name: @form.name,
+            component:   @form.current_component,
+            key:         @form.key,
+            name:        @form.name,
             description: @form.description,
-            progress: @form.progress
+            progress:    @form.progress
           )
         end
       end

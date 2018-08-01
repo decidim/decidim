@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -14,9 +15,9 @@ pl:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortowanie
         few: Sortowanie
         many: Sortowanie
+        one: Sortowanie
         other: Sortowanie
   decidim:
     components:
@@ -59,9 +60,9 @@ pl:
               target_items: Elementy do wyboru
               title: Tytuł
             name:
-              one: Sortowanie
               few: Sortowanie
               many: Sortowanie
+              one: Sortowanie
               other: Sortowanie
         sortitions:
           confirm_destroy:
@@ -100,9 +101,9 @@ pl:
       sortitions:
         count:
           proposals_count:
-            one: 1 propozycja
             few: "%{count} propozycji"
             many: "%{count} propozycji"
+            one: 1 propozycja
             other: "%{count} propozycji"
         filters:
           active: Aktywny
@@ -125,9 +126,9 @@ pl:
           recent: Niedawny
         results_count:
           count:
-            one: wybrana propozycja
             few: wybrane propozycje
             many: wybrane propozycje
+            one: wybrana propozycja
             other: wybrane propozycje
         show:
           algorithm: Kod algorytmu rozdziału
@@ -146,10 +147,10 @@ pl:
         sortition:
           random_seed: Losowe ziarno
           selected_proposals:
+            few: "%{count} wybranych wniosków"
+            many: "%{count} wybranych wniosków"
             one: 1 wybrana propozycja
-            few: '%{count} wybranych wniosków'
-            many: '%{count} wybranych wniosków'
-            other: '%{count} wybranych wniosków'
+            other: "%{count} wybranych wniosków"
           view: Widok
         sortition_author:
           deleted: Usunięty użytkownik
@@ -157,7 +158,7 @@ pl:
           deleted: Usunięty użytkownik
         sortitions_count:
           count:
-            one: 1 sortowanie
             few: "%{count} sortowania"
             many: "%{count} sortowania"
+            one: 1 sortowanie
             other: "%{count} sortowania"

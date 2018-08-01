@@ -17,6 +17,21 @@ controller or added a new module you need to rename `feature` to `component`.
 
 ## [0.11.0.pre](https://github.com/decidim/decidim/tree/v0.11.0)
 ## [0.12.0-pre](https://github.com/decidim/decidim/tree/v0.12.0-pre)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.12-stable)
+
+**Fixed**:
+
+## [0.12.2](https://github.com/decidim/decidim/tree/v0.12.2)
+
+**Fixed**:
+
+- **decidim-assemblies**: Let space admins access other spaces [\#3772](https://github.com/decidim/decidim/pull/3772)
+- **decidim-participatory_processes**: Let space admins access other spaces [\#3772](https://github.com/decidim/decidim/pull/3772)
+
+## [0.12.1](https://github.com/decidim/decidim/tree/v0.12.1)
+
+**Fixed**:
+
 - **decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
 - **decidim-assemblies**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
 - **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)

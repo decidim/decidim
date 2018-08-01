@@ -206,7 +206,7 @@ describe "Authentication", type: :system do
         fill_in :user_password_confirmation, with: "123456"
 
         fill_in :user_user_group_name, with: "My organization"
-        fill_in :user_user_group_document_number, with: "12345678Z"
+        # fill_in :user_user_group_document_number, with: "12345678Z"
         fill_in :user_user_group_phone, with: "333-333-3333"
 
         check :user_tos_agreement

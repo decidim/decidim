@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   class NavbarLink < ApplicationRecord
     belongs_to :organization,
@@ -8,9 +10,8 @@ module Decidim
     def validate_link_regex
       link = URI.parse(self.link)
       link.host.nil?
-      rescue URI::InvalidURIError
-        errors.add(:link)
+    rescue URI::InvalidURIError
+      errors.add(:link)
     end
-
   end
 end

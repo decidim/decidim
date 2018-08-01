@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -60,7 +61,9 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: "Nom\n"
+        name: 'Nom
+
+'
         role: Fonction
   activerecord:
     models:
@@ -75,8 +78,6 @@ fr:
         other: Fonctions du membre dans l'assemblée
   decidim:
     admin:
-      actions:
-        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.

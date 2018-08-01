@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ eu:
             base:
               too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
               too_many_minutes_child: Elementuaren haurraren iraupena "%{parent_title}" gurasoaren iraupena gainditzen du %{count} minutuko agendako elementua
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Bilera itxia
       decidim/meetings/create_meeting_event: Bilera
@@ -231,13 +236,17 @@ eu:
             invite_user: Gonbidatu erabiltzailea
             registrations_count:
               one: Izen-emate bat egin da.
-              other: '%{count} izen-emate egin dira.'
+              other: "%{count} izen-emate egin dira."
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
-            reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
+            reserved_slots_less_than: "%{count} baino gutxiago izan behar du"
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
           create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"

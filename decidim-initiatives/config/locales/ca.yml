@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -70,6 +71,11 @@ ca:
         initiatives_types: Tipus d'iniciatives
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -287,6 +293,7 @@ ca:
           title: Llistat de signatures
         vote_cabin:
           already_voted: Ja has signat
+          supports_required: "%{total_supports} signatures required"
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:

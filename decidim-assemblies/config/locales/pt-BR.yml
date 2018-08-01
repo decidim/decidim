@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -325,8 +326,8 @@ pt-BR:
           promoted_assemblies: Montagens destacadas
         order_by_assemblies:
           assemblies:
-            one: "Assembly %{count}"
-            other: "Conjuntos %{count}"
+            one: Assembly %{count}
+            other: Conjuntos %{count}
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar

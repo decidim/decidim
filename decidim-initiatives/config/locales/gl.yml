@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -70,6 +71,11 @@ gl:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        initiative_extended:
+          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
+          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -198,7 +204,7 @@ gl:
         previous_form:
           back: De volta
           continue: Continuar
-          help: '¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta.'
+          help: "¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta."
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
@@ -242,7 +248,7 @@ gl:
             other: e %{count} persoas máis
         count:
           title:
-            one: "Iniciativa %{count}"
+            one: Iniciativa %{count}
             other: "%{count} iniciativas"
         filters:
           any: Calquera
@@ -287,7 +293,7 @@ gl:
           title: Listado de sinaturas
         vote_cabin:
           already_voted: Xa está asinado
-          supports_required: "Requírense as %{total_supports} firmas"
+          supports_required: Requírense as %{total_supports} firmas
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:

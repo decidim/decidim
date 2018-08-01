@@ -1,8 +1,10 @@
 # frozen_string_literal: true
+
 # This module is use to add customs methods to the original "create_proposal.rb"
 
 module CreateProposalExtend
-  def send_notification #to moderators
+  # send notification to moderators
+  def send_notification
     Decidim::EventsManager.publish(
       event: "decidim.events.proposals.proposal_created",
       event_class: Decidim::Proposals::ProposalCreatedEvent,

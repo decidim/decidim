@@ -39,17 +39,17 @@ module Decidim
           Decidim.traceability.update!(
             result,
             form.current_user,
-            scope: @form.scope,
-            category: @form.category,
-            parent_id: @form.parent_id,
-            title: @form.title,
-            description: @form.description,
-            start_date: @form.start_date,
-            end_date: @form.end_date,
-            progress: @form.progress,
+            scope:                            @form.scope,
+            category:                         @form.category,
+            parent_id:                        @form.parent_id,
+            title:                            @form.title,
+            description:                      @form.description,
+            start_date:                       @form.start_date,
+            end_date:                         @form.end_date,
+            progress:                         @form.progress,
             decidim_accountability_status_id: @form.decidim_accountability_status_id,
-            external_id: @form.external_id.presence,
-            weight: @form.weight
+            external_id:                      @form.external_id.presence,
+            weight:                           @form.weight
           )
         end
 

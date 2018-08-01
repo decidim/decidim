@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -26,9 +27,9 @@ uk:
   activerecord:
     models:
       decidim/accountability/result:
-        one: Підсумок
         few: Підсумки
         many: Підсумків
+        one: Підсумок
         other: Підсумків
   decidim:
     accountability:
@@ -139,9 +140,9 @@ uk:
       results:
         count:
           results_count:
-            one: 1 підсумок
             few: "%{count} підсумків"
             many: "%{count} підсумків"
+            one: 1 підсумок
             other: "%{count} підсумків"
         filters:
           all: Усі
