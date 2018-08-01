@@ -247,6 +247,9 @@ nl:
         others: Overige
         participatory: deelnemende
         working_group: Werkgroep
+      content_blocks:
+        highlighted_assemblies:
+          name: Gemarkeerde vergaderingen
       created_by:
         city_council: Gemeenteraad
         others: Overige
