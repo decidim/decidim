@@ -321,7 +321,7 @@ gl:
     filters:
       linked_classes:
         all: Todo
-        dummyresource: Recursos maniquís
+        dummy_resource: Recursos maniquís
         meeting: Reunións
         project: Proxectos
         proposal: Propostas
