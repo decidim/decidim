@@ -181,6 +181,9 @@ pt:
           help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
         spawn:
           success: Sua solicitação foi enviada ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Costas
