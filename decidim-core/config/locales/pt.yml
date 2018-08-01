@@ -321,7 +321,7 @@ pt:
     filters:
       linked_classes:
         all: Todos
-        dummyresource: Recursos falsos
+        dummy_resource: Recursos falsos
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
