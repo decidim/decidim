@@ -181,6 +181,9 @@ eu:
           help_text: Ekimen honen sustatzaile batzordeko kidea bihurtu nahi duzu
         spawn:
           success: Zure eskaera ekimenaren egilea da.
+      content_blocks:
+        highlighted_initiatives:
+          name: Ekimen nabarmenak
       create_initiative:
         fill_data:
           back: Back
