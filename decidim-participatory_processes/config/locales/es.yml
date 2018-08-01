@@ -274,6 +274,9 @@ es:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos resaltados
       index:
         title: Procesos participativos
       pages:
