@@ -7,8 +7,8 @@ en:
         description: Description
         offline_votes: Face-to-face supports
         scope_id: Scope
-        signature_end_time: End of signature collection period
-        signature_start_time: Start of signature collection period
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
         signature_type: Signature collection type
         signature_type_values:
           any: Mixed
