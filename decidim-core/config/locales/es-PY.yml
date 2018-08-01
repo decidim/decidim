@@ -321,7 +321,7 @@ es-PY:
     filters:
       linked_classes:
         all: Todas
-        dummyresource: Recursos ficticios
+        dummy_resource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
         proposal: Propuestas
