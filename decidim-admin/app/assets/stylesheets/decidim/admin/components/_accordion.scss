@@ -4,7 +4,7 @@
   .accordion-title{
     font-size: $global-font-size;
     color: inherit;
-    border: none;
+    border: 0;
     border-radius: 0;
 
     &:focus{
@@ -16,13 +16,14 @@
   .accordion-item{
     &:first-child > :first-child,
     &:last-child:not(.is-active) > .accordion-title{
-      border: none;
+      border: 0;
       border-radius: 0;
     }
   }
 
   .accordion-content{
-    background-color: $light-gray;
+    background-color: $lighter-gray;
+    border: 0;
 
     .tabs-title > a[aria-selected="true"],
     .tabs-content{
