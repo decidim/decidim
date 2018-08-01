@@ -274,6 +274,9 @@ gl:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos destacados
       index:
         title: Procesos participativos
       pages:
