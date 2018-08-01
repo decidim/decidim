@@ -305,6 +305,7 @@ it:
         areas: le zone
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
+        homepage: Homepage
         impersonations: impersonations
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
@@ -498,6 +499,10 @@ it:
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           layout_appearance_title: Modifica aspetto del layout
           omnipresent_banner_appearance_title: Modifica banner onnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocchi di contenuto attivo
+          inactive_content_blocks: Blocchi di contenuto inattivo
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
