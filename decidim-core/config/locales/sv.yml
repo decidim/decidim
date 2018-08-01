@@ -321,7 +321,7 @@ sv:
     filters:
       linked_classes:
         all: Alla
-        dummyresource: Dummy resurser
+        dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
