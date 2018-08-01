@@ -181,6 +181,9 @@ sv:
           help_text: Du är på väg att begära att bli medlem av promotorutskottet för detta initiativ
         spawn:
           success: Din förfrågan har skickats till initiativtagaren.
+      content_blocks:
+        highlighted_initiatives:
+          name: Markerade initiativ
       create_initiative:
         fill_data:
           back: Tillbaka
