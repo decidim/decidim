@@ -247,6 +247,9 @@ gl:
         others: Outros
         participatory: Participativa
         working_group: Grupo de traballo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asembleas destacadas
       created_by:
         city_council: Concello
         others: Outros
