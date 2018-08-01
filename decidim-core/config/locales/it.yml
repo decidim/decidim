@@ -205,6 +205,19 @@ it:
             dummy_step_attribute_1: Attributo Dummy Step 1
             dummy_step_attribute_2: Attributo Dummy Step 2
     contact: Contatto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner di sub eroe di piè di pagina
+      hero:
+        name: Immagine dell'eroe
+      highlighted_content_banner:
+        name: Banner dei contenuti evidenziati
+      how_to_participate:
+        name: Come partecipare
+      stats:
+        name: Statistiche dell'organizzazione
+      sub_hero:
+        name: Banner di sub eroe
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
