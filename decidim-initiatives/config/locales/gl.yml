@@ -181,6 +181,9 @@ gl:
           help_text: Está a piques de solicitar ser membro do comité promotor desta iniciativa
         spawn:
           success: Enviouse a solicitude ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: De volta
