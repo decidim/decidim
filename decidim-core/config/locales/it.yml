@@ -321,7 +321,7 @@ it:
     filters:
       linked_classes:
         all: Tutto
-        dummyresource: Risorse fittizie
+        dummy_resource: Risorse fittizie
         meeting: Incontri
         project: Progetti
         proposal: Proposte
