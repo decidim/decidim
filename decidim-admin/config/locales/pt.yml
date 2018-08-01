@@ -305,6 +305,7 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
+        homepage: Pagina inicial
         impersonations: Imitações
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
@@ -498,6 +499,10 @@ pt:
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           layout_appearance_title: Editar aparência do layout
           omnipresent_banner_appearance_title: Editar banner onipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativo
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
