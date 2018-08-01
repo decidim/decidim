@@ -320,7 +320,7 @@ hu:
     filters:
       linked_classes:
         all: Minden
-        dummyresource: Dummy források
+        dummy_resource: Dummy források
         meeting: találkozók
         project: projektek
         proposal: javaslatok
