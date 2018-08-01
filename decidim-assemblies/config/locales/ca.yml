@@ -247,6 +247,9 @@ ca:
         others: Altres
         participatory: Participativa
         working_group: Grup de treball
+      content_blocks:
+        highlighted_assemblies:
+          name: Asamblees destacades
       created_by:
         city_council: Ajuntament
         others: Altres
