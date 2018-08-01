@@ -7,13 +7,15 @@ module Decidim
     class AcceptAccessToCollaborativeDraft < Rectify::Command
       # Public: Initializes the command.
       #
+      # form         - A form object with the params.
       # collaborative_draft     - A Decidim::Proposals::CollaborativeDraft object.
       # current_user - The current user.
       # requester_user - The user that requested to collaborate.
-      def initialize(collaborative_draft, current_user, requester_user)
-        @collaborative_draft = collaborative_draft
+      def initialize(form, current_user)
+        @form = form
+        @collaborative_draft = form.collaborative_draft
         @current_user = current_user
-        @requester_user = requester_user
+        @requester_user = form.requester_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -23,22 +25,21 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if @form.invalid?
         return broadcast(:invalid) if @current_user.nil?
-        return broadcast(:invalid) if @requester_user.nil?
-        return broadcast(:invalid) unless @collaborative_draft.requesters.exists? @requester_user.id
-        return broadcast(:invalid) unless @collaborative_draft.open?
 
-        @collaborative_draft.requesters.delete @requester_user
+        transaction do
+          @collaborative_draft.requesters.delete @requester_user
 
-        Decidim::Coauthorship.create(
-          coauthorable: @collaborative_draft,
-          author: @requester_user,
-          decidim_user_group_id: nil
-        )
+          Decidim::Coauthorship.create(
+            coauthorable: @collaborative_draft,
+            author: @requester_user
+          )
+        end
 
         notify_collaborative_draft_requester
         notify_collaborative_draft_authors
-        broadcast(:ok, @collaborative_draft)
+        broadcast(:ok, @requester_user)
       end
 
       private

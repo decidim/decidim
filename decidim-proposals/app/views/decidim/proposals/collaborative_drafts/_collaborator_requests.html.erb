@@ -10,7 +10,7 @@
         <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
 
         <div>
-          <%= button_to accept_request_btn_lbl, request_accept_collaborative_draft_path(@collaborative_draft, requester_id: requester.id), class: "button hollow secondary small" %>
+          <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
 
           <%= button_to request_reject_collaborative_draft_path(@collaborative_draft, requester_id: requester.id), title: reject_request_btn_lbl do %>
             <%= icon "x", class: "icon--small muted ml-xs" %>
