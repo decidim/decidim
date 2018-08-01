@@ -326,7 +326,7 @@ uk:
     filters:
       linked_classes:
         all: Усі
-        dummyresource: Приклади ресурсів
+        dummy_resource: Приклади ресурсів
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
