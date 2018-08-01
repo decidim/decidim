@@ -305,6 +305,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        homepage: Pàgina d'inici
         impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
@@ -498,6 +499,10 @@ ca:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita pancarta omnipresent
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contingut actiu
+          inactive_content_blocks: Blocs de contingut inactiu
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
