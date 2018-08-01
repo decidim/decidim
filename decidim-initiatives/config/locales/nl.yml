@@ -181,6 +181,9 @@ nl:
           help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
+      content_blocks:
+        highlighted_initiatives:
+          name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
           back: Terug
