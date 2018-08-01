@@ -305,6 +305,7 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        homepage: Página principal
         impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
@@ -498,6 +499,10 @@ es-PY:
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           layout_appearance_title: Editar apariencia de diseño global
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contenido activo
+          inactive_content_blocks: Bloques de contenido inactivo
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
