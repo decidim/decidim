@@ -23,11 +23,12 @@ module Decidim
     include Virtus.model
 
     attribute :name, Symbol
+    attribute :i18n_name_key, String
     attribute :cell_name, String, writer: :private
     attribute :image_names, Array[Symbol]
     attribute :options, Array[Hash]
 
-    validates :name, :cell_name, presence: true
+    validates :name, :cell_name, :i18n_name_key, presence: true
     validate :image_names_are_unique
     validate :option_names_are_unique
 
@@ -43,6 +44,12 @@ module Decidim
     # Use `#cell_name` to retrieve it.
     def cell(cell_name)
       self.cell_name = cell_name
+    end
+
+    # Public: Registers the I18n key this contnt block will use to retrieve its
+    # public name. Use `#i18n_name_key` to retrieve it.
+    def public_name_key(i18n_key)
+      self.i18n_name_key = i18n_key
     end
 
     # Public: Registers an option. Use `#options` to retrieve them all.
