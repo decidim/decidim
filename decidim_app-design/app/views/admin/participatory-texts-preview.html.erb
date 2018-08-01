@@ -17,7 +17,7 @@
       <div class="card-section">
         <p>S'han detectat les següents seccions en aquest text. Seràn convertides a propostes. Des d'aquí pots revisar i ajustar el que necessitis.</p>
         <p><strong>Atenció:&nbsp;</strong>aquest text encara no ha estat guardat. No t'oblidis de fer-ho fent click al butó al final d'aquesta pàgina.</p>
-        <ul class="accordion mb-m"
+        <ul class="accordion js-sortable mb-m"
           data-accordion
           data-multi-expand="true"
           data-allow-all-closed="true">
@@ -35,9 +35,9 @@
               <%= partial "participatory-article", { desc: false } %>
             </div>
           </li>
-          <% 3.times do %>
+          <% 3.times do |i| %>
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Article</a>
+            <a href="#" class="accordion-title">Article <%= i %></a>
 
             <div class="accordion-content" data-tab-content>
               <%= partial "participatory-article" %>

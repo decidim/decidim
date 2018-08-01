@@ -16,6 +16,7 @@
 // = require ./field_dependent_inputs.component
 // = require ./bundle
 // = require ./draggable-list
+// = require ./sortable
 // = require_self
 
 window.Decidim = window.Decidim || {};
