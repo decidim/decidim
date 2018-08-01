@@ -274,6 +274,9 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Gemarkeerde processen
       index:
         title: Burgerinspraak
       pages:
