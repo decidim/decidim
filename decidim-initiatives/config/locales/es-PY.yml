@@ -181,6 +181,9 @@ es-PY:
           help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
         spawn:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Volver
