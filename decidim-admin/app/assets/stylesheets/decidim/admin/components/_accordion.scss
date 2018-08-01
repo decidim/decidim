@@ -5,15 +5,20 @@
     font-size: $global-font-size;
     color: inherit;
     border: none;
+    border-radius: 0;
 
-    &:hover,
     &:focus{
       background: transparent;
     }
   }
 
-  li:last-child:not(.is-active) > .accordion-title{
-    border: none;
+  // Override Foundation
+  .accordion-item{
+    &:first-child > :first-child,
+    &:last-child:not(.is-active) > .accordion-title{
+      border: none;
+      border-radius: 0;
+    }
   }
 
   .accordion-content{
