@@ -205,6 +205,19 @@ fi:
             dummy_step_attribute_1: Dummy Step -ominaisuus 1
             dummy_step_attribute_2: Dummy Step -ominaisuus 2
     contact: Ota yhteyttä
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub sankari banneri
+      hero:
+        name: Hero kuva
+      highlighted_content_banner:
+        name: Korostettu sisältö banneri
+      how_to_participate:
+        name: Miten osallistua
+      stats:
+        name: Organisaatiotilastot
+      sub_hero:
+        name: Sub sankari banneri
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
