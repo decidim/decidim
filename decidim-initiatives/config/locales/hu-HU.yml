@@ -181,6 +181,9 @@ hu:
           help_text: Arra kérsz, hogy csatlakozz a kezdeményezői bizottságba e kezdeményezéshez
         spawn:
           success: A kérelmet elküldtük a kezdeményezés szerzőjének.
+      content_blocks:
+        highlighted_initiatives:
+          name: Kiemelt kezdeményezések
       create_initiative:
         fill_data:
           back: Hát
