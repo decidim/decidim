@@ -274,6 +274,9 @@ sv:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
             slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Markerade processer
       index:
         title: Deltagande processer
       pages:
