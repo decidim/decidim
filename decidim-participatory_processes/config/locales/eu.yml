@@ -274,6 +274,9 @@ eu:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Prozesu nabarmenak
       index:
         title: Prozesu partizipatiboak
       pages:
