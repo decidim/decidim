@@ -23,6 +23,10 @@
     </div>
 
     <div class="row column">
+      <%= form.check_box :registration_form_enabled %>
+    </div>
+
+    <div class="row column">
       <p><%= t(".registrations_count", count: meeting.registrations.count) %></p>
       <%= form.number_field :available_slots %>
       <p class="help-text"><%= t(".available_slots_help") %></p>
