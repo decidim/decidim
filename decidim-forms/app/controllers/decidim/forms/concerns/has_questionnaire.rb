@@ -15,7 +15,7 @@ module Decidim
         included do
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :update_url
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
@@ -42,6 +42,12 @@ module Decidim
             end
           end
 
+          # Public: Method to be implemented at the controller. You need to
+          # return true if the questionnaire can receive answers
+          def allow_answers?
+            raise "#{self.class.name} is expected to implement #allow_answers?"
+          end
+
           # Public: Returns a String or Object that will be passed to `redirect_to` after
           # answering the questionnaire. By default it redirects to the questionnaire_for.
           #
@@ -50,7 +56,13 @@ module Decidim
             questionnaire_for
           end
 
-          # Public: The only method to be implemented at the controller. You need to
+          # You can implement this method in your controller to change the URL
+          # where the questionnaire will be submitted.
+          def update_url
+            url_for([questionnaire_for, action: :answer])
+          end
+
+          # Public: Method to be implemented at the controller. You need to
           # return the object that will hold the questionnaire.
           def questionnaire_for
             raise "#{self.class.name} is expected to implement #questionnaire_for"

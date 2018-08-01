@@ -4,7 +4,6 @@ module Decidim
   module Meetings
     # The data store for a Registration in the Decidim::Meetings component.
     class Registration < Meetings::ApplicationRecord
-      include Decidim::Forms::HasQuestionnaire
       include Decidim::DataPortability
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
