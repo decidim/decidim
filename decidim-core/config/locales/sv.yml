@@ -205,6 +205,19 @@ sv:
             dummy_step_attribute_1: Dummy Step Attribut 1
             dummy_step_attribute_2: Dummy Step Attribut 2
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hjälten bild
+      highlighted_content_banner:
+        name: Markerad innehållsbanner
+      how_to_participate:
+        name: Hur man deltar
+      stats:
+        name: Organisationsstatistik
+      sub_hero:
+        name: Underhjälte banner
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
