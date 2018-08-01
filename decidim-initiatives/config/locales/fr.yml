@@ -181,6 +181,9 @@ fr:
           help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
+      content_blocks:
+        highlighted_initiatives:
+          name: Initiatives soulignées
       create_initiative:
         fill_data:
           back: Retour
