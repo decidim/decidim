@@ -321,7 +321,7 @@ nl:
     filters:
       linked_classes:
         all: Alle
-        dummyresource: Dummy middelen
+        dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
