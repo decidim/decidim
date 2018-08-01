@@ -274,6 +274,9 @@ fi:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Korostetut prosessit
       index:
         title: Osallistumisprosessit
       pages:
