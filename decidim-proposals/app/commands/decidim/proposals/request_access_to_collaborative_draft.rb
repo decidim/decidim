@@ -7,10 +7,12 @@ module Decidim
     class RequestAccessToCollaborativeDraft < Rectify::Command
       # Public: Initializes the command.
       #
+      # form         - A form object with the params.
       # collaborative_draft     - A Decidim::Proposals::CollaborativeDraft object.
       # current_user - The current user and requester user
-      def initialize(collaborative_draft, current_user)
-        @collaborative_draft = collaborative_draft
+      def initialize(form, current_user)
+        @form = form
+        @collaborative_draft = form.collaborative_draft
         @current_user = current_user
       end
 
@@ -21,8 +23,8 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if @form.invalid?
         return broadcast(:invalid) if @current_user.nil?
-        return broadcast(:invalid) if @collaborative_draft.state != "open"
 
         @collaborative_draft.collaborator_requests.create!(user: @current_user)
         notify_collaborative_draft_authors

@@ -162,7 +162,7 @@ module Decidim
         end
 
         it "creates a new access request for the given collaborative_draft" do
-          expect { post :request_access, params: { id: collaborative_draft.id } }.to change {
+          expect { post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state } }.to change {
             collaborative_draft.reload
             collaborative_draft.requesters.count
           }.by(1)
@@ -187,7 +187,7 @@ module Decidim
       describe "POST request_reject" do
         before do
           sign_in user_2, scope: :user
-          post :request_access, params: { id: collaborative_draft.id }
+          post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state }
           sign_in author, scope: :user
         end
 

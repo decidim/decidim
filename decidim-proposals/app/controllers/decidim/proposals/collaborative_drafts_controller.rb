@@ -30,6 +30,7 @@ module Decidim
 
       def show
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
+        @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
       end
 
       def new
@@ -110,13 +111,14 @@ module Decidim
       end
 
       def request_access
-        RequestAccessToCollaborativeDraft.call(@collaborative_draft, current_user) do
+        @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params(params)
+        RequestAccessToCollaborativeDraft.call(@request_access_form, current_user) do
           on(:ok) do |_collaborative_draft|
             flash[:notice] = t("access_requested.success", scope: "decidim.proposals.collaborative_drafts.requests")
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("access_requested.error", scope: "decidim.proposals.collaborative_drafts.requests")
+            flash[:alert] = t("access_requested.error", scope: "decidim.proposals.collaborative_drafts.requests")
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path

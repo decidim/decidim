@@ -7,13 +7,22 @@ module Decidim
     describe RequestAccessToCollaborativeDraft do
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
+
       let(:collaborative_draft) { create(:collaborative_draft, state, component: component, users: [author1, author2]) }
+      let(:id) { collaborative_draft.id }
+      let(:form) { RequestAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user) }
+      let(:form_params) do
+        {
+          state: state,
+          id: id
+        }
+      end
       let(:current_user) { create(:user, :confirmed, organization: component.organization) }
       let(:author1) { create(:user, :confirmed, organization: component.organization) }
       let(:author2) { create(:user, :confirmed, organization: component.organization) }
 
       describe "User requests to collaborate" do
-        let(:command) { described_class.new(collaborative_draft, current_user) }
+        let(:command) { described_class.new(form, current_user) }
 
         context "when the collaborative draft is open" do
           it "broadcasts ok" do
