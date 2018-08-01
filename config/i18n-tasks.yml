@@ -158,6 +158,7 @@ ignore_unused:
   - decidim.participatory_processes.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
+  - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.statistics.*
 
