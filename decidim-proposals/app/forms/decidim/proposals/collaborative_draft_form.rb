@@ -11,7 +11,7 @@ module Decidim
       end
 
       def user_group
-        @user_group ||= Decidim::UserGroup.find user_group_id if user_group_id
+        @user_group ||= Decidim::UserGroup.find user_group_id if user_group_id.present?
       end
     end
   end

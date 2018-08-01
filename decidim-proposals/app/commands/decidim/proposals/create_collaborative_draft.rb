@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new collaborative draft.
     class CreateCollaborativeDraft < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -11,6 +12,7 @@ module Decidim
       def initialize(form, current_user)
         @form = form
         @current_user = current_user
+        @attached_to = nil
       end
 
       # Executes the command. Broadcasts these events:
@@ -54,39 +56,9 @@ module Decidim
           state: "open"
         )
 
+        @attached_to = @collaborative_draft
+
         @collaborative_draft.add_coauthor(@current_user, user_group: @form.user_group)
-      end
-
-      def build_attachment
-        @attachment = Attachment.new(
-          title: form.attachment.title,
-          file: form.attachment.file,
-          attached_to: @collaborative_draft
-        )
-      end
-
-      def attachment_invalid?
-        if attachment.invalid? && attachment.errors.has_key?(:file)
-          form.attachment.errors.add :file, attachment.errors[:file]
-          true
-        end
-      end
-
-      def attachment_present?
-        form.attachment.file.present?
-      end
-
-      def create_attachment
-        attachment.attached_to = @collaborative_draft
-        attachment.save!
-      end
-
-      def attachments_allowed?
-        form.current_component.settings.attachments_allowed?
-      end
-
-      def process_attachments?
-        attachments_allowed? && attachment_present?
       end
 
       def user_group

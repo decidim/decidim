@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
