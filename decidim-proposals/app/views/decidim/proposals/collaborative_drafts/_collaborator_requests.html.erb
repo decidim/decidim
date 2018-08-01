@@ -12,9 +12,7 @@
         <div>
           <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
 
-          <%= button_to request_reject_collaborative_draft_path(@collaborative_draft, requester_id: requester.id), title: reject_request_btn_lbl do %>
-            <%= icon "x", class: "icon--small muted ml-xs" %>
-          <% end %>
+          <%= render partial: "reject_request_access_form", locals: { requester: requester } %>
         </div>
       </div>
     <% end %>

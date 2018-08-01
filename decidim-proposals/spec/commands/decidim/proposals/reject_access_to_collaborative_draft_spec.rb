@@ -8,16 +8,26 @@ module Decidim
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
       let(:collaborative_draft) { create(:collaborative_draft, state, component: component, users: [author1, author2]) }
-      let(:requester) { create(:user, :confirmed, organization: component.organization) }
+      let(:id) { collaborative_draft.id }
+      let(:requester_user) { create(:user, :confirmed, organization: component.organization) }
+      let(:requester_user_id) { requester_user.id }
       let(:author1) { create(:user, :confirmed, organization: component.organization) }
       let(:author2) { create(:user, :confirmed, organization: component.organization) }
       let(:current_user) { author1 }
+      let(:form) { RejectAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user) }
+      let(:form_params) do
+        {
+          state: state,
+          id: id,
+          requester_user_id: requester_user_id
+        }
+      end
 
       describe "Author (current_user) rejects access to requester to collaborate" do
-        let(:command) { described_class.new(collaborative_draft, current_user, requester) }
+        let(:command) { described_class.new(form, current_user) }
 
         before do
-          RequestAccessToCollaborativeDraft.call(collaborative_draft, requester)
+          collaborative_draft.collaborator_requests.create!(user: requester_user)
         end
 
         context "when the collaborative draft is open" do
@@ -40,7 +50,7 @@ module Decidim
                 resource: collaborative_draft,
                 recipient_ids: collaborative_draft.authors.pluck(:id),
                 extra: {
-                  requester_id: requester.id
+                  requester_id: requester_user_id
                 }
               )
 
@@ -50,7 +60,7 @@ module Decidim
                 event: "decidim.events.proposals.collaborative_draft_access_requester_rejected",
                 event_class: Decidim::Proposals::CollaborativeDraftAccessRequesterRejectedEvent,
                 resource: collaborative_draft,
-                recipient_ids: [requester.id]
+                recipient_ids: [requester_user_id]
               )
 
             command.call
@@ -86,7 +96,7 @@ module Decidim
         end
 
         context "when the requester is missing" do
-          let(:requester) { nil }
+          let(:requester_user_id) { nil }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
@@ -114,11 +124,8 @@ module Decidim
         end
 
         context "when the requester is not as a requestor" do
-          before do
-            collaborative_draft.requesters.delete requester
-          end
-
-          let(:requester) { create(:user, :confirmed, organization: component.organization) }
+          let(:not_requester) { create(:user, :confirmed, organization: component.organization) }
+          let(:requester_user_id) { not_requester.id }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

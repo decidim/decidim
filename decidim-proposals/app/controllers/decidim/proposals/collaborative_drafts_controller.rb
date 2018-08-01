@@ -32,6 +32,7 @@ module Decidim
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})
+        @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params({})
       end
 
       def new
@@ -133,20 +134,21 @@ module Decidim
           end
 
           on(:invalid) do
-            flash[:alert] = t("accepted_request.error", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+            flash[:alert] = t("accepted_request.error", scope: "decidim.proposals.collaborative_drafts.requests")
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
       end
 
       def request_reject
-        RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user) do
-          on(:ok) do
+        @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params(params)
+        RejectAccessToCollaborativeDraft.call(@reject_request_form, current_user) do
+          on(:ok) do |requester_user|
             flash[:notice] = t("rejected_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("rejected_request.error", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
+            flash.now[:alert] = t("rejected_request.error", scope: "decidim.proposals.collaborative_drafts.requests")
           end
         end
         redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path

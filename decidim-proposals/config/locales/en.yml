@@ -344,7 +344,7 @@ en:
           recent: Recent
         requests:
           accepted_request:
-            error: "@%{user} could not be accepted as a collaborator, try again later."
+            error: "Could not be accepted as a collaborator, try again later."
             success: "@%{user} has been accepted as a collaborator successfully"
           access_requested:
             error: Your request could not be completed, try again later.
@@ -354,7 +354,7 @@ en:
             reject_request: Reject
             title: Collaboration requests
           rejected_request:
-            error: "@%{user} could not be rejected as a collaborator, try again later."
+            error: "Could not be rejected as a collaborator, try again later."
             success: "@%{user} has been rejected as a collaborator successfully"
         show:
           back: Back
