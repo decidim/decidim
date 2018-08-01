@@ -1,0 +1,39 @@
+<!-- card tipo 1 -->
+<% 2.times do %>
+<article class="card">
+  <div class="card__content">
+    <div class="card__text">
+      <div class="text-medium">
+        <span class="icon--container"><%= icon "blog", class: "primary" %>&nbsp;NUEVA PROPUESTA EN&nbsp;<%= link_to "Plan de Equipamentos de Nou Barris", page_path("meetings/meeting-view") %></span>
+      </div>
+    </div>
+    <div class="card__header mb-none">
+      <%= link_to page_path("proposal-view"), class: "card__link" do %>
+      <h5 class="card__title mb-none">
+        <%= Faker::StarWars.quote %>
+      </h5>
+      <% end %>
+    </div>
+  </div>
+</article>
+<% end %>
+<!-- card tipo 2 -->
+<% 2.times do %>
+<article class="card">
+  <div class="card__content">
+    <div class="card__header">
+      <h5 class="card__title">
+        <span class="text-muted">Nuevo debate: </span>
+      <%= link_to page_path("proposal-view"), class: "card__link" do %>
+        <%= Faker::StarWars.quote %>
+      <% end %>
+      </h5>
+    </div>
+    <div class="card__text">
+      <div class="text-medium">
+        <span>En&nbsp;<%= link_to "Plan de Equipamentos de Nou Barris", page_path("meetings/meeting-view") %></span>
+      </div>
+    </div>
+  </div>
+</article>
+<% end %>

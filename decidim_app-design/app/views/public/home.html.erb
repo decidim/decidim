@@ -18,7 +18,7 @@
           <div class="columns medium-6">
             <div class="hero__boxes" data-equalizer-watch>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia debitis soluta!</p>
-              <%= link_to page_path("processes"), class: "button small-9 medium-5 button--sc" do %>
+              <%= link_to page_path("processes/processes"), class: "button small-9 medium-5 button--sc" do %>
               Participa
               <% end %>
             </div>
@@ -189,9 +189,31 @@
     <div class="row">
       <div class="columns small-centered small-12
                   smallmedium-8 medium-6 large-4">
-        <%= link_to page_path("processes"), class: "button expanded hollow button--sc home-section__cta" do %>
+        <%= link_to page_path("processes/processes"), class: "button expanded hollow button--sc home-section__cta" do %>
           Ver todos los procesos
         <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <h3 class="section-heading">Propers esdeveniments</h3>
+      <%= partial "last_events" %>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <h3 class="section-heading">Últimes publicacions</h3>
+        <%= partial "last_posts" %>
+      </div>
+      <div class="column medium-6">
+        <h3 class="section-heading">Última activitat</h3>
+        <%= partial "last_activity" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <button type="button" class="button hollow button--sc pull-right">Ver todos</button>
+      </div>
+      <div class="column medium-6">
+        <button type="button" class="button hollow button--sc pull-right">Ver todos</button>
       </div>
     </div>
   </section>
@@ -241,7 +263,7 @@
       <div class="row">
         <div class="columns small-centered small-10
                   smallmedium-8 medium-6 large-4">
-          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
+          <%= link_to page_path("processes/processes"), class: "button expanded hollow button--sc" do %>
             Más información
           <% end %>
         </div>
@@ -291,14 +313,14 @@
       <div class="row">
         <div class="columns small-centered small-12
                   smallmedium-8 medium-6 large-4">
-          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
+          <%= link_to page_path("processes/processes"), class: "button expanded hollow button--sc" do %>
             Explora los resultados
           <% end %>
         </div>
       </div>
       <div class="row text-center">
         <div class="columns small-centered large-3">
-          <%= link_to page_path("processes"), class: "button--sc link subhero-cta subhero-cta--secondary" do %>
+          <%= link_to page_path("processes/processes"), class: "button--sc link subhero-cta subhero-cta--secondary" do %>
             Descarga el Plan Municipal
           <% end %>
         </div>
