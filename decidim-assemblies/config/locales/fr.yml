@@ -247,6 +247,9 @@ fr:
         others: Autres
         participatory: Participatif
         working_group: Groupe de travail
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblages en surbrillance
       created_by:
         city_council: Conseil municipal
         others: Autres
