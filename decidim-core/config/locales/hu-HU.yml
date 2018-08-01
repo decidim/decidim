@@ -204,6 +204,19 @@ hu:
             dummy_step_attribute_1: Dummy Step Képesség 1
             dummy_step_attribute_2: Dummy Step Képesség 2
     contact: Kapcsolatba lépni
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hős banner
+      hero:
+        name: Hero kép
+      highlighted_content_banner:
+        name: Kiemelt tartalom banner
+      how_to_participate:
+        name: Hogyan vehet részt?
+      stats:
+        name: Szervezeti statisztikák
+      sub_hero:
+        name: Sub hős banner
     core:
       actions:
         unauthorized: Ön nem jogosult a művelet végrehajtására
