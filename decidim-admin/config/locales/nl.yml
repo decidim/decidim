@@ -305,6 +305,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
@@ -498,6 +499,10 @@ nl:
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerk de alomtegenwoordige banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Inactieve inhoudsblokken
       participatory_space_private_users:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
