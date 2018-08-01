@@ -62,7 +62,6 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_resource(:collaborative_draft) do |resource|
     resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
-    resource.link_resource_name = { proposals: "created_from_collaborative_draft" }
     resource.card = "decidim/proposals/collaborative_draft"
   end
 

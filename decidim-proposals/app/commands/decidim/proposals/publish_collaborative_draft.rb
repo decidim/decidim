@@ -80,11 +80,7 @@ module Decidim
       end
 
       def link_collaborative_draft_and_proposal
-        @collaborative_draft.link_resources(@new_proposal, link_resource_name)
-      end
-
-      def link_resource_name
-        Decidim::Proposals::CollaborativeDraft.resource_manifest.link_resource_name[:proposals]
+        @collaborative_draft.link_resources(@new_proposal, "created_from_collaborative_draft")
       end
     end
   end

@@ -13,8 +13,7 @@ module Decidim
       private
 
       def collaborative_draft
-        @link_resource_name ||= Decidim::Proposals::CollaborativeDraft.resource_manifest.link_resource_name[:proposals]
-        @collaborative_draft ||= model.linked_resources(:collaborative_draft, @link_resource_name).first
+        @collaborative_draft ||= model.linked_resources(:collaborative_draft, "created_from_collaborative_draft").first
       end
 
       def link_to_resource
