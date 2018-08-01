@@ -181,6 +181,9 @@ it:
           help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
         spawn:
           success: La tua richiesta è stata inviata all'autore dell'iniziativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniziative evidenziate
       create_initiative:
         fill_data:
           back: Indietro
