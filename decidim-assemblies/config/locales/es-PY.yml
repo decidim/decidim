@@ -247,6 +247,9 @@ es-PY:
         others: Otros
         participatory: Participativo
         working_group: Grupo de trabajo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asambleas destacadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
