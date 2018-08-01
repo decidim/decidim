@@ -215,6 +215,19 @@ pl:
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
             dummy_step_attribute_2: Atrybut krokowy atrapy 2
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Banner podrzędny stopki
+      hero:
+        name: Obraz bohatera
+      highlighted_content_banner:
+        name: Wyróżniony baner treści
+      how_to_participate:
+        name: Jak uczestniczyć
+      stats:
+        name: Statystyki organizacji
+      sub_hero:
+        name: Banner podrzędny
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
