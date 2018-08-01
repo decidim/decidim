@@ -321,7 +321,7 @@ fr:
     filters:
       linked_classes:
         all: Tout
-        dummyresource: Exemple factice
+        dummy_resource: Exemple factice
         meeting: Rencontres
         project: Projets
         proposal: Propositions
