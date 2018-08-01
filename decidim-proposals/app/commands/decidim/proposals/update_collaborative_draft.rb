@@ -55,10 +55,6 @@ module Decidim
           longitude: @form.longitude
         }
       end
-
-      def organization
-        @organization ||= current_user.organization
-      end
     end
   end
 end
