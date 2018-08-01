@@ -247,6 +247,9 @@ pt:
         others: Outras
         participatory: Participativo
         working_group: Grupo de trabalho
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblies destacados
       created_by:
         city_council: Câmara Municipal
         others: Outras
