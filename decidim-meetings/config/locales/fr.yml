@@ -13,6 +13,7 @@ fr:
         contributions_count: Nombre de contributions
         proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
+        reserved_slots: Places réservées
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
@@ -233,7 +234,7 @@ fr:
             save: Sauvegarder
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
-            invite_user: Invite user
+            invite_user: Inviter un utilisateur
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
