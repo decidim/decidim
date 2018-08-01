@@ -305,6 +305,7 @@ pl:
         areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
+        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
@@ -498,6 +499,10 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny baner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Bloki nieaktywnych treści
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
