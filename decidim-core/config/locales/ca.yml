@@ -205,6 +205,19 @@ ca:
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
+    content_blocks:
+      footer_sub_hero:
+        name: Peu de pàgina sub-heroi
+      hero:
+        name: Imatge de l'heroi
+      highlighted_content_banner:
+        name: Bàner de contingut destacat
+      how_to_participate:
+        name: Com participar
+      stats:
+        name: Estadístiques de l'organització
+      sub_hero:
+        name: Bàner de sub herois
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
