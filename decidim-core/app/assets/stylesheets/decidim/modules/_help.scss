@@ -17,7 +17,7 @@
 
 .help-tooltip{
   @include flex;
-  @include flex-align(center, center);
+  @include flex-align(center, middle);
 
   border: .25rem solid lighten($secondary, 25%);
   border-radius: 50%;
