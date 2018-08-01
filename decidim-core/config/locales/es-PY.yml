@@ -205,6 +205,19 @@ es-PY:
             dummy_step_attribute_1: Atributo de paso ficticio 1
             dummy_step_attribute_2: Atributo de paso ficticio 2
     contact: Contacto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner de subhéroe de pie de página
+      hero:
+        name: Imagen de héroe
+      highlighted_content_banner:
+        name: Banner de contenido resaltado
+      how_to_participate:
+        name: Como participar
+      stats:
+        name: Estadísticas de la organización
+      sub_hero:
+        name: Banner de subhéroe
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
