@@ -331,7 +331,7 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
-        dummyresource: Dummy zasobów
+        dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
