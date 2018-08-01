@@ -9,6 +9,10 @@ module Decidim
 
         self.category_id = model.categorization.decidim_category_id
       end
+
+      def user_group
+        @user_group ||= Decidim::UserGroup.find user_group_id if user_group_id
+      end
     end
   end
 end

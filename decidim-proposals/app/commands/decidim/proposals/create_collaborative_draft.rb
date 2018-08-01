@@ -54,7 +54,7 @@ module Decidim
           state: "open"
         )
 
-        @collaborative_draft.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
+        @collaborative_draft.add_coauthor(@current_user, user_group: @form.user_group)
       end
 
       def build_attachment
