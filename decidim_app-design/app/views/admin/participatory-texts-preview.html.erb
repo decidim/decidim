@@ -19,17 +19,24 @@
         <p><strong>Atenció:&nbsp;</strong>aquest text encara no ha estat guardat. No t'oblidis de fer-ho fent click al butó al final d'aquesta pàgina.</p>
         <ul class="accordion" data-accordion data-allow-all-closed="true">
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Card de propuesta</a>
+            <a href="#" class="accordion-title">Secció</a>
 
             <div class="accordion-content" data-tab-content>
-              Title molongui
+              <%= partial "participatory-article", { desc: false } %>
             </div>
           </li>
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Card de iniciativa</a>
+            <a href="#" class="accordion-title">Subsecció</a>
 
             <div class="accordion-content" data-tab-content>
-              Subtitle molongui
+              <%= partial "participatory-article", { desc: false } %>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title">Article</a>
+
+            <div class="accordion-content" data-tab-content>
+              <%= partial "participatory-article" %>
             </div>
           </li>
         </ul>
