@@ -282,6 +282,9 @@ pl:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Wyróżnione procesy
       index:
         title: Procesy partycypacyjne
       pages:
