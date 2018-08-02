@@ -12,6 +12,10 @@ module Decidim
       def manifest_name
         model.try(:manifest_name) || model.name
       end
+
+      def decidim_admin
+        Decidim::Admin::Engine.routes.url_helpers
+      end
     end
   end
 end
