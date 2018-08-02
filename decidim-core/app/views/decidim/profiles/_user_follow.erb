@@ -11,12 +11,12 @@
                 <% end %>
                 <div>
                   <div class="author__name--container">
-                    <%= link_to profile_user.name, profile_user.profile_path, class: "author__name"%>
+                    <%= link_to profile_user.name, profile_user.profile_path, class: "author__name" %>
                     <% if profile_user.badge.present? %>
                       <%= icon profile_user.badge, class: "author__verified" %>
                     <% end %>
                   </div>
-                  <%= link_to profile_user.nickname, profile_user.profile_path, class: "author__nickname"%>
+                  <%= link_to profile_user.nickname, profile_user.profile_path, class: "author__nickname" %>
                 </div>
               </div>
             </div>
