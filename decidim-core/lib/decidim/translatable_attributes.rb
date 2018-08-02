@@ -32,14 +32,16 @@ module Decidim
           attribute attribute_name, type, *options
 
           define_method attribute_name do
-            translatable_attribute_getter(name, locale)
+            field = public_send(name) || {}
+            corrected_locale = locale.to_s.gsub("__", "-")
+            field[corrected_locale] || field[corrected_locale.to_sym]
           end
 
           alias_method "#{attribute_name}_virtus=", "#{attribute_name}="
 
           define_method "#{attribute_name}=" do |value|
             new_value = send("#{attribute_name}_virtus=", value)
-            translatable_attribute_setter(name, locale, new_value)
+            public_send("#{name}=", (public_send(name) || {}).merge(locale => new_value))
           end
         end
       end
@@ -71,18 +73,6 @@ module Decidim
           attribute[attribute.keys.first].presence ||
           ""
       end
-    end
-
-    private
-
-    def translatable_attribute_setter(name, locale, value)
-      public_send("#{name}=", (public_send(name) || {}).merge(locale => value))
-    end
-
-    def translatable_attribute_getter(name, locale)
-      field = public_send(name) || {}
-      corrected_locale = locale.to_s.gsub("__", "-")
-      field[corrected_locale] || field[corrected_locale.to_sym]
     end
   end
 end
