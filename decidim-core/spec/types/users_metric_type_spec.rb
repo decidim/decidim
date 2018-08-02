@@ -8,6 +8,7 @@ module Decidim
     describe UsersMetricType, type: :graphql do
       include_context "with a graphql type"
 
+      let(:model) { Decidim::UsersMetricResolver.new(current_organization) }
       let(:today) { Time.zone.today }
       let!(:models) do
         (0..4).each do |count|
@@ -19,8 +20,6 @@ module Decidim
         let(:query) { "{ count }" }
 
         it "returns the User's last day cumulative count" do
-          puts ">>>>> #{Decidim::Metric.all.as_json}"
-          puts ">>>>> #{response}"
           expect(response).to include("count" => 4)
         end
       end
