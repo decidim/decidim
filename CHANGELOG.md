@@ -1,7 +1,7 @@
 # Change Log
 
 
-OSP specific changes:
+## 0.12.2 - OSP specific changes:
 
 **Upgrade notes**:
 - **Image uploader**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
