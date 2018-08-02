@@ -37,12 +37,9 @@ module Decidim
             field[corrected_locale] || field[corrected_locale.to_sym]
           end
 
-          alias_method "#{attribute_name}_virtus=", "#{attribute_name}="
-
           define_method "#{attribute_name}=" do |value|
             field = public_send(name) || {}
-            new_value = send("#{attribute_name}_virtus=", value)
-            public_send("#{name}=", field.merge(locale => new_value))
+            public_send("#{name}=", field.merge(locale => super(value)))
           end
         end
       end
