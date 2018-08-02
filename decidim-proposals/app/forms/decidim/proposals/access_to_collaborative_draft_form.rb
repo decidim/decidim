@@ -20,7 +20,7 @@ module Decidim
       end
 
       def requester_user
-        @requester_user ||= Decidim::User.find requester_user_id if requester_user_id
+        @requester_user ||= Decidim::User.find_by(id: requester_user_id, organization: current_organization) if requester_user_id
       end
 
       private
