@@ -37,9 +37,9 @@ module Decidim
           get :compare, on: :collection
           get :complete, on: :collection
           member do
-            post :request_access
-            post :request_accept
-            post :request_reject
+            post :request_access, controller: "collaborative_draft_collaborator_requests"
+            post :request_accept, controller: "collaborative_draft_collaborator_requests"
+            post :request_reject, controller: "collaborative_draft_collaborator_requests"
             post :withdraw
             post :publish
           end

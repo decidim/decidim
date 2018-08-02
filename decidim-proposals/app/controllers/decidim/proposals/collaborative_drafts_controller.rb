@@ -12,10 +12,10 @@ module Decidim
       include CollaborativeOrderable
       include Paginable
 
-      helper_method :geocoded_collaborative_draft
+      helper_method :geocoded_collaborative_draft, :collaborative_draft
       before_action :collaborative_drafts_enabled?
       before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :request_access, :request_accept, :request_reject, :withdraw, :publish]
+      before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :withdraw, :publish]
 
       def index
         @collaborative_drafts = search
@@ -112,48 +112,6 @@ module Decidim
         end
       end
 
-      def request_access
-        @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params(params)
-        RequestAccessToCollaborativeDraft.call(@request_access_form, current_user) do
-          on(:ok) do |_collaborative_draft|
-            flash[:notice] = t("access_requested.success", scope: "decidim.proposals.collaborative_drafts.requests")
-          end
-
-          on(:invalid) do
-            flash[:alert] = t("access_requested.error", scope: "decidim.proposals.collaborative_drafts.requests")
-          end
-        end
-        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
-      end
-
-      def request_accept
-        @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params(params)
-        AcceptAccessToCollaborativeDraft.call(@accept_request_form, current_user) do
-          on(:ok) do |requester_user|
-            flash[:notice] = t("accepted_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
-          end
-
-          on(:invalid) do
-            flash[:alert] = t("accepted_request.error", scope: "decidim.proposals.collaborative_drafts.requests")
-          end
-        end
-        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
-      end
-
-      def request_reject
-        @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params(params)
-        RejectAccessToCollaborativeDraft.call(@reject_request_form, current_user) do
-          on(:ok) do |requester_user|
-            flash[:notice] = t("rejected_request.success", scope: "decidim.proposals.collaborative_drafts.requests", user: requester_user.nickname)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = t("rejected_request.error", scope: "decidim.proposals.collaborative_drafts.requests")
-          end
-        end
-        redirect_to Decidim::ResourceLocatorPresenter.new(@collaborative_draft).path
-      end
-
       def withdraw
         WithdrawCollaborativeDraft.call(@collaborative_draft, current_user) do
           on(:ok) do
@@ -168,16 +126,7 @@ module Decidim
       end
 
       def publish
-        proposal_form_params = ActionController::Parameters.new(
-          proposal: @collaborative_draft.as_json
-        )
-
-        proposal_form_params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
-        proposal_form_params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
-
-        proposal_form = form(ProposalForm).from_params(proposal_form_params)
-
-        PublishCollaborativeDraft.call(@collaborative_draft, current_user, proposal_form) do
+        PublishCollaborativeDraft.call(@collaborative_draft, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("publish.success", scope: "decidim.proposals.collaborative_drafts.collaborative_draft")
             redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path

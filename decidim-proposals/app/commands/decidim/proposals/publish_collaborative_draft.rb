@@ -9,11 +9,9 @@ module Decidim
       # collaborative_draft - The collaborative_draft to publish.
       # current_user - The current user.
       # proposal_form - the form object of the new proposal
-      def initialize(collaborative_draft, current_user, proposal_form)
+      def initialize(collaborative_draft, current_user)
         @collaborative_draft = collaborative_draft
         @current_user = current_user
-        @proposal_form = proposal_form
-        @new_proposal = nil
       end
 
       # Executes the command. Broadcasts these events:
@@ -23,16 +21,16 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @collaborative_draft.published?
-        return broadcast(:invalid) if @collaborative_draft.withdrawn?
-        return broadcast(:invalid) unless @collaborative_draft.authors.exists? @current_user.id
+        return broadcast(:invalid) unless @collaborative_draft.open?
+        return broadcast(:invalid) unless @collaborative_draft.authored_by? @current_user
 
         transaction do
           @collaborative_draft.requesters.each do |requester_user|
             RejectAccessToCollaborativeDraft.call(@collaborative_draft, current_user, requester_user)
           end
 
-          publish_collaborative_draft
+          @new_proposal = publish_collaborative_draft
+          broadcast(:invalid) unless @new_proposal
         end
 
         broadcast(:ok, @new_proposal)
@@ -46,41 +44,36 @@ module Decidim
         Decidim.traceability.update!(
           @collaborative_draft,
           @current_user,
-          state: "published"
+          state: "published",
+          published_at: Time.current
         )
         create_proposal
       end
 
       def create_proposal
-        CreateProposal.call(@proposal_form, @current_user, @collaborative_draft.coauthorships) do
-          on(:ok) do |new_proposal|
-            publish_proposal new_proposal
-          end
+        proposal_form_params = ActionController::Parameters.new(
+          proposal: @collaborative_draft.as_json
+        )
+        proposal_form_params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
+        proposal_form_params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
+        proposal_form = form(Decidim::Proposals::ProposalForm).from_params(proposal_form_params)
 
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            return broadcast(:invalid)
-          end
-        end
+        result = CreateProposal.call(proposal_form, @current_user, @collaborative_draft.coauthorships)
+        return publish_proposal(result[:ok]) if result[:ok]
+
+        false
       end
 
       def publish_proposal(new_proposal)
-        @new_proposal = new_proposal
+        result = PublishProposal.call(new_proposal, @current_user)
+        return link_collaborative_draft_and_proposal(result[:ok]) if result[:ok]
 
-        PublishProposal.call(@new_proposal, @current_user) do
-          on(:ok) do
-            link_collaborative_draft_and_proposal
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            return broadcast(:invalid)
-          end
-        end
+        false
       end
 
-      def link_collaborative_draft_and_proposal
-        @collaborative_draft.link_resources(@new_proposal, "created_from_collaborative_draft")
+      def link_collaborative_draft_and_proposal(new_proposal)
+        @collaborative_draft.link_resources(new_proposal, "created_from_collaborative_draft")
+        new_proposal
       end
     end
   end

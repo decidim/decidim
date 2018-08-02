@@ -156,48 +156,6 @@ module Decidim
         end
       end
 
-      describe "POST request_access" do
-        before do
-          sign_in user, scope: :user
-        end
-
-        it "creates a new access request for the given collaborative_draft" do
-          expect { post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state } }.to change {
-            collaborative_draft.reload
-            collaborative_draft.requesters.count
-          }.by(1)
-
-          expect(response).to have_http_status(:found)
-        end
-      end
-
-      describe "POST request_accept" do
-        before do
-          sign_in author, scope: :user
-        end
-
-        it "accepts a request from another user to the given collaborative_draft" do
-          expect(collaborative_draft.requesters.count).to eq 0
-          expect(collaborative_draft.coauthorships.count).to eq 1
-
-          expect(response).to have_http_status(:ok)
-        end
-      end
-
-      describe "POST request_reject" do
-        before do
-          sign_in user_2, scope: :user
-          post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state }
-          sign_in author, scope: :user
-        end
-
-        it "accepts a request from another user to the given collaborative_draft" do
-          expect(collaborative_draft.requesters.count).to eq 1
-
-          expect(response).to have_http_status(:found)
-        end
-      end
-
       context "with collaborative drafts disabled" do
         let(:component) { create(:proposal_component) }
 
