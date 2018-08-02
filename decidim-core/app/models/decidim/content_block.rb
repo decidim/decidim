@@ -27,7 +27,7 @@ module Decidim
     end
 
     def settings
-      manifest.settings.schema.new(self[:options])
+      manifest.settings.schema.new(self[:settings])
     end
   end
 end
