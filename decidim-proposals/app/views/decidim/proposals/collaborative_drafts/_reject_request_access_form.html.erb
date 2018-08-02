@@ -3,7 +3,7 @@
     <%= form.hidden_field :id, value: @collaborative_draft.id %>
     <%= form.hidden_field :state, value: @collaborative_draft.state %>
     <%= form.hidden_field :requester_user_id, value: requester.id %>
-    <%= button_tag type: 'submit', data: { disable: true } do %>
+    <%= button_tag type: "submit", data: { disable: true } do %>
       <%= icon "x", class: "icon--small muted ml-xs" %>
     <% end %>
   <% end %>
