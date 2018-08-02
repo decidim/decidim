@@ -1,5 +1,22 @@
 # Change Log
 
+
+OSP specific changes:
+
+**Upgrade notes**:
+- **Image uploader**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
+
+- **Banner**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
+you should update existing image if you don't want to reupload them.
+use the following command in your rails console : `Decidim::ParticipatoryProcess.find_each { |process| process.banner_image.recreate_versions! if process.banner_image? }`
+
+- **Avatar**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
+you should update existing image if you don't want to reupload them.
+use the following command in your rails console : `Decidim::User.find_each { |user| user.avatar.recreate_versions! if user.avatar? }`
+
+
+
+
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
 **Upgrade notes**:
