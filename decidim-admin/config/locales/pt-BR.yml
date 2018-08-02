@@ -132,7 +132,7 @@ pt-BR:
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local na rede Internet
+        site: Página web
   date:
     formats:
       datepicker: "%d/%m/%Y"
